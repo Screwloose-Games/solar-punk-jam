@@ -13,3 +13,6 @@
 - **Music Composition and Sound Design:** unknown
 
 - **Programming:** unknown
+
+## Additional assets
+- https://kenney.nl/assets/food-kit
