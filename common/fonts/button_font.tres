@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c5xg7tne3ho1m"]
+
+[ext_resource type="FontVariation" uid="uid://homwe1sqri4x" path="res://common/fonts/body_font.tres" id="1_s3jst"]
+
+[resource]
+base_font = ExtResource("1_s3jst")

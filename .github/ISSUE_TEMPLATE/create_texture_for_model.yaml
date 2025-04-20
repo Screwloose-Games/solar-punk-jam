@@ -1,0 +1,63 @@
+name: Create Texture for 3D Model
+description: Template for creating a Texture for a 3D model.
+title: "Create texture for {3D model name}"
+labels: [art, texture]
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a description of the texture to be created.
+      placeholder: "Enter the texture description... Grungy, dirty, bright...Character description..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference-images
+    attributes:
+      label: Reference Images
+      description: Provide reference images for this texture
+      placeholder: "Attach reference images..."
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Save File Path
+      description: Provide the full filepath where the texture should be saved.
+      placeholder: "Enter the full file path... model_directory/textures/tex_model_name_texture.png"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria:
+
+        - [ ] The texture is saved in `.png` file format.
+        - [ ] The texture file name contains the prefix "tex_", is all lowercase, and is underscore separated, i.e. "tex_model_name_texture.png"
+        - [ ] The texture is saved to the specified filepath: `{file_path}`.
+        - [ ] The texture is opened in Godot to generate the `.import` file.
+        - [ ] The texture has been imported in godot (Godot opened) and has the accompanying `.import` file.
+        - [ ] A pull request (PR) is created with the changes.
+
+        [Pull Request Guide: Github]("https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request")
+  
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      id: subtasks
+      label: Subtasks
+      value: |
+        - [ ] The texture is saved in `.png` file format.
+        - [ ] The texture file name contains the prefix "tex_", is all lowercase, and is underscore separated, i.e. "tex_model_name_texture.png"
+        - [ ] The texture is saved to the specified filepath: `{file_path}`.
+        - [ ] The texture is opened in Godot to generate the `.import` file.
+        - [ ] The texture has been imported in godot (Godot opened) and has the accompanying `.import` file.
+        - [ ] A pull request (PR) is created with the changes.
+
+        [Pull Request Guide: Github]("https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request")
+        
+        ## Blocking
+        - Implementation tasks

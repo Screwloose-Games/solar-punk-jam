@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://wen8h3wysfl3"]
+
+[ext_resource type="Script" uid="uid://dymeb25cd01p8" path="res://globals/game_settings.gd" id="1_x7xvc"]
+[ext_resource type="Script" uid="uid://bti2i4i7kcpri" path="res://globals/settings/settings.gd" id="2_tkl3d"]
+
+[sub_resource type="Resource" id="Resource_fanck"]
+script = ExtResource("2_tkl3d")
+sfx_volume = 1.0
+master_volume = 1.0
+music_volume = 1.0
+window_mode = 0
+metadata/_custom_type_script = "uid://bti2i4i7kcpri"
+
+[node name="GameSettings" type="Node"]
+script = ExtResource("1_x7xvc")
+settings = SubResource("Resource_fanck")

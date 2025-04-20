@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ckmatujjr0xui"]
+
+[node name="TestPlayerCanTalkToNpcs" type="Node3D"]

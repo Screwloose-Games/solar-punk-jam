@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://homwe1sqri4x"]
+
+[ext_resource type="FontFile" uid="uid://vx5fg88s1yb" path="res://common/ui/fonts/vanio-2023-11-27-05-27-32-utc/Vanio/ttf/Vanio-SemiBold.ttf" id="1_qudnk"]
+
+[resource]
+base_font = ExtResource("1_qudnk")

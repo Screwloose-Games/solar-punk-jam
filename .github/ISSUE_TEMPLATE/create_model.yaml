@@ -1,0 +1,93 @@
+
+name: Create 3D Model for Game Object
+description: Template for creating a new 3D model for a game object.
+title: "Create 3D model for {game object name}"
+labels:
+  - 3d model
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a description of the game object model to be created.
+      placeholder: "Enter the model description..."
+      value: "This hamster is a cheerfull, cartoonish... Huge cheeks and wide eyes..."
+    validations:
+      required: true
+    
+  - type: textarea
+    id: reference-images
+    attributes:
+      label: Reference Images
+      description: Provide reference images.
+      placeholder: "Upload reference images..."
+    validations:
+      required: false
+  
+  - type: input
+    id: dimentions
+    attributes:
+      label: Dimentions
+      description: What are the approximate dimentions of the object?
+      placeholder: "Enter the approximate dimentions in meters..."
+      value: "1.8 meters tall x .3 meters deep, .5 meters wide"
+    validations:
+      required: true
+  
+  - type: input
+    id: file_path
+    attributes:
+      label: Save File Path
+      description: Provide the full filepath where the model should be saved.
+      placeholder: "Enter the full file path..."
+      value: "game/{game_object_directory}/{object_name}.blend"
+      value: "game/{game_object_directory}/{object_name}.gltf"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria:
+
+        - [ ] Poly count optimized.
+        - [ ] Model normals correct.
+        - [ ] The model contains UV mapping.
+        - [ ] UV islands created as needed.
+        - [ ] Set the pivot point of the model to the correct location (often bottom center)
+        - [ ] Align the pivot point of the model to the world origin.
+        - [ ] Model facing direction __Positive-Y direction__
+        - [ ] Model is the correct __dimentions__ as defined above.
+        - [ ] Ensure no mesh has a child mesh (breaks collision shape generation)
+        - [ ] The model is saved in `.blend` file format.
+        - [ ] The model is prefixed with sk_ for skeletal mesh and sm_ for static mesh.
+        - [ ] The model is saved to the specified filepath: `game/{game_object_directory}/sk_{model_name}.blend`.
+        - [ ] The model is exported as gltf to the specified filepath: `game/{game_object_directory}/sk_{model_name}.gltf`.
+        - [ ] A pull request (PR) is created with the changes.
+    
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      id: subtasks
+      label: Subtasks
+      value: |
+        - [ ] Poly count optimized.
+        - [ ] Model normals correct.
+        - [ ] The model contains UV mapping.
+        - [ ] UV islands created as needed.
+        - [ ] Set the pivot point of the model to the correct location (often bottom center)
+        - [ ] Align the pivot point of the model to the world origin.
+        - [ ] Model facing direction __Positive-Y direction__
+        - [ ] Model is the correct __dimentions__ as defined above.
+        - [ ] Ensure no mesh has a child mesh (breaks collision shape generation)
+        - [ ] The model is saved in `.blend` file format.
+        - [ ] The model is prefixed with sk_ for skeletal mesh and sm_ for static mesh.
+        - [ ] The model is saved to the specified filepath: `game/{game_object_directory}/sk_{model_name}.blend`.
+        - [ ] The model is exported as gltf to the specified filepath: `game/{game_object_directory}/sk_{model_name}.gltf`.
+        - [ ] A pull request (PR) is created with the changes.
+        
+        [Pull Request Guide: Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+
+        ## Implementation Criteria
+        - Go to [Implementation Mega Thread](https://github.com/Screwloose-Games/godot-wild-jam-77/issues/120) and add your new issue # as a comment

@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "./schemas/github-issue-form-template-schema.json": [".github/ISSUE_TEMPLATE/*.yaml"]
+  }
+}

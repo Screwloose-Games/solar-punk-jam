@@ -1,0 +1,217 @@
+[gd_scene load_steps=10 format=3 uid="uid://cltiagg5osy4m"]
+
+[ext_resource type="Script" uid="uid://bo6p7124x8kkh" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_pvcxp"]
+[ext_resource type="Texture2D" uid="uid://bw3fh8m46ba34" path="res://addons/controller_icons/assets/mouse/left.png" id="2_ymvel"]
+
+[sub_resource type="Texture2D" id="Texture2D_pfq1c"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "pause"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_0akh1"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "possess"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_ctysw"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "move_up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_b1gdj"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "move_left"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_1so6j"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "move_down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_yvgxp"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "move_right"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_ywmjc"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_pvcxp")
+path = "dodge"
+show_mode = 0
+force_type = 0
+
+[node name="Controls" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1746.0
+offset_bottom = -656.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ControlPause" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlPause"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("Texture2D_pfq1c")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ControlPause"]
+layout_mode = 2
+text = "Pause"
+
+[node name="ControlInteract" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlInteract"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("Texture2D_0akh1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ControlInteract"]
+layout_mode = 2
+text = "Equip Weapon"
+
+[node name="ControlInteract6" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ControlInteract6"]
+custom_minimum_size = Vector2(130, 90)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/ControlInteract6/MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlInteract6/MarginContainer/Control"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -13.0
+offset_right = 37.0
+offset_bottom = 50.0
+grow_horizontal = 2
+texture = SubResource("Texture2D_ctysw")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlInteract6/MarginContainer/Control"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -15.0
+offset_right = 51.0
+offset_bottom = 35.0
+grow_vertical = 2
+texture = SubResource("Texture2D_b1gdj")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlInteract6/MarginContainer/Control"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -65.0
+offset_right = 37.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("Texture2D_1so6j")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlInteract6/MarginContainer/Control"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -15.0
+offset_right = 23.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("Texture2D_yvgxp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ControlInteract6"]
+layout_mode = 2
+text = "Move"
+
+[node name="ControlAttack" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlAttack"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_ymvel")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ControlAttack"]
+layout_mode = 2
+text = "Attack"
+
+[node name="ControlInteract5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ControlInteract5"]
+modulate = Color(0.912679, 0.81252, 0.756288, 1)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = SubResource("Texture2D_ywmjc")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ControlInteract5"]
+layout_mode = 2
+text = "Dash/Dodge"

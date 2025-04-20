@@ -1,0 +1,50 @@
+name: Create Aseprite Animations for {game_object}
+description: Template for creating .aseprite files for animations.
+title: "Create animations for {game_object}"
+labels: ["art", "2d art", "animation", "2d animation", "aseprite"]
+body:
+  - type: textarea
+    id: animations
+    attributes:
+      label: Animations
+      description: List the names of the animations to be created and describe each
+      placeholder: "Enter animation names and descriptions separated by new lines..."
+      value: "Walk right - walks right"
+    validations:
+      required: true
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Save File Path
+      description: Provide the directory path where the .aseprite files should be saved.
+      placeholder: "Enter the full file path, e.g., game/{game_object}/animations..."
+      value: "game/{game_object}/animations/"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria:
+
+        - [ ] An .aseprite file is created and saved in the correct directory: `game/{file_path}/{game_object}/{game_object}.aseprite`.
+        - [ ] Each animation is defined as a tag within the .aseprite file.
+        - [ ] Tags for one-shot animations are configured with `repeat: 1`.
+        - [ ] Files follow naming conventions: lowercase, underscore-separated, no spaces.
+
+        [Pull Request Guide: Github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      id: subtasks
+      label: Subtasks
+      value: |
+        - [ ] Create the .aseprite file for the animation.
+        - [ ] Add each animation as a tag in the .aseprite file.
+        - [ ] Configure one-shot tags with `repeat: 1` where applicable.
+        - [ ] An .aseprite file is created and saved in the correct directory: `game/{file_path}/{game_object}/{game_object}.aseprite`.
+        - [ ] Files follow naming conventions: lowercase, underscore-separated, no spaces.
+        - [ ] Submit a pull request with the .aseprite file, `.import` file, and all changes.

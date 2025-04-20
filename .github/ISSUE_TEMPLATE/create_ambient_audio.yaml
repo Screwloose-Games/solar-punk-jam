@@ -1,0 +1,63 @@
+name: Create Ambient Sound File
+description: Template for creating a new sound effect file for the game.
+title: "Create sound effect for {{sound effect name}}"
+labels: [audio-ambient, audio]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a description of the ambient audio to be created.
+      placeholder: "Enter the ambient audio description..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide the context where this ambient audio will be used.
+      placeholder: "Enter the context for the ambient audio..."
+    validations:
+      required: true
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Save File Path
+      description: Provide the full filepath where the ambient audio file should be saved.
+      placeholder: "Enter the full file path..."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria:
+
+        - [ ] The filename contains the prefix: `aud_`.
+        - [ ] The peak level is normalized to -1 dBFS.
+        - [ ] The file is saved in `.ogg` file format.
+        - [ ] The file has a sample rate of 44,100 Hz.
+        - [ ] The file is located at the specified filepath: `{{file_path}}`-loop.
+        - [ ] The filename ends in `-loop`
+        - [ ] The file has been imported in godot (Godot opened) and has the accompanying `.import` file.
+        - [ ] A pull request (PR) is created with the changes.
+
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      id: subtasks
+      label: Subtasks
+      value: |
+        - [ ] The filename contains the prefix: `aud_`.
+        - [ ] The peak level is normalized to -1 dBFS.
+        - [ ] The file is saved in `.ogg` file format.
+        - [ ] The file has a sample rate of 44,100 Hz.
+        - [ ] The file is located at the specified filepath: `{{file_path}}`-loop.
+        - [ ] The filename ends in `-loop`
+        - [ ] The file has been imported in godot (Godot opened) and has the accompanying `.import` file.
+        - [ ] A pull request (PR) is created with the changes.
+
+        [Pull Request Guide: Github]("https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request")

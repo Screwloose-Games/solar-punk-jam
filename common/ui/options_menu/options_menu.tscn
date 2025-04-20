@@ -1,0 +1,187 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvuixmv4n68a6"]
+
+[ext_resource type="Script" uid="uid://dtr60cafu1bky" path="res://common/ui/options_menu/options_menu.gd" id="1_8l6bt"]
+[ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_t67h2"]
+[ext_resource type="Texture2D" uid="uid://b8qsfmsyqhobk" path="res://common/images/square.png" id="2_cpl0d"]
+[ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="3_v7ya6"]
+[ext_resource type="AudioStream" uid="uid://camm2n4s878j" path="res://common/audio/sfx/ui/aud_ui_navigate.wav" id="4_n82tp"]
+[ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="5_tj23r"]
+[ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="6_fx1av"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jqfgi"]
+line_spacing = 0.0
+font_size = 38
+font_color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t67h2")
+script = ExtResource("1_8l6bt")
+
+[node name="Audio Control" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("3_v7ya6")
+navigate_sound = ExtResource("4_n82tp")
+open_sound = ExtResource("5_tj23r")
+close_sound = ExtResource("6_fx1av")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.286275, 0.286275, 0.286275, 0.713726)
+layout_mode = 2
+texture = ExtResource("2_cpl0d")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 36
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "Options"
+label_settings = SubResource("LabelSettings_jqfgi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MasterOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MasterOptionsContainer"]
+layout_mode = 2
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MasterOptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="SFXOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptionsContainer"]
+layout_mode = 2
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="MusicOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionsContainer"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="AmbientOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/AmbientOptionsContainer"]
+layout_mode = 2
+text = "Ambient
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmbientSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/AmbientOptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="DialogueOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/DialogueOptionsContainer"]
+layout_mode = 2
+text = "Dialogue
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogueSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/DialogueOptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
+[node name="WindowOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionsContainer"]
+layout_mode = 2
+text = "Display"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Window"
+
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="DeleteSaveDataButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Delete Save Data"
+
+[node name="OptionsMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MasterOptionsContainer/MasterSlider" to="Audio Control" method="_on_hover"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MasterOptionsContainer/MasterSlider" to="Audio Control" method="_on_slider_value_changed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptionsContainer/SFXSlider" to="Audio Control" method="_on_hover"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SFXOptionsContainer/SFXSlider" to="Audio Control" method="_on_slider_value_changed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionsContainer/MusicSlider" to="Audio Control" method="_on_hover"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/MusicOptionsContainer/MusicSlider" to="Audio Control" method="_on_slider_value_changed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/AmbientOptionsContainer/AmbientSlider" to="Audio Control" method="_on_hover"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/AmbientOptionsContainer/AmbientSlider" to="Audio Control" method="_on_slider_value_changed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/DialogueOptionsContainer/DialogueSlider" to="Audio Control" method="_on_hover"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/DialogueOptionsContainer/DialogueSlider" to="Audio Control" method="_on_slider_value_changed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionsContainer/WindowButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/WindowOptionsContainer/WindowButton" to="Audio Control" method="_on_open"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="Audio Control" method="_on_close"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/DeleteSaveDataButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/DeleteSaveDataButton" to="Audio Control" method="_on_open"]

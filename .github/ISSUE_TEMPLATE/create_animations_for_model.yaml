@@ -1,0 +1,65 @@
+name: Create Animations for 3D Model
+description: Template for creating animations for a 3D model.
+title: "Create animations for {3D model name}"
+labels: [art, animation]
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide preciose names and descriptions of the animations to be created.
+      placeholder: "Enter the texture description... Grungy, dirty, bright...Character description..."
+      value: |
+        - [ ] Walk - Walking with a pep in their step.
+        - [ ] Run - Running, leaniung forward.
+        - [ ] Dodge and dip right - Dodging to the rightt with a quick dip and spin.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference-images
+    attributes:
+      label: Reference Images
+      description: Provide reference images for this texture
+      placeholder: "Attach reference images..."
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Save File Path
+      description: Provide the full filepath where the texture should be saved.
+      placeholder: "Enter the full file path... model_directory/textures/t_model_name_texture.png"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria:
+
+        - [ ] The animations file name contains the prefix "anim_", is all lowercase, and is underscore separated, i.e. "anim_{model_name}.blend"
+        - [ ] When adding animations, looping animations should be tagges as "-loop"
+        - [ ] The model is saved in `.blend` file format.
+        - [ ] The model is saved to the specified filepath: `game/{game_object_directory}/anim_{model_name}.blend`.
+        - [ ] The model is exported as gltf to the specified filepath: `game/{game_object_directory}/anim_{model_name}.gltf`.        
+        - [ ] A pull request (PR) is created with the changes.
+  
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      id: subtasks
+      label: Subtasks
+      value: |
+        - [ ] The animations file name contains the prefix "anim_", is all lowercase, and is underscore separated, i.e. "anim_{model_name}.blend"
+        - [ ] When adding animations, looping animations should be tagges as "-loop"
+        - [ ] The model is saved in `.blend` file format.
+        - [ ] The model is saved to the specified filepath: `game/{game_object_directory}/anim_{model_name}.blend`.
+        - [ ] The model is exported as gltf to the specified filepath: `game/{game_object_directory}/anim_{model_name}.gltf`.        
+        - [ ] A pull request (PR) is created with the changes.
+
+        [Pull Request Guide: Github]("https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request")
+        
+        ## Blocking
+        - Implementation tasks
