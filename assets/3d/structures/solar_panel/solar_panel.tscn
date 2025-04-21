@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dngvyovn8lew5"]
+
+[node name="Solar panel" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+size = Vector3(2, 1.2, 0.1)

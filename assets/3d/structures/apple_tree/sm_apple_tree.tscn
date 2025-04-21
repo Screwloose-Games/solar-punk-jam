@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://u0yo2p3mh5hk"]
+
+[ext_resource type="PackedScene" uid="uid://dl5cclnahc0if" path="res://assets/3d/structures/apple_tree/sm_apple_tree.blend" id="1_e8qh4"]
+
+[node name="apple_tree" instance=ExtResource("1_e8qh4")]
