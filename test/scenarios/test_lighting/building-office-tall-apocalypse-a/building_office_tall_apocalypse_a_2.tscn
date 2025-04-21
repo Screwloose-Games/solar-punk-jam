@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct87hqjuebe04"]
+
+[ext_resource type="PackedScene" uid="uid://cfoyltxtf0gyh" path="res://assets/3d/building-office-tall-apocalypse-a/building-office-tall-apocalypse-a.glb" id="1_lw5kb"]
+
+[node name="building-office-tall-apocalypse-a2" instance=ExtResource("1_lw5kb")]
