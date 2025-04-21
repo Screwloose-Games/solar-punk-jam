@@ -1,8 +1,17 @@
-[gd_scene load_steps=25 format=4 uid="uid://c2nrivqutssof"]
+[gd_scene load_steps=34 format=4 uid="uid://c2nrivqutssof"]
 
 [ext_resource type="Script" uid="uid://ss1m4crig1pn" path="res://test/scenarios/rooftops/day_cycle.gd" id="1_2yxsj"]
+[ext_resource type="Script" uid="uid://ckhh1fuas7ywt" path="res://test/scenarios/rooftops/rooftops_v1.gd" id="1_4ctqt"]
 [ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="1_ksfsk"]
 [ext_resource type="Texture2D" uid="uid://b31gcivy0883v" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="2_o10yd"]
+[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://test/scenarios/rooftops/weather/realish_rain_particle_process_material.tres" id="4_5u3ww"]
+[ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://test/scenarios/rooftops/weather/personal_realish_rain_particle_process_material.tres" id="5_v0o6g"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://test/scenarios/rooftops/weather/rooftops-rain-v1.gdshader" id="6_fa3df"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
+shader = ExtResource("6_fa3df")
+shader_parameter/frequency = 0.0
+shader_parameter/size = 0.015
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
 
@@ -14,6 +23,10 @@ sky = SubResource("Sky_v0o6g")
 sky_rotation = Vector3(0, 0.785398, 0)
 ambient_light_source = 3
 reflected_light_source = 2
+fog_enabled = true
+fog_density = 0.0
+fog_height = -1.0
+fog_height_density = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksfsk"]
 albedo_color = Color(0.778776, 0.425551, 1.92523e-07, 1)
@@ -165,15 +178,41 @@ buffer = PackedFloat32Array(-0.181832, 0.199907, -0.963834, 10.8501, -0.732142, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yxsj"]
 albedo_color = Color(0.87681, 0, 0.211995, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o10yd"]
-shading_mode = 0
-albedo_color = Color(1, 0.992157, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61rxh"]
+albedo_color = Color(0.25175, 0.550361, 0.407558, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_5u3ww"]
-material = SubResource("StandardMaterial3D_o10yd")
+[sub_resource type="BoxMesh" id="BoxMesh_yj0xb"]
+material = SubResource("StandardMaterial3D_61rxh")
+size = Vector3(2, 4, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ctqt"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(1, 0.992157, 0, 0.25098)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_61rxh"]
+material = SubResource("StandardMaterial3D_4ctqt")
+size = Vector2(2, 2)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj0xb"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(1, 0.992157, 0, 0.25098)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_gco2h"]
+material = SubResource("StandardMaterial3D_yj0xb")
+size = Vector2(2, 2)
 orientation = 1
 
 [node name="Rooftops-v1" type="Node3D"]
+script = ExtResource("1_4ctqt")
 
 [node name="DayCycle" type="Node3D" parent="."]
 script = ExtResource("1_2yxsj")
@@ -185,7 +224,77 @@ shadow_enabled = true
 [node name="DirectionalLight3DMoon" type="DirectionalLight3D" parent="DayCycle"]
 transform = Transform3D(0.820152, 0.404568, -0.404568, 0, 0.707107, 0.707107, 0.572146, -0.579935, 0.579935, 0, 32, 0)
 light_color = Color(0.109893, 0.127059, 0.273937, 1)
+light_energy = 0.0
 shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="DirectionalLight3DTwilight" type="DirectionalLight3D" parent="DayCycle"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.66253, 0.292607, 0.618936, 1)
+light_energy = 0.5
+
+[node name="Rain" type="Node3D" parent="."]
+visible = false
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(32, 2, 32)
+
+[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 8)
+size = Vector3(16, 2, 8)
+
+[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4, -14)
+size = Vector3(4, 2, 4)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -1, 0)
+size = Vector3(32, 2, 32)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -1, 0)
+size = Vector3(32, 2, 32)
+
+[node name="Rain" type="GPUParticles3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+amount = 3000
+preprocess = 1.0
+randomness = 0.85
+visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = ExtResource("5_v0o6g")
+draw_pass_1 = ExtResource("4_5u3ww")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Rain"]
+visible = false
+
+[node name="Control" type="Control" parent="Rain/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RaindropsColorRect" type="ColorRect" parent="Rain/CanvasLayer/Control"]
+material = SubResource("ShaderMaterial_4ctqt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueColorRect" type="ColorRect" parent="Rain/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.140714, 0.302451, 0.562581, 0.176471)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ksfsk")
@@ -271,14 +380,25 @@ multimesh = SubResource("MultiMesh_fa3df")
 
 [node name="Player" type="Node3D" parent="."]
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Player"]
+[node name="Body" type="CSGMesh3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_o10yd")
 material = SubResource("StandardMaterial3D_2yxsj")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 32, 32)
-fov = 45.0
+fov = 30.0
+
+[node name="Structure" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, -1, -12)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_yj0xb")
 
 [node name="SelectionPlaceholder" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-mesh = SubResource("QuadMesh_5u3ww")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_61rxh")
+
+[node name="SelectionPlaceholder" type="MeshInstance3D" parent="SelectionPlaceholder"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_gco2h")
+skeleton = NodePath("../..")
