@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dph85lf6shdvl"]
+
+[ext_resource type="Script" uid="uid://dj8tvr8l8wgbg" path="res://test/scenarios/narrative/character_dialogue.gd" id="1_g3cne"]
+
+[node name="CharacterDialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3cne")
+
+[node name="ActionList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtnFischer" type="Button" parent="ActionList"]
+layout_mode = 2
+text = "Talk to Fischer"
+
+[node name="BtnMarge" type="Button" parent="ActionList"]
+layout_mode = 2
+text = "Talk to Marge"
+
+[node name="BtnSunny" type="Button" parent="ActionList"]
+layout_mode = 2
+text = "Talk to Sunny"
+
+[node name="BtnWendy" type="Button" parent="ActionList"]
+layout_mode = 2
+text = "Talk to Wendy"
