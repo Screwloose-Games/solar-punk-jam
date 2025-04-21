@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://disv54pjdxpmg"]
+
+[ext_resource type="PackedScene" uid="uid://bljokql07evwl" path="res://assets/3d/structures/arts_crafts_station/sm_arts_crafts_station.tscn" id="1_wvpig"]
+
+[node name="Arts and crafts station" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0526123, 0.521423, -0.00970459)
+visible = false
+size = Vector3(2.19263, 1.04285, 1.1759)
+
+[node name="sm_arts_crafts_station" parent="." instance=ExtResource("1_wvpig")]

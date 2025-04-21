@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://2byjhmahld6w"]
+
+[ext_resource type="PackedScene" uid="uid://b35ewgj1gs4c0" path="res://assets/3d/structures/vegetable_garden/sm_vegetable_garden.tscn" id="1_aa13b"]
+
+[node name="Vegetable garden" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+size = Vector3(3, 0.5, 2)
+
+[node name="vegetable_garden" parent="." instance=ExtResource("1_aa13b")]

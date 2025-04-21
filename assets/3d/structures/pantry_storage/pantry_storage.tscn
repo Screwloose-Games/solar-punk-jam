@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cu00j4msvmhpq"]
+
+[node name="Pantry_Storage" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(3, 2, 2)
