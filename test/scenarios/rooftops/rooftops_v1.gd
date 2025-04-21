@@ -26,4 +26,6 @@ func _input(event: InputEvent) -> void:
 			intersect.x = round(intersect.x)
 			intersect.y = round(intersect.y)
 			intersect.z = round(intersect.z)
+			intersect.x = clamp(intersect.x, -15, 15)
+			intersect.z = clamp(intersect.z, -15, 15)
 			$SelectionPlaceholder.position = intersect
