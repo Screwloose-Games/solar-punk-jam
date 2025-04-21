@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1atwunknodlk"]
+
+[ext_resource type="Script" uid="uid://pen5e56ux4dp" path="res://test/scenarios/test_lighting/follow_camera.gd" id="1_8me7p"]
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(0.819152, -0.32899, 0.469846, 0, 0.819152, 0.573576, -0.573576, -0.469846, 0.67101, 7.82339, 13.0147, 10.881)
+top_level = true
+keep_aspect = 0
+v_offset = -7.0
+projection = 1
+current = true
+size = 24.0
+near = 0.001
+far = 40.0
+script = ExtResource("1_8me7p")
+shake_intensity_multiplier = 1.7

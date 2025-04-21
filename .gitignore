@@ -18,3 +18,5 @@ releases/
 
 *.blend1
 *.tmp
+
+.env
