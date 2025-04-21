@@ -234,6 +234,7 @@ light_color = Color(0.66253, 0.292607, 0.618936, 1)
 light_energy = 0.5
 
 [node name="Rain" type="Node3D" parent="."]
+visible = false
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Rain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -268,6 +269,7 @@ draw_pass_1 = ExtResource("4_5u3ww")
 
 [node name="Wind" type="GPUParticlesAttractorBox3D" parent="Rain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 37, 0)
+visible = false
 strength = 25.0
 attenuation = 0.112656
 size = Vector3(128, 64, 64)
