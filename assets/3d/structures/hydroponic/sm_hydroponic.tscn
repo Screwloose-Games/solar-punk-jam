@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlxx8840hnxh"]
+
+[ext_resource type="PackedScene" uid="uid://cvdm8l5dv206l" path="res://assets/3d/structures/hydroponic/sm_hydroponic.glb" id="1_npqq4"]
+
+[node name="sm_hydroponic" instance=ExtResource("1_npqq4")]

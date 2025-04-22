@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyacviaf2db01"]
+
+[node name="Kitchen" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+size = Vector3(4, 2.5, 3)

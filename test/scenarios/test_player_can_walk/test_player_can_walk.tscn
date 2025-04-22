@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://dki7ivrokdy0"]
+[gd_scene load_steps=2 format=3 uid="uid://dki7ivrokdy0"]
+
+[ext_resource type="PackedScene" uid="uid://y37b3nsw8eia" path="res://test/scenarios/test_animation_state_machine/player_character_placeholder.tscn" id="1_8apju"]
 
 [node name="TestPlayerCanWalk" type="Node3D"]
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_8apju")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525, -0.5, -1.975)
+use_collision = true
+size = Vector3(12.781, 1, 10.5255)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40332, 2.72291)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

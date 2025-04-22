@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://kjmhajcm2f7a"]
+
+[node name="Battery" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+size = Vector3(1, 1.5, 1)

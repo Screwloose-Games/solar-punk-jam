@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfc8urkj5opda"]
+
+[ext_resource type="PackedScene" uid="uid://vpaslkhyiiop" path="res://assets/3d/structures/solar_panel_small/solar_panel_small.blend" id="1_jfejn"]
+
+[node name="solar_panel_small" instance=ExtResource("1_jfejn")]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c1m78bb35bf6k"]
+
+[node name="Wastewater treatment" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+size = Vector3(4, 3, 3)

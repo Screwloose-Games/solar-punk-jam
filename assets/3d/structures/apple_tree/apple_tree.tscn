@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnph64mkfrww"]
+
+[ext_resource type="PackedScene" uid="uid://u0yo2p3mh5hk" path="res://assets/3d/structures/apple_tree/sm_apple_tree.tscn" id="1_0xyac"]
+
+[node name="AppleTree" type="Node3D"]
+
+[node name="apple_tree" parent="." instance=ExtResource("1_0xyac")]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27222, 0)
+visible = false
+size = Vector3(1.5, 4.54443, 1.5)

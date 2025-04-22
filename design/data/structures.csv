@@ -1,0 +1,24 @@
+name,height,width,depth,description,filename
+Solar panel,1.2,2.0,0.1,Photovoltaic panel for converting sunlight into electricity,solar_panel
+Wind turbine/Kite,12.0,3.0,3.0,Tall structure or airborne device generating power from wind,wind_turbine_or_kite
+Bioreactor,2.5,1.5,1.5,Tank system for converting organic matter into energy or fuel,bioreactor
+Battery,1.5,1.0,1.0,Power storage unit,battery
+Rain collection,2.0,2.0,2.0,Structure for harvesting rainwater - often elevated,rain_collection
+Atmospheric water harvesting,2.5,1.5,1.5,Device that condenses and collects water from the air,atmospheric_water_harvesting
+Wastewater treatment,3.0,4.0,3.0,Multi-tank system for filtering and purifying greywater,wastewater_treatment
+Water tank,3.0,2.5,2.5,Large container for storing clean water,water_tank
+Vegetable garden,0.5,3.0,2.0,Small garden bed for growing vegetables,vegetable_garden
+Vertical Hydroponics,2.5,1.5,1.0,Tower structure for soil-less vertical farming,vertical_hydroponics
+Aquaponics,1.5,3.0,2.0,Combined fish and plant growing system,aquaponics
+Composting and regenerative agriculture,1.0,2.0,2.0,Compost bin or area with regenerative farming tools,composting_regen_agriculture
+Fermentation,1.8,1.0,1.0,Small structure with sealed containers for fermentation,fermentation
+Fruit bushes/trees,2.5,2.5,2.5,Fruit-bearing trees or bushes,fruit_bushes_trees
+Pantry/Storage,2.0,3.0,2.0,Storage shed for food or supplies,pantry_storage
+Hygiene station,2.0,2.0,2.0,Outdoor sink/shower area for personal hygiene,hygiene_station
+Kitchen,2.5,4.0,3.0,Communal cooking space with equipment,kitchen
+Tent/Yurt/Chill area,2.5,5.0,5.0,Communal shaded or sheltered resting space,tent_yurt_chill_area
+Arts and crafts station,2.0,3.0,2.5,Covered station with tools for creative work,arts_crafts_station
+Exercise station,2.5,3.0,3.0,Outdoor space with equipment for physical activity,exercise_station
+Workshop,2.8,4.0,3.5,Building for tool use - repair - fabrication,workshop
+Recycling station,1.8,2.0,2.0,Bins and sorting area for recyclable materials,recycling_station
+Garbage dump,1.0,3.0,3.0,Area for non-recyclable waste,garbage_dump

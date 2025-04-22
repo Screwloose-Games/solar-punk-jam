@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cif4m7jd56kcd"]
+
+[ext_resource type="PackedScene" uid="uid://dlxx8840hnxh" path="res://assets/3d/structures/hydroponic/sm_hydroponic.tscn" id="1_sxm3h"]
+
+[node name="Hydroponic" type="Node3D"]
+
+[node name="sm_hydroponic" parent="." instance=ExtResource("1_sxm3h")]

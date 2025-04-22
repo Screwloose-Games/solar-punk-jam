@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6x20q0p2j33y"]
+
+[ext_resource type="PackedScene" uid="uid://xqa1vqo0cogx" path="res://assets/3d/structures/wind_turbine/sm_wind_turbine.tscn" id="1_jvmrx"]
+
+[node name="Wind turbine_Kite" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0065918, 1.31708, 0.00170898)
+size = Vector3(1.00439, 2.63416, 1.04102)
+
+[node name="sm_wind_turbine" parent="." instance=ExtResource("1_jvmrx")]
