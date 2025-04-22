@@ -34,6 +34,7 @@ directories/dch_directory={
 "wendy": "res://narrative/characters/wendy.dch"
 }
 directories/dtl_directory={
+"cam_test": "res://narrative/timelines/cam_test.dtl",
 "fischer_talk": "res://narrative/timelines/fischer_talk.dtl",
 "marge_talk": "res://narrative/timelines/marge_talk.dtl",
 "sunny_talk": "res://narrative/timelines/sunny_talk.dtl",
