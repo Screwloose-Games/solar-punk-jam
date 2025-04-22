@@ -35,6 +35,10 @@ project/assembly_name="Capybara"
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 Move_Forward={
