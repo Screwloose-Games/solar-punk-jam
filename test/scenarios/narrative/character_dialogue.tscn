@@ -42,7 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_g3cne")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, 0.57735, -0.408248, 0, 0.57735, 0.816497, 0.707107, -0.57735, 0.408248, 0, 4, 2)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -50,10 +50,9 @@ process_physics_priority = 300
 script = ExtResource("2_cl61l")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PCam1" type="Node3D" parent="." node_paths=PackedStringArray("follow_targets", "look_at_targets")]
+[node name="PCam1" type="Node3D" parent="." node_paths=PackedStringArray("look_at_targets")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
 script = ExtResource("3_nybd8")
-follow_targets = [NodePath("../Scene/Char1")]
 look_at_mode = 3
 look_at_targets = [NodePath("../Scene/Char1"), NodePath("../Scene/Char2")]
 tween_resource = SubResource("Resource_u105d")
