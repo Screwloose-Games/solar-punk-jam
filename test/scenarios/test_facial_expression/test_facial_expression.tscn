@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dtcbtrkh8amkt"]
 
-[ext_resource type="PackedScene" uid="uid://2iwwotns4aa2" path="res://assets/3d/people/example_person/example_person.tscn" id="1_6qyhq"]
+[ext_resource type="PackedScene" uid="uid://2iwwotns4aa2" path="res://assets/3d/people/example_person/exp/example_person.tscn" id="1_6qyhq"]
 [ext_resource type="Script" uid="uid://bfo3nynr0pofi" path="res://test/scenarios/test_facial_expression/expression_controller.gd" id="1_bhf12"]
 [ext_resource type="PackedScene" uid="uid://0dc32pcj71rp" path="res://test/scenarios/test_facial_expression/face_example_2d.tscn" id="2_co06p"]
 [ext_resource type="Texture2D" uid="uid://3ntg6doh3b03" path="res://test/scenarios/test_facial_expression/expressions/happy_face.tres" id="2_exe4a"]
