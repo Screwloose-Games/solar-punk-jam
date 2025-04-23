@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://cr00fee06cge6"]
+
+[resource]
+QuestDescription/base_type = &"RichTextLabel"
+QuestProgressText/base_type = &"Label"
+QuestProgressText/font_sizes/font_size = 12
+QuestTitle/base_type = &"Label"
+QuestTitle/font_sizes/font_size = 15
+RichTextLabel/font_sizes/normal_font_size = 12

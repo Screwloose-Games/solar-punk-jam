@@ -1,0 +1,171 @@
+[gd_scene load_steps=17 format=3 uid="uid://0dc32pcj71rp"]
+
+[ext_resource type="Texture2D" uid="uid://d4jo465xhx18v" path="res://test/scenarios/test_facial_expression/eyes_and_mouth_test.png" id="1_7ng86"]
+[ext_resource type="Script" uid="uid://begyy82dkse5l" path="res://test/scenarios/test_facial_expression/face_example_2d.gd" id="1_ciknp"]
+
+[sub_resource type="Animation" id="Animation_ciknp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:closed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-58, 46, 22, 53, -85, -5, -175, 63, -109, 44)]
+}
+
+[sub_resource type="Animation" id="Animation_ihmpq"]
+resource_name = "sad"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:closed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-58, 46, 22, 53, -85, -5, -175, 63, -109, 44)]
+}
+
+[sub_resource type="Animation" id="Animation_7ng86"]
+resource_name = "smile"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:closed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-68, 121, 15, 16, -90, 31, -193, 24, -118, 111)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b546n"]
+_data = {
+&"RESET": SubResource("Animation_ciknp"),
+&"sad": SubResource("Animation_ihmpq"),
+&"smile": SubResource("Animation_7ng86")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciknp"]
+atlas = ExtResource("1_7ng86")
+region = Rect2(78.0936, 104.875, 495.405, 186.748)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ng86"]
+load_path = "res://.godot/imported/eyes_and_mouth_test.png-28f3f35d4f1002376bad82adeec967c5.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihmpq"]
+atlas = SubResource("CompressedTexture2D_7ng86")
+region = Rect2(256.188, 607.64, 134.875, 77.8123)
+
+[sub_resource type="Curve2D" id="Curve2D_ehtna"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 488, 270, 0, 0, 0, 0, 706, 266, 34.2975, -30.0103, -34.2975, 30.0103, 676, 384, 40.7282, 19.2923, -40.7282, -19.2923, 520, 388, 0, 0, 0, 0, 484, 270, 0, 0, 0, 0, 488, 270)
+}
+point_count = 6
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ihmpq"]
+animation = &"sad"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b546n"]
+animation = &"smile"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehtna"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ka80y"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "face_expression == FaceExpression.FROWN"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8fhf8"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "face_expression == FaceExpression.SMILE"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jhfxj"]
+states/Start/position = Vector2(114, 124)
+states/sad/node = SubResource("AnimationNodeAnimation_ihmpq")
+states/sad/position = Vector2(366, 37)
+states/smile/node = SubResource("AnimationNodeAnimation_b546n")
+states/smile/position = Vector2(433, 113)
+transitions = ["Start", "smile", SubResource("AnimationNodeStateMachineTransition_ehtna"), "smile", "sad", SubResource("AnimationNodeStateMachineTransition_ka80y"), "sad", "smile", SubResource("AnimationNodeStateMachineTransition_8fhf8")]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(472, 463)
+rotation = 3.14159
+script = ExtResource("1_ciknp")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(344, 222)
+points = PackedVector2Array(-58, 46, 22, 53, -85, -5, -175, 63, -109, 44)
+closed = true
+default_color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b546n")
+}
+
+[node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(246.5, 86)
+texture = SubResource("AtlasTexture_ciknp")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(252.5, 298)
+texture = SubResource("AtlasTexture_ihmpq")
+
+[node name="Path2D" type="Path2D" parent="."]
+visible = false
+position = Vector2(-114, 0)
+curve = SubResource("Curve2D_ehtna")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_jhfxj")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtcbtrkh8amkt"]
+
+[ext_resource type="PackedScene" uid="uid://2iwwotns4aa2" path="res://assets/3d/people/example_person/example_person.tscn" id="1_6qyhq"]
+[ext_resource type="Script" uid="uid://bfo3nynr0pofi" path="res://test/scenarios/test_facial_expression/expression_controller.gd" id="1_bhf12"]
+[ext_resource type="PackedScene" uid="uid://0dc32pcj71rp" path="res://test/scenarios/test_facial_expression/face_example_2d.tscn" id="2_co06p"]
+[ext_resource type="Texture2D" uid="uid://3ntg6doh3b03" path="res://test/scenarios/test_facial_expression/expressions/happy_face.tres" id="2_exe4a"]
+[ext_resource type="Texture2D" uid="uid://cwfmbou0fnna6" path="res://assets/3d/people/example_person/exp/Face-closed.png" id="3_hds61"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_exe4a"]
+viewport_path = NodePath("example_person/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hds61"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_exe4a")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bhf12"]
+viewport_path = NodePath("example_person/SubViewport")
+
+[node name="TestFacialExpression" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55984, 0.58904)
+
+[node name="ExpressionController" type="Node" parent="."]
+script = ExtResource("1_bhf12")
+happy_face = ExtResource("2_exe4a")
+doubt_face = ExtResource("3_hds61")
+expression = 1
+
+[node name="example_person" parent="." instance=ExtResource("1_6qyhq")]
+
+[node name="Face" parent="example_person" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_hds61")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="example_person"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91069, 0.144417)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="example_person"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60643, 0.134321)
+visible = false
+pixel_size = 0.0002
+texture = SubResource("ViewportTexture_bhf12")
+
+[node name="SubViewport" type="SubViewport" parent="example_person"]
+transparent_bg = true
+
+[node name="Node2D" parent="example_person/SubViewport" instance=ExtResource("2_co06p")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19886, 1.75116)
+
+[editable path="example_person"]

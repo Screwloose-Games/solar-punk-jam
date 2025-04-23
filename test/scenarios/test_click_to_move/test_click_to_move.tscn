@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://c36ovs38a31mg"]
+
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_nvy3b"]
+[ext_resource type="PackedScene" uid="uid://y37b3nsw8eia" path="res://test/scenarios/test_animation_state_machine/player_character_placeholder.tscn" id="1_yboro"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_ogtyg"]
+[ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://test/scenarios/test_click_to_move/navigation_agent_3d.gd" id="4_5kcsc"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_40vpa"]
+[ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://test/scenarios/test_click_to_move/click_to_move.gd" id="5_ogtyg"]
+
+[sub_resource type="Resource" id="Resource_snk4p"]
+script = ExtResource("2_ogtyg")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ekncv"]
+vertices = PackedVector3Array(-14.8792, 0.02, -18.8296, -14.8792, 0.02, 7.92042, 15.1208, 0.02, 7.92042, 15.1208, 0.02, -18.8296)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.01
+
+[node name="TestPlayerCanWalk" type="Node3D"]
+
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.931672, 0.3633, 0, -0.3633, 0.931672, 0, 3, 3)
+top_level = true
+script = ExtResource("1_nvy3b")
+follow_mode = 2
+follow_target = NodePath("../PlayerCharacter")
+tween_resource = SubResource("Resource_snk4p")
+follow_offset = Vector3(0, 3, 3)
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_yboro")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="PlayerCharacter"]
+script = ExtResource("4_5kcsc")
+
+[node name="ClickToMove" type="Node" parent="PlayerCharacter"]
+script = ExtResource("5_ogtyg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.931672, 0.3633, 0, -0.3633, 0.931672, 0, 3, 3)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_40vpa")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ekncv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111139, -0.5, -5.50245)
+use_collision = true
+size = Vector3(30.9806, 1, 27.6543)

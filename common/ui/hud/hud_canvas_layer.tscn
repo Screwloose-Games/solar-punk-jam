@@ -1,0 +1,421 @@
+[gd_scene load_steps=15 format=3 uid="uid://4uor5nnaruka"]
+
+[ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://test/scenarios/test_community_metrics_ui/ui_canvas_layer.gd" id="1_2ngon"]
+[ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
+[ext_resource type="Texture2D" uid="uid://0dniwiqprj6j" path="res://assets/2d/ui/environment-health_icon-placeholder.png" id="3_6torc"]
+[ext_resource type="Theme" uid="uid://cr00fee06cge6" path="res://test/scenarios/test_community_metrics_ui/quest_ui_theme.tres" id="4_8yxrh"]
+[ext_resource type="Texture2D" uid="uid://c82rv8465rx4a" path="res://assets/2d/ui/weather-sunny_icon-placeholder.png" id="5_5quvr"]
+[ext_resource type="Texture2D" uid="uid://ymr1rjs8qkmr" path="res://assets/2d/ui/seed_icon-placeholder.png" id="6_owaxp"]
+[ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
+[ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://test/scenarios/test_community_metrics_ui/toolbar_theme.tres" id="8_bgxx2"]
+[ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
+
+[sub_resource type="Theme" id="Theme_6igmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m84km"]
+atlas = ExtResource("9_54k12")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvanc"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs73l"]
+atlas = ExtResource("9_54k12")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixwtd"]
+atlas = ExtResource("9_54k12")
+region = Rect2(240, 0, 80, 80)
+
+[node name="HUDCanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_2ngon")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopLeftMarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+offset_right = 1152.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopLeftMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="GlobalProgressVBoxContainer" type="VBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CommunityHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="CommunityIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ajdrq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+value = 40.0
+show_percentage = false
+
+[node name="EnvironmentHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="EnvironmentIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_6torc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+value = 40.0
+show_percentage = false
+
+[node name="QuestMarginContainer" type="MarginContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_8yxrh")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="QuestListVBoxContainer" type="VBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SingleQuestMarginContainer" type="MarginContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer"]
+layout_mode = 2
+
+[node name="SingleQuestVBoxContainer" type="VBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer"]
+layout_mode = 2
+
+[node name="QuestTitle" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"QuestTitle"
+text = "Help around Here"
+
+[node name="QuestHSeparator" type="HSeparator" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer"]
+layout_mode = 2
+
+[node name="QuestDescription" type="RichTextLabel" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"QuestDescription"
+bbcode_enabled = true
+text = "Help [b]Trin[/b] clean up the community."
+fit_content = true
+
+[node name="QuestObjectives" type="VBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer"]
+layout_mode = 2
+
+[node name="QuestObjectiveItem" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives/QuestObjectiveItem"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives/QuestObjectiveItem"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+bbcode_enabled = true
+text = "Clean up [color=yellow]trash[/color] on the roof."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="QuestProgressHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives/QuestObjectiveItem"]
+layout_mode = 2
+
+[node name="Current" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives/QuestObjectiveItem/QuestProgressHBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"QuestProgressText"
+text = "1"
+
+[node name="Slash" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives/QuestObjectiveItem/QuestProgressHBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"QuestProgressText"
+text = "/"
+
+[node name="Total" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/QuestMarginContainer/PanelContainer/MarginContainer/QuestListVBoxContainer/SingleQuestMarginContainer/SingleQuestVBoxContainer/QuestObjectives/QuestObjectiveItem/QuestProgressHBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"QuestProgressText"
+text = "5"
+
+[node name="TopRightMarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1152.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="WeatherTimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="WeatherIcon" type="TextureRect" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_5quvr")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DateHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+layout_mode = 2
+text = "March"
+
+[node name="Year" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+layout_mode = 2
+text = "2045"
+
+[node name="TimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+layout_mode = 2
+text = "11:00"
+
+[node name="AmPm" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+layout_mode = 2
+text = "AM"
+
+[node name="LeftMiddleMarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_right = 1152.0
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/LeftMiddleMarginContainer"]
+layout_mode = 2
+
+[node name="ResourcesHBoxContainer" type="HBoxContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="ResourceIcon" type="TextureRect" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_owaxp")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CountMarginContainer" type="MarginContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer/CountMarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6igmu")
+
+[node name="CountLabel" type="Label" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer/CountMarginContainer/PanelContainer"]
+layout_mode = 2
+text = "12/30"
+
+[node name="ResourcesHBoxContainer2" type="HBoxContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer2"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+
+[node name="ResourceIcon" type="TextureRect" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer2/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_kwr8q")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="CountMarginContainer" type="MarginContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer2/CountMarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_6igmu")
+
+[node name="CountLabel" type="Label" parent="HUD/LeftMiddleMarginContainer/VBoxContainer/ResourcesHBoxContainer2/CountMarginContainer/PanelContainer2"]
+layout_mode = 2
+text = "100"
+
+[node name="BottomCenterMarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="ToolbarBackgroundPanelContainer" type="PanelContainer" parent="HUD/BottomCenterMarginContainer"]
+layout_mode = 2
+theme = ExtResource("8_bgxx2")
+
+[node name="ToolbarMarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ToolbarHBoxContainer" type="HBoxContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ToolbarItemPanelContainer" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer"]
+layout_mode = 2
+mouse_filter = 0
+texture = SubResource("AtlasTexture_m84km")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_nvanc")
+
+[node name="ToolbarItemPanelContainer2" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureButton" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_m84km")
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "2"
+label_settings = SubResource("LabelSettings_nvanc")
+
+[node name="ToolbarItemPanelContainer3" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gs73l")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "3"
+label_settings = SubResource("LabelSettings_nvanc")
+
+[node name="ToolbarItemPanelContainer4" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ixwtd")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "4"
+label_settings = SubResource("LabelSettings_nvanc")
