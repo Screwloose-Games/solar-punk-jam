@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=15 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://test/scenarios/test_community_metrics_ui/ui_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
@@ -19,10 +19,6 @@ region = Rect2(0, 0, 80, 80)
 [sub_resource type="LabelSettings" id="LabelSettings_nvanc"]
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1t4h"]
-atlas = ExtResource("9_54k12")
-region = Rect2(80, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gs73l"]
 atlas = ExtResource("9_54k12")
@@ -318,21 +314,25 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="ToolbarItemPanelContainer" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer"]
 layout_mode = 2
+mouse_filter = 0
 texture = SubResource("AtlasTexture_m84km")
 expand_mode = 1
 
 [node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/Control"]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 
 [node name="Label" type="Label" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/Control/MarginContainer"]
@@ -343,13 +343,13 @@ text = "1"
 label_settings = SubResource("LabelSettings_nvanc")
 
 [node name="ToolbarItemPanelContainer2" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
+[node name="TextureRect" type="TextureButton" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_d1t4h")
-expand_mode = 1
+texture_normal = SubResource("AtlasTexture_m84km")
 stretch_mode = 6
 
 [node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
@@ -369,6 +369,7 @@ text = "2"
 label_settings = SubResource("LabelSettings_nvanc")
 
 [node name="ToolbarItemPanelContainer3" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
@@ -394,6 +395,7 @@ text = "3"
 label_settings = SubResource("LabelSettings_nvanc")
 
 [node name="ToolbarItemPanelContainer4" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
