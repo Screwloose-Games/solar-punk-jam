@@ -1,6 +1,8 @@
 extends Node3D
 
 @export var is_raining := false
+@export var do_update := true
+@export var preset_time := 0.75
 
 func set_time(time: float):
 	$DirectionalLight3DMoon.rotation.y = lerp_angle(PI*.5, -PI*.5, time*2) + TAU
@@ -18,7 +20,10 @@ func set_time(time: float):
 	
 @export var duration = 3.0
 func _ready() -> void:
-	animate_cycle()
+	if do_update:
+		animate_cycle()
+	else:
+		set_time(preset_time)
 	
 func animate_cycle():
 	var tween = create_tween()

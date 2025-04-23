@@ -419,3 +419,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "4"
 label_settings = SubResource("LabelSettings_nvanc")
+
+[node name="TooltipLabel" type="Label" parent="HUD"]
+offset_left = 13.0
+offset_top = -49.0
+offset_right = 142.0
+offset_bottom = -26.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Selection Tooltip"
+label_settings = SubResource("LabelSettings_nvanc")

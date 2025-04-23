@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://12qqalidh605" path="res://test/scenarios/resource_management/resource_management_v_1.gd" id="1_aipxq"]
 [ext_resource type="Texture2D" uid="uid://carrwrkn2qjxp" path="res://test/scenarios/resource_management/icons.png" id="2_2fmp3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raepx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fmp3"]
 texture = ExtResource("2_2fmp3")
 0:0/0 = 0
 1:0/0 = 0
@@ -45,9 +45,12 @@ texture = ExtResource("2_2fmp3")
 5:4/0 = 0
 6:4/0 = 0
 7:4/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cv50w"]
-sources/0 = SubResource("TileSetAtlasSource_raepx")
+sources/0 = SubResource("TileSetAtlasSource_2fmp3")
 
 [node name="ResourceManagement-v1" type="Node2D"]
 script = ExtResource("1_aipxq")
