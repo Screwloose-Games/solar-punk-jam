@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://2iwwotns4aa2"]
-
-[ext_resource type="PackedScene" uid="uid://bj1vvg8vnoxgu" path="res://assets/3d/people/example_person/example_person.blend" id="1_k82mk"]
-[ext_resource type="Material" uid="uid://bejq1ieita2nt" path="res://test/scenarios/test_facial_expression/expressions/facial_expression_material_00.tres" id="2_17f0g"]
-
-[node name="example_person" instance=ExtResource("1_k82mk")]
-
-[node name="Face" parent="." index="1"]
-surface_material_override/0 = ExtResource("2_17f0g")
