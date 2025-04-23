@@ -99,6 +99,27 @@ text = "Talk to Wendy"
 layout_mode = 2
 text = "Dialogue Camera Test"
 
+[node name="QuestInfo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -159.0
+offset_bottom = 85.0
+grow_horizontal = 0
+
+[node name="Header" type="Label" parent="QuestInfo"]
+layout_mode = 2
+text = "Quest Tracker"
+
+[node name="Body" type="Label" parent="QuestInfo"]
+layout_mode = 2
+text = "Quest information"
+
+[node name="Button" type="Button" parent="QuestInfo"]
+layout_mode = 2
+text = "Emit stick_collected"
+
 [node name="Scene" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="Scene"]
@@ -145,3 +166,5 @@ mesh = SubResource("CylinderMesh_c8fp7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene"]
 transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 0, 10, 0)
+
+[connection signal="pressed" from="QuestInfo/Button" to="." method="_on_button_pressed"]
