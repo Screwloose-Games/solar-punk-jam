@@ -1,0 +1,14 @@
+join main_char center
+join fischer center
+if {has_met_fischer} == false:
+	set {has_met_fischer} = true
+	fischer: Oh hello, you must be Chara. Welcome to the settlement!\
+The name's Fischer. I run the aquaponics in this section. Good meetin' ya!
+fischer: So, how can I help ya?
+- Gonna need a unit of resource from you, friend.
+	fischer: You're welcome to it, just as long as you got the scrip for it, or a requisition order.
+- Actually, is there anything YOU need?
+	fischer: Huh. Well that's nice of you to ask. Nothing I can think of at the moment, but I'll let ya know if I need anything later.
+- Nothing at the moment, just saying hi.
+	fischer: Oh, well that's nice. Not a lot of time for small talk today, though. Maintenance to do, orders to fill, that's how it goes.
+leave --All--

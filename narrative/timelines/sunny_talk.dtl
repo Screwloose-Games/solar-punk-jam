@@ -1,0 +1,14 @@
+join main_char center
+join sunny center
+if {has_met_sunny} == false:
+	set {has_met_sunny} = true
+	sunny: Oh hello, you must be Chara. Welcome to the settlement!\
+The name's Sunny. I keep the solar panels running. Good meetin' ya!
+sunny: So, how can I help ya?
+- Gonna need a unit of resource from you, friend.
+	sunny: You're welcome to it, just as long as you got the scrip for it, or a requisition order.
+- Actually, is there anything YOU need?
+	sunny: Huh. Well that's nice of you to ask. Nothing I can think of at the moment, but I'll let ya know if I need anything later.
+- Nothing at the moment, just saying hi.
+	sunny: Oh, well that's nice. Not a lot of time for small talk today, though. Maintenance to do, orders to fill, that's how it goes.
+leave --All--
