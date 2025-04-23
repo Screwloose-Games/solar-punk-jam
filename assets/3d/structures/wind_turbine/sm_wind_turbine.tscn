@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://xqa1vqo0cogx"]
 
-[ext_resource type="PackedScene" uid="uid://beuae2ahsrly7" path="res://assets/3d/structures/wind_turbine/sm_wind_turbine.blend" id="1_pdubo"]
+[ext_resource type="PackedScene" uid="uid://b5fns4y8ygeng" path="res://assets/3d/structures/wind_turbine/sm_wind_turbine.gltf" id="1_pdubo"]
 
 [node name="sm_wind_turbine" instance=ExtResource("1_pdubo")]
