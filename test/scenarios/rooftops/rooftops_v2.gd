@@ -12,8 +12,11 @@ func _input(event: InputEvent) -> void:
 		$DayCycle.is_raining = !$DayCycle.is_raining
 		$Rain.visible = $DayCycle.is_raining
 		$Rain/CanvasLayer.visible = $DayCycle.is_raining
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed and building and can_build:
-		build_structure()
+	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
+		if building and can_build:
+			build_structure()
+		else:
+			move_to_cursor()
 	elif event is InputEventMouseMotion:
 		move_cursor_3d()
 
@@ -21,7 +24,7 @@ func move_cursor_3d():
 	var position_screen = get_viewport().get_mouse_position()
 	var plane := Plane.PLANE_XZ
 	plane.d = -1.0
-	var camera := $Player/Camera3D as Camera3D
+	var camera := $Camera3D as Camera3D
 	var intersect : Variant = plane.intersects_ray(
 		camera.project_ray_origin(position_screen),
 		camera.project_ray_normal(position_screen)
@@ -58,6 +61,16 @@ func load_building_palette():
 			hud.register_structure(idx)
 	hud.connect("BuildableStructureSelected", self.select_structure_from_palette)
 
+@onready var player := $Player as Node3D
+@export var player_walk_speed := 8.0
+var player_walk_tween: Tween
+func move_to_cursor():
+	if player_walk_tween:
+		player_walk_tween.kill()
+	player_walk_tween = create_tween()
+	var target = $SelectionPlaceholder.position + Vector3(0,1,0)
+	var distance = player.position.distance_to(target)
+	player_walk_tween.tween_property(player, "position", target, distance/player_walk_speed)
 func build_structure():
 	var structure := $Structure.duplicate() #as MeshInstance3D
 	add_child(structure)

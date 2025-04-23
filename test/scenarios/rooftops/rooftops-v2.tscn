@@ -465,7 +465,7 @@ multimesh = SubResource("MultiMesh_fa3df")
 mesh = SubResource("CapsuleMesh_o10yd")
 material = SubResource("StandardMaterial3D_2yxsj")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 32, 35)
 fov = 30.0
 
