@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://disljqgxpqccu"]
+
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="1_apvk6"]
+[ext_resource type="PackedScene" uid="uid://ctp52s55206tq" path="res://test/scenarios/test_level_layout/BlockStyle.fbx" id="2_c70f7"]
+[ext_resource type="PackedScene" uid="uid://dudxygj6e3pih" path="res://test/scenarios/test_level_layout/CoralIslandStyle.fbx" id="3_1qbgi"]
+[ext_resource type="PackedScene" uid="uid://i78qc2px0y3s" path="res://test/scenarios/test_level_layout/StreetStyle.fbx" id="4_arc6x"]
+[ext_resource type="Environment" uid="uid://dobd7wrpoccx6" path="res://test/scenarios/test_lighting/world_environment_00.tres" id="5_c70f7"]
+[ext_resource type="PackedScene" uid="uid://fa161kcjqcfd" path="res://test/scenarios/test_lighting/directional_light_3d.tscn" id="6_1qbgi"]
+
+[node name="TestLevelLayout" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_apvk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.862, 11.186, 3.44541)
+
+[node name="BlockStyle" parent="." instance=ExtResource("2_c70f7")]
+
+[node name="CoralIslandStyle" parent="." instance=ExtResource("3_1qbgi")]
+
+[node name="StreetStyle" parent="." instance=ExtResource("4_arc6x")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_c70f7")
+
+[node name="DirectionalLight3D" parent="." instance=ExtResource("6_1qbgi")]
