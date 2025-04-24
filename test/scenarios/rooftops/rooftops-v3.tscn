@@ -541,6 +541,78 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
+[node name="C10" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 3)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_k65o6")
+
+[node name="C11" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 3)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_u4msq")
+
+[node name="C12" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 4)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_f5fr2")
+
+[node name="C13" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 3)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_k65o6")
+
+[node name="C14" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 3)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_u4msq")
+
+[node name="C15" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 4)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_f5fr2")
+
+[node name="C16" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 3)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_k65o6")
+
+[node name="C17" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 3)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_u4msq")
+
+[node name="C18" parent="NPCs" instance=ExtResource("8_k65o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 4)
+
+[node name="Hat" type="CSGSphere3D" parent="NPCs/C18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+radius = 0.25
+material = SubResource("StandardMaterial3D_f5fr2")
+
 [node name="Player" parent="." instance=ExtResource("8_k65o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
@@ -637,4 +709,22 @@ layer_0/tile_data = PackedInt32Array(-1048593, 65536, 7, -983057, 65536, 7, -917
 [editable path="NPCs/C8/Model"]
 [editable path="NPCs/C9"]
 [editable path="NPCs/C9/Model"]
+[editable path="NPCs/C10"]
+[editable path="NPCs/C10/Model"]
+[editable path="NPCs/C11"]
+[editable path="NPCs/C11/Model"]
+[editable path="NPCs/C12"]
+[editable path="NPCs/C12/Model"]
+[editable path="NPCs/C13"]
+[editable path="NPCs/C13/Model"]
+[editable path="NPCs/C14"]
+[editable path="NPCs/C14/Model"]
+[editable path="NPCs/C15"]
+[editable path="NPCs/C15/Model"]
+[editable path="NPCs/C16"]
+[editable path="NPCs/C16/Model"]
+[editable path="NPCs/C17"]
+[editable path="NPCs/C17/Model"]
+[editable path="NPCs/C18"]
+[editable path="NPCs/C18/Model"]
 [editable path="HUDCanvasLayer"]

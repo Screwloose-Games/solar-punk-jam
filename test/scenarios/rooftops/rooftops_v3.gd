@@ -21,6 +21,13 @@ func _input(event: InputEvent) -> void:
 			move_to_cursor()
 	elif event is InputEventMouseMotion:
 		move_cursor_3d()
+	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_WHEEL_UP:
+		$Camera3D.fov *= 1.1
+	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_WHEEL_DOWN:
+		$Camera3D.fov *= 0.9
+
+func _process(delta: float) -> void:
+	$Camera3D.look_at($Player.position, Vector3.UP)
 
 func move_cursor_3d():
 	var position_screen = get_viewport().get_mouse_position()
