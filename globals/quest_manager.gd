@@ -2,7 +2,7 @@ extends Node
 
 const FILE_PATH = "res://narrative/quests/%s.tres"
 var active_quests : Array[Quest] = []
-var completed_quests : Array[int] = []
+var completed_quests : Array[String] = []
 
 signal quests_changed
 
@@ -18,4 +18,8 @@ func start_quest(file_name : String):
 
 
 func _update_quests():
+	for quest in active_quests:
+		if quest.is_complete:
+			completed_quests.append(quest.name)
+			active_quests.erase(quest)
 	quests_changed.emit()

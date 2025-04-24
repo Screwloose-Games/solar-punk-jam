@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=6 format=3 uid="uid://dsvvuqqij82rv"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_obj.gd" id="1_diga6"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_diga6"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="1_rl8f1"]
 
 [sub_resource type="Resource" id="Resource_diga6"]
