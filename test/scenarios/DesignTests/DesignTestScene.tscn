@@ -1,40 +1,123 @@
-[gd_scene load_steps=4 format=3 uid="uid://tndyo8oaoc4g"]
+[gd_scene load_steps=8 format=3 uid="uid://tndyo8oaoc4g"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc0r0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te521"]
-albedo_color = Color(0.117647, 0.32549, 1, 1)
+[ext_resource type="Material" uid="uid://f1p4wadpjlgk" path="res://materials/BlockoutNPC.tres" id="1_445qc"]
+[ext_resource type="Material" uid="uid://tj2eujgmg5i1" path="res://materials/BlockoutPlayer.tres" id="2_8mb6m"]
+[ext_resource type="Material" uid="uid://dljk1epe4bs4h" path="res://materials/BlockoutGridSpace.tres" id="3_a713l"]
+[ext_resource type="Material" uid="uid://c4q5klrp7ytsx" path="res://materials/BlockoutRaisedBed.tres" id="4_bh4ws"]
+[ext_resource type="Material" uid="uid://dhce5lwxa5net" path="res://materials/BlockoutTallStructure.tres" id="5_pdt6n"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
-size = Vector2(6, 6)
+size = Vector2(15, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xpweh"]
 
 [node name="DesignTestScene" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33685, 1.58493, -0.88018)
-material_override = SubResource("StandardMaterial3D_gc0r0")
-use_collision = true
-size = Vector3(4.73181, 4.16986, 3.9575)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31487, -1.48972, 0.145508)
-operation = 2
-size = Vector3(0.141113, 1.16492, 0.708984)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115837, 1.92381, 0.0166626)
-operation = 2
-size = Vector3(4.19072, 0.475098, 3.42004)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.48133, 1.0097, -0.82959)
-size = Vector3(1, 3.01941, 2.65918)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0181789, -1.0097, 0.0202475)
-operation = 2
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25539, 0, -0.74428)
-material_override = SubResource("StandardMaterial3D_te521")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0586945, 0, 0.453713)
 mesh = SubResource("PlaneMesh_qst22")
+
+[node name="StandardBuilding" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47244, 0)
+size = Vector3(10, 7, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StandardBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00449586, 3.05904, 0)
+operation = 2
+size = Vector3(9, 1, 9)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StandardBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95832, -2.43306, -0.0441811)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="StandardBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77558, 3.60595, -3.68689)
+size = Vector3(1.4, 2.2, 1.6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StandardBuilding/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577974, -0.049861, -0.0121517)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
+[node name="NPCScale" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.36203, 1.03422, 1)
+material_override = ExtResource("1_445qc")
+radius = 0.45
+height = 1.8
+
+[node name="PlayerScale" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91952, 6.71377, -0.614206)
+material_override = ExtResource("2_8mb6m")
+radius = 0.45
+height = 1.37
+
+[node name="GridSpace" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, -2.962)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, -2.962)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, -2.962)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="GridSpace12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+
+[node name="RaisedBedScale" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21278, 6.2767, -2.962)
+material_override = ExtResource("4_bh4ws")
+size = Vector3(1.8, 0.4, 1.8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00322, 7.33808, 3.20784)
+material_override = ExtResource("5_pdt6n")
+size = Vector3(1.5, 2.5, 1.5)
