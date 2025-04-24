@@ -12,6 +12,8 @@ var is_completed : bool = false
 signal completed
 
 
+# Setter for progress, check for completion when value changes
+# If completed, toggle flags and emit signal to notify parent Quest
 func set_progress(val):
 	print("Increment objective: " + description)
 	progress = clamp(val, 0, count)
