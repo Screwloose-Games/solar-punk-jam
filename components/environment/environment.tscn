@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://pgg1u7bhxcxf"]
+
+[ext_resource type="Script" uid="uid://ba4c878q8vgq4" path="res://components/environment/environment.gd" id="1_ldjwe"]
+[ext_resource type="Gradient" uid="uid://dqiyvkrik4e4y" path="res://components/environment/twilight_color_gradient.tres" id="2_otco7"]
+[ext_resource type="Curve" uid="uid://crw73fu0f17mj" path="res://components/environment/sun_energy_curve.tres" id="3_4ybr6"]
+[ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="4_0uvaq"]
+[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="5_7w26c"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="6_x78hx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
+shader = ExtResource("6_x78hx")
+shader_parameter/frequency = 0.0
+shader_parameter/size = 0.015
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
+
+[sub_resource type="Sky" id="Sky_v0o6g"]
+sky_material = SubResource("ProceduralSkyMaterial_5u3ww")
+
+[sub_resource type="Environment" id="Environment_ksfsk"]
+sky = SubResource("Sky_v0o6g")
+sky_rotation = Vector3(0, 0.785398, 0)
+ambient_light_source = 3
+reflected_light_source = 2
+fog_enabled = true
+fog_density = 0.0
+fog_height = -1.0
+fog_height_density = 0.5
+
+[node name="Environment" type="Node3D"]
+script = ExtResource("1_ldjwe")
+day_length_in_seconds = 3.0
+twilight_color_gradient = ExtResource("2_otco7")
+sun_energy_curve = ExtResource("3_4ybr6")
+night_length_in_seconds = 1.0
+
+[node name="DirectionalLight3DSun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 32, 0)
+shadow_enabled = true
+
+[node name="DirectionalLight3DMoon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.820152, 0.404568, -0.404568, 0, 0.707107, 0.707107, 0.572146, -0.579935, 0.579935, 0, 32, 0)
+light_color = Color(0.109893, 0.127059, 0.273937, 1)
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="Rain" type="Node3D" parent="."]
+visible = false
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(32, 2, 32)
+
+[node name="Rain" type="GPUParticles3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+amount = 3000
+preprocess = 1.0
+randomness = 0.85
+visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = ExtResource("4_0uvaq")
+draw_pass_1 = ExtResource("5_7w26c")
+
+[node name="Wind" type="GPUParticlesAttractorBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 37, 0)
+visible = false
+strength = 25.0
+attenuation = 0.112656
+size = Vector3(128, 64, 64)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Rain"]
+visible = false
+
+[node name="Control" type="Control" parent="Rain/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RaindropsColorRect" type="ColorRect" parent="Rain/CanvasLayer/Control"]
+material = SubResource("ShaderMaterial_4ctqt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueColorRect" type="ColorRect" parent="Rain/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.140714, 0.302451, 0.562581, 0.176471)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ksfsk")

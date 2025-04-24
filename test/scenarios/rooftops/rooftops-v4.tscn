@@ -1,36 +1,13 @@
-[gd_scene load_steps=45 format=4 uid="uid://npv3wmyhjmji"]
+[gd_scene load_steps=38 format=4 uid="uid://c7e1xa8rhn8en"]
 
-[ext_resource type="Script" uid="uid://dabg8l3hlmivi" path="res://test/scenarios/rooftops/rooftops_v3.gd" id="1_8b2n6"]
-[ext_resource type="Script" uid="uid://ss1m4crig1pn" path="res://test/scenarios/rooftops/day_cycle.gd" id="2_k65o6"]
-[ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="3_u4msq"]
-[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="4_f5fr2"]
-[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="5_pn273"]
-[ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="6_ddjb2"]
-[ext_resource type="Texture2D" uid="uid://crdvjymseuiva" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="7_v0yld"]
-[ext_resource type="PackedScene" uid="uid://b8ryq5e1i1xfb" path="res://test/scenarios/rooftops/character.tscn" id="8_k65o6"]
-[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="8_o6cd6"]
-[ext_resource type="Script" uid="uid://c5aqc50lcxo0b" path="res://test/scenarios/rooftops/dump_npc_controller.gd" id="8_u4msq"]
-[ext_resource type="Texture2D" uid="uid://bwihwfu4o53fe" path="res://test/scenarios/rooftops/icons.png" id="10_k65o6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
-shader = ExtResource("5_pn273")
-shader_parameter/frequency = 0.0
-shader_parameter/size = 0.015
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
-
-[sub_resource type="Sky" id="Sky_v0o6g"]
-sky_material = SubResource("ProceduralSkyMaterial_5u3ww")
-
-[sub_resource type="Environment" id="Environment_ksfsk"]
-sky = SubResource("Sky_v0o6g")
-sky_rotation = Vector3(0, 0.785398, 0)
-ambient_light_source = 3
-reflected_light_source = 2
-fog_enabled = true
-fog_density = 0.0
-fog_height = -1.0
-fog_height_density = 0.5
+[ext_resource type="Script" uid="uid://dabg8l3hlmivi" path="res://test/scenarios/rooftops/rooftops_v3.gd" id="1_6ickg"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="2_snj21"]
+[ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="6_g2imw"]
+[ext_resource type="Texture2D" uid="uid://crdvjymseuiva" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="7_8s4yw"]
+[ext_resource type="Script" uid="uid://c5aqc50lcxo0b" path="res://test/scenarios/rooftops/dump_npc_controller.gd" id="8_efxyb"]
+[ext_resource type="PackedScene" uid="uid://b8ryq5e1i1xfb" path="res://test/scenarios/rooftops/character.tscn" id="9_fm6ja"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="10_jyy8e"]
+[ext_resource type="Texture2D" uid="uid://bwihwfu4o53fe" path="res://test/scenarios/rooftops/icons.png" id="11_e1rqm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksfsk"]
 albedo_color = Color(0.778776, 0.425551, 1.92523e-07, 1)
@@ -42,7 +19,7 @@ orientation = 1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bngx2"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("7_v0yld")
+albedo_texture = ExtResource("7_8s4yw")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_syp5g"]
@@ -82,7 +59,7 @@ shadow_mesh = SubResource("ArrayMesh_syp5g")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqw0f"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("7_v0yld")
+albedo_texture = ExtResource("7_8s4yw")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ni8ua"]
@@ -122,7 +99,7 @@ shadow_mesh = SubResource("ArrayMesh_ni8ua")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3a5v"]
 resource_name = "colormap"
 cull_mode = 2
-albedo_texture = ExtResource("7_v0yld")
+albedo_texture = ExtResource("7_8s4yw")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yy8lw"]
@@ -242,7 +219,7 @@ material = SubResource("StandardMaterial3D_3gt2x")
 orientation = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5o6"]
-texture = ExtResource("10_k65o6")
+texture = ExtResource("11_e1rqm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -291,120 +268,28 @@ texture = ExtResource("10_k65o6")
 [sub_resource type="TileSet" id="TileSet_sl285"]
 sources/0 = SubResource("TileSetAtlasSource_ii5o6")
 
-[node name="Rooftops-v3" type="Node3D"]
-script = ExtResource("1_8b2n6")
+[node name="Rooftops-v4" type="Node3D"]
+script = ExtResource("1_6ickg")
 
-[node name="Environment" type="Node3D" parent="."]
-
-[node name="Rain" type="Node3D" parent="Environment"]
-visible = false
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-size = Vector3(32, 2, 32)
-
-[node name="GPUParticlesCollisionBox3D4" type="GPUParticlesCollisionBox3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 8)
-size = Vector3(16, 2, 8)
-
-[node name="GPUParticlesCollisionBox3D5" type="GPUParticlesCollisionBox3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4, -14)
-size = Vector3(4, 2, 4)
-
-[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -1, 0)
-size = Vector3(32, 2, 32)
-
-[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -1, 0)
-size = Vector3(32, 2, 32)
-
-[node name="Rain" type="GPUParticles3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
-amount = 3000
-preprocess = 1.0
-randomness = 0.85
-visibility_aabb = AABB(-4, -12, -4, 8, 12, 8)
-trail_enabled = true
-trail_lifetime = 0.1
-process_material = ExtResource("3_u4msq")
-draw_pass_1 = ExtResource("4_f5fr2")
-
-[node name="Wind" type="GPUParticlesAttractorBox3D" parent="Environment/Rain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 37, 0)
-visible = false
-strength = 25.0
-attenuation = 0.112656
-size = Vector3(128, 64, 64)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Environment/Rain"]
-visible = false
-
-[node name="Control" type="Control" parent="Environment/Rain/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RaindropsColorRect" type="ColorRect" parent="Environment/Rain/CanvasLayer/Control"]
-material = SubResource("ShaderMaterial_4ctqt")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BlueColorRect" type="ColorRect" parent="Environment/Rain/CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.140714, 0.302451, 0.562581, 0.176471)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
-environment = SubResource("Environment_ksfsk")
-
-[node name="DayCycle" type="Node3D" parent="Environment"]
-script = ExtResource("2_k65o6")
-
-[node name="DirectionalLight3DSun" type="DirectionalLight3D" parent="Environment/DayCycle"]
-transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 32, 0)
-shadow_enabled = true
-
-[node name="DirectionalLight3DMoon" type="DirectionalLight3D" parent="Environment/DayCycle"]
-transform = Transform3D(0.820152, 0.404568, -0.404568, 0, 0.707107, 0.707107, 0.572146, -0.579935, 0.579935, 0, 32, 0)
-light_color = Color(0.109893, 0.127059, 0.273937, 1)
-light_energy = 0.0
-shadow_enabled = true
-shadow_opacity = 0.5
-
-[node name="DirectionalLight3DTwilight" type="DirectionalLight3D" parent="Environment/DayCycle"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-light_color = Color(0.66253, 0.292607, 0.618936, 1)
-light_energy = 0.5
+[node name="Environment" parent="." instance=ExtResource("2_snj21")]
 
 [node name="Background" type="Node3D" parent="."]
 
-[node name="Building0" parent="Background" instance=ExtResource("6_ddjb2")]
+[node name="Building0" parent="Background" instance=ExtResource("6_g2imw")]
 
-[node name="Building2" parent="Background" instance=ExtResource("6_ddjb2")]
+[node name="Building2" parent="Background" instance=ExtResource("6_g2imw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 0)
 
-[node name="Building3" parent="Background" instance=ExtResource("6_ddjb2")]
+[node name="Building3" parent="Background" instance=ExtResource("6_g2imw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 0)
 
-[node name="Building1" parent="Background" instance=ExtResource("6_ddjb2")]
+[node name="Building1" parent="Background" instance=ExtResource("6_g2imw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -48)
 
-[node name="Building4" parent="Background" instance=ExtResource("6_ddjb2")]
+[node name="Building4" parent="Background" instance=ExtResource("6_g2imw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -48)
 
-[node name="Building5" parent="Background" instance=ExtResource("6_ddjb2")]
+[node name="Building5" parent="Background" instance=ExtResource("6_g2imw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -48)
 
 [node name="Plank1" type="CSGBox3D" parent="Background"]
@@ -468,9 +353,9 @@ multimesh = SubResource("MultiMesh_v0o6g")
 multimesh = SubResource("MultiMesh_fa3df")
 
 [node name="NPCs" type="Node3D" parent="."]
-script = ExtResource("8_u4msq")
+script = ExtResource("8_efxyb")
 
-[node name="C1" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C1" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C1"]
@@ -478,7 +363,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_k65o6")
 
-[node name="C2" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C2" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 1)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C2"]
@@ -486,7 +371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_u4msq")
 
-[node name="C3" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C3" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 2)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C3"]
@@ -494,7 +379,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
-[node name="C4" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C4" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 1)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C4"]
@@ -502,7 +387,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_k65o6")
 
-[node name="C5" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C5" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 1)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C5"]
@@ -510,7 +395,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_u4msq")
 
-[node name="C6" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C6" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 2)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C6"]
@@ -518,7 +403,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
-[node name="C7" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C7" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 1)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C7"]
@@ -526,7 +411,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_k65o6")
 
-[node name="C8" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C8" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 1)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C8"]
@@ -534,7 +419,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_u4msq")
 
-[node name="C9" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C9" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 2)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C9"]
@@ -542,7 +427,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
-[node name="C10" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C10" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 3)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C10"]
@@ -550,7 +435,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_k65o6")
 
-[node name="C11" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C11" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 3)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C11"]
@@ -558,7 +443,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_u4msq")
 
-[node name="C12" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C12" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, 4)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C12"]
@@ -566,7 +451,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
-[node name="C13" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C13" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 3)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C13"]
@@ -574,7 +459,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_k65o6")
 
-[node name="C14" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C14" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 3)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C14"]
@@ -582,7 +467,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_u4msq")
 
-[node name="C15" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C15" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1, 4)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C15"]
@@ -590,7 +475,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
-[node name="C16" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C16" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1, 3)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C16"]
@@ -598,7 +483,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_k65o6")
 
-[node name="C17" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C17" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 3)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C17"]
@@ -606,7 +491,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_u4msq")
 
-[node name="C18" parent="NPCs" instance=ExtResource("8_k65o6")]
+[node name="C18" parent="NPCs" instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 4)
 
 [node name="Hat" type="CSGSphere3D" parent="NPCs/C18"]
@@ -614,7 +499,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 radius = 0.25
 material = SubResource("StandardMaterial3D_f5fr2")
 
-[node name="Player" parent="." instance=ExtResource("8_k65o6")]
+[node name="Player" parent="." instance=ExtResource("9_fm6ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -654,7 +539,7 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_ii5o6")
 skeleton = NodePath("../../..")
 
-[node name="HUDCanvasLayer" parent="." instance=ExtResource("8_o6cd6")]
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("10_jyy8e")]
 
 [node name="TopLeftMarginContainer" parent="HUDCanvasLayer/HUD" index="0"]
 visible = false

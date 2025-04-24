@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfai443tx2qb0"]
+
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="1_sq22j"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sq22j"]
+size = Vector2(32, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u5ar7"]
+
+[node name="EnvironmentSystem" type="Node3D"]
+
+[node name="Environment" parent="." instance=ExtResource("1_sq22j")]
+day_length_in_seconds = 30.0
+is_raining = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_sq22j")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_u5ar7")
