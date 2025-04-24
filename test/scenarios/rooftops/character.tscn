@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8ryq5e1i1xfb"]
 
-[ext_resource type="Script" uid="uid://vbmfr7kb2gia" path="res://test/scenarios/rooftops/player.gd" id="1_wb7cx"]
+[ext_resource type="Script" uid="uid://vbmfr7kb2gia" path="res://test/scenarios/rooftops/character.gd" id="1_wb7cx"]
 [ext_resource type="PackedScene" uid="uid://cn7d4x825s37a" path="res://test/scenarios/test_animation_state_machine/player_placeholder/placeholder_character.tscn" id="2_kj1bp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o10yd"]
@@ -8,7 +8,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yxsj"]
 albedo_color = Color(0.87681, 0, 0.211995, 1)
 
-[node name="Player" type="Node3D"]
+[node name="Character" type="Node3D"]
 script = ExtResource("1_wb7cx")
 
 [node name="Body" type="CSGMesh3D" parent="."]

@@ -3,6 +3,7 @@ extends Node3D
 var building_rect := Rect2i()
 var building_idx := -1
 var can_build = false
+var can_walk = false
 var cached_world_data = []
 
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		if can_build:
 			build_structure()
-		else:
+		elif can_walk:
 			move_to_cursor()
 	elif event is InputEventMouseMotion:
 		move_cursor_3d()
@@ -34,19 +35,25 @@ func move_cursor_3d():
 		intersect.x = round(intersect.x +0.5)
 		intersect.y = round(intersect.y)
 		intersect.z = round(intersect.z +0.5)
-		intersect.x = clamp(intersect.x, -15, 16)
-		intersect.z = clamp(intersect.z, -15, 16)
+		#intersect.x = clamp(intersect.x, -15, 16)
+		#intersect.z = clamp(intersect.z, -15, 16)
 		$SelectionPlaceholder.position = intersect + Vector3(-0.5,0,-0.5)
 		$StructurePlaceholder.position = intersect - Vector3(1,0,1)
-	if building_rect:
-		$StructurePlaceholder.show()
-		can_build = tilemap_update(int($StructurePlaceholder.position.x), int($StructurePlaceholder.position.z), building_rect.size.x, building_rect.size.y, true)
-		if can_build:
-			$StructurePlaceholder/SelectionPlaceholder.mesh.material.albedo_color = Color.CHARTREUSE
+		var coords = Vector2i(int(intersect.x-1), int(intersect.z-1))
+		can_walk = tilemap_walkable(coords)
+		if can_walk:
+			$SelectionPlaceholder.show()
 		else:
-			$StructurePlaceholder/SelectionPlaceholder.mesh.material.albedo_color = Color.RED
-	else:
-		$StructurePlaceholder.hide()
+			$SelectionPlaceholder.hide()
+		if building_rect:
+			$StructurePlaceholder.show()
+			can_build = tilemap_update(coords, building_rect.size.x, building_rect.size.y, true)
+			if can_build:
+				$StructurePlaceholder/SelectionPlaceholder.mesh.material.albedo_color = Color.CHARTREUSE
+			else:
+				$StructurePlaceholder/SelectionPlaceholder.mesh.material.albedo_color = Color.RED
+		else:
+			$StructurePlaceholder.hide()
 
 @onready var hud := $HUDCanvasLayer as HUDCanvasLayer
 func load_building_palette():
@@ -63,25 +70,9 @@ func load_building_palette():
 	hud.connect("BuildableStructureSelected", self.select_structure_from_palette)
 
 @onready var player := $Player as CapybaraCharacter
-@export var player_walk_speed := 4.0
-var player_walk_tween: Tween
 func move_to_cursor():
-	if player_walk_tween:
-		player_walk_tween.kill()
-	player_walk_tween = create_tween()
-	player.do_walk()
 	var target = $SelectionPlaceholder.position #+ Vector3(0,1,0)
-	var distance = player.position.distance_to(target)
-	player_walk_tween.set_parallel(true)
-	player_walk_tween.set_ease(Tween.EASE_IN_OUT)
-	player_walk_tween.set_trans(Tween.TRANS_SINE)
-	var player_rotation = player.rotation
-	player.look_at(target, Vector3.UP)
-	player_walk_tween.tween_property(player, "rotation", player.rotation, 0.5).from(player_rotation)
-	player_walk_tween.set_trans(Tween.TRANS_LINEAR)
-	player_walk_tween.tween_property(player, "position", target, distance/player_walk_speed).set_delay(0.25)
-	player_walk_tween.chain()
-	player_walk_tween.tween_callback(player.do_idle)
+	player.move_to_position(target)
 
 func build_structure():
 	var structure := $Structure.duplicate() #as MeshInstance3D
@@ -102,21 +93,29 @@ func build_structure():
 	#var x := structure.mesh
 	#x.material = x.material.duplicate()
 	#x.material.albedo_color.b = randf() * 0.5
-	tilemap_update(int(structure.position.x), int(structure.position.z), building_rect.size.x, building_rect.size.y, false)
-	
-	
-	
-	
+	var coords = Vector2i(int(structure.position.x), int(structure.position.z))
+	tilemap_update(coords, building_rect.size.x, building_rect.size.y, false)
+
 	# done building
+	$NPCs.move_out_of_the_way()
 	building_rect = Rect2()
 	can_build = false
 	
 	$StructurePlaceholder.hide()
 
-func tilemap_update(x,y,w,h,check_only=true):
+func tilemap_walkable(coords: Vector2i) -> bool:
+	match $CanvasLayer/Node2D/TileMap.get_cell_atlas_coords(0, coords):
+		Vector2i(2,7):
+			# regular rooftop ground
+			return true
+		Vector2i(3,7):
+			# teleporter
+			return true
+	return false
+func tilemap_update(origin: Vector2i,w:int,h:int,check_only:bool=true) -> bool:
 	for ix in w:
 		for iy in h:
-			var coords := Vector2i(x+ix,y+iy)
+			var coords := origin + Vector2i(ix,iy)
 			if check_only:
 				if $CanvasLayer/Node2D/TileMap.get_cell_atlas_coords(0, coords) != Vector2i(2,7):
 					return false
