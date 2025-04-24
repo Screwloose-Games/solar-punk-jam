@@ -65,7 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.28, -0.500002, 3.61438)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.591032, 1.23649)
 
 [node name="MainCharacterRig" parent="sk_player_character/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.135024, 0.990842, -3.78093e-08, -0.990842, 0.135024, -4.33111e-08, -3.78093e-08, 4.33111e-08, 1, 0, 0, 0)
 surface_material_override/0 = ExtResource("7_eatlb")
 
 [editable path="sk_player_character"]
