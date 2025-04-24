@@ -2,8 +2,12 @@ extends Camera3D
 
 @export var target: Node3D
 @export var lerp_speed: float = 5.0
-@export var shake_intensity_multiplier: float = 1.0  # Intensity of the shake
-@export var shake_frequency: float = 10.0  # Frequency of the shake
+@export var shake_intensity_multiplier: float = 1.0
+@export var shake_frequency: float = 10.0
+
+@export var zoom_speed: float = 2.0
+@export var min_zoom: float = 5.0
+@export var max_zoom: float = 20.0
 
 var shake_intensity: float:
 	set(val):
@@ -17,9 +21,12 @@ var shake_timer: float = 0.0
 var shake_duration: float = 0.5
 var shake_offset: Vector3 = Vector3.ZERO
 
+var zoom_distance: float = 10.0
+
 
 func _ready() -> void:
 	starting_transform = global_position - target.global_position
+	zoom_distance = starting_transform.length()
 
 
 func _process(delta: float) -> void:
@@ -37,9 +44,21 @@ func _process(delta: float) -> void:
 
 	# Smoothly follow the target
 	var target_position = (
-		target.global_position + starting_transform - Vector3(0, v_offset, 0) + shake_offset
+		target.global_position
+		+ starting_transform.normalized() * zoom_distance
+		- Vector3(0, v_offset, 0)
+		+ shake_offset
 	)
 	global_position = global_position.lerp(target_position, lerp_speed * delta)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			zoom_distance = max(min_zoom, zoom_distance - zoom_speed)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			zoom_distance = min(max_zoom, zoom_distance + zoom_speed)
+
 
 func get_look_rotation() -> float:
 	return look_rotation
@@ -47,7 +66,6 @@ func get_look_rotation() -> float:
 
 func shake_camera(intensity: float) -> void:
 	shake_timer = shake_duration
-	# Remap intensity between 0.5 and 1
 	shake_intensity = lerp(0.5, 1.0, intensity)
 
 

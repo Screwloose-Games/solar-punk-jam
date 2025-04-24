@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bogw2y0oq5u7d"]
+
+[ext_resource type="Texture2D" uid="uid://cqsenj3lw54hv" path="res://test/scenarios/test_cel_shading/tex_player_character.png" id="1_arjk2"]
+
+[resource]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_arjk2")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.2
+emission_texture = ExtResource("1_arjk2")

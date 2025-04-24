@@ -8,3 +8,4 @@
 *.wav binary
 *.import binary
 *.translation binary
+*.bin binary

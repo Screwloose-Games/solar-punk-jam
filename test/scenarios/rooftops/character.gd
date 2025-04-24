@@ -14,7 +14,8 @@ func move_to_position(target: Vector3):
 	character_walk_tween.set_ease(Tween.EASE_IN_OUT)
 	character_walk_tween.set_trans(Tween.TRANS_SINE)
 	var player_rotation = self.rotation
-	self.look_at(target, Vector3.UP)
+	if target != self.position:
+		self.look_at(target, Vector3.UP)
 	character_walk_tween.tween_property(self, "rotation", self.rotation, 0.5).from(player_rotation)
 	character_walk_tween.set_trans(Tween.TRANS_LINEAR)
 	character_walk_tween.tween_property(self, "position", target, distance/character_walk_speed).set_delay(0.25)

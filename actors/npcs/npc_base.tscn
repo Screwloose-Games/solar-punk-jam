@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dbiodotokwvrn"]
+
+[node name="NpcBase" type="Node3D"]
+editor_description = "This is the base scene for other NPCs. By using this scene, we can add or remove node-based functionality from all npcs at once."

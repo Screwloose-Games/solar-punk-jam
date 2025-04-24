@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgbbmh1ghsygk"]
+
+[ext_resource type="PackedScene" uid="uid://dfai443tx2qb0" path="res://components/environment_system.tscn" id="1_438kw"]
+[ext_resource type="PackedScene" uid="uid://bm3g16t0xed3c" path="res://components/structure_build_system.tscn" id="1_um8ys"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="5_ki8py"]
+[ext_resource type="PackedScene" uid="uid://b8b6q7g4bsaw5" path="res://common/ui/pause_menu/pause_menu.tscn" id="6_dk47i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2fg0"]
+albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_68ya3"]
+material = SubResource("StandardMaterial3D_b2fg0")
+size = Vector2(100, 100)
+
+[node name="MainLevel" type="Node3D"]
+
+[node name="StructureBuildSystem" parent="." instance=ExtResource("1_um8ys")]
+
+[node name="EnvironmentSystem" parent="." instance=ExtResource("1_438kw")]
+
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+mesh = SubResource("PlaneMesh_68ya3")
+
+[node name="Structures" type="Node3D" parent="."]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("5_ki8py")]
+layer = 5
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_dk47i")]
+layer = 10
+
+[node name="BuildTool" type="Node3D" parent="."]
+editor_description = "Previews currently active build selection."
