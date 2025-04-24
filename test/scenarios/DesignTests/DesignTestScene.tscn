@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://tndyo8oaoc4g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc0r0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te521"]
+albedo_color = Color(0.117647, 0.32549, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
+size = Vector2(6, 6)
+
+[node name="DesignTestScene" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33685, 1.58493, -0.88018)
+material_override = SubResource("StandardMaterial3D_gc0r0")
+use_collision = true
+size = Vector3(4.73181, 4.16986, 3.9575)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31487, -1.48972, 0.145508)
+operation = 2
+size = Vector3(0.141113, 1.16492, 0.708984)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115837, 1.92381, 0.0166626)
+operation = 2
+size = Vector3(4.19072, 0.475098, 3.42004)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.48133, 1.0097, -0.82959)
+size = Vector3(1, 3.01941, 2.65918)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0181789, -1.0097, 0.0202475)
+operation = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25539, 0, -0.74428)
+material_override = SubResource("StandardMaterial3D_te521")
+mesh = SubResource("PlaneMesh_qst22")
