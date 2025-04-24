@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://doy0giq3p8lvr"]
+[gd_scene load_steps=16 format=3 uid="uid://doy0giq3p8lvr"]
 
 [ext_resource type="Environment" uid="uid://dobd7wrpoccx6" path="res://test/scenarios/test_lighting/world_environment_00.tres" id="1_g0a8h"]
 [ext_resource type="PackedScene" uid="uid://b1atwunknodlk" path="res://test/scenarios/test_lighting/camera_3d.tscn" id="2_b06ku"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_fldam"]
+[ext_resource type="Shader" uid="uid://b4u1wogm7wh3q" path="res://shaders/metric_grid.gdshader" id="2_jx8jv"]
 [ext_resource type="PackedScene" uid="uid://fa161kcjqcfd" path="res://test/scenarios/test_lighting/directional_light_3d.tscn" id="4_hf0xs"]
 [ext_resource type="PackedScene" uid="uid://y37b3nsw8eia" path="res://test/scenarios/test_animation_state_machine/player_character_placeholder.tscn" id="5_wdifu"]
 [ext_resource type="PackedScene" uid="uid://t8i0aiiupm7p" path="res://assets/kenney_food-kit/Models/GLB format/can.glb" id="8_8mb5h"]
@@ -13,6 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://dekw2ivu2l2ns" path="res://assets/3d/buildings/building_02/SM_PrototypeBuilding_02.glb" id="12_jx8jv"]
 [ext_resource type="PackedScene" uid="uid://dt201prswa8pg" path="res://assets/3d/buildings/building_03/SM_PrototypeBuilding_03.glb" id="13_lcj1t"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcj1t"]
+render_priority = 0
+shader = ExtResource("2_jx8jv")
+shader_parameter/lightColor = Color(0.633757, 0.633757, 0.633757, 1)
+shader_parameter/darkColor = Color(0.635294, 0.635294, 0.635294, 1)
+shader_parameter/borderColor = Color(1, 1, 1, 1)
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_jdarb"]
+stream_count = 2
+stream_0/volume = 0.0
+stream_1/volume = 0.0
+
 [node name="TestLighting" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -22,6 +35,7 @@ environment = ExtResource("1_g0a8h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3548, -1, -28.6367)
 use_collision = true
 size = Vector3(145.621, 1, 133.235)
+material = SubResource("ShaderMaterial_lcj1t")
 
 [node name="Camera3D2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_b06ku")]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0.184875, 5.12275, 10.881)
@@ -61,3 +75,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2757, -0.500002, 20.3527)
 
 [node name="Radish" parent="." instance=ExtResource("12_jdarb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823276, -0.5, 3.667)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamSynchronized_jdarb")
+
+[editable path="Building00"]
