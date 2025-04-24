@@ -50,19 +50,17 @@ process_physics_priority = 300
 script = ExtResource("2_cl61l")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PCam1" type="Node3D" parent="." node_paths=PackedStringArray("look_at_targets")]
+[node name="PCam1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
 script = ExtResource("3_nybd8")
 look_at_mode = 3
-look_at_targets = [NodePath("../Scene/Char1"), NodePath("../Scene/Char2")]
 tween_resource = SubResource("Resource_u105d")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="PCam2" type="Node3D" parent="." node_paths=PackedStringArray("look_at_targets")]
+[node name="PCam2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.894427, 0.447214, 0, -0.447214, 0.894427, 0, 4, 8)
 script = ExtResource("3_nybd8")
 look_at_mode = 3
-look_at_targets = [NodePath("../Scene/Char1"), NodePath("../Scene/Char2")]
 tween_resource = SubResource("Resource_u105d")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 

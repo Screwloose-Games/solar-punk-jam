@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1ai2dchl0v6r"]
-
-[ext_resource type="PackedScene" uid="uid://bw3ym44dvj5tv" path="res://test/scenarios/test_lighting/bush.glb" id="1_mghws"]
-
-[node name="bush" instance=ExtResource("1_mghws")]
