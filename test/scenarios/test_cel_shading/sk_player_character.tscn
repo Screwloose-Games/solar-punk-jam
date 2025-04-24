@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpn7bhcven4me"]
+
+[ext_resource type="PackedScene" uid="uid://b2o0sqys73tup" path="res://test/scenarios/test_cel_shading/sk_player_character.gltf" id="1_t6iq2"]
+
+[node name="sk_player_character" instance=ExtResource("1_t6iq2")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

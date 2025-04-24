@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://u4dibts3mrph"]
+[gd_scene load_steps=14 format=3 uid="uid://u4dibts3mrph"]
 
 [ext_resource type="Environment" uid="uid://dobd7wrpoccx6" path="res://test/scenarios/test_lighting/world_environment_00.tres" id="1_2acoh"]
 [ext_resource type="PackedScene" uid="uid://b1atwunknodlk" path="res://test/scenarios/test_lighting/camera_3d.tscn" id="2_4w5to"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://fa161kcjqcfd" path="res://test/scenarios/test_lighting/directional_light_3d.tscn" id="4_y856f"]
 [ext_resource type="PackedScene" uid="uid://y37b3nsw8eia" path="res://test/scenarios/test_animation_state_machine/player_character_placeholder.tscn" id="5_p5bx5"]
 [ext_resource type="PackedScene" uid="uid://t8i0aiiupm7p" path="res://assets/kenney_food-kit/Models/GLB format/can.glb" id="6_2svhp"]
+[ext_resource type="PackedScene" uid="uid://bpn7bhcven4me" path="res://test/scenarios/test_cel_shading/sk_player_character.tscn" id="6_a7ldc"]
 [ext_resource type="PackedScene" uid="uid://c5gv0pyjxatdc" path="res://assets/kenney_food-kit/Models/GLB format/apple.glb" id="7_dai1c"]
+[ext_resource type="Material" uid="uid://bogw2y0oq5u7d" path="res://test/scenarios/test_cel_shading/toon_shaded_material.tres" id="7_eatlb"]
 [ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="8_i6rgi"]
 [ext_resource type="PackedScene" uid="uid://6120fgf52qvi" path="res://assets/3d/buildings/building_01/sm_prototype_building_01.tscn" id="9_wtr3o"]
 [ext_resource type="PackedScene" uid="uid://dekw2ivu2l2ns" path="res://assets/3d/buildings/building_02/SM_PrototypeBuilding_02.glb" id="10_w28u8"]
@@ -58,3 +60,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1162, -0.496427, -0.595402)
 
 [node name="SM_PrototypeBuilding_03" parent="." instance=ExtResource("11_qg26g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.28, -0.500002, 3.61438)
+
+[node name="sk_player_character" parent="." instance=ExtResource("6_a7ldc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.591032, 1.23649)
+
+[node name="MainCharacterRig" parent="sk_player_character/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.135024, 0.990842, -3.78093e-08, -0.990842, 0.135024, -4.33111e-08, -3.78093e-08, 4.33111e-08, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("7_eatlb")
+
+[editable path="sk_player_character"]

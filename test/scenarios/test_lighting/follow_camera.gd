@@ -2,12 +2,12 @@ extends Camera3D
 
 @export var target: Node3D
 @export var lerp_speed: float = 5.0
-@export var shake_intensity_multiplier: float = 1.0  # Intensity of the shake
-@export var shake_frequency: float = 10.0  # Frequency of the shake
+@export var shake_intensity_multiplier: float = 1.0
+@export var shake_frequency: float = 10.0
 
-@export var zoom_speed: float = 2.0  # Speed of zooming
-@export var min_zoom: float = 5.0  # Minimum zoom distance
-@export var max_zoom: float = 20.0  # Maximum zoom distance
+@export var zoom_speed: float = 2.0
+@export var min_zoom: float = 5.0
+@export var max_zoom: float = 20.0
 
 var shake_intensity: float:
 	set(val):
@@ -21,7 +21,7 @@ var shake_timer: float = 0.0
 var shake_duration: float = 0.5
 var shake_offset: Vector3 = Vector3.ZERO
 
-var zoom_distance: float = 10.0  # Current zoom distance
+var zoom_distance: float = 10.0
 
 
 func _ready() -> void:
@@ -66,7 +66,6 @@ func get_look_rotation() -> float:
 
 func shake_camera(intensity: float) -> void:
 	shake_timer = shake_duration
-	# Remap intensity between 0.5 and 1
 	shake_intensity = lerp(0.5, 1.0, intensity)
 
 
