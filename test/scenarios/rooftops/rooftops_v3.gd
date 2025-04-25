@@ -11,9 +11,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
-		$DayCycle.is_raining = !$DayCycle.is_raining
-		$Rain.visible = $DayCycle.is_raining
-		$Rain/CanvasLayer.visible = $DayCycle.is_raining
+		$Environment.is_raining = !$Environment.is_raining
+		#$Environment.is_paused = !$Environment.is_paused
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		if can_build:
 			build_structure()

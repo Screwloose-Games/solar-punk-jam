@@ -24,6 +24,8 @@ SceneTransitionManager="*res://globals/scene_transition_manager.gd"
 GameSettings="*res://globals/game_settings.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
+EnvironmentManager="*res://globals/environment_manager.gd"
+StructureManager="*res://globals/structure_manager.gd"
 
 [dialogic]
 
@@ -123,6 +125,10 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_4="Interact"
 
 [physics]
 

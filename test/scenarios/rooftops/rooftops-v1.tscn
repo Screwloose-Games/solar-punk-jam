@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://ss1m4crig1pn" path="res://test/scenarios/rooftops/day_cycle.gd" id="1_2yxsj"]
 [ext_resource type="Script" uid="uid://ckhh1fuas7ywt" path="res://test/scenarios/rooftops/rooftops_v1.gd" id="1_4ctqt"]
 [ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="1_ksfsk"]
-[ext_resource type="Texture2D" uid="uid://b31gcivy0883v" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="2_o10yd"]
-[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://test/scenarios/rooftops/weather/realish_rain_particle_process_material.tres" id="4_5u3ww"]
-[ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://test/scenarios/rooftops/weather/personal_realish_rain_particle_process_material.tres" id="5_v0o6g"]
-[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://test/scenarios/rooftops/weather/rooftops-rain-v1.gdshader" id="6_fa3df"]
+[ext_resource type="Texture2D" uid="uid://crdvjymseuiva" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="2_o10yd"]
+[ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="4_5u3ww"]
+[ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="5_v0o6g"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="6_fa3df"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
 shader = ExtResource("6_fa3df")

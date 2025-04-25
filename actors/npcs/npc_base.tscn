@@ -1,4 +1,38 @@
-[gd_scene format=3 uid="uid://dbiodotokwvrn"]
+[gd_scene load_steps=5 format=3 uid="uid://dbiodotokwvrn"]
 
-[node name="NpcBase" type="Node3D"]
+[ext_resource type="Script" uid="uid://yaprxi85wqkn" path="res://components/interactable_component.gd" id="1_j4vwu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w76s5"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w76s5"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3w63i"]
+height = 1.5
+
+[node name="NpcBase" type="CharacterBody3D"]
 editor_description = "This is the base scene for other NPCs. By using this scene, we can add or remove node-based functionality from all npcs at once."
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65762, 0)
+billboard = 1
+text = "Name"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("CapsuleMesh_w76s5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_w76s5")
+
+[node name="InteractableArea3D" type="Area3D" parent="."]
+script = ExtResource("1_j4vwu")
+metadata/_custom_type_script = "uid://yaprxi85wqkn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_3w63i")
