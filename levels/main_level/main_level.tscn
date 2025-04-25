@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgbbmh1ghsygk"]
+[gd_scene load_steps=8 format=3 uid="uid://dgbbmh1ghsygk"]
 
-[ext_resource type="PackedScene" uid="uid://bm3g16t0xed3c" path="res://components/structure_build_system.tscn" id="1_um8ys"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="4_um8ys"]
 [ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="5_3i7v1"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="5_ki8py"]

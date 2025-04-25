@@ -17,7 +17,6 @@ func debounce():
 
 func _ready():
 	area_entered.connect(_on_area_entered)
-	area_exited.connect(_on_area_exited)
 
 
 func teleport(player: Player):
