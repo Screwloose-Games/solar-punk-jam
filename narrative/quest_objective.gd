@@ -6,6 +6,7 @@ class_name QuestObjective
 @export var count : int = 0
 @export var prerequisites : Array[int] = []
 var progress : int = 0 : set = set_progress
+var is_unlocked : bool = false
 var is_active : bool = false
 var is_completed : bool = false
 

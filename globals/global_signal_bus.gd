@@ -13,3 +13,6 @@ signal level_reset
 signal set_ending_visibility(show_panel: bool)
 
 signal stick_collected
+signal limestone_collected
+signal sandstone_collected
+signal shale_collected

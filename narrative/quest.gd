@@ -20,6 +20,7 @@ func start_quest():
 			objectives[i].linked_event,
 			_on_objective_signal.bind(objectives[i].linked_event))
 		if objectives[i].prerequisites.is_empty():
+			objectives[i].is_unlocked = true
 			objectives[i].is_active = true
 
 
@@ -28,11 +29,14 @@ func start_quest():
 # This is done to avoid objective completion edge cases
 func update_status():
 	for objective in objectives:
+		var complete_check = true
 		if !objective.is_completed and !objective.is_active:
-			objective.is_active = true
 			for i in objective.prerequisites:
 				if !objectives[i].is_completed:
-					objective.is_active = false
+					complete_check = false
+		if complete_check:
+			objective.is_active = true
+			objective.is_unlocked = true
 	quest_state_changed.emit()
 
 
@@ -51,9 +55,12 @@ func _on_objective_signal(signal_name : String):
 
 # If an objective is completed, check if the overall quest is completed too
 func _on_objective_completed():
+	var complete_check = true
 	for objective in objectives:
-		is_complete = objective.is_completed
-	if is_complete:
+		if !objective.is_completed:
+			complete_check = false
+	if complete_check:
+		is_complete = true
 		quest_completed.emit()
 	else:
 		quest_state_changed.emit()

@@ -12,22 +12,37 @@ extends Control
 func _ready() -> void:
 	QuestManager.quests_changed.connect(_update_quests)
 	QuestManager.start_quest("qst_sticks")
+	QuestManager.start_quest("qst_stones")
 	Dialogic.signal_event.connect(_cam_change)
 	for button in actions.keys():
 		button.pressed.connect(_on_click.bind(actions[button]))
 
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if !event.pressed:
+			match event.keycode:
+				KEY_1:
+					GlobalSignalBus.stick_collected.emit()
+				KEY_2:
+					GlobalSignalBus.limestone_collected.emit()
+				KEY_3:
+					GlobalSignalBus.sandstone_collected.emit()
+				KEY_4:
+					GlobalSignalBus.shale_collected.emit()
+
+
 func _update_quests():
-	var body_text = "ACTIVE:\n"
-	for quest in QuestManager.active_quests:
-		body_text += "%s\n" % quest.name
+	var active_text = "ACTIVE:\n"
+	var complete_text = "COMPLETE:\n"
+	for quest in QuestManager.quests:
+		active_text += "%s\n" % quest.name
 		for objective in quest.objectives:
 			if objective.is_active:
-				body_text += "- %s: %d / %d\n" % [objective.description, objective.progress, objective.count]
-	body_text += "COMPLETE:\n"
+				active_text += "- %s: %d / %d\n" % [objective.description, objective.progress, objective.count]
 	for quest in QuestManager.completed_quests:
-		body_text += "%s\n" % quest
-	$QuestInfo/Body.text = body_text
+		complete_text += "%s\n" % quest.name
+	$QuestInfo/Body.text = active_text + complete_text
 
 
 func _cam_change(mode : String):

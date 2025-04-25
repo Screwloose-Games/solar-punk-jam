@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc1eebnpxere"]
+
+[ext_resource type="Script" uid="uid://bme1s1qtei1md" path="res://common/ui/components/quest/objective_container.gd" id="1_5h13e"]
+
+[node name="ObjectiveContainer" type="HBoxContainer"]
+script = ExtResource("1_5h13e")
+
+[node name="Complete" type="CheckBox" parent="."]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+bbcode_enabled = true
+text = "Clean up [color=yellow]trash[/color] on the roof. ( 1 / 5 )"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
