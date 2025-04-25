@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var surface = $"../CanvasLayer/Node2D/TileMap" as TileMap
+var surface = null
 
 var walkable = []
 func update_walkable_coords():
@@ -24,6 +24,7 @@ func get_random_walkable_coord() -> Vector2i:
 var npcs = []
 var npc_positions = {}
 func _ready() -> void:
+	return
 	update_walkable_coords()
 	for i in get_children():
 		if i is CapybaraCharacter:
