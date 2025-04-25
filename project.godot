@@ -146,6 +146,10 @@ dialogic_default_action={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_4="Interact"
+
 [physics]
 
 common/physics_interpolation=true
