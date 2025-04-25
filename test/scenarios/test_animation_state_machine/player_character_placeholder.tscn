@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://y37b3nsw8eia"]
 
-[ext_resource type="Script" uid="uid://c70q8jo5lswc8" path="res://test/scenarios/test_animation_state_machine/character_body_3d.gd" id="1_oa4x2"]
+[ext_resource type="Script" path="res://test/scenarios/test_animation_state_machine/character_body_3d.gd" id="1_oa4x2"]
 [ext_resource type="PackedScene" uid="uid://cn7d4x825s37a" path="res://test/scenarios/test_animation_state_machine/player_placeholder/placeholder_character.tscn" id="2_26al6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lu3co"]

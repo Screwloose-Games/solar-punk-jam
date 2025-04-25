@@ -3,6 +3,16 @@ class_name HUDCanvasLayer
 
 signal BuildableStructureSelected(idx: int)
 
+func _ready() -> void:
+	EnvironmentManager.connect("day_cycle_update", self.update_time_hud)
+	
+func update_time_hud(_offset):
+	var time := EnvironmentManager.environment_model.get_in_game_time()
+	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer/Day.text = str(time.day)
+	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/Time.text = str(time.hour) + ":" + str(time.minute)
+	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/AmPm.text = "PM" if time.is_pm else "AM"
+	
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ToggleUi"):
 		visible = !visible

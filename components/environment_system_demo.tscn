@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfai443tx2qb0"]
+[gd_scene load_steps=5 format=3 uid="uid://dfai443tx2qb0"]
 
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="1_sq22j"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="2_u5ar7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sq22j"]
 size = Vector2(32, 32)
@@ -11,7 +12,6 @@ size = Vector2(32, 32)
 
 [node name="Environment" parent="." instance=ExtResource("1_sq22j")]
 day_length_in_seconds = 30.0
-is_raining = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
@@ -23,3 +23,5 @@ skeleton = NodePath("")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_u5ar7")
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("2_u5ar7")]

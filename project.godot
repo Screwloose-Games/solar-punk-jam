@@ -24,6 +24,7 @@ SceneTransitionManager="*res://globals/scene_transition_manager.gd"
 GameSettings="*res://globals/game_settings.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
+EnvironmentManager="*res://globals/environment_manager.gd"
 
 [dialogic]
 

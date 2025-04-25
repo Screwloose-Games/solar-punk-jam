@@ -206,6 +206,10 @@ layout_mode = 2
 layout_mode = 2
 text = "March"
 
+[node name="Day" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+layout_mode = 2
+text = "1"
+
 [node name="Year" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
 layout_mode = 2
 text = "2045"

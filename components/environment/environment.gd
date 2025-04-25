@@ -1,12 +1,6 @@
 extends Node3D
 class_name CapybaraEnvironment
 
-class CapybaraEnvironmentModel:
-	# this will later move to an autoload and will be the glue between the HUD and the rest of the game
-	var time: float
-	func _init() -> void:
-		pass
-
 @export var current_time_in_game_hours = 12.0
 @export var day_length_in_game_hours = 12.0
 @export var day_start_in_game_hours = 8.0
@@ -29,19 +23,17 @@ class CapybaraEnvironmentModel:
 		$Rain.visible = value
 		$Rain/CanvasLayer.visible = value
 		
-signal day_cycle_start()
-signal day_cycle_end()
-		
 var day_offset: float
 func _ready() -> void:
+	# Exporting variables in a node is easier than dealing with resources, this overwrites the model with what is exported here
+	EnvironmentManager.environment_model.update(current_time_in_game_hours, day_length_in_game_hours, day_start_in_game_hours, day_length_in_seconds, night_length_in_seconds, is_paused)
 	day_offset = (current_time_in_game_hours - day_start_in_game_hours) / day_start_in_game_hours
-	set_day_time(day_offset)
 	if not is_paused:
 		animate_day(day_offset)
 
 var animation_tween: Tween
 func animate_day(start_at=0.0):
-	day_cycle_start.emit()
+	EnvironmentManager.day_cycle_start.emit()
 	$DirectionalLight3DSun.light_energy = 0.0
 	$DirectionalLight3DMoon.light_energy = 0.0
 	$WorldEnvironment.environment.fog_light_energy = 0.0
@@ -52,7 +44,7 @@ func animate_day(start_at=0.0):
 	animation_tween.tween_callback(animate_night)
 
 func animate_night(start_at=0.0):
-	day_cycle_end.emit()
+	EnvironmentManager.day_cycle_end.emit()
 	$DirectionalLight3DSun.light_energy = 0.0
 	$DirectionalLight3DMoon.light_energy = 1.0
 	$WorldEnvironment.environment.fog_light_energy = 0.0
@@ -64,8 +56,9 @@ func animate_night(start_at=0.0):
 
 
 func set_day_time(time: float):
-	$DirectionalLight3DSun.rotation.y = lerp_angle(PI*.5, -PI*.5, time+1)
-	$DirectionalLight3DMoon.rotation.y = lerp_angle(PI*.5, -PI*.5, time+1)
+	EnvironmentManager.day_cycle_update.emit(time)
+	$DirectionalLight3DSun.rotation.y = lerp_angle(-PI*.5, PI*.5, time+1)
+	$DirectionalLight3DMoon.rotation.y = lerp_angle(-PI*.5, PI*.5, time+1)
 	$DirectionalLight3DSun.light_energy = sun_energy_curve.sample(time)
 	$DirectionalLight3DMoon.light_energy = 1.0 - $DirectionalLight3DSun.light_energy
 	$DirectionalLight3DSun.light_color = twilight_color_gradient.sample(time)
@@ -73,11 +66,12 @@ func set_day_time(time: float):
 		$DirectionalLight3DSun.light_energy *= 0.33
 		$WorldEnvironment.environment.background_energy_multiplier = 0.5
 	else:
-		$WorldEnvironment.environment.background_energy_multiplier = 0.5 + $DirectionalLight3DSun.light_energy * 0.5
+		$WorldEnvironment.environment.background_energy_multiplier = max(0.5 + $DirectionalLight3DSun.light_energy * 0.5, $DirectionalLight3DMoon.light_energy)
 	$WorldEnvironment.environment.fog_light_energy = $DirectionalLight3DSun.light_energy
 	
 func set_night_time(time: float):
-	$DirectionalLight3DMoon.rotation.y = lerp_angle(PI*.5, -PI*.5, time)
+	EnvironmentManager.day_cycle_update.emit(time)
+	$DirectionalLight3DMoon.rotation.y = lerp_angle(-PI*.5, PI*.5, time)
 	if is_raining:
 		$WorldEnvironment.environment.background_energy_multiplier = 0.5
 	else:
