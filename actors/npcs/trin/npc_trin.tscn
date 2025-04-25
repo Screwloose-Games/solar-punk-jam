@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_g6pen"]
 
-[node name="NpcBase" instance=ExtResource("1_g6pen")]
+[node name="Trin" instance=ExtResource("1_g6pen")]
 
 [node name="Label3D" parent="." index="0"]
 text = "Trin"

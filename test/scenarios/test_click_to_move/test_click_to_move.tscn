@@ -1,15 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c36ovs38a31mg"]
+[gd_scene load_steps=4 format=3 uid="uid://c36ovs38a31mg"]
 
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_nvy3b"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_ogtyg"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="3_4ea8l"]
-[ext_resource type="Script" uid="uid://cfstr1tfvhcue" path="res://test/scenarios/test_click_to_move/camera_zoom.gd" id="3_nvy3b"]
-
-[sub_resource type="Resource" id="Resource_snk4p"]
-script = ExtResource("2_ogtyg")
-duration = 1.0
-transition = 0
-ease = 2
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="5_nvy3b"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ekncv"]
 vertices = PackedVector3Array(-14.8792, 0.02, -18.8296, -14.8792, 0.02, 7.92042, 15.1208, 0.02, 7.92042, 15.1208, 0.02, -18.8296)
@@ -17,18 +9,6 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 cell_height = 0.01
 
 [node name="TestClickToMove" type="Node3D"]
-
-[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.931672, 0.3633, 0, -0.3633, 0.931672, 0, 2.3633, 2.93167)
-script = ExtResource("1_nvy3b")
-follow_mode = 6
-follow_target = NodePath("../Player")
-tween_resource = SubResource("Resource_snk4p")
-follow_offset = Vector3(0, 2, 2)
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="CameraZoom" type="Node" parent="PhantomCamera3D"]
-script = ExtResource("3_nvy3b")
 
 [node name="Player" parent="." instance=ExtResource("3_4ea8l")]
 
@@ -42,3 +22,5 @@ navigation_mesh = SubResource("NavigationMesh_ekncv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111139, -0.5, -5.50245)
 use_collision = true
 size = Vector3(30.9806, 1, 27.6543)
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("5_nvy3b")]

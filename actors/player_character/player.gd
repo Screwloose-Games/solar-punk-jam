@@ -56,7 +56,9 @@ func _physics_process(delta: float) -> void:
 		#velocity.y = JUMP_VELOCITY
 	if velocity.x or velocity.z:
 		state = SelfState.WALK
-		model.look_at(model.global_position - velocity, Vector3.UP)
+		var target = model.global_position - velocity
+		if target != self.position:
+			model.look_at(model.global_position - velocity, Vector3.UP)
 	else:
 		state = SelfState.IDLE
 	move_and_slide()
