@@ -36,12 +36,13 @@ func _update_quests():
 	var active_text = "ACTIVE:\n"
 	var complete_text = "COMPLETE:\n"
 	for quest in QuestManager.quests:
-		active_text += "%s\n" % quest.name
-		for objective in quest.objectives:
-			if objective.is_active:
-				active_text += "- %s: %d / %d\n" % [objective.description, objective.progress, objective.count]
-	for quest in QuestManager.completed_quests:
-		complete_text += "%s\n" % quest.name
+		if quest.is_complete:
+			complete_text += "%s\n" % quest.name
+		else:
+			active_text += "%s\n" % quest.name
+			for objective in quest.objectives:
+				if objective.is_active:
+					active_text += "- %s: %d / %d\n" % [objective.description, objective.progress, objective.count]
 	$QuestInfo/Body.text = active_text + complete_text
 
 
