@@ -148,7 +148,11 @@ dialogic_default_action={
 
 [layer_names]
 
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Ground"
+3d_physics/layer_3="Structure"
 3d_physics/layer_4="Interact"
+3d_physics/layer_9="Teleportable"
 
 [physics]
 

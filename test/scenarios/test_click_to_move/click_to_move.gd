@@ -7,7 +7,13 @@ extends Node3D
 
 var actor: CharacterBody3D
 
+@onready var click_marker: MeshInstance3D = MeshInstance3D.new()
+
 func _ready() -> void:
+	#get_parent().
+	add_child(click_marker)
+	click_marker.top_level = true
+	click_marker.mesh = SphereMesh.new()
 	actor = owner
 
 #func _physics_process(delta: float) -> void:
@@ -43,8 +49,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		var ray_query = PhysicsRayQueryParameters3D.new()
 		ray_query.from = from
 		ray_query.to = to
+		ray_query.collision_mask
 		#ray_query.collide_with_areas = true
 		var result = space.intersect_ray(ray_query)
 		if result:
 			navigation_agent_3d.target_position = result.position
+			click_marker.global_position = result.position
 			print(result)
