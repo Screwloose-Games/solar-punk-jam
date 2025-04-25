@@ -7,19 +7,20 @@
 [ext_resource type="Material" uid="uid://dhce5lwxa5net" path="res://materials/BlockoutTallStructure.tres" id="5_pdt6n"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
-size = Vector2(15, 15)
+size = Vector2(15, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xpweh"]
 
 [node name="DesignTestScene" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0586945, 0, 0.453713)
-mesh = SubResource("PlaneMesh_qst22")
-
 [node name="StandardBuilding" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47244, 0)
 size = Vector3(10, 7, 10)
+
+[node name="Ground" type="MeshInstance3D" parent="StandardBuilding"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217263, -3.47244, 0.453713)
+mesh = SubResource("PlaneMesh_qst22")
+skeleton = NodePath("../..")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StandardBuilding"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00449586, 3.05904, 0)
@@ -40,6 +41,62 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577974, -0.049861, -0.0121
 operation = 2
 size = Vector3(0.4, 2, 1.2)
 
+[node name="StandardBuilding2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127954, 5.38435, -16.89)
+size = Vector3(10, 11, 10)
+
+[node name="Ground" type="MeshInstance3D" parent="StandardBuilding2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217263, -5.3363, 0.453712)
+mesh = SubResource("PlaneMesh_qst22")
+skeleton = NodePath("../..")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StandardBuilding2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00449586, 5.08853, 0)
+operation = 2
+size = Vector3(9, 1, 9)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StandardBuilding2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95832, -4.30119, -0.0441818)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="StandardBuilding2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77558, 5.60324, -3.68689)
+size = Vector3(1.4, 2.2, 1.6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StandardBuilding2/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577974, -0.049861, -0.0121517)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
+[node name="StandardBuilding3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127954, 5.38435, -29.5362)
+size = Vector3(10, 11, 6)
+
+[node name="Ground" type="MeshInstance3D" parent="StandardBuilding3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217263, -5.3363, 0.453712)
+mesh = SubResource("PlaneMesh_qst22")
+skeleton = NodePath("../..")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StandardBuilding3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95349, -4.28617, -0.0418243)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
+[node name="StandardBuilding4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8027, 2.01978, -41.4612)
+size = Vector3(6, 4, 6)
+
+[node name="Ground" type="MeshInstance3D" parent="StandardBuilding4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58571, -2.03943, 0.453712)
+mesh = SubResource("PlaneMesh_qst22")
+skeleton = NodePath("../..")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="StandardBuilding4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83201, -0.950663, -0.0418243)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
 [node name="NPCScale" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.36203, 1.03422, 1)
 material_override = ExtResource("1_445qc")
@@ -52,72 +109,346 @@ material_override = ExtResource("2_8mb6m")
 radius = 0.45
 height = 1.37
 
-[node name="GridSpace" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, -2.962)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, -0.874974)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 1.19096)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 3.2547)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, -2.962)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, -0.874974)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace7" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 1.19096)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace8" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 3.2547)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace9" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, -2.962)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace10" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, -0.874974)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace11" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 1.19096)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
-[node name="GridSpace12" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 3.2547)
-material_override = ExtResource("3_a713l")
-mesh = SubResource("PlaneMesh_xpweh")
-
 [node name="RaisedBedScale" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21278, 6.2767, -2.962)
 material_override = ExtResource("4_bh4ws")
 size = Vector3(1.8, 0.4, 1.8)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="TallStructure" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00322, 7.33808, 3.20784)
 material_override = ExtResource("5_pdt6n")
 size = Vector3(1.5, 2.5, 1.5)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="GridSpace" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, -2.962)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace2" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace3" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace4" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace5" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, -2.962)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace6" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace7" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace8" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace10" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace11" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace12" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace13" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, -0.874974)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace14" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 1.19096)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace15" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 3.2547)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="Node3" type="Node" parent="."]
+
+[node name="GridSpace" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 13.4075)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace2" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 15.4945)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace3" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 17.5605)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace4" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31369, 6.08551, 19.6242)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace5" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 13.4075)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace6" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 15.4945)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace7" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 17.5605)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace8" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17438, 6.08551, 19.6242)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace10" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 15.4945)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace11" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 17.5605)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace12" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 19.6242)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace13" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 15.4945)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace14" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 17.5605)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace15" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 19.6242)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace16" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 21.7315)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace17" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 6.08551, 23.7975)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace19" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 21.7315)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace20" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 6.08551, 23.7975)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace22" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 21.7315)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace23" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 6.08551, 23.7975)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace24" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 21.7315)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace25" type="MeshInstance3D" parent="Node3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21322, 6.08551, 23.7975)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="GridSpace" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 9.99677, -20.0734)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace2" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 9.99677, -17.9864)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace3" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 9.99677, -15.9204)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace4" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29086, 9.99677, -13.8567)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace5" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 9.99677, -20.0734)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace6" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 9.99677, -17.9864)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace7" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 9.99677, -15.9204)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace8" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15155, 9.99677, -13.8567)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace10" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 9.99677, -17.9864)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace11" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 9.99677, -15.9204)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace12" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02022, 9.99677, -13.8567)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace13" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19647, 9.99677, -17.9864)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace14" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19647, 9.99677, -15.9204)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="GridSpace15" type="MeshInstance3D" parent="Node2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19647, 9.99677, -13.8567)
+material_override = ExtResource("3_a713l")
+mesh = SubResource("PlaneMesh_xpweh")
+skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[node name="PlayerHouse" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4568, 18.3809)
+size = Vector3(10, 7, 13.6183)
+
+[node name="Ground2" type="MeshInstance3D" parent="PlayerHouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.217263, -3.44374, 0.381639)
+mesh = SubResource("PlaneMesh_qst22")
+skeleton = NodePath("../..")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="PlayerHouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95832, -2.41742, 0.120338)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="PlayerHouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0183313, 3.07468, 0.127619)
+operation = 2
+size = Vector3(9, 1, 12.8344)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="PlayerHouse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77558, 3.62159, -5.359)
+size = Vector3(1.4, 2.2, 1.6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PlayerHouse/CSGBox3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577974, -0.049861, -0.0121517)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
