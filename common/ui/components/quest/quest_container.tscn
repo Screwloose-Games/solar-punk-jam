@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6lrri3ydj0re"]
+
+[ext_resource type="Script" uid="uid://clqywo7n4qbdv" path="res://common/ui/components/quest/quest_container.gd" id="1_avqpu"]
+
+[node name="QuestContainer" type="VBoxContainer"]
+script = ExtResource("1_avqpu")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"QuestTitle"
+text = "Help around Here"
+
+[node name="Separator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_type_variation = &"QuestDescription"
+bbcode_enabled = true
+text = "Help [b]Trin[/b] clean up the community."
+fit_content = true
+
+[node name="Objectives" type="VBoxContainer" parent="."]
+layout_mode = 2
