@@ -3,14 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dfai443tx2qb0" path="res://components/environment_system_demo.tscn" id="1_438kw"]
 [ext_resource type="PackedScene" uid="uid://bm3g16t0xed3c" path="res://components/structure_build_system.tscn" id="1_um8ys"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="5_ki8py"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="5_sj11d"]
 [ext_resource type="PackedScene" uid="uid://b8b6q7g4bsaw5" path="res://common/ui/pause_menu/pause_menu.tscn" id="6_dk47i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2fg0"]
-albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_68ya3"]
-material = SubResource("StandardMaterial3D_b2fg0")
-size = Vector2(100, 100)
+[sub_resource type="NavigationMesh" id="NavigationMesh_sj11d"]
+vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.1
 
 [node name="MainLevel" type="Node3D"]
 
@@ -18,16 +17,17 @@ size = Vector2(100, 100)
 
 [node name="EnvironmentSystem" parent="." instance=ExtResource("1_438kw")]
 
-[node name="Terrain" type="Node3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_sj11d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
-mesh = SubResource("PlaneMesh_68ya3")
+[node name="Terrain" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
 
 [node name="Structures" type="Node3D" parent="."]
-
-[node name="Player" type="CharacterBody3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
 
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("5_ki8py")]
 layer = 5
@@ -37,3 +37,5 @@ layer = 10
 
 [node name="BuildTool" type="Node3D" parent="."]
 editor_description = "Previews currently active build selection."
+
+[node name="Player" parent="." instance=ExtResource("5_sj11d")]

@@ -44,6 +44,6 @@ func _on_area_exited(area: Area3D):
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("Interact"):
 		if selected:
 			selected.interact(player)

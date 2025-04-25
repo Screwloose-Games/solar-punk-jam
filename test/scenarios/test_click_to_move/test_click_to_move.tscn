@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_nvy3b"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_ogtyg"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="3_4ea8l"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_40vpa"]
+[ext_resource type="Script" uid="uid://cfstr1tfvhcue" path="res://test/scenarios/test_click_to_move/camera_zoom.gd" id="3_nvy3b"]
 
 [sub_resource type="Resource" id="Resource_snk4p"]
 script = ExtResource("2_ogtyg")
@@ -18,25 +18,19 @@ cell_height = 0.01
 
 [node name="TestClickToMove" type="Node3D"]
 
-[node name="PhantomCamera3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.931672, 0.3633, 0, -0.3633, 0.931672, 0, 3, 3)
-top_level = true
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.931672, 0.3633, 0, -0.3633, 0.931672, 0, 2.3633, 2.93167)
 script = ExtResource("1_nvy3b")
-follow_mode = 2
+follow_mode = 6
+follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_snk4p")
-follow_offset = Vector3(0, 3, 3)
+follow_offset = Vector3(0, 2, 2)
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
+[node name="CameraZoom" type="Node" parent="PhantomCamera3D"]
+script = ExtResource("3_nvy3b")
+
 [node name="Player" parent="." instance=ExtResource("3_4ea8l")]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.931672, 0.3633, 0, -0.3633, 0.931672, 0, 3, 3)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("5_40vpa")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
