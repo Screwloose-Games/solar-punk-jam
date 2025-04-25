@@ -27,28 +27,8 @@ QuestManager="*res://globals/quest_manager.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"DogBot": "res://narrative/characters/DogBot.dch",
-"Kelly": "res://narrative/characters/Kelly.dch",
-"Mister": "res://narrative/characters/Mister.dch",
-"Mom": "res://narrative/characters/Mom.dch",
-"Te": "res://narrative/characters/Te.dch",
-"Trin": "res://narrative/characters/Trin.dch",
-"fischer": "res://narrative/characters/fischer.dch",
-"main_char": "res://narrative/characters/main_char.dch",
-"marge": "res://narrative/characters/marge.dch",
-"sunny": "res://narrative/characters/sunny.dch",
-"wendy": "res://narrative/characters/wendy.dch"
-}
-directories/dtl_directory={
-"cam_test": "res://narrative/timelines/cam_test.dtl",
-"fischer_talk": "res://narrative/timelines/fischer_talk.dtl",
-"intro": "res://narrative/timelines/intro.dtl",
-"marge_talk": "res://narrative/timelines/marge_talk.dtl",
-"sunny_talk": "res://narrative/timelines/sunny_talk.dtl",
-"tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl",
-"wendy_talk": "res://narrative/timelines/wendy_talk.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 variables={
 "has_met_fischer": false,
 "has_met_marge": false,
