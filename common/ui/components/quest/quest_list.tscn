@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbfwnrfa7yds4"]
+
+[ext_resource type="Script" uid="uid://c7u84xhf4gptt" path="res://common/ui/components/quest/quest_list.gd" id="1_81fws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ngon"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="QuestList" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ngon")
+script = ExtResource("1_81fws")
+
+[node name="List" type="VBoxContainer" parent="."]
+layout_mode = 2

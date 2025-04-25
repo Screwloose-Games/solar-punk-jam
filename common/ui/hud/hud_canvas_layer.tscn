@@ -5,17 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://0dniwiqprj6j" path="res://assets/2d/ui/environment-health_icon-placeholder.png" id="3_6torc"]
 [ext_resource type="Theme" uid="uid://cr00fee06cge6" path="res://test/scenarios/test_community_metrics_ui/quest_ui_theme.tres" id="4_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://c82rv8465rx4a" path="res://assets/2d/ui/weather-sunny_icon-placeholder.png" id="5_5quvr"]
+[ext_resource type="PackedScene" uid="uid://dbfwnrfa7yds4" path="res://common/ui/components/quest/quest_list.tscn" id="5_ajdrq"]
 [ext_resource type="Texture2D" uid="uid://ymr1rjs8qkmr" path="res://assets/2d/ui/seed_icon-placeholder.png" id="6_owaxp"]
 [ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
 [ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://test/scenarios/test_community_metrics_ui/toolbar_theme.tres" id="8_bgxx2"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ngon"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 
 [sub_resource type="Theme" id="Theme_6igmu"]
 
@@ -175,11 +169,7 @@ layout_mode = 2
 theme_type_variation = &"QuestProgressText"
 text = "5"
 
-[node name="Quests" type="PanelContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2ngon")
-
-[node name="List" type="VBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/Quests"]
+[node name="QuestList" parent="HUD/TopLeftMarginContainer/VBoxContainer" instance=ExtResource("5_ajdrq")]
 layout_mode = 2
 
 [node name="TopRightMarginContainer" type="MarginContainer" parent="HUD"]
