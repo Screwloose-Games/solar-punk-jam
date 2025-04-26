@@ -12,7 +12,7 @@ func update_quests():
 	for i in QuestManager.quests.size():
 		if i >= current_quests.size():
 			var new_cont = QUEST_CONTAINER_RES.instantiate()
-			$List.add_child(new_cont)
+			$Content/Body.add_child(new_cont)
 			new_cont.quest = QuestManager.quests[i]
 		elif current_quests[i].quest == QuestManager.quests[i]:
 			current_quests[i].update()
