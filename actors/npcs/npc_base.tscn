@@ -83,3 +83,5 @@ unique_name_in_owner = true
 script = ExtResource("4_m1ota")
 
 [node name="Move" type="Node3D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]

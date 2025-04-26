@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="5_3i7v1"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="5_ki8py"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="5_sj11d"]
-[ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="6_3i7v1"]
 [ext_resource type="PackedScene" uid="uid://dmdo33trqjosk" path="res://assets/3d/buildings/building_01/prefab_building_01.tscn" id="7_hp128"]
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="7_qywe3"]
 [ext_resource type="PackedScene" uid="uid://qlmqv5iy0waw" path="res://test/scenarios/test_lighting/sm_standard_home_scale_building.tscn" id="7_t80xa"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_sj11d"]
@@ -43,11 +43,11 @@ layer = 5
 
 [node name="Building00" parent="Bulidings" instance=ExtResource("5_3i7v1")]
 
-[node name="Trin" parent="." instance=ExtResource("6_3i7v1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07031, 0, 0)
-
 [node name="PrefabBuilding01" parent="." instance=ExtResource("7_hp128")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6241, 0, -11.1132)
 
 [node name="DesignTestScene" parent="." instance=ExtResource("7_t80xa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 6)
+
+[node name="NpcMister" parent="." instance=ExtResource("7_qywe3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 0.616856)
