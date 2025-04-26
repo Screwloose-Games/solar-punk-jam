@@ -26,6 +26,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.gd"
+GameState="*res://globals/game_state.gd"
 
 [dialogic]
 
@@ -35,22 +36,17 @@ directories/dch_directory={
 "Mister": "res://narrative/characters/Mister.dch",
 "Mom": "res://narrative/characters/Mom.dch",
 "Te": "res://narrative/characters/Te.dch",
-"Trin": "res://narrative/characters/Trin.dch",
-"fischer": "res://narrative/characters/fischer.dch",
-"main_char": "res://narrative/characters/main_char.dch",
-"marge": "res://narrative/characters/marge.dch",
-"sunny": "res://narrative/characters/sunny.dch",
-"wendy": "res://narrative/characters/wendy.dch"
+"Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
 "cam_test": "res://narrative/timelines/cam_test.dtl",
-"fischer_talk": "res://narrative/timelines/fischer_talk.dtl",
 "intro": "res://narrative/timelines/intro.dtl",
 "intro_dialogue_timeline": "res://narrative/timelines/intro_dialogue_timeline.dtl",
-"marge_talk": "res://narrative/timelines/marge_talk.dtl",
-"sunny_talk": "res://narrative/timelines/sunny_talk.dtl",
-"tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl",
-"wendy_talk": "res://narrative/timelines/wendy_talk.dtl"
+"mister_intro": "res://narrative/timelines/mister_intro.dtl",
+"mister_talk": "res://narrative/timelines/mister_talk.dtl",
+"te_think": "res://narrative/timelines/te_think.dtl",
+"trin_intro": "res://narrative/timelines/trin_intro.dtl",
+"tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }
 variables={
 "has_met_fischer": false,
