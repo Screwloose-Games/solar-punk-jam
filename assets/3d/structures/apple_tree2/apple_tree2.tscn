@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxkwy3ahqyx1d"]
+
+[ext_resource type="PackedScene" uid="uid://u0yo2p3mh5hk" path="res://assets/3d/structures/apple_tree/sm_apple_tree.tscn" id="1_eaa1c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7gtr"]
+albedo_color = Color(0.380392, 0.262745, 0.156863, 1)
+
+[node name="AppleTree" type="Node3D"]
+
+[node name="apple_tree" parent="." instance=ExtResource("1_eaa1c")]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+size = Vector3(2, 0.8, 2)
+material = SubResource("StandardMaterial3D_n7gtr")

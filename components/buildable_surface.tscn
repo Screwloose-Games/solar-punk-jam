@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dyb6nwaiae8ea"]
 
 [ext_resource type="Script" uid="uid://nblr465pgu85" path="res://components/buildable_surface.gd" id="1_5i2rm"]
-[ext_resource type="Texture2D" uid="uid://bwihwfu4o53fe" path="res://test/scenarios/rooftops/icons.png" id="2_q4s4m"]
+[ext_resource type="Texture2D" uid="uid://bwihwfu4o53fe" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5o6"]
 texture = ExtResource("2_q4s4m")

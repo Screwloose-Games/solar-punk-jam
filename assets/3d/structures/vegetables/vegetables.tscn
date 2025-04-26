@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://7ld00o2evwmd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkqly"]
+albedo_color = Color(1, 0.347235, 0.782969, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d6fto"]
+material = SubResource("StandardMaterial3D_jkqly")
+top_radius = 0.25
+bottom_radius = 0.05
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6bb5"]
+albedo_color = Color(0, 0.778534, 0.0277757, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kkg2n"]
+material = SubResource("StandardMaterial3D_a6bb5")
+top_radius = 0.25
+bottom_radius = 0.05
+height = 0.8
+
+[node name="Water tank" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+mesh = SubResource("CylinderMesh_d6fto")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("CylinderMesh_kkg2n")
+skeleton = NodePath("")

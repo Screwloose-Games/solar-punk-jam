@@ -235,7 +235,7 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_3gt2x")
 orientation = 1
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5o6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gt2x"]
 texture = ExtResource("9_3gt2x")
 0:0/0 = 0
 1:0/0 = 0
@@ -282,7 +282,7 @@ texture = ExtResource("9_3gt2x")
 2:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_sl285"]
-sources/0 = SubResource("TileSetAtlasSource_ii5o6")
+sources/0 = SubResource("TileSetAtlasSource_3gt2x")
 
 [node name="Rooftops-v2" type="Node3D"]
 script = ExtResource("1_qgdfq")
@@ -514,7 +514,10 @@ visible = false
 visible = false
 
 [node name="TooltipLabel" parent="HUDCanvasLayer/HUD" index="4"]
-layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 129.0
+offset_bottom = 23.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

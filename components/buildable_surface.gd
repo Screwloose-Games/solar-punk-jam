@@ -19,6 +19,7 @@ var building_idx := -1
 var can_build = false
 var can_walk = false
 
+
 func _ready() -> void:
 	StructureManager.BuildableStructureSelected.connect(ready_structure_building)
 	selection_placeholder.hide()
@@ -75,24 +76,25 @@ func move_cursor_3d():
 			selection_placeholder.hide()
 		if building_rect:
 			structure_placeholder.show()
-			can_build = tilemap_update(coords, building_rect.size.x, building_rect.size.y, true)
+			#can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.BUILDABLE_EMPTY_SPACE, Vector2i.ZERO)
+			can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][8]], Vector2i.ZERO)
 			if can_build:
 				structure_placeholder.get_node("SelectionPlaceholder").mesh.material.albedo_color = Color.CHARTREUSE
+				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color = Color.CHARTREUSE
+				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color.a = 0.33
 			else:
 				structure_placeholder.get_node("SelectionPlaceholder").mesh.material.albedo_color = Color.RED
+				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color = Color.RED
+				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color.a = 0.33
 		else:
 			structure_placeholder.hide()
 
 func check_tile_is_valid(coords: Vector2i) -> bool:
-	match surface_map.get_cell_atlas_coords(0, coords):
-		Vector2i(2,7):
-			# regular rooftop ground
-			return true
-	return false
+	var tile_kind = surface_map.get_cell_atlas_coords(0, coords)
+	return tile_kind in StructureManager.VALID_TILE_TYPES
 
 
 func build_structure():
-
 	var file_name = StructureManager.structure_data[building_idx][6]
 	var directory_name = file_name.rsplit(".", true, 1)[0]
 	var structure2 = load("res://assets/3d/structures/" + directory_name + "/" + file_name)
@@ -101,7 +103,8 @@ func build_structure():
 		structure3.position = structure_placeholder.position + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
 		add_child(structure3)
 	var coords = Vector2i(int(structure_placeholder.position.x), int(structure_placeholder.position.z))
-	tilemap_update(coords, building_rect.size.x, building_rect.size.y, false)
+	#surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.OCCUPIED_SPACE)
+	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][9]])
 
 	# done building
 	StructureManager.StructureBuilt.emit(building_idx)
@@ -111,13 +114,13 @@ func build_structure():
 	structure_placeholder.hide()
 	
 
-func tilemap_update(origin: Vector2i,w:int,h:int,check_only:bool=true) -> bool:
+func surface_check(origin: Vector2i, w:int, h:int, required_kind: Vector2i, update_kind: Vector2i) -> bool:
 	for ix in w:
 		for iy in h:
 			var coords := origin + Vector2i(ix,iy)
-			if check_only:
-				if surface_map.get_cell_atlas_coords(0, coords) != Vector2i(2,7):
+			if required_kind!=Vector2i.ZERO:
+				if surface_map.get_cell_atlas_coords(0, coords) != required_kind:
 					return false
 			else:
-				surface_map.set_cell(0, coords, 0, Vector2i(0,7), 0)
+				surface_map.set_cell(0, coords, 0, update_kind, 0)
 	return true
