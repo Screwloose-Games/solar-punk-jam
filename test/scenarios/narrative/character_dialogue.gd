@@ -1,4 +1,4 @@
-extends Control
+extends Node3D
 
 @onready var actions = {
 	$ActionList/BtnFischer: "fischer_talk",

@@ -1,83 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://dph85lf6shdvl"]
+[gd_scene load_steps=6 format=3 uid="uid://dph85lf6shdvl"]
 
 [ext_resource type="Script" uid="uid://dj8tvr8l8wgbg" path="res://test/scenarios/narrative/character_dialogue.gd" id="1_g3cne"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cl61l"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="2_nybd8"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_nybd8"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_c8fp7"]
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="6_u105d"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="7_yst0o"]
 
-[sub_resource type="Resource" id="Resource_u105d"]
-script = ExtResource("4_c8fp7")
-duration = 1.0
-transition = 0
-ease = 2
+[sub_resource type="NavigationMesh" id="NavigationMesh_uli6a"]
+vertices = PackedVector3Array(-14.8792, 0.02, -18.8296, -14.8792, 0.02, 7.92042, 15.1208, 0.02, 7.92042, 15.1208, 0.02, -18.8296)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.01
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3cne"]
-albedo_color = Color(0.497474, 0.497474, 0.497474, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_clw6m"]
-size = Vector2(20, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uli6a"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_cl61l"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_nybd8"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_c8fp7"]
-top_radius = 0.0
-bottom_radius = 0.1
-height = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u105d"]
-albedo_color = Color(0, 0, 1, 1)
-
-[node name="CharacterDialogue" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CharacterDialogue" type="Node3D"]
 script = ExtResource("1_g3cne")
 
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("2_nybd8")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("2_cl61l")
-metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="PCam1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
-script = ExtResource("3_nybd8")
-look_at_mode = 3
-tween_resource = SubResource("Resource_u105d")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="PCam2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.894427, 0.447214, 0, -0.447214, 0.894427, 0, 4, 8)
-script = ExtResource("3_nybd8")
-look_at_mode = 3
-tween_resource = SubResource("Resource_u105d")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="PCam3" type="Node3D" parent="." node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(0.707107, 0.57735, -0.408248, 0, 0.57735, 0.816497, 0.707107, -0.57735, 0.408248, 0, 4, 2)
-script = ExtResource("3_nybd8")
-look_at_mode = 2
-look_at_target = NodePath("../Scene/Char2")
-tween_resource = SubResource("Resource_u105d")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
 [node name="ActionList" type="VBoxContainer" parent="."]
 visible = false
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -102,7 +41,7 @@ layout_mode = 2
 text = "Dialogue Camera Test"
 
 [node name="QuestInfo" type="VBoxContainer" parent="."]
-layout_mode = 1
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -125,51 +64,20 @@ text = "Quest information"
 layout_mode = 2
 text = "Emit stick_collected"
 
-[node name="Scene" type="Node3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("7_yst0o")]
 
-[node name="Ground" type="MeshInstance3D" parent="Scene"]
-material_override = SubResource("StandardMaterial3D_g3cne")
-mesh = SubResource("PlaneMesh_clw6m")
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_uli6a")
 
-[node name="Char1" type="Node3D" parent="Scene"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111139, -0.5, -5.50245)
+use_collision = true
+size = Vector3(30.9806, 1, 27.6543)
 
-[node name="Body" type="MeshInstance3D" parent="Scene/Char1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_uli6a")
-mesh = SubResource("CylinderMesh_cl61l")
-skeleton = NodePath("../..")
-
-[node name="Head" type="MeshInstance3D" parent="Scene/Char1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-material_override = SubResource("StandardMaterial3D_uli6a")
-mesh = SubResource("SphereMesh_nybd8")
-
-[node name="Nose" type="MeshInstance3D" parent="Scene/Char1"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.75, 2.5, 0)
-material_override = SubResource("StandardMaterial3D_uli6a")
-mesh = SubResource("CylinderMesh_c8fp7")
-
-[node name="Char2" type="Node3D" parent="Scene"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 0)
-
-[node name="Body" type="MeshInstance3D" parent="Scene/Char2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_u105d")
-mesh = SubResource("CylinderMesh_cl61l")
-skeleton = NodePath("../..")
-
-[node name="Head" type="MeshInstance3D" parent="Scene/Char2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-material_override = SubResource("StandardMaterial3D_u105d")
-mesh = SubResource("SphereMesh_nybd8")
-
-[node name="Nose" type="MeshInstance3D" parent="Scene/Char2"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.75, 2.5, 0)
-material_override = SubResource("StandardMaterial3D_u105d")
-mesh = SubResource("CylinderMesh_c8fp7")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 0, 10, 0)
+
+[node name="NpcMister" parent="." instance=ExtResource("6_u105d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18416, 0.00260236, -7.96439)
 
 [connection signal="pressed" from="QuestInfo/Button" to="." method="_on_button_pressed"]
