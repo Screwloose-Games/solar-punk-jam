@@ -32,7 +32,6 @@ script = ExtResource("1_ldjwe")
 day_length_in_seconds = 3.0
 twilight_color_gradient = ExtResource("2_otco7")
 sun_energy_curve = ExtResource("3_4ybr6")
-night_length_in_seconds = 1.0
 
 [node name="DirectionalLight3DSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 32, 0)
