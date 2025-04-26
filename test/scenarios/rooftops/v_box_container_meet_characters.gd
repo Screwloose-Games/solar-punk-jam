@@ -6,3 +6,10 @@ func _ready() -> void:
 		b.connect("pressed", StructureManager.register_character_structures.bind(i))
 		b.text = "Meet with " + i
 		add_child(b)
+		
+	var b = Button.new()
+	b.connect("pressed", EnvironmentManager.end_day)
+	b.text = "Go to bed"
+	add_child(b)
+		
+	

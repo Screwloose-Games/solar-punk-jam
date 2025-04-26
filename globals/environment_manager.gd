@@ -3,6 +3,10 @@ extends Node
 signal day_cycle_start()
 signal day_cycle_end()
 signal day_cycle_update(offset: float)
+signal force_end_day()
+
+func end_day():
+	force_end_day.emit()
 
 enum TimeIcon {MORNING, MIDDAY, AFTERNOON, NIGHT}
 

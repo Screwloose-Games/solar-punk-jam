@@ -2,14 +2,16 @@ extends CanvasLayer
 class_name HUDCanvasLayer
 
 @onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
-
+@export var unlock_all_structures_from_the_start_for_debugging = false
 var buildable_structures: Array[BuildableStructure] = []
 
 
 func _ready() -> void:
-	EnvironmentManager.connect("day_cycle_update", self.update_time_hud)
-	for idx in len(StructureManager.structure_data):
-		register_structure_as_hud_icon(idx)	
+	EnvironmentManager.day_cycle_update.connect(self.update_time_hud)
+	if unlock_all_structures_from_the_start_for_debugging:
+		for idx in len(StructureManager.structure_data):
+			register_structure_as_hud_icon(idx)
+	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
 
 
 func _process(_delta: float) -> void:
@@ -31,6 +33,12 @@ class BuildableStructure:
 		self.idx = idx
 		self.ui = ui
 
+func refresh_structure_build_palette():
+	for i in buildable_structures:
+		i.ui.queue_free()
+	buildable_structures = []
+	for idx in StructureManager.available_structures:
+		register_structure_as_hud_icon(idx)
 
 func register_structure_as_hud_icon(idx):
 	var ui = buildable_structure_ui_template.duplicate()
