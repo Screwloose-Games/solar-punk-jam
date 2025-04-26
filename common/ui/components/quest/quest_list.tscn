@@ -13,5 +13,12 @@ bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ngon")
 script = ExtResource("1_81fws")
 
-[node name="List" type="VBoxContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Head" type="Label" parent="Content"]
+layout_mode = 2
+text = "CURRENT QUESTS:"
+
+[node name="Body" type="VBoxContainer" parent="Content"]
 layout_mode = 2
