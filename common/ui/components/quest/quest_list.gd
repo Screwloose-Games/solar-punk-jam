@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func update_quests():
-	var current_quests = $List.get_children()
+	var current_quests = $Content/Body.get_children()
 	for i in QuestManager.quests.size():
 		if i >= current_quests.size():
 			var new_cont = QUEST_CONTAINER_RES.instantiate()

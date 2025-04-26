@@ -45,7 +45,6 @@ script = ExtResource("1_g3cne")
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("2_nybd8")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 16, 16)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
