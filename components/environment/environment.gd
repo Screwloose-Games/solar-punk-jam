@@ -7,7 +7,7 @@ class_name CapybaraEnvironment
 @export var day_length_in_seconds = 30.0
 @export var twilight_color_gradient: Gradient
 @export var sun_energy_curve: Curve
-@export var night_length_in_seconds = 2.0
+@export var night_length_in_seconds = 1.0
 @export var is_paused := false:
 	set(value):
 		is_paused = value
@@ -34,6 +34,7 @@ func _ready() -> void:
 var animation_tween: Tween
 func animate_day(start_at=0.0):
 	EnvironmentManager.day_cycle_start.emit()
+	is_raining = EnvironmentManager.environment_model.is_raining
 	$DirectionalLight3DSun.light_energy = 0.0
 	$DirectionalLight3DMoon.light_energy = 0.0
 	$WorldEnvironment.environment.fog_light_energy = 0.0

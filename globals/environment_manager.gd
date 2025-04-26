@@ -28,6 +28,8 @@ class EnvironmentModel:
 	var night_length_in_seconds = 2.0
 	var is_paused := false
 	var is_daytime := true
+	var is_raining := false
+	var rain_period = 5
 	var day := 0
 	var offset: float
 	func update(current_time_in_game_hours, day_length_in_game_hours, day_start_in_game_hours, day_length_in_seconds, night_length_in_seconds, is_paused) -> void:
@@ -40,6 +42,7 @@ class EnvironmentModel:
 	func set_daytime():
 		day += 1
 		self.is_daytime = true
+		self.is_raining = day % rain_period == (rain_period-1)
 	func set_nighttime():
 		self.is_daytime = false
 	func set_offset(offset: float):
