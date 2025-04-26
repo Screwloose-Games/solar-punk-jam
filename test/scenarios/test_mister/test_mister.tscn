@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3pjs0g5olws5"]
+
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="1_mwr21"]
+
+[node name="TestMister" type="Node3D"]
+
+[node name="NpcBase" parent="." instance=ExtResource("1_mwr21")]

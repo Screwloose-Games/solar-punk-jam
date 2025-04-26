@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8b6q7g4bsaw5"]
+[gd_scene load_steps=7 format=3 uid="uid://b8b6q7g4bsaw5"]
 
 [ext_resource type="Script" uid="uid://ccji1u8snka5v" path="res://common/ui/pause_menu/pause_menu.gd" id="1_5rnul"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="2_b5b27"]
 [ext_resource type="AudioStream" uid="uid://camm2n4s878j" path="res://common/audio/sfx/ui/aud_ui_navigate.wav" id="3_sjwpg"]
 [ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="4_tj48m"]
 [ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="5_dfou8"]
+[ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="6_udpd0"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
+layer = 20
 script = ExtResource("1_5rnul")
 
 [node name="Audio Control" type="Control" parent="."]
@@ -84,6 +86,11 @@ text = "Main Menu"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="TestMenuButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Scenarios"
+script = ExtResource("6_udpd0")
 
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="Audio Control" method="_on_hover"]
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="Audio Control" method="_on_hover"]

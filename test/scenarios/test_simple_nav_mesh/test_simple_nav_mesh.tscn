@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdx586ohhbw6a"]
+
+[ext_resource type="PackedScene" uid="uid://dvu0b7koyrq6s" path="res://assets/3d/buildings/building_01/SM_PrototypeBuilding_01.glb" id="1_ygntv"]
+[ext_resource type="PackedScene" uid="uid://tndyo8oaoc4g" path="res://test/scenarios/DesignTests/DesignTestScene.tscn" id="2_qirru"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="3_wtxta"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wtxta"]
+size = Vector2(6, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etb1f"]
+albedo_color = Color(0, 0.596512, 3.85046e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qirru"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygntv"]
+albedo_color = Color(1, 0.329412, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[node name="TestSimpleNavMesh" type="Node3D"]
+
+[node name="Buildable" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.911757, 6.61822, 0.246657)
+mesh = SubResource("PlaneMesh_wtxta")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_etb1f")
+
+[node name="Mesh" parent="." instance=ExtResource("1_ygntv")]
+
+[node name="Navigation" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.94842, 6.59902, 1.49578)
+visible = false
+polygon = PackedVector2Array(1.71037, 5.35324, -4.47353, 5.25121, -4.26935, 1.34123, -7.03941, 1.35019, -6.78452, -0.569339, 1.96103, -0.677218)
+depth = 0.1
+material = SubResource("StandardMaterial3D_qirru")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+visible = false
+
+[node name="Collision2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28933, 3.06893, -1.6954)
+size = Vector3(4.90544, 7.09766, 4.75811)
+material = SubResource("StandardMaterial3D_ygntv")
+
+[node name="Collision" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636209, 3.04883, 1.01733)
+size = Vector3(11.44, 7.09766, 3.03465)
+material = SubResource("StandardMaterial3D_ygntv")
+
+[node name="Collision3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15309, 3.04883, 2.15197)
+size = Vector3(2.44417, 7.09766, 5.30395)
+material = SubResource("StandardMaterial3D_ygntv")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.494896, 3.05643, -0.924164)
+size = Vector3(9.11403, 7.11285, 6.71515)
+material = SubResource("StandardMaterial3D_ygntv")
+
+[node name="DesignTestScene" parent="." instance=ExtResource("2_qirru")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("3_wtxta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15955, 6.05452, 20.1029)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.64188, 20.2108)

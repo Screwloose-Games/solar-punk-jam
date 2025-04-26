@@ -1,8 +1,8 @@
 extends Area3D
 class_name InteractArea3D
 
-var tracked_nodes: Array[Node3D] = []
-var selected: Node3D = null
+var tracked_nodes: Array[InteractableArea3D] = []
+var selected: InteractableArea3D = null
 
 var player
 
@@ -33,7 +33,7 @@ func select_closest():
 
 
 func _on_area_exited(area: Area3D):
-	if area.is_in_group("Interactable"):
+	if area is InteractableArea3D:
 		area.unselect()
 		tracked_nodes.erase(area)
 		if tracked_nodes.size() > 0:
@@ -45,5 +45,5 @@ func _on_area_exited(area: Area3D):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Interact"):
-		if selected:
+		if selected is InteractableArea3D:
 			selected.interact(player)

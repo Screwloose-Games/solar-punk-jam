@@ -1,11 +1,13 @@
 extends Area3D
 class_name InteractableArea3D
 
-signal interacted(player)
+signal interacted(player: Player)
 signal stopped_interacting
+signal selected
+signal unselected
 
 var is_interacting: bool = false
-var selected = false:
+var is_selected = false:
 	set = set_selected
 
 var disabled := false:
@@ -13,8 +15,6 @@ var disabled := false:
 		disabled = val
 		monitoring = !val
 		monitorable = !val
-		#if disabled:
-		#selected = false
 
 
 func _ready():
@@ -26,18 +26,22 @@ func _on_stopped_interacting():
 
 
 func select():
-	selected = true
+	is_selected = true
+	selected.emit()
 
 
 func unselect():
-	selected = false
+	is_selected = false
+	unselected.emit()
 
 
 func set_selected(val: bool):
-	selected = val
+	is_selected = val
 
+func stop_interacting():
+	is_interacting = false
 
-func interact(player):
+func interact(player: Player):
 	if is_interacting:
 		return
 	interacted.emit(player)

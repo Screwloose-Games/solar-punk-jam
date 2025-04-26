@@ -55,4 +55,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		if result:
 			navigation_agent_3d.target_position = result.position
 			click_marker.global_position = result.position
-			print(result)

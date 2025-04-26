@@ -4,5 +4,5 @@
 
 [node name="Trin" instance=ExtResource("1_g6pen")]
 
-[node name="Label3D" parent="." index="0"]
+[node name="Name" parent="." index="0"]
 text = "Trin"
