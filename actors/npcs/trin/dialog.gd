@@ -22,13 +22,8 @@ func _on_interacted(player: Player):
 	start_current_dialogue()
 
 func start_current_dialogue():
-	if npc_id in GameState.npcs.keys():
-		if !GameState.npcs[npc_id].player_met:
-			GameState.npcs[npc_id].player_met = true
-			Dialogic.start("%s_intro" % npc_id) # Temporary
-			await Dialogic.timeline_ended
-			interactable_area_3d.stop_interacting()
-		else:
-			Dialogic.start("%s_talk" % npc_id) # Temporary
-			await Dialogic.timeline_ended
-			interactable_area_3d.stop_interacting()
+	var dialogue = GameState.get_npc_dialogue(npc_id)
+	if dialogue != "":
+		Dialogic.start(dialogue)
+		await Dialogic.timeline_ended
+		interactable_area_3d.stop_interacting()
