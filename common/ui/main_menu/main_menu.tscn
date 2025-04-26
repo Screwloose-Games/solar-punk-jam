@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drpn3qswakb4t" path="res://scenes/start_sequence.tscn" id="7_mqx1g"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="7_oty5u"]
 [ext_resource type="Texture2D" uid="uid://ccq7f3iwggcxc" path="res://common/ui/art/main_menu_title.png" id="9_8wlla"]
-[ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
+[ext_resource type="Script" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
 
 [sub_resource type="Theme" id="Theme_kjcgm"]
 

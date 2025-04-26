@@ -1,0 +1,75 @@
+# Timeline: QuestOneIntro
+
+join Kai left
+join Te right
+
+Kai (default): TE!!!! RISE AND SHINE!
+
+Te (sleepy): Mom...
+
+Kai (default): Everyone’s gotta pull their weight around here, Te, and you promised you’d fill those bins up, remember?
+
+Te (grumpy): I did that yesterday.
+
+Kai (default): And now you’ll do it again, sweetie. Up up up!
+
+Te (grumbles): I hate it here.
+
+Kai (happy): LOVE YOU TOO, GREMLIN!
+
+# Player moves Te around collecting bottles
+# (Environmental observations)
+
+Te (thinking): Mom said this place used to be filled with people before the flood.
+
+Te (thinking): I hope everyone got out ok.
+
+# Player collects bottles until meeting Trin
+
+join Trin left
+
+Trin (whispering): You can do it. Come on. Come on!
+
+Te (curious): What’re you doing?
+
+Trin (default): If I concentrate, I can make flowers grow faster.
+
+Te (skeptical): Yeah, I don’t think that’s how it works.
+
+Trin (hopeful): It worked back home. The plants here are just stubborn.
+
+Te (smiling): I’m Te! You’re the first kid I’ve seen since we got here.
+
+Trin (default): Well, yeah. The first wave’s all scientists and builders. My parents are bioengineers.
+
+Te (proud): My parents are civil engineers! Or… my dad was.
+
+Trin (excited): Oh! I think it moved! Talk to you later.
+
+# Trin no longer interactable
+
+Te (whiny): Fine. Whatever.
+
+Te (thinking): Those are weeds by the way!
+
+# Player continues collecting bottles
+# Encounter with Mister
+
+join Mister right
+
+Te (excited): Jackpot!
+
+Te (calling): Hey mister! Can I have those bottles?
+
+Mister (drowsy): Hunh? These? What for?
+
+Te (default): To recycle, duh. My mom crunches ‘em up and we can use them to help build.
+
+Mister (curious): You one of the planner’s kids?
+
+Te (cheerful): Yup. I’m Te.
+
+Mister (default): Hunh. Ok, Te. Go ahead and grab ‘em if ya want.
+
+[end_timeline]
+

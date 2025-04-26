@@ -46,6 +46,7 @@ directories/dtl_directory={
 "cam_test": "res://narrative/timelines/cam_test.dtl",
 "fischer_talk": "res://narrative/timelines/fischer_talk.dtl",
 "intro": "res://narrative/timelines/intro.dtl",
+"intro_dialogue_timeline": "res://narrative/timelines/intro_dialogue_timeline.dtl",
 "marge_talk": "res://narrative/timelines/marge_talk.dtl",
 "sunny_talk": "res://narrative/timelines/sunny_talk.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl",
