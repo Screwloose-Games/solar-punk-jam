@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://8o4ekidtk877"]
-
-[node name="Atmospheric water harvesting" type="Node3D"]
-
-[node name="Mesh" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
-size = Vector3(1.5, 2.5, 1.5)

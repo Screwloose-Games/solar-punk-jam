@@ -58,69 +58,20 @@ bbcode_enabled = true
 text = "[center]
 [font_size=48]Credits[/font_size]
 
-[font_size=32]Production[/font_size]
-- **Producer:** Jonathan David Lewis  
-- **Game Designer:** Sarah  
-- **Production Manager, Organization:** Bryan B (UnagiLogic)  
+- **Producer:** Jessica Flor
+- **Producer:** Jonathan David Lewis
+- **Narrative** Zell
+- **Programmer** Josep Valls
 
-[font_size=32]Game Art[/font_size]
-- **3D Artist & texture artist:** Dillan  
-- **3D Artist:** Sean  
-- **3D Artist:** Trav  
-- **3D Artist:** Chris  
-- **3D Artist:** Alex  
-- **Lighting Designer:** Daniel Bergher
+- **3D Artist:** unknown
+- **Animation:** unknown
 
-[font_size=32]UI[/font_size]
-- **UI Designer:** Ciaocolatto  
+- **Music Composition and Sound Design:** unknown
 
-[font_size=48]Audio[/font_size]
+- **Programming:** unknown
 
-[font_size=48]Technical[/font_size]
-- **Technical artist:** Chris
-
-[font_size=32]Music[/font_size]
-- **Music Composition:** Matt  
-
-[font_size=32]Sound Design[/font_size]
-- **Sound Designer:** Olemonade
-
-[font_size=32]Programming Team[/font_size]
-- **Programming:** Jonathan David Lewis  
-- **Programming:** Trav  
-- **Programming:** GhostGoats  
-- **Programming:** Loopy  
-
----
-
-[font_size=48]Sourced Assets[/font_size]
-
-[font_size=32]Godot Engine Logo[/font_size]
-- **Author:** Andrea Calabró  
-- **Source:** [url=https://godotengine.org/press/]godotengine.org : press[/url]  
-- **License:** [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url]  
-
-[font_size=32]Sounds sourced from freesounds.org[/font_size]
-**Bramble Ambience**  
-- https://freesound.org/people/dobroide/sounds/18964/
-- https://freesound.org/people/dobroide/sounds/18963/
-
-**Lake Ambience**  
-- https://freesound.org/people/sithjawa/sounds/86625/
-- https://freesound.org/people/klankbeeld/sounds/490582/
-- https://freesound.org/people/Owl/sounds/156526/
-
-**Cliff Ambience**  
-- https://freesound.org/people/Philip_Goddard/sounds/689562/
-- https://freesound.org/people/felix.blume/sounds/670330/
-- https://freesound.org/people/kordoz/sounds/106802/
-
-**Boss Ambience**  
-- https://freesound.org/people/felix.blume/sounds/152706/
-- https://freesound.org/people/ecfike/sounds/137966/
-- https://freesound.org/people/cyanidecup45/sounds/732076/
-- https://freesound.org/people/nicotep/sounds/761356/
-- https://freesound.org/people/stormpetrel/sounds/179587/
+[font_size=48]Additional assets[/font_size]
+- https://kenney.nl/assets/food-kit
 [/center]"
 fit_content = true
 scroll_active = false

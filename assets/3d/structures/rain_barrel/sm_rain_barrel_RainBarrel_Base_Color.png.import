@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cavv4w4ira7q1"
+path.s3tc="res://.godot/imported/sm_rain_barrel_RainBarrel_Base_Color.png-9b68ff54a48ac07fe3ece70830582e3c.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "ef84a44967a0657de2f01d92d9f9d5c4"
+}
+
+[deps]
+
+source_file="res://assets/3d/structures/rain_barrel/sm_rain_barrel_RainBarrel_Base_Color.png"
+dest_files=["res://.godot/imported/sm_rain_barrel_RainBarrel_Base_Color.png-9b68ff54a48ac07fe3ece70830582e3c.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

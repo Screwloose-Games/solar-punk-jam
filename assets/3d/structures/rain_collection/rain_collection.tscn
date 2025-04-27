@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://ctl2ohefpqus7"]
-
-[node name="Rain collection" type="Node3D"]
-
-[node name="Mesh" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-size = Vector3(2, 2, 2)
