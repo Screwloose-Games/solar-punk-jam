@@ -28,8 +28,7 @@ func _ready() -> void:
 	selection_placeholder.hide()
 	structure_placeholder.hide()
 
-
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
 		return
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
@@ -43,11 +42,13 @@ func ready_structure_building(idx):
 		return
 	structure_placeholder.show()
 	var w = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
-	var h = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureHeight])
+	var h = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureDepth])
 	building_rect = Rect2i(0,0,w,h)
 	structure_placeholder.scale = Vector3(building_rect.size.x, 1, building_rect.size.y)
 	can_build = false
 	building_idx = idx
+	get_viewport().set_input_as_handled()
+
 	
 func enable_cursor_3d():
 	move_cursor_3d()
