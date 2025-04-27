@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://dhce5lwxa5net" path="res://materials/BlockoutTallStructure.tres" id="5_pdt6n"]
 [ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="6_a713l"]
 [ext_resource type="Material" uid="uid://ksyw27qoom8n" path="res://materials/PrototypeDirtt.tres" id="7_bh4ws"]
-[ext_resource type="PackedScene" uid="uid://blqi4qh4abpaa" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.glb" id="8_pdt6n"]
+[ext_resource type="PackedScene" uid="uid://n6pfbx2a72ef" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.tscn" id="8_pdt6n"]
 [ext_resource type="PackedScene" uid="uid://0fnrnvfja1hy" path="res://assets/3d/props/radish/Radish.fbx" id="9_xpweh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdt6n"]

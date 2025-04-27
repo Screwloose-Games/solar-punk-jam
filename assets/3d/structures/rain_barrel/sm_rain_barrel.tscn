@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://n6pfbx2a72ef"]
+
+[ext_resource type="PackedScene" uid="uid://d31ct104ba5vf" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.gltf" id="1_8hmsw"]
+
+[node name="sm_rain_barrel" instance=ExtResource("1_8hmsw")]

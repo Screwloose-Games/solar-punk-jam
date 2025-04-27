@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb3sdx1nwv6cp"]
+
+[ext_resource type="PackedScene" uid="uid://ci2rpui80snn1" path="res://assets/3d/buildings/base_building.tscn" id="1_omtvb"]
+
+[node name="PlayerHouseBuilding" instance=ExtResource("1_omtvb")]

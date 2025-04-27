@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://djwvdx7n143nx"]
+
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="1_8vqlk"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="2_2rwor"]
+[ext_resource type="PackedScene" uid="uid://tndyo8oaoc4g" path="res://test/scenarios/DesignTests/DesignTestScene.tscn" id="2_80acc"]
+[ext_resource type="PackedScene" uid="uid://bb3sdx1nwv6cp" path="res://prefabs/buildings/prefab_player_house_building.tscn" id="3_560e0"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="3_qfixo"]
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="7_wj4vo"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8vqlk"]
+vertices = PackedVector3Array(3.5, 4.9, -5.80915, 3.5, 4.9, -4.80915, 4, 4.9, -4.80915, 4, 4.9, -5.80915, 2.5, 2.8, -4.05915, 2.75, 2.7, -5.55915, -4, 2.8, -5.55915, 1.2, 2.7, -4.35915, 3.75, 2.8, 5.94085, 3.75, 2.8, -3.80915, -4, 2.8, 5.94085)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(4, 7, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(4, 9, 8), PackedInt32Array(4, 8, 7), PackedInt32Array(7, 8, 6), PackedInt32Array(6, 8, 10)]
+cell_height = 0.1
+
+[node name="SimpleGameLoop" type="Node3D"]
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("1_8vqlk")]
+layer = 5
+
+[node name="DesignTestScene" parent="." instance=ExtResource("2_80acc")]
+
+[node name="StandardBuilding" parent="DesignTestScene" index="1"]
+use_collision = true
+collision_layer = 4
+
+[node name="PlayerHouse" parent="DesignTestScene" index="13"]
+visible = false
+
+[node name="Step2" parent="DesignTestScene" index="15"]
+use_collision = true
+collision_layer = 3
+
+[node name="PlayerHouseBuilding" parent="DesignTestScene" instance=ExtResource("3_560e0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7585, 6.43869, 18.3809)
+
+[node name="NavigationRegion3D" parent="DesignTestScene/PlayerHouseBuilding" index="0"]
+navigation_mesh = SubResource("NavigationMesh_8vqlk")
+
+[node name="PlayerHouse" type="CSGBox3D" parent="DesignTestScene/PlayerHouseBuilding/NavigationRegion3D" index="1"]
+size = Vector3(10, 7, 13.6183)
+
+[node name="Player" parent="." instance=ExtResource("2_2rwor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5115, 9.43942, 13.0436)
+
+[node name="Environment" parent="." instance=ExtResource("3_qfixo")]
+
+[node name="NpcMister" parent="." instance=ExtResource("7_wj4vo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 0.616856)
+
+[editable path="DesignTestScene"]
+[editable path="DesignTestScene/PlayerHouseBuilding"]
