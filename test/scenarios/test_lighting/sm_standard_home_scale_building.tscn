@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://qlmqv5iy0waw"]
-
-[ext_resource type="PackedScene" uid="uid://dl23jnykvyb3n" path="res://test/scenarios/test_lighting/StandardHomeScale.glb" id="1_qj0sl"]
-
-[node name="DesignTestScene" instance=ExtResource("1_qj0sl")]
