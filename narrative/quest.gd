@@ -16,7 +16,6 @@ signal quest_completed(giver : String)
 # Objectives with no prerequisites get set active
 func start_quest():
 	for i in objectives.size():
-		objectives[i].begin_listening()
 		objectives[i].progress_changed.connect(update_status)
 		objectives[i].completed.connect(_on_objective_completed)
 		if objectives[i].prerequisites.is_empty():
@@ -35,8 +34,8 @@ func update_status():
 				if !objectives[i].is_completed:
 					complete_check = false
 		if complete_check:
-			objective.is_active = true
 			objective.is_unlocked = true
+			objective.is_active = true
 	quest_state_changed.emit()
 
 
