@@ -4,6 +4,20 @@ signal day_cycle_start()
 signal day_cycle_end()
 signal day_cycle_update(offset: float)
 signal force_end_day()
+signal UpdatedAvailableResources
+
+const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
+const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
+
+var current_resources = {}
+
+func gain_resource(resource: String, quantity: int):
+	prints("Gaining", resource, quantity, current_resources)
+	if resource in current_resources:
+		current_resources[resource] += quantity
+	else:
+		current_resources[resource] = quantity
+	UpdatedAvailableResources.emit()
 
 func end_day():
 	force_end_day.emit()

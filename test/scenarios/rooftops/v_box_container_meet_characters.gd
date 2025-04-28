@@ -1,12 +1,17 @@
 extends VBoxContainer
-const characters_to_meet = ["Farmer", "Electrician", "Permaculturist", "Someone else"]
+
 func _ready() -> void:
-	for i in characters_to_meet:
+	for i in EnvironmentManager.characters:
 		var b = Button.new()
 		b.connect("pressed", StructureManager.register_character_structures.bind(i))
-		b.text = "Meet with " + i
+		b.text = "Unlock " + i
 		add_child(b)
-		
+	for i in EnvironmentManager.resources:
+		var b = Button.new()
+		b.connect("pressed", EnvironmentManager.gain_resource.bind(i, 10))
+		b.text = "Gain " + i
+		add_child(b)
+	
 	var b = Button.new()
 	b.connect("pressed", EnvironmentManager.end_day)
 	b.text = "Go to bed"

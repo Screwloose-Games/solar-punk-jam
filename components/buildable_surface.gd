@@ -1,4 +1,5 @@
 extends Node3D
+class_name BuildableSurface
 
 @onready var selection_placeholder := $SelectionPlaceholder as Node3D
 @onready var structure_placeholder := $StructurePlaceholder as Node3D
@@ -19,14 +20,15 @@ var building_idx := -1
 var can_build = false
 var can_walk = false
 
+var built_structures_local : Array[StructureManager.BuiltStructure] = []
+
 
 func _ready() -> void:
 	StructureManager.BuildableStructureSelected.connect(ready_structure_building)
 	selection_placeholder.hide()
 	structure_placeholder.hide()
 
-
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
 		return
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
@@ -39,10 +41,14 @@ func ready_structure_building(idx):
 	if not is_active:
 		return
 	structure_placeholder.show()
-	building_rect = Rect2i(0,0,StructureManager.structure_data[idx][3],StructureManager.structure_data[idx][4])
+	var w = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
+	var h = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureDepth])
+	building_rect = Rect2i(0,0,w,h)
 	structure_placeholder.scale = Vector3(building_rect.size.x, 1, building_rect.size.y)
 	can_build = false
 	building_idx = idx
+	get_viewport().set_input_as_handled()
+
 	
 func enable_cursor_3d():
 	move_cursor_3d()
@@ -70,14 +76,11 @@ func move_cursor_3d():
 		structure_placeholder.position = intersect - Vector3(1,0,1)
 		var coords = Vector2i(int(intersect.x-1), int(intersect.z-1))
 		var is_valid = check_tile_is_valid(coords)
-		if is_valid:
-			selection_placeholder.show()
-		else:
-			selection_placeholder.hide()
 		if building_rect:
 			structure_placeholder.show()
+			selection_placeholder.hide()
 			#can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.BUILDABLE_EMPTY_SPACE, Vector2i.ZERO)
-			can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][8]], Vector2i.ZERO)
+			can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundBefore]], Vector2i.ZERO)
 			if can_build:
 				structure_placeholder.get_node("SelectionPlaceholder").mesh.material.albedo_color = Color.CHARTREUSE
 				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color = Color.CHARTREUSE
@@ -88,6 +91,11 @@ func move_cursor_3d():
 				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color.a = 0.33
 		else:
 			structure_placeholder.hide()
+			if is_valid:
+				selection_placeholder.show()
+			else:
+				selection_placeholder.hide()
+			
 
 func check_tile_is_valid(coords: Vector2i) -> bool:
 	var tile_kind = surface_map.get_cell_atlas_coords(0, coords)
@@ -95,7 +103,7 @@ func check_tile_is_valid(coords: Vector2i) -> bool:
 
 
 func build_structure():
-	var file_name = StructureManager.structure_data[building_idx][6]
+	var file_name = StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
 	var directory_name = file_name.rsplit(".", true, 1)[0]
 	var structure2 = load("res://assets/3d/structures/" + directory_name + "/" + file_name)
 	if structure2:
@@ -104,10 +112,13 @@ func build_structure():
 		add_child(structure3)
 	var coords = Vector2i(int(structure_placeholder.position.x), int(structure_placeholder.position.z))
 	#surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.OCCUPIED_SPACE)
-	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][9]])
+	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundAfter]])
+
+	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.BUILD_STATUS.BUILDING)
+	built_structures_local.append(new_structure)
+	StructureManager.build_structure(new_structure)
 
 	# done building
-	StructureManager.StructureBuilt.emit(building_idx)
 	building_rect = Rect2()
 	can_build = false
 	building_idx = -1
