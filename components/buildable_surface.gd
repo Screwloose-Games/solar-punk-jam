@@ -158,6 +158,10 @@ func reset_cursor_3d():
 	building_idx = -1
 	structure_placeholder.hide()
 	
+func collect_today():
+	for structure in built_structures_local:
+		structure.collect_today()
+	
 
 func surface_check(origin: Vector2i, w:int, h:int, required_kind: Vector2i, update_kind: Vector2i) -> bool:
 	for ix in w:
