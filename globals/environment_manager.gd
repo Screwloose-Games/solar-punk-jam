@@ -19,6 +19,13 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] = quantity
 	UpdatedAvailableResources.emit()
 
+func check_amount(resource: String, quantity: int):
+	if resource in current_resources:
+		return current_resources[resource] >= quantity
+	else:
+		return false
+
+
 func end_day():
 	force_end_day.emit()
 

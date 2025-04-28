@@ -18,9 +18,12 @@ class_name BuildableSurface
 var building_rect := Rect2i()
 var building_idx := -1
 var can_build = false
+var can_check = false
 var can_walk = false
+var current_coords = Vector2.ZERO
 
 var built_structures_local : Array[StructureManager.BuiltStructure] = []
+var tile_to_structure_idx = {}
 
 
 func _ready() -> void:
@@ -34,11 +37,23 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		if can_build:
 			build_structure()
+		elif can_check:
+			structure_popup()
+	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
+		reset_cursor_3d()
 	elif event is InputEventMouseMotion:
 		move_cursor_3d()
 
+func structure_popup():
+		var structure = built_structures_local[tile_to_structure_idx[current_coords]]
+		HUDCanvasLayer.Singleton.instance.kill_tool_tip()
+		HUDCanvasLayer.Singleton.instance.show_popup_menu(structure)
+		#StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
+
 func ready_structure_building(idx):
 	if not is_active:
+		return
+	if StructureManager.check_structure_requirements(idx):
 		return
 	structure_placeholder.show()
 	var w = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
@@ -47,7 +62,6 @@ func ready_structure_building(idx):
 	structure_placeholder.scale = Vector3(building_rect.size.x, 1, building_rect.size.y)
 	can_build = false
 	building_idx = idx
-	get_viewport().set_input_as_handled()
 
 	
 func enable_cursor_3d():
@@ -75,6 +89,7 @@ func move_cursor_3d():
 		selection_placeholder.position = intersect + Vector3(-0.5,0,-0.5)
 		structure_placeholder.position = intersect - Vector3(1,0,1)
 		var coords = Vector2i(int(intersect.x-1), int(intersect.z-1))
+		can_check = false
 		var is_valid = check_tile_is_valid(coords)
 		if building_rect:
 			structure_placeholder.show()
@@ -93,6 +108,11 @@ func move_cursor_3d():
 			structure_placeholder.hide()
 			if is_valid:
 				selection_placeholder.show()
+				if coords in tile_to_structure_idx:
+					can_check = true
+					current_coords = coords
+					var structure = built_structures_local[tile_to_structure_idx[current_coords]]
+					HUDCanvasLayer.Singleton.instance.set_tool_tip(StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
 			else:
 				selection_placeholder.hide()
 			
@@ -116,9 +136,23 @@ func build_structure():
 
 	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.BUILD_STATUS.BUILDING)
 	built_structures_local.append(new_structure)
+	register_tiles(len(built_structures_local)-1, coords, building_rect.size.x, building_rect.size.y)
 	StructureManager.build_structure(new_structure)
 
 	# done building
+	if StructureManager.check_structure_requirements(building_idx):
+		reset_cursor_3d()
+	else:
+		pass
+		# let build the same again
+	
+func register_tiles(structure_idx:int, origin: Vector2i, w:int, h:int):
+	for ix in w:
+		for iy in h:
+			var coords := origin + Vector2i(ix,iy)
+			tile_to_structure_idx[coords]=structure_idx	
+	
+func reset_cursor_3d():
 	building_rect = Rect2()
 	can_build = false
 	building_idx = -1
