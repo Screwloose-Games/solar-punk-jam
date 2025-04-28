@@ -34,6 +34,11 @@ text = "Community Board"
 [node name="MeshInstance3D" parent="." index="2"]
 visible = false
 
+[node name="InteractableArea3D" parent="." index="4"]
+label_text = "Interact"
+
 [node name="Dialogue" parent="." index="5"]
 npc_id = "board"
 interact_text = "Read - E"
+
+[editable path="InteractableArea3D"]

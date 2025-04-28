@@ -8,6 +8,9 @@ func _ready() -> void:
 
 
 func _on_link_reached(details: Dictionary):
+	# The player must not automatically navigate between regions
+	if actor is Player:
+		return
 	var link_entry_position = details.get("link_entry_position")
 	var link_exit_position = details.get("link_exit_position")
 	var link_owner = details.get("owner")
