@@ -30,6 +30,7 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [resource]
 script = ExtResource("1_rl8f1")
 name = "Stick Quest"
+quest_giver = "mom"
 description = "Collect sticks for Mom"
 objectives = Array[ExtResource("1_diga6")]([SubResource("Resource_diga6"), SubResource("Resource_01mbt"), SubResource("Resource_pkw1k")])
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

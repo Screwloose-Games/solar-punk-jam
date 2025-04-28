@@ -1,0 +1,4 @@
+Te: Hm... Let's see here...
+Te scans the Community Board for any open work orders.
+Te: Hm, Building Quest 3, huh? Sure, I'll take it!
+do QuestManager.start_quest("qst_build3")

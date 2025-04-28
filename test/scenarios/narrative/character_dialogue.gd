@@ -11,9 +11,8 @@ extends Node3D
 
 func _ready() -> void:
 	QuestManager.quests_changed.connect(_update_quests)
-	QuestManager.start_quest("qst_sticks")
-	QuestManager.start_quest("qst_stones")
-	Dialogic.signal_event.connect(_cam_change)
+	#QuestManager.start_quest("qst_sticks")
+	#QuestManager.start_quest("qst_stones")
 	for button in actions.keys():
 		button.pressed.connect(_on_click.bind(actions[button]))
 
@@ -23,13 +22,11 @@ func _input(event: InputEvent) -> void:
 		if !event.pressed:
 			match event.keycode:
 				KEY_1:
-					GlobalSignalBus.stick_collected.emit()
+					GlobalSignalBus.structure_built.emit("build1")
 				KEY_2:
-					GlobalSignalBus.limestone_collected.emit()
+					GlobalSignalBus.structure_built.emit("build2")
 				KEY_3:
-					GlobalSignalBus.sandstone_collected.emit()
-				KEY_4:
-					GlobalSignalBus.shale_collected.emit()
+					GlobalSignalBus.structure_built.emit("build3")
 
 
 func _update_quests():
@@ -44,22 +41,6 @@ func _update_quests():
 				if objective.is_active:
 					active_text += "- %s: %d / %d\n" % [objective.description, objective.progress, objective.count]
 	$QuestInfo/Body.text = active_text + complete_text
-
-
-func _cam_change(mode : String):
-	match mode:
-		"normal":
-			$PCam1.priority = 10
-			$PCam2.priority = 0
-			$PCam3.priority = 0
-		"dialogue":
-			$PCam1.priority = 0
-			$PCam2.priority = 10
-			$PCam3.priority = 0
-		"closeup":
-			$PCam1.priority = 0
-			$PCam2.priority = 0
-			$PCam3.priority = 10
 
 
 func _on_click(action : String):

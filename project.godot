@@ -31,6 +31,7 @@ GameState="*res://globals/game_state.gd"
 [dialogic]
 
 directories/dch_directory={
+"CommBoard": "res://narrative/characters/CommBoard.dch",
 "DogBot": "res://narrative/characters/DogBot.dch",
 "Kelly": "res://narrative/characters/Kelly.dch",
 "Mister": "res://narrative/characters/Mister.dch",
@@ -39,6 +40,12 @@ directories/dch_directory={
 "Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
+"board_busy": "res://narrative/timelines/board_busy.dtl",
+"board_idle": "res://narrative/timelines/board_idle.dtl",
+"board_intro": "res://narrative/timelines/board_intro.dtl",
+"board_quest1": "res://narrative/timelines/board_quest1.dtl",
+"board_quest2": "res://narrative/timelines/board_quest2.dtl",
+"board_quest3": "res://narrative/timelines/board_quest3.dtl",
 "cam_test": "res://narrative/timelines/cam_test.dtl",
 "intro": "res://narrative/timelines/intro.dtl",
 "intro_dialogue_timeline": "res://narrative/timelines/intro_dialogue_timeline.dtl",

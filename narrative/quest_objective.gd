@@ -10,8 +10,8 @@ var is_unlocked : bool = false
 var is_active : bool = false
 var is_completed : bool = false
 
+signal progress_changed
 signal completed
-
 
 # Setter for progress, check for completion when value changes
 # If completed, toggle flags and emit signal to notify parent Quest
@@ -22,3 +22,15 @@ func set_progress(val):
 		is_active = false
 		is_completed = true
 		completed.emit()
+	else:
+		progress_changed.emit()
+
+
+func begin_listening():
+	GlobalSignalBus.connect(linked_event, _on_linked_event)
+
+
+func _on_linked_event(signal_param : String = "none"):
+	print("Objective signal fired. Name: %s Param: %s" % [linked_event, signal_param])
+	if is_active:
+		progress += 1
