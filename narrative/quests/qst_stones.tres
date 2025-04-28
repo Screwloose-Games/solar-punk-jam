@@ -30,6 +30,7 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [resource]
 script = ExtResource("2_ndsev")
 name = "Stone Quest"
+quest_giver = "mom"
 description = "Gather stones for Mom"
 objectives = Array[ExtResource("1_w6aaf")]([SubResource("Resource_w6aaf"), SubResource("Resource_ndsev"), SubResource("Resource_chkkv")])
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

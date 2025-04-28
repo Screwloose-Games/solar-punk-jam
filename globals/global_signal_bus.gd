@@ -12,7 +12,4 @@ signal win_game_requirements_met
 signal level_reset
 signal set_ending_visibility(show_panel: bool)
 
-signal stick_collected
-signal limestone_collected
-signal sandstone_collected
-signal shale_collected
+signal structure_built(structure : String)

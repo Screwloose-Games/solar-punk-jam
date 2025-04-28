@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dph85lf6shdvl"]
+[gd_scene load_steps=7 format=3 uid="uid://dph85lf6shdvl"]
 
 [ext_resource type="Script" uid="uid://dj8tvr8l8wgbg" path="res://test/scenarios/narrative/character_dialogue.gd" id="1_g3cne"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="2_nybd8"]
+[ext_resource type="PackedScene" uid="uid://bxlhatn8wkgxb" path="res://actors/npcs/board/npc_board.tscn" id="5_nybd8"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="6_u105d"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="7_yst0o"]
 
@@ -14,55 +15,6 @@ cell_height = 0.01
 script = ExtResource("1_g3cne")
 
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("2_nybd8")]
-
-[node name="ActionList" type="VBoxContainer" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BtnFischer" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Fischer"
-
-[node name="BtnMarge" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Marge"
-
-[node name="BtnSunny" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Sunny"
-
-[node name="BtnWendy" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Wendy"
-
-[node name="BtnCamTest" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Dialogue Camera Test"
-
-[node name="QuestInfo" type="VBoxContainer" parent="."]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -85.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="Header" type="Label" parent="QuestInfo"]
-layout_mode = 2
-text = "Quest Tracker"
-
-[node name="Body" type="Label" parent="QuestInfo"]
-layout_mode = 2
-text = "Quest information"
-
-[node name="Button" type="Button" parent="QuestInfo"]
-layout_mode = 2
-text = "Emit stick_collected"
 
 [node name="Player" parent="." instance=ExtResource("7_yst0o")]
 
@@ -80,4 +32,5 @@ transform = Transform3D(-0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, 
 [node name="NpcMister" parent="." instance=ExtResource("6_u105d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18416, 0.00260236, -7.96439)
 
-[connection signal="pressed" from="QuestInfo/Button" to="." method="_on_button_pressed"]
+[node name="NpcBoard" parent="." instance=ExtResource("5_nybd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22358, -0.00012207, -6.78254)

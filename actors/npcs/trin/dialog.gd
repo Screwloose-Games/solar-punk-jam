@@ -1,12 +1,14 @@
 extends Node3D
 
 @export var npc_id : String = ""
+@export var interact_text : String = "Talk - E"
 
 @onready var dialogue_indicator: Label3D = %DialogueIndicator
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	dialogue_indicator.text = interact_text
 	dialogue_indicator.hide()
 	interactable_area_3d.interacted.connect(_on_interacted)
 	interactable_area_3d.selected.connect(_on_interactable_selected)
