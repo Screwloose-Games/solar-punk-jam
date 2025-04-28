@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="6_gqwsx"]
 [ext_resource type="Texture2D" uid="uid://crdvjymseuiva" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="7_6iwr3"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="8_6cebu"]
-[ext_resource type="Texture2D" uid="uid://carrwrkn2qjxp" path="res://test/scenarios/resource_management/icons.png" id="9_3gt2x"]
+[ext_resource type="Texture2D" uid="uid://carrwrkn2qjxp" path="res://test/scenarios/rooftops/icons.png" id="9_3gt2x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
 shader = ExtResource("5_sl285")

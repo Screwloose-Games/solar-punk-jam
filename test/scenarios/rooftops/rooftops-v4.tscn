@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="6_g2imw"]
 [ext_resource type="Script" uid="uid://c5aqc50lcxo0b" path="res://test/scenarios/rooftops/dump_npc_controller.gd" id="8_efxyb"]
 [ext_resource type="Script" uid="uid://wsifxs36vcln" path="res://test/scenarios/rooftops/v_box_container_meet_characters.gd" id="8_iw5xa"]
-[ext_resource type="Texture2D" uid="uid://carrwrkn2qjxp" path="res://test/scenarios/resource_management/icons.png" id="9_e5qkl"]
+[ext_resource type="Texture2D" uid="uid://carrwrkn2qjxp" path="res://test/scenarios/rooftops/icons.png" id="9_e5qkl"]
 [ext_resource type="PackedScene" uid="uid://b8ryq5e1i1xfb" path="res://test/scenarios/rooftops/character.tscn" id="9_fm6ja"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="10_jyy8e"]
 
