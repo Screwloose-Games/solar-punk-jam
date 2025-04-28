@@ -2,8 +2,10 @@ extends CanvasLayer
 class_name HUDCanvasLayer
 
 @onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
+@onready var resource_ui_template = $HUD/LeftMiddleMarginContainer/VBoxContainer/ResourceLabel
 @export var unlock_all_structures_from_the_start_for_debugging = false
 var buildable_structures: Array[BuildableStructure] = []
+var resource_to_control = {}
 
 
 func _ready() -> void:
@@ -12,6 +14,7 @@ func _ready() -> void:
 		for idx in len(StructureManager.structure_data):
 			register_structure_as_hud_icon(idx)
 	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
+	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
 
 
 func _process(_delta: float) -> void:
@@ -25,6 +28,19 @@ func update_time_hud(_offset):
 	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/Time.text = "%d:%02d" % [time.hour, time.minute]
 	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/AmPm.text = "PM" if time.is_pm else "AM"
 
+func refresh_resources_ui():
+	$HUD/LeftMiddleMarginContainer.show()
+	for i in EnvironmentManager.current_resources:
+		var q = EnvironmentManager.current_resources[i]
+		var t = i + ": " + str(q)
+		if i in resource_to_control:
+			resource_to_control[i].text = t
+		else:
+			var ui := resource_ui_template.duplicate() as Label
+			resource_to_control[i]=ui
+			resource_ui_template.get_parent().add_child(ui)
+			ui.text = t
+			ui.show()
 
 class BuildableStructure:
 	var idx: int
@@ -48,7 +64,7 @@ func register_structure_as_hud_icon(idx):
 	icon.connect("gui_input", handle_gui_input.bind(idx))
 	icon.texture = icon.texture.duplicate()
 	var atlas = icon.texture as AtlasTexture
-	var icon_atlas_coords = StructureManager.structure_data[idx][7].split("/")
+	var icon_atlas_coords = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureIcon].split(",")
 	atlas.region = Rect2(80*int(icon_atlas_coords[0]),80*int(icon_atlas_coords[1]),80,80)
 	var label = ui.get_node("Control/MarginContainer/Label") as Label
 	label.text = str(len(buildable_structures))

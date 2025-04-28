@@ -246,7 +246,13 @@ theme_override_constants/margin_left = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/LeftMiddleMarginContainer"]
 layout_mode = 2
 
+[node name="ResourceLabel" type="Label" parent="HUD/LeftMiddleMarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "100x Water"
+
 [node name="ResourcesHBoxContainer" type="HBoxContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -272,6 +278,7 @@ layout_mode = 2
 text = "12/30"
 
 [node name="ResourcesHBoxContainer2" type="HBoxContainer" parent="HUD/LeftMiddleMarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
