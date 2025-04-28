@@ -25,6 +25,8 @@ func get_velocity(delta: float, speed):
 	var direction = global_position.direction_to(target_position)
 	if navigation_agent_3d.is_navigation_finished():
 		return Vector3.ZERO
+	if not navigation_agent_3d.is_target_reachable():
+		return Vector3.ZERO
 	return direction * speed
 
 #func calculate_velocity():

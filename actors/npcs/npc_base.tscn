@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbiodotokwvrn"]
 
-[ext_resource type="Script" uid="uid://yaprxi85wqkn" path="res://components/interactable_component.gd" id="1_j4vwu"]
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_m1ota"]
 [ext_resource type="Script" uid="uid://dbdw5suvtj1ek" path="res://actors/npcs/trin/dialog.gd" id="2_3w63i"]
 [ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://test/scenarios/test_click_to_move/navigation_agent_3d.gd" id="3_jcyep"]
 [ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://test/scenarios/test_click_to_move/click_to_move.gd" id="4_m1ota"]
@@ -15,6 +15,7 @@ height = 1.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3w63i"]
 height = 1.5
+radius = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jcyep"]
 radius = 0.4
@@ -40,28 +41,15 @@ mesh = SubResource("CapsuleMesh_w76s5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_w76s5")
 
-[node name="InteractableArea3D" type="Area3D" parent="."]
+[node name="InteractableArea3D" parent="." instance=ExtResource("1_m1ota")]
 unique_name_in_owner = true
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("1_j4vwu")
-metadata/_custom_type_script = "uid://yaprxi85wqkn"
+label_text = "Talk"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+[node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
 shape = SubResource("CylinderShape3D_3w63i")
 
 [node name="Dialogue" type="Node3D" parent="."]
 script = ExtResource("2_3w63i")
-
-[node name="DialogueIndicator" type="Label3D" parent="Dialogue"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83914, 0)
-billboard = 1
-no_depth_test = true
-fixed_size = true
-text = "Talk - E"
-font_size = 21
 
 [node name="ClickableArea3D" type="Area3D" parent="."]
 editor_description = "Allows this object to be clicked"
@@ -85,3 +73,5 @@ script = ExtResource("4_m1ota")
 [node name="Move" type="Node3D" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+
+[editable path="InteractableArea3D"]

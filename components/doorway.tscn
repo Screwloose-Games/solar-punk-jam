@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhuqj7qrehmg4"]
+
+[ext_resource type="Script" uid="uid://dilitggpggxv0" path="res://components/doorway.gd" id="1_1ur6e"]
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="2_1ppdq"]
+
+[node name="Doorway" type="Node3D"]
+script = ExtResource("1_1ur6e")
+
+[node name="InteractableArea3D" parent="." instance=ExtResource("2_1ppdq")]
+unique_name_in_owner = true
+label_text = "Enter"
+
+[node name="Destination" type="Marker3D" parent="."]
+
+[editable path="InteractableArea3D"]
