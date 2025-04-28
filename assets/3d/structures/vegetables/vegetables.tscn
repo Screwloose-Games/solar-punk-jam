@@ -18,7 +18,7 @@ top_radius = 0.25
 bottom_radius = 0.05
 height = 0.8
 
-[node name="Water tank" type="Node3D"]
+[node name="Vegetables" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
