@@ -4,10 +4,7 @@ extends Node3D
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
-		$Environment.is_raining = !$Environment.is_raining
-		#$Environment.is_paused = !$Environment.is_paused
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_WHEEL_UP:
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_WHEEL_UP:
 		$Camera3D.fov *= 1.1
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_WHEEL_DOWN:
 		$Camera3D.fov *= 0.9

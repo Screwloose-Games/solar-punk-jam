@@ -1,6 +1,9 @@
 extends CanvasLayer
 class_name HUDCanvasLayer
 
+class Singleton:
+	static var instance: HUDCanvasLayer
+
 @onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
 @onready var resource_ui_template = $HUD/LeftMiddleMarginContainer/VBoxContainer/ResourceLabel
 @export var unlock_all_structures_from_the_start_for_debugging = false
@@ -9,12 +12,14 @@ var resource_to_control = {}
 
 
 func _ready() -> void:
+	HUDCanvasLayer.Singleton.instance = self
 	EnvironmentManager.day_cycle_update.connect(self.update_time_hud)
 	if unlock_all_structures_from_the_start_for_debugging:
 		for idx in len(StructureManager.structure_data):
 			register_structure_as_hud_icon(idx)
 	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
 	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
+	$HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close.connect("pressed", close_popup_menu)
 
 
 func _process(_delta: float) -> void:
@@ -73,7 +78,52 @@ func register_structure_as_hud_icon(idx):
 
 func handle_gui_input(event: InputEvent, idx: int):
 	if event is InputEventMouseMotion:
-		$HUD/TooltipLabel.text = StructureManager.structure_data[idx][0]
-		$HUD/TooltipLabel.position = get_viewport().get_mouse_position()
+		var requirements_missing = StructureManager.check_structure_requirements(idx)
+		if requirements_missing:
+			set_tool_tip("Cannot build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName] + "\nMissing: " + requirements_missing[0], 
+			get_viewport().get_mouse_position())
+		else:
+			set_tool_tip("Build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName], get_viewport().get_mouse_position())
+		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		StructureManager.BuildableStructureSelected.emit(idx)
+		get_viewport().set_input_as_handled()
+
+var tool_tip_tween: Tween
+@onready var tooltip_label := $HUD/TooltipLabel as Label
+func kill_tool_tip():
+	if tool_tip_tween:
+		tool_tip_tween.kill()
+	tooltip_label.modulate = Color(1,1,1,0)
+func set_tool_tip(text: String, position: Vector2):
+	tooltip_label.size = Vector2.ZERO
+	tooltip_label.text = text
+	tooltip_label.position = position
+	tooltip_label.position.y -= 4 + tooltip_label.size.y
+	tooltip_label.position.x -= tooltip_label.size.x / 2
+	tooltip_label.modulate = Color.WHITE
+	if tool_tip_tween:
+		tool_tip_tween.kill()
+	tool_tip_tween = create_tween()
+	tool_tip_tween.tween_property(tooltip_label, "modulate", Color(1,1,1,0), 0.3).set_delay(0.3)
+
+
+#func show_popup_menu( title: String, text: String, status: String, gain_resource: String):
+func show_popup_menu(structure: StructureManager.BuiltStructure):
+	$HUD/PopupMenuMarginContainer/VBoxContainer/TitleLabel.text = StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName]
+	$HUD/PopupMenuMarginContainer/VBoxContainer/DescriptionLabel.text = StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureDescription]
+	var collect_button := $HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Collect as Button
+	if structure.ready_to_be_collected:
+		$HUD/PopupMenuMarginContainer/VBoxContainer/StatusLabel.text = "Has "+str(len(structure.ready_to_be_collected))+" thing to be collected"
+		collect_button.show()
+		for i in collect_button.get_signal_connection_list("pressed"):
+			collect_button.disconnect("pressed", i["callable"])
+		collect_button.connect("pressed", structure.collect_today)
+		#collect_button.connect("pressed", collect_button.hide)
+	else:
+		$HUD/PopupMenuMarginContainer/VBoxContainer/StatusLabel.text = "Nothing to collect"
+		collect_button.hide()
+	$HUD/PopupMenuMarginContainer.show()
+	
+func close_popup_menu():
+	$HUD/PopupMenuMarginContainer.hide()
