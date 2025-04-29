@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ej6x71rs2yxf"]
+
+[ext_resource type="Script" uid="uid://cr7f4kcr6pcwv" path="res://common/ui/screens/scenario_menu/scenario_menu.gd" id="1_uc5db"]
+[ext_resource type="PackedScene" uid="uid://dgbbmh1ghsygk" path="res://levels/main_level/main_level.tscn" id="2_yb1fe"]
+[ext_resource type="PackedScene" uid="uid://daabskcdhrpea" path="res://common/ui/main_menu/main_menu.tscn" id="7_7r5ps"]
+
+[node name="ScenarioMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uc5db")
+scenes = Array[PackedScene]([ExtResource("2_yb1fe"), ExtResource("7_7r5ps")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2

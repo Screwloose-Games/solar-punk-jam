@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxalj0terhogv"]
 
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="1_awbwi"]
-[ext_resource type="PackedScene" uid="uid://cfcae4wp7j8xj" path="res://test/scenarios/test_model_animations/test_trin/trin_placeholder.gltf" id="2_rtd03"]
+[ext_resource type="PackedScene" uid="uid://cfcae4wp7j8xj" path="res://actors/player_character/model_animations/trin/trin_placeholder.gltf" id="2_rtd03"]
 
 [node name="TestModelAnimations" type="Node3D"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgbbmh1ghsygk"]
+[gd_scene load_steps=9 format=3 uid="uid://dgbbmh1ghsygk"]
 
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="4_um8ys"]
 [ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="5_3i7v1"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="5_sj11d"]
 [ext_resource type="PackedScene" uid="uid://dmdo33trqjosk" path="res://assets/3d/buildings/building_01/prefab_building_01.tscn" id="7_hp128"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="7_qywe3"]
-[ext_resource type="PackedScene" uid="uid://qlmqv5iy0waw" path="res://assets/3d/buildings/home_scale_building/sm_standard_home_scale_building.tscn" id="7_t80xa"]
 [ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="8_t80xa"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_sj11d"]
@@ -46,9 +45,6 @@ layer = 5
 
 [node name="PrefabBuilding01" parent="." instance=ExtResource("7_hp128")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6241, 0, -11.1132)
-
-[node name="DesignTestScene" parent="." instance=ExtResource("7_t80xa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 6)
 
 [node name="NpcMister" parent="." instance=ExtResource("7_qywe3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 0.616856)
