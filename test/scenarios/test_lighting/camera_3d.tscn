@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1atwunknodlk"]
 
-[ext_resource type="Script" uid="uid://pen5e56ux4dp" path="res://test/scenarios/test_lighting/follow_camera.gd" id="1_8me7p"]
+[ext_resource type="Script" uid="uid://pen5e56ux4dp" path="res://components/follow_camera.gd" id="1_8me7p"]
 
 [node name="Camera3D" type="Camera3D"]
 transform = Transform3D(0.819152, -0.32899, 0.469846, 0, 0.819152, 0.573576, -0.573576, -0.469846, 0.67101, 7.82339, 13.0147, 10.881)
