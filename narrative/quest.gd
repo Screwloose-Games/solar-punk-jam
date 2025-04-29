@@ -16,31 +16,27 @@ signal quest_completed(giver : String)
 # Objectives with no prerequisites get set active
 func start_quest():
 	for i in objectives.size():
-		objectives[i].progress_changed.connect(update_status)
+		objectives[i].progress_changed.connect(emit_signal.bind("quest_state_changed"))
 		objectives[i].completed.connect(_on_objective_completed)
 		if objectives[i].prerequisites.is_empty():
 			objectives[i].is_unlocked = true
 			objectives[i].is_active = true
 
 
-# Update the quest status
-# This is a separate function to be run AFTER the event handler increments progress
-# This is done to avoid objective completion edge cases
-func update_status():
-	for objective in objectives:
-		var complete_check = true
-		if !objective.is_completed and !objective.is_active:
-			for i in objective.prerequisites:
-				if !objectives[i].is_completed:
-					complete_check = false
-		if complete_check:
-			objective.is_unlocked = true
-			objective.is_active = true
-	quest_state_changed.emit()
-
-
 # If an objective is completed, check if the overall quest is completed too
 func _on_objective_completed():
+	# Check for objectives with prereqs
+	for objective in objectives:
+		if !objective.prerequisites.is_empty():
+			if !objective.is_completed and !objective.is_active:
+				var complete_check = true
+				for i in objective.prerequisites:
+					if !objectives[i].is_completed:
+						complete_check = false
+				if complete_check:
+					objective.is_unlocked = true
+					objective.is_active = true
+	# Check for overall completion
 	var complete_check = true
 	for objective in objectives:
 		if !objective.is_completed:

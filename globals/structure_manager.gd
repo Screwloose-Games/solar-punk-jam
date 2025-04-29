@@ -55,8 +55,7 @@ const VALID_TILE_TYPES = [BUILDABLE_EMPTY_SPACE, BUILDABLE_RAISED_BED_SPACE, OCC
 
 var structure_data = []
 var available_structures = []
-var registered_characters = []
-
+var registered_structures = []
 
 func _ready() -> void:
 	structure_data = _get_structure_data()
@@ -77,15 +76,25 @@ func check_structure_requirements(idx):
 	return missing_requirements
 
 
-func register_character_structures(character: String):
-	prints("Unlocking structures from", character)
-	if character in registered_characters:
+func register_structure(struct_name : String):
+	print("Unlocking structure: %s" % struct_name)
+	if struct_name in registered_structures:
 		return
-	registered_characters.append(character)
+	registered_structures.append(struct_name)
 	for idx in len(structure_data):
-		if structure_data[idx][StructureManager.STRUCTURE_FIELDS.UnlockedBy]==character:
+		if structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName] == struct_name:
 			available_structures.append(idx)
 	UpdatedAvailableStructures.emit()
+
+
+func register_character_structures(character: String):
+	prints("Unlocking structures from", character)
+	for idx in len(structure_data):
+		if structure_data[idx][StructureManager.STRUCTURE_FIELDS.UnlockedBy]==character:
+			var struct_name = structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName]
+			register_structure(struct_name)
+	UpdatedAvailableStructures.emit()
+
 
 func build_structure(new_structure: BuiltStructure):
 	if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
