@@ -10,6 +10,7 @@ const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
 const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
 
 var current_resources = {}
+var deposited_resources = {}
 
 func gain_resource(resource: String, quantity: int):
 	prints("Gaining", resource, quantity, current_resources)
@@ -17,6 +18,14 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] += quantity
 	else:
 		current_resources[resource] = quantity
+	UpdatedAvailableResources.emit()
+
+func deposit_resource(resource: String, quantity: int):
+	prints("Depositing", resource, quantity, current_resources)
+	if resource in current_resources:
+		deposited_resources[resource] += quantity
+	else:
+		deposited_resources[resource] = quantity
 	UpdatedAvailableResources.emit()
 
 func check_amount(resource: String, quantity: int):

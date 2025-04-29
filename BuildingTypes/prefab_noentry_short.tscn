@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://wo17cvj04r6x"]
+
+[node name="prefab_noentry_short" type="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+size = Vector3(6, 4, 6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83201, -0.950663, -0.0418243)
+operation = 2
+size = Vector3(0.4, 2, 1.2)
