@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var npc_id: String = ""
-@export var interact_text: String = "Talk - E"
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
