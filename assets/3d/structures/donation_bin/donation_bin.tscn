@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bghk3k6x1j776"]
+
+[node name="donation bin" type="Node3D"]
+
+[node name="Mesh" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+size = Vector3(1.5, 2.5, 1.5)

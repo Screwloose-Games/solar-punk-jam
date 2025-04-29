@@ -125,16 +125,16 @@ func check_tile_is_valid(coords: Vector2i) -> bool:
 func build_structure():
 	var file_name = StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
 	var directory_name = file_name.rsplit(".", true, 1)[0]
-	var structure2 = load("res://assets/3d/structures/" + directory_name + "/" + file_name)
-	if structure2:
-		var structure3 = structure2.instantiate()
-		structure3.position = structure_placeholder.position + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
-		add_child(structure3)
+	var visual_instance = null
+	var visual_instance_scene = load("res://assets/3d/structures/" + directory_name + "/" + file_name)
+	if visual_instance_scene:
+		visual_instance = visual_instance_scene.instantiate()
+		visual_instance.position = structure_placeholder.position + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
+		add_child(visual_instance)
 	var coords = Vector2i(int(structure_placeholder.position.x), int(structure_placeholder.position.z))
-	#surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.OCCUPIED_SPACE)
 	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundAfter]])
 
-	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.BUILD_STATUS.BUILDING)
+	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.BUILD_STATUS.BUILDING, visual_instance)
 	built_structures_local.append(new_structure)
 	register_tiles(len(built_structures_local)-1, coords, building_rect.size.x, building_rect.size.y)
 	StructureManager.build_structure(new_structure)
