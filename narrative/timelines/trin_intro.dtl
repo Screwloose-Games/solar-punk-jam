@@ -9,3 +9,4 @@ Trin (excited): Oh! I think it moved! Talk to you later.
 Te (whiny): Fine. Whatever.
 Te (thinking): Those are weeds by the way!
 Trin (whispering): You can do it. Come on. Come on!
+do GameState.meet_npc("trin")

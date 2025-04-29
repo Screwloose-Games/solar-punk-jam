@@ -5,3 +5,4 @@ Te (default): To recycle, duh. My mom crunches ‘em up and we can use them to h
 Mister (curious): You one of the planner’s kids?
 Te (cheerful): Yup. I’m Te.
 Mister (default): Hunh. Ok, Te. Go ahead and grab ‘em if ya want.
+do GameState.meet_npc("mister")

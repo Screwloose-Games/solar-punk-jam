@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0b1347oncwvc"]
+[gd_scene load_steps=11 format=3 uid="uid://d0b1347oncwvc"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://dbdw5suvtj1ek" path="res://actors/npcs/trin/dialog.gd" id="2_khjfs"]
+[ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_khjfs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t813n"]
 radius = 0.4
@@ -61,15 +62,19 @@ label_text = "Read"
 [node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
 shape = SubResource("CylinderShape3D_ssh4n")
 
-[node name="Dialogue" type="Node3D" parent="."]
-script = ExtResource("2_khjfs")
-npc_id = "board"
-
 [node name="ClickableArea3D" type="Area3D" parent="."]
 editor_description = "Allows this object to be clicked"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_fsbli")
+
+[node name="Dialogue" type="Node3D" parent="."]
+script = ExtResource("2_khjfs")
+npc_id = "board"
+
+[node name="InteractNotify" parent="." instance=ExtResource("3_khjfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+npc_id = "board"
 
 [editable path="InteractableArea3D"]
