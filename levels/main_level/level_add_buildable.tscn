@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgbbmh1ghsygk"]
+[gd_scene load_steps=9 format=3 uid="uid://dyrj0p63fyss3"]
 
-[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="4_um8ys"]
-[ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="5_3i7v1"]
-[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="5_ki8py"]
-[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="5_sj11d"]
-[ext_resource type="PackedScene" uid="uid://dmdo33trqjosk" path="res://assets/3d/buildings/building_01/prefab_building_01.tscn" id="7_hp128"]
-[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="7_qywe3"]
-[ext_resource type="PackedScene" uid="uid://qlmqv5iy0waw" path="res://assets/3d/buildings/home_scale_building/sm_standard_home_scale_building.tscn" id="7_t80xa"]
-[ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="8_t80xa"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="1_j20pu"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="2_hw0vb"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="3_varsc"]
+[ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="4_1pyb0"]
+[ext_resource type="PackedScene" uid="uid://dmdo33trqjosk" path="res://assets/3d/buildings/building_01/prefab_building_01.tscn" id="5_3an83"]
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="7_ol40n"]
+[ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="8_hw0vb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_sj11d"]
 vertices = PackedVector3Array(3.4, 0.2, -15.8, 4, 0.2, -15.8, 4.2, 0.2, -16.4, 6.6, 0.2, -49.6, 5.8, 0.2, -16.4, 6.6, 0.2, -17.2, -49.6, 0.2, -12.8, 2.4, 0.2, -12.8, 2.6, 0.2, -15, -49.6, 0.2, -49.6, 7.6, 0.2, -16.8, 7.6, 0.2, -16, 13.4, 0.2, -16, 13.4, 0.2, -49.6, 15.2, 0.2, -12.4, 15.8, 0.2, -11.6, 17.4, 0.2, -11.6, 15.2, 0.2, -15.8, 49.6, 0.2, -11.2, 49.6, 0.2, -49.6, 17.6, 0.2, -11.2, 4.8, 8.7, -15.6, 3.4, 8.7, -14.6, 3.2, 8.7, -14, 3.2, 8.7, -11.4, 7.6, 8.7, -11.4, 6.2, 8.7, -13.6, 6.2, 8.7, -15.6, 5, 0.2, -15.4, 3.6, 0.2, -14.4, 3.4, 0.2, -13.8, 3.4, 0.2, -11.8, 5.6, 0.2, -11.8, 6, 0.2, -11.4, 11.2, 0.2, -9.4, 11.2, 0.2, -14.6, 6, 0.2, -9.4, 7, 7.1, -14, 7.6, 7.1, -13.2, 7.4, 7.1, -15.2, 7, 7.1, -15.2, 11.2, 6.7, -8.6, 11.2, 6.4, -8.2, 11.4, 6.4, -8.2, 11.6, 6.7, -9, 8.2, 6.7, -8.8, 8.4, 6.7, -8.2, 10.4, 6.7, -8.6, 8.4, 6.7, -10.8, 7.2, 6.7, -9, 7.4, 6.7, -8.6, 10.4, 6.7, -8.2, 6, 6.7, -10.8, 6, 6.7, -9, 14.2, 6.7, -9, 14.4, 6.7, -9.4, 14.4, 6.5, -15.2, 8.2, 6.5, -15.2, 10.0041, 6.5, -11.5897, 11.1961, 6.7, -10.3945, 12.3801, 6.5, -11.6121, 13.6081, 6.7, -11.6033, 12.3841, 6.7, -10.3857, 15.2, 0.2, -9, 15.2, 0.2, -6.8, 16.4, 0.2, -7.4, 16.6, 0.2, -10.6, 14.2, 0.2, -10.8, 14.6, 0.2, -9.4, 12, 0.2, -14.6, 14.2, 0.2, -15, 12.2, 0.2, -15, -49.6, 0.2, -11.8, 2.4, 0.2, -11.8, 5, 0.2, -8.4, 5, 0.2, -10, 2.6, 0.2, -10, 6.4, 0.2, -8.2, -49.6, 0.2, 49.6, 6.2, 0.2, 49.6, 49.6, 0.2, -7.8, 17.4, 0.2, -8, 16.8, 8.8, -10.2, 16.8, 8.8, -10.8, 15, 8.8, -11, 15, 8.8, -6.6, 16.6, 8.8, -7.2, 3.2, 4.1, -10.6, 5, 4.1, -10.2, 5, 4.1, -10.6, 14.2, 0.2, -6, 14.2, 0.2, -8.2, 15.2, 0.2, 49.6, 15.2, 0.2, -5.8, 11.2, 6.3, -7.8, 11.4, 6.3, -6.6, 10.4, 6.5, -7.8, 8.4, 6.5, -7.8, 7.4, 6.3, -8, 7.4, 6.3, -6.4, 10.6, 6.3, -5.8, 8.6, 6.3, -5.6, 17.4, 0.2, -6.8, 16.6, 0.2, -6, 49.6, 0.2, 49.6)
@@ -33,25 +32,23 @@ carve_navigation_mesh = true
 
 [node name="Structures" type="Node3D" parent="."]
 
-[node name="HUDCanvasLayer" parent="." instance=ExtResource("5_ki8py")]
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("1_j20pu")]
 layer = 5
 
-[node name="Player" parent="." instance=ExtResource("5_sj11d")]
+[node name="Player" parent="." instance=ExtResource("2_hw0vb")]
 
-[node name="Environment" parent="." instance=ExtResource("4_um8ys")]
+[node name="Environment" parent="." instance=ExtResource("3_varsc")]
 
 [node name="Bulidings" type="Node3D" parent="."]
 
-[node name="Building00" parent="Bulidings" instance=ExtResource("5_3i7v1")]
+[node name="Building00" parent="Bulidings" instance=ExtResource("4_1pyb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1326, 0, 0)
 
-[node name="PrefabBuilding01" parent="." instance=ExtResource("7_hp128")]
+[node name="PrefabBuilding01" parent="." instance=ExtResource("5_3an83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6241, 0, -11.1132)
 
-[node name="DesignTestScene" parent="." instance=ExtResource("7_t80xa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 6)
-
-[node name="NpcMister" parent="." instance=ExtResource("7_qywe3")]
+[node name="NpcMister" parent="." instance=ExtResource("7_ol40n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 0.616856)
 
-[node name="BuildableSurface" parent="." instance=ExtResource("8_t80xa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.641, 1, 25.546)
+[node name="BuildableSurface" parent="." instance=ExtResource("8_hw0vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.88619, 1, 22.7557)
