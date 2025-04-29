@@ -80,7 +80,8 @@ func handle_gui_input(event: InputEvent, idx: int):
 	if event is InputEventMouseMotion:
 		var requirements_missing = StructureManager.check_structure_requirements(idx)
 		if requirements_missing:
-			set_tool_tip("Cannot build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName] + "\nMissing: " + requirements_missing[0], 
+			var formatted_requirements_missing = ", ".join(requirements_missing)
+			set_tool_tip("Cannot build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName] + "\nMissing: " + formatted_requirements_missing, 
 			get_viewport().get_mouse_position())
 		else:
 			set_tool_tip("Build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName], get_viewport().get_mouse_position())
