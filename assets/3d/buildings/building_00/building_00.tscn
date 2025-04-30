@@ -1,7 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://gutw14xymv2b"]
+[gd_scene load_steps=2 format=3 uid="uid://gutw14xymv2b"]
 
 [ext_resource type="PackedScene" uid="uid://bem730ajif6gj" path="res://assets/3d/buildings/building_00/Building00.fbx" id="1_n2sqh"]
-[ext_resource type="Script" uid="uid://lw3jan66fefs" path="res://assets/3d/buildings/prefab_building.gd" id="2_1g4sa"]
 
 [node name="Building00" instance=ExtResource("1_n2sqh")]
-script = ExtResource("2_1g4sa")

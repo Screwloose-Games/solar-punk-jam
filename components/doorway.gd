@@ -4,7 +4,6 @@ extends Node3D
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var destination: Marker3D = $Destination
-@export var destination_surface: BuildableSurface = null
 
 func _ready() -> void:
 	interactable_area_3d.interacted.connect(_on_interacted)
@@ -14,4 +13,4 @@ func _on_interacted(player: Player):
 	interactable_area_3d.stop_interacting()
 
 func move_to_destination(player: Player):
-	SceneTransitionManager.change_position_with_transition(player, destination, SceneManager.FADE_TRANSITION, destination_surface)
+	SceneTransitionManager.change_position_with_transition(player, destination, SceneManager.FADE_TRANSITION)

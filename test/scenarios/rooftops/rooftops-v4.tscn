@@ -86,6 +86,7 @@ script = ExtResource("1_snj21")
 
 [node name="Environment" parent="." instance=ExtResource("2_snj21")]
 current_time_in_game_hours = 8.0
+day_length_in_seconds = 300.0
 
 [node name="Background" type="Node3D" parent="."]
 

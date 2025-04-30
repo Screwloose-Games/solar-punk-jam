@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyb6nwaiae8ea"]
+[gd_scene load_steps=15 format=3 uid="uid://dyb6nwaiae8ea"]
 
 [ext_resource type="Script" uid="uid://nblr465pgu85" path="res://components/buildable_surface.gd" id="1_5i2rm"]
-[ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
+[ext_resource type="Texture2D" uid="uid://bwihwfu4o53fe" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5o6"]
 texture = ExtResource("2_q4s4m")
@@ -102,18 +102,10 @@ material = SubResource("StandardMaterial3D_3gt2x")
 orientation = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snj21"]
-albedo_color = Color(1, 0.458824, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_snj21"]
 material = SubResource("StandardMaterial3D_snj21")
 size = Vector2(16, 16)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i2rm"]
-albedo_color = Color(0.197866, 0.676636, 0.624421, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_q4s4m"]
-material = SubResource("StandardMaterial3D_5i2rm")
-size = Vector3(0.5, 0.5, 0.5)
 
 [node name="BuildableSurface" type="Node3D"]
 script = ExtResource("1_5i2rm")
@@ -155,9 +147,3 @@ skeleton = NodePath("../../../..")
 [node name="SurfaceDebugHint" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("PlaneMesh_snj21")
-
-[node name="Preview" type="Node3D" parent="."]
-
-[node name="Preview" type="MeshInstance3D" parent="Preview"]
-visible = false
-mesh = SubResource("BoxMesh_q4s4m")

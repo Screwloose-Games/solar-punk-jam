@@ -12,11 +12,6 @@ func _ready() -> void:
 		b.text = "Gain " + i
 		add_child(b)
 	
-	var d = Button.new()
-	d.connect("pressed", EnvironmentManager.deposit_resource.bind("Food", 1))
-	d.text = "Donate 1 food"
-	add_child(d)
-
 	var b = Button.new()
 	b.connect("pressed", EnvironmentManager.end_day)
 	b.text = "Go to bed"

@@ -528,10 +528,10 @@ text = "Close"
 
 [node name="TooltipLabel" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 1532.0
-offset_top = 1017.0
-offset_right = 1549.0
-offset_bottom = 1048.0
+offset_left = 13.0
+offset_top = -49.0
+offset_right = 30.0
+offset_bottom = -18.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajdrq")
