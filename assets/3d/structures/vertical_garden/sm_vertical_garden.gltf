@@ -98,7 +98,7 @@
 		},
 		{
 			"mesh":4,
-			"name":"sm vertical garden"
+			"name":"sm_vertical_garden"
 		}
 	],
 	"meshes":[
@@ -154,7 +154,7 @@
 			]
 		},
 		{
-			"name":"sm vertical garden",
+			"name":"sm_vertical_garden",
 			"primitives":[
 				{
 					"attributes":{
@@ -440,7 +440,7 @@
 	"buffers":[
 		{
 			"byteLength":226688,
-			"uri":"sm%20vertical%20garden.bin"
+			"uri":"sm_vertical_garden.bin"
 		}
 	]
 }
