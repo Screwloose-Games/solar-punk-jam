@@ -12,7 +12,7 @@ extends Node
 }
 
 func _ready() -> void:
-	await get_tree().root.ready
+	await owner.ready
 	give_resources()
 
 func give_resources():

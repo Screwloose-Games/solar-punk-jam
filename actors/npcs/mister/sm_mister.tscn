@@ -7,10 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://gge6saft6lrk" path="res://actors/npcs/mister/texture_roughness.png" id="5_nhuuf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04gsc"]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("2_ovtu0")
 metallic = 1.0
 metallic_texture = ExtResource("3_63yjh")
 roughness_texture = ExtResource("5_nhuuf")
+emission_enabled = true
+emission_energy_multiplier = 0.2
+emission_texture = ExtResource("2_ovtu0")
 normal_enabled = true
 normal_texture = ExtResource("4_ucib5")
 
