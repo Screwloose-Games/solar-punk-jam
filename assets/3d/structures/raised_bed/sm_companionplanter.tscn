@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70ckin7w20jg"]
+
+[ext_resource type="PackedScene" uid="uid://c7frlk7rqoooq" path="res://assets/3d/structures/raised_bed/sm_companionplanter.gltf" id="1_j1udy"]
+
+[node name="sm_companionplanter2" instance=ExtResource("1_j1udy")]
