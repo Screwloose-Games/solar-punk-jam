@@ -1,19 +1,18 @@
-[gd_scene load_steps=27 format=3 uid="uid://co1kf3n1i47iy"]
+[gd_scene load_steps=26 format=3 uid="uid://co1kf3n1i47iy"]
 
 [ext_resource type="Script" uid="uid://dubj2h4di77h5" path="res://actors/player_character/player.gd" id="1_74my2"]
 [ext_resource type="PackedScene" uid="uid://dulsr3d3tohn5" path="res://actors/player_character/model_animations/trin/trin_placeholder.tscn" id="2_32iji"]
-[ext_resource type="Script" path="res://actors/player_character/mouse_look.gd" id="2_pkpyr"]
+[ext_resource type="Script" uid="uid://bnlm2g5kiv88" path="res://actors/player_character/mouse_look.gd" id="2_pkpyr"]
 [ext_resource type="Script" uid="uid://dd7jiw6stu5ux" path="res://actors/player_character/state_machine.gd" id="3_1b6t2"]
 [ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://components/navigation_agent_3d.gd" id="4_nnxma"]
 [ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://components/click_to_move.gd" id="5_ffrn3"]
 [ext_resource type="Script" uid="uid://bkkqhihfe2ioh" path="res://actors/player_character/directional_movement.gd" id="6_0lri6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_nnxma"]
 [ext_resource type="Script" uid="uid://xu1267cfx5ai" path="res://actors/player_character/move_option_button.gd" id="9_ffrn3"]
-[ext_resource type="Script" path="res://actors/player_character/camera_option_button.gd" id="9_pnrbl"]
+[ext_resource type="Script" uid="uid://2clx43j4hl4t" path="res://actors/player_character/camera_option_button.gd" id="9_pnrbl"]
 [ext_resource type="Script" uid="uid://btutcnu3trbt6" path="res://components/interact_component.gd" id="10_gj6wn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_pkpyr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_pnrbl"]
-[ext_resource type="Script" uid="uid://cfstr1tfvhcue" path="res://components/camera_zoom.gd" id="13_32iji"]
 [ext_resource type="PackedScene" uid="uid://b8b6q7g4bsaw5" path="res://common/ui/pause_menu/pause_menu.tscn" id="15_32iji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aeg1h"]
@@ -149,7 +148,8 @@ script = ExtResource("6_0lri6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 6.83022, 5.21393)
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 5.29813, 3.92836)
+fov = 61.6
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -235,18 +235,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_gj6wn")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 6.83022, 5.21393)
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 5.29813, 3.92836)
 script = ExtResource("11_pkpyr")
 follow_mode = 6
 follow_target = NodePath("..")
 tween_resource = SubResource("Resource_5ra6y")
 follow_offset = Vector3(0, 3, 2)
-follow_distance = 5.0
-spring_length = 5.0
+follow_distance = 3.0
+spring_length = 3.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="CameraZoom" type="Node" parent="PhantomCamera3D"]
-script = ExtResource("13_32iji")
 
 [node name="MouseLook" type="Node" parent="PhantomCamera3D"]
 unique_name_in_owner = true
