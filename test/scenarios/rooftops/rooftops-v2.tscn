@@ -513,7 +513,7 @@ visible = false
 [node name="LeftMiddleMarginContainer" parent="HUDCanvasLayer/HUD" index="2"]
 visible = false
 
-[node name="TooltipLabel" parent="HUDCanvasLayer/HUD" index="4"]
+[node name="TooltipLabel" parent="HUDCanvasLayer/HUD" index="5"]
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 129.0
