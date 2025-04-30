@@ -42,6 +42,15 @@ class BuiltStructure:
 		
 		
 var built_structures : Array[BuiltStructure] = []
+var current_active_surface = null
+
+func set_active_surface(surface):
+	prints("set_active_surface", surface, surface.name, surface.is_active)
+	if surface == current_active_surface:
+		return
+	if current_active_surface:
+		current_active_surface.is_active = false
+	current_active_surface = surface
 
 signal UpdatedAvailableStructures()
 signal BuildableStructureSelected(idx: int)
@@ -119,15 +128,21 @@ func daily_collect_resources_from_structures():
 		# reset manual collection
 		structure.ready_to_be_collected = []
 		if structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection]:
-			if not structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] or structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] and structure.daily_resources_satisfied:
-				for item in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection].split(","):
-					for count in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier]:
-						structure.ready_to_be_collected.append(item)
 			# Handle the waste bin separately
-			if structure_data[structure.structure][STRUCTURE_FIELDS.BuildingConsumes]=="Donation":
+			if structure_data[structure.structure][STRUCTURE_FIELDS.StructureName]=="Waste bin":
 				# convert environment food donation to waste and seeds
-				pass
-				
+				for donated_item in EnvironmentManager.deposited_resources:
+					for donated_quantity in EnvironmentManager.deposited_resources[donated_item]:
+						for item in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection].split(","):
+							for count in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier]:
+								structure.ready_to_be_collected.append(item)
+				# clear donated resources
+				EnvironmentManager.deposited_resources = {}
+			else:
+				if not structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] or structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] and structure.daily_resources_satisfied:
+					for item in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection].split(","):
+						for count in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier]:
+							structure.ready_to_be_collected.append(item)
 		
 		
 
@@ -158,8 +173,8 @@ Solar panel	1.2	2	1	Photovoltaic panel for converting sunlight into electricity	
 Tool library	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5	1	Contractor_	2		1						0					
 Tree	2.5	2	2	Fruit-bearing trees or bushes	apple_tree2.tscn	0,0	1	2	2		Seeds	0		1						0	Seeds	Food			
 Vegetables	0.5	1	1	Small garden bed for growing vegetables	vegetables.tscn	0,0	1	2	2		Seeds	0		1						0	Seeds,Water,Soil	Food		1	
-Waste bin	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		1				10		0	Donation	Waste,Seeds	10	1	
-Donation box	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		1						0		Materials	10		
+Waste bin	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		1						0		Waste,Seeds	10	1	
+Donation box	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		1						0		Materials			
 Food stand	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor_	0		1						0	Food	Happiness	10	1	1"""
 	var data = data_.split("\n")
 	data = Array(data)
