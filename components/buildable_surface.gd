@@ -3,6 +3,7 @@ class_name BuildableSurface
 
 @onready var selection_placeholder := $SelectionPlaceholder as Node3D
 @onready var structure_placeholder := $StructurePlaceholder as Node3D
+@onready var preview_buildable_area := $Preview as Node3D
 @onready var surface_map := $SurfaceMap as TileMap
 
 @export var is_active := false:
@@ -10,10 +11,13 @@ class_name BuildableSurface
 		is_active = value
 		if is_active:
 			enable_cursor_3d()
+			if preview_buildable_area:
+				preview_buildable_area.show()
 		else:
 			if selection_placeholder:
 				selection_placeholder.hide()
 				structure_placeholder.hide()
+				preview_buildable_area.hide()
 
 var building_rect := Rect2i()
 var building_idx := -1
@@ -30,6 +34,19 @@ func _ready() -> void:
 	StructureManager.BuildableStructureSelected.connect(ready_structure_building)
 	selection_placeholder.hide()
 	structure_placeholder.hide()
+	create_preview()
+	if is_active:
+		StructureManager.set_active_surface(self)
+	
+func create_preview():
+	var preview = $Preview
+	for coords in surface_map.get_used_cells(0):
+		var visual_instance = $Preview/Preview.duplicate()
+		visual_instance.position.x = coords.x + 0.5
+		visual_instance.position.z = coords.y + 0.5
+		visual_instance.show()
+		preview.add_child(visual_instance)
+	preview.visible = is_active
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
