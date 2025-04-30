@@ -182,6 +182,10 @@ dialogic_default_action={
 3d_physics/layer_4="Interactable"
 3d_physics/layer_9="Teleportable"
 
+[navigation]
+
+3d/default_cell_height=0.1
+
 [physics]
 
 common/physics_interpolation=true

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl8comk2htyv7"]
+
+[ext_resource type="PackedScene" uid="uid://cnisjt3dbnnwe" path="res://assets/3d/buildings/building_entry_short/sm_building_entry_short.gltf" id="1_fmmyn"]
+
+[node name="sm_building_entry_short" instance=ExtResource("1_fmmyn")]

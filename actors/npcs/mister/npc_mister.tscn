@@ -101,3 +101,4 @@ tree_root = SubResource("AnimationNodeStateMachine_qp07d")
 anim_player = NodePath("../SM_Mister/AnimationPlayer")
 
 [editable path="SM_Mister"]
+[editable path="InteractableArea3D"]

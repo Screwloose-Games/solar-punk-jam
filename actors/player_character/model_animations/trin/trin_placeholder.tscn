@@ -7,10 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://dfk2h8pikyyso" path="res://actors/player_character/model_animations/trin/texture_roughness.png" id="5_ym4cw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4txly"]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("2_ogqr0")
 metallic = 1.0
 metallic_texture = ExtResource("3_gephn")
 roughness_texture = ExtResource("5_ym4cw")
+emission_enabled = true
+emission_energy_multiplier = 0.2
+emission_texture = ExtResource("2_ogqr0")
 normal_enabled = true
 normal_texture = ExtResource("4_3pxxx")
 
