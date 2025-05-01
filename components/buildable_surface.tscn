@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nblr465pgu85" path="res://components/buildable_surface.gd" id="1_5i2rm"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
-[ext_resource type="Script" uid="uid://dqakhe13x8niw" path="res://components/interactable_build_area.gd" id="4_phaic"]
+[ext_resource type="Script" uid="uid://3wlfdlwljewv" path="res://test/scenarios/test_interact/buildable_area_3d.gd" id="4_phaic"]
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="5_74j1h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5o6"]
