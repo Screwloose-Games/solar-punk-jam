@@ -53,6 +53,7 @@ directories/dtl_directory={
 "intro": "res://narrative/timelines/intro.dtl",
 "intro_dialogue_timeline": "res://narrative/timelines/intro_dialogue_timeline.dtl",
 "mister_intro": "res://narrative/timelines/mister_intro.dtl",
+"mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "mister_talk": "res://narrative/timelines/mister_talk.dtl",
 "te_think": "res://narrative/timelines/te_think.dtl",
 "trin_intro": "res://narrative/timelines/trin_intro.dtl",

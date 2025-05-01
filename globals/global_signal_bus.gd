@@ -13,3 +13,5 @@ signal level_reset
 signal set_ending_visibility(show_panel: bool)
 
 signal structure_built(structure : String)
+
+signal quest_objective_met(objective_id : String)

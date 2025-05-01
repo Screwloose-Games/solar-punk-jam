@@ -10,19 +10,27 @@ const DIALOGUE_DB = {
 	},
 	"kelly": {
 		"intro": "kelly_intro",
-		"talk": "kelly_talk",
+		"busy": "kelly_talk",
+		"idle": "kelly_talk",
+		"quests": []
 	},
 	"mister": {
 		"intro": "mister_intro",
-		"talk": "mister_talk",
+		"busy": "mister_talk",
+		"idle": "mister_talk",
+		"quests": ["mister_quest1"]
 	},
 	"mom": {
 		"intro": "mom_intro",
-		"talk": "mom_talk",
+		"busy": "mom_talk",
+		"idle": "mom_talk",
+		"quests": []
 	},
 	"trin": {
 		"intro": "trin_intro",
-		"talk": "trin_talk",
+		"busy": "trin_talk",
+		"idle": "trin_talk",
+		"quests": []
 	},
 }
 

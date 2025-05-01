@@ -4,4 +4,5 @@ A riot of colors that somehow manages to make sense to the viewer.
 Te: Yeesh, this thing looks like it's about to fall over. This is how we're supposed to ask for work and materials?
 The board stands silent, which is a statement in of itself.
 Te: Well, no use just staring at this thing. Gotta fill up my quota before I catch another lecture from Mom...
+do QuestManager.signal_objective("quest_objective_met", "mister01_01")
 do GameState.meet_npc("board")

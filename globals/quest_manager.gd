@@ -16,6 +16,10 @@ func start_quest(file_name : String):
 	print("Quest started: %s" % new_quest.name)
 
 
+func signal_objective(signal_name : String, objective_id : String):
+	GlobalSignalBus.emit_signal(signal_name, objective_id)
+
+
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
 	GameState.complete_quest(giver)
