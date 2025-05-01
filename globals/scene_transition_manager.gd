@@ -13,11 +13,11 @@ func change_position(source: Node3D, target: Node3D):
 	source.global_position = target.global_position
 
 
-func change_position_with_transition(source: Node3D, target: Node3D, transition: PackedScene, destination_surface: BuildableSurface):
+func change_position_with_transition(source: Node3D, target: Node3D, transition: PackedScene):
 	var transition_instance: Transition = transition.instantiate()
 
 	transition_instance.on_fade_out.connect(_on_fade_out_position.bind(source, target, transition_instance))
-	transition_instance.on_fade_in.connect(_on_fade_in.bind(transition_instance, destination_surface))
+	transition_instance.on_fade_in.connect(_on_fade_in.bind(transition_instance))
 	add_child(transition_instance)
 
 
@@ -39,11 +39,8 @@ func _on_fade_out(new_scene: PackedScene, transition_instance: Transition):
 	change_scene(new_scene)
 
 
-func _on_fade_in(transition_instance: Transition, destination_surface: BuildableSurface):
+func _on_fade_in(transition_instance: Transition):
 	transition_instance.queue_free()
-	if destination_surface:
-		StructureManager.set_active_surface(destination_surface)
-		destination_surface.is_active = true
 	transition_instance.fade_in()
 
 

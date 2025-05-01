@@ -14,4 +14,4 @@ func _on_interacted(player: Player):
 	interactable_area_3d.stop_interacting()
 
 func move_to_destination(player: Player):
-	SceneTransitionManager.change_position_with_transition(player, destination, SceneManager.FADE_TRANSITION, destination_surface)
+	SceneTransitionManager.change_position_with_transition(player, destination, SceneManager.FADE_TRANSITION)
