@@ -16,7 +16,7 @@ enum MovementBasis {
 
 @onready var model: Node3D = %Model
 
-@onready var _camera: PhantomCamera3D = %PlayerPhantomCamera3D
+@onready var _camera: PhantomCamera3D = %ThirdPersonCamera
 
 var basis_node: Node3D = owner
 var actor: Player
@@ -26,6 +26,7 @@ func _ready() -> void:
 	actor = owner
 
 func get_movement_direction(input_direction: Vector2):
+	basis_node = get_viewport().get_camera_3d()
 	var movement_direction: Vector3 = Vector3(input_direction.x, 0, input_direction.y).normalized()
 	var final_direction = Vector3.ZERO
 	if movement_direction:
@@ -37,7 +38,7 @@ func get_movement_direction(input_direction: Vector2):
 		final_direction.z = movement_direction.z
 	return final_direction
 
-func get_velocity_third_person(delta: float, speed: float):
+func get_velocity(delta: float, speed: float):
 	var velocity: Vector3 = Vector3.ZERO
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Backward")
 	var movement_direction = get_movement_direction(input_dir)
@@ -48,16 +49,4 @@ func get_velocity_third_person(delta: float, speed: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, actor.speed)
 		velocity.z = move_toward(velocity.z, 0, actor.speed)
-	return velocity
-
-func get_velocity(delta: float, speed: float):
-	return get_velocity_third_person(delta, speed)
-	var velocity: Vector3 = Vector3.ZERO
-	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Backward")
-
-	var direction := (actor.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-		model.look_at(model.global_position - direction, Vector3.UP)
 	return velocity

@@ -25,7 +25,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 cell_height = 0.1
 
 [node name="LevelCameraCheck" type="Node3D"]
-editor_description = "As a player, I want to experience the immersive narrative world with a 3rd person view and enter a isometric view when trying to build in a gridded area.
+editor_description = "enter a isometric view when trying to build in a gridded area.
 
 - 3rd person POV
     - This the view the player should be in most of the game.
@@ -44,6 +44,7 @@ editor_description = "As a player, I want to experience the immersive narrative 
 
 [node name="Player" parent="." instance=ExtResource("10_x2p16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58726, 2.38419e-07, 2.65249)
+camera_mode = 1
 
 [node name="sm_rain_barrel" parent="." instance=ExtResource("1_t03n4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)
@@ -72,7 +73,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 5.58726, 2.86358, 5.68355)
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 5.58726, 2.86358, 5.68356)
 attributes = SubResource("CameraAttributesPractical_i42vj")
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
