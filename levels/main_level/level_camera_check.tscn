@@ -1,0 +1,154 @@
+[gd_scene load_steps=14 format=3 uid="uid://beo33we040d1h"]
+
+[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="1_t03n4"]
+[ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="2_yghwm"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_5m24m"]
+[ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="4_su20i"]
+[ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="5_ijihu"]
+[ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="6_egggs"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="7_sd7sp"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="8_w1eih"]
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="9_cfeim"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="10_x2p16"]
+[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="11_jjuay"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i42vj"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 5.99
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.05
+dof_blur_amount = 0.21
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ntgmv"]
+vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.1
+
+[node name="LevelCameraCheck" type="Node3D"]
+editor_description = "- 3rd person POV
+    - This the view the player should be in most of the game.
+    - The angle should be similar the Johnny’s 3rd person demo.
+- Isometric Build View
+    - When a player moves to a gridded build area, the grid appears on the space and a popup says “e build mode”
+    - Player presses e and the camera pans back to isometric view and loses player movement control.
+        
+        ![image.png](attachment:c005fad1-2db2-4be8-9c3a-7765248b117a:image.png)
+        
+    - They now can use their mouse to select build locations for their available structures.
+    - As they move their mouse on the grid the size of the selected item should highlight the proper grid spaces where it will be placed
+    - Player can use a and d to shift between items or click a specific item to select it. The grid highlight should adjust to the selected item
+    - Player can left click to build. If they have multiple of the item the can continue to click tiles and build without reselection.
+        - If there was only one instance, the selection should auto shift to the  next available item in the list."
+
+[node name="Player" parent="." instance=ExtResource("10_x2p16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58726, 2.38419e-07, 2.65249)
+
+[node name="sm_rain_barrel" parent="." instance=ExtResource("1_t03n4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)
+
+[node name="sm_solar_panel" parent="." instance=ExtResource("2_yghwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50486, -1.07288e-06, 1.97875)
+
+[node name="sm_foot_front" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.207912, 0.978148, 0, -0.978148, -0.207912, 0, 0.220739, 0.136157)
+
+[node name="sm_foot_left" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="1"]
+transform = Transform3D(-0.5, 0.847101, 0.180057, -8.09637e-08, -0.207912, 0.978148, 0.866026, 0.489074, 0.103956, -0.117915, 0.220739, -0.0680784)
+
+[node name="sm_foot_right" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="2"]
+transform = Transform3D(-0.5, -0.847101, -0.180057, 8.09637e-08, -0.207912, 0.978148, -0.866026, 0.489074, 0.103956, 0.117915, 0.220739, -0.0680784)
+
+[node name="sm_panel_pivot" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.225877, 0.974156, 0, -0.974156, 0.225877, 0, 2.48238, 0)
+
+[node name="sm_panel_left" parent="sm_solar_panel/sm_solar_panels/sm_pole/sm_panel_pivot" index="0"]
+transform = Transform3D(1.54936, -4.61745e-08, -1.57623e-15, 4.61745e-08, 1.54936, 5.96046e-08, -2.00124e-16, -5.96046e-08, 1.54936, 0, 0.235903, 0)
+
+[node name="sm_panel_right" parent="sm_solar_panel/sm_solar_panels/sm_pole/sm_panel_pivot" index="2"]
+transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936, 5.96046e-08, 2.00124e-16, -5.96046e-08, 1.54936, 0, 0.159048, 0)
+
+[node name="MainCamera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 5.58726, 2.86358, 5.68356)
+attributes = SubResource("CameraAttributesPractical_i42vj")
+
+[node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_5m24m")
+
+[node name="UnlockStructures" type="Node" parent="."]
+script = ExtResource("4_su20i")
+structures = Dictionary[String, bool]({
+"Battery": false,
+"Bench": false,
+"Bioreactor": false,
+"Birdhouse (on pole)": false,
+"Bush (flowers)": false,
+"Compost bin": true,
+"Donation box": true,
+"Food stand": true,
+"Hygiene station": false,
+"Insect Hotel": false,
+"Kitchen": false,
+"Kitchen sink": false,
+"Kitchen stove": false,
+"Lantern (on pole)": false,
+"Picnic Table": false,
+"Rain barrel": false,
+"Raised bed": true,
+"Recycling station": false,
+"Solar panel": false,
+"Tool library": false,
+"Tree": false,
+"Vegetables": true,
+"Vertical garden": false,
+"Waste bin": true
+})
+
+[node name="SetupResources" type="Node" parent="."]
+script = ExtResource("5_ijihu")
+resources = Dictionary[String, int]({
+"Electricity": 2,
+"Food": 2,
+"Happiness": 2,
+"Materials": 3,
+"Seeds": 2,
+"Soil": 2,
+"Waste": 2,
+"Water": 2
+})
+
+[node name="DesignTestScene" parent="." instance=ExtResource("6_egggs")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ntgmv")
+
+[node name="Terrain" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+use_collision = true
+collision_layer = 2
+size = Vector3(100, 1, 100)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D"]
+carve_navigation_mesh = true
+
+[node name="Structures" type="Node3D" parent="."]
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("7_sd7sp")]
+layer = 5
+
+[node name="Environment" parent="." instance=ExtResource("8_w1eih")]
+
+[node name="NpcMister" parent="." instance=ExtResource("9_cfeim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 5.81447)
+
+[node name="CommBoard" parent="." instance=ExtResource("11_jjuay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92736, -9.53674e-07, 4.87544)
+
+[editable path="sm_solar_panel"]
+[editable path="DesignTestScene"]

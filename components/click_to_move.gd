@@ -5,6 +5,7 @@ extends Node3D
 
 @export var speed: float = 10
 @export var marker_animation_time: float = 0.5
+@export var active = false
 
 var actor: CharacterBody3D
 
@@ -35,6 +36,8 @@ func get_velocity(delta: float, speed):
 	return direction * speed
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not active:
+		return
 	if Input.is_action_just_pressed("Left_Click"):
 		var camera = get_viewport().get_camera_3d()
 		var mouse_pos = get_viewport().get_mouse_position()
