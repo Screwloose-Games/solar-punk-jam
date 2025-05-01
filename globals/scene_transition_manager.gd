@@ -18,7 +18,6 @@ func change_position_with_transition(source: Node3D, target: Node3D, transition:
 
 	transition_instance.on_fade_out.connect(_on_fade_out_position.bind(source, target, transition_instance))
 	transition_instance.on_fade_in.connect(_on_fade_in.bind(transition_instance))
-
 	add_child(transition_instance)
 
 
@@ -43,6 +42,7 @@ func _on_fade_out(new_scene: PackedScene, transition_instance: Transition):
 
 func _on_fade_in(transition_instance: Transition):
 	transition_instance.queue_free()
+	
 
 
 func _on_fade_out_position(source: Node3D, target: Node3D, transition_instance: Transition):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7nvor7es6a1e"]
 
-[ext_resource type="Script" uid="uid://s2ygu2v0ccp" path="res://components/teleporter.gd" id="2_jyacq"]
+[ext_resource type="Script" path="res://components/teleporter.gd" id="2_jyacq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6peso"]
 size = Vector3(1.34778, 1.06238, 1.04781)
@@ -24,7 +24,6 @@ collision_layer = 0
 collision_mask = 256
 script = ExtResource("2_jyacq")
 destination_mark = NodePath("../RoofTeleporter")
-metadata/_custom_type_script = "uid://s2ygu2v0ccp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundTeleporter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.517517, -0.199265)
@@ -36,7 +35,6 @@ collision_layer = 0
 collision_mask = 256
 script = ExtResource("2_jyacq")
 destination_mark = NodePath("../GroundTeleporter")
-metadata/_custom_type_script = "uid://s2ygu2v0ccp"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoofTeleporter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.173889, 0.517517, 0.0239029)
