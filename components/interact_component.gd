@@ -1,13 +1,33 @@
+@tool
 extends Area3D
 class_name InteractArea3D
 
-@export var interact_action: String
+signal selected_updated(current_selected: InteractableArea3D)
+signal started_interacting
+signal stopped_interacting
 
 var tracked_nodes: Array[InteractableArea3D] = []
-var selected: InteractableArea3D = null
+var selected: InteractableArea3D = null:
+	set(val):
+		selected = val
+		selected_updated.emit(selected)
 
 var player: Player
 
+var interact_action: StringName
+var is_interacting: bool = false:
+	set(val):
+		is_interacting = val
+		if is_interacting:
+			started_interacting.emit()
+		else:
+			stopped_interacting.emit()
+			if selected:
+				selected.stop_interacting()
+
+func _on_stopped_interacting(interactable: InteractableArea3D):
+	is_interacting = false
+	interactable.stopped_interacting.disconnect(_on_stopped_interacting)
 
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
@@ -42,13 +62,27 @@ func _on_area_exited(area: Area3D):
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Interact"):
+	if event.is_action_pressed(interact_action):
+		if owner.is_interacting:
+			is_interacting = false
+			return
 		if selected is InteractableArea3D:
 			selected.interact(player)
+			selected.stopped_interacting.connect(_on_stopped_interacting.bind(selected))
+			is_interacting = true
+			
+
+func get_actions():
+	var proj_file := ConfigFile.new()
+	if proj_file.load("res://project.godot"):
+		printerr("Failed to open \"project.godot\"! Custom input actions will not work on editor view!")
+		return
+	if proj_file.has_section("input"):
+		return proj_file.get_section_keys("input")
 
 func _get_property_list() -> Array:
 	var props = []
-	var actions = InputMap.get_actions()
+	var actions = get_actions()
 	actions.sort()
 
 	props.append({
