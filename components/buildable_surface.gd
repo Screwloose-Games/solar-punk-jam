@@ -40,13 +40,20 @@ func _ready() -> void:
 	
 func create_preview():
 	var preview = $Preview
+	var preview2 = $AlwaysOnPreview
 	for coords in surface_map.get_used_cells(0):
 		var visual_instance = $Preview/Preview.duplicate()
 		visual_instance.position.x = coords.x + 0.5
 		visual_instance.position.z = coords.y + 0.5
 		visual_instance.show()
 		preview.add_child(visual_instance)
+		var visual_instance2 = $AlwaysOnPreview/Preview.duplicate()
+		visual_instance2.position.x = coords.x + 0.5
+		visual_instance2.position.z = coords.y + 0.5
+		visual_instance2.show()
+		preview2.add_child(visual_instance2)
 	preview.visible = is_active
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
@@ -103,8 +110,10 @@ func move_cursor_3d():
 		intersect.x = round(intersect.x +0.5)
 		intersect.y = 0#round(intersect.y)
 		intersect.z = round(intersect.z +0.5)
-		selection_placeholder.position = intersect + Vector3(-0.5,0,-0.5)
-		structure_placeholder.position = intersect - Vector3(1,0,1)
+		selection_placeholder.position = intersect + Vector3(-0.5+position.x,0,-0.5+position.z)
+		structure_placeholder.position = intersect - Vector3(1+position.x,0,1+position.z)
+		intersect.x -= position.x
+		intersect.z -= position.z
 		var coords = Vector2i(int(intersect.x-1), int(intersect.z-1))
 		can_check = false
 		var is_valid = check_tile_is_valid(coords)
