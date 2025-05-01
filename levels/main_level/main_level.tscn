@@ -45,7 +45,6 @@ layer = 5
 
 [node name="PrefabBuilding01" parent="." instance=ExtResource("7_hp128")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6241, 0, -11.1132)
-destination_surface_path = NodePath("../BuildableSurface_Building01_Rooftop")
 
 [node name="NpcMister" parent="." instance=ExtResource("7_qywe3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 0.616856)

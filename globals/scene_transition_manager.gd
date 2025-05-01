@@ -37,11 +37,12 @@ func change_scene_with_transition(scene: PackedScene, transition: PackedScene):
 
 func _on_fade_out(new_scene: PackedScene, transition_instance: Transition):
 	change_scene(new_scene)
+	transition_instance.fade_in()
 
 
 func _on_fade_in(transition_instance: Transition):
 	transition_instance.queue_free()
-	transition_instance.fade_in()
+	
 
 
 func _on_fade_out_position(source: Node3D, target: Node3D, transition_instance: Transition):
