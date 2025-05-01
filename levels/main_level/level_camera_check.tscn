@@ -25,9 +25,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 cell_height = 0.1
 
 [node name="LevelCameraCheck" type="Node3D"]
-editor_description = "enter a isometric view when trying to build in a gridded area.
-
-- 3rd person POV
+editor_description = "- 3rd person POV
     - This the view the player should be in most of the game.
     - The angle should be similar the Johnny’s 3rd person demo.
 - Isometric Build View
@@ -44,7 +42,6 @@ editor_description = "enter a isometric view when trying to build in a gridded a
 
 [node name="Player" parent="." instance=ExtResource("10_x2p16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58726, 2.38419e-07, 2.65249)
-camera_mode = 1
 
 [node name="sm_rain_barrel" parent="." instance=ExtResource("1_t03n4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)

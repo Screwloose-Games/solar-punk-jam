@@ -180,6 +180,7 @@ dialogic_default_action={
 3d_physics/layer_2="Ground"
 3d_physics/layer_3="Structure"
 3d_physics/layer_4="Interactable"
+3d_physics/layer_5="Buildable"
 3d_physics/layer_9="Teleportable"
 
 [navigation]
