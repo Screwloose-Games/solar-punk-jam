@@ -6,6 +6,7 @@ class_name BuildableSurface
 @onready var preview_buildable_area := $Preview as Node3D
 @onready var surface_map := $SurfaceMap as TileMap
 
+@export_multiline var initial_build := ""
 @export var is_active := false:
 	set(value):
 		is_active = value
@@ -35,6 +36,7 @@ func _ready() -> void:
 	selection_placeholder.hide()
 	structure_placeholder.hide()
 	create_preview()
+	create_initial_build()
 	if is_active:
 		StructureManager.set_active_surface(self)
 	
@@ -148,16 +150,44 @@ func check_tile_is_valid(coords: Vector2i) -> bool:
 	return tile_kind in StructureManager.VALID_TILE_TYPES
 
 
+func create_initial_build():
+	if initial_build:
+		for record in initial_build.split("\n"):
+			var data = record.split("\t")
+			var coords = data[1].split(",")
+			building_idx = StructureManager.structure_name_to_idx_map[data[0]]
+			var coords_ = Vector2i(int(coords[0].strip_edges()), int(coords[1].strip_edges()))
+			#coords_ += Vector2i.ONE
+			var w = int(StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
+			var h = int(StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureDepth])
+			building_rect = Rect2i(0,0,w,h)
+			_build_structure(building_idx, coords_, building_rect)
+	reset_cursor_3d()
+
+
 func build_structure():
+	var coords = Vector2i(int(structure_placeholder.position.x), int(structure_placeholder.position.z))
+	_build_structure(building_idx, coords, building_rect)
+	
+	# done building
+	if StructureManager.check_structure_requirements(building_idx):
+		reset_cursor_3d()
+	else:
+		pass
+		# to let build the same again, comment the following line
+		reset_cursor_3d()
+
+	
+func _build_structure(building_idx, coords, building_rect):
+	prints("building structure at",coords)
 	var file_name = StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
 	var directory_name = file_name.rsplit(".", true, 1)[0]
 	var visual_instance = null
 	var visual_instance_scene = load("res://assets/3d/structures/" + directory_name + "/" + file_name)
 	if visual_instance_scene:
 		visual_instance = visual_instance_scene.instantiate()
-		visual_instance.position = structure_placeholder.position + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
-		add_child(visual_instance)
-	var coords = Vector2i(int(structure_placeholder.position.x), int(structure_placeholder.position.z))
+		visual_instance.position = Vector3(coords.x, 0, coords.y) + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
+		add_child(visual_instance)	
 	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundAfter]])
 
 	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.BUILD_STATUS.BUILDING, visual_instance)
@@ -165,12 +195,6 @@ func build_structure():
 	register_tiles(len(built_structures_local)-1, coords, building_rect.size.x, building_rect.size.y)
 	StructureManager.build_structure(new_structure)
 
-	# done building
-	if StructureManager.check_structure_requirements(building_idx):
-		reset_cursor_3d()
-	else:
-		pass
-		# let build the same again
 	
 func register_tiles(structure_idx:int, origin: Vector2i, w:int, h:int):
 	for ix in w:
