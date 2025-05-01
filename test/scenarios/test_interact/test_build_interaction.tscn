@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1m55fj0uhwuc"]
+[gd_scene load_steps=4 format=3 uid="uid://d1m55fj0uhwuc"]
 
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="1_iafaf"]
 [ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="2_6s48x"]
-[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="3_6s48x"]
-[ext_resource type="Script" uid="uid://dqakhe13x8niw" path="res://test/scenarios/test_interact/buildable_area_3d.gd" id="3_jjlna"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="5_ib37k"]
 
 [node name="TestBuildInteraction" type="Node3D"]
@@ -17,19 +15,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52576, 0.0238069, -1.15324
 unique_name_in_owner = true
 is_active = false
 
-[node name="BuildableInteract" type="Node" parent="BuildableSurface"]
-script = ExtResource("3_jjlna")
-
-[node name="BuildableArea3D" parent="BuildableSurface" instance=ExtResource("3_6s48x")]
-unique_name_in_owner = true
-collision_layer = 16
-label_text = "Build"
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300514, -0.478795, -4.51157)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
 size = Vector3(9.4601, 1, 20.1075)
-
-[editable path="BuildableSurface/BuildableArea3D"]
