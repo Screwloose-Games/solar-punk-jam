@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cedg86h3elalj"]
+
+[ext_resource type="PackedScene" uid="uid://u0f8aqxotnu2" path="res://assets/3d/buildings/building_05/sm_building_05.gltf" id="1_gdbhx"]
+
+[node name="sm_building_05" instance=ExtResource("1_gdbhx")]
+
+[node name="building_05-colonly" parent="." index="2"]
+visible = false
