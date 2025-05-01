@@ -63,11 +63,15 @@ const VALID_TILE_TYPES = [BUILDABLE_EMPTY_SPACE, BUILDABLE_RAISED_BED_SPACE, OCC
 
 
 var structure_data = []
+var structure_name_to_idx_map = {}
 var available_structures = []
 var registered_structures = []
 
 func _ready() -> void:
 	structure_data = _get_structure_data()
+	for idx in len(structure_data):
+		structure_name_to_idx_map[structure_data[idx][STRUCTURE_FIELDS.StructureName]] = idx
+		
 	EnvironmentManager.connect("day_cycle_start", daily_collect_resources_from_structures)
 
 func check_structure_requirements(idx):
