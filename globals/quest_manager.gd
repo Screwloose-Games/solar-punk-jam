@@ -1,9 +1,17 @@
 extends Node
 
 const FILE_PATH = "res://narrative/quests/%s.tres"
+
+var quest_values = {
+	
+}
 var quests : Array[Quest] = []
 
 signal quests_changed
+
+
+func _ready() -> void:
+	GameState.game_state_changed.connect(_on_gamestate_changed)
 
 
 func start_quest(file_name : String):
@@ -16,8 +24,9 @@ func start_quest(file_name : String):
 	print("Quest started: %s" % new_quest.name)
 
 
-func signal_objective(signal_name : String, objective_id : String):
-	GlobalSignalBus.emit_signal(signal_name, objective_id)
+func _on_gamestate_changed():
+	for quest in quests:
+		quest.check_progress()
 
 
 func _on_quest_complete(giver : String):

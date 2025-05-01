@@ -60,10 +60,21 @@ directories/dtl_directory={
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }
 variables={
-"has_met_fischer": false,
-"has_met_marge": false,
-"has_met_sunny": false,
-"has_met_wendy": false
+"board_active": false,
+"board_met": false,
+"board_progress": 0,
+"kelly_active": false,
+"kelly_met": false,
+"kelly_progress": 0,
+"mister_active": false,
+"mister_met": false,
+"mister_progress": 0,
+"mom_active": false,
+"mom_met": true,
+"mom_progress": 0,
+"trin_active": false,
+"trin_met": false,
+"trin_progress": 0
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

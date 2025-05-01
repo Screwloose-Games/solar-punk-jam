@@ -1,6 +1,5 @@
 extends Node
 
-# Database of dialogue timelines for NPCs under various conditions
 const DIALOGUE_DB = {
 	"board": {
 		"intro": "board_intro",
@@ -34,39 +33,22 @@ const DIALOGUE_DB = {
 	},
 }
 
-var world : Dictionary = {
-	"happiness": 50,
-	"tech_level": 1,
-}
-var story : Dictionary = {
-	"current_act": 1,
-}
-var npcs : Dictionary = {
-	"board": {
-		"player_met": false,
-		"progress": 0,
-		"quest_active": false
-	},
-	"kelly": {
-		"player_met": false,
-		"progress": 0,
-		"quest_active": false
-	},
-	"mister": {
-		"player_met": false,
-		"progress": 0,
-		"quest_active": false
-	},
-	"mom": {
-		"player_met": true,
-		"progress": 0,
-		"quest_active": false
-	},
-	"trin": {
-		"player_met": false,
-		"progress": 0,
-		"quest_active": false
-	},
+var quest_values = {
+	"board_met": false,
+	"board_progress": 0,
+	"board_active": false,
+	"kelly_met": false,
+	"kelly_progress": 0,
+	"kelly_active": false,
+	"mister_met": false,
+	"mister_progress": 0,
+	"mister_active": false,
+	"mom_met": true,
+	"mom_progress": 0,
+	"mom_active": false,
+	"trin_met": false,
+	"trin_progress": 0,
+	"trin_active": false,
 }
 
 signal game_state_changed
@@ -74,29 +56,26 @@ signal game_state_changed
 
 func get_npc_dialogue(npc_id : String) -> String:
 	var timeline = ""
-	var this_npc = npcs[npc_id]
-	if this_npc.player_met:
-		if this_npc.quest_active:
+	if quest_values[npc_id + "_met"]:
+		if quest_values[npc_id + "_active"]:
 			timeline = DIALOGUE_DB[npc_id].busy
-		elif this_npc.progress >= DIALOGUE_DB[npc_id].quests.size():
+		elif quest_values[npc_id + "_progress"] >= DIALOGUE_DB[npc_id].quests.size():
 			timeline = DIALOGUE_DB[npc_id].idle
 		else:
-			this_npc.quest_active = true
-			timeline = DIALOGUE_DB[npc_id].quests[this_npc.progress]
+			quest_values[npc_id + "_active"] = true
+			timeline = DIALOGUE_DB[npc_id].quests[quest_values[npc_id + "_progress"]]
 	else:
 		timeline = DIALOGUE_DB[npc_id].intro
 	return timeline
 
 
 func meet_npc(npc_id : String):
-	if npc_id in npcs.keys():
-		npcs[npc_id].player_met = true
-		game_state_changed.emit()
+	print("Met NPC: %s" % npc_id)
+	quest_values[npc_id + "_met"] = true
+	game_state_changed.emit()
 
 
 func complete_quest(giver : String):
-	if giver in npcs.keys():
-		npcs[giver].quest_active = false
-		npcs[giver].progress += 1
-		game_state_changed.emit()
-		print("Progress for NPC %s increased to %d" % [giver, npcs[giver].progress])
+	quest_values[giver + "_active"] = false
+	quest_values[giver + "_progress"] += 1
+	print("Progress for NPC %s increased to %d" % [giver, quest_values[giver + "_progress"]])

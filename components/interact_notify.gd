@@ -11,11 +11,10 @@ func _ready() -> void:
 
 
 func _on_game_state_changed():
-	print("Interact notify: GameState changed.")
-	if npc_id in GameState.npcs.keys():
-		print("Interact notify: Vis change on %s" % npc_id)
-		var npc_data = GameState.npcs[npc_id]
-		visible = (!npc_data.player_met or !npc_data.quest_active)
+	if (npc_id + "_met") in GameState.quest_values.keys():
+		visible = !GameState.quest_values[npc_id + "_met"]
+	elif (npc_id + "_active") in GameState.quest_values.keys():
+		visible = !GameState.quest_values[npc_id + "_active"]
 
 
 func _on_interacted(player: Player):

@@ -12,7 +12,6 @@ signal quest_completed(giver : String)
 
 
 # Initialize quest state
-# Connect signal from GlobalSignalBus to event handler
 # Objectives with no prerequisites get set active
 func start_quest():
 	for i in objectives.size():
@@ -21,6 +20,25 @@ func start_quest():
 		if objectives[i].prerequisites.is_empty():
 			objectives[i].is_unlocked = true
 			objectives[i].is_active = true
+
+
+func check_progress():
+	for objective in objectives:
+		if objective.is_active:
+			var check_value = GameState.quest_values[objective.quest_value]
+			if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
+				print("Value is not int or bool, aborting check.")
+			elif check_value is bool:
+				if int(check_value) == objective.goal:
+					objective.is_completed = true
+					_on_objective_completed()
+			elif check_value is int:
+				if check_value >= objective.goal:
+					objective.is_completed = true
+					_on_objective_completed()
+				else:
+					objective.progress = objective.check_value
+					quest_state_changed.emit()
 
 
 # If an objective is completed, check if the overall quest is completed too
