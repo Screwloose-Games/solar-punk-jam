@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmdo33trqjosk"]
+[gd_scene load_steps=4 format=3 uid="uid://dmdo33trqjosk"]
 
 [ext_resource type="PackedScene" uid="uid://6120fgf52qvi" path="res://assets/3d/buildings/building_01/sm_prototype_building_01.tscn" id="1_suqte"]
-[ext_resource type="Script" uid="uid://lw3jan66fefs" path="res://assets/3d/buildings/prefab_building.gd" id="1_tol3s"]
 [ext_resource type="PackedScene" uid="uid://bhuqj7qrehmg4" path="res://components/doorway.tscn" id="2_tol3s"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_suqte"]
@@ -12,7 +11,6 @@ cell_height = 0.1
 agent_radius = 0.3
 
 [node name="PrefabBuilding01" type="Node3D"]
-script = ExtResource("1_tol3s")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_suqte")
