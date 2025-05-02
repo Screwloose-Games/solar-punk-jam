@@ -28,7 +28,7 @@ extends Node
 }
 
 func _ready() -> void:
-	await get_tree().root.ready
+	await owner.ready
 	unlock_structures()
 
 func unlock_structures():

@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cvwrm6abynwyd"]
 
-[node name="prefab_noentry_tall" type="CSGBox3D"]
+[node name="prefab_noentry_tall" type="Node3D"]
+
+[node name="prefab_noentry_tall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
 size = Vector3(10, 11, 6)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="prefab_noentry_tall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95349, -4.28617, -0.0418243)
 operation = 2
 size = Vector3(0.4, 2, 1.2)

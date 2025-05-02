@@ -11,10 +11,16 @@ extends Node
 	"Seeds": 0,
 }
 
+@export var resource_storage_limits: Dictionary[String, int] = {
+	"Electricity": 0,
+	"Water": 0,
+}
+
 func _ready() -> void:
-	await get_tree().root.ready
+	await owner.ready
 	give_resources()
 
 func give_resources():
 	for resource in resources:
 		EnvironmentManager.gain_resource(resource, resources[resource])
+		EnvironmentManager.resource_storage_limits = resource_storage_limits

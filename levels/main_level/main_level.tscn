@@ -49,5 +49,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6241, 0, -11.1132)
 [node name="NpcMister" parent="." instance=ExtResource("7_qywe3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 0.616856)
 
-[node name="BuildableSurface" parent="." instance=ExtResource("8_t80xa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.641, 1, 25.546)
+[node name="BuildableSurface_Building00_Rooftop" parent="." instance=ExtResource("8_t80xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="SurfaceMap" parent="BuildableSurface_Building00_Rooftop" index="0"]
+layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7)
+
+[node name="BuildableSurface_Building01_Rooftop" parent="." instance=ExtResource("8_t80xa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+is_active = false
+
+[node name="SurfaceMap" parent="BuildableSurface_Building01_Rooftop" index="0"]
+layer_0/tile_data = PackedInt32Array(-655353, 131072, 7, -524281, 131072, 7, -458745, 131072, 7, -917496, 131072, 7, -851960, 131072, 7, -786424, 131072, 7, -720888, 131072, 7, -655352, 131072, 7, -524280, 131072, 7, -458744, 131072, 7, -393208, 131072, 7, -917495, 131072, 7, -851959, 131072, 7, -786423, 131072, 7, -720887, 131072, 7, -655351, 131072, 7, -524279, 131072, 7, -458743, 131072, 7, -393207, 131072, 7, -917494, 131072, 7, -851958, 131072, 7, -786422, 131072, 7, -720886, 131072, 7, -655350, 131072, 7, -524278, 131072, 7, -458742, 131072, 7, -393206, 131072, 7, -917493, 131072, 7, -851957, 131072, 7, -786421, 131072, 7, -720885, 131072, 7, -655349, 131072, 7, -524277, 131072, 7, -458741, 131072, 7, -917492, 131072, 7, -851956, 131072, 7, -786420, 131072, 7, -720884, 131072, 7, -655348, 131072, 7, -917491, 131072, 7, -851955, 131072, 7, -786419, 131072, 7, -720883, 131072, 7, -655347, 131072, 7)
+
+[editable path="PrefabBuilding01"]
+[editable path="PrefabBuilding01/DoorwayBottom"]
+[editable path="PrefabBuilding01/DoorwayBottom/InteractableArea3D"]
+[editable path="PrefabBuilding01/DoorwayTop"]
+[editable path="PrefabBuilding01/DoorwayTop/InteractableArea3D"]
+[editable path="BuildableSurface_Building00_Rooftop"]
+[editable path="BuildableSurface_Building00_Rooftop/InteractableBuildableArea"]
+[editable path="BuildableSurface_Building01_Rooftop"]
+[editable path="BuildableSurface_Building01_Rooftop/InteractableBuildableArea"]

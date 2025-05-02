@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://kyagm2ni422i"]
+
+[ext_resource type="Script" uid="uid://bisyn52hivnw1" path="res://components/sleep_door.gd" id="1_dkg1u"]
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_jaja0"]
+[ext_resource type="Script" uid="uid://1dasao2lnugj" path="res://components/confirmation_dialog.gd" id="3_nc612"]
+
+[node name="SleepDoor" type="Node3D"]
+script = ExtResource("1_dkg1u")
+
+[node name="InteractableArea3D" parent="." instance=ExtResource("1_jaja0")]
+unique_name_in_owner = true
+label_text = "Go to bed"
+
+[node name="ConfirmationDialogue" type="CanvasLayer" parent="."]
+script = ExtResource("3_nc612")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConfirmationDialogue"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationDialogue/MarginContainer"]
+layout_mode = 2
+
+[node name="ContentLabel" type="Label" parent="ConfirmationDialogue/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Go to bed?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationDialogue/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OkayButton" type="Button" parent="ConfirmationDialogue/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Yes"
+
+[node name="CancelButton" type="Button" parent="ConfirmationDialogue/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[editable path="InteractableArea3D"]
