@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=18 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
@@ -6,11 +6,64 @@
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="3_umr73"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="5_dk2u8"]
 [ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="6_ority"]
+[ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="7_7w4ga"]
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="7_oq7qv"]
+[ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="8_80kqf"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="8_oq7qv"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="10_mn3v4"]
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="11_ntgmv"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_oq7qv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umr73"]
+texture = ExtResource("8_80kqf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ejtm4"]
+sources/0 = SubResource("TileSetAtlasSource_umr73")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i42vj"]
 dof_blur_far_enabled = true
@@ -90,6 +143,26 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 
+[node name="DirtBuildableSurface" parent="." instance=ExtResource("7_7w4ga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
+is_active = false
+
+[node name="SurfaceMap" parent="DirtBuildableSurface" index="0"]
+tile_set = SubResource("TileSet_ejtm4")
+layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7, -65540, 131072, 7, -4, 131072, 7, 65532, 131072, 7, 131068, 131072, 7, -65539, 131072, 7, -3, 131072, 7, 65533, 131072, 7, 131069, 131072, 7, -131070, 131072, 7, -65534, 131072, 7, 2, 131072, 7, 65538, 131072, 7, -131069, 131072, 7, -65533, 131072, 7, 3, 131072, 7, 65539, 131072, 7, 65540, 131072, 7, 4, 131072, 7, -65532, 131072, 7, -131068, 131072, 7, -65541, 131072, 7, -5, 131072, 7, 65531, 131072, 7, 131067, 131072, 7, 131066, 131072, 7, 65530, 131072, 7, -6, 131072, 7, -65542, 131072, 7, -131067, 131072, 7, -65531, 131072, 7, 5, 131072, 7, 65541, 131072, 7, -131078, 131072, 7, -131077, 131072, 7, -131076, 131072, 7, -131075, 131072, 7, -131074, 131072, 7, -131073, 131072, 7, -196608, 131072, 7, -196607, 131072, 7, -196606, 131072, 7, -196605, 131072, 7, -196604, 131072, 7, -196603, 131072, 7, 131077, 131072, 7, 131076, 131072, 7, 131075, 131072, 7, 131074, 131072, 7, 131073, 131072, 7, 131072, 131072, 7, 196607, 131072, 7, 196606, 131072, 7, 196605, 131072, 7, 196604, 131072, 7, 196603, 131072, 7, 196602, 131072, 7)
+
+[node name="SelectionPlaceholder" parent="DirtBuildableSurface" index="1"]
+skeleton = NodePath("../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
+[node name="SelectionPlaceholder" parent="DirtBuildableSurface/SelectionPlaceholder" index="0"]
+skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
+[node name="SelectionPlaceholder" parent="DirtBuildableSurface/StructurePlaceholder" index="0"]
+skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
+[node name="SelectionPlaceholder" parent="DirtBuildableSurface/StructurePlaceholder/SelectionPlaceholder" index="0"]
+skeleton = NodePath("../../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
 [node name="sm_rain_barrel" parent="." instance=ExtResource("6_ority")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)
 
@@ -117,7 +190,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 5.58726, 2.86358, 5.68356)
+transform = Transform3D(1.00001, -1.04308e-07, 2.23517e-07, 0, 0.866022, 0.499996, -2.08616e-07, -0.500004, 0.86603, 6.72798, 2.86358, 15.3668)
 attributes = SubResource("CameraAttributesPractical_i42vj")
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -143,7 +216,7 @@ structures = Dictionary[String, bool]({
 "Kitchen stove": false,
 "Lantern (on pole)": false,
 "Picnic Table": false,
-"Rain barrel": false,
+"Rain barrel": true,
 "Raised bed": true,
 "Recycling station": false,
 "Solar panel": false,
@@ -160,14 +233,37 @@ resources = Dictionary[String, int]({
 "Electricity": 2,
 "Food": 2,
 "Happiness": 2,
-"Materials": 3,
+"Materials": 6,
 "Seeds": 2,
-"Soil": 2,
+"Soil": 4,
 "Waste": 2,
-"Water": 2
+"Water": 100
+})
+resource_storage_limits = Dictionary[String, int]({
+"Electricity": 20,
+"Water": 20
 })
 
 [node name="DesignTestScene" parent="." instance=ExtResource("3_80kqf")]
+
+[node name="buildable_dirtpatch" parent="DesignTestScene" index="48"]
+process_mode = 4
+visible = false
+
+[node name="buildable_dirtpatch2" parent="DesignTestScene" index="49"]
+process_mode = 4
+visible = false
+
+[node name="buildable_dirtpatch3" parent="DesignTestScene" index="50"]
+process_mode = 4
+visible = false
+
+[node name="SurfaceMap" parent="DesignTestScene/buildable_dirtpatch3/BuildableSurface" index="0"]
+visible = false
+
+[node name="buildable_dirtpatch4" parent="DesignTestScene" index="51"]
+process_mode = 4
+visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ntgmv")
@@ -192,14 +288,16 @@ layer = 5
 [node name="Environment" parent="." instance=ExtResource("5_dk2u8")]
 
 [node name="NpcMister" parent="." instance=ExtResource("8_oq7qv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04951, 0.00260284, 5.81447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63211, 0.00260284, 9.51072)
 
 [node name="Player" parent="." instance=ExtResource("10_mn3v4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58726, 2.38419e-07, 2.65249)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72798, -2.38418e-07, 12.3357)
 
 [node name="CommBoard" parent="." instance=ExtResource("11_ntgmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92736, -9.53674e-07, 4.87544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)
 
+[editable path="DirtBuildableSurface"]
+[editable path="DirtBuildableSurface/InteractableBuildableArea"]
 [editable path="sm_solar_panel"]
 [editable path="DesignTestScene"]
 [editable path="DesignTestScene/buildable_dirtpatch3"]
