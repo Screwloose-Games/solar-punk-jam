@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://dngvyovn8lew5"]
+[gd_scene load_steps=4 format=3 uid="uid://dngvyovn8lew5"]
 
-[ext_resource type="Script" uid="uid://cjuxmhnvvnnhu" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gd" id="1_lfd48"]
 [ext_resource type="PackedScene" uid="uid://cii30af5vfhq5" path="res://assets/3d/structures/solar_panel/sm_solar_panel.tscn" id="1_vl6uy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h03rj"]
@@ -9,7 +8,6 @@ albedo_color = Color(0.322921, 0.737302, 1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_vl6uy"]
 
 [node name="Solar panel" type="Node3D"]
-script = ExtResource("1_lfd48")
 
 [node name="sm_solar_panel" parent="." instance=ExtResource("1_vl6uy")]
 
