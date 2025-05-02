@@ -9,6 +9,8 @@ signal quests_changed
 
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
+	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
+	StructureManager.StructureBuilt.connect(update_structures)
 
 
 func start_quest(file_name : String):
@@ -19,6 +21,14 @@ func start_quest(file_name : String):
 	new_quest.start_quest()
 	quests_changed.emit()
 	print("Quest started: %s" % new_quest.name)
+
+
+func update_structures():
+	check_quests({})
+
+
+func update_resources():
+	check_quests({})
 
 
 func check_quests(_changes):
