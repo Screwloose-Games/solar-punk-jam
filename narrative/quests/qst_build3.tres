@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_h1w78"]
 script = ExtResource("1_d31wh")
 description = "Oh, one more thing..."
-quest_value = ""
+quest_value = "build_flag2"
 goal = 1
 prerequisites = Array[int]([])
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"

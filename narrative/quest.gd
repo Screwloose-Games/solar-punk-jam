@@ -27,16 +27,13 @@ func check_progress():
 			print("Objective check val: " + str(check_value))
 			if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
 				print("Value is not int or bool, aborting check.")
-			elif check_value is bool:
-				if int(check_value) == objective.goal:
-					objective.is_completed = true
-					_on_objective_completed()
-			elif check_value is int:
-				if check_value >= objective.goal:
+			else:
+				if int(check_value) >= objective.goal:
+					objective.progress = objective.goal
 					objective.is_completed = true
 					_on_objective_completed()
 				else:
-					objective.progress = objective.check_value
+					objective.progress = int(check_value)
 					quest_state_changed.emit()
 
 
