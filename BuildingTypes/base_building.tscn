@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7nvor7es6a1e"]
+
+[ext_resource type="PackedScene" uid="uid://bhuqj7qrehmg4" path="res://components/doorway.tscn" id="2_dc7b2"]
+
+[node name="BaseBuilding" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="BuildingScenePlaceholder" type="Node" parent="NavigationRegion3D"]
+
+[node name="NavigationLink3D" type="NavigationLink3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75676, 6.42315, 0.874064)
+start_position = Vector3(-3.44, -6.295, 1.833)
+end_position = Vector3(-0.1, 0.2, 0)
+enter_cost = 2.0
+travel_cost = 2.0
+
+[node name="GroundDoorway" parent="." instance=ExtResource("2_dc7b2")]
+
+[node name="RoofDoorway" parent="." instance=ExtResource("2_dc7b2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.19482, 0)
+
+[editable path="GroundDoorway"]
+[editable path="GroundDoorway/InteractableArea3D"]
+[editable path="RoofDoorway"]
+[editable path="RoofDoorway/InteractableArea3D"]
