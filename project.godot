@@ -29,6 +29,7 @@ QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.gd"
 GameState="*res://globals/game_state.gd"
+BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 
 [dialogic]
 
@@ -97,7 +98,7 @@ project/assembly_name="Capybara"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/bmod/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [filesystem]
 
