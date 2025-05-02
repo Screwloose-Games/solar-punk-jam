@@ -161,7 +161,7 @@ func create_initial_build():
 			var w = int(StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
 			var h = int(StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureDepth])
 			building_rect = Rect2i(0,0,w,h)
-			_build_structure(building_idx, coords_, building_rect)
+			_build_structure(building_idx, coords_, building_rect, true)
 	reset_cursor_3d()
 
 
@@ -178,7 +178,7 @@ func build_structure():
 		reset_cursor_3d()
 
 	
-func _build_structure(building_idx, coords, building_rect):
+func _build_structure(building_idx, coords, building_rect, skip_resource_consumption=false):
 	prints("building structure at",coords)
 	var file_name = StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
 	var directory_name = file_name.rsplit(".", true, 1)[0]
@@ -190,10 +190,10 @@ func _build_structure(building_idx, coords, building_rect):
 		add_child(visual_instance)	
 	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundAfter]])
 
-	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.BUILD_STATUS.BUILDING, visual_instance)
+	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.STRUCTURE_STATUS.JUST_CREATED, visual_instance)
 	built_structures_local.append(new_structure)
 	register_tiles(len(built_structures_local)-1, coords, building_rect.size.x, building_rect.size.y)
-	StructureManager.build_structure(new_structure)
+	StructureManager.build_structure(new_structure, skip_resource_consumption)
 
 	
 func register_tiles(structure_idx:int, origin: Vector2i, w:int, h:int):

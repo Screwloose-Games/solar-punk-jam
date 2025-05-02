@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpnph64mkfrww"]
+[gd_scene load_steps=3 format=3 uid="uid://dpnph64mkfrww"]
 
 [ext_resource type="PackedScene" uid="uid://u0yo2p3mh5hk" path="res://assets/3d/structures/apple_tree/sm_apple_tree.tscn" id="1_0xyac"]
+[ext_resource type="Script" uid="uid://bk8umrfcvnbbk" path="res://assets/3d/structures/structure_state.gd" id="1_fap5p"]
 
 [node name="AppleTree" type="Node3D"]
+script = ExtResource("1_fap5p")
 
 [node name="apple_tree" parent="." instance=ExtResource("1_0xyac")]
 
