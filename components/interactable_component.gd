@@ -7,6 +7,8 @@ class_name InteractableArea3D
 		if interactable_label_3d:
 			interactable_label_3d.text = label_text
 
+@export var show_label: bool = false 
+
 signal interacted(player: Player)
 signal stopped_interacting
 signal selected
@@ -39,7 +41,8 @@ func _ready():
 
 func select():
 	is_selected = true
-	interactable_label_3d.visible = true
+	if show_label:
+		interactable_label_3d.visible = true
 	selected.emit()
 
 func _exit_tree() -> void:

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GlobalSignalBus="*res://globals/global_signal_bus.gd"
 SceneManager="*res://globals/scene_manager.gd"
@@ -96,7 +97,7 @@ project/assembly_name="Capybara"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [filesystem]
 

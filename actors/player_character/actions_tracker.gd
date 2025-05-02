@@ -20,15 +20,27 @@ func _on_interactable_selected_updated(interactable: InteractableArea3D, interac
 
 func render_display():
 	var actions = []
+	var action_inputs = []
 	for interactor in available_actions:
 		if available_actions[interactor]:
 			actions.append(available_actions[interactor].label_text)
+			action_inputs.append(interactor.interact_action)
 	for child in interactions_v_box_container.get_children():
 		interactions_v_box_container.remove_child(child)
-	for action in actions:
+	for index in actions.size():
+		var action = actions[index]
 		var label = Label.new()
 		label.text = action
-		interactions_v_box_container.add_child(label)
+		var hbox = HBoxContainer.new()
+		var controller_icon = ControllerIconTexture.new()
+		controller_icon.path = action_inputs[index]
+		var texture_rect = TextureRect.new()
+		texture_rect.texture = controller_icon
+		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		texture_rect.custom_minimum_size = Vector2(50, 50)
+		hbox.add_child(texture_rect)
+		hbox.add_child(label)
+		interactions_v_box_container.add_child(hbox)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

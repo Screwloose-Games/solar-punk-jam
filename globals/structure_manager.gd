@@ -201,7 +201,7 @@ Kitchen stove	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5	1	Electrician	5	Sol
 Lantern (on pole)	2	2	2	Structure for harvesting rainwater - often elevated	rain_collection.tscn	0,2	0	2	2		Craftor	1		1						0							
 Picnic Table	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5		Contractor	3		2						0							
 Rain barrel	2	2	2	Structure for harvesting rainwater - often elevated	rain_barrel.tscn	0,2	0	2	1	5	Contractor	1		1		0				0		Water	30				10
-Raised bed	0.5	6	6	Somewhere to plant stuff	raised_bed.tscn	0,0	0	1	1	25	Contractor	3		1						0	Soil						
+Raised bed	0.5	1	2	Somewhere to plant stuff	raised_bed.tscn	0,0	0	1	1	25	Contractor	3		1						0	Soil						
 Vertical garden	0.5	1	1	Somewhere to plant stuff	arts_crafts_station.tscn	0,0	0	1	1	25	Contractor	3		1						0							
 Recycling station	1.8	2	2	Bins and sorting area for recyclable materials	recycling_station.tscn	0,4	0	2	10	1	Contractor	4	Solar panel	3						0							
 Solar panel	1.2	2	1	Photovoltaic panel for converting sunlight into electricity	solar_panel.tscn	1,0	0	2	10	3	Electrician	4		2	10					0							
