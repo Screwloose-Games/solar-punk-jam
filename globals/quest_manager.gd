@@ -2,16 +2,13 @@ extends Node
 
 const FILE_PATH = "res://narrative/quests/%s.tres"
 
-var quest_values = {
-	
-}
 var quests : Array[Quest] = []
 
 signal quests_changed
 
 
 func _ready() -> void:
-	GameState.game_state_changed.connect(_on_gamestate_changed)
+	Dialogic.VAR.variable_changed.connect(_on_gamestate_changed)
 
 
 func start_quest(file_name : String):
@@ -24,14 +21,16 @@ func start_quest(file_name : String):
 	print("Quest started: %s" % new_quest.name)
 
 
-func _on_gamestate_changed():
+func _on_gamestate_changed(_changes):
 	for quest in quests:
 		quest.check_progress()
 
 
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
-	GameState.complete_quest(giver)
+	Dialogic.VAR[giver + "_active"] = false
+	Dialogic.VAR[giver + "_progress"] += 1
+	print("Progress for NPC %s increased to %d" % [giver, Dialogic.VAR[giver + "_progress"]])
 	_update_quests()
 
 

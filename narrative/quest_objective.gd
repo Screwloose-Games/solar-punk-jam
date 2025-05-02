@@ -10,6 +10,3 @@ var progress : int = 0
 var is_active : bool = false
 var is_unlocked : bool = false
 var is_completed : bool = false
-
-signal progress_changed
-signal completed

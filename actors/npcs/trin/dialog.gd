@@ -14,8 +14,6 @@ func _on_interacted(player: Player):
 
 
 func start_current_dialogue():
-	var dialogue = GameState.get_npc_dialogue(npc_id)
-	if dialogue != "":
-		Dialogic.start(dialogue)
-		await Dialogic.timeline_ended
-		interactable_area_3d.stop_interacting()
+	Dialogic.start(npc_id + "_main")
+	await Dialogic.timeline_ended
+	interactable_area_3d.stop_interacting()

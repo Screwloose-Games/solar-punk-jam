@@ -15,8 +15,6 @@ signal quest_completed(giver : String)
 # Objectives with no prerequisites get set active
 func start_quest():
 	for i in objectives.size():
-		objectives[i].progress_changed.connect(emit_signal.bind("quest_state_changed"))
-		objectives[i].completed.connect(_on_objective_completed)
 		if objectives[i].prerequisites.is_empty():
 			objectives[i].is_unlocked = true
 			objectives[i].is_active = true
@@ -25,7 +23,8 @@ func start_quest():
 func check_progress():
 	for objective in objectives:
 		if objective.is_active:
-			var check_value = GameState.quest_values[objective.quest_value]
+			var check_value = Dialogic.VAR[objective.quest_value]
+			print("Objective check val: " + str(check_value))
 			if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
 				print("Value is not int or bool, aborting check.")
 			elif check_value is bool:

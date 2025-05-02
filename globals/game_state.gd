@@ -52,30 +52,3 @@ var quest_values = {
 }
 
 signal game_state_changed
-
-
-func get_npc_dialogue(npc_id : String) -> String:
-	var timeline = ""
-	if quest_values[npc_id + "_met"]:
-		if quest_values[npc_id + "_active"]:
-			timeline = DIALOGUE_DB[npc_id].busy
-		elif quest_values[npc_id + "_progress"] >= DIALOGUE_DB[npc_id].quests.size():
-			timeline = DIALOGUE_DB[npc_id].idle
-		else:
-			quest_values[npc_id + "_active"] = true
-			timeline = DIALOGUE_DB[npc_id].quests[quest_values[npc_id + "_progress"]]
-	else:
-		timeline = DIALOGUE_DB[npc_id].intro
-	return timeline
-
-
-func meet_npc(npc_id : String):
-	print("Met NPC: %s" % npc_id)
-	quest_values[npc_id + "_met"] = true
-	game_state_changed.emit()
-
-
-func complete_quest(giver : String):
-	quest_values[giver + "_active"] = false
-	quest_values[giver + "_progress"] += 1
-	print("Progress for NPC %s increased to %d" % [giver, quest_values[giver + "_progress"]])

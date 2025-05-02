@@ -6,20 +6,16 @@
 [sub_resource type="Resource" id="Resource_h1w78"]
 script = ExtResource("1_h1w78")
 description = "Gather materials"
-category = ""
-key = ""
-sub_key = ""
-goal = 0
+quest_value = ""
+goal = 5
 prerequisites = Array[int]([])
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_e40t8"]
 script = ExtResource("1_h1w78")
 description = "Build a Hygiene Station"
-category = ""
-key = ""
-sub_key = ""
-goal = 0
+quest_value = ""
+goal = 1
 prerequisites = Array[int]([0])
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
