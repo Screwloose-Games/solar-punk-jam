@@ -126,9 +126,12 @@ material = SubResource("StandardMaterial3D_q4s4m")
 size = Vector3(0.25, 0.5, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5i2rm"]
-size = Vector3(8, 1, 8)
+size = Vector3(5.37671, 1, 7.49023)
 
 [node name="BuildableSurface" type="Node3D"]
+editor_description = "By default it is a 8x8 grid centered on the node's location. 
+The node location x and z need to be whole world coordinates (i.e. Vector3(4.0,6.5,4.0) is valid, but Vector3(4.1,4.5,3.8) will cause the grid not to overlap with the mouse).
+If the size or shape needs to be adjusted then you need to make editable children and paint the shape in the tilemap and adjust the Area3D/CollisionShape3D."
 script = ExtResource("1_5i2rm")
 is_active = true
 

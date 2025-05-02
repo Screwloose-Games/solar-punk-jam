@@ -68,4 +68,6 @@ layer_0/tile_data = PackedInt32Array(-655353, 131072, 7, -524281, 131072, 7, -45
 [editable path="PrefabBuilding01/DoorwayTop"]
 [editable path="PrefabBuilding01/DoorwayTop/InteractableArea3D"]
 [editable path="BuildableSurface_Building00_Rooftop"]
+[editable path="BuildableSurface_Building00_Rooftop/InteractableBuildableArea"]
 [editable path="BuildableSurface_Building01_Rooftop"]
+[editable path="BuildableSurface_Building01_Rooftop/InteractableBuildableArea"]
