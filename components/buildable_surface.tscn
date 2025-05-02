@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyb6nwaiae8ea"]
+[gd_scene load_steps=22 format=3 uid="uid://dyb6nwaiae8ea"]
 
 [ext_resource type="Script" uid="uid://nblr465pgu85" path="res://components/buildable_surface.gd" id="1_5i2rm"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
-[ext_resource type="Script" uid="uid://bavu1obb81gow" path="res://components/buildable_surface_area_3d.gd" id="3_q4s4m"]
+[ext_resource type="Script" uid="uid://3wlfdlwljewv" path="res://test/scenarios/test_interact/buildable_area_3d.gd" id="4_phaic"]
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="5_74j1h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ii5o6"]
 texture = ExtResource("2_q4s4m")
@@ -125,9 +126,12 @@ material = SubResource("StandardMaterial3D_q4s4m")
 size = Vector3(0.25, 0.5, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5i2rm"]
-size = Vector3(8, 1, 8)
+size = Vector3(5.37671, 1, 7.49023)
 
 [node name="BuildableSurface" type="Node3D"]
+editor_description = "By default it is a 8x8 grid centered on the node's location. 
+The node location x and z need to be whole world coordinates (i.e. Vector3(4.0,6.5,4.0) is valid, but Vector3(4.1,4.5,3.8) will cause the grid not to overlap with the mouse).
+If the size or shape needs to be adjusted then you need to make editable children and paint the shape in the tilemap and adjust the Area3D/CollisionShape3D."
 script = ExtResource("1_5i2rm")
 is_active = true
 
@@ -180,10 +184,16 @@ mesh = SubResource("BoxMesh_q4s4m")
 visible = false
 mesh = SubResource("BoxMesh_j1v1u")
 
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("3_q4s4m")
+[node name="BuildableInteract" type="Node" parent="." node_paths=PackedStringArray("buildable_surface")]
+script = ExtResource("4_phaic")
+buildable_surface = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="InteractableBuildableArea" parent="." instance=ExtResource("5_74j1h")]
+unique_name_in_owner = true
+collision_layer = 16
+label_text = "Build"
+
+[node name="CollisionShape3D" parent="InteractableBuildableArea" index="0"]
 shape = SubResource("BoxShape3D_5i2rm")
+
+[editable path="InteractableBuildableArea"]

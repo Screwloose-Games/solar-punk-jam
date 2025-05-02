@@ -117,9 +117,8 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 5.58726, 5.29813, 6.58085)
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 5.58726, 2.86358, 5.68356)
 attributes = SubResource("CameraAttributesPractical_i42vj")
-h_offset = 1.0
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
@@ -170,11 +169,6 @@ resources = Dictionary[String, int]({
 
 [node name="DesignTestScene" parent="." instance=ExtResource("3_80kqf")]
 
-[node name="prefab_entry_long" parent="DesignTestScene" index="5"]
-use_collision = true
-collision_layer = 4
-collision_mask = 0
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ntgmv")
 
@@ -208,3 +202,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92736, -9.53674e-07, 4.8754
 
 [editable path="sm_solar_panel"]
 [editable path="DesignTestScene"]
+[editable path="DesignTestScene/buildable_dirtpatch3"]
+[editable path="DesignTestScene/buildable_dirtpatch3/BuildableSurface"]
+[editable path="DesignTestScene/buildable_dirtpatch3/BuildableSurface/InteractableBuildableArea"]

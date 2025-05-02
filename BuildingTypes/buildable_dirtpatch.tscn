@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tp1qx1fx7wre"]
+[gd_scene load_steps=6 format=3 uid="uid://tp1qx1fx7wre"]
 
 [ext_resource type="Material" uid="uid://ksyw27qoom8n" path="res://materials/PrototypeDirtt.tres" id="1_gp4t1"]
+[ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="2_l8y4a"]
 [ext_resource type="Material" uid="uid://dljk1epe4bs4h" path="res://materials/BlockoutGridSpace.tres" id="2_mhggs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mf1sk"]
@@ -13,6 +14,9 @@ transform = Transform3D(0.999724, 0, -0.0234899, 0, 1, 0, 0.0234899, 0, 0.999724
 material_override = ExtResource("1_gp4t1")
 mesh = SubResource("PlaneMesh_mf1sk")
 skeleton = NodePath("../Pavement")
+
+[node name="BuildableSurface" parent="." instance=ExtResource("2_l8y4a")]
+is_active = false
 
 [node name="GridSpace8" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 1.86265e-09, 0, 0.5, 0, -1.86265e-09, 0, 0.5, -0.572819, 0.0776589, 1.58503)
@@ -157,3 +161,6 @@ transform = Transform3D(0.5, 0, 3.72529e-09, 0, 0.5, 0, -3.72529e-09, 0, 0.5, 0.
 material_override = ExtResource("2_mhggs")
 mesh = SubResource("PlaneMesh_xpweh")
 skeleton = NodePath("../../root/@EditorNode@21301/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/DesignTestScene")
+
+[editable path="BuildableSurface"]
+[editable path="BuildableSurface/InteractableBuildableArea"]

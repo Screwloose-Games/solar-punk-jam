@@ -1,13 +1,16 @@
 extends Node
 
-@onready var buildable_surface: BuildableSurface = %BuildableSurface
-@onready var buildable_area_3d: InteractableArea3D = %BuildableArea3D
+@export var buildable_surface: BuildableSurface
+@onready var interactable_buildable_area: InteractableArea3D = %InteractableBuildableArea
 
 func _ready() -> void:
-	buildable_area_3d.interacted.connect(_on_interacted)
-	buildable_area_3d.stopped_interacting.connect(_on_stopped_interacting)
+	if not buildable_surface:
+		buildable_surface = owner
+	interactable_buildable_area.interacted.connect(_on_interacted)
+	interactable_buildable_area.stopped_interacting.connect(_on_stopped_interacting)
 
 func _on_interacted(actor: Player):
+	StructureManager.set_active_surface(buildable_surface)
 	buildable_surface.is_active = true
 
 func _on_stopped_interacting():
