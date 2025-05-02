@@ -14,6 +14,7 @@ func _ready():
 
 func _on_interacted(_player: Player):
 	collect()
+	interactable_area_3d.stop_interacting()
 
 func collect():
 	EnvironmentManager.gain_resource(collected_resource, count)

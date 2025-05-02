@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddur7qqihktg4"]
+[gd_scene load_steps=3 format=3 uid="uid://ddur7qqihktg4"]
+
+[ext_resource type="PackedScene" uid="uid://b70ckin7w20jg" path="res://assets/3d/structures/raised_bed/sm_companionplanter.tscn" id="1_f0xn5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2op4"]
 albedo_color = Color(0.548305, 0.299496, 0.155897, 1)
@@ -9,3 +11,5 @@ albedo_color = Color(0.548305, 0.299496, 0.155897, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 size = Vector3(6, 0.2, 6)
 material = SubResource("StandardMaterial3D_o2op4")
+
+[node name="sm_companionplanter2" parent="." instance=ExtResource("1_f0xn5")]

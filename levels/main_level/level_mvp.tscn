@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=20 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="7_oq7qv"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="8_80kqf"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="8_oq7qv"]
+[ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="9_umr73"]
+[ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="10_ejtm4"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="10_mn3v4"]
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="11_ntgmv"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_oq7qv"]
@@ -149,7 +151,7 @@ is_active = false
 
 [node name="SurfaceMap" parent="DirtBuildableSurface" index="0"]
 tile_set = SubResource("TileSet_ejtm4")
-layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7, -65540, 131072, 7, -4, 131072, 7, 65532, 131072, 7, 131068, 131072, 7, -65539, 131072, 7, -3, 131072, 7, 65533, 131072, 7, 131069, 131072, 7, -131070, 131072, 7, -65534, 131072, 7, 2, 131072, 7, 65538, 131072, 7, -131069, 131072, 7, -65533, 131072, 7, 3, 131072, 7, 65539, 131072, 7, 65540, 131072, 7, 4, 131072, 7, -65532, 131072, 7, -131068, 131072, 7, -65541, 131072, 7, -5, 131072, 7, 65531, 131072, 7, 131067, 131072, 7, 131066, 131072, 7, 65530, 131072, 7, -6, 131072, 7, -65542, 131072, 7, -131067, 131072, 7, -65531, 131072, 7, 5, 131072, 7, 65541, 131072, 7, -131078, 131072, 7, -131077, 131072, 7, -131076, 131072, 7, -131075, 131072, 7, -131074, 131072, 7, -131073, 131072, 7, -196608, 131072, 7, -196607, 131072, 7, -196606, 131072, 7, -196605, 131072, 7, -196604, 131072, 7, -196603, 131072, 7, 131077, 131072, 7, 131076, 131072, 7, 131075, 131072, 7, 131074, 131072, 7, 131073, 131072, 7, 131072, 131072, 7, 196607, 131072, 7, 196606, 131072, 7, 196605, 131072, 7, 196604, 131072, 7, 196603, 131072, 7, 196602, 131072, 7)
+layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7, -131076, 131072, 7, -65540, 131072, 7, -4, 131072, 7, 65532, 131072, 7, 131068, 131072, 7, 196604, 131072, 7, -131075, 131072, 7, -65539, 131072, 7, -3, 131072, 7, 65533, 131072, 7, 131069, 131072, 7, 196605, 131072, 7, -131074, 131072, 7, 196606, 131072, 7, -131073, 131072, 7, 196607, 131072, 7, -196608, 131072, 7, 131072, 131072, 7, -196607, 131072, 7, 131073, 131072, 7, -196606, 131072, 7, -131070, 131072, 7, -65534, 131072, 7, 2, 131072, 7, 65538, 131072, 7, 131074, 131072, 7, -196605, 131072, 7, -131069, 131072, 7, -65533, 131072, 7, 3, 131072, 7, 65539, 131072, 7, 131075, 131072, 7, 65540, 131072, 7, 4, 131072, 7, -65532, 131072, 7, -131068, 131072, 7, -65541, 131072, 7, -5, 131072, 7, 65531, 131072, 7, 131067, 131072, 7, 131066, 131072, 7, 65530, 131072, 7, -6, 131072, 7, -65542, 131072, 7, -131067, 131072, 7, -65531, 131072, 7, 5, 131072, 7, 65541, 131072, 7, -131078, 131072, 7, -131077, 131072, 7, -196604, 131072, 7, -196603, 131072, 7, 131077, 131072, 7, 131076, 131072, 7, 196603, 131072, 7, 196602, 131072, 7)
 
 [node name="SelectionPlaceholder" parent="DirtBuildableSurface" index="1"]
 skeleton = NodePath("../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
@@ -190,7 +192,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(1.00001, -1.04308e-07, 2.23517e-07, 0, 0.866022, 0.499996, -2.08616e-07, -0.500004, 0.86603, 6.72798, 2.86358, 15.3668)
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 6.72798, 2.86358, 15.3668)
 attributes = SubResource("CameraAttributesPractical_i42vj")
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -246,6 +248,9 @@ resource_storage_limits = Dictionary[String, int]({
 
 [node name="DesignTestScene" parent="." instance=ExtResource("3_80kqf")]
 
+[node name="PlayerScale" parent="DesignTestScene" index="41"]
+visible = false
+
 [node name="buildable_dirtpatch" parent="DesignTestScene" index="48"]
 process_mode = 4
 visible = false
@@ -295,6 +300,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72798, -2.38418e-07, 12.335
 
 [node name="CommBoard" parent="." instance=ExtResource("11_ntgmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)
+
+[node name="ScrapPileSpawner" parent="." instance=ExtResource("10_ejtm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40084, 0, 16.3248)
+
+[node name="ScrapPileSpawner2" parent="." instance=ExtResource("10_ejtm4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
+
+[node name="FakeDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91107, 0.722029, 14.9745)
+size = Vector3(0.32959, 1.54932, 1)
+
+[node name="SleepDoor" parent="FakeDoor" instance=ExtResource("9_umr73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301051, -0.722028, 0.168841)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FakeDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405251, -0.21441, 0)
+omni_range = 1.524
+omni_attenuation = 0.5
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]

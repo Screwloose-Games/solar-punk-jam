@@ -20,7 +20,7 @@ var is_interacting: bool = false:
 		if is_interacting:
 			pass
 		else:
-			stopped_interacting.emit()
+			stopped_interacting.emit.call_deferred()
 
 var is_selected = false:
 	set = set_selected
@@ -60,6 +60,6 @@ func stop_interacting():
 func interact(player: Player):
 	if is_interacting:
 		return
+	is_interacting = true
 	interacted.emit(player)
 	print("interacted")
-	is_interacting = true

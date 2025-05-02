@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d1jp6i2bu3bjt"]
 
 [ext_resource type="PackedScene" uid="uid://kvdijgf8fysy" path="res://prefabs/buildings/prefab_building_entry_short.tscn" id="1_yxkj8"]
-[ext_resource type="PackedScene" uid="uid://clxhgnk3jksn" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_q3mb3"]
+[ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_q3mb3"]
 [ext_resource type="PackedScene" uid="uid://2y66piua3d6t" path="res://BuildingTypes/prefab_entry_long.tscn" id="3_44dcu"]
 [ext_resource type="PackedScene" uid="uid://cvwrm6abynwyd" path="res://BuildingTypes/prefab_noentry_tall.tscn" id="4_663hb"]
 [ext_resource type="PackedScene" uid="uid://wo17cvj04r6x" path="res://BuildingTypes/prefab_noentry_short.tscn" id="5_7xul5"]
