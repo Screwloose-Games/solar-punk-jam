@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=21 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="11_ntgmv"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_oq7qv"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="17_awabt"]
+[ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="17_ority"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awabt"]
 texture = ExtResource("8_80kqf")
@@ -320,6 +321,9 @@ omni_attenuation = 0.5
 
 [node name="sm_destroyed_building_01" parent="." instance=ExtResource("17_awabt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
+
+[node name="Trin" parent="." instance=ExtResource("17_ority")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5012)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]

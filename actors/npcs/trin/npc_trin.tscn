@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://nwbkxvaa2518"]
+[gd_scene load_steps=3 format=3 uid="uid://nwbkxvaa2518"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_g6pen"]
+[ext_resource type="PackedScene" uid="uid://cjqq7gkmrh6v7" path="res://assets/3d/people/trin/tweenbase00.fbx" id="2_m4qrm"]
 
 [node name="Trin" instance=ExtResource("1_g6pen")]
 
-[node name="Name" parent="." index="0"]
+[node name="tweenbase00" parent="." index="0" instance=ExtResource("2_m4qrm")]
+
+[node name="Name" parent="." index="1"]
 text = "Trin"
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="Dialogue" parent="." index="5"]
+npc_id = "trin"
+
+[editable path="tweenbase00"]
+[editable path="InteractableArea3D"]
