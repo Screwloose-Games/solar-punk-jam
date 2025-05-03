@@ -1,24 +1,24 @@
-[gd_scene load_steps=20 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=21 format=3 uid="uid://cjw8avx8722yi"]
 
-[ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
-[ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
-[ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="3_80kqf"]
-[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="3_umr73"]
-[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="5_dk2u8"]
-[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="6_ority"]
-[ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="7_7w4ga"]
-[ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="7_oq7qv"]
-[ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="8_80kqf"]
-[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="8_oq7qv"]
-[ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="9_umr73"]
-[ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="10_ejtm4"]
-[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="10_mn3v4"]
-[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="11_ntgmv"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_oq7qv"]
-[ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="17_awabt"]
+[ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_ubq5j"]
+[ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_mdx4t"]
+[ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="4_xx0ke"]
+[ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="5_xo1ck"]
+[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="6_fmq4m"]
+[ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="7_2f8sb"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_xj3rj"]
+[ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="9_2cms5"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="10_igv7y"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="11_rhs8g"]
+[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="12_5rgew"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="13_p6bc1"]
+[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="14_sxhv7"]
+[ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="15_jboto"]
+[ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="16_veoe8"]
+[ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="17_fhdxx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awabt"]
-texture = ExtResource("8_80kqf")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umr73"]
+texture = ExtResource("5_xo1ck")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -66,7 +66,14 @@ texture = ExtResource("8_80kqf")
 4:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ejtm4"]
-sources/0 = SubResource("TileSetAtlasSource_awabt")
+sources/0 = SubResource("TileSetAtlasSource_umr73")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i42vj"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 5.99
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.05
+dof_blur_amount = 0.21
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ntgmv"]
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
@@ -139,11 +146,8 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 
-[node name="Environment" parent="." instance=ExtResource("5_dk2u8")]
-day_length_in_game_hours = 14.0
-
 [node name="UnlockStructures" type="Node" parent="."]
-script = ExtResource("1_7w4ga")
+script = ExtResource("2_ubq5j")
 structures = Dictionary[String, bool]({
 "Battery": false,
 "Bench": false,
@@ -172,7 +176,7 @@ structures = Dictionary[String, bool]({
 })
 
 [node name="SetupResources" type="Node" parent="."]
-script = ExtResource("2_80kqf")
+script = ExtResource("3_mdx4t")
 resources = Dictionary[String, int]({
 "Electricity": 50,
 "Food": 50,
@@ -188,7 +192,7 @@ resource_storage_limits = Dictionary[String, int]({
 "Water": 20
 })
 
-[node name="DirtBuildableSurface" parent="." instance=ExtResource("7_7w4ga")]
+[node name="DirtBuildableSurface" parent="." instance=ExtResource("4_xx0ke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
 is_active = false
 
@@ -208,10 +212,10 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 [node name="SelectionPlaceholder" parent="DirtBuildableSurface/StructurePlaceholder/SelectionPlaceholder" index="0"]
 skeleton = NodePath("../../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
-[node name="sm_rain_barrel" parent="." instance=ExtResource("6_ority")]
+[node name="sm_rain_barrel" parent="." instance=ExtResource("6_fmq4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)
 
-[node name="sm_solar_panel" parent="." instance=ExtResource("7_oq7qv")]
+[node name="sm_solar_panel" parent="." instance=ExtResource("7_2f8sb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50486, -1.07288e-06, 1.97875)
 
 [node name="sm_foot_front" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="0"]
@@ -235,14 +239,15 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -3.82898, 2.86358, 18.1236)
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 6.72798, 2.86358, 15.3668)
+attributes = SubResource("CameraAttributesPractical_i42vj")
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("16_oq7qv")
+script = ExtResource("8_xj3rj")
 
-[node name="DesignTestScene" parent="." instance=ExtResource("3_80kqf")]
+[node name="DesignTestScene" parent="." instance=ExtResource("9_2cms5")]
 
 [node name="prefab_noentry_tall6" parent="DesignTestScene" index="12"]
 visible = false
@@ -286,40 +291,39 @@ carve_navigation_mesh = true
 
 [node name="Structures" type="Node3D" parent="."]
 
-[node name="HUDCanvasLayer" parent="." instance=ExtResource("3_umr73")]
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("10_igv7y")]
 layer = 5
 
-[node name="NpcMister" parent="." instance=ExtResource("8_oq7qv")]
+[node name="Environment" parent="." instance=ExtResource("11_rhs8g")]
+
+[node name="NpcMister" parent="." instance=ExtResource("12_5rgew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63211, 0.00260284, 9.51072)
 
-[node name="Player" parent="." instance=ExtResource("10_mn3v4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82898, 1.66893e-06, 15.0925)
+[node name="Player" parent="." instance=ExtResource("13_p6bc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72798, -2.38418e-07, 12.3357)
 
-[node name="CommBoard" parent="." instance=ExtResource("11_ntgmv")]
+[node name="CommBoard" parent="." instance=ExtResource("14_sxhv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)
 
-[node name="ScrapPileSpawner" parent="." instance=ExtResource("10_ejtm4")]
+[node name="ScrapPileSpawner" parent="." instance=ExtResource("15_jboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168)
 
-[node name="ScrapPileSpawner2" parent="." instance=ExtResource("10_ejtm4")]
+[node name="ScrapPileSpawner2" parent="." instance=ExtResource("15_jboto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
 
 [node name="FakeDoor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91107, 0.722029, 14.9745)
 size = Vector3(0.32959, 1.54932, 1)
 
-[node name="SleepDoor" parent="FakeDoor" node_paths=PackedStringArray("player", "wake_up_location") instance=ExtResource("9_umr73")]
+[node name="SleepDoor" parent="FakeDoor" instance=ExtResource("16_veoe8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301051, -0.722028, 0.168841)
-time_to_sleep = 1.0
-player = NodePath("../../Player")
-wake_up_location = NodePath(".")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FakeDoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405251, -0.21441, 0)
 omni_range = 1.524
 omni_attenuation = 0.5
 
-[node name="sm_destroyed_building_01" parent="." instance=ExtResource("17_awabt")]
+[node name="sm_destroyed_building_01" parent="." instance=ExtResource("17_fhdxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
 
 [editable path="DirtBuildableSurface"]

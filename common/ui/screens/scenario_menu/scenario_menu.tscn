@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ej6x71rs2yxf"]
+[gd_scene load_steps=7 format=3 uid="uid://ej6x71rs2yxf"]
 
 [ext_resource type="Script" uid="uid://cr7f4kcr6pcwv" path="res://common/ui/screens/scenario_menu/scenario_menu.gd" id="1_uc5db"]
 [ext_resource type="PackedScene" uid="uid://dgbbmh1ghsygk" path="res://levels/main_level/main_level.tscn" id="2_yb1fe"]
 [ext_resource type="PackedScene" uid="uid://c7wl0wf1h18bp" path="res://levels/main_level/level_mvp.tscn" id="4_4mqi4"]
 [ext_resource type="PackedScene" uid="uid://dyrj0p63fyss3" path="res://levels/main_level/level_add_buildable.tscn" id="5_ll7e4"]
+[ext_resource type="PackedScene" uid="uid://cjw8avx8722yi" path="res://levels/level_sandbox/level_sandbox.tscn" id="6_uc1ho"]
 [ext_resource type="PackedScene" uid="uid://daabskcdhrpea" path="res://common/ui/main_menu/main_menu.tscn" id="7_7r5ps"]
 
 [node name="ScenarioMenu" type="Control"]
@@ -14,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uc5db")
-scenes = Array[PackedScene]([ExtResource("2_yb1fe"), ExtResource("7_7r5ps"), ExtResource("4_4mqi4"), ExtResource("5_ll7e4")])
+scenes = Array[PackedScene]([ExtResource("6_uc1ho"), ExtResource("2_yb1fe"), ExtResource("7_7r5ps"), ExtResource("4_4mqi4"), ExtResource("5_ll7e4")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
