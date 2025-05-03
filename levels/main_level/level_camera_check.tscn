@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://beo33we040d1h"]
 
-[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="1_t03n4"]
+[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel2.tscn" id="1_t03n4"]
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="2_yghwm"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_5m24m"]
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="4_su20i"]

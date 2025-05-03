@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_mdx4t"]
 [ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="4_xx0ke"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="5_xo1ck"]
-[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="6_fmq4m"]
+[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel2.tscn" id="6_fmq4m"]
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="7_2f8sb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_xj3rj"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="9_2cms5"]

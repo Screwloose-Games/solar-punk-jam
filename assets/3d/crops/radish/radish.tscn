@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpjdhxojv5v0y"]
+
+[ext_resource type="PackedScene" uid="uid://c3qqsqjxik3ky" path="res://assets/3d/crops/radish/sm_radish.tscn" id="1_q44tx"]
+
+[node name="Radish" type="Node3D"]
+
+[node name="sm_radish" parent="." instance=ExtResource("1_q44tx")]

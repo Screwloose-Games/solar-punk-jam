@@ -20,3 +20,5 @@ releases/
 *.tmp
 
 .env
+
+.idea/
