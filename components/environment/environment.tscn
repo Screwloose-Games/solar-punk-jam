@@ -5,7 +5,7 @@
 [ext_resource type="Curve" uid="uid://crw73fu0f17mj" path="res://components/environment/sun_energy_curve.tres" id="3_4ybr6"]
 [ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="4_0uvaq"]
 [ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="5_7w26c"]
-[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="6_x78hx"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rain_droplets_canvas.gdshader" id="6_x78hx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
 shader = ExtResource("6_x78hx")

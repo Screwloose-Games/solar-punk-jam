@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://crdvjymseuiva" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="2_o10yd"]
 [ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="4_5u3ww"]
 [ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="5_v0o6g"]
-[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="6_fa3df"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rain_droplets_canvas.gdshader" id="6_fa3df"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
 shader = ExtResource("6_fa3df")
