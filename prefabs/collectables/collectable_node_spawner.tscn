@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5xlrp1q5pos3"]
+
+[ext_resource type="Script" uid="uid://df7dqbiw2mx0f" path="res://prefabs/collectables/collectable_node_spawner.gd" id="1_yim3w"]
+
+[node name="CollectableNodeSpawner" type="Node3D"]
+script = ExtResource("1_yim3w")

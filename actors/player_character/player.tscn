@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://co1kf3n1i47iy"]
+[gd_scene load_steps=31 format=3 uid="uid://co1kf3n1i47iy"]
 
 [ext_resource type="Script" uid="uid://dubj2h4di77h5" path="res://actors/player_character/player.gd" id="1_74my2"]
-[ext_resource type="PackedScene" uid="uid://dulsr3d3tohn5" path="res://test/scenarios/test_model_animations/test_trin/trin_placeholder.tscn" id="2_32iji"]
-[ext_resource type="Script" path="res://actors/player_character/mouse_look.gd" id="2_pkpyr"]
+[ext_resource type="Script" uid="uid://bdyja244hgnh5" path="res://actors/player_character/actions_tracker.gd" id="2_5ra6y"]
+[ext_resource type="PackedScene" uid="uid://dulsr3d3tohn5" path="res://actors/player_character/model_animations/trin/trin_placeholder.tscn" id="2_32iji"]
 [ext_resource type="Script" uid="uid://dd7jiw6stu5ux" path="res://actors/player_character/state_machine.gd" id="3_1b6t2"]
-[ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://test/scenarios/test_click_to_move/navigation_agent_3d.gd" id="4_nnxma"]
-[ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://test/scenarios/test_click_to_move/click_to_move.gd" id="5_ffrn3"]
+[ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://components/navigation_agent_3d.gd" id="4_nnxma"]
+[ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://components/click_to_move.gd" id="5_ffrn3"]
 [ext_resource type="Script" uid="uid://bkkqhihfe2ioh" path="res://actors/player_character/directional_movement.gd" id="6_0lri6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_nnxma"]
 [ext_resource type="Script" uid="uid://xu1267cfx5ai" path="res://actors/player_character/move_option_button.gd" id="9_ffrn3"]
@@ -13,8 +13,13 @@
 [ext_resource type="Script" uid="uid://btutcnu3trbt6" path="res://components/interact_component.gd" id="10_gj6wn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_pkpyr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_pnrbl"]
-[ext_resource type="Script" uid="uid://cfstr1tfvhcue" path="res://test/scenarios/test_click_to_move/camera_zoom.gd" id="13_32iji"]
+[ext_resource type="Script" uid="uid://dslievd4w48uv" path="res://components/third_person_controller.gd" id="15_5ra6y"]
 [ext_resource type="PackedScene" uid="uid://b8b6q7g4bsaw5" path="res://common/ui/pause_menu/pause_menu.tscn" id="15_32iji"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="16_5ra6y"]
+
+[sub_resource type="Theme" id="Theme_5ra6y"]
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 24
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aeg1h"]
 
@@ -65,9 +70,60 @@ ease = 2
 height = 1.5
 radius = 0.4
 
+[sub_resource type="Resource" id="Resource_udkoa"]
+script = ExtResource("12_pnrbl")
+duration = 0.3
+transition = 2
+ease = 1
+
+[sub_resource type="Resource" id="Resource_evt3b"]
+script = ExtResource("16_5ra6y")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 7
 script = ExtResource("1_74my2")
+
+[node name="InteractCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="InteractCanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -112.0
+offset_right = 25.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5ra6y")
+
+[node name="InteractionsVBoxContainer" type="VBoxContainer" parent="InteractCanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="InteractCanvasLayer/MarginContainer/InteractionsVBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+expand_mode = 1
+
+[node name="ActionsTracker" type="Node" parent="."]
+script = ExtResource("2_5ra6y")
+
+[node name="CameraFollowTarget" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11359, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.986817, 0)
@@ -77,50 +133,50 @@ shape = SubResource("CapsuleShape3D_aeg1h")
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
-bones/0/position = Vector3(8.97914, 1.77521, -84.0587)
-bones/0/rotation = Quaternion(-0.723427, -0.0661527, 0.12411, 0.675925)
-bones/1/rotation = Quaternion(-0.0933848, 0.00441162, -0.0585091, 0.9939)
-bones/2/rotation = Quaternion(0.0179171, -0.00480735, -0.0216553, 0.999593)
-bones/3/rotation = Quaternion(0.0180084, -0.00344803, -0.0213892, 0.999603)
-bones/4/rotation = Quaternion(0.106469, 0.00492781, 0.0267852, 0.993943)
-bones/5/rotation = Quaternion(-0.0910644, 0.0179366, 0.00494851, 0.995671)
-bones/7/rotation = Quaternion(-0.635343, -0.344303, 0.59068, -0.359015)
+bones/0/position = Vector3(-0.413869, 1.15829, -84.7107)
+bones/0/rotation = Quaternion(-0.718104, -0.0724058, -0.03612, 0.691216)
+bones/1/rotation = Quaternion(-0.0343547, -0.0111793, 0.0825624, 0.995931)
+bones/2/rotation = Quaternion(-0.0564497, -0.0157951, 0.0175006, 0.998127)
+bones/3/rotation = Quaternion(-0.0559598, -0.0152875, 0.0177433, 0.998158)
+bones/4/rotation = Quaternion(0.10211, 0.00762707, -0.0541724, 0.993268)
+bones/5/rotation = Quaternion(-0.0258853, -0.000523194, 0.00583475, 0.999648)
+bones/7/rotation = Quaternion(-0.592555, -0.389514, 0.592449, -0.382311)
 bones/8/position = Vector3(1.30587e-07, 9.35619, -5.39685e-06)
-bones/8/rotation = Quaternion(0.338898, -0.000612893, -0.0907585, 0.936435)
-bones/9/rotation = Quaternion(0.0296656, -0.0255782, 0.202116, 0.978578)
+bones/8/rotation = Quaternion(0.469354, -0.0114577, -0.265577, 0.842048)
+bones/9/rotation = Quaternion(0.0265602, -0.0231126, 0.18096, 0.98286)
 bones/10/position = Vector3(3.50162e-06, 20.7568, -2.49155e-06)
-bones/10/rotation = Quaternion(0.0546322, 0.436471, 0.085426, 0.893986)
-bones/11/rotation = Quaternion(0.0903555, 0.0293013, 0.158436, 0.98279)
+bones/10/rotation = Quaternion(-0.026626, 0.385021, 0.101373, 0.916937)
+bones/11/rotation = Quaternion(0.0465001, 0.0200049, 0.20193, 0.978091)
 bones/12/position = Vector3(0.125468, 4.08864, 1.59782e-06)
-bones/12/rotation = Quaternion(0.0719836, -0.00874388, -0.194158, 0.978287)
-bones/13/rotation = Quaternion(0.0203739, -0.101528, -0.0255749, 0.994295)
-bones/15/rotation = Quaternion(0.135072, -0.00643466, 0.0619883, 0.988874)
+bones/12/rotation = Quaternion(0.0383433, -0.00157272, -0.133624, 0.990289)
+bones/13/rotation = Quaternion(-0.0141127, -0.0915301, 0.0709923, 0.993168)
+bones/15/rotation = Quaternion(0.104304, -0.0054626, 0.0504111, 0.993252)
 bones/16/position = Vector3(0.0570316, 5.21198, 7.41806e-06)
-bones/16/rotation = Quaternion(0.157434, 0.00167472, 0.0296276, 0.987084)
-bones/17/rotation = Quaternion(0.208061, 0.00169879, 0.101948, 0.972787)
-bones/19/rotation = Quaternion(0.621119, -0.361428, 0.58479, 0.376301)
+bones/16/rotation = Quaternion(0.118322, 0.00113683, 0.016089, 0.992844)
+bones/17/rotation = Quaternion(0.147265, 0.00129378, 0.0815412, 0.985729)
+bones/19/rotation = Quaternion(0.575536, -0.400249, 0.607308, 0.373812)
 bones/20/position = Vector3(2.8018e-06, 9.3562, 6.52528e-06)
-bones/20/rotation = Quaternion(0.411366, -0.0690635, 0.0224012, 0.908574)
+bones/20/rotation = Quaternion(0.384971, -0.0890549, 0.175785, 0.901646)
 bones/21/position = Vector3(-9.04428e-07, 15.2797, 1.62176e-06)
-bones/21/rotation = Quaternion(0.0355311, 0.0307403, -0.243045, 0.968877)
-bones/22/rotation = Quaternion(0.00219814, -0.433148, -0.0412196, 0.900377)
-bones/23/rotation = Quaternion(0.0338291, -0.0290802, -0.223117, 0.97377)
+bones/21/rotation = Quaternion(0.0345585, 0.0299665, -0.236393, 0.97058)
+bones/22/rotation = Quaternion(-0.028134, -0.429693, -0.0352816, 0.901847)
+bones/23/rotation = Quaternion(0.0312021, -0.0286473, -0.226852, 0.973008)
 bones/24/position = Vector3(-0.199192, 4.04112, -1.78582e-06)
-bones/24/rotation = Quaternion(0.0782526, 0.0225376, 0.265126, 0.960769)
-bones/25/rotation = Quaternion(0.000554715, 0.00154218, -0.0753075, 0.997159)
+bones/24/rotation = Quaternion(0.0700864, 0.0229488, 0.253816, 0.964437)
+bones/25/rotation = Quaternion(-0.015329, 0.00356646, -0.0996434, 0.994899)
 bones/26/position = Vector3(-0.0601294, 2.77943, 3.2708e-06)
-bones/27/rotation = Quaternion(0.215251, 0.000678381, -0.0710287, 0.973972)
-bones/28/rotation = Quaternion(0.106599, -0.000293048, -0.0235772, 0.994023)
+bones/27/rotation = Quaternion(0.197281, -5.75821e-05, -0.0623376, 0.978363)
+bones/28/rotation = Quaternion(0.0896133, -0.000235877, -0.0175924, 0.995821)
 bones/29/position = Vector3(0.0741377, 4.29085, -3.52459e-06)
-bones/29/rotation = Quaternion(0.186687, -0.00129584, -0.0761261, 0.979465)
-bones/31/rotation = Quaternion(0.0139775, 0.0631569, 0.991654, 0.111525)
-bones/32/rotation = Quaternion(-0.221167, -0.0785002, -0.00107114, 0.972071)
-bones/33/rotation = Quaternion(0.567567, -0.233724, 0.169713, 0.770998)
-bones/34/rotation = Quaternion(0.308902, 0.00354846, -0.0106485, 0.951028)
-bones/36/rotation = Quaternion(-0.0704669, 0.133059, 0.983792, 0.0973843)
-bones/37/rotation = Quaternion(-0.313379, -0.0648205, -0.00949585, 0.947366)
-bones/38/rotation = Quaternion(0.602408, 0.09686, 0.0147478, 0.792152)
-bones/39/rotation = Quaternion(0.306334, -0.0135857, 0.00518331, 0.951813)
+bones/29/rotation = Quaternion(0.138539, -0.000987359, -0.0593301, 0.988578)
+bones/31/rotation = Quaternion(0.0579262, 0.126987, 0.984839, -0.103009)
+bones/32/rotation = Quaternion(-0.326409, -0.0686936, 0.0013964, 0.942728)
+bones/33/rotation = Quaternion(0.615641, -0.124424, 0.0189394, 0.777912)
+bones/34/rotation = Quaternion(0.299062, 0.020555, -0.00587287, 0.953994)
+bones/36/rotation = Quaternion(-0.0664048, 0.00981004, 0.99438, -0.0818666)
+bones/37/rotation = Quaternion(-0.136275, 0.0539917, 0.011029, 0.989137)
+bones/38/rotation = Quaternion(0.559042, 0.0713697, -0.0490564, 0.824604)
+bones/39/rotation = Quaternion(0.302444, -0.0144761, 0.00499387, 0.953044)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("%Model")
@@ -149,7 +205,7 @@ script = ExtResource("6_0lri6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 6.83022, 5.21393)
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 1.4013e-45, 2.86358, 3.03107)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -158,6 +214,8 @@ script = ExtResource("8_nnxma")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 4
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -223,32 +281,42 @@ popup/item_1/id = 0
 script = ExtResource("9_pnrbl")
 
 [node name="InteractArea3D" type="Area3D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("10_gj6wn")
+interact_action = &"Interact"
 metadata/_custom_type_script = "uid://btutcnu3trbt6"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_gj6wn")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 6.83022, 5.21393)
+[node name="BuildArea3D" type="Area3D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("10_gj6wn")
+interact_action = &"Build"
+metadata/_custom_type_script = "uid://btutcnu3trbt6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_gj6wn")
+
+[node name="IsometricCamera" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 5.29813, 3.92836)
 script = ExtResource("11_pkpyr")
 follow_mode = 6
 follow_target = NodePath("..")
 tween_resource = SubResource("Resource_5ra6y")
 follow_offset = Vector3(0, 3, 2)
-follow_distance = 5.0
-spring_length = 5.0
+follow_distance = 3.0
+spring_length = 3.0
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="CameraZoom" type="Node" parent="PhantomCamera3D"]
-script = ExtResource("13_32iji")
-
-[node name="MouseLook" type="Node" parent="PhantomCamera3D"]
-unique_name_in_owner = true
-script = ExtResource("2_pkpyr")
 
 [node name="TeleportableArea3D" type="Area3D" parent="."]
 collision_layer = 256
@@ -259,5 +327,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_pkpyr")
 
 [node name="PauseMenu" parent="." instance=ExtResource("15_32iji")]
+
+[node name="ThirdPersonController" type="Node3D" parent="." node_paths=PackedStringArray("_player_direction")]
+script = ExtResource("15_5ra6y")
+_player_direction = NodePath("../Model")
+
+[node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 1.4013e-45, 2.86358, 3.03107)
+script = ExtResource("11_pkpyr")
+priority = 10
+follow_mode = 6
+follow_target = NodePath("../CameraFollowTarget")
+tween_resource = SubResource("Resource_udkoa")
+camera_3d_resource = SubResource("Resource_evt3b")
+follow_damping = true
+follow_distance = 3.5
+spring_length = 3.5
 
 [editable path="Model"]

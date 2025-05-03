@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccai2o27vcrhp"]
+
+[ext_resource type="Script" uid="uid://bw6ir3ogwdvps" path="res://components/collectable.gd" id="1_h6adg"]
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="2_o2lis"]
+
+[node name="Collectable" type="Node3D"]
+script = ExtResource("1_h6adg")
+count = 1
+
+[node name="InteractableArea3D" parent="." instance=ExtResource("2_o2lis")]
+unique_name_in_owner = true
+label_text = "Collect"
+
+[editable path="InteractableArea3D"]

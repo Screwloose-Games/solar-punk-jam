@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://byfoxs7fp3xet"]
+
+[ext_resource type="Script" uid="uid://bioobqoparmym" path="res://components/interact_notify.gd" id="1_rfxrm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0gvp"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rfxrm"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qal0v"]
+size = Vector3(0.4, 1.6, 0.4)
+
+[node name="InteractNotify" type="Node3D"]
+script = ExtResource("1_rfxrm")
+
+[node name="Dot" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_p0gvp")
+mesh = SubResource("BoxMesh_rfxrm")
+
+[node name="Bar" type="MeshInstance3D" parent="Dot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+material_override = SubResource("StandardMaterial3D_p0gvp")
+mesh = SubResource("BoxMesh_qal0v")

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_m1ota"]
 [ext_resource type="Script" uid="uid://dbdw5suvtj1ek" path="res://actors/npcs/trin/dialog.gd" id="2_3w63i"]
-[ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://test/scenarios/test_click_to_move/navigation_agent_3d.gd" id="3_jcyep"]
-[ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://test/scenarios/test_click_to_move/click_to_move.gd" id="4_m1ota"]
+[ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://components/navigation_agent_3d.gd" id="3_jcyep"]
+[ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://components/click_to_move.gd" id="4_m1ota"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w76s5"]
 radius = 0.4
@@ -26,6 +26,7 @@ editor_description = "This is the base scene for other NPCs. By using this scene
 
 [node name="Name" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65762, 0)
+visible = false
 billboard = 1
 no_depth_test = true
 fixed_size = true

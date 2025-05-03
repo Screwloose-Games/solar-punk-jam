@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://doy0giq3p8lvr"]
+[gd_scene load_steps=18 format=3 uid="uid://doy0giq3p8lvr"]
 
 [ext_resource type="Environment" uid="uid://dobd7wrpoccx6" path="res://test/scenarios/test_lighting/world_environment_00.tres" id="1_g0a8h"]
 [ext_resource type="PackedScene" uid="uid://b1atwunknodlk" path="res://test/scenarios/test_lighting/camera_3d.tscn" id="2_b06ku"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://0fnrnvfja1hy" path="res://assets/3d/props/radish/Radish.fbx" id="12_jdarb"]
 [ext_resource type="PackedScene" uid="uid://dekw2ivu2l2ns" path="res://assets/3d/buildings/building_02/SM_PrototypeBuilding_02.glb" id="12_jx8jv"]
 [ext_resource type="PackedScene" uid="uid://dt201prswa8pg" path="res://assets/3d/buildings/building_03/SM_PrototypeBuilding_03.glb" id="13_lcj1t"]
+[ext_resource type="PackedScene" uid="uid://cedg86h3elalj" path="res://assets/3d/buildings/building_05/sm_building_05.tscn" id="14_tgc7t"]
+[ext_resource type="PackedScene" uid="uid://cov82kk44bame" path="res://assets/3d/buildings/building_04/sm_building_04.tscn" id="15_k8glj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lcj1t"]
 render_priority = 0
@@ -78,5 +80,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823276, -0.5, 3.667)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamSynchronized_jdarb")
+
+[node name="sm_building_05" parent="." instance=ExtResource("14_tgc7t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2737, -0.364283, -6.08275)
+
+[node name="sm_building_04" parent="." instance=ExtResource("15_k8glj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2269, -0.358111, -6.70264)
 
 [editable path="Building00"]

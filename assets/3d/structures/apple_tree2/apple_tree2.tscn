@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxkwy3ahqyx1d"]
+[gd_scene load_steps=4 format=3 uid="uid://dxkwy3ahqyx1d"]
 
 [ext_resource type="PackedScene" uid="uid://u0yo2p3mh5hk" path="res://assets/3d/structures/apple_tree/sm_apple_tree.tscn" id="1_eaa1c"]
+[ext_resource type="Script" uid="uid://bmy1qqw3fwdps" path="res://assets/3d/structures/apple_tree2/apple_tree_2.gd" id="1_qbc7p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7gtr"]
 albedo_color = Color(0.380392, 0.262745, 0.156863, 1)
 
 [node name="AppleTree" type="Node3D"]
+script = ExtResource("1_qbc7p")
 
 [node name="apple_tree" parent="." instance=ExtResource("1_eaa1c")]
 

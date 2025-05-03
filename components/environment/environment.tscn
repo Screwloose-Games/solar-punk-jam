@@ -5,12 +5,14 @@
 [ext_resource type="Curve" uid="uid://crw73fu0f17mj" path="res://components/environment/sun_energy_curve.tres" id="3_4ybr6"]
 [ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="4_0uvaq"]
 [ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="5_7w26c"]
-[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="6_x78hx"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rain_droplets_canvas.gdshader" id="6_x78hx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
 shader = ExtResource("6_x78hx")
 shader_parameter/frequency = 0.0
 shader_parameter/size = 0.015
+shader_parameter/vignette_radius = 0.3
+shader_parameter/vignette_smoothness = 0.2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
 
@@ -29,7 +31,7 @@ fog_height_density = 0.5
 
 [node name="Environment" type="Node3D"]
 script = ExtResource("1_ldjwe")
-day_length_in_seconds = 3.0
+day_length_in_seconds = 600.0
 twilight_color_gradient = ExtResource("2_otco7")
 sun_energy_curve = ExtResource("3_4ybr6")
 
@@ -69,7 +71,6 @@ attenuation = 0.112656
 size = Vector3(128, 64, 64)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Rain"]
-visible = false
 
 [node name="Control" type="Control" parent="Rain/CanvasLayer"]
 layout_mode = 3
@@ -78,6 +79,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="RaindropsColorRect" type="ColorRect" parent="Rain/CanvasLayer/Control"]
 material = SubResource("ShaderMaterial_4ctqt")
@@ -87,6 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BlueColorRect" type="ColorRect" parent="Rain/CanvasLayer/Control"]
 layout_mode = 1
@@ -95,6 +98,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.140714, 0.302451, 0.562581, 0.176471)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

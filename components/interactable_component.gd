@@ -7,12 +7,23 @@ class_name InteractableArea3D
 		if interactable_label_3d:
 			interactable_label_3d.text = label_text
 
+@export var show_label: bool = false 
+
 signal interacted(player: Player)
 signal stopped_interacting
 signal selected
 signal unselected
 
-var is_interacting: bool = false
+var is_interacting: bool = false:
+	set(val):
+		if val == is_interacting:
+			return
+		is_interacting = val
+		if is_interacting:
+			pass
+		else:
+			stopped_interacting.emit.call_deferred()
+
 var is_selected = false:
 	set = set_selected
 
@@ -27,18 +38,15 @@ var disabled := false:
 func _ready():
 	interactable_label_3d.text = label_text
 	interactable_label_3d.visible = false
-	stopped_interacting.connect(_on_stopped_interacting)
-
-
-func _on_stopped_interacting():
-	is_interacting = false
-
 
 func select():
 	is_selected = true
-	interactable_label_3d.visible = true
+	if show_label:
+		interactable_label_3d.visible = true
 	selected.emit()
 
+func _exit_tree() -> void:
+	stop_interacting()
 
 func unselect():
 	is_selected = false
@@ -55,6 +63,6 @@ func stop_interacting():
 func interact(player: Player):
 	if is_interacting:
 		return
+	is_interacting = true
 	interacted.emit(player)
 	print("interacted")
-	is_interacting = true

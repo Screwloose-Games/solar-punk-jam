@@ -36,17 +36,17 @@ func pause():
 
 	if should_pause:
 		GlobalSignalBus.game_paused.emit()
-		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		GlobalSignalBus.game_unpaused.emit()
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func on_continue_pressed():
 	get_tree().paused = false
 	visible = false
 	GlobalSignalBus.game_unpaused.emit()
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#queue_free()
 
 

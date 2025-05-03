@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djwvdx7n143nx"]
+[gd_scene load_steps=8 format=3 uid="uid://d3ixcoeb8o0uj"]
 
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="1_8vqlk"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="2_2rwor"]

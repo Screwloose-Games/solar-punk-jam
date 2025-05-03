@@ -9,7 +9,10 @@ signal UpdatedAvailableResources
 const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
 const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
 
+var resource_storage_limits = {"Electricity":0, "Water":0}
+
 var current_resources = {}
+var deposited_resources = {}
 
 func gain_resource(resource: String, quantity: int):
 	prints("Gaining", resource, quantity, current_resources)
@@ -17,6 +20,20 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] += quantity
 	else:
 		current_resources[resource] = quantity
+		
+	if resource in resource_storage_limits:
+		if current_resources[resource] > resource_storage_limits[resource]:
+			prints("We cannot store all of this resource, discarding some")
+			current_resources[resource] = resource_storage_limits[resource]
+		
+	UpdatedAvailableResources.emit()
+
+func deposit_resource(resource: String, quantity: int):
+	prints("Depositing", resource, quantity, current_resources)
+	if resource in current_resources:
+		deposited_resources[resource] += quantity
+	else:
+		deposited_resources[resource] = quantity
 	UpdatedAvailableResources.emit()
 
 func check_amount(resource: String, quantity: int):

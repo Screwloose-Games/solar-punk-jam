@@ -61,6 +61,8 @@ var npcs : Dictionary = {
 	},
 }
 
+signal game_state_changed
+
 
 func get_npc_dialogue(npc_id : String) -> String:
 	var timeline = ""
@@ -74,13 +76,19 @@ func get_npc_dialogue(npc_id : String) -> String:
 			this_npc.quest_active = true
 			timeline = DIALOGUE_DB[npc_id].quests[this_npc.progress]
 	else:
-		this_npc.player_met = true
 		timeline = DIALOGUE_DB[npc_id].intro
 	return timeline
+
+
+func meet_npc(npc_id : String):
+	if npc_id in npcs.keys():
+		npcs[npc_id].player_met = true
+		game_state_changed.emit()
 
 
 func complete_quest(giver : String):
 	if giver in npcs.keys():
 		npcs[giver].quest_active = false
 		npcs[giver].progress += 1
+		game_state_changed.emit()
 		print("Progress for NPC %s increased to %d" % [giver, npcs[giver].progress])
