@@ -54,6 +54,7 @@ func check_quests(_changes : Dictionary = {}):
 
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
+	Dialogic.VAR[giver + "_active"] = false
 	Dialogic.VAR[giver + "_progress"] += 1
 	print("Progress for NPC %s increased to %d" % [giver, Dialogic.VAR[giver + "_progress"]])
 	npc_notified_new.emit(giver)

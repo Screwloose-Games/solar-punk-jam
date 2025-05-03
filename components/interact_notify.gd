@@ -11,7 +11,8 @@ func _ready() -> void:
 
 
 func _on_new_notify(id):
-	visible = (id == npc_id)
+	if id == npc_id:
+		visible = true
 
 
 func _on_interacted(player: Player):
