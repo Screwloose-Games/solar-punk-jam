@@ -1,0 +1,19 @@
+if {board_met} == false:
+	A weather-beaten bulletin board, pieced together from scrap wood, stands defiantly against the elements.
+	Various slips of paper are fastened to it with tacks, nails, and pins.\
+A riot of colors that somehow manages to make sense to the viewer.
+	Te: Yeesh, this thing looks like it's about to fall over. This is how we're supposed to ask for work and materials?
+	The board stands silent, which is a statement in of itself.
+	Te: Well, no use just staring at this thing. Gotta fill up my quota before I catch another lecture from Mom...
+	set {board_met} = true
+if {board_active} == true:
+	Te: Nah, I need to finish the job I'm doing now before I can take another one.
+	[end_timeline]
+if {board_progress} == 0.0:
+	jump board_quest1/
+if {board_progress} == 1.0:
+	jump board_quest2/
+if {board_progress} == 2.0:
+	jump board_quest3/
+Te: Hm. Not seeing any open jobs on here...\\
+Did I really do EVERYTHING?

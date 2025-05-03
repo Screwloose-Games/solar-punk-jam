@@ -6,18 +6,16 @@
 [sub_resource type="Resource" id="Resource_h1w78"]
 script = ExtResource("1_h1w78")
 description = "Gather materials"
-linked_event = "structure_built"
-event_param = "build1"
-count = 5
+quest_value = "res_material"
+goal = 5
 prerequisites = Array[int]([])
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_e40t8"]
 script = ExtResource("1_h1w78")
 description = "Build a Hygiene Station"
-linked_event = "structure_built"
-event_param = "build2"
-count = 1
+quest_value = "built_hygiene"
+goal = 1
 prerequisites = Array[int]([0])
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 

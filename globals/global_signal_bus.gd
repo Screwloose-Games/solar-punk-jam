@@ -11,5 +11,3 @@ signal game_unpaused
 signal win_game_requirements_met
 signal level_reset
 signal set_ending_visibility(show_panel: bool)
-
-signal structure_built(structure : String)

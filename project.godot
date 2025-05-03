@@ -28,7 +28,6 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.gd"
-GameState="*res://globals/game_state.gd"
 BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 
 [dialogic]
@@ -43,26 +42,42 @@ directories/dch_directory={
 "Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
-"board_busy": "res://narrative/timelines/board_busy.dtl",
-"board_idle": "res://narrative/timelines/board_idle.dtl",
-"board_intro": "res://narrative/timelines/board_intro.dtl",
+"board_main": "res://narrative/timelines/board_main.dtl",
 "board_quest1": "res://narrative/timelines/board_quest1.dtl",
 "board_quest2": "res://narrative/timelines/board_quest2.dtl",
 "board_quest3": "res://narrative/timelines/board_quest3.dtl",
 "cam_test": "res://narrative/timelines/cam_test.dtl",
 "intro": "res://narrative/timelines/intro.dtl",
-"intro_dialogue_timeline": "res://narrative/timelines/intro_dialogue_timeline.dtl",
-"mister_intro": "res://narrative/timelines/mister_intro.dtl",
-"mister_talk": "res://narrative/timelines/mister_talk.dtl",
+"mister_main": "res://narrative/timelines/mister_main.dtl",
+"mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "te_think": "res://narrative/timelines/te_think.dtl",
-"trin_intro": "res://narrative/timelines/trin_intro.dtl",
+"trin_main": "res://narrative/timelines/trin_main.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }
 variables={
-"has_met_fischer": false,
-"has_met_marge": false,
-"has_met_sunny": false,
-"has_met_wendy": false
+"board_active": false,
+"board_met": false,
+"board_progress": 0,
+"built_compost": false,
+"built_donation": false,
+"built_hygiene": false,
+"built_rain_barrel": false,
+"built_raised_bed": false,
+"kelly_active": false,
+"kelly_met": false,
+"kelly_progress": 0,
+"materials_collected": 0,
+"mister_active": false,
+"mister_met": false,
+"mister_progress": 0,
+"mom_active": false,
+"mom_met": true,
+"mom_progress": 0,
+"res_material": 0,
+"trin_active": false,
+"trin_met": false,
+"trin_progress": 0,
+"trin_turn_in": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

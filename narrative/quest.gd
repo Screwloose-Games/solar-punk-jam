@@ -12,15 +12,32 @@ signal quest_completed(giver : String)
 
 
 # Initialize quest state
-# Connect signal from GlobalSignalBus to event handler
 # Objectives with no prerequisites get set active
 func start_quest():
+	Dialogic.VAR[quest_giver + "_active"] = true
 	for i in objectives.size():
-		objectives[i].progress_changed.connect(emit_signal.bind("quest_state_changed"))
-		objectives[i].completed.connect(_on_objective_completed)
 		if objectives[i].prerequisites.is_empty():
 			objectives[i].is_unlocked = true
 			objectives[i].is_active = true
+
+
+func check_progress():
+	if !is_complete:
+		for objective in objectives:
+			if objective.is_active:
+				var check_value = Dialogic.VAR[objective.quest_value]
+				print("Objective check val: " + str(check_value))
+				if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
+					print("Value is not int or bool, aborting check.")
+				else:
+					if int(check_value) >= objective.goal:
+						objective.progress = objective.goal
+						objective.is_completed = true
+						objective.is_active = false
+						_on_objective_completed()
+					else:
+						objective.progress = int(check_value)
+						quest_state_changed.emit()
 
 
 # If an objective is completed, check if the overall quest is completed too
