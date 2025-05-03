@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7ld00o2evwmd"]
+[gd_scene load_steps=7 format=3 uid="uid://7ld00o2evwmd"]
 
-[ext_resource type="Script" uid="uid://c00svcxn2n1on" path="res://assets/3d/structures/vegetables/vegetables.gd" id="1_d6fto"]
+[ext_resource type="Script" path="res://assets/3d/structures/vegetables/vegetables.gd" id="1_d6fto"]
+[ext_resource type="PackedScene" uid="uid://0fnrnvfja1hy" path="res://assets/3d/crops/radish/sm_radish.fbx" id="2_a6bb5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkqly"]
 albedo_color = Color(1, 0.347235, 0.782969, 1)
@@ -22,6 +23,9 @@ height = 0.8
 
 [node name="Vegetables" type="Node3D"]
 script = ExtResource("1_d6fto")
+
+[node name="Radish" parent="." instance=ExtResource("2_a6bb5")]
+visible = false
 
 [node name="Fruit" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)

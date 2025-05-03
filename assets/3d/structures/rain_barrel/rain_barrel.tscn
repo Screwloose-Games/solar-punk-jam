@@ -1,5 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbfdw204uwtna"]
+[gd_scene load_steps=3 format=3 uid="uid://b1f5gngln3iyv"]
 
-[ext_resource type="PackedScene" uid="uid://d31ct104ba5vf" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.gltf" id="1_d5w7f"]
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_xvrc8"]
+[ext_resource type="PackedScene" uid="uid://n6pfbx2a72ef" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.tscn" id="2_o7ty7"]
 
-[node name="sm_rain_barrel" instance=ExtResource("1_d5w7f")]
+[node name="BuildableStructure" instance=ExtResource("1_xvrc8")]
+
+[node name="sm_rain_barrel" parent="." index="0" instance=ExtResource("2_o7ty7")]

@@ -31,6 +31,9 @@ func _ready() -> void:
 
 func start_quest(file_name : String):
 	var new_quest = load(FILE_PATH % file_name)
+	start_quest_resource(new_quest)
+
+func start_quest_resource(new_quest: Quest):
 	quests.append(new_quest)
 	new_quest.quest_state_changed.connect(emit_signal.bind("quests_changed"))
 	new_quest.quest_completed.connect(_on_quest_complete)
