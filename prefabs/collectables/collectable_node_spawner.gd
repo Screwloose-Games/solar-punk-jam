@@ -3,6 +3,8 @@ extends Node3D
 
 @onready var collectable: Collectable = find_child_collectable()
 
+var is_collected: bool = true
+
 func _ready() -> void:
 	if collectable:
 		collectable.collected.connect(_on_collectable_collected)
@@ -13,11 +15,13 @@ func _on_collectable_collected():
 	despawn()
 
 func despawn():
+	is_collected = true
 	if collectable:
 		collectable.hide()
 		collectable.process_mode = Node.PROCESS_MODE_DISABLED
 
 func reset():
+	is_collected = false
 	if collectable:
 		collectable.show()
 		collectable.process_mode = Node.PROCESS_MODE_INHERIT
