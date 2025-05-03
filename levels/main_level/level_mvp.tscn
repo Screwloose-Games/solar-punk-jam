@@ -310,7 +310,6 @@ size = Vector3(0.32959, 1.54932, 1)
 
 [node name="SleepDoor" parent="FakeDoor" node_paths=PackedStringArray("player", "wake_up_location") instance=ExtResource("9_umr73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301051, -0.722028, 0.168841)
-time_to_sleep = 1.0
 player = NodePath("../../Player")
 wake_up_location = NodePath(".")
 

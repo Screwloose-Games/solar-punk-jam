@@ -1,8 +1,8 @@
 extends Node3D
 
-@export var time_to_sleep: float
+@export var time_to_sleep: float = 1.0
 @export var player: Player
-@export var wake_up_location: Node3D
+@export var wake_up_location: Node3D = owner
 
 var is_sleeping: bool = false
 
@@ -13,6 +13,8 @@ func _ready() -> void:
 	EnvironmentManager.day_cycle_update.connect(_on_day_cycle_update)
 
 func _on_day_cycle_update(time: float):
+	if not player:
+		return
 	if is_sleeping:
 		return
 	if time >= time_to_sleep:
