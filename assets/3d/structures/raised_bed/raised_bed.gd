@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var crop: Crop 
+#@export var crop: Crop 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
