@@ -11,6 +11,8 @@
 shader = ExtResource("6_x78hx")
 shader_parameter/frequency = 0.0
 shader_parameter/size = 0.015
+shader_parameter/vignette_radius = 0.3
+shader_parameter/vignette_smoothness = 0.2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
 
@@ -69,7 +71,6 @@ attenuation = 0.112656
 size = Vector3(128, 64, 64)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Rain"]
-visible = false
 
 [node name="Control" type="Control" parent="Rain/CanvasLayer"]
 layout_mode = 3
