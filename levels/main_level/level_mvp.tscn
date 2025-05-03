@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="9_umr73"]
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="10_ejtm4"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="10_mn3v4"]
-[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/comm_board.tscn" id="11_ntgmv"]
+[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="11_ntgmv"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_oq7qv"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="17_awabt"]
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="17_ority"]
