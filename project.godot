@@ -28,7 +28,6 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.gd"
-GameState="*res://globals/game_state.gd"
 BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 
 [dialogic]
@@ -52,15 +51,15 @@ directories/dtl_directory={
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "te_think": "res://narrative/timelines/te_think.dtl",
-"trin_intro": "res://narrative/timelines/trin_intro.dtl",
+"trin_main": "res://narrative/timelines/trin_main.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }
 variables={
 "board_active": false,
 "board_met": false,
 "board_progress": 0,
-"build_flag1": false,
-"build_flag2": false,
+"built_rain_barrel": false,
+"built_raised_bed": false,
 "hygiene_built": false,
 "kelly_active": false,
 "kelly_met": false,
@@ -74,7 +73,8 @@ variables={
 "mom_progress": 0,
 "trin_active": false,
 "trin_met": false,
-"trin_progress": 0
+"trin_progress": 0,
+"trin_turn_in": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

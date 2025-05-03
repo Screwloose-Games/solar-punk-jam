@@ -6,13 +6,12 @@ extends Node3D
 
 
 func _ready() -> void:
-	Dialogic.VAR.variable_changed.connect(_on_game_state_changed)
+	QuestManager.npc_notified_new.connect(_on_new_notify)
 	interactable_area_3d.interacted.connect(_on_interacted)
 
 
-func _on_game_state_changed(_changes):
-	visible = !Dialogic.VAR[npc_id + "_met"] or \
-		!Dialogic.VAR[npc_id + "_active"]
+func _on_new_notify(id):
+	visible = (id == npc_id)
 
 
 func _on_interacted(player: Player):

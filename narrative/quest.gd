@@ -21,20 +21,22 @@ func start_quest():
 
 
 func check_progress():
-	for objective in objectives:
-		if objective.is_active:
-			var check_value = Dialogic.VAR[objective.quest_value]
-			print("Objective check val: " + str(check_value))
-			if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
-				print("Value is not int or bool, aborting check.")
-			else:
-				if int(check_value) >= objective.goal:
-					objective.progress = objective.goal
-					objective.is_completed = true
-					_on_objective_completed()
+	if !is_complete:
+		for objective in objectives:
+			if objective.is_active:
+				var check_value = Dialogic.VAR[objective.quest_value]
+				print("Objective check val: " + str(check_value))
+				if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
+					print("Value is not int or bool, aborting check.")
 				else:
-					objective.progress = int(check_value)
-					quest_state_changed.emit()
+					if int(check_value) >= objective.goal:
+						objective.progress = objective.goal
+						objective.is_completed = true
+						objective.is_active = false
+						_on_objective_completed()
+					else:
+						objective.progress = int(check_value)
+						quest_state_changed.emit()
 
 
 # If an objective is completed, check if the overall quest is completed too
