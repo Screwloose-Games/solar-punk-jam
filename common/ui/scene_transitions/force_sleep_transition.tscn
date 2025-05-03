@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw8yd5l7yumu6"]
+
+[ext_resource type="Script" uid="uid://dkkrkms3kh3oe" path="res://common/ui/scene_transitions/transition.gd" id="1_226go"]
+[ext_resource type="AnimationLibrary" uid="uid://bha5hjiv2hbo5" path="res://common/ui/scene_transitions/force_sleep_transition.res" id="2_305bi"]
+
+[node name="ForceSleepTransition" type="CanvasLayer" node_paths=PackedStringArray("animation")]
+layer = 20
+script = ExtResource("1_226go")
+animation = NodePath("AnimationPlayer")
+
+[node name="disol" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="disol"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mom takes Te to bed."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("2_305bi")
+}

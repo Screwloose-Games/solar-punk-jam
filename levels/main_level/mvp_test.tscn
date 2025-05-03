@@ -39,6 +39,7 @@ layer = 5
 [node name="Player" parent="." instance=ExtResource("2_1c0yp")]
 
 [node name="Environment" parent="." instance=ExtResource("3_xy84e")]
+day_length_in_game_hours = 14.0
 
 [node name="Bulidings" type="Node3D" parent="."]
 

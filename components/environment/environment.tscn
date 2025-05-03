@@ -29,7 +29,7 @@ fog_height_density = 0.5
 
 [node name="Environment" type="Node3D"]
 script = ExtResource("1_ldjwe")
-day_length_in_seconds = 300.0
+day_length_in_seconds = 600.0
 twilight_color_gradient = ExtResource("2_otco7")
 sun_energy_curve = ExtResource("3_4ybr6")
 

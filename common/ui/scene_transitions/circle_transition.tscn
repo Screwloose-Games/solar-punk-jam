@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2jlwpok70miu"]
 
-[ext_resource type="Script" path="res://common/ui/scene_transitions/transition.gd" id="1_hsdn8"]
-[ext_resource type="Shader" path="res://common/ui/scene_transitions/circle_screen_transition.gdshader" id="2_pt6ot"]
+[ext_resource type="Script" uid="uid://dkkrkms3kh3oe" path="res://common/ui/scene_transitions/transition.gd" id="1_hsdn8"]
+[ext_resource type="Shader" uid="uid://b4jv0ycts1prl" path="res://common/ui/scene_transitions/circle_screen_transition.gdshader" id="2_pt6ot"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fvmw8"]
 shader = ExtResource("2_pt6ot")
@@ -82,9 +82,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cik1m"]
 _data = {
-"FadeIn": SubResource("Animation_chfsf"),
-"FadeOut": SubResource("Animation_em0vm"),
-"RESET": SubResource("Animation_3gf78")
+&"FadeIn": SubResource("Animation_chfsf"),
+&"FadeOut": SubResource("Animation_em0vm"),
+&"RESET": SubResource("Animation_3gf78")
 }
 
 [node name="Circle Transition" type="CanvasLayer" node_paths=PackedStringArray("animation")]
@@ -103,5 +103,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cik1m")
+&"": SubResource("AnimationLibrary_cik1m")
 }
