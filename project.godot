@@ -104,6 +104,10 @@ enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://add
 
 import/blender/enabled=false
 
+[global_group]
+
+CollectableNodeSpawner=""
+
 [input]
 
 Move_Forward={
