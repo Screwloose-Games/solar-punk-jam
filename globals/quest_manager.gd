@@ -12,12 +12,14 @@ const RESOURCE_MAP = {
 	"Seeds" : "res_seed",
 }
 const STRUCTURE_MAP = {
+	5 : "built_compost",
+	6 : "built_hygiene",
 	13 : "built_rain_barrel",
-	14 : "built_raised_bed"
+	14 : "built_raised_bed",
+	22 : "built_donation"
 }
 var quests : Array[Quest] = []
 
-signal npc_notified_new(npc_id)
 signal quests_changed
 
 
@@ -33,6 +35,7 @@ func start_quest(file_name : String):
 	new_quest.quest_state_changed.connect(emit_signal.bind("quests_changed"))
 	new_quest.quest_completed.connect(_on_quest_complete)
 	new_quest.start_quest()
+	check_quests()
 	quests_changed.emit()
 	print("Quest started: %s" % new_quest.name)
 
@@ -44,6 +47,11 @@ func update_structures(new_structure):
 
 
 func update_resources():
+	for res_name in RESOURCE_MAP.keys():
+		if res_name in EnvironmentManager.current_resources.keys():
+			var res_value = EnvironmentManager.current_resources[res_name]
+			var res_varname = RESOURCE_MAP[res_name]
+			Dialogic.VAR.set_variable(res_varname, res_value)
 	check_quests()
 
 
@@ -57,5 +65,4 @@ func _on_quest_complete(giver : String):
 	Dialogic.VAR[giver + "_active"] = false
 	Dialogic.VAR[giver + "_progress"] += 1
 	print("Progress for NPC %s increased to %d" % [giver, Dialogic.VAR[giver + "_progress"]])
-	npc_notified_new.emit(giver)
 	quests_changed.emit()

@@ -14,6 +14,7 @@ signal quest_completed(giver : String)
 # Initialize quest state
 # Objectives with no prerequisites get set active
 func start_quest():
+	Dialogic.VAR[quest_giver + "_active"] = true
 	for i in objectives.size():
 		if objectives[i].prerequisites.is_empty():
 			objectives[i].is_unlocked = true
