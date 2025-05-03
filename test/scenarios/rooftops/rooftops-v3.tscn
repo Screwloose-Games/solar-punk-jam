@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ss1m4crig1pn" path="res://test/scenarios/rooftops/day_cycle.gd" id="2_k65o6"]
 [ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="3_u4msq"]
 [ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="4_f5fr2"]
-[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rooftops-rain-v1.gdshader" id="5_pn273"]
+[ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rain_droplets_canvas.gdshader" id="5_pn273"]
 [ext_resource type="PackedScene" uid="uid://dcj78gw8ytgjq" path="res://test/scenarios/rooftops/building.tscn" id="6_ddjb2"]
 [ext_resource type="Texture2D" uid="uid://crdvjymseuiva" path="res://assets/kenney_food-kit/Models/GLB format/Textures/colormap.png" id="7_v0yld"]
 [ext_resource type="PackedScene" uid="uid://b8ryq5e1i1xfb" path="res://test/scenarios/rooftops/character.tscn" id="8_k65o6"]
