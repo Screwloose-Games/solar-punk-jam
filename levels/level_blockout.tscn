@@ -26,10 +26,7 @@ material_override = SubResource("StandardMaterial3D_pdt6n")
 mesh = SubResource("PlaneMesh_qst22")
 
 [node name="prefab_entry_short" parent="." instance=ExtResource("1_yxkj8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.893, 0, -34.597)
-
-[node name="prefab_entry_short2" parent="." instance=ExtResource("1_yxkj8")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.248, 0, 31.25)
+transform = Transform3D(0.99986, 0, 0.0167544, 0, 1, 0, -0.0167544, 0, 0.99986, 15.2962, -1.90735e-06, -31.8727)
 
 [node name="prefab_entry_tall" parent="." instance=ExtResource("2_q3mb3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.0376, 0, 11.4405)
@@ -42,9 +39,6 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -10.40
 
 [node name="prefab_entry_long2" parent="." instance=ExtResource("3_44dcu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.21902, 0, 31.0859)
-
-[node name="prefab_noentry_tall" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 20.4374)
 
 [node name="prefab_noentry_tall2" parent="." instance=ExtResource("4_663hb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 13.8836)
@@ -123,9 +117,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.2122
 
 [node name="prefab_noentry_short14" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.5664, 0, -32.7606)
-
-[node name="prefab_noentry_short15" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.122, 0, -32.7606)
 
 [node name="prefab_noentry_short16" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.6207, 0, -32.7606)
@@ -216,15 +207,6 @@ transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 31.6565, 0.414068, -28.3697)
 size = Vector3(0.960938, 1, 1)
 
 [node name="Fence2" type="CSGBox3D" parent="Fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
-operation = 2
-size = Vector3(0.9198, 1.09753, 0.985962)
-
-[node name="Fence4" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.0216768, 0, -2.99992, 0, 1, 0, 2.99992, 0, -0.0216768, 33.8304, 0, 24.9846)
-size = Vector3(0.960938, 1, 1)
-
-[node name="Fence2" type="CSGBox3D" parent="Fence4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
 operation = 2
 size = Vector3(0.9198, 1.09753, 0.985962)

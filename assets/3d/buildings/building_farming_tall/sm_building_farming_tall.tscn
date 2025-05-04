@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://cedg86h3elalj"]
 
-[ext_resource type="PackedScene" uid="uid://u0f8aqxotnu2" path="res://assets/3d/buildings/building_05/sm_building_05.gltf" id="1_gdbhx"]
-[ext_resource type="Texture2D" uid="uid://cd4vmw4wuft4x" path="res://assets/3d/buildings/building_05/t_building_05_Base_Color.png" id="2_ppbxl"]
-[ext_resource type="Texture2D" uid="uid://dad0ei7tw0a37" path="res://assets/3d/buildings/building_05/t_building_05_Normal.png" id="3_r6hg1"]
-[ext_resource type="Texture2D" uid="uid://cwfo6efqyhi7o" path="res://assets/3d/buildings/building_05/t_building_05_Roughness.png" id="4_r8kpe"]
+[ext_resource type="PackedScene" uid="uid://u0f8aqxotnu2" path="res://assets/3d/buildings/building_farming_tall/sm_building_farming_tall.gltf" id="1_gdbhx"]
+[ext_resource type="Texture2D" uid="uid://cd4vmw4wuft4x" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Base_Color.png" id="2_ppbxl"]
+[ext_resource type="Texture2D" uid="uid://dad0ei7tw0a37" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Normal.png" id="3_r6hg1"]
+[ext_resource type="Texture2D" uid="uid://cwfo6efqyhi7o" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Roughness.png" id="4_r8kpe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8t5rc"]
 albedo_texture = ExtResource("2_ppbxl")
