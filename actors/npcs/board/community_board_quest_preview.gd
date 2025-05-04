@@ -1,10 +1,12 @@
 class_name CommunityBoardCanvasLayer
 extends CanvasLayer
 
-@onready var quest_giver_label: Label = %QuestGiverLabel
-@onready var name_label: Label = %NameLabel
-@onready var description_label: Label = %DescriptionLabel
-@onready var quest_objectives_v_box_container: VBoxContainer = %QuestObjectivesVBoxContainer
+const HEADER_STRING = "Request: %s"
+const BODY_STRING = "From: %s\nDetails:\n%s"
+
+@onready var header : Label = %Header
+@onready var body : Label = %Body
+@onready var objectives : Label = %Objectives
 @onready var accept_button: Button = %AcceptButton
 @onready var close_button: Button = %CloseButton
 
@@ -33,13 +35,9 @@ func _on_visibility_changed():
 
 
 func rerender():
-	quest_giver_label.text = quest.quest_giver
-	name_label.text = quest.name
-	description_label.text = quest.description
-	for child in quest_objectives_v_box_container.get_children():
-		child.queue_free()
+	header.text = HEADER_STRING % quest.name
+	body.text = BODY_STRING % [quest.quest_giver.capitalize(), quest.description]
+	var obj_text = ""
 	for objective in quest.objectives:
-		var lbl = Label.new()
-		lbl.text = objective.description
-		quest_objectives_v_box_container.add_child(lbl)
-		#quest_objectives_v_box_container.add_child
+		obj_text += objective.description + "\n"
+	objectives.text = obj_text

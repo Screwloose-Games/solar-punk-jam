@@ -45,6 +45,7 @@ func _on_quests_changed():
 		quest_index += 1
 		if quest_index >= quest_list.size():
 			quest_index = quest_list.size() - 1
+			$InteractNotify.hide()
 			Dialogic.VAR.board_active = true
 		else:
 			community_board_canvas_layer.quest = quest_list[quest_index]

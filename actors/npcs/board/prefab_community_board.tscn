@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0b1347oncwvc"]
+[gd_scene load_steps=14 format=3 uid="uid://d0b1347oncwvc"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
@@ -28,6 +28,25 @@ radius = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fsbli"]
 radius = 0.4
 height = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1qyg"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1qyg"]
+content_margin_left = 16.0
 
 [node name="CommBoard" type="StaticBody3D"]
 script = ExtResource("1_r1qyg")
@@ -93,67 +112,45 @@ offset_right = 250.0
 offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1qyg")
 
 [node name="Content" type="VBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer"]
 layout_mode = 2
 
-[node name="QuestPreviewPanelContainer" type="PanelContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 200)
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="QuestDataVBoxContainer" type="VBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="QuestGiverLabel" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/QuestDataVBoxContainer"]
+[node name="Header" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "trin"
+theme_override_font_sizes/font_size = 24
+text = "Quest.name"
 
-[node name="NameLabel" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/QuestDataVBoxContainer"]
+[node name="Body" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Plants for Trin"
+text = "From: Quest.quest_giver.capitalize()
+Details:
+Quest.description"
 
-[node name="DescriptionLabel" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/QuestDataVBoxContainer"]
+[node name="Objectives" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Help Trin with planting"
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r1qyg")
+text = "Quest.objectives[i]"
 
-[node name="MarginContainer" type="MarginContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/QuestDataVBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-
-[node name="QuestObjectivesVBoxContainer" type="VBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/QuestDataVBoxContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="ObjectiveDescription" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/QuestDataVBoxContainer/MarginContainer/QuestObjectivesVBoxContainer"]
-layout_mode = 2
-text = "Build a raised bed"
-
-[node name="Buttons" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2"]
+[node name="Buttons" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 layout_mode = 2
 alignment = 1
 
-[node name="AcceptButton" type="Button" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/Buttons"]
+[node name="AcceptButton" type="Button" parent="CommunityBoardCanvasLayer/PanelContainer/Content/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accept"
 
-[node name="CloseButton" type="Button" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestPreviewPanelContainer/VBoxContainer2/Buttons"]
+[node name="CloseButton" type="Button" parent="CommunityBoardCanvasLayer/PanelContainer/Content/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Close"
-
-[node name="PanelContainer2" type="PanelContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
-layout_mode = 2
 
 [editable path="InteractableArea3D"]
