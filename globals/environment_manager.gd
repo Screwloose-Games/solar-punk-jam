@@ -20,13 +20,32 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] += quantity
 	else:
 		current_resources[resource] = quantity
-		
+
 	if resource in resource_storage_limits:
 		if current_resources[resource] > resource_storage_limits[resource]:
 			prints("We cannot store all of this resource, discarding some")
 			current_resources[resource] = resource_storage_limits[resource]
-		
+
 	UpdatedAvailableResources.emit()
+
+func gain_resources(new_resources: Dictionary[String, int]):
+	for resource in new_resources:
+		gain_resource(resource, new_resources[resource])
+	return true
+
+func spend_resource(resource: String, quantity: int):
+	if resource in current_resources:
+		current_resources[resource] -= quantity
+		if current_resources[resource] < 0:
+			current_resources[resource] = 0
+	else:
+		current_resources[resource] = 0
+	UpdatedAvailableResources.emit()
+
+func spend_resources(new_resources: Dictionary[String, int]):
+	for resource in new_resources:
+		spend_resource(resource, new_resources[resource])
+	return true
 
 func deposit_resource(resource: String, quantity: int):
 	prints("Depositing", resource, quantity, current_resources)
@@ -42,6 +61,15 @@ func check_amount(resource: String, quantity: int):
 	else:
 		return false
 
+func has_enough(required_resources: Dictionary[String, int]):
+	for resource in required_resources:
+		if resource in current_resources:
+			if current_resources[resource] < required_resources[resource]:
+				return false
+	return true
+
+
+
 
 func end_day():
 	force_end_day.emit()
@@ -56,11 +84,11 @@ class TimeStruct:
 	var icon: TimeIcon
 	func _init(day, hour, minute, is_pm, icon) -> void:
 		self.day = day
-		self.hour = hour 
+		self.hour = hour
 		self.minute = minute
 		self.is_pm = is_pm
 		self.icon = icon
-	
+
 
 class EnvironmentModel:
 	var current_time_in_game_hours = 12.0
@@ -105,7 +133,7 @@ class EnvironmentModel:
 		if hour_ == 0:
 			hour_ = 12
 		return TimeStruct.new(day, hour_, int(minute*60), is_pm, TimeIcon.MIDDAY)
-		
+
 var environment_model: EnvironmentModel
 
 func _ready() -> void:
@@ -113,4 +141,3 @@ func _ready() -> void:
 	self.day_cycle_update.connect(self.environment_model.set_offset)
 	self.day_cycle_start.connect(self.environment_model.set_daytime)
 	self.day_cycle_end.connect(self.environment_model.set_nighttime)
-	

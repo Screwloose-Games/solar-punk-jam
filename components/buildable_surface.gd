@@ -28,7 +28,7 @@ var can_walk = false
 var current_coords = Vector2.ZERO
 
 var built_structures_local : Array[StructureManager.BuiltStructure] = []
-var tile_to_structure_idx = {}
+var tile_to_structure_idx: Dictionary[Vector2i, int]= {} # coords, structure_id
 
 
 func _ready() -> void:
@@ -39,7 +39,7 @@ func _ready() -> void:
 	create_initial_build()
 	if is_active:
 		StructureManager.set_active_surface(self)
-	
+
 func create_preview():
 	var preview = $Preview
 	var preview2 = $AlwaysOnPreview
@@ -55,7 +55,6 @@ func create_preview():
 		visual_instance2.show()
 		preview2.add_child(visual_instance2)
 	preview.visible = is_active
-	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
@@ -71,10 +70,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		move_cursor_3d()
 
 func structure_popup():
-		var structure = built_structures_local[tile_to_structure_idx[current_coords]]
-		HUDCanvasLayer.Singleton.instance.kill_tool_tip()
-		HUDCanvasLayer.Singleton.instance.show_popup_menu(structure)
-		#StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
+	var structure_id: int = tile_to_structure_idx[Vector2i(current_coords)]
+	var structure: StructureManager.BuiltStructure = built_structures_local[structure_id]
+	HUDCanvasLayer.Singleton.instance.kill_tool_tip()
+	HUDCanvasLayer.Singleton.instance.show_popup_menu(structure)
+	#StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
 
 func ready_structure_building(idx):
 	if not is_active:
@@ -89,7 +89,6 @@ func ready_structure_building(idx):
 	can_build = false
 	building_idx = idx
 
-	
 func enable_cursor_3d():
 	move_cursor_3d()
 	#var coords = surface_map.get_used_cells(0)[0]
@@ -143,12 +142,10 @@ func move_cursor_3d():
 					HUDCanvasLayer.Singleton.instance.set_tool_tip(StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
 			else:
 				selection_placeholder.hide()
-			
 
 func check_tile_is_valid(coords: Vector2i) -> bool:
 	var tile_kind = surface_map.get_cell_atlas_coords(0, coords)
 	return tile_kind in StructureManager.VALID_TILE_TYPES
-
 
 func create_initial_build():
 	if initial_build:
@@ -168,7 +165,7 @@ func create_initial_build():
 func build_structure():
 	var coords = Vector2i(int(structure_placeholder.position.x), int(structure_placeholder.position.z))
 	_build_structure(building_idx, coords, building_rect)
-	
+
 	# done building
 	if StructureManager.check_structure_requirements(building_idx):
 		reset_cursor_3d()
@@ -177,7 +174,6 @@ func build_structure():
 		# to let build the same again, comment the following line
 		reset_cursor_3d()
 
-	
 func _build_structure(building_idx, coords, building_rect, skip_resource_consumption=false):
 	prints("building structure at",coords)
 	var file_name = StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
@@ -187,7 +183,7 @@ func _build_structure(building_idx, coords, building_rect, skip_resource_consump
 	if visual_instance_scene:
 		visual_instance = visual_instance_scene.instantiate()
 		visual_instance.position = Vector3(coords.x, 0, coords.y) + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
-		add_child(visual_instance)	
+		add_child(visual_instance)
 	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundAfter]])
 
 	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.STRUCTURE_STATUS.JUST_CREATED, visual_instance)
@@ -195,23 +191,21 @@ func _build_structure(building_idx, coords, building_rect, skip_resource_consump
 	register_tiles(len(built_structures_local)-1, coords, building_rect.size.x, building_rect.size.y)
 	StructureManager.build_structure(new_structure, skip_resource_consumption)
 
-	
 func register_tiles(structure_idx:int, origin: Vector2i, w:int, h:int):
 	for ix in w:
 		for iy in h:
 			var coords := origin + Vector2i(ix,iy)
-			tile_to_structure_idx[coords]=structure_idx	
-	
+			tile_to_structure_idx[coords]=structure_idx
+
 func reset_cursor_3d():
 	building_rect = Rect2()
 	can_build = false
 	building_idx = -1
 	structure_placeholder.hide()
-	
+
 func collect_today():
 	for structure in built_structures_local:
 		structure.collect_today()
-	
 
 func surface_check(origin: Vector2i, w:int, h:int, required_kind: Vector2i, update_kind: Vector2i) -> bool:
 	for ix in w:

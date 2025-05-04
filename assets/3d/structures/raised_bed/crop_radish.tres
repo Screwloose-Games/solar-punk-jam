@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Crop" load_steps=4 format=3 uid="uid://cg2fhf48g8qoj"]
+
+[ext_resource type="Script" uid="uid://caoj20v72dt65" path="res://assets/3d/structures/raised_bed/crop.gd" id="1_288b6"]
+[ext_resource type="PackedScene" uid="uid://cpjdhxojv5v0y" path="res://assets/3d/crops/radish/radish.tscn" id="2_1jrw8"]
+[ext_resource type="PackedScene" uid="uid://cx1h1hfim3if" path="res://assets/3d/crops/newly_planted_crop.tscn" id="2_hhkcb"]
+
+[resource]
+script = ExtResource("1_288b6")
+name = "Radish"
+planted_scene = ExtResource("2_hhkcb")
+mature_scene = ExtResource("2_1jrw8")
+state = 0
+harvest_amount = 2
+days_planted = 0
+days_to_mature = 0
+metadata/_custom_type_script = "uid://caoj20v72dt65"
