@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx1h1hfim3if"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_wemhq"]
+size = Vector3(0.01, 0.1, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0blj"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="NewlyPlantedCrop" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0511551, 0)
+mesh = SubResource("PrismMesh_wemhq")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0blj")

@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://cqjna6ks7h84t"]
+[gd_scene load_steps=3 format=3 uid="uid://cqjna6ks7h84t"]
+
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_fit8h"]
+[ext_resource type="Script" uid="uid://b51ocw4xxtsaf" path="res://assets/3d/structures/buildable_structure.gd" id="1_mktkl"]
 
 [node name="BuildableStructure" type="Node3D"]
+script = ExtResource("1_mktkl")
+
+[node name="InteractableArea3D" parent="." instance=ExtResource("1_fit8h")]
+unique_name_in_owner = true
+
+[editable path="InteractableArea3D"]

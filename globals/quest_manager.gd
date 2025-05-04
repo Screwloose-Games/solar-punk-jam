@@ -33,6 +33,7 @@ func start_quest(file_name : String):
 	var new_quest = load(FILE_PATH % file_name)
 	start_quest_resource(new_quest)
 
+
 func start_quest_resource(new_quest: Quest):
 	quests.append(new_quest)
 	new_quest.quest_state_changed.connect(emit_signal.bind("quests_changed"))
@@ -52,9 +53,10 @@ func update_structures(new_structure):
 func update_resources():
 	for res_name in RESOURCE_MAP.keys():
 		if res_name in EnvironmentManager.current_resources.keys():
-			var res_value = EnvironmentManager.current_resources[res_name]
 			var res_varname = RESOURCE_MAP[res_name]
-			Dialogic.VAR.set_variable(res_varname, res_value)
+			if res_varname in Dialogic.VAR.variables():
+				var res_value = EnvironmentManager.current_resources[res_name]
+				Dialogic.VAR.set_variable(res_varname, res_value)
 	check_quests()
 
 
