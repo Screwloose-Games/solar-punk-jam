@@ -15,13 +15,13 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"collision_nonentry_building_01"
+			"name":"collision_nonentry_building_01-colonly"
 		},
 		{
 			"children":[
 				0
 			],
-			"name":"collision_nonentry_building_01-colonly"
+			"name":"nonentry_building_01-colonly"
 		},
 		{
 			"mesh":1,
@@ -1496,7 +1496,7 @@
 	"buffers":[
 		{
 			"byteLength":264000,
-			"uri":"sm_nonentry_building_01.bin"
+			"uri":"sm_building_nonentry_01.bin"
 		}
 	]
 }
