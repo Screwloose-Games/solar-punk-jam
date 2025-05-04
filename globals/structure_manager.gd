@@ -48,7 +48,9 @@ class BuiltStructure:
 		else:
 			return false
 		
-		
+
+@export_file("*.tsv") var tsv_file_path: String = "res://design/data/structures.tsv"
+
 var built_structures : Array[BuiltStructure] = []
 var current_active_surface = null
 
@@ -185,37 +187,25 @@ enum STRUCTURE_FIELDS {StructureName, StructureHeight, StructureWidth, Structure
 
 
 func _get_structure_data():
-	# this is a copy paste of the CSV exported from Notion
-	# Name,priority,height,width,depth,description,model filename,Icon,Art Status,Electricity Generation/Use,Water Generation/Use,Food Generation/Use,Happiness Generation,Electricity Stroage,Water Storage,Food Storage,Cost
-	var data_ = """Battery	1.5	1	1	Power storage unit	battery.tscn	0,1	0	2	10	3	Electrician	1	Solar panel	2	10					0						100	
-Bench	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5		Contractor	2		1						0							
-Bioreactor	2.5	2	2	Tank system for converting organic matter into energy or fuel	bioreactor.tscn	0,1	0	2	10	1	Electrician	3	Solar panel	3	10					0							
-Birdhouse (on pole)	2	2	2	Structure for harvesting rainwater - often elevated	rain_collection.tscn	0,2	0	2	2		Craftor	1		1						0							
-Bush (flowers)	2.5	2	2	TBD	apple_tree2.tscn	0,0	1	2	2		Seeds	0		1						0	Seeds	Food					
-Compost bin	1	2	2	Compost bin or area with regenerative farming tools	donation_bin.tscn	3,0	0	2	1	5	Contractor	2		1						0	Waste	Soil	5	1			
-Hygiene station	2	2	2	Outdoor sink/shower area for personal hygiene	hygiene_station.tscn	0,4	0	2	10	2	Plumber	2	Rain barrel	3						0							
-Insect Hotel	2	2	2	Structure for harvesting rainwater - often elevated	rain_collection.tscn	0,2	0	2	2		Craftor	1		1						0							
-Kitchen 	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	10	1	Contractor	5	Solar panel	3						0							
-Kitchen sink	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5	1	Plumber	5	Rain barrel	3						0							
-Kitchen stove	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5	1	Electrician	5	Solar panel	3						0							
-Lantern (on pole)	2	2	2	Structure for harvesting rainwater - often elevated	rain_collection.tscn	0,2	0	2	2		Craftor	1		1						0							
-Picnic Table	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5		Contractor	3		2						0							
-Rain barrel	2	2	2	Structure for harvesting rainwater - often elevated	rain_barrel.tscn	0,2	0	2	1	5	Contractor	1		1		0				0		Water	30				10
-Raised bed	0.5	1	2	Somewhere to plant stuff	raised_bed.tscn	0,0	0	1	1	25	Contractor	3		1						0	Soil						
-Vertical garden	0.5	1	1	Somewhere to plant stuff	arts_crafts_station.tscn	0,0	0	1	1	25	Contractor	3		1						0							
-Recycling station	1.8	2	2	Bins and sorting area for recyclable materials	recycling_station.tscn	0,4	0	2	10	1	Contractor	4	Solar panel	3						0							
-Solar panel	1.2	2	1	Photovoltaic panel for converting sunlight into electricity	solar_panel.tscn	1,0	0	2	10	3	Electrician	4		2	10					0							
-Tool library	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5	1	Contractor_	2		1						0							
-Tree	2.5	2	2	Fruit-bearing trees or bushes	apple_tree2.tscn	0,0	1	2	2		Seeds	0		1						0	Seeds	Food					
-Vegetables	0.5	1	1	Small garden bed for growing vegetables	vegetables.tscn	0,0	1	2	2		Seeds	0		1						0	Seeds,Water,Soil	Food	1	1			
-Waste bin	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		1						0		Waste,Seeds	10	1			
-Donation box	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		1						0		Materials					
-Food stand	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor_	0		1						0	Food	Happiness	10	1	1		"""
-	var data = data_.split("\n")
+	var content = read_tsv()
+	var data = content.split("\n")
 	data = Array(data)
+	data = data.filter(func(val): return val != "")
 	for i in len(data):
 		data[i] = data[i].split("\t")
 		data[i] = Array(data[i])
 		for j in [STRUCTURE_FIELDS.StructureWidth, STRUCTURE_FIELDS.StructureDepth, STRUCTURE_FIELDS.GroundBefore, STRUCTURE_FIELDS.GroundAfter, STRUCTURE_FIELDS.InitialHappiness, STRUCTURE_FIELDS.MaterialCost, STRUCTURE_FIELDS.DaysToComplete, STRUCTURE_FIELDS.Electricity, STRUCTURE_FIELDS.Water, STRUCTURE_FIELDS.Food, STRUCTURE_FIELDS.Waste, STRUCTURE_FIELDS.Soil, STRUCTURE_FIELDS.Happiness, STRUCTURE_FIELDS.ElectricityStorage, STRUCTURE_FIELDS.WaterStorage]:
 			data[i][j] = int(data[i][j])
 	return data
+
+func read_tsv() -> String:
+	# this file is a copy paste of the CSV exported from Notion
+	# Name,priority,height,width,depth,description,model filename,Icon,Art Status,Electricity Generation/Use,Water Generation/Use,Food Generation/Use,Happiness Generation,Electricity Stroage,Water Storage,Food Storage,Cost
+	var file := FileAccess.open(tsv_file_path, FileAccess.READ)
+	if file:
+		var content := file.get_as_text()
+		file.close()
+		return content
+	else:
+		push_error("Failed to open TSV file at: " + tsv_file_path)
+		return ""

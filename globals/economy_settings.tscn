@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5du2ya1i3tep"]
+
+[ext_resource type="Script" uid="uid://dfp3lh382coxg" path="res://globals/economy_settings.gd" id="1_yawcv"]
+
+[node name="EconomySettings" type="Node"]
+script = ExtResource("1_yawcv")

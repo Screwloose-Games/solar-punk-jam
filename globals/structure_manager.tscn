@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csolcdtv2usyx"]
+
+[ext_resource type="Script" uid="uid://02fa32lvqfav" path="res://globals/structure_manager.gd" id="1_swb3k"]
+
+[node name="StructureManager" type="Node"]
+script = ExtResource("1_swb3k")

@@ -5,6 +5,7 @@ signal day_cycle_end()
 signal day_cycle_update(offset: float)
 signal force_end_day()
 signal UpdatedAvailableResources
+signal act_updated(act_num: int)
 
 const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
 const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
@@ -13,6 +14,11 @@ var resource_storage_limits = {"Electricity":0, "Water":0}
 
 var current_resources = {}
 var deposited_resources = {}
+var current_act: int = 1:
+	set(val):
+		if current_act != val:
+			act_updated.emit(current_act)
+			current_act = val
 
 func gain_resource(resource: String, quantity: int):
 	prints("Gaining", resource, quantity, current_resources)

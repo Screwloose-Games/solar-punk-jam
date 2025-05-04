@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1f5gngln3iyv"]
+[gd_scene load_steps=5 format=3 uid="uid://b1f5gngln3iyv"]
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_xvrc8"]
+[ext_resource type="Script" uid="uid://bj00d77lhlesc" path="res://assets/3d/structures/rain_barrel/rain_barrel.gd" id="2_20n7k"]
 [ext_resource type="PackedScene" uid="uid://n6pfbx2a72ef" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.tscn" id="2_o7ty7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xvrc8"]
 
 [node name="BuildableStructure" instance=ExtResource("1_xvrc8")]
 
-[node name="sm_rain_barrel" parent="." index="0" instance=ExtResource("2_o7ty7")]
+[node name="RainBarrel" type="Node" parent="." index="0"]
+script = ExtResource("2_20n7k")
+
+[node name="sm_rain_barrel" parent="." index="1" instance=ExtResource("2_o7ty7")]
 
 [node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.98305, -0.0218806)
