@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://nmn78jqfsu7d"]
+
+[ext_resource type="PackedScene" uid="uid://cefiy062aj3h0" path="res://assets/3d/structures/compost_bin/sm_compost.gltf" id="1_kos17"]
+
+[node name="compost" instance=ExtResource("1_kos17")]

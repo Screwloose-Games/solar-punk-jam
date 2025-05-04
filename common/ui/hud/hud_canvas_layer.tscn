@@ -239,23 +239,42 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Act I"
 
-[node name="DateHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ActNameLabel" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Act"
+
+[node name="ActNumberLabel" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "I"
+
+[node name="ActSeparatorLabel" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "|"
+
+[node name="DayStaticLabel" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Day"
+
+[node name="DateHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DateHBoxContainer"]
 visible = false
-layout_mode = 2
-
-[node name="Month" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
 layout_mode = 2
 text = "March"
 
-[node name="Day" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+[node name="Day" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DateHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 
-[node name="Year" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+[node name="Year" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DateHBoxContainer"]
+visible = false
 layout_mode = 2
 text = "2045"
 
@@ -263,10 +282,12 @@ text = "2045"
 layout_mode = 2
 
 [node name="Time" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "11:00"
 
 [node name="AmPm" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "AM"
 

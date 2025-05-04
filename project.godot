@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GlobalSignalBus="*res://globals/global_signal_bus.gd"
 SceneManager="*res://globals/scene_manager.gd"
@@ -27,9 +28,8 @@ GameSettings="*res://globals/game_settings.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
-StructureManager="*res://globals/structure_manager.gd"
+StructureManager="*res://globals/structure_manager.tscn"
 GameState="*res://globals/game_state.gd"
-BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 
 [dialogic]
 
@@ -114,7 +114,7 @@ project/assembly_name="Capybara"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/bmod/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg")
 
 [filesystem]
 

@@ -7,11 +7,13 @@ class Singleton:
 @onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
 @onready var resource_ui_template = $HUD/LeftMiddleMarginContainer/VBoxContainer/ResourceLabel
 @export var unlock_all_structures_from_the_start_for_debugging = false
+@onready var act_number_label: Label = %ActNumberLabel
 var buildable_structures: Array[BuildableStructure] = []
 var resource_to_control = {}
 
 
 func _ready() -> void:
+	EnvironmentManager.act_updated.connect(_on_act_updated)
 	HUDCanvasLayer.Singleton.instance = self
 	EnvironmentManager.day_cycle_update.connect(self.update_time_hud)
 	if unlock_all_structures_from_the_start_for_debugging:
@@ -21,6 +23,8 @@ func _ready() -> void:
 	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
 	$HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close.connect("pressed", close_popup_menu)
 
+func _on_act_updated(act_num: int):
+	act_number_label.text = str(act_num)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ToggleUi"):
@@ -29,9 +33,9 @@ func _process(_delta: float) -> void:
 
 func update_time_hud(_offset):
 	var time := EnvironmentManager.environment_model.get_in_game_time()
-	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer/Day.text = str(time.day)
-	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/Time.text = "%d:%02d" % [time.hour, time.minute]
-	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/AmPm.text = "PM" if time.is_pm else "AM"
+	%Day.text = str(time.day)
+	%Time.text = "%d:%02d" % [time.hour, time.minute]
+	%AmPm.text = "PM" if time.is_pm else "AM"
 
 func refresh_resources_ui():
 	$HUD/LeftMiddleMarginContainer.show()
