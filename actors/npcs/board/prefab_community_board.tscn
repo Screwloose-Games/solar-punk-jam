@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0b1347oncwvc"]
+[gd_scene load_steps=11 format=3 uid="uid://d0b1347oncwvc"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
+[ext_resource type="PackedScene" uid="uid://b67yh441wsgu3" path="res://assets/3d/structures/community_board/sm_community_board.tscn" id="2_s1nju"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_khjfs"]
 [ext_resource type="Texture2D" uid="uid://c3kpc0pju87jx" path="res://actors/npcs/board/community_board_example.png" id="5_sq4xd"]
 [ext_resource type="Script" uid="uid://c1y5i2lbvjw6a" path="res://actors/npcs/board/community_board_quest_preview.gd" id="6_3w42p"]
@@ -10,18 +11,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t813n"]
 radius = 0.4
 height = 1.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ud0r"]
-albedo_color = Color(0.3, 0.15, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_yq541"]
-size = Vector3(0.1, 2, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8xa1"]
-albedo_color = Color(0.3, 0.15, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_cvhbf"]
-size = Vector3(1.5, 1, 0.2)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ssh4n"]
 height = 1.5
@@ -38,27 +27,8 @@ script = ExtResource("1_r1qyg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_t813n")
 
-[node name="Model" type="Node3D" parent="."]
-
-[node name="Post" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_4ud0r")
-mesh = SubResource("BoxMesh_yq541")
-
-[node name="Board" type="MeshInstance3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
-material_override = SubResource("StandardMaterial3D_u8xa1")
-mesh = SubResource("BoxMesh_cvhbf")
-
-[node name="Name" type="Label3D" parent="Model"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65762, 0)
-visible = false
-billboard = 1
-no_depth_test = true
-fixed_size = true
-text = "Community Board"
-font_size = 12
-outline_size = 6
+[node name="sm_community_message_board2" parent="." instance=ExtResource("2_s1nju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29428, 0, 0)
 
 [node name="InteractableArea3D" parent="." instance=ExtResource("1_ptspw")]
 unique_name_in_owner = true
