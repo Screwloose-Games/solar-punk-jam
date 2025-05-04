@@ -69,7 +69,8 @@ func _unhandled_input(event):
 		if selected is InteractableArea3D:
 			selected.interact(player)
 			selected.stopped_interacting.connect(_on_stopped_interacting.bind(selected))
-			selected.tree_exited.connect(_on_stopped_interacting.bind(selected))
+			if not selected.tree_exited.is_connected(_on_stopped_interacting.bind(selected)):
+				selected.tree_exited.connect(_on_stopped_interacting.bind(selected))
 			is_interacting = true
 			
 

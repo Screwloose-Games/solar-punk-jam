@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddur7qqihktg4"]
+
+[ext_resource type="PackedScene" uid="uid://b70ckin7w20jg" path="res://assets/3d/structures/raised_bed/sm_companionplanter.tscn" id="1_ij4wh"]
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="2_yjwcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s33af"]
+size = Vector3(0.907715, 0.598145, 1.84677)
+
+[node name="RaisedBed" type="Node3D"]
+
+[node name="sm_companionplanter2" parent="." instance=ExtResource("1_ij4wh")]
+
+[node name="InteractableArea3D" parent="." instance=ExtResource("2_yjwcx")]
+show_label = true
+
+[node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35276e-08, 0.316589, -0.0284734)
+shape = SubResource("BoxShape3D_s33af")
+
+[editable path="InteractableArea3D"]

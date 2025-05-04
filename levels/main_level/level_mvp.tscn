@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=32 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="1_ority"]
@@ -22,6 +22,8 @@
 [ext_resource type="Resource" uid="uid://wygbkhrvohek" path="res://narrative/quests/qst_build2.tres" id="17_d4qsp"]
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="17_ority"]
 [ext_resource type="Resource" uid="uid://dytut44qs7n55" path="res://narrative/quests/qst_build3.tres" id="18_8y16s"]
+[ext_resource type="PackedScene" uid="uid://c4fb30uv7yw3g" path="res://assets/3d/structures/raised_bed/raised_bed.tscn" id="19_oq7qv"]
+[ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="20_boqjn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awabt"]
 texture = ExtResource("8_80kqf")
@@ -78,6 +80,22 @@ sources/0 = SubResource("TileSetAtlasSource_awabt")
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 cell_height = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qnok"]
+atlas = ExtResource("20_boqjn")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="LabelSettings" id="LabelSettings_28jr5"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4hbx"]
+atlas = ExtResource("20_boqjn")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4qsp"]
+atlas = ExtResource("20_boqjn")
+region = Rect2(240, 0, 80, 80)
 
 [node name="LevelMvp" type="Node3D"]
 editor_description = "1. Wake up at home
@@ -343,6 +361,139 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
 
 [node name="Trin" parent="." instance=ExtResource("17_ority")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5012)
+
+[node name="RaisedBed" parent="." instance=ExtResource("19_oq7qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48217, 0.0029812, 18.0296)
+
+[node name="StructureInteractCanvasLayer2" type="CanvasLayer" parent="RaisedBed"]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="RaisedBed/StructureInteractCanvasLayer2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Plant"
+
+[node name="ToolbarHBoxContainer" type="HFlowContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ToolbarItemPanelContainer" type="PanelContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer"]
+layout_mode = 2
+mouse_filter = 0
+texture = SubResource("AtlasTexture_5qnok")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_28jr5")
+
+[node name="ToolbarItemPanelContainer2" type="PanelContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureButton" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5qnok")
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "2"
+label_settings = SubResource("LabelSettings_28jr5")
+
+[node name="ToolbarItemPanelContainer3" type="PanelContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e4hbx")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer3/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "3"
+label_settings = SubResource("LabelSettings_28jr5")
+
+[node name="ToolbarItemPanelContainer4" type="PanelContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_d4qsp")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="RaisedBed/StructureInteractCanvasLayer2/MarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer4/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "4"
+label_settings = SubResource("LabelSettings_28jr5")
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
