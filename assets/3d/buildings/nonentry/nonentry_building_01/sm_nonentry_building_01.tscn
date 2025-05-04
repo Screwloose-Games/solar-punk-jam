@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbpdioqwqmrmr"]
+
+[ext_resource type="PackedScene" uid="uid://c1n7w2vgm65e0" path="res://assets/3d/buildings/nonentry/nonentry_building_01/sm_nonentry_building_01.gltf" id="1_rlq38"]
+
+[node name="sm_nonentry_building_01" instance=ExtResource("1_rlq38")]
+
+[node name="collision_nonentry_building_01" parent="mesh_nonentry_building_01/collision_nonentry_building_01-colonly" index="0"]
+visible = false
