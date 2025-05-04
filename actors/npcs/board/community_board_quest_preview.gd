@@ -1,17 +1,6 @@
 class_name CommunityBoardCanvasLayer
 extends CanvasLayer
 
-signal quest_accepted(quest: Quest)
-signal closed
-
-@export var quest: Quest:
-	set(val):
-		quest = val
-		if not is_node_ready():
-			await ready
-		rerender()
-		
-
 @onready var quest_giver_label: Label = %QuestGiverLabel
 @onready var name_label: Label = %NameLabel
 @onready var description_label: Label = %DescriptionLabel
@@ -19,14 +8,22 @@ signal closed
 @onready var accept_button: Button = %AcceptButton
 @onready var close_button: Button = %CloseButton
 
+var quest: Quest:
+	set(val):
+		quest = val
+		if not is_node_ready():
+			await ready
+		rerender()
+
+signal quest_accepted
+signal closed
+
 
 func _ready() -> void:
-	accept_button.pressed.connect(_on_accept_pressed)
+	accept_button.pressed.connect(emit_signal.bind("quest_accepted"))
 	visibility_changed.connect(_on_visibility_changed)
-	close_button.pressed.connect(_on_close_pressed)
+	close_button.pressed.connect(emit_signal.bind("closed"))
 
-func _on_close_pressed():
-	closed.emit()
 
 func _on_visibility_changed():
 	if visible:
@@ -34,16 +31,11 @@ func _on_visibility_changed():
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _on_accept_pressed():
-	QuestManager.start_quest_resource(quest)
-	StructureManager.register_structure("Hygiene station")
-	quest_accepted.emit(quest)
 
 func rerender():
 	quest_giver_label.text = quest.quest_giver
 	name_label.text = quest.name
 	description_label.text = quest.description
-	
 	for child in quest_objectives_v_box_container.get_children():
 		child.queue_free()
 	for objective in quest.objectives:
