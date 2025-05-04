@@ -17,4 +17,8 @@ name = "Community Build Quest 2"
 quest_giver = "board"
 description = "Build another thing we need!"
 objectives = Array[ExtResource("1_afax5")]([SubResource("Resource_h1w78")])
+unlock_structure = ""
+rewards = {
+"Happiness": 5
+}
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

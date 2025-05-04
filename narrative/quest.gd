@@ -5,6 +5,11 @@ class_name Quest
 @export var quest_giver : String = "npc_name"
 @export var description : String = "Quest Description"
 @export var objectives : Array[QuestObjective] = []
+@export var unlock_structure : String = ""
+@export var rewards : Dictionary = {
+	"Happiness" : 5
+}
+
 var is_complete : bool = false
 
 signal quest_state_changed
@@ -15,6 +20,8 @@ signal quest_completed(giver : String)
 # Objectives with no prerequisites get set active
 func start_quest():
 	Dialogic.VAR[quest_giver + "_active"] = true
+	if unlock_structure != "":
+		StructureManager.register_structure(unlock_structure)
 	for i in objectives.size():
 		if objectives[i].prerequisites.is_empty():
 			objectives[i].is_unlocked = true
@@ -60,6 +67,8 @@ func _on_objective_completed():
 			complete_check = false
 	if complete_check:
 		is_complete = true
+		for reward in rewards.keys():
+			EnvironmentManager.gain_resource(reward, rewards[reward])
 		quest_completed.emit(quest_giver)
 	else:
 		quest_state_changed.emit()
