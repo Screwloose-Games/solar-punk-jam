@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://choq15gbwxr5h"
+path="res://.godot/imported/sm_building_destroyed_02.gltf-ec6c138ba0fded7fef117da4f5376dd9.scn"
+
+[deps]
+
+source_file="res://assets/3d/buildings/destroyed/destroyed_building_02/sm_building_destroyed_02.gltf"
+dest_files=["res://.godot/imported/sm_building_destroyed_02.gltf-ec6c138ba0fded7fef117da4f5376dd9.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:meshnode_sm_building_destroyed_02-mesh/sm_building_destroyed_02-mesh": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

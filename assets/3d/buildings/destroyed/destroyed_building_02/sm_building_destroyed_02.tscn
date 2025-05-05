@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=3 uid="uid://cby031dw68y37"]
+
+[ext_resource type="PackedScene" uid="uid://choq15gbwxr5h" path="res://assets/3d/buildings/destroyed/destroyed_building_02/sm_building_destroyed_02.gltf" id="1_1joxt"]
+[ext_resource type="Texture2D" uid="uid://rhmg1hxqgn3m" path="res://assets/3d/buildings/destroyed/destroyed_building_02/sm_buildingdestroyed_02_Base_Color.png" id="2_w32pr"]
+[ext_resource type="Texture2D" uid="uid://dd05pfu8x6jvf" path="res://assets/3d/buildings/destroyed/destroyed_building_02/t_cautiontape_Normal_OpenGL.png" id="3_c3hqg"]
+[ext_resource type="Texture2D" uid="uid://brt0ej5sr6m4" path="res://assets/3d/buildings/destroyed/destroyed_building_02/t_destroyedbuilding_002_Normal_OpenGL.png" id="4_db7sx"]
+[ext_resource type="Texture2D" uid="uid://b528etncjqwao" path="res://assets/3d/buildings/destroyed/destroyed_building_02/t_destroyedwindows_Normal_OpenGL.png" id="5_xfq2f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qchvs"]
+albedo_texture = ExtResource("2_w32pr")
+normal_enabled = true
+normal_texture = ExtResource("3_c3hqg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f01b3"]
+albedo_texture = ExtResource("2_w32pr")
+normal_enabled = true
+normal_texture = ExtResource("4_db7sx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0nu0"]
+albedo_texture = ExtResource("2_w32pr")
+normal_enabled = true
+normal_texture = ExtResource("5_xfq2f")
+
+[node name="sm_building_destroyed_02" instance=ExtResource("1_1joxt")]
+
+[node name="sm_building_destroyed_02-mesh" parent="meshnode_sm_building_destroyed_02-mesh" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qchvs")
+surface_material_override/1 = SubResource("StandardMaterial3D_f01b3")
+surface_material_override/2 = SubResource("StandardMaterial3D_u0nu0")
