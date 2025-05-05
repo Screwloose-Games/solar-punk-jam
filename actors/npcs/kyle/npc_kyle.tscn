@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_5a01x"]
 
-[node name="NpcBase" instance=ExtResource("1_5a01x")]
+[node name="Kyle" instance=ExtResource("1_5a01x")]
 
 [node name="Name" parent="." index="0"]
 visible = true

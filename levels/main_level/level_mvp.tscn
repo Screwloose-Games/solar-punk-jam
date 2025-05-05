@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=34 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="1_ority"]
@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://dytut44qs7n55" path="res://narrative/quests/qst_build3.tres" id="18_8y16s"]
 [ext_resource type="PackedScene" uid="uid://c4fb30uv7yw3g" path="res://assets/3d/structures/raised_bed/raised_bed.tscn" id="19_oq7qv"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="20_boqjn"]
+[ext_resource type="PackedScene" uid="uid://s785ymaq0v5d" path="res://actors/npcs/kyle/npc_kyle.tscn" id="25_8y16s"]
+[ext_resource type="PackedScene" uid="uid://dee2tlx6hkx75" path="res://actors/npcs/kai/npc_kai.tscn" id="26_qx5ah"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awabt"]
 texture = ExtResource("8_80kqf")
@@ -494,6 +496,12 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "4"
 label_settings = SubResource("LabelSettings_28jr5")
+
+[node name="Kyle" parent="." instance=ExtResource("25_8y16s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90811, 0, 12.269)
+
+[node name="Kai" parent="." instance=ExtResource("26_qx5ah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.22507, 9.53674e-07, 8.21834)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
