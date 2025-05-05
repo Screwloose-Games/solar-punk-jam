@@ -21,6 +21,7 @@ const STRUCTURE_MAP = {
 }
 var quests : Array[Quest] = []
 
+signal quest_started(quest_id : String)
 signal quests_changed
 signal quest_completed(giver : String)
 
@@ -43,6 +44,7 @@ func start_quest_resource(new_quest: Quest):
 	new_quest.quest_completed.connect(_on_quest_complete)
 	new_quest.start_quest()
 	check_quests()
+	quest_started.emit(new_quest.id)
 	quests_changed.emit()
 	print("Quest started: %s" % new_quest.name)
 

@@ -52,13 +52,13 @@ directories/dtl_directory={
 "board_quest3": "res://narrative/timelines/old/board_quest3.dtl",
 "cam_test": "res://narrative/timelines/old/cam_test.dtl",
 "intro": "res://narrative/timelines/old/intro.dtl",
-"kai_DAY2S1_ Starts_Delivery": "res://narrative/timelines/final/kai_DAY2S1_ Starts_Delivery.dtl",
-"kyle_DAY2SB_KYLE": "res://narrative/timelines/final/kyle_DAY2SB_KYLE.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "te_think": "res://narrative/timelines/old/te_think.dtl",
+"timelines/kai_DAY2S1_ Starts_Delivery": "res://narrative/timelines/kai_DAY2S1_ Starts_Delivery.dtl",
+"timelines/kyle_DAY2SB_KYLE": "res://narrative/timelines/kyle_DAY2SB_KYLE.dtl",
+"timelines/trin_DAY2SA_Trin": "res://narrative/timelines/trin_DAY2SA_Trin.dtl",
 "trin_intro": "res://narrative/timelines/trin_intro.dtl",
-"trin_DAY2SA_Trin": "res://narrative/timelines/final/trin_DAY2SA_Trin.dtl",
 "trin_main": "res://narrative/timelines/trin_main.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }
