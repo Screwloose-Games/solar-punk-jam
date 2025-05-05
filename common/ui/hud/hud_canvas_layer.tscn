@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=22 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
@@ -11,6 +11,37 @@
 [ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
 [ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://common/themes/toolbar_theme.tres" id="8_bgxx2"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
+content_margin_top = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5quvr"]
+bg_color = Color(5.19812e-06, 0.658145, 0.854253, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owaxp"]
+bg_color = Color(0.408697, 0.68948, 0.0884156, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="Theme" id="Theme_6igmu"]
 
@@ -93,6 +124,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_constants/separation = 18
 
 [node name="CommunityHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
 layout_mode = 2
@@ -107,10 +139,20 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
-value = 40.0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_8yxrh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5quvr")
+value = 66.0
 show_percentage = false
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "66.0"
 
 [node name="EnvironmentHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
 layout_mode = 2
@@ -123,10 +165,17 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 14)
 layout_mode = 2
-value = 40.0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_8yxrh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_owaxp")
+value = 33.0
 show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+layout_mode = 2
+text = "33.0"
 
 [node name="QuestMarginContainer" type="MarginContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer"]
 visible = false
