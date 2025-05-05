@@ -13,12 +13,13 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [resource]
 script = ExtResource("2_vdgj3")
+id = "build2"
 name = "Community Build Quest 2"
 quest_giver = "board"
 description = "Build another thing we need!"
 objectives = Array[ExtResource("1_afax5")]([SubResource("Resource_h1w78")])
 unlock_structure = ""
-rewards = {
+rewards = Dictionary[String, int]({
 "Happiness": 5
-}
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

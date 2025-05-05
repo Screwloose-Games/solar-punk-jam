@@ -21,12 +21,13 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [resource]
 script = ExtResource("2_e40t8")
+id = "build1"
 name = "Build a Hygiene Station"
 quest_giver = "board"
 description = "Get materials to build a hygiene station, then build it."
 objectives = Array[ExtResource("1_h1w78")]([SubResource("Resource_h1w78"), SubResource("Resource_e40t8")])
 unlock_structure = "Hygiene station"
-rewards = {
+rewards = Dictionary[String, int]({
 "Happiness": 5
-}
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

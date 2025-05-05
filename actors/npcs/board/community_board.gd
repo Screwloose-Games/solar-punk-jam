@@ -9,7 +9,7 @@ var quest_index : int = 0
 
 
 func _ready() -> void:
-	QuestManager.quests_changed.connect(_on_quests_changed)
+	QuestManager.quest_completed.connect(_on_quest_complete)
 	interactable_area_3d.interacted.connect(_on_interacted)
 	community_board_canvas_layer.visible = false
 	community_board_canvas_layer.quest_accepted.connect(_on_quest_accepted)
@@ -40,7 +40,7 @@ func show_community_board_ui():
 	pass
 
 
-func _on_quests_changed():
+func _on_quest_complete():
 	if !Dialogic.VAR.board_active:
 		quest_index += 1
 		if quest_index >= quest_list.size():

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dbnjlq08k7i0p"]
+
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_u3bvm"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_lkoja"]
+
+[resource]
+script = ExtResource("2_lkoja")
+id = "a1d2_trinfood"
+name = "Trin's food"
+quest_giver = "trin"
+description = "Quest Description"
+objectives = Array[ExtResource("1_u3bvm")]([])
+unlock_structure = ""
+rewards = Dictionary[String, int]({
+"Happiness": 5
+})
+metadata/_custom_type_script = "uid://5ejc1odxmtck"

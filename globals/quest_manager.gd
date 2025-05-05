@@ -14,19 +14,23 @@ const RESOURCE_MAP = {
 const STRUCTURE_MAP = {
 	5 : "built_compost",
 	6 : "built_hygiene",
-	13 : "built_rain_barrel",
-	14 : "built_raised_bed",
-	22 : "built_donation"
+	11 : "built_rain_barrel",
+	12 : "built_raised_bed",
+	13 : "built_vplanter",
+	20 : "built_donation"
 }
 var quests : Array[Quest] = []
 
+signal quest_started(quest_id : String)
 signal quests_changed
+signal quest_completed(giver : String)
 
 
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
 	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
 	StructureManager.StructureBuilt.connect(update_structures)
+	QuestManager.start_quest("qst_a1d1_intro")
 
 
 func start_quest(file_name : String):
@@ -40,6 +44,7 @@ func start_quest_resource(new_quest: Quest):
 	new_quest.quest_completed.connect(_on_quest_complete)
 	new_quest.start_quest()
 	check_quests()
+	quest_started.emit(new_quest.id)
 	quests_changed.emit()
 	print("Quest started: %s" % new_quest.name)
 
@@ -64,10 +69,9 @@ func check_quests(_changes : Dictionary = {}):
 	for quest in quests:
 		quest.check_progress()
 
-
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false
 	Dialogic.VAR[giver + "_progress"] += 1
 	print("Progress for NPC %s increased to %d" % [giver, Dialogic.VAR[giver + "_progress"]])
-	quests_changed.emit()
+	quest_completed.emit(giver)
