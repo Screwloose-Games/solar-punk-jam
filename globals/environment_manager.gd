@@ -62,6 +62,9 @@ func deposit_resource(resource: String, quantity: int):
 	UpdatedAvailableResources.emit()
 
 func check_amount(resource: String, quantity: int):
+	return has_at_least(resource, quantity)
+		
+func has_at_least(resource: String, quantity: int):
 	if resource in current_resources:
 		return current_resources[resource] >= quantity
 	else:
@@ -74,8 +77,10 @@ func has_enough(required_resources: Dictionary[String, int]):
 				return false
 	return true
 
-
-
+func get_resource_count(resource: String):
+	if resource in current_resources:
+		return current_resources[resource]
+	return 0
 
 func end_day():
 	force_end_day.emit()

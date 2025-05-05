@@ -195,7 +195,7 @@ structures = Dictionary[String, bool]({
 "Tool library": false,
 "Tree": false,
 "Vegetables": true,
-"Vertical garden": false,
+"Vertical garden": true,
 "Waste bin": true
 })
 
@@ -272,28 +272,28 @@ script = ExtResource("16_oq7qv")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("3_80kqf")]
 
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="12"]
+[node name="prefab_noentry_tall6" parent="DesignTestScene" index="10"]
 visible = false
 
-[node name="PlayerScale" parent="DesignTestScene" index="41"]
+[node name="PlayerScale" parent="DesignTestScene" index="38"]
 visible = false
 
-[node name="buildable_dirtpatch" parent="DesignTestScene" index="48"]
+[node name="buildable_dirtpatch" parent="DesignTestScene" index="45"]
 process_mode = 4
 visible = false
 
-[node name="buildable_dirtpatch2" parent="DesignTestScene" index="49"]
+[node name="buildable_dirtpatch2" parent="DesignTestScene" index="46"]
 process_mode = 4
 visible = false
 
-[node name="buildable_dirtpatch3" parent="DesignTestScene" index="50"]
+[node name="buildable_dirtpatch3" parent="DesignTestScene" index="47"]
 process_mode = 4
 visible = false
 
 [node name="SurfaceMap" parent="DesignTestScene/buildable_dirtpatch3/BuildableSurface" index="0"]
 visible = false
 
-[node name="buildable_dirtpatch4" parent="DesignTestScene" index="51"]
+[node name="buildable_dirtpatch4" parent="DesignTestScene" index="48"]
 process_mode = 4
 visible = false
 
