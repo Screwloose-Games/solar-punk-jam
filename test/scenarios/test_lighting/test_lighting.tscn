@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://doy0giq3p8lvr"]
+[gd_scene load_steps=18 format=3 uid="uid://doy0giq3p8lvr"]
 
 [ext_resource type="Environment" uid="uid://dobd7wrpoccx6" path="res://test/scenarios/test_lighting/world_environment_00.tres" id="1_g0a8h"]
 [ext_resource type="PackedScene" uid="uid://b1atwunknodlk" path="res://test/scenarios/test_lighting/camera_3d.tscn" id="2_b06ku"]
@@ -18,7 +18,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lcj1t"]
 render_priority = 0
-shader = ExtResource("2_vuwbs")
+shader = ExtResource("2_jx8jv")
 shader_parameter/lightColor = Color(0.633757, 0.633757, 0.633757, 1)
 shader_parameter/darkColor = Color(0.635294, 0.635294, 0.635294, 1)
 shader_parameter/borderColor = Color(1, 1, 1, 1)
@@ -31,7 +31,7 @@ stream_1/volume = 0.0
 [node name="TestLighting" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_dqy2h")
+environment = ExtResource("1_g0a8h")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3548, -1, -28.6367)
@@ -52,45 +52,42 @@ shake_intensity_multiplier = 1.0
 [node name="PhantomCameraHost" type="Node" parent="Camera3D2"]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("4_2xmnw")
+script = ExtResource("2_fldam")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="DirectionalLight3D" parent="." instance=ExtResource("5_mc7tv")]
+[node name="DirectionalLight3D" parent="." instance=ExtResource("4_hf0xs")]
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("6_mvp61")]
+[node name="PlayerCharacter" parent="." instance=ExtResource("5_wdifu")]
 unique_name_in_owner = true
 
-[node name="can2" parent="." instance=ExtResource("7_yp6xa")]
+[node name="can2" parent="." instance=ExtResource("8_8mb5h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.860226, -0.5, 0.226992)
 
-[node name="apple2" parent="." instance=ExtResource("8_mpek0")]
+[node name="apple2" parent="." instance=ExtResource("9_6ccn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.759999, -0.5, 0.473186)
 
-[node name="Building00" parent="." instance=ExtResource("9_mpq15")]
+[node name="Building00" parent="." instance=ExtResource("10_6ccn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.89882, -0.5, -0.15345)
 
-[node name="SM_PrototypeBuilding_01" parent="." instance=ExtResource("10_isb57")]
+[node name="SM_PrototypeBuilding_01" parent="." instance=ExtResource("11_a8h1o")]
 transform = Transform3D(0.999966, 0, -0.00825525, 0, 1, 0, 0.00825525, 0, 0.999966, -11.2186, -0.500002, 19.2755)
 
-[node name="SM_PrototypeBuilding_02" parent="." instance=ExtResource("11_si0wp")]
+[node name="SM_PrototypeBuilding_02" parent="." instance=ExtResource("12_jx8jv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.348, -0.496429, 32.425)
 
-[node name="SM_PrototypeBuilding_03" parent="." instance=ExtResource("12_udnbc")]
+[node name="SM_PrototypeBuilding_03" parent="." instance=ExtResource("13_lcj1t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2757, -0.500002, 20.3527)
 
-[node name="Radish" parent="." instance=ExtResource("13_rbv3o")]
+[node name="Radish" parent="." instance=ExtResource("12_jdarb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823276, -0.5, 3.667)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamSynchronized_jdarb")
 
-[node name="sm_building_05" parent="." instance=ExtResource("14_arinw")]
+[node name="sm_building_05" parent="." instance=ExtResource("14_tgc7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2737, -0.364283, -6.08275)
 
-[node name="sm_building_04" parent="." instance=ExtResource("15_wlfj7")]
+[node name="sm_building_04" parent="." instance=ExtResource("15_k8glj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2269, -0.358111, -6.70264)
-
-[node name="SM_Mister" parent="." instance=ExtResource("16_loulo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17393, -0.4974, 16.272)
 
 [editable path="Building00"]
