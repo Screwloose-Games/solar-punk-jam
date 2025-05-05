@@ -114,4 +114,12 @@ text = "Close"
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.418213, 0)
 
+[node name="Marker3D" type="Marker3D" parent="VisualInstanceMarker3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.619591)
+
+[node name="Marker3D2" type="Marker3D" parent="VisualInstanceMarker3D" index="1"]
+
+[node name="Marker3D3" type="Marker3D" parent="VisualInstanceMarker3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.559364)
+
 [editable path="InteractableArea3D"]

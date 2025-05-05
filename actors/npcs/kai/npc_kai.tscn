@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dee2tlx6hkx75"]
+
+[ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_ruym0"]
+
+[node name="NpcBase" instance=ExtResource("1_ruym0")]
+
+[node name="Name" parent="." index="0"]
+visible = true
+text = "Kai"
+
+[node name="Dialogue" parent="." index="4"]
+npc_id = "kai"
+
+[editable path="InteractableArea3D"]

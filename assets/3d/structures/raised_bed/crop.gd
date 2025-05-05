@@ -18,8 +18,9 @@ static var planting_requirements: Dictionary[String, int] = {
 #@export var icon
 @export var state: CropState = CropState.PLANTED
 @export var harvest_amount: int = 2
-@export var days_planted: int = 0
 @export var days_to_mature: int = 0
+
+var days_planted: int = 0
 
 static func has_enough():
 	return EnvironmentManager.has_enough(Crop.planting_requirements)

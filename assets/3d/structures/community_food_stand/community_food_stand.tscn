@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dulhp5ynw5nqr"]
+[gd_scene load_steps=4 format=3 uid="uid://dulhp5ynw5nqr"]
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_uw45i"]
+[ext_resource type="Script" uid="uid://boafcdeptvht8" path="res://assets/3d/structures/community_food_stand/food_stand.gd" id="2_5fhlr"]
 [ext_resource type="PackedScene" uid="uid://b1ucs4phsrc3p" path="res://assets/3d/structures/community_food_stand/sm_community_food_stand.gltf" id="2_o6x86"]
 
 [node name="BuildableStructure" instance=ExtResource("1_uw45i")]
+editor_description = "Players can donate the food they harvest to the food stand, earning them +1 community health for each food item donated."
 
-[node name="sm_community_food_stand" parent="." index="0" instance=ExtResource("2_o6x86")]
+[node name="FoodStand" type="Node" parent="." index="0"]
+script = ExtResource("2_5fhlr")
+
+[node name="sm_community_food_stand" parent="." index="1" instance=ExtResource("2_o6x86")]
+
+[node name="InteractableArea3D" parent="." index="2"]
+label_text = "Donate Food"
 
 [editable path="InteractableArea3D"]
