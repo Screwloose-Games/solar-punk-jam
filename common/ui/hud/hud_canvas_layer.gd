@@ -10,6 +10,8 @@ class Singleton:
 @onready var act_number_label: Label = %ActNumberLabel
 var buildable_structures: Array[BuildableStructure] = []
 var resource_to_control = {}
+@export var weather_icon_sunny: Texture
+@export var weather_icon_rainy: Texture
 
 
 func _ready() -> void:
@@ -32,6 +34,7 @@ func _process(_delta: float) -> void:
 
 
 func update_time_hud(_offset):
+	%WeatherIcon.texture = weather_icon_rainy if EnvironmentManager.environment_model.is_raining else weather_icon_sunny
 	var time := EnvironmentManager.environment_model.get_in_game_time()
 	%Day.text = str(time.day)
 	%Time.text = "%d:%02d" % [time.hour, time.minute]
