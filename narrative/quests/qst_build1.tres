@@ -26,7 +26,5 @@ quest_giver = "board"
 description = "Get materials to build a hygiene station, then build it."
 objectives = Array[ExtResource("1_h1w78")]([SubResource("Resource_h1w78"), SubResource("Resource_e40t8")])
 unlock_structure = "Hygiene station"
-rewards = {
-"Happiness": 5
-}
+rewards = Array[Resource]([])
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

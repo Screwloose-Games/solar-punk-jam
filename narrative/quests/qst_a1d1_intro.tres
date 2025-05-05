@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://dsymfcowmajj3"]
+
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_rqfjc"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_pirdi"]
+
+[sub_resource type="Resource" id="Resource_rqfjc"]
+script = ExtResource("1_rqfjc")
+description = "Read the Community Board"
+quest_value = "board_met"
+goal = 1
+prerequisites = Array[int]([])
+metadata/_custom_type_script = "uid://drx8xjc56vf8y"
+
+[resource]
+script = ExtResource("2_pirdi")
+name = "Check the Community Board"
+quest_giver = "mom"
+description = "Check the Community Board for work orders."
+objectives = Array[ExtResource("1_rqfjc")]([SubResource("Resource_rqfjc")])
+unlock_structure = "Vertical planter"
+rewards = Array[Resource]([])
+metadata/_custom_type_script = "uid://5ejc1odxmtck"

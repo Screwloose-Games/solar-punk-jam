@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://cm7t2ur61v8im"]
+
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_x688r"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_mbbq3"]
+
+[resource]
+script = ExtResource("2_mbbq3")
+name = "Quest Name"
+quest_giver = "npc_name"
+description = "Quest Description"
+objectives = Array[ExtResource("1_x688r")]([])
+unlock_structure = ""
+rewards = {
+"Happiness": 5
+}
+metadata/_custom_type_script = "uid://5ejc1odxmtck"

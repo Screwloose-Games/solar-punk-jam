@@ -64,7 +64,6 @@ func check_quests(_changes : Dictionary = {}):
 	for quest in quests:
 		quest.check_progress()
 
-
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false

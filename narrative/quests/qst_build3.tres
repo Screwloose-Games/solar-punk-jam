@@ -18,7 +18,5 @@ quest_giver = "board"
 description = "We need one more thing built!"
 objectives = Array[ExtResource("1_d31wh")]([SubResource("Resource_h1w78")])
 unlock_structure = ""
-rewards = {
-"Happiness": 5
-}
+rewards = Array[Resource]([])
 metadata/_custom_type_script = "uid://5ejc1odxmtck"
