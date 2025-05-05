@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=19 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
 [ext_resource type="Texture2D" uid="uid://0dniwiqprj6j" path="res://assets/2d/ui/environment-health_icon-placeholder.png" id="3_6torc"]
+[ext_resource type="Texture2D" uid="uid://jaecwvmlp6nh" path="res://assets/2d/ui/weather-rainy_icon-placeholder.png" id="3_8yxrh"]
 [ext_resource type="Theme" uid="uid://cr00fee06cge6" path="res://common/themes/quest_ui_theme.tres" id="4_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://c82rv8465rx4a" path="res://assets/2d/ui/weather-sunny_icon-placeholder.png" id="5_5quvr"]
 [ext_resource type="PackedScene" uid="uid://dbfwnrfa7yds4" path="res://common/ui/components/quest/quest_list.tscn" id="5_ajdrq"]
@@ -64,6 +65,8 @@ corner_radius_bottom_left = 4
 
 [node name="HUDCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_2ngon")
+weather_icon_sunny = ExtResource("5_5quvr")
+weather_icon_rainy = ExtResource("3_8yxrh")
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -222,6 +225,7 @@ theme_override_constants/separation = 10
 alignment = 2
 
 [node name="WeatherIcon" type="TextureRect" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("5_5quvr")
 expand_mode = 3
