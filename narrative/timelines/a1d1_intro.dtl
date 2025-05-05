@@ -1,0 +1,26 @@
+Mom: TE!\
+COME OUT HERE, MY LITTLE GREMLIN!
+
+Te: I DIDN’T DO IT!\
+IT WAS ALREADY LIKE THAT!
+
+Mom: What?
+
+Te: Nothing!
+
+Te: WHOA!\
+The city looks even worse from up here.
+
+Mom: It’ll look better when—
+
+Te: When everyone does their part.\
+Yeah, yeah, I know…
+
+Mom: Good! Then you won’t mind checking if anyone needs help at the community hub.
+
+Te: But I just finished unpacking—
+
+Mom: WHAT?! YOU’D LOVE TO? GREAT!\
+Get going. I’ll finish up here.
+
+do QuestManager.start_quest("qst_a1d1_intro")

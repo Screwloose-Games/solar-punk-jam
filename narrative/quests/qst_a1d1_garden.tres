@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("2_emwmh")
-name = "Quest Name"
-quest_giver = "npc_name"
+id = "a1d1_garden"
+name = "Start your own garden"
+quest_giver = "trin"
 description = "Quest Description"
 objectives = Array[ExtResource("1_b5u7u")]([])
 unlock_structure = ""
-rewards = {
+rewards = Dictionary[String, int]({
 "Happiness": 5
-}
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

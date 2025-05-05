@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=32 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="1_ority"]
@@ -16,12 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="10_mn3v4"]
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="11_ntgmv"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="15_28jr5"]
-[ext_resource type="Resource" uid="uid://byyhi213baedc" path="res://narrative/quests/qst_build1.tres" id="16_e4hbx"]
+[ext_resource type="Resource" uid="uid://cm7t2ur61v8im" path="res://narrative/quests/qst_a1d1_trin.tres" id="16_d4qsp"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="16_oq7qv"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="17_awabt"]
-[ext_resource type="Resource" uid="uid://wygbkhrvohek" path="res://narrative/quests/qst_build2.tres" id="17_d4qsp"]
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="17_ority"]
-[ext_resource type="Resource" uid="uid://dytut44qs7n55" path="res://narrative/quests/qst_build3.tres" id="18_8y16s"]
 [ext_resource type="PackedScene" uid="uid://c4fb30uv7yw3g" path="res://assets/3d/structures/raised_bed/raised_bed.tscn" id="19_oq7qv"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="20_boqjn"]
 [ext_resource type="PackedScene" uid="uid://s785ymaq0v5d" path="res://actors/npcs/kyle/npc_kyle.tscn" id="25_8y16s"]
@@ -265,6 +263,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -3.82898, 2.86358, 18.1236)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
@@ -326,7 +325,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82898, 1.66893e-06, 15.092
 
 [node name="CommBoard" parent="." instance=ExtResource("11_ntgmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)
-quest_list = Array[ExtResource("15_28jr5")]([ExtResource("16_e4hbx"), ExtResource("17_d4qsp"), ExtResource("18_8y16s")])
+quest_list = Array[ExtResource("15_28jr5")]([ExtResource("16_d4qsp")])
 
 [node name="ScrapPileSpawner" parent="." instance=ExtResource("10_ejtm4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168)

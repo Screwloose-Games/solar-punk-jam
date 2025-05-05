@@ -13,8 +13,13 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [resource]
 script = ExtResource("2_7o2fn")
+id = "mister01"
 name = "Mister's Advice"
 quest_giver = "mister"
 description = "Check the Community Board for jobs to do."
 objectives = Array[ExtResource("1_fmpcv")]([SubResource("Resource_fmpcv")])
+unlock_structure = ""
+rewards = Dictionary[String, int]({
+"Happiness": 5
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("2_cascf")
-name = "Quest Name"
-quest_giver = "npc_name"
+id = "a1d2_harvest"
+name = "Harvest and deliver plants"
+quest_giver = "mom"
 description = "Quest Description"
 objectives = Array[ExtResource("1_i80ro")]([])
 unlock_structure = ""
-rewards = {
+rewards = Dictionary[String, int]({
 "Happiness": 5
-}
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

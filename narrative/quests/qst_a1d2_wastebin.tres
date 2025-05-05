@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("2_clbho")
-name = "Quest Name"
-quest_giver = "npc_name"
+id = "a1d2_wastebin"
+name = "Build a waste bin"
+quest_giver = "kyle"
 description = "Quest Description"
 objectives = Array[ExtResource("1_5amx1")]([])
 unlock_structure = ""
-rewards = {
+rewards = Dictionary[String, int]({
 "Happiness": 5
-}
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

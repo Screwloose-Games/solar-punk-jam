@@ -1,12 +1,13 @@
 extends Resource
 class_name Quest
 
+@export var id : String = "quest_id"
 @export var name : String = "Quest Name"
 @export var quest_giver : String = "npc_name"
 @export var description : String = "Quest Description"
 @export var objectives : Array[QuestObjective] = []
 @export var unlock_structure : String = ""
-@export var rewards : Dictionary = {
+@export var rewards : Dictionary[String, int] = {
 	"Happiness" : 5
 }
 
@@ -19,6 +20,7 @@ signal quest_completed(giver : String)
 # Initialize quest state
 # Objectives with no prerequisites get set active
 func start_quest():
+	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
 	if unlock_structure != "":
 		StructureManager.register_structure(unlock_structure)

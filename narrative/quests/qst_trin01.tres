@@ -29,8 +29,13 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [resource]
 script = ExtResource("2_1gu5u")
+id = "trin01"
 name = "Plants for Trin"
 quest_giver = "trin"
 description = "Help Trin with planting"
 objectives = Array[ExtResource("1_b5d65")]([SubResource("Resource_b5d65"), SubResource("Resource_1gu5u"), SubResource("Resource_l8fce")])
+unlock_structure = ""
+rewards = Dictionary[String, int]({
+"Happiness": 5
+})
 metadata/_custom_type_script = "uid://5ejc1odxmtck"
