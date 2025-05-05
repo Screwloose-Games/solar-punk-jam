@@ -19,9 +19,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="RaisedBed" instance=ExtResource("1_f0xn5")]
 
-[node name="RaisedBed" type="Node" parent="." index="0" node_paths=PackedStringArray("visual_instance_target")]
+[node name="RaisedBed" type="Node" parent="." index="0"]
 script = ExtResource("1_74c14")
-visual_instance_target = NodePath("../VisualInstanceMarker3D")
 
 [node name="sm_companionplanter2" parent="." index="1" instance=ExtResource("2_s33af")]
 
