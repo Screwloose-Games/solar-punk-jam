@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dulhp5ynw5nqr"]
+
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_uw45i"]
+[ext_resource type="PackedScene" uid="uid://b1ucs4phsrc3p" path="res://assets/3d/structures/community_food_stand/sm_community_food_stand.gltf" id="2_o6x86"]
+
+[node name="BuildableStructure" instance=ExtResource("1_uw45i")]
+
+[node name="sm_community_food_stand" parent="." index="0" instance=ExtResource("2_o6x86")]
+
+[editable path="InteractableArea3D"]

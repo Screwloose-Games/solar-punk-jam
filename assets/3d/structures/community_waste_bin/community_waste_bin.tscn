@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcs35ropseut8"]
+
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_roiyp"]
+[ext_resource type="PackedScene" uid="uid://m01l6hbbpqw6" path="res://assets/3d/structures/community_waste_bin/sm_community_waste_bin.tscn" id="2_ui2la"]
+
+[node name="BuildableStructure" instance=ExtResource("1_roiyp")]
+
+[node name="sm_community_waste_bin" parent="." index="0" instance=ExtResource("2_ui2la")]
+
+[editable path="InteractableArea3D"]
