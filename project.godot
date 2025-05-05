@@ -49,9 +49,11 @@ directories/dtl_directory={
 "board_quest3": "res://narrative/timelines/board_quest3.dtl",
 "cam_test": "res://narrative/timelines/cam_test.dtl",
 "intro": "res://narrative/timelines/intro.dtl",
+"kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "te_think": "res://narrative/timelines/te_think.dtl",
+"trin_DAY1AS4 MEET_TRIN": "res://narrative/timelines/final/trin_DAY1AS4 MEET_TRIN.dtl",
 "trin_main": "res://narrative/timelines/trin_main.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }

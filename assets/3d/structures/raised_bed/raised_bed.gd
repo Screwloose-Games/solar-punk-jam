@@ -2,16 +2,18 @@ extends Node
 
 @export var crop: Crop
 ## Where the visual instance of a crop should be located.
-@onready var visual_instance_marker_3d: Marker3D 
 
 @onready var structure_interact_canvas_layer: CanvasLayer = %StructureInteractCanvasLayer
 @onready var planting_ui_margin_container: PlantingUI = %PlantingUiMarginContainer
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var visual_instance_target: Marker3D = %VisualInstanceMarker3D
+@onready var visual_instance_marker_3d: Marker3D = %VisualInstanceMarker3D
 
-var current_crop_visual_instance: Node3D
+var current_crop_visual_instances: Array[Node3D] = []
+var markers: Array[Node]
 
 func _ready() -> void:
+	markers = visual_instance_marker_3d.get_children()
 	planting_ui_margin_container.seed_planted.connect(_on_seed_planted)
 	interactable_area_3d.interacted.connect(_on_interacted)
 	planting_ui_margin_container.closed.connect(hide_ui)
@@ -46,10 +48,18 @@ func mature_crops():
 		return
 	crop.mature_crop()
 	if crop.is_harvestable():
-		var mature_visual_instance = crop.mature_scene.instantiate()
-		visual_instance_target.add_child(mature_visual_instance)
-		current_crop_visual_instance.queue_free()
-		current_crop_visual_instance = mature_visual_instance
+		clear_visuals()
+		add_crop_visuals(crop.mature_scene)
+
+func clear_visuals():
+	for marker in markers:
+		for child in marker.get_children():
+			child.queue_free()
+
+func add_crop_visuals(visual_instance_scene: PackedScene):
+	for marker in markers:
+		var visual_instance = visual_instance_scene.instantiate()
+		marker.add_child(visual_instance)
 
 func _on_day_passed():
 	mature_crops()
@@ -57,8 +67,7 @@ func _on_day_passed():
 func harvest_crop():
 	EnvironmentManager.gain_resource("Food", crop.harvest_amount)
 	crop = null
-	current_crop_visual_instance.queue_free()
-	current_crop_visual_instance = null
+	clear_visuals()
 	interactable_area_3d.stop_interacting()
 
 func _on_seed_planted(crop: Crop):
@@ -68,7 +77,5 @@ func plant_crop(new_crop: Crop):
 	# pay cost
 	EnvironmentManager.spend_resources(Crop.planting_requirements)
 	crop = new_crop
-	var crop_visual_instance: Node3D = crop.planted_scene.instantiate()
-	visual_instance_target.add_child(crop_visual_instance)
-	current_crop_visual_instance = crop_visual_instance
+	add_crop_visuals(crop.planted_scene)
 	hide_ui()
