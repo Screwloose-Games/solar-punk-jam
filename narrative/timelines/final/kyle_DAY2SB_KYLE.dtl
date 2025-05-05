@@ -1,0 +1,31 @@
+# EXT. COMMUNITY HUB
+
+# After Te donates to the food bin.
+
+Kyle: Wow, these look great.
+
+# //CONDITIONAL PLAYER CHOICE:
+- GREW IT MYSELF
+	Te: Grew it myself.
+	Kyle: Did you? Impressive.
+- NOTHING SPECIAL TO ME.
+	Te: Nothing special to me.
+	Kyle: Are you serious?
+	Kyle: Look at that color! And the smell!
+	Kyle: Perfection.
+# //END OF PLAYER CHOICE
+
+
+Kyle: I’m cooking up a storm to help out some of the older people.
+
+Te: Is that soup?
+
+Kyle: It is.
+
+Te: Got any candy instead?
+
+Kyle: HAHAHAHA!
+
+Te: No, but if you’re gardening I can donate some food wastes. Might help cut down gardening time.
+
+Kyle: You’d need a waste bin first.
