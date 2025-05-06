@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dyb6nwaiae8ea"]
+[gd_scene load_steps=21 format=3 uid="uid://dyb6nwaiae8ea"]
 
 [ext_resource type="Script" uid="uid://nblr465pgu85" path="res://components/buildable_surface.gd" id="1_5i2rm"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
+[ext_resource type="Texture2D" uid="uid://2agutxxmcxdl" path="res://assets/square-grid.png" id="3_phaic"]
 [ext_resource type="Script" uid="uid://3wlfdlwljewv" path="res://test/scenarios/test_interact/buildable_area_3d.gd" id="4_phaic"]
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="5_74j1h"]
 
@@ -91,19 +92,6 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_qgdfq")
 orientation = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gt2x"]
-transparency = 1
-no_depth_test = true
-shading_mode = 0
-disable_ambient_light = true
-disable_fog = true
-albedo_color = Color(1, 0.992157, 1, 0.25098)
-disable_receive_shadows = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_ii5o6"]
-material = SubResource("StandardMaterial3D_3gt2x")
-orientation = 1
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snj21"]
 albedo_color = Color(1, 0.458824, 1, 1)
 
@@ -111,19 +99,25 @@ albedo_color = Color(1, 0.458824, 1, 1)
 material = SubResource("StandardMaterial3D_snj21")
 size = Vector2(16, 16)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i2rm"]
-albedo_color = Color(0.197866, 0.676636, 0.624421, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74j1h"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.776471, 0.85098, 0.231373, 1)
+albedo_texture = ExtResource("3_phaic")
+disable_receive_shadows = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_q4s4m"]
-material = SubResource("StandardMaterial3D_5i2rm")
-size = Vector3(0.5, 0.5, 0.5)
+[sub_resource type="QuadMesh" id="QuadMesh_v4cgo"]
+material = SubResource("StandardMaterial3D_74j1h")
+orientation = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4s4m"]
-albedo_color = Color(0.769466, 0.536448, 0.321316, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af6sc"]
+albedo_color = Color(0.340339, 0.340339, 0.340339, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_j1v1u"]
-material = SubResource("StandardMaterial3D_q4s4m")
-size = Vector3(0.25, 0.5, 0.25)
+[sub_resource type="QuadMesh" id="QuadMesh_x3fli"]
+material = SubResource("StandardMaterial3D_af6sc")
+orientation = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5i2rm"]
 size = Vector3(5.37671, 1, 7.49023)
@@ -148,7 +142,7 @@ mesh = SubResource("QuadMesh_61rxh")
 skeleton = NodePath("../..")
 
 [node name="SelectionPlaceholder" type="MeshInstance3D" parent="SelectionPlaceholder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_gco2h")
 skeleton = NodePath("../../..")
@@ -162,27 +156,28 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_6cebu")
 skeleton = NodePath("../../..")
 
-[node name="SelectionPlaceholder" type="MeshInstance3D" parent="StructurePlaceholder/SelectionPlaceholder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
-cast_shadow = 0
-mesh = SubResource("QuadMesh_ii5o6")
-skeleton = NodePath("../../../..")
-
 [node name="SurfaceDebugHint" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource("PlaneMesh_snj21")
 
 [node name="Preview" type="Node3D" parent="."]
+visible = false
 
 [node name="Preview" type="MeshInstance3D" parent="Preview"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
 visible = false
-mesh = SubResource("BoxMesh_q4s4m")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_v4cgo")
+skeleton = NodePath("../../..")
 
 [node name="AlwaysOnPreview" type="Node3D" parent="."]
 
 [node name="Preview" type="MeshInstance3D" parent="AlwaysOnPreview"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 visible = false
-mesh = SubResource("BoxMesh_j1v1u")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_x3fli")
+skeleton = NodePath("../../..")
 
 [node name="BuildableInteract" type="Node" parent="." node_paths=PackedStringArray("buildable_surface")]
 script = ExtResource("4_phaic")
