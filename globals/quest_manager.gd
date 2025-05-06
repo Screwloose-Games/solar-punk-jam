@@ -90,9 +90,22 @@ func unlock_quest_by_id(id: String):
 		if not quest_giver:
 			push_error("Quest not preloaded: %s" % quest_giver_id)
 			return
-		quest_giver.a
+		quest_giver.add_quest(quest)
 	else:
 		push_error("Quest not available: %s" % id)
+
+## Unlocks this quest so the player can accept it.
+func unlock_quest_by_filename(filename: String):
+	if filename in preloaded_quests:
+		var quest: Quest = preloaded_quests[filename]
+		var quest_giver_id = quest.quest_giver
+		var quest_giver: QuestGiver = get_quest_giver_by_id(quest_giver_id)
+		if not quest_giver:
+			push_error("Quest not preloaded: %s" % quest_giver_id)
+			return
+		quest_giver.add_quest(quest)
+	else:
+		push_error("Quest not available: %s" % filename)
 
 func start_quest_resource(new_quest: Quest):
 	quests.append(new_quest)

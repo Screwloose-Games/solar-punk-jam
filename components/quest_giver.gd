@@ -5,6 +5,10 @@ extends Node
 @export var id: String
 @export var available_quests_queue: Array[Quest] = []
 
+var next_quest: Quest:
+	get:
+		return available_quests_queue.front()
+
 func get_next_quest() -> Quest:
 	return available_quests_queue.pop_front()
 

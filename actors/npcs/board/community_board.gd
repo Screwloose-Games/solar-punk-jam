@@ -4,6 +4,7 @@ extends StaticBody3D
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var community_board_canvas_layer: CommunityBoardCanvasLayer = %CommunityBoardCanvasLayer
+@onready var quest_giver: QuestGiver = %QuestGiver
 
 var quest_index : int = 0
 
@@ -14,7 +15,7 @@ func _ready() -> void:
 	community_board_canvas_layer.visible = false
 	community_board_canvas_layer.quest_accepted.connect(_on_quest_accepted)
 	community_board_canvas_layer.closed.connect(_on_board_closed)
-	community_board_canvas_layer.quest = quest_list[quest_index]
+	#community_board_canvas_layer.quest = quest_list[quest_index]
 
 
 func _on_board_closed():
@@ -24,7 +25,8 @@ func _on_board_closed():
 
 func _on_quest_accepted():
 	community_board_canvas_layer.visible = false
-	QuestManager.start_quest_resource(quest_list[quest_index])
+	var quest: Quest = quest_giver.get_next_quest()
+	QuestManager.start_quest_resource(quest)
 	Dialogic.VAR.board_active = true
 	interactable_area_3d.stop_interacting()
 

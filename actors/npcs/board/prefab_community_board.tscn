@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0b1347oncwvc"]
+[gd_scene load_steps=12 format=3 uid="uid://d0b1347oncwvc"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
 [ext_resource type="PackedScene" uid="uid://b67yh441wsgu3" path="res://assets/3d/structures/community_board/sm_community_board.tscn" id="2_s1nju"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_khjfs"]
 [ext_resource type="Script" uid="uid://c1y5i2lbvjw6a" path="res://actors/npcs/board/community_board_quest_preview.gd" id="6_3w42p"]
+[ext_resource type="Script" uid="uid://crfwrrfxinmv5" path="res://components/quest_giver.gd" id="6_s1nju"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t813n"]
 radius = 0.4
@@ -39,6 +40,11 @@ content_margin_left = 16.0
 
 [node name="CommBoard" type="StaticBody3D"]
 script = ExtResource("1_r1qyg")
+
+[node name="QuestGiver" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_s1nju")
+id = "board"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)

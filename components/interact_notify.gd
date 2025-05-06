@@ -4,6 +4,7 @@ extends Node3D
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
+@onready var quest_giver: QuestGiver = %QuestGiver
 
 func _ready() -> void:
 	QuestManager.quests_changed.connect(_on_quest_change)
@@ -11,7 +12,10 @@ func _ready() -> void:
 
 
 func _on_quest_change():
-	visible = !Dialogic.VAR[npc_id + "_active"]
+	if quest_giver:
+		visible = quest_giver.has_quest_available()
+	else:
+		visible = !Dialogic.VAR[npc_id + "_active"]
 
 
 func _on_interacted(player: Player):

@@ -9,6 +9,7 @@ const BODY_STRING = "From: %s\nDetails:\n%s"
 @onready var objectives : Label = %Objectives
 @onready var accept_button: Button = %AcceptButton
 @onready var close_button: Button = %CloseButton
+@onready var quest_giver: QuestGiver = %QuestGiver
 
 var quest: Quest:
 	set(val):
@@ -29,12 +30,14 @@ func _ready() -> void:
 
 func _on_visibility_changed():
 	if visible:
+		rerender()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func rerender():
+	var quest = quest_giver.next_quest
 	header.text = HEADER_STRING % quest.name
 	body.text = BODY_STRING % [quest.quest_giver.capitalize(), quest.description]
 	var obj_text = ""

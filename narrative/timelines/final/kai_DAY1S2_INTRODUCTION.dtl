@@ -1,0 +1,48 @@
+# **EXT. HOME - ROOF - MORNING** 
+
+# On top of a rundown building. Some recent construction has made the place inhabitable. Maybe there’s a folding chair out here and a few potted plants. Some boxes they’re unpacking. 
+
+
+
+# KAI stands on the roof, looking out at the city. 
+# Wide shot
+
+
+KAI: TE! 
+
+KAI: COME OUT HERE, MY LITTLE GREMLIN!
+
+# From some entry onto the roof, TE, 12, runs out.
+# Animate run out from roof exit.
+
+TE: I DIDN’T DO IT!
+
+TE: IT WAS ALREADY LIKE THAT!
+
+KAI: What?
+
+TE: Nothing!
+
+# Te stands next to her mom. 
+
+TE: WHOA! 
+
+TE: The city looks even worse from up here. 
+
+KAI: It’ll look better when—
+
+TE: When everyone does their part. 
+
+TE: Yeah, yeah, I know…
+
+KAI: Good! Then you won’t mind checking if anyone needs help at the community hub. 
+
+TE: But I just finished unpacking—
+
+KAI: WHAT?! YOU’D LOVE TO? GREAT!
+
+KAI: Get going. I’ll finish up here. 
+
+# **QUEST: GO TO THE COMMUNITY HUB**
+do QuestManager.start_quest("qst_a1d1_intro")
+do QuestManager.unlock_quest_by_id("a1d1_trin")
