@@ -35,6 +35,7 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:building_05-mesh/sm_farmbuilding_tall_05-mesh": {
+"generate/navmesh": 1,
 "generate/physics": true
 }
 }

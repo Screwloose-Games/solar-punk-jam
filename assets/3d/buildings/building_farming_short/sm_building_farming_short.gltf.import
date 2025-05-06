@@ -35,6 +35,7 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:mesh_building_04_farmingshort/sm_building_04_farmingshort-mesh": {
+"generate/navmesh": 1,
 "generate/physics": true
 }
 }
