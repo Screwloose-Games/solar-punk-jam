@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
 [ext_resource type="Texture2D" uid="uid://0dniwiqprj6j" path="res://assets/2d/ui/environment-health_icon-placeholder.png" id="3_6torc"]
 [ext_resource type="Texture2D" uid="uid://jaecwvmlp6nh" path="res://assets/2d/ui/weather-rainy_icon-placeholder.png" id="3_8yxrh"]
+[ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
+[ext_resource type="Texture2D" uid="uid://cl0lr84e76vsa" path="res://assets/2d/ui/Envior-icon.png" id="3_8yxrh"]
 [ext_resource type="Theme" uid="uid://cr00fee06cge6" path="res://common/themes/quest_ui_theme.tres" id="4_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://c82rv8465rx4a" path="res://assets/2d/ui/weather-sunny_icon-placeholder.png" id="5_5quvr"]
 [ext_resource type="PackedScene" uid="uid://dbfwnrfa7yds4" path="res://common/ui/components/quest/quest_list.tscn" id="5_ajdrq"]
@@ -11,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
 [ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://common/themes/toolbar_theme.tres" id="8_bgxx2"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
+[ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
 content_margin_top = 10.0
@@ -134,9 +137,8 @@ theme_override_constants/separation = 20
 
 [node name="CommunityIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_ajdrq")
-expand_mode = 2
-stretch_mode = 5
+texture = ExtResource("2_6torc")
+stretch_mode = 2
 
 [node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
 custom_minimum_size = Vector2(200, 14)
@@ -160,9 +162,8 @@ theme_override_constants/separation = 20
 
 [node name="EnvironmentIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_6torc")
-expand_mode = 3
-stretch_mode = 5
+texture = ExtResource("3_8yxrh")
+stretch_mode = 2
 
 [node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
 custom_minimum_size = Vector2(200, 14)
@@ -263,6 +264,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
+offset_bottom = 75.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
@@ -475,13 +477,12 @@ text = "1"
 label_settings = SubResource("LabelSettings_nvanc")
 
 [node name="ToolbarItemPanelContainer2" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureButton" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_m84km")
+texture_normal = ExtResource("11_5quvr")
 stretch_mode = 6
 
 [node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://daabskcdhrpea"]
+[gd_scene load_steps=40 format=4 uid="uid://daabskcdhrpea"]
 
 [ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_mqx1g"]
 [ext_resource type="Script" uid="uid://drkkac24eh0sl" path="res://common/ui/viewport_container.gd" id="2_d26fo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="7_oty5u"]
 [ext_resource type="Texture2D" uid="uid://ccq7f3iwggcxc" path="res://common/ui/art/main_menu_title.png" id="9_8wlla"]
 [ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
+[ext_resource type="FontFile" uid="uid://bxxblafxhg1tc" path="res://common/fonts/Wondra.otf" id="10_kjcgm"]
 
 [sub_resource type="Theme" id="Theme_kjcgm"]
 
@@ -73,6 +74,7 @@ func _return_from_credits():
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_mqx1g"]
+font = ExtResource("10_kjcgm")
 font_size = 50
 font_color = Color(0, 0, 0, 1)
 
