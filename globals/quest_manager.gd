@@ -38,6 +38,7 @@ func _ready() -> void:
 	GlobalSignalBus.community_board_interacted.connect(update_misc.bind("board_met"))
 	GlobalSignalBus.activated_build_mode.connect(update_misc.bind("entered_build"))
 	GlobalSignalBus.seed_ui_shown.connect(update_misc.bind("entered_plant"))
+	GlobalSignalBus.player_entered_home.connect(update_misc.bind("player_entered_home"))
 
 
 func start_quest(file_name : String):
