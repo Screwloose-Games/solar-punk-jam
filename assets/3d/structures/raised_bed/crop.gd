@@ -12,7 +12,13 @@ static var planting_requirements: Dictionary[String, int] = {
 	"Water": 1,
 }
 
+enum CropType {
+	RADISH,
+	STRAWBERRY,
+}
+
 @export var name: String = "Radish" 
+@export var type: CropType = CropType.RADISH
 @export var planted_scene: PackedScene
 @export var mature_scene: PackedScene
 #@export var icon
