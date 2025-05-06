@@ -15,6 +15,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yrqwl")
 script = ExtResource("1_ongc8")
+text_panels = ["Dear Diary", "Dad’s trying to knit me a sweater for my bday but
+I want the Blaster1000!!
+Tommy showed off his at school. 
+I wish I had stuff I could show off too. ", "the rain sounds scary sometimes
+like thousands of people on the roof", "THE SWEATER’S SO UGLY. 
+But Dad got really emotional.
+I think he just wanted to give me something. ", "the rain is worse
+mama says we should go
+but where ", "when ppl tells us were luck
+i remember 
+dad’s ugly sweater
+floating in the water
+between rooftops"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -39,7 +52,8 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="Label" type="Label" parent="MarginContainer"]
-visible = false
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 text = "This is a story..."
 autowrap_mode = 3
