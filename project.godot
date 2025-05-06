@@ -136,6 +136,10 @@ import/blender/enabled=false
 
 CollectableNodeSpawner=""
 
+[gui]
+
+theme/custom_font="uid://bu0jifvxjxegr"
+
 [input]
 
 Move_Forward={
