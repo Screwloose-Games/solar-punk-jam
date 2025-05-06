@@ -8,7 +8,7 @@ Te: Good for them... I guess.\
 Are you Trin?
 Trin: Yup. You can start building over there.
 Te: Uhhh, I’m not sure how to do that.
-Tutorial: THIS BEGINS THE **“GARDEN TUTORIAL”**
+# Tutorial: THIS BEGINS THE **“GARDEN TUTORIAL”**
 Trin: Even a Berberis thunbergii would know how to do this!\
 Fine. I’ll walk you through it.
 [end_timeline]
@@ -18,27 +18,27 @@ Te: Uh, materials?
 Trin: You don’t have— *sigh*
 Trin: Normally you’d drop off *your own* materials at the build site and, since we’re great that way, everybody in the community would chip in and help build it for you.\
 *But* since you came *unprepared*, I can go ahead and build it this *one* time.
-Tutorial: ACCESS BUILD MODE TO VIEW UNLOCKED BUILDABLE ITEMS\
-SELECT THE VERTICAL PLANTER\
-PLACE THE VERTICAL PLANTER ON THE GRID.
+# Tutorial: ACCESS BUILD MODE TO VIEW UNLOCKED BUILDABLE ITEMS\
+# SELECT THE VERTICAL PLANTER\
+# PLACE THE VERTICAL PLANTER ON THE GRID.
 [end_timeline]
 label prog2
 Trin: Since you’re here, you might as well help with the plants too.
 Trin: My compost bin already has soil in it, but usually you’d need to collect food waste and add it to the compost to make your own.
-Tutorial: GRAB SOIL FROM THE COMPOST BIN
+# Tutorial: GRAB SOIL FROM THE COMPOST BIN
 [end_timeline]
 label prog3
 Trin: Next is water! It rains every so often here and that helps us fill up the barrels.
-Tutorial: GET WATER FROM THE RAIN BARREL
+# Tutorial: GET WATER FROM THE RAIN BARREL
 [end_timeline]
 label prog4
 Trin: Next grab a seed and plant it in the vertical garden.\
 These are a single yield crop, which just needs to be watered once you plant it.\
 Recurring crops have to be watered after each time you harvest them.
-Tutorial: INTERACT WITH THE VERTICAL GARDEN TO OPEN PLANT MODE
+# Tutorial: INTERACT WITH THE VERTICAL GARDEN TO OPEN PLANT MODE
 [end_timeline]
 label prog5
-Tutorial: **GARDEN TUTORIAL COMPLETE**
+# Tutorial: **GARDEN TUTORIAL COMPLETE**
 Trin: And that’s it!
 Te: That was fun!
 Trin: Really?\

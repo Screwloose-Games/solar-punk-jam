@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dvuus0vmqhwkc"]
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dw3wdy0hfr8aq"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_a516e"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_andc7"]

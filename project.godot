@@ -47,12 +47,6 @@ directories/dch_directory={
 directories/dtl_directory={
 "a1d1_intro": "res://narrative/timelines/a1d1_intro.dtl",
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
-"board_main": "res://narrative/timelines/old/board_main.dtl",
-"board_quest1": "res://narrative/timelines/old/board_quest1.dtl",
-"board_quest2": "res://narrative/timelines/old/board_quest2.dtl",
-"board_quest3": "res://narrative/timelines/old/board_quest3.dtl",
-"cam_test": "res://narrative/timelines/old/cam_test.dtl",
-"intro": "res://narrative/timelines/old/intro.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
