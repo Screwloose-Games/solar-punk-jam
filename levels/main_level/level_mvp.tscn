@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
-[ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="1_ority"]
+[ext_resource type="Script" path="res://components/junk_regenerator.gd" id="1_ority"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="3_80kqf"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="3_umr73"]
@@ -179,7 +179,7 @@ structures = Dictionary[String, bool]({
 "Birdhouse (on pole)": false,
 "Bush (flowers)": false,
 "Compost bin": true,
-"Donation box": true,
+"Donation box": false,
 "Food stand": true,
 "Hygiene station": false,
 "Insect Hotel": false,
@@ -194,7 +194,7 @@ structures = Dictionary[String, bool]({
 "Solar panel": false,
 "Tool library": false,
 "Tree": false,
-"Vegetables": true,
+"Vegetables": false,
 "Vertical garden": true,
 "Waste bin": true
 })
@@ -272,32 +272,36 @@ script = ExtResource("16_oq7qv")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("3_80kqf")]
 
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="10"]
+[node name="prefab_entry_tall" parent="DesignTestScene" index="2"]
+transform = Transform3D(-4.34639e-08, 0, 0.994337, 0, 0.994337, 0, -0.994337, 0, -4.34639e-08, -11.0376, 0, 11.4405)
+
+[node name="prefab_noentry_tall6" parent="DesignTestScene" index="9"]
 visible = false
 
-[node name="PlayerScale" parent="DesignTestScene" index="38"]
+[node name="PlayerScale" parent="DesignTestScene" index="36"]
 visible = false
 
-[node name="buildable_dirtpatch" parent="DesignTestScene" index="45"]
+[node name="buildable_dirtpatch" parent="DesignTestScene" index="43"]
 process_mode = 4
 visible = false
 
-[node name="buildable_dirtpatch2" parent="DesignTestScene" index="46"]
+[node name="buildable_dirtpatch2" parent="DesignTestScene" index="44"]
 process_mode = 4
 visible = false
 
-[node name="buildable_dirtpatch3" parent="DesignTestScene" index="47"]
+[node name="buildable_dirtpatch3" parent="DesignTestScene" index="45"]
 process_mode = 4
 visible = false
 
 [node name="SurfaceMap" parent="DesignTestScene/buildable_dirtpatch3/BuildableSurface" index="0"]
 visible = false
 
-[node name="buildable_dirtpatch4" parent="DesignTestScene" index="48"]
+[node name="buildable_dirtpatch4" parent="DesignTestScene" index="46"]
 process_mode = 4
 visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1.00407, 0, 0, 0, 1.00407, 0, 0, 0, 1.00407, -0.443757, 0.0828428, 0.172962)
 navigation_mesh = SubResource("NavigationMesh_ntgmv")
 
 [node name="Terrain" type="Node3D" parent="NavigationRegion3D"]
