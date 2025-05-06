@@ -1,6 +1,0 @@
-Te: Hm... Let's see here...
-Te scans the Community Board for any open work orders.
-Te: Hm, a work order to build a... 'hygiene station'? \
-Ugh, just call it a shower! Anyway, guess I'll start with that...
-do QuestManager.start_quest("qst_build1")
-do StructureManager.register_structure("Hygiene station")

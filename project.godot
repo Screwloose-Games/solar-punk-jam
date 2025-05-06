@@ -72,25 +72,19 @@ variables={
 "a1d2_wastebin": false,
 "board_active": false,
 "board_met": false,
-"board_progress": 0,
 "built_compost": false,
 "built_donation": false,
 "built_hygiene": false,
 "built_rain_barrel": false,
 "built_raised_bed": false,
 "built_vplanter": false,
-"materials_collected": 0,
 "mister_active": false,
 "mister_met": false,
-"mister_progress": 0,
 "mom_active": false,
-"mom_met": true,
-"mom_progress": 0,
+"mom_met": false,
 "res_material": 0,
 "trin_active": false,
-"trin_met": false,
-"trin_progress": 0,
-"trin_turn_in": false
+"trin_met": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

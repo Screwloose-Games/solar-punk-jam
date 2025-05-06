@@ -1,9 +1,0 @@
-[signal arg="dialogue"]
-main_char: Hi there, can you help me with this dialogue camera test?
-fischer: Sure thing! What do I need to do?
-main_char: You're already helping out, in fact. All we gotta do is keep gabbing while the camera does it's thing.
-[signal arg="closeup"]
-fischer: REALLY? How incredible! That warrants an EXTREME CLOSEUP REACTION SHOT!
-[signal arg="dialogue"]
-main_char: OK dude, you're gettin' a little TOO into it. You're at an 8, and we need you at a 3. Maybe 4, tops.
-[signal arg="normal"]
