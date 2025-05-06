@@ -15,4 +15,5 @@ func _on_quest_change():
 
 
 func _on_interacted(player: Player):
+	GlobalSignalBus.talked_to.emit(npc_id)
 	visible = false

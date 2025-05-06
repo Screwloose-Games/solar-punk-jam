@@ -76,6 +76,7 @@ var player_mode: PlayerMode = PlayerMode.TRAVEL:
 				camera_mode = CameraMode.THIRD_PERSON
 				move_mode = MoveMode.DIRECTIONAL
 			PlayerMode.BUILD:
+				GlobalSignalBus.activated_build_mode.emit()
 				camera_mode = CameraMode.ISOMETRIC
 				move_mode = MoveMode.NONE
 

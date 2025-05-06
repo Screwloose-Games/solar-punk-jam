@@ -23,6 +23,7 @@ func _on_board_closed():
 
 
 func _on_quest_accepted():
+	GlobalSignalBus.community_board_quest_accepted.emit()
 	community_board_canvas_layer.visible = false
 	QuestManager.start_quest_resource(quest_list[quest_index])
 	Dialogic.VAR.board_active = true
@@ -30,6 +31,7 @@ func _on_quest_accepted():
 
 
 func _on_interacted(player: Player):
+	GlobalSignalBus.community_board_interacted.emit()
 	if !Dialogic.VAR.board_active:
 		community_board_canvas_layer.visible = !community_board_canvas_layer.visible
 	else:

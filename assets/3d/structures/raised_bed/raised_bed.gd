@@ -25,6 +25,7 @@ func _on_day_cycle_end():
 	mature_crops()
 
 func show_ui():
+	GlobalSignalBus.seed_ui_shown.emit()
 	structure_interact_canvas_layer.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -78,4 +79,5 @@ func plant_crop(new_crop: Crop):
 	EnvironmentManager.spend_resources(Crop.planting_requirements)
 	crop = new_crop
 	add_crop_visuals(crop.planted_scene)
+	GlobalSignalBus.seed_planted.emit(new_crop)
 	hide_ui()
