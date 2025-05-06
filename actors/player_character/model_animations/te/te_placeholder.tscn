@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://dulsr3d3tohn5"]
 
-[ext_resource type="PackedScene" uid="uid://cfcae4wp7j8xj" path="res://actors/player_character/model_animations/trin/trin_placeholder.gltf" id="1_6bjq5"]
-[ext_resource type="Texture2D" uid="uid://ba3u45yrt05tb" path="res://actors/player_character/model_animations/trin/texture_diffuse.png" id="2_ogqr0"]
-[ext_resource type="Texture2D" uid="uid://dkfmw074jwoj4" path="res://actors/player_character/model_animations/trin/texture_metallic.png" id="3_gephn"]
-[ext_resource type="Texture2D" uid="uid://c577axobnwyee" path="res://actors/player_character/model_animations/trin/texture_normal.png" id="4_3pxxx"]
-[ext_resource type="Texture2D" uid="uid://dfk2h8pikyyso" path="res://actors/player_character/model_animations/trin/texture_roughness.png" id="5_ym4cw"]
+[ext_resource type="PackedScene" uid="uid://cfcae4wp7j8xj" path="res://actors/player_character/model_animations/te/te_placeholder.gltf" id="1_6k0fr"]
+[ext_resource type="Texture2D" uid="uid://ba3u45yrt05tb" path="res://actors/player_character/model_animations/te/texture_diffuse.png" id="2_krk8t"]
+[ext_resource type="Texture2D" uid="uid://dkfmw074jwoj4" path="res://actors/player_character/model_animations/te/texture_metallic.png" id="3_rllvb"]
+[ext_resource type="Texture2D" uid="uid://c577axobnwyee" path="res://actors/player_character/model_animations/te/texture_normal.png" id="4_owdwe"]
+[ext_resource type="Texture2D" uid="uid://dfk2h8pikyyso" path="res://actors/player_character/model_animations/te/texture_roughness.png" id="5_svsho"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4txly"]
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("2_ogqr0")
+albedo_texture = ExtResource("2_krk8t")
 metallic = 1.0
-metallic_texture = ExtResource("3_gephn")
-roughness_texture = ExtResource("5_ym4cw")
+metallic_texture = ExtResource("3_rllvb")
+roughness_texture = ExtResource("5_svsho")
 emission_enabled = true
 emission_energy_multiplier = 0.2
-emission_texture = ExtResource("2_ogqr0")
+emission_texture = ExtResource("2_krk8t")
 normal_enabled = true
-normal_texture = ExtResource("4_3pxxx")
+normal_texture = ExtResource("4_owdwe")
 
-[node name="trin_placeholder" instance=ExtResource("1_6bjq5")]
+[node name="trin_placeholder" instance=ExtResource("1_6k0fr")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-0.0385804, 1.02043, -84.571)
