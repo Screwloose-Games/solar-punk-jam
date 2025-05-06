@@ -29,7 +29,7 @@ objectives = Array[ExtResource("1_rqfjc")]([SubResource("Resource_rqfjc"), SubRe
 unlock_structure = ""
 rewards = Dictionary[String, int]({
 "Happiness": 5,
-"Material": 3,
+"Materials": 3,
 "Seeds": 1
 })
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

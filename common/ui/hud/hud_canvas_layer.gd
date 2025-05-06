@@ -41,7 +41,7 @@ func update_time_hud(_offset):
 	%AmPm.text = "PM" if time.is_pm else "AM"
 
 func refresh_resources_ui():
-	$HUD/LeftMiddleMarginContainer.show()
+	#$HUD/LeftMiddleMarginContainer.show()
 	for i in EnvironmentManager.current_resources:
 		var q = EnvironmentManager.current_resources[i]
 		var t = i + ": " + str(q)

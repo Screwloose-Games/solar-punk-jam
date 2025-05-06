@@ -19,6 +19,8 @@ const STRUCTURE_MAP = {
 	13 : "built_vplanter",
 	20 : "built_donation"
 }
+const TUTORIALS = ["a1d1_trin"]
+
 var quests : Array[Quest] = []
 
 signal quest_started(quest_id : String)
@@ -30,7 +32,12 @@ func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
 	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
 	StructureManager.StructureBuilt.connect(update_structures)
-	QuestManager.start_quest("qst_a1d1_intro")
+	# Global bus toggles
+	GlobalSignalBus.talked_to.connect(update_talk)
+	GlobalSignalBus.seed_planted.connect(update_crop)
+	GlobalSignalBus.community_board_interacted.connect(update_misc.bind("board_met"))
+	GlobalSignalBus.activated_build_mode.connect(update_misc.bind("entered_build"))
+	GlobalSignalBus.seed_ui_shown.connect(update_misc.bind("entered_plant"))
 
 
 func start_quest(file_name : String):
@@ -65,13 +72,29 @@ func update_resources():
 	check_quests()
 
 
+func update_crop(crop : Crop):
+	match crop.type:
+		Crop.CropType.RADISH:
+			Dialogic.VAR.crop_radish += 1
+	check_quests()
+
+
+func update_talk(npc_id : String):
+	Dialogic.VAR[npc_id + "_met"] = true
+	check_quests()
+
+
+func update_misc(flag : String):
+	Dialogic.VAR[flag] = true
+	check_quests()
+
+
 func check_quests(_changes : Dictionary = {}):
 	for quest in quests:
 		quest.check_progress()
 
+
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false
-	Dialogic.VAR[giver + "_progress"] += 1
-	print("Progress for NPC %s increased to %d" % [giver, Dialogic.VAR[giver + "_progress"]])
 	quest_completed.emit(giver)

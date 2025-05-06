@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://c7wl0wf1h18bp"]
+[gd_scene load_steps=33 format=3 uid="uid://c7wl0wf1h18bp"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
+[ext_resource type="Script" uid="uid://db5ro3a1jvpko" path="res://levels/main_level/level_mvp.gd" id="1_8y16s"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="1_ority"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="3_80kqf"]
@@ -162,6 +163,7 @@ editor_description = "1. Wake up at home
     2. ~~Add quest to quest menu (retrieve book for Mister)~~
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
+script = ExtResource("1_8y16s")
 
 [node name="JunkRegenerator" type="Node" parent="."]
 editor_description = "Regenerates Junk on the map at a programmabe rate"
