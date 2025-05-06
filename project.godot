@@ -46,6 +46,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "a1d1_intro": "res://narrative/timelines/a1d1_intro.dtl",
+"a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "timelines/kai_DAY2S1_ Starts_Delivery": "res://narrative/timelines/kai_DAY2S1_ Starts_Delivery.dtl",

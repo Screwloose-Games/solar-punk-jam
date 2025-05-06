@@ -9,6 +9,7 @@ description = "Talk to Trin"
 quest_value = "trin_met"
 goal = 1
 prerequisites = Array[int]([])
+play_dialogue = ""
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_mbbq3"]
@@ -17,6 +18,7 @@ description = "Go into Build Mode (B)"
 quest_value = "entered_build"
 goal = 1
 prerequisites = Array[int]([0])
+play_dialogue = "prog1"
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_se44t"]
@@ -25,6 +27,7 @@ description = "Build a vertical planter"
 quest_value = "built_vplanter"
 goal = 1
 prerequisites = Array[int]([1])
+play_dialogue = "prog2"
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_t80vs"]
@@ -33,6 +36,7 @@ description = "Collect soil"
 quest_value = "res_soil"
 goal = 1
 prerequisites = Array[int]([2])
+play_dialogue = "prog3"
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_0eyh0"]
@@ -41,6 +45,7 @@ description = "Collect water"
 quest_value = "res_water"
 goal = 1
 prerequisites = Array[int]([3])
+play_dialogue = "prog4"
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_svb1w"]
@@ -49,6 +54,7 @@ description = "Go into Planting Mode"
 quest_value = "entered_plant"
 goal = 1
 prerequisites = Array[int]([4])
+play_dialogue = ""
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [sub_resource type="Resource" id="Resource_uq8a5"]
@@ -57,6 +63,7 @@ description = "Plant radishes"
 quest_value = "crop_radish"
 goal = 1
 prerequisites = Array[int]([5])
+play_dialogue = "prog5"
 metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 
 [resource]

@@ -5,6 +5,7 @@ class_name QuestObjective
 @export var quest_value : String = ""
 @export var goal : int = 1
 @export var prerequisites : Array[int] = []
+@export var play_dialogue : String = ""
 
 var progress : int = 0
 var is_active : bool = false

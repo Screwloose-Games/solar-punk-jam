@@ -19,6 +19,8 @@ const STRUCTURE_MAP = {
 	13 : "built_vplanter",
 	20 : "built_donation"
 }
+const TUTORIALS = ["a1d1_trin"]
+
 var quests : Array[Quest] = []
 
 signal quest_started(quest_id : String)
@@ -71,7 +73,7 @@ func update_resources():
 
 
 func update_crop(crop : Crop):
-	match crop.crop_type:
+	match crop.type:
 		Crop.CropType.RADISH:
 			Dialogic.VAR.crop_radish += 1
 	check_quests()

@@ -11,7 +11,6 @@ class_name Quest
 	"Happiness" : 5
 }
 
-var progress : int = 0
 var is_complete : bool = false
 
 signal quest_state_changed
@@ -44,6 +43,8 @@ func check_progress():
 						objective.progress = objective.goal
 						objective.is_completed = true
 						objective.is_active = false
+						if objective.play_dialogue != "":
+							Dialogic.start(id, objective.play_dialogue)
 						_on_objective_completed()
 					else:
 						objective.progress = int(check_value)
@@ -64,11 +65,14 @@ func _on_objective_completed():
 					objective.is_unlocked = true
 					objective.is_active = true
 	# Check for overall completion
-	var complete_check = true
+	var all_complete = true
+	var progress = 0
 	for objective in objectives:
 		if !objective.is_completed:
-			complete_check = false
-	if complete_check:
+			all_complete = false
+		else:
+			progress += 1
+	if all_complete:
 		is_complete = true
 		for reward in rewards.keys():
 			EnvironmentManager.gain_resource(reward, rewards[reward])
