@@ -76,6 +76,7 @@ var player_mode: PlayerMode = PlayerMode.TRAVEL:
 				camera_mode = CameraMode.THIRD_PERSON
 				move_mode = MoveMode.DIRECTIONAL
 			PlayerMode.BUILD:
+				GlobalSignalBus.activated_build_mode.emit()
 				camera_mode = CameraMode.ISOMETRIC
 				move_mode = MoveMode.NONE
 
@@ -115,7 +116,7 @@ func _physics_process(delta: float) -> void:
 	velocity = get_horizontal_velocity(delta)
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 10
 
 	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
 	
