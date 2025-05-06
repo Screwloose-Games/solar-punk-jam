@@ -11,6 +11,7 @@ class_name Quest
 	"Happiness" : 5
 }
 
+var progress : int = 0
 var is_complete : bool = false
 
 signal quest_state_changed

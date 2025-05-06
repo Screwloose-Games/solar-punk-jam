@@ -1,9 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
-[ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
-[ext_resource type="Texture2D" uid="uid://0dniwiqprj6j" path="res://assets/2d/ui/environment-health_icon-placeholder.png" id="3_6torc"]
-[ext_resource type="Texture2D" uid="uid://jaecwvmlp6nh" path="res://assets/2d/ui/weather-rainy_icon-placeholder.png" id="3_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
 [ext_resource type="Texture2D" uid="uid://cl0lr84e76vsa" path="res://assets/2d/ui/Envior-icon.png" id="3_8yxrh"]
 [ext_resource type="Theme" uid="uid://cr00fee06cge6" path="res://common/themes/quest_ui_theme.tres" id="4_8yxrh"]
@@ -347,6 +344,7 @@ layout_mode = 2
 text = "AM"
 
 [node name="LeftMiddleMarginContainer" type="MarginContainer" parent="HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
