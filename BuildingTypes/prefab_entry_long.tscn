@@ -11,19 +11,19 @@ script = ExtResource("1_7x0f8")
 
 [node name="GroundDoorway" parent="." index="3"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53338, 0, 0.304497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386571, 0.305235, -13.5979)
 
 [node name="CollisionShape3D" parent="GroundDoorway/InteractableArea3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.856725, -0.199265)
 
 [node name="Destination" parent="GroundDoorway" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03451, 5.83265, 5.79898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371498, 6.15504, 3.59382)
 
 [node name="RoofDoorway" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.19482, 6.67474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.655026, 6.79208, -9.83855)
 
 [node name="Destination" parent="RoofDoorway" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36211, -6.53744, -6.43046)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172387, -6.53744, -3.99243)
 
 [node name="sm_building_playerhouse" parent="." index="5" instance=ExtResource("3_x0ulv")]
 transform = Transform3D(0.00436342, 0, -0.99999, 0, 1, 0, 0.99999, 0, 0.00436342, 0.0304426, 0.0911951, 0.123144)
