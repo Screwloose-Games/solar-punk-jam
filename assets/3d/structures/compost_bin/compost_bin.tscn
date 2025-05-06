@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ug1av4aoknj3"]
+[gd_scene load_steps=4 format=3 uid="uid://cyqfwaujvc58l"]
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_fwah1"]
-[ext_resource type="PackedScene" uid="uid://j3lbixiydomm" path="res://assets/3d/structures/compost_bin/sm_compost.tscn" id="1_wqvcb"]
+[ext_resource type="PackedScene" uid="uid://myvhurhhx3mr" path="res://assets/3d/structures/compost_bin/sm_compost.tscn" id="1_wqvcb"]
 [ext_resource type="Script" uid="uid://c7covyf3dmtfg" path="res://assets/3d/structures/compost_bin/compost_bin.gd" id="2_wk4d3"]
 
 [node name="BuildableStructure" instance=ExtResource("1_fwah1")]
