@@ -24,6 +24,8 @@ func _ready() -> void:
 	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
 	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
 	$HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close.connect("pressed", close_popup_menu)
+	# Ensure we update UI on startup
+	refresh_resources_ui.call_deferred()
 
 func _on_act_updated(act_num: int):
 	act_number_label.text = str(act_num)
@@ -53,6 +55,10 @@ func refresh_resources_ui():
 			resource_ui_template.get_parent().add_child(ui)
 			ui.text = t
 			ui.show()
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/CommunityProgressBar.value = EnvironmentManager.current_resources.get("Happiness", 0)
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer/EnvironmentProgressBar.value = EnvironmentManager.current_resources.get("Environment", 0)
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/StatusLabel.text = str(EnvironmentManager.current_resources.get("Happiness", 0))
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer/StatusLabel.text = str(EnvironmentManager.current_resources.get("Environment", 0))
 
 class BuildableStructure:
 	var idx: int

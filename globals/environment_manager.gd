@@ -8,11 +8,13 @@ signal UpdatedAvailableResources
 signal act_updated(act_num: int)
 
 const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
-const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
+const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds", "Environment"]
+# These will not be enumerated in the HUD by default since they are displayed in other ways
+const hidden_resources = ["Happiness", "Environment"]
 
 var resource_storage_limits = {"Electricity":0, "Water":0}
 
-var current_resources = {}
+var current_resources = {"Happiness":10}
 var deposited_resources = {}
 var current_act: int = 1:
 	set(val):
