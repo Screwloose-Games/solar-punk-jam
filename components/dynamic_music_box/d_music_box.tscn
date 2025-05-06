@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr46xd2edebk3"]
+
+[sub_resource type="GDScript" id="GDScript_fsy24"]
+script/source = "extends Area3D
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jb7gu"]
+
+[node name="DMusicBox" type="Area3D"]
+process_mode = 3
+script = SubResource("GDScript_fsy24")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jb7gu")
