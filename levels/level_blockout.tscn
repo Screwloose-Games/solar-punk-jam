@@ -178,12 +178,6 @@ transform = Transform3D(0.999724, 0, -0.0234899, 0, 1, 0, 0.0234899, 0, 0.999724
 [node name="buildable_dirtpatch2" parent="." instance=ExtResource("8_41105")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.0737, 0, -11.2878)
 
-[node name="buildable_dirtpatch3" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2976, 0, 5.70512)
-
-[node name="buildable_dirtpatch4" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.63222, 0, 5.70512)
-
 [node name="Fence" type="CSGBox3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 31.6565, 0.414068, -28.3697)
 size = Vector3(0.960938, 1, 1)

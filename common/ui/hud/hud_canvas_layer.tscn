@@ -24,20 +24,20 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
-expand_margin_left = 6.0
-expand_margin_top = 6.0
-expand_margin_right = 6.0
-expand_margin_bottom = 6.0
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5quvr"]
-bg_color = Color(5.19812e-06, 0.658145, 0.854253, 1)
+bg_color = Color(0.231373, 0.815686, 0.952941, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owaxp"]
-bg_color = Color(0.408697, 0.68948, 0.0884156, 1)
+bg_color = Color(0.776471, 0.85098, 0.231373, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -138,7 +138,7 @@ texture = ExtResource("2_6torc")
 stretch_mode = 2
 
 [node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
-custom_minimum_size = Vector2(200, 14)
+custom_minimum_size = Vector2(200, 12)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_8yxrh")
@@ -146,12 +146,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5quvr")
 value = 66.0
 show_percentage = false
 
-[node name="CenterContainer" type="CenterContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
 layout_mode = 2
-
-[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "66.0"
+text = "100"
 
 [node name="EnvironmentHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
 layout_mode = 2
@@ -163,7 +160,7 @@ texture = ExtResource("3_8yxrh")
 stretch_mode = 2
 
 [node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
-custom_minimum_size = Vector2(200, 14)
+custom_minimum_size = Vector2(200, 12)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_8yxrh")
@@ -173,7 +170,7 @@ show_percentage = false
 
 [node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
 layout_mode = 2
-text = "33.0"
+text = "100"
 
 [node name="QuestMarginContainer" type="MarginContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer"]
 visible = false
