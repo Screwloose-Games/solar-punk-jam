@@ -22,6 +22,20 @@ enum SelfState {
 	IDLE,
 }
 
+@export var allow_player_input: bool = true:
+	set(val):
+		allow_player_input = val
+		if not interact_canvas_layer:
+			await ready
+		interact_canvas_layer.visible = allow_player_input
+
+@export var cutscene_mode_enabled: bool = false:
+	set(val):
+		cutscene_mode_enabled = val
+		allow_player_input = !cutscene_mode_enabled
+		if !cutscene_mode_enabled:
+			player_mode = PlayerMode.TRAVEL
+
 @export var camera_mode: CameraMode = CameraMode.THIRD_PERSON:
 	set(val):
 		camera_mode = val
@@ -60,6 +74,7 @@ enum SelfState {
 
 @onready var interact_area_3d: InteractArea3D = %InteractArea3D
 @onready var build_area_3d: InteractArea3D = %BuildArea3D
+@onready var interact_canvas_layer: CanvasLayer = %InteractCanvasLayer
 
 
 var is_interacting: bool:
@@ -113,6 +128,8 @@ func get_horizontal_velocity(delta: float) -> Vector3:
 	return Vector3.ZERO
 		
 func _physics_process(delta: float) -> void:
+	if not allow_player_input:
+		return
 	velocity = get_horizontal_velocity(delta)
 	
 	if not is_on_floor():
