@@ -1,6 +1,5 @@
 extends Node
 
-@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var ground_doorway: Doorway = %GroundDoorway
 
 func _ready() -> void:
