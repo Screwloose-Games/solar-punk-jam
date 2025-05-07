@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://jfx77i3uexjk"]
+
+[ext_resource type="PackedScene" uid="uid://xa0t2gwhefv8" path="res://assets/3d/structures/community_waste_bin/sm_wastebin_full_grp.gltf" id="1_owmof"]
+
+[node name="sm_wastebin_full_grp" instance=ExtResource("1_owmof")]

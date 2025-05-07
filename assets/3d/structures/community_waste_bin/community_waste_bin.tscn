@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_roiyp"]
 [ext_resource type="Script" uid="uid://ublgji50bx8u" path="res://assets/3d/structures/community_waste_bin/waste_bin.gd" id="2_ndh12"]
-[ext_resource type="PackedScene" uid="uid://djg2v3yaqs2e5" path="res://assets/3d/structures/wastebin/sm_wastebin_empty.gltf" id="3_srsw2"]
-[ext_resource type="PackedScene" uid="uid://xa0t2gwhefv8" path="res://assets/3d/structures/wastebin/sm_wastebin_full_grp.gltf" id="4_05ews"]
+[ext_resource type="PackedScene" uid="uid://cemi1yj0w04xp" path="res://assets/3d/structures/community_waste_bin/sm_wastebin_empty.tscn" id="3_srsw2"]
+[ext_resource type="PackedScene" uid="uid://jfx77i3uexjk" path="res://assets/3d/structures/community_waste_bin/sm_wastebin_full_grp.tscn" id="4_05ews"]
 
 [node name="BuildableStructure" instance=ExtResource("1_roiyp")]
 editor_description = "Players receive food waste and seeds from the NPCs in relation to the food they’ve donated the day before. Assuming the player plants recurring plants, a 1:1 would allow for growth. For example:

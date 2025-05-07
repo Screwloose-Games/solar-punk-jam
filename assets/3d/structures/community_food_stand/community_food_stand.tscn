@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_uw45i"]
 [ext_resource type="Script" uid="uid://boafcdeptvht8" path="res://assets/3d/structures/community_food_stand/food_stand.gd" id="2_5fhlr"]
-[ext_resource type="PackedScene" uid="uid://bi44qdst7il0j" path="res://assets/3d/structures/foodstand/sm_foodstand_grp.gltf" id="3_5fhlr"]
+[ext_resource type="PackedScene" uid="uid://qmybjelmqunr" path="res://assets/3d/structures/community_food_stand/sm_foodstand_grp.tscn" id="3_5fhlr"]
 
 [node name="BuildableStructure" instance=ExtResource("1_uw45i")]
 editor_description = "Players can donate the food they harvest to the food stand, earning them +1 community health for each food item donated."
