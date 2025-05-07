@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cavstaugats5w"]
+
+[ext_resource type="Script" uid="uid://cmhjku734cxtg" path="res://test/scenarios/test_dynamic_music/test_dynamic_synced_calls.gd" id="1_witxw"]
+
+[node name="TestDynamicSyncedCalls" type="Node"]
+script = ExtResource("1_witxw")

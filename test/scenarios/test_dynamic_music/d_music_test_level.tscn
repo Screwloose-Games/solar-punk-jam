@@ -1,0 +1,181 @@
+[gd_scene load_steps=16 format=3 uid="uid://0h162r70q030"]
+
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="2_vhwq8"]
+[ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="6_wrs1c"]
+[ext_resource type="Script" uid="uid://cao3mbil5qlso" path="res://components/dynamic_music_box/d_music_box.gd" id="7_0a35c"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_8o02x"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="11_bdvqt"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="13_cjieu"]
+[ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="22_6g8qt"]
+
+[sub_resource type="GDScript" id="GDScript_0a35c"]
+script/source = "extends Node3D
+"
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ntgmv"]
+vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3w63i"]
+height = 1.5
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdt6n"]
+albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
+size = Vector2(150, 150)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ppxl0"]
+size = Vector2(15, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxnig"]
+size = Vector3(100.533, 46.29, 99.8284)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wrs1c"]
+size = Vector3(15, 15, 15)
+
+[node name="LevelMvp" type="Node3D"]
+editor_description = "1. Wake up at home
+    1. You start outside the front door.
+2. Go to your home’s roof to harvest crops from raised bed → add food to inventory
+    1. when you are next to the door, it shows “enter” as part of interact
+    2. The food is ready to harvest. 
+        1. There is a raised bed, it can have plants on it. The plants can be in different growth states (seedling, growing, mature). When you “interact”, when it is mature, you harvest it.
+    3. click to harvest
+    4. If it’s a single-harvest plant, bed gets reset to empty.
+    5. If it’s a recurring plant, it goes back to being earlier growth. x game hours yield wait period.
+3. Collect water and soil from the compost bin and rain barrel on your roof → add to inventory
+    1. Click on rain barrel, adds x water to your inventory.
+        1. The rain barrel can hold water. When you interact with it, you collect water from it. (Interact, collect)
+    2. Click on compost bin to add x compost to inventory
+        1. You can collect from an object while interacting with it (collect on interact). There is a compost bin structure with this interact to collect ability. When you interact with the compost bin, your resource count in the UI increments by 1
+4. Walk to community hub
+    1. Donate food
+        1. Click on food stand (interact)
+        2. Remove food from inventory
+        3. Increase community health by +1
+    2. Collect waste
+        1. Click on waste reciprocal 
+        2. Add waste to inventory (based on how much food was donated day before or last interaction)
+        3. Add seeds to inventory (based on how much food was donated day before or last interaction)
+            
+            ![ChatGPT Image Apr 27, 2025, 06_37_39 PM.png](attachment:d87d3a4e-59d0-4afe-b033-99370472a271:ChatGPT_Image_Apr_27_2025_06_37_39_PM.png)
+            
+    3. View community bulletin board
+        1. There’s an indicator of a pending community note on the community board
+        2. Click on community board
+        3. View new note that asks for structure to be built
+        4. Structure “unlocks” in build mode
+        5. Structure added to quest with number of materials needed
+    
+    [Create a community board](https://www.notion.so/Create-a-community-board-1e2e3beb843f80518e14e1772c19e993?pvs=21)
+    
+    Build a solar panel
+    
+    1. Check **donation chest**
+        1. Add materials to inventory
+    
+5. Go to neighbor’s roof to harvest crops —> add food to inventory
+    1. The food is ready to harvest.
+    2. click to harvest
+    3. If it’s a single-harvest plant, bed gets reset to empty.
+    4. If it’s a recurring plant, it goes back to being earlier growth. x game hours yield wait period.
+6. Add waste to compost bin on neighbor’s roof
+    1. Click on compost bin
+    2. Subtract waste from inventory 
+    3. Set timer
+    4. Add soil to compost bin after X real-time minutes 
+7. Plant new seeds in recently harvested raised bed with compost, water, and seeds 
+    1. Click raised bed/garden
+    2. Simple version: automatically subtract 1 compost, 1 water, 1 seed from inventory
+    3. Set timer
+    4. Add seedling after x real-time minutes
+    5. Add plant and make harvestable after x real-time minutes
+8. Build
+    1. Option 1: deliver materials to workshop, select structure you want to build from build menu) get structure in inventory or toggle it active or something in build menu (this may need to be on a time delay for pacing issues)
+    2. Option 2: deliver materials to your choice of build site, construction in progress asset appears, after x in-time the structure appears
+9. ~~Talk to another NPC → get new Quest~~
+    1. ~~NPC gives you a quest~~
+    2. ~~Add quest to quest menu (retrieve book for Mister)~~
+10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
+11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
+script = SubResource("GDScript_0a35c")
+
+[node name="Environment" parent="." instance=ExtResource("2_vhwq8")]
+day_length_in_game_hours = 14.0
+
+[node name="MainCamera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -3.82898, 2.86358, 18.1236)
+
+[node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("9_8o02x")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ntgmv")
+
+[node name="Terrain" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+use_collision = true
+collision_layer = 2
+size = Vector3(100, 1, 100)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D"]
+carve_navigation_mesh = true
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("11_bdvqt")]
+layer = 5
+
+[node name="Player" parent="." instance=ExtResource("13_cjieu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82898, 1.66893e-06, 15.0925)
+
+[node name="Trin" parent="." instance=ExtResource("22_6g8qt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5012)
+
+[node name="DynamicMusicRegion" type="Area3D" parent="Trin"]
+script = ExtResource("7_0a35c")
+region_id = "Trin"
+track_idx = 1
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trin/DynamicMusicRegion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.517517, -0.199265)
+shape = SubResource("CylinderShape3D_3w63i")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.997527, 0, 0, 0, 0.997527, 0, 0, 0, 0.863667, -0.754, 0, -4.342)
+material_override = SubResource("StandardMaterial3D_pdt6n")
+mesh = SubResource("PlaneMesh_qst22")
+
+[node name="Pavement6" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.716528, 0.00999809, 6.73156)
+material_override = ExtResource("6_wrs1c")
+mesh = SubResource("PlaneMesh_ppxl0")
+skeleton = NodePath("")
+
+[node name="DynamicMusicRegion" type="Area3D" parent="."]
+script = ExtResource("7_0a35c")
+region_id = "Main"
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusicRegion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.413086, 0.642187)
+shape = SubResource("BoxShape3D_rxnig")
+
+[node name="DynamicMusicRegion2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05827)
+script = ExtResource("7_0a35c")
+region_id = "woods"
+track_idx = 1
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusicRegion2"]
+shape = SubResource("BoxShape3D_wrs1c")
