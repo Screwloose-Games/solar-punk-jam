@@ -2,6 +2,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tspuu"]
 bg_color = Color(0.219608, 0.301961, 0.34902, 0.631373)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_tspuu")
