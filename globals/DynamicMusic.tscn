@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bin80vom4y8v0"]
 
-[ext_resource type="AudioStream" uid="uid://d0sbs2bvhokrr" path="res://common/audio/music/m_44_83bmp_f_overworld_main_lp.wav" id="1_s4mke"]
+[ext_resource type="AudioStream" uid="uid://cof1gsphtelql" path="res://common/audio/music/m_44_83bmp_f_overworld_main_lp.ogg" id="1_rdc84"]
 [ext_resource type="Script" uid="uid://c5rkjw4ipjjqc" path="res://globals/DynamicMusic.gd" id="2_rdc84"]
-[ext_resource type="AudioStream" uid="uid://duq0kr21eabnk" path="res://common/audio/music/m_44_83bmp_f_overworld_woods_lp.wav" id="2_slerk"]
+[ext_resource type="AudioStream" uid="uid://3y4vqeunphpf" path="res://common/audio/music/m_44_83bmp_f_overworld_woods_lp.ogg" id="2_slerk"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ktw0i"]
 stream_count = 2
-stream_0/stream = ExtResource("1_s4mke")
+stream_0/stream = ExtResource("1_rdc84")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("2_slerk")
 stream_1/volume = 0.0
