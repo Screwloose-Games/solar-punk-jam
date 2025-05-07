@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyb6nwaiae8ea"]
+[gd_scene load_steps=23 format=3 uid="uid://dyb6nwaiae8ea"]
 
 [ext_resource type="Script" uid="uid://nblr465pgu85" path="res://components/buildable_surface.gd" id="1_5i2rm"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="2_q4s4m"]
@@ -92,6 +92,19 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_qgdfq")
 orientation = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phaic"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(1, 0, 0, 0.25098)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_74j1h"]
+material = SubResource("StandardMaterial3D_phaic")
+orientation = 1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snj21"]
 albedo_color = Color(1, 0.458824, 1, 1)
 
@@ -155,6 +168,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.06, 0.5)
 cast_shadow = 0
 mesh = SubResource("QuadMesh_6cebu")
 skeleton = NodePath("../../..")
+
+[node name="SelectionPlaceholder" type="MeshInstance3D" parent="StructurePlaceholder/SelectionPlaceholder"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_74j1h")
+skeleton = NodePath("../../../..")
 
 [node name="SurfaceDebugHint" type="MeshInstance3D" parent="."]
 visible = false
