@@ -351,7 +351,6 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
 transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -4.25633, 3.14492, -9.12453)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
