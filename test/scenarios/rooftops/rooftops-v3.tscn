@@ -16,6 +16,8 @@
 shader = ExtResource("5_pn273")
 shader_parameter/frequency = 0.0
 shader_parameter/size = 0.015
+shader_parameter/vignette_radius = 0.3
+shader_parameter/vignette_smoothness = 0.2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
 
@@ -657,9 +659,6 @@ skeleton = NodePath("../../..")
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("8_o6cd6")]
 
 [node name="TopLeftMarginContainer" parent="HUDCanvasLayer/HUD" index="0"]
-visible = false
-
-[node name="LeftMiddleMarginContainer" parent="HUDCanvasLayer/HUD" index="2"]
 visible = false
 
 [node name="TooltipLabel" parent="HUDCanvasLayer/HUD" index="5"]

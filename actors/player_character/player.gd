@@ -109,11 +109,12 @@ func _ready() -> void:
 	build_area_3d.stopped_interacting.connect(_on_stopped_building)
 	
 func _on_started_building():
+	interact_canvas_layer.hide()
 	player_mode = PlayerMode.BUILD
 	
 func _on_stopped_building():
 	player_mode = PlayerMode.TRAVEL
-	
+	interact_canvas_layer.show()
 
 func change_camera_priority(priority_camera: PhantomCamera3D):
 	var all_cams = PhantomCameraManager.get_phantom_camera_3ds()
@@ -132,11 +133,21 @@ func get_horizontal_velocity(delta: float) -> Vector3:
 		MoveMode.NONE:
 			return Vector3.ZERO
 	return Vector3.ZERO
+
+func handle_build_mode():
+	var input_direction: Vector2 = Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Backward")
+	if input_direction != Vector2.ZERO:
+		player_mode = PlayerMode.TRAVEL
+		build_area_3d.is_interacting = false
 		
+
 func _physics_process(delta: float) -> void:
 	if not allow_player_input:
 		return
 	velocity = get_horizontal_velocity(delta)
+	
+	if player_mode == PlayerMode.BUILD:
+		handle_build_mode()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 10

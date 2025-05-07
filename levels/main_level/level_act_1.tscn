@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=34 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
@@ -24,7 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="22_rlc83"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="23_i4uv0"]
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="24_c2ahp"]
-[ext_resource type="PackedScene" path="res://assets/3d/structures/compost_bin/compost_bin.tscn" id="25_mfuku"]
+[ext_resource type="PackedScene" uid="uid://cyqfwaujvc58l" path="res://assets/3d/structures/compost_bin/compost_bin.tscn" id="25_mfuku"]
+[ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
+[ext_resource type="PackedScene" uid="uid://dulhp5ynw5nqr" path="res://assets/3d/structures/community_food_stand/community_food_stand.tscn" id="27_gh1ua"]
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
@@ -289,6 +291,23 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 [node name="SelectionPlaceholder" parent="DirtBuildableSurface/StructurePlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
+[node name="TrinBuildableSurface2" parent="." instance=ExtResource("8_34qyl")]
+transform = Transform3D(-0.0110652, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0110652, -31.3408, 0, 1.45736)
+is_active = false
+
+[node name="SurfaceMap" parent="TrinBuildableSurface2" index="0"]
+tile_set = SubResource("TileSet_ejtm4")
+layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7, -131076, 131072, 7, -65540, 131072, 7, -4, 131072, 7, 65532, 131072, 7, 131068, 131072, 7, 196604, 131072, 7, -131075, 131072, 7, -65539, 131072, 7, -3, 131072, 7, 65533, 131072, 7, 131069, 131072, 7, 196605, 131072, 7, -131074, 131072, 7, 196606, 131072, 7, -131073, 131072, 7, 196607, 131072, 7, -196608, 131072, 7, 131072, 131072, 7, -196607, 131072, 7, 131073, 131072, 7, -196606, 131072, 7, -131070, 131072, 7, -65534, 131072, 7, 2, 131072, 7, 65538, 131072, 7, 131074, 131072, 7, -196605, 131072, 7, -131069, 131072, 7, -65533, 131072, 7, 3, 131072, 7, 65539, 131072, 7, 131075, 131072, 7, 65540, 131072, 7, 4, 131072, 7, -65532, 131072, 7, -131068, 131072, 7, -65541, 131072, 7, -5, 131072, 7, 65531, 131072, 7, 131067, 131072, 7, 131066, 131072, 7, 65530, 131072, 7, -6, 131072, 7, -65542, 131072, 7, -131067, 131072, 7, -65531, 131072, 7, 5, 131072, 7, 65541, 131072, 7, -131078, 131072, 7, -131077, 131072, 7, -196604, 131072, 7, -196603, 131072, 7, 131077, 131072, 7, 131076, 131072, 7, 196603, 131072, 7, 196602, 131072, 7)
+
+[node name="SelectionPlaceholder" parent="TrinBuildableSurface2" index="1"]
+skeleton = NodePath("../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
+[node name="SelectionPlaceholder" parent="TrinBuildableSurface2/SelectionPlaceholder" index="0"]
+skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
+[node name="SelectionPlaceholder" parent="TrinBuildableSurface2/StructurePlaceholder" index="0"]
+skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
 [node name="HomeBuildableSurface" parent="." instance=ExtResource("8_34qyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3745, 4.0708, -13.0903)
 is_active = false
@@ -342,8 +361,17 @@ script = ExtResource("12_cxy8c")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("13_xerwd")]
 
+[node name="prefab_entry_tall2" parent="DesignTestScene" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.7943, 0, -7.74037)
+
 [node name="prefab_noentry_tall6" parent="DesignTestScene" index="9"]
 visible = false
+
+[node name="prefab_noentry_tall9" parent="DesignTestScene" index="12"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -11.274)
+
+[node name="prefab_noentry_tall10" parent="DesignTestScene" index="13"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -4.68782)
 
 [node name="PlayerScale" parent="DesignTestScene" index="36"]
 visible = false
@@ -354,6 +382,7 @@ visible = false
 
 [node name="buildable_dirtpatch2" parent="DesignTestScene" index="44"]
 process_mode = 4
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.0737, 0, 1.80815)
 visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -386,7 +415,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25633, 0.281344, -12.1556)
 speed = 20.0
 
 [node name="CommBoard" parent="." instance=ExtResource("17_u0qwm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)
+transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
 quest_list = Array[ExtResource("18_apu60")]([ExtResource("19_ru0g3")])
 
 [node name="Kai" parent="." instance=ExtResource("20_x787j")]
@@ -416,16 +445,24 @@ omni_attenuation = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
 
 [node name="Trin" parent="." instance=ExtResource("24_c2ahp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5012)
+transform = Transform3D(-0.536549, 0, 0.843869, 0, 1, 0, -0.843869, 0, -0.536549, -26.6671, 0.00154209, 5.30422)
 
-[node name="BuildableStructure" parent="." instance=ExtResource("25_mfuku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68655, 0.00590925, 9.72864)
+[node name="TrinCompost" parent="." instance=ExtResource("25_mfuku")]
+transform = Transform3D(-0.998063, 0, -0.0622157, 0, 1, 0, 0.0622157, 0, -0.998063, -29.5158, 0.00590925, 4.49534)
 
 [node name="RespawnMarker3D" type="Marker3D" parent="." groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0279, 0, 15.2942)
 
+[node name="TrinRainBarrel" parent="." instance=ExtResource("26_abo5y")]
+transform = Transform3D(0.264631, 0, 0.96435, 0, 1, 0, -0.96435, 0, 0.264631, -32.3206, 0.00147895, 4.52847)
+
+[node name="BuildableStructure" parent="." instance=ExtResource("27_gh1ua")]
+transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.88256, 2.5332e-07, 14.2494)
+
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
+[editable path="TrinBuildableSurface2"]
+[editable path="TrinBuildableSurface2/InteractableBuildableArea"]
 [editable path="HomeBuildableSurface"]
 [editable path="HomeBuildableSurface/InteractableBuildableArea"]
 [editable path="sm_solar_panel"]
