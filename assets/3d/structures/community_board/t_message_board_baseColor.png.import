@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://w6fu7iu5ldw2"
-path.s3tc="res://.godot/imported/t_message_board_baseColor.png-658c08b7139632b6e202430ee396558c.s3tc.ctex"
+path.s3tc="res://.godot/imported/t_message_board_baseColor.png-d0bfc3d05cd3aaae4d720dbc25d2957e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3d/structures/community_message_board/t_message_board_baseColor.png"
-dest_files=["res://.godot/imported/t_message_board_baseColor.png-658c08b7139632b6e202430ee396558c.s3tc.ctex"]
+source_file="res://assets/3d/structures/community_board/t_message_board_baseColor.png"
+dest_files=["res://.godot/imported/t_message_board_baseColor.png-d0bfc3d05cd3aaae4d720dbc25d2957e.s3tc.ctex"]
 
 [params]
 

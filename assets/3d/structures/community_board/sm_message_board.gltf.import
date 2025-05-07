@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b41h8mygm35qp"
-path="res://.godot/imported/sm_message_board.gltf-bf254e6a708da74e4e27fe420f03f8db.scn"
+path="res://.godot/imported/sm_message_board.gltf-a10b7086740da12bbd3d47d8990f3e66.scn"
 
 [deps]
 
-source_file="res://assets/3d/structures/community_message_board/sm_message_board.gltf"
-dest_files=["res://.godot/imported/sm_message_board.gltf-bf254e6a708da74e4e27fe420f03f8db.scn"]
+source_file="res://assets/3d/structures/community_board/sm_message_board.gltf"
+dest_files=["res://.godot/imported/sm_message_board.gltf-a10b7086740da12bbd3d47d8990f3e66.scn"]
 
 [params]
 
