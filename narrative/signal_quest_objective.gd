@@ -21,6 +21,17 @@ class_name SignalQuestObjective
 ## Arguments expect passed to the signal
 @export var expected_args: Array
 
+var autoload_instance : Node
+
+
+func set_active(val : bool):
+	is_active = val
+	if is_active:
+		subscribe()
+	else:
+		autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
+
+
 func _on_autoload_signal_emitted(a = null, b = null, c = null, d = null):
 	var received_args = [a, b, c, d]
 	for i in expected_args.size():
@@ -29,31 +40,36 @@ func _on_autoload_signal_emitted(a = null, b = null, c = null, d = null):
 			return
 	event_occured()
 
+
 func event_occured():
 	if is_completed:
 		return
 	progress += 1
 	if progress >= goal:
 		is_completed = true
+		is_active = false
+	else:
+		progressed.emit()
 
-func subscribe(scene_tree: SceneTree):
+
+func subscribe():
+	# Validation check 1: Does the autoload exist?
+	var root_ref = Engine.get_main_loop().root
 	var autoload_node_path = "/root/" + autoload_name
-	if not scene_tree.root.has_node(autoload_node_path):
+	if not root_ref.has_node(autoload_node_path):
 		printerr("Autoload node '", autoload_name, "' not found in the scene tree.")
 		return
-	
-	var autoload_instance = scene_tree.root.get_node(autoload_node_path)
+	autoload_instance = root_ref.get_node(autoload_node_path)
 	if autoload_instance == null:
 		printerr("Failed to get autoload instance: ", autoload_name)
 		return
 
-	# 2. Check if the autoload instance has the signal
+	# Validation check 2: Does it have the correct signal?
 	if not autoload_instance.has_signal(signal_name):
 		printerr("Autoload '", autoload_name, "' does not have signal '", signal_name, "'.")
 		return
 
 	var error_code = autoload_instance.connect(signal_name, _on_autoload_signal_emitted)
-
 	if error_code == OK:
 		print("Successfully subscribed to signal '", signal_name, "' on autoload '", autoload_name, "'")
 	else:
