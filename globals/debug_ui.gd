@@ -16,7 +16,7 @@ func _ready() -> void:
 	player_speed_line_edit.text_submitted.connect(_on_speed_updated)
 	give_resources_button.pressed.connect(_on_give_resources_pressed)
 	unlock_structures_button.pressed.connect(_on_unlock_structures_pressed)
-	visibility_changed.connect(_on_visibility_changed)
+	debug_ui_margin_container.visibility_changed.connect(_on_visibility_changed)
 	if OS.is_debug_build():
 		show()
 	
@@ -41,7 +41,7 @@ func skip_to_timeline_end():
 			
 
 func _on_visibility_changed():
-	if visible:
+	if debug_ui_margin_container.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		var player: Player = get_tree().get_first_node_in_group("Player")
 		if player:
