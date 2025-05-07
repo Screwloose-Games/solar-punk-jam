@@ -89,7 +89,7 @@ frustum_offset = Vector2(0, 0)
 near = 0.05
 far = 4000.0
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_mask = 7
 wall_min_slide_angle = 1.0472
 floor_max_angle = 1.0472
