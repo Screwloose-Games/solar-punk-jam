@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_b5u7u"]
 script = ExtResource("1_b5u7u")
 description = "Return to your home roof."
-quest_value = "entered_home"
+quest_value = "player_entered_home"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
