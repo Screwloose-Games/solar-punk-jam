@@ -43,7 +43,8 @@ func animate_day(start_at=0.0):
 		animation_tween.kill()
 	animation_tween = create_tween()
 	animation_tween.tween_method(set_day_time, start_at, 1.0, day_length_in_seconds*(1.0-start_at))
-	animation_tween.tween_callback(animate_night)
+	# When the following callback is reached, the day ends "naturally" meaning the protagonist missed bedtime and therefore a penalty is applied
+	animation_tween.tween_callback(animate_night.bind(0.0, true))
 
 func end_day():
 	if EnvironmentManager.environment_model.is_daytime:
@@ -54,7 +55,9 @@ func end_day():
 		animation_tween.tween_method(set_day_time, EnvironmentManager.environment_model.offset, 1.0, min(day_length_in_seconds*(1.0-EnvironmentManager.environment_model.offset), night_length_in_seconds))
 		animation_tween.tween_callback(animate_night)
 
-func animate_night(start_at=0.0):
+func animate_night(start_at=0.0, bedtime_penalty=false):
+	if bedtime_penalty:
+		EnvironmentManager.gain_resource("Happiness", -10)
 	EnvironmentManager.day_cycle_end.emit()
 	$DirectionalLight3DSun.light_energy = 0.0
 	$DirectionalLight3DMoon.light_energy = 1.0

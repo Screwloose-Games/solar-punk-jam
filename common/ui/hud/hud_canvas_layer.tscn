@@ -136,9 +136,10 @@ size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="CommunityIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 texture = ExtResource("2_6torc")
-stretch_mode = 2
+stretch_mode = 3
 
 [node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
 custom_minimum_size = Vector2(200, 12)
@@ -158,9 +159,10 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="EnvironmentIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 texture = ExtResource("3_8yxrh")
-stretch_mode = 2
+stretch_mode = 3
 
 [node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
 custom_minimum_size = Vector2(200, 12)
