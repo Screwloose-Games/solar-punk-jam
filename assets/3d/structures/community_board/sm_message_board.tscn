@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://cockbui21lpt3"]
+
+[ext_resource type="PackedScene" uid="uid://b41h8mygm35qp" path="res://assets/3d/structures/community_message_board/sm_message_board.gltf" id="1_qyloo"]
+[ext_resource type="Texture2D" uid="uid://w6fu7iu5ldw2" path="res://assets/3d/structures/community_message_board/t_message_board_baseColor.png" id="2_aqhtc"]
+[ext_resource type="Texture2D" uid="uid://2u6jxqj6mvl2" path="res://assets/3d/structures/community_message_board/t_message_board_normal.png" id="3_c6xcn"]
+[ext_resource type="Texture2D" uid="uid://dobgk7hyan8u6" path="res://assets/3d/structures/community_message_board/t_message_board_occlusionRoughnessMetallic.png" id="4_66v6q"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_lvjew"]
+albedo_texture = ExtResource("2_aqhtc")
+orm_texture = ExtResource("4_66v6q")
+normal_enabled = true
+normal_texture = ExtResource("3_c6xcn")
+
+[node name="sm_message_board" instance=ExtResource("1_qyloo")]
+
+[node name="sm_community_message_board" parent="." index="0"]
+surface_material_override/0 = SubResource("ORMMaterial3D_lvjew")
