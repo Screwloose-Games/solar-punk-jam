@@ -76,6 +76,8 @@ enum SelfState {
 @onready var build_area_3d: InteractArea3D = %BuildArea3D
 @onready var interact_canvas_layer: CanvasLayer = %InteractCanvasLayer
 
+@onready var hud_canvas_layer: HUDCanvasLayer = %HUDCanvasLayer
+
 
 var is_interacting: bool:
 	get:
@@ -90,10 +92,14 @@ var player_mode: PlayerMode = PlayerMode.TRAVEL:
 			PlayerMode.TRAVEL:
 				camera_mode = CameraMode.THIRD_PERSON
 				move_mode = MoveMode.DIRECTIONAL
+				if hud_canvas_layer:
+					hud_canvas_layer.hide_build_tray()
 			PlayerMode.BUILD:
 				GlobalSignalBus.activated_build_mode.emit()
 				camera_mode = CameraMode.ISOMETRIC
 				move_mode = MoveMode.NONE
+				if hud_canvas_layer:
+					hud_canvas_layer.show_build_tray()
 
 func _ready() -> void:
 	move_mode = move_mode

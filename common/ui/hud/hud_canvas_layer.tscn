@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=24 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ymr1rjs8qkmr" path="res://assets/2d/ui/seed_icon-placeholder.png" id="6_owaxp"]
 [ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
 [ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://common/themes/toolbar_theme.tres" id="8_bgxx2"]
+[ext_resource type="Script" uid="uid://d2jw8rv3dbp87" path="res://common/ui/hud/bottom_tool_container.gd" id="9_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
 [ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
 
@@ -421,22 +422,24 @@ theme = SubResource("Theme_6igmu")
 layout_mode = 2
 text = "100"
 
-[node name="BottomCenterMarginContainer" type="MarginContainer" parent="HUD"]
+[node name="BottomCenterMarginContainer" type="Control" parent="HUD"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -80.0
-offset_right = 120.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_bottom = 20
+script = ExtResource("9_8yxrh")
 
 [node name="ToolbarBackgroundPanelContainer" type="PanelContainer" parent="HUD/BottomCenterMarginContainer"]
-layout_mode = 2
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -102.0
+offset_right = 86.0
+offset_bottom = -17.0
 theme = ExtResource("8_bgxx2")
 
 [node name="ToolbarMarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer"]
@@ -622,3 +625,21 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ajdrq")
 text = "x"
 label_settings = SubResource("LabelSettings_nvanc")
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

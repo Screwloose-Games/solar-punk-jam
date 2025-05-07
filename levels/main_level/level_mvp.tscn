@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="1_7w4ga"]
 [ext_resource type="Script" uid="uid://db5ro3a1jvpko" path="res://levels/main_level/level_mvp.gd" id="1_8y16s"]
-[ext_resource type="Script" path="res://components/junk_regenerator.gd" id="1_ority"]
+[ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="1_ority"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_80kqf"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="3_80kqf"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="3_umr73"]
@@ -321,6 +321,7 @@ carve_navigation_mesh = true
 [node name="Structures" type="Node3D" parent="."]
 
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("3_umr73")]
+unique_name_in_owner = true
 layer = 5
 
 [node name="NpcMister" parent="." instance=ExtResource("8_oq7qv")]

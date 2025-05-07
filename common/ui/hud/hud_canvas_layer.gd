@@ -13,6 +13,8 @@ var resource_to_control = {}
 @export var weather_icon_sunny: Texture
 @export var weather_icon_rainy: Texture
 
+@onready var bottom_center_margin_container: Control = %BottomCenterMarginContainer
+
 
 func _ready() -> void:
 	EnvironmentManager.act_updated.connect(_on_act_updated)
@@ -34,6 +36,11 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ToggleUi"):
 		visible = !visible
 
+func show_build_tray():
+	bottom_center_margin_container.show_with_slide()
+
+func hide_build_tray():
+	bottom_center_margin_container.hide_with_slide()
 
 func update_time_hud(_offset):
 	%WeatherIcon.texture = weather_icon_rainy if EnvironmentManager.environment_model.is_raining else weather_icon_sunny
