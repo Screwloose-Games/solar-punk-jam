@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds43h35xkeq0s"]
+
+[ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="1_0f3yb"]
+[ext_resource type="Script" uid="uid://uxttc8svekgi" path="res://narrative/cutscenes/kai_DAY1S2_INTRODUCTION/kai_day_1s_2_introduction.gd" id="1_2ociy"]
+[ext_resource type="PackedScene" uid="uid://dulsr3d3tohn5" path="res://actors/player_character/model_animations/te/te_placeholder.tscn" id="2_t2kua"]
+[ext_resource type="PackedScene" uid="uid://b5qtnavnsalvo" path="res://assets/3d/people/kai/sm_kai.tscn" id="3_42o8n"]
+
+[node name="KaiDay1s2Introduction" type="Node3D"]
+script = ExtResource("1_2ociy")
+
+[node name="DesignTestScene" parent="." instance=ExtResource("1_0f3yb")]
+
+[node name="prefab_noentry_tall6" parent="DesignTestScene" index="9"]
+visible = false
+
+[node name="PlayerScale" parent="DesignTestScene" index="36"]
+visible = false
+
+[node name="buildable_dirtpatch" parent="DesignTestScene" index="43"]
+process_mode = 4
+visible = false
+
+[node name="buildable_dirtpatch2" parent="DesignTestScene" index="44"]
+process_mode = 4
+visible = false
+
+[node name="buildable_dirtpatch3" parent="DesignTestScene" index="45"]
+process_mode = 4
+visible = false
+
+[node name="buildable_dirtpatch4" parent="DesignTestScene" index="46"]
+process_mode = 4
+visible = false
+
+[node name="trin_placeholder" parent="." instance=ExtResource("2_t2kua")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8386, 5.23202, -16.386)
+
+[node name="SmKai" parent="." instance=ExtResource("3_42o8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1593, 4.092, -6.30015)
+
+[editable path="DesignTestScene"]

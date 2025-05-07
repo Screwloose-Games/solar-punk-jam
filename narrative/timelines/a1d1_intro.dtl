@@ -1,26 +1,22 @@
-Mom: TE!\
-COME OUT HERE, MY LITTLE GREMLIN!
+Mom: TE, BABY! 
+Mom: COME OVER HERE!
 
-Te: I DIDN’T DO IT!\
-IT WAS ALREADY LIKE THAT!
+Te: Ugh, what now?
 
-Mom: What?
+Mom: Don't what now me.
 
-Te: Nothing!
+Mom: We all have our part to play, that's the only way--
 
-Te: WHOA!\
-The city looks even worse from up here.
+Te: -we can work with the land and each other to call this place a home. 
 
-Mom: It’ll look better when—
+Te: I know, I know. You say it all the time. 
 
-Te: When everyone does their part.\
-Yeah, yeah, I know…
+Mom: Good, then don't forget to check the bulletin board. 
 
-Mom: Good! Then you won’t mind checking if anyone needs help at the community hub.
+Mom: If anyone needs help they'll ask for it there. 
 
-Te: But I just finished unpacking—
+Te: Fine.
 
-Mom: WHAT?! YOU’D LOVE TO? GREAT!\
-Get going. I’ll finish up here.
+Mom: Love you too, my little gremlin. 
 
 do QuestManager.start_quest("qst_a1d1_intro")

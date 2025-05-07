@@ -1,52 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://ciean0tou8gw2"]
+[gd_scene load_steps=2 format=3 uid="uid://ciean0tou8gw2"]
 
 [ext_resource type="PackedScene" uid="uid://cavavb6t10fg3" path="res://assets/3d/buildings/building_player/sm_building_playerhouse.gltf" id="1_8e5oj"]
-[ext_resource type="Texture2D" uid="uid://duotq37e5570x" path="res://assets/3d/buildings/building_player/sm_playerhouse_Base_Color.png" id="2_8e5oj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ry8lv"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0xou"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jx3g1"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02ydt"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02n8w"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58wbr"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33o1p"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iijg1"]
-albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xe25t"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2l7m"]
-albedo_texture = ExtResource("2_8e5oj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5wll"]
-albedo_texture = ExtResource("2_8e5oj")
 
 [node name="sm_building_playerhouse" instance=ExtResource("1_8e5oj")]
-
-[node name="sm_building_player" parent="mesh_building_playerhouse" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ry8lv")
-surface_material_override/1 = SubResource("StandardMaterial3D_k0xou")
-surface_material_override/2 = SubResource("StandardMaterial3D_jx3g1")
-surface_material_override/3 = SubResource("StandardMaterial3D_02ydt")
-surface_material_override/4 = SubResource("StandardMaterial3D_02n8w")
-surface_material_override/5 = SubResource("StandardMaterial3D_58wbr")
-surface_material_override/6 = SubResource("StandardMaterial3D_33o1p")
-surface_material_override/7 = SubResource("StandardMaterial3D_iijg1")
-surface_material_override/8 = SubResource("StandardMaterial3D_xe25t")
-surface_material_override/9 = SubResource("StandardMaterial3D_s2l7m")
-surface_material_override/10 = SubResource("StandardMaterial3D_h5wll")
