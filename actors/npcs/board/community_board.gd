@@ -14,7 +14,8 @@ func _ready() -> void:
 	community_board_canvas_layer.visible = false
 	community_board_canvas_layer.quest_accepted.connect(_on_quest_accepted)
 	community_board_canvas_layer.closed.connect(_on_board_closed)
-	community_board_canvas_layer.quest = quest_list[quest_index]
+	if not quest_list.is_empty():
+		community_board_canvas_layer.quest = quest_list[quest_index]
 
 
 func _on_board_closed():
