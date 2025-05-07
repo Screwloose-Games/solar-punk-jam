@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcs35ropseut8"]
+[gd_scene load_steps=5 format=3 uid="uid://dcs35ropseut8"]
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_roiyp"]
 [ext_resource type="Script" uid="uid://ublgji50bx8u" path="res://assets/3d/structures/community_waste_bin/waste_bin.gd" id="2_ndh12"]
-[ext_resource type="PackedScene" uid="uid://m01l6hbbpqw6" path="res://assets/3d/structures/community_waste_bin/sm_community_waste_bin.tscn" id="2_ui2la"]
+[ext_resource type="PackedScene" uid="uid://djg2v3yaqs2e5" path="res://assets/3d/structures/wastebin/sm_wastebin_empty.gltf" id="3_srsw2"]
+[ext_resource type="PackedScene" uid="uid://xa0t2gwhefv8" path="res://assets/3d/structures/wastebin/sm_wastebin_full_grp.gltf" id="4_05ews"]
 
 [node name="BuildableStructure" instance=ExtResource("1_roiyp")]
 editor_description = "Players receive food waste and seeds from the NPCs in relation to the food they’ve donated the day before. Assuming the player plants recurring plants, a 1:1 would allow for growth. For example:
@@ -14,6 +15,8 @@ Day B: player receives 10 waste and seeds"
 [node name="WasteBin" type="Node" parent="." index="0"]
 script = ExtResource("2_ndh12")
 
-[node name="sm_community_waste_bin" parent="." index="1" instance=ExtResource("2_ui2la")]
+[node name="sm_wastebin_empty" parent="." index="1" instance=ExtResource("3_srsw2")]
+
+[node name="sm_wastebin_full_grp" parent="." index="2" instance=ExtResource("4_05ews")]
 
 [editable path="InteractableArea3D"]
