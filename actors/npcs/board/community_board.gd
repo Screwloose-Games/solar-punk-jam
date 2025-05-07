@@ -42,6 +42,10 @@ func _on_interacted(player: Player):
 func show_community_board_ui():
 	pass
 
+func _process(delta: float) -> void:
+	if community_board_canvas_layer.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func _on_quest_complete():
 	if !Dialogic.VAR.board_active:

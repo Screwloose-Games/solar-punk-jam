@@ -291,17 +291,6 @@ visible = false
 process_mode = 4
 visible = false
 
-[node name="buildable_dirtpatch3" parent="DesignTestScene" index="45"]
-process_mode = 4
-visible = false
-
-[node name="SurfaceMap" parent="DesignTestScene/buildable_dirtpatch3/BuildableSurface" index="0"]
-visible = false
-
-[node name="buildable_dirtpatch4" parent="DesignTestScene" index="46"]
-process_mode = 4
-visible = false
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1.00407, 0, 0, 0, 1.00407, 0, 0, 0, 1.00407, -0.443757, 0.0828428, 0.172962)
 navigation_mesh = SubResource("NavigationMesh_ntgmv")
@@ -508,10 +497,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90811, 0, 12.269)
 [node name="Kai" parent="." instance=ExtResource("26_qx5ah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.22507, 9.53674e-07, 8.21834)
 
+[node name="RespawnMarker3D" type="Marker3D" parent="." groups=["PlayerSpawner"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0279, 0, 15.2942)
+
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
 [editable path="sm_solar_panel"]
 [editable path="DesignTestScene"]
-[editable path="DesignTestScene/buildable_dirtpatch3"]
-[editable path="DesignTestScene/buildable_dirtpatch3/BuildableSurface"]
-[editable path="DesignTestScene/buildable_dirtpatch3/BuildableSurface/InteractableBuildableArea"]

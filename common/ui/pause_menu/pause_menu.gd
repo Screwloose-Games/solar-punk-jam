@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var main_menu_button = %MainMenuButton
 @onready var pause_menu_body = %PauseMenuBody
 @onready var quit_button: Button = %QuitButton
+@onready var respawn_button: Button = %RespawnButton
 
 var main_menu_scene: PackedScene = SceneManager.MAIN_MENU
 var options_menu_scene: PackedScene = SceneManager.OPTIONS_MENU
@@ -17,9 +18,16 @@ func _ready():
 	main_menu_button.pressed.connect(on_main_menu_pressed)
 	options_button.pressed.connect(on_options_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
+	respawn_button.pressed.connect(_on_respawn_pressed)
 	if OS.has_feature("web"):
 		quit_button.hide()
 
+func _on_respawn_pressed():
+	var player = get_tree().get_first_node_in_group("Player")
+	var target = get_tree().get_first_node_in_group("PlayerSpawner")
+	if target:
+		player.global_position = target.global_position
+	unpause()
 
 func _on_quit_button_pressed():
 	get_tree().quit(0)
@@ -41,19 +49,18 @@ func pause():
 		GlobalSignalBus.game_unpaused.emit()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
-func on_continue_pressed():
+func unpause():
 	get_tree().paused = false
 	visible = false
 	GlobalSignalBus.game_unpaused.emit()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#queue_free()
 
+func on_continue_pressed():
+	unpause()
 
 func on_main_menu_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(main_menu_scene)
-
 
 func on_options_pressed():
 	var options_menu_instance = options_menu_scene.instantiate()

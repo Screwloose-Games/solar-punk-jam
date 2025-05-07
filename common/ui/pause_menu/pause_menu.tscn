@@ -92,6 +92,11 @@ layout_mode = 2
 text = "Scenarios"
 script = ExtResource("6_udpd0")
 
+[node name="RespawnButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Respawn"
+
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="Audio Control" method="_on_hover"]
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="Audio Control" method="_on_hover"]
 [connection signal="pressed" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="Audio Control" method="_on_open"]
