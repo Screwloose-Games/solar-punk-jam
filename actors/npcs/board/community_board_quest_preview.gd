@@ -36,7 +36,7 @@ func _on_visibility_changed():
 
 func rerender():
 	header.text = HEADER_STRING % quest.name
-	body.text = BODY_STRING % [quest.quest_giver.capitalize(), quest.description]
+	body.text = BODY_STRING % [quest.quest_giver.capitalize(), quest.community_board_text]
 	var obj_text = ""
 	for objective in quest.objectives:
 		obj_text += objective.description + "\n"
