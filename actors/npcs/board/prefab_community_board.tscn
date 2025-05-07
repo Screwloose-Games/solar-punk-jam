@@ -148,6 +148,7 @@ label_settings = SubResource("LabelSettings_kaivu")
 
 [node name="Objectives" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r1qyg")
