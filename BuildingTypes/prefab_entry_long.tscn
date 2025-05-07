@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://oqtd7e6ptods"]
+[gd_scene load_steps=4 format=3 uid="uid://2y66piua3d6t"]
 
 [ext_resource type="Script" uid="uid://dtrajf4os8vhv" path="res://components/player_home_event_emitter.gd" id="1_7x0f8"]
 [ext_resource type="PackedScene" uid="uid://b7nvor7es6a1e" path="res://BuildingTypes/base_building.tscn" id="1_lx2i0"]

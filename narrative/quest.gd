@@ -35,6 +35,7 @@ func check_progress():
 	if !is_complete:
 		for objective in objectives:
 			if objective.is_active:
+				print("quest value: ", objective.quest_value)
 				var check_value = Dialogic.VAR[objective.quest_value]
 				print("Objective check val: " + str(check_value))
 				if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:

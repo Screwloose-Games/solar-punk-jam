@@ -27,7 +27,6 @@ signal quest_started(quest_id : String)
 signal quests_changed
 signal quest_completed(giver : String)
 
-
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
 	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
@@ -38,6 +37,7 @@ func _ready() -> void:
 	GlobalSignalBus.community_board_interacted.connect(update_misc.bind("board_met"))
 	GlobalSignalBus.activated_build_mode.connect(update_misc.bind("entered_build"))
 	GlobalSignalBus.seed_ui_shown.connect(update_misc.bind("entered_plant"))
+	GlobalSignalBus.player_entered_home.connect(update_misc.bind("player_entered_home"))
 
 
 func start_quest(file_name : String):
@@ -58,7 +58,10 @@ func start_quest_resource(new_quest: Quest):
 
 func update_structures(new_structure):
 	if new_structure.structure in STRUCTURE_MAP.keys():
-		Dialogic.VAR.set_variable(STRUCTURE_MAP[new_structure.structure], true)
+		var structure_name = STRUCTURE_MAP[new_structure.structure]
+		var success = Dialogic.VAR.set_variable(structure_name, true)
+		if not success:
+			push_error("Tried setting non-existant variable")
 	check_quests()
 
 
