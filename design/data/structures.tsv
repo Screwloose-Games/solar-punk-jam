@@ -17,6 +17,6 @@ Solar panel	1.2	2	1	Photovoltaic panel for converting sunlight into electricity	
 Tool library	2.8	4	4	TBD	arts_crafts_station.tscn	0,4	0	2	5	1	Contractor_	2		215						0							
 Tree	2.5	2	2	Fruit-bearing trees or bushes	apple_tree2.tscn	0,0	1	2	2		Seeds	0		43						0	Seeds	Food					
 Vegetables	0.5	1	1	Small garden bed for growing vegetables	vegetables.tscn	0,0	1	2	2		Seeds	0		1						0	Seeds,Water,Soil	Food	1	1			
-Waste bin	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		43						0		Waste,Seeds	10	1			
+Waste bin	0.5	2	2	TBD	community_waste_bin.tscn	0,4	0	1	5		Contractor	0		43						0		Waste,Seeds	10	1			
 Donation box	0.5	2	2	TBD	donation_bin.tscn	0,4	0	1	5		Contractor	0		43						0		Materials					
 Food stand	0.5	2	2	TBD	community_food_stand.tscn	0,4	0	1	5		Contractor_	0		43						0	Food	Happiness	10	1	1		
