@@ -72,6 +72,7 @@ id = "a1d1_trin"
 name = "Help out Trin"
 quest_giver = "trin"
 description = "Help Trin with her plants."
+community_board_text = ""
 objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_x688r"), SubResource("Resource_mbbq3"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_structure = "Vertical garden"
 rewards = Dictionary[String, int]({
