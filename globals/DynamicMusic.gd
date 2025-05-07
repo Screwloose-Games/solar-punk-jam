@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
-signal track_region_entered(track)
-signal track_region_exited(track)
+signal track_region_entered(track_id)
+signal track_region_exited(track_id)
 
     
 func play_stream(track_id, volume = 0):

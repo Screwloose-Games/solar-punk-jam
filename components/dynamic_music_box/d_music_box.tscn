@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr46xd2edebk3"]
 
-[sub_resource type="GDScript" id="GDScript_fsy24"]
-script/source = "extends Area3D
-"
+[ext_resource type="Script" uid="uid://cao3mbil5qlso" path="res://components/dynamic_music_box/d_music_box.gd" id="1_hidof"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jb7gu"]
 
 [node name="DMusicBox" type="Area3D"]
 process_mode = 3
-script = SubResource("GDScript_fsy24")
+script = ExtResource("1_hidof")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_jb7gu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
