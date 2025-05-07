@@ -1,24 +1,23 @@
-name,height,width,depth,description,filename
-Solar panel,1.2,2.0,0.1,Photovoltaic panel for converting sunlight into electricity,solar_panel
-Wind turbine/Kite,12.0,3.0,3.0,Tall structure or airborne device generating power from wind,wind_turbine_or_kite
-Bioreactor,2.5,1.5,1.5,Tank system for converting organic matter into energy or fuel,bioreactor
-Battery,1.5,1.0,1.0,Power storage unit,battery
-Rain collection,2.0,2.0,2.0,Structure for harvesting rainwater - often elevated,rain_collection
-Atmospheric water harvesting,2.5,1.5,1.5,Device that condenses and collects water from the air,atmospheric_water_harvesting
-Wastewater treatment,3.0,4.0,3.0,Multi-tank system for filtering and purifying greywater,wastewater_treatment
-Water tank,3.0,2.5,2.5,Large container for storing clean water,water_tank
-Vegetable garden,0.5,3.0,2.0,Small garden bed for growing vegetables,vegetable_garden
-Vertical Hydroponics,2.5,1.5,1.0,Tower structure for soil-less vertical farming,vertical_hydroponics
-Aquaponics,1.5,3.0,2.0,Combined fish and plant growing system,aquaponics
-Composting and regenerative agriculture,1.0,2.0,2.0,Compost bin or area with regenerative farming tools,composting_regen_agriculture
-Fermentation,1.8,1.0,1.0,Small structure with sealed containers for fermentation,fermentation
-Fruit bushes/trees,2.5,2.5,2.5,Fruit-bearing trees or bushes,fruit_bushes_trees
-Pantry/Storage,2.0,3.0,2.0,Storage shed for food or supplies,pantry_storage
-Hygiene station,2.0,2.0,2.0,Outdoor sink/shower area for personal hygiene,hygiene_station
-Kitchen,2.5,4.0,3.0,Communal cooking space with equipment,kitchen
-Tent/Yurt/Chill area,2.5,5.0,5.0,Communal shaded or sheltered resting space,tent_yurt_chill_area
-Arts and crafts station,2.0,3.0,2.5,Covered station with tools for creative work,arts_crafts_station
-Exercise station,2.5,3.0,3.0,Outdoor space with equipment for physical activity,exercise_station
-Workshop,2.8,4.0,3.5,Building for tool use - repair - fabrication,workshop
-Recycling station,1.8,2.0,2.0,Bins and sorting area for recyclable materials,recycling_station
-Garbage dump,1.0,3.0,3.0,Area for non-recyclable waste,garbage_dump
+Name,height,width,depth,description,model filename,Icon,GroundBefore,GroundAfter,Happiness,Max Structures,Unlocked by,Material Cost,Requires,Real-time minutes to complete,Electricity Generation/Daily Use,Water Generation/Daily Use,Food Generation/Daily Use,Waste Generation/Daily Use,Soil Generation/Daily Use,Additional Happiness Generation Daily,BuildingConsumes,DailyManualCollection,DailyManualCollectionMultiplier,RequiresRefill,ConsumesAllInventory,Electricity Storage,Water Storage
+Battery,1.5,1,1,Power storage unit,battery.tscn,"0,1",0,2,10,3,Electrician,1,Solar panel,86,10,,,,,0,,,,,100,
+Bench,2.8,4,4,TBD,arts_crafts_station.tscn,"0,4",0,2,5,,Contractor,2,,129,,,,,0,,,,,,
+Bioreactor,2.5,2,2,Tank system for converting organic matter into energy or fuel,bioreactor.tscn,"0,1",0,2,10,1,Electrician,3,Solar panel,3,10,,,,,0,,,,,,
+Birdhouse (on pole),2,2,2,Structure for harvesting rainwater - often elevated,rain_collection.tscn,"0,2",0,2,2,,Craftor,1,,43,,,,,0,,,,,,
+Bush (flowers),2.5,2,2,TBD,apple_tree2.tscn,"0,0",1,2,2,,Seeds,0,,43,,,,,0,Seeds,Food,,,,
+Compost bin,1,2,2,Compost bin or area with regenerative farming tools,donation_bin.tscn,"3,0",0,2,1,5,Contractor,2,,86,,,,,0,Waste,Soil,5,1,,,
+Hygiene station,2,2,2,Outdoor sink/shower area for personal hygiene,hygiene_station.tscn,"0,4",0,2,10,2,Plumber,2,Rain barrel,344,,,,,0,,,,,,
+Insect Hotel,2,2,2,Structure for harvesting rainwater - often elevated,rain_collection.tscn,"0,2",0,2,2,,Craftor,1,,43,,,,,0,,,,,,
+Kitchen,2.8,4,4,TBD,arts_crafts_station.tscn,"0,4",0,2,10,1,Contractor,5,Solar panel,344,,,,,0,,,,,,
+Lantern (on pole),2,2,2,Structure for harvesting rainwater - often elevated,rain_collection.tscn,"0,2",0,2,2,,Craftor,1,,43,,,,,0,,,,,,
+Picnic Table,2.8,4,4,TBD,arts_crafts_station.tscn,"0,4",0,2,5,,Contractor,3,,129,,,,,0,,,,,,
+Rain barrel,2,2,2,Structure for harvesting rainwater - often elevated,rain_barrel.tscn,"0,2",0,2,1,5,Contractor,1,,86,0,,,,0,,Water,30,,,10
+Raised bed,0.5,1,2,Somewhere to plant stuff,raised_bed.tscn,"0,0",0,1,1,25,Contractor,3,,86,,,,,0,Soil,,,,,
+Vertical garden,0.5,1,1,Somewhere to plant stuff,arts_crafts_station.tscn,"0,0",0,1,1,25,Contractor,3,,86,,,,,0,,,,,,
+Recycling station,1.8,2,2,Bins and sorting area for recyclable materials,recycling_station.tscn,"0,4",0,2,10,1,Contractor,4,Solar panel,344,,,,,0,,,,,,
+Solar panel,1.2,2,1,Photovoltaic panel for converting sunlight into electricity,solar_panel.tscn,"1,0",0,2,10,3,Electrician,4,,215,10,,,,,0,,,,,,
+Tool library,2.8,4,4,TBD,arts_crafts_station.tscn,"0,4",0,2,5,1,Contractor_,2,,215,,,,,0,,,,,,
+Tree,2.5,2,2,Fruit-bearing trees or bushes,apple_tree2.tscn,"0,0",1,2,2,,Seeds,0,,43,,,,,0,Seeds,Food,,,,
+Vegetables,0.5,1,1,Small garden bed for growing vegetables,vegetables.tscn,"0,0",1,2,2,,Seeds,0,,1,,,,,0,"Seeds,Water,Soil",Food,1,1,,,
+Waste bin,0.5,2,2,TBD,donation_bin.tscn,"0,4",0,1,5,,Contractor,0,,43,,,,,0,,Waste,Seeds,10,1,,,
+Donation box,0.5,2,2,TBD,donation_bin.tscn,"0,4",0,1,5,,Contractor,0,,43,,,,,0,,Materials,,,,
+Food stand,0.5,2,2,TBD,donation_bin.tscn,"0,4",0,1,5,,Contractor_,0,,43,,,,,0,Food,Happiness,10,1,1,,,

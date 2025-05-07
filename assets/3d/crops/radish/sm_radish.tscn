@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3qqsqjxik3ky"]
+
+[ext_resource type="PackedScene" uid="uid://0fnrnvfja1hy" path="res://assets/3d/crops/radish/sm_radish.fbx" id="1_m3cku"]
+[ext_resource type="ArrayMesh" uid="uid://cik8mslum55se" path="res://assets/3d/crops/radish.tres" id="2_bxwxi"]
+[ext_resource type="Texture2D" uid="uid://c77cl3oo177wm" path="res://assets/3d/crops/radish/Radish_standardSurface1_BaseColor.png" id="2_l0prl"]
+[ext_resource type="Texture2D" uid="uid://cclc1y2vurii7" path="res://assets/3d/crops/radish/Radish_standardSurface1_Metallic.png" id="3_1vcjj"]
+[ext_resource type="Texture2D" uid="uid://b0hndyt44ghlq" path="res://assets/3d/crops/radish/Radish_standardSurface1_Roughness.png" id="4_bxwxi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yibd3"]
+albedo_texture = ExtResource("2_l0prl")
+metallic = 1.0
+metallic_texture = ExtResource("3_1vcjj")
+roughness_texture = ExtResource("4_bxwxi")
+
+[node name="sm_radish" instance=ExtResource("1_m3cku")]
+
+[node name="Radish" parent="." index="0"]
+mesh = ExtResource("2_bxwxi")
+surface_material_override/0 = SubResource("StandardMaterial3D_yibd3")

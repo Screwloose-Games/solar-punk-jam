@@ -13,5 +13,5 @@ func set_objective(val):
 
 func update():
 	complete.button_pressed = objective.is_completed
-	desc.text = "%s : %d / %d" % [objective.description, objective.progress, objective.count]
+	desc.text = "%s : %d / %d" % [objective.description, objective.progress, objective.goal]
 	visible = objective.is_unlocked

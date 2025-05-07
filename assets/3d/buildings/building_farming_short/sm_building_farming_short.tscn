@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://cov82kk44bame"]
+
+[ext_resource type="PackedScene" uid="uid://bphslqym0vb7m" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short.gltf" id="1_4tavx"]
+[ext_resource type="Texture2D" uid="uid://bfjqheswu0023" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short_Base_Color.png" id="2_5jc7u"]
+[ext_resource type="Texture2D" uid="uid://b33jfgm7kn257" path="res://assets/3d/buildings/building_farming_short/sm_building_04_Normal.png" id="3_h1fvs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lq0k"]
+albedo_texture = ExtResource("2_5jc7u")
+normal_enabled = true
+normal_texture = ExtResource("3_h1fvs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1fvs"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vi6n8"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntxff"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15rw0"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74p5i"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4gwq"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0be33"]
+albedo_texture = ExtResource("2_5jc7u")
+
+[node name="sm_building_04" instance=ExtResource("1_4tavx")]
+
+[node name="collision_building_04" parent="mesh_building_04_farmingshort/farmingshort-colonly" index="0"]
+visible = false
+
+[node name="sm_building_04_farmingshort-mesh" parent="mesh_building_04_farmingshort" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1lq0k")
+surface_material_override/1 = SubResource("StandardMaterial3D_h1fvs")
+surface_material_override/2 = SubResource("StandardMaterial3D_vi6n8")
+surface_material_override/3 = SubResource("StandardMaterial3D_ntxff")
+surface_material_override/4 = SubResource("StandardMaterial3D_15rw0")
+surface_material_override/5 = SubResource("StandardMaterial3D_74p5i")
+surface_material_override/6 = SubResource("StandardMaterial3D_w4gwq")
+surface_material_override/7 = SubResource("StandardMaterial3D_0be33")

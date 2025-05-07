@@ -1,0 +1,194 @@
+[gd_scene load_steps=20 format=3 uid="uid://d0b1347oncwvc"]
+
+[ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
+[ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
+[ext_resource type="PackedScene" uid="uid://b67yh441wsgu3" path="res://assets/3d/structures/community_board/sm_community_board.tscn" id="2_s1nju"]
+[ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_khjfs"]
+[ext_resource type="Script" uid="uid://c1y5i2lbvjw6a" path="res://actors/npcs/board/community_board_quest_preview.gd" id="6_3w42p"]
+[ext_resource type="Texture2D" uid="uid://bd4fnnf7ymbcr" path="res://assets/2d/ui/quest-icon.png" id="6_s1nju"]
+[ext_resource type="FontFile" uid="uid://dy83ki0pjbk3h" path="res://common/fonts/Komikido.otf" id="7_2y0nt"]
+[ext_resource type="Texture2D" uid="uid://fu5xpch5afyl" path="res://assets/2d/ui/reward-Materials-60px.png" id="8_qiswl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t813n"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ssh4n"]
+height = 1.5
+radius = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fsbli"]
+radius = 0.4
+height = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1qyg"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.964706, 0.94902, 0.905882, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4pq3"]
+font_size = 27
+font_color = Color(0.133333, 0.184314, 0.211765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kaivu"]
+font_size = 20
+font_color = Color(0.133333, 0.184314, 0.211765, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1qyg"]
+content_margin_left = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3a1k"]
+font_size = 20
+font_color = Color(0.133333, 0.184314, 0.211765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fogbk"]
+font = ExtResource("7_2y0nt")
+font_size = 26
+font_color = Color(0.133333, 0.184314, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvtjj"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+bg_color = Color(0.219608, 0.815686, 0.94902, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yc5c"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+bg_color = Color(0.756863, 0.756863, 0.756863, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[node name="CommBoard" type="StaticBody3D"]
+script = ExtResource("1_r1qyg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_t813n")
+
+[node name="sm_community_message_board2" parent="." instance=ExtResource("2_s1nju")]
+
+[node name="InteractableArea3D" parent="." instance=ExtResource("1_ptspw")]
+unique_name_in_owner = true
+label_text = "Read"
+
+[node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
+shape = SubResource("CylinderShape3D_ssh4n")
+
+[node name="ClickableArea3D" type="Area3D" parent="."]
+editor_description = "Allows this object to be clicked"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_fsbli")
+
+[node name="InteractNotify" parent="." instance=ExtResource("3_khjfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99407, 0)
+npc_id = "board"
+
+[node name="CommunityBoardCanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 15
+script = ExtResource("6_3w42p")
+
+[node name="PanelContainer" type="PanelContainer" parent="CommunityBoardCanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -102.0
+offset_right = 250.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1qyg")
+
+[node name="Content" type="VBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="CommunityBoardCanvasLayer/PanelContainer/Content/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_s1nju")
+
+[node name="Header" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Quest.name"
+label_settings = SubResource("LabelSettings_n4pq3")
+
+[node name="Body" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "From: Quest.quest_giver.capitalize()
+Details:
+Quest.description"
+label_settings = SubResource("LabelSettings_kaivu")
+
+[node name="Objectives" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r1qyg")
+text = "Quest.objectives[i]"
+label_settings = SubResource("LabelSettings_m3a1k")
+
+[node name="Signature" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fogbk")
+
+[node name="Rewards" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+layout_mode = 2
+
+[node name="Rewards-Row" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="CommunityBoardCanvasLayer/PanelContainer/Content/Rewards-Row"]
+layout_mode = 2
+texture = ExtResource("8_qiswl")
+stretch_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+layout_mode = 2
+alignment = 1
+
+[node name="AcceptButton" type="Button" parent="CommunityBoardCanvasLayer/PanelContainer/Content/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0784314, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvtjj")
+text = "Accept"
+
+[node name="CloseButton" type="Button" parent="CommunityBoardCanvasLayer/PanelContainer/Content/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0784314, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4yc5c")
+text = "Close"
+
+[editable path="InteractableArea3D"]

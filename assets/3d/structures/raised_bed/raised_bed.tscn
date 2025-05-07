@@ -1,7 +1,125 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddur7qqihktg4"]
+[gd_scene load_steps=11 format=3 uid="uid://c4fb30uv7yw3g"]
 
-[ext_resource type="PackedScene" uid="uid://b70ckin7w20jg" path="res://assets/3d/structures/raised_bed/sm_companionplanter.tscn" id="1_f0xn5"]
+[ext_resource type="Script" uid="uid://c47mewschufu8" path="res://assets/3d/structures/raised_bed/raised_bed.gd" id="1_74c14"]
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_f0xn5"]
+[ext_resource type="PackedScene" uid="uid://b70ckin7w20jg" path="res://assets/3d/structures/raised_bed/sm_companionplanter.tscn" id="2_s33af"]
+[ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="3_q4dm3"]
+[ext_resource type="Script" uid="uid://ct8nmsioawq55" path="res://assets/3d/structures/raised_bed/planting_ui.gd" id="4_xss1u"]
+[ext_resource type="Script" uid="uid://caoj20v72dt65" path="res://assets/3d/structures/raised_bed/crop.gd" id="5_b3lvj"]
+[ext_resource type="Script" uid="uid://dhmdw55i2flj2" path="res://assets/3d/structures/raised_bed/seed_button.gd" id="6_utwre"]
+[ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="7_suu3l"]
 
-[node name="RaisedBed" type="Node3D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4dm3"]
+atlas = ExtResource("3_q4dm3")
+region = Rect2(0, 0, 80, 80)
 
-[node name="sm_companionplanter2" parent="." instance=ExtResource("1_f0xn5")]
+[sub_resource type="LabelSettings" id="LabelSettings_74c14"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="RaisedBed" instance=ExtResource("1_f0xn5")]
+
+[node name="RaisedBed" type="Node" parent="." index="0"]
+script = ExtResource("1_74c14")
+
+[node name="sm_companionplanter2" parent="." index="1" instance=ExtResource("2_s33af")]
+
+[node name="StructureInteractCanvasLayer" type="CanvasLayer" parent="." index="3"]
+unique_name_in_owner = true
+layer = 14
+
+[node name="PluggableParentMarginContainer" type="MarginContainer" parent="StructureInteractCanvasLayer" index="0"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlantingUiMarginContainer" type="MarginContainer" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("4_xss1u")
+seeds = Array[ExtResource("5_b3lvj")]([ExtResource("7_suu3l")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Available Seeds"
+
+[node name="ToolbarHBoxContainer" type="HFlowContainer" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="ToolbarItemPanelContainer" type="PanelContainer" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer/ToolbarHBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("6_utwre")
+
+[node name="SeedButton" type="Button" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "radish"
+icon = SubResource("AtlasTexture_q4dm3")
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/SeedButton" index="0"]
+visible = false
+layout_mode = 2
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 0
+texture = SubResource("AtlasTexture_q4dm3")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/SeedButton" index="1"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/SeedButton/Control" index="0"]
+visible = false
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+
+[node name="Label" type="Label" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer/SeedButton/Control/MarginContainer" index="0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Radish"
+label_settings = SubResource("LabelSettings_74c14")
+
+[node name="CloseButton" type="Button" parent="StructureInteractCanvasLayer/PluggableParentMarginContainer/PlantingUiMarginContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+
+[node name="VisualInstanceMarker3D" type="Marker3D" parent="." index="4"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.418213, 0)
+
+[node name="Marker3D" type="Marker3D" parent="VisualInstanceMarker3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.619591)
+
+[node name="Marker3D2" type="Marker3D" parent="VisualInstanceMarker3D" index="1"]
+
+[node name="Marker3D3" type="Marker3D" parent="VisualInstanceMarker3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.559364)
+
+[editable path="InteractableArea3D"]

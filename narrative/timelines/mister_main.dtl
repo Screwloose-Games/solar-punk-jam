@@ -1,0 +1,16 @@
+if {mister_met} == false:
+	Te (excited): Jackpot!\
+Hey mister! Can I have those bottles?
+	Mister (drowsy): Hm? These? What for?
+	Te (default): To recycle, duh. My mom crunches ‘em up for building substrate.
+	Mister (curious): Substrate from plastics? You Kai's kid?
+	Te (cheerful): Yup. I’m Te.
+	Mister (default): Hm. All right, kid. Knock yourself out.
+	Te: Thanks, Mister!
+	set {mister_met} = true
+if {mister_progress} == 0.0:
+	jump mister_quest1/
+Mister (drowsy): Hey kid. Back for more bottles?
+Te (default): Nah, just saying hi.
+Mister (drowsy): All right then, suit yourself.
+Te (default): Not a fan of small talk, huh? See ya, I guess?

@@ -12,4 +12,13 @@ signal win_game_requirements_met
 signal level_reset
 signal set_ending_visibility(show_panel: bool)
 
-signal structure_built(structure : String)
+# quest-related
+
+signal community_board_interacted
+signal community_board_quest_accepted
+signal talked_to(npc: String)
+signal activated_build_mode
+signal structure_interacted(structure) # Structure ID
+signal seed_planted(crop: Crop)
+signal player_entered_home
+signal seed_ui_shown

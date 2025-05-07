@@ -1,6 +1,6 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dnb5g2pxfgrkw"]
 
-[ext_resource type="FontFile" uid="uid://3shpabhvljto" path="res://common/ui/fonts/bridgnorth/Bridgnorth-Bold.ttf" id="1_5j164"]
+[ext_resource type="FontFile" uid="uid://bxxblafxhg1tc" path="res://common/fonts/Wondra.otf" id="1_g27v1"]
 
 [resource]
-base_font = ExtResource("1_5j164")
+base_font = ExtResource("1_g27v1")

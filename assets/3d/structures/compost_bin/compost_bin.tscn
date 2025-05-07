@@ -1,7 +1,20 @@
-[gd_scene format=3 uid="uid://1okiib5qjab1"]
+[gd_scene load_steps=4 format=3 uid="uid://cyqfwaujvc58l"]
 
-[node name="Composting and regenerative agriculture" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_fwah1"]
+[ext_resource type="PackedScene" uid="uid://myvhurhhx3mr" path="res://assets/3d/structures/compost_bin/sm_compost.tscn" id="1_wqvcb"]
+[ext_resource type="Script" uid="uid://c7covyf3dmtfg" path="res://assets/3d/structures/compost_bin/compost_bin.gd" id="2_wk4d3"]
 
-[node name="Mesh" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-size = Vector3(2, 1, 2)
+[node name="BuildableStructure" instance=ExtResource("1_fwah1")]
+editor_description = "https://www.notion.so/hexwave/Composting-Mechanic-e0adcacc54af4844be0e40028d04aa1a
+
+- As a player, I want the food I donate at the Food Stand to become tomorrow’s waste and seeds.
+- As a player, I want to retrieve food waste from the waste bin the next day, so I can reuse it as compost input.
+- As a player, I want to add waste to a compost bin and have it convert into soil after a set amount of time (86 seconds), so I can continue planting crops.
+- As a player, I want to collect soil from the compost bin after it's done processing, so I can use it to grow more food."
+
+[node name="CompostBin" type="Node" parent="." index="0"]
+script = ExtResource("2_wk4d3")
+
+[node name="compost" parent="." index="1" instance=ExtResource("1_wqvcb")]
+
+[editable path="InteractableArea3D"]

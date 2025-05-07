@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://daabskcdhrpea"]
+[gd_scene load_steps=40 format=4 uid="uid://daabskcdhrpea"]
 
 [ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_mqx1g"]
 [ext_resource type="Script" uid="uid://drkkac24eh0sl" path="res://common/ui/viewport_container.gd" id="2_d26fo"]
@@ -7,10 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="5_ctl25"]
 [ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="6_mqj1f"]
 [ext_resource type="PackedScene" uid="uid://bvuixmv4n68a6" path="res://common/ui/options_menu/options_menu.tscn" id="6_ntl50"]
-[ext_resource type="PackedScene" uid="uid://c7wl0wf1h18bp" path="res://levels/main_level/level_mvp.tscn" id="7_8wlla"]
+[ext_resource type="PackedScene" uid="uid://cbodbramso3fv" path="res://levels/main_level/level_act_1.tscn" id="7_kjcgm"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="7_oty5u"]
 [ext_resource type="Texture2D" uid="uid://ccq7f3iwggcxc" path="res://common/ui/art/main_menu_title.png" id="9_8wlla"]
 [ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
+[ext_resource type="FontFile" uid="uid://bxxblafxhg1tc" path="res://common/fonts/Wondra.otf" id="10_kjcgm"]
 
 [sub_resource type="Theme" id="Theme_kjcgm"]
 
@@ -73,6 +74,7 @@ func _return_from_credits():
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_mqx1g"]
+font = ExtResource("10_kjcgm")
 font_size = 50
 font_color = Color(0, 0, 0, 1)
 
@@ -782,7 +784,7 @@ script = ExtResource("2_d26fo")
 layout_mode = 2
 theme = SubResource("Theme_kjcgm")
 script = SubResource("GDScript_q8jcd")
-start_scene_path = ExtResource("7_8wlla")
+start_scene_path = ExtResource("7_kjcgm")
 transition_path = ExtResource("4_cec7w")
 
 [node name="PanelContainer" type="PanelContainer" parent="Main Menu"]

@@ -1,15 +1,51 @@
-[gd_scene load_steps=18 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=24 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
-[ext_resource type="Texture2D" uid="uid://b8bg03eo5c271" path="res://assets/2d/ui/community-health_icon-placeholder.png" id="2_ajdrq"]
-[ext_resource type="Texture2D" uid="uid://0dniwiqprj6j" path="res://assets/2d/ui/environment-health_icon-placeholder.png" id="3_6torc"]
+[ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
+[ext_resource type="Texture2D" uid="uid://cl0lr84e76vsa" path="res://assets/2d/ui/Envior-icon.png" id="3_8yxrh"]
 [ext_resource type="Theme" uid="uid://cr00fee06cge6" path="res://common/themes/quest_ui_theme.tres" id="4_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://c82rv8465rx4a" path="res://assets/2d/ui/weather-sunny_icon-placeholder.png" id="5_5quvr"]
 [ext_resource type="PackedScene" uid="uid://dbfwnrfa7yds4" path="res://common/ui/components/quest/quest_list.tscn" id="5_ajdrq"]
 [ext_resource type="Texture2D" uid="uid://ymr1rjs8qkmr" path="res://assets/2d/ui/seed_icon-placeholder.png" id="6_owaxp"]
 [ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
 [ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://common/themes/toolbar_theme.tres" id="8_bgxx2"]
+[ext_resource type="Script" uid="uid://d2jw8rv3dbp87" path="res://common/ui/hud/bottom_tool_container.gd" id="9_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
+[ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
+content_margin_top = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5quvr"]
+bg_color = Color(0.231373, 0.815686, 0.952941, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owaxp"]
+bg_color = Color(0.776471, 0.85098, 0.231373, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwr8q"]
+bg_color = Color(0.219608, 0.301961, 0.34902, 0.937255)
 
 [sub_resource type="Theme" id="Theme_6igmu"]
 
@@ -64,6 +100,8 @@ corner_radius_bottom_left = 4
 
 [node name="HUDCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_2ngon")
+weather_icon_sunny = ExtResource("5_5quvr")
+weather_icon_rainy = ExtResource("3_8yxrh")
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -90,6 +128,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme_override_constants/separation = 18
 
 [node name="CommunityHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
 layout_mode = 2
@@ -98,32 +137,46 @@ size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="CommunityIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-texture = ExtResource("2_ajdrq")
-expand_mode = 2
-stretch_mode = 5
+texture = ExtResource("2_6torc")
+stretch_mode = 3
 
 [node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 12)
 layout_mode = 2
-value = 40.0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_8yxrh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5quvr")
+value = 66.0
 show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+layout_mode = 2
+text = "100"
 
 [node name="EnvironmentHBoxContainer" type="HBoxContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="EnvironmentIcon" type="TextureRect" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-texture = ExtResource("3_6torc")
-expand_mode = 3
-stretch_mode = 5
+texture = ExtResource("3_8yxrh")
+stretch_mode = 3
 
 [node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(200, 12)
 layout_mode = 2
-value = 40.0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_8yxrh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_owaxp")
+value = 33.0
 show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+layout_mode = 2
+text = "100"
 
 [node name="QuestMarginContainer" type="MarginContainer" parent="HUD/TopLeftMarginContainer/VBoxContainer"]
 visible = false
@@ -210,62 +263,95 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -1152.0
+offset_left = -204.0
+offset_bottom = 75.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 
-[node name="WeatherTimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kwr8q")
+
+[node name="WeatherTimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="WeatherIcon" type="TextureRect" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer"]
+[node name="WeatherIcon" type="TextureRect" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("5_5quvr")
 expand_mode = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="DateHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Month" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+[node name="ActNameLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Act"
+
+[node name="ActNumberLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "I"
+
+[node name="ActSeparatorLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "|"
+
+[node name="DayStaticLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Day"
+
+[node name="DateHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DateHBoxContainer"]
+visible = false
 layout_mode = 2
 text = "March"
 
-[node name="Day" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+[node name="Day" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DateHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 
-[node name="Year" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer"]
+[node name="Year" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DateHBoxContainer"]
+visible = false
 layout_mode = 2
 text = "2045"
 
-[node name="TimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Time" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+[node name="Time" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "11:00"
 
-[node name="AmPm" type="Label" parent="HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+[node name="AmPm" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "AM"
 
 [node name="LeftMiddleMarginContainer" type="MarginContainer" parent="HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -336,22 +422,24 @@ theme = SubResource("Theme_6igmu")
 layout_mode = 2
 text = "100"
 
-[node name="BottomCenterMarginContainer" type="MarginContainer" parent="HUD"]
+[node name="BottomCenterMarginContainer" type="Control" parent="HUD"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -80.0
-offset_right = 120.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_bottom = 20
+script = ExtResource("9_8yxrh")
 
 [node name="ToolbarBackgroundPanelContainer" type="PanelContainer" parent="HUD/BottomCenterMarginContainer"]
-layout_mode = 2
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -102.0
+offset_right = 86.0
+offset_bottom = -17.0
 theme = ExtResource("8_bgxx2")
 
 [node name="ToolbarMarginContainer" type="MarginContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer"]
@@ -396,13 +484,12 @@ text = "1"
 label_settings = SubResource("LabelSettings_nvanc")
 
 [node name="ToolbarItemPanelContainer2" type="PanelContainer" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureButton" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
 layout_mode = 2
-texture_normal = SubResource("AtlasTexture_m84km")
+texture_normal = ExtResource("11_5quvr")
 stretch_mode = 6
 
 [node name="Control" type="Control" parent="HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer2"]
@@ -538,3 +625,21 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ajdrq")
 text = "x"
 label_settings = SubResource("LabelSettings_nvanc")
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,2 @@
+if {a1d1_trin} == true:
+	jump a1d1_trin/prog0

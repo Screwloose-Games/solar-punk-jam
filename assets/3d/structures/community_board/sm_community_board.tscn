@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b67yh441wsgu3"]
+
+[ext_resource type="PackedScene" uid="uid://b41h8mygm35qp" path="res://assets/3d/structures/community_board/sm_message_board.gltf" id="1_4d20k"]
+
+[node name="sm_community_message_board2" instance=ExtResource("1_4d20k")]

@@ -7,11 +7,17 @@ class Singleton:
 @onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
 @onready var resource_ui_template = $HUD/LeftMiddleMarginContainer/VBoxContainer/ResourceLabel
 @export var unlock_all_structures_from_the_start_for_debugging = false
+@onready var act_number_label: Label = %ActNumberLabel
 var buildable_structures: Array[BuildableStructure] = []
 var resource_to_control = {}
+@export var weather_icon_sunny: Texture
+@export var weather_icon_rainy: Texture
+
+@onready var bottom_center_margin_container: Control = %BottomCenterMarginContainer
 
 
 func _ready() -> void:
+	EnvironmentManager.act_updated.connect(_on_act_updated)
 	HUDCanvasLayer.Singleton.instance = self
 	EnvironmentManager.day_cycle_update.connect(self.update_time_hud)
 	if unlock_all_structures_from_the_start_for_debugging:
@@ -20,21 +26,31 @@ func _ready() -> void:
 	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
 	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
 	$HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close.connect("pressed", close_popup_menu)
+	# Ensure we update UI on startup
+	refresh_resources_ui.call_deferred()
 
+func _on_act_updated(act_num: int):
+	act_number_label.text = str(act_num)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ToggleUi"):
 		visible = !visible
 
+func show_build_tray():
+	bottom_center_margin_container.show_with_slide()
+
+func hide_build_tray():
+	bottom_center_margin_container.hide_with_slide()
 
 func update_time_hud(_offset):
+	%WeatherIcon.texture = weather_icon_rainy if EnvironmentManager.environment_model.is_raining else weather_icon_sunny
 	var time := EnvironmentManager.environment_model.get_in_game_time()
-	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/DateHBoxContainer/Day.text = str(time.day)
-	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/Time.text = "%d:%02d" % [time.hour, time.minute]
-	$HUD/TopRightMarginContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TimeHBoxContainer/AmPm.text = "PM" if time.is_pm else "AM"
+	%Day.text = str(time.day)
+	%Time.text = "%d:%02d" % [time.hour, time.minute]
+	%AmPm.text = "PM" if time.is_pm else "AM"
 
 func refresh_resources_ui():
-	$HUD/LeftMiddleMarginContainer.show()
+	#$HUD/LeftMiddleMarginContainer.show()
 	for i in EnvironmentManager.current_resources:
 		var q = EnvironmentManager.current_resources[i]
 		var t = i + ": " + str(q)
@@ -46,6 +62,10 @@ func refresh_resources_ui():
 			resource_ui_template.get_parent().add_child(ui)
 			ui.text = t
 			ui.show()
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/CommunityProgressBar.value = EnvironmentManager.current_resources.get("Happiness", 0)
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer/EnvironmentProgressBar.value = EnvironmentManager.current_resources.get("Environment", 0)
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/StatusLabel.text = str(EnvironmentManager.current_resources.get("Happiness", 0))
+	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer/StatusLabel.text = str(EnvironmentManager.current_resources.get("Environment", 0))
 
 class BuildableStructure:
 	var idx: int

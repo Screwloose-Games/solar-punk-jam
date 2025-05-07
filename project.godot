@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GlobalSignalBus="*res://globals/global_signal_bus.gd"
 SceneManager="*res://globals/scene_manager.gd"
@@ -27,9 +28,7 @@ GameSettings="*res://globals/game_settings.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
-StructureManager="*res://globals/structure_manager.gd"
-GameState="*res://globals/game_state.gd"
-BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
+StructureManager="*res://globals/structure_manager.tscn"
 
 [dialogic]
 
@@ -37,38 +36,61 @@ directories/dch_directory={
 "CommBoard": "res://narrative/characters/CommBoard.dch",
 "DogBot": "res://narrative/characters/DogBot.dch",
 "Kelly": "res://narrative/characters/Kelly.dch",
+"Kyle": "res://narrative/characters/Kyle.dch",
 "Mister": "res://narrative/characters/Mister.dch",
 "Mom": "res://narrative/characters/Mom.dch",
 "Te": "res://narrative/characters/Te.dch",
-"Trin": "res://narrative/characters/Trin.dch"
+"Trin": "res://narrative/characters/Trin.dch",
+"Tutorial": "res://narrative/characters/Tutorial.dch"
 }
 directories/dtl_directory={
-"board_busy": "res://narrative/timelines/board_busy.dtl",
-"board_idle": "res://narrative/timelines/board_idle.dtl",
-"board_intro": "res://narrative/timelines/board_intro.dtl",
-"board_quest1": "res://narrative/timelines/board_quest1.dtl",
-"board_quest2": "res://narrative/timelines/board_quest2.dtl",
-"board_quest3": "res://narrative/timelines/board_quest3.dtl",
-"cam_test": "res://narrative/timelines/cam_test.dtl",
-"intro": "res://narrative/timelines/intro.dtl",
-"intro_dialogue_timeline": "res://narrative/timelines/intro_dialogue_timeline.dtl",
-"mister_intro": "res://narrative/timelines/mister_intro.dtl",
-"mister_talk": "res://narrative/timelines/mister_talk.dtl",
-"te_think": "res://narrative/timelines/te_think.dtl",
+"a1d1_intro": "res://narrative/timelines/a1d1_intro.dtl",
+"a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
+"kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
+"mister_main": "res://narrative/timelines/mister_main.dtl",
+"mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
+"timelines/kai_DAY2S1_ Starts_Delivery": "res://narrative/timelines/kai_DAY2S1_ Starts_Delivery.dtl",
+"timelines/kyle_DAY2SB_KYLE": "res://narrative/timelines/kyle_DAY2SB_KYLE.dtl",
+"timelines/trin_DAY2SA_Trin": "res://narrative/timelines/trin_DAY2SA_Trin.dtl",
 "trin_intro": "res://narrative/timelines/trin_intro.dtl",
+"trin_main": "res://narrative/timelines/trin_main.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"
 }
 variables={
-"has_met_fischer": false,
-"has_met_marge": false,
-"has_met_sunny": false,
-"has_met_wendy": false
+"a1d1_garden": false,
+"a1d1_intro": false,
+"a1d1_trin": false,
+"a1d2_harvest": false,
+"a1d2_tree": false,
+"a1d2_trinfood": false,
+"a1d2_wastebin": false,
+"board_active": false,
+"board_met": false,
+"built_compost": false,
+"built_donation": false,
+"built_hygiene": false,
+"built_rain_barrel": false,
+"built_raised_bed": false,
+"built_vplanter": false,
+"crop_radish": 0,
+"entered_build": false,
+"entered_plant": false,
+"mister_active": false,
+"mister_met": false,
+"mom_active": false,
+"mom_met": false,
+"player_entered_home": false,
+"res_material": 0,
+"res_soil": 0,
+"res_water": 0,
+"trin_active": false,
+"trin_met": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
-text/text_reveal_skip_delay=0.1
-text/advance_delay=0.1
+text/text_reveal_skip_delay=0.0
+text/advance_delay=0.0
 text/autoadvance_per_character_delay=0.1
 text/autoadvance_ignored_characters_enabled=true
 audio/max_channels=4.0
@@ -98,7 +120,7 @@ project/assembly_name="Capybara"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/bmod/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg")
 
 [filesystem]
 
@@ -107,6 +129,12 @@ import/blender/enabled=false
 [global_group]
 
 CollectableNodeSpawner=""
+PlayerSpawner=""
+Player=""
+
+[gui]
+
+theme/custom_font="uid://bu0jifvxjxegr"
 
 [input]
 
@@ -182,6 +210,16 @@ dialogic_default_action={
 Build={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":66,"key_label":0,"unicode":98,"location":0,"echo":false,"script":null)
+]
+}
+Skip={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+]
+}
+Debug={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
 ]
 }
 

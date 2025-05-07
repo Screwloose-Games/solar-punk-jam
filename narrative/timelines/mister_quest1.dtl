@@ -1,0 +1,7 @@
+Mister: Hey kid, heard you were looking for work to do.
+Te: Yeah?
+Mister: Well, you might wanna check out the Community Board then.\
+News, material requests, work orders, everything goes up on the board.
+Te: Gotcha. Thanks, Mister!
+Mister: Ayup.
+do QuestManager.start_quest("qst_mister01")

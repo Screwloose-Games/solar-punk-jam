@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kvdijgf8fysy" path="res://prefabs/buildings/prefab_building_entry_short.tscn" id="1_yxkj8"]
 [ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_q3mb3"]
-[ext_resource type="PackedScene" uid="uid://2y66piua3d6t" path="res://BuildingTypes/prefab_entry_long.tscn" id="3_44dcu"]
+[ext_resource type="PackedScene" uid="uid://oqtd7e6ptods" path="res://BuildingTypes/prefab_entry_long.tscn" id="3_44dcu"]
 [ext_resource type="PackedScene" uid="uid://cvwrm6abynwyd" path="res://BuildingTypes/prefab_noentry_tall.tscn" id="4_663hb"]
 [ext_resource type="PackedScene" uid="uid://wo17cvj04r6x" path="res://BuildingTypes/prefab_noentry_short.tscn" id="5_7xul5"]
 [ext_resource type="Material" uid="uid://tj2eujgmg5i1" path="res://materials/BlockoutPlayer.tres" id="6_assy2"]
@@ -26,10 +26,7 @@ material_override = SubResource("StandardMaterial3D_pdt6n")
 mesh = SubResource("PlaneMesh_qst22")
 
 [node name="prefab_entry_short" parent="." instance=ExtResource("1_yxkj8")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.893, 0, -34.597)
-
-[node name="prefab_entry_short2" parent="." instance=ExtResource("1_yxkj8")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.248, 0, 31.25)
+transform = Transform3D(0.99986, 0, 0.0167544, 0, 1, 0, -0.0167544, 0, 0.99986, 15.2962, -1.90735e-06, -31.8727)
 
 [node name="prefab_entry_tall" parent="." instance=ExtResource("2_q3mb3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.0376, 0, 11.4405)
@@ -38,13 +35,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.03
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7943, 0, -7.74037)
 
 [node name="prefab_entry_long" parent="." instance=ExtResource("3_44dcu")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -10.4019, 0, -5.95502)
-
-[node name="prefab_entry_long2" parent="." instance=ExtResource("3_44dcu")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.21902, 0, 31.0859)
-
-[node name="prefab_noentry_tall" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 20.4374)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -11.271, -0.0572701, -11.8609)
 
 [node name="prefab_noentry_tall2" parent="." instance=ExtResource("4_663hb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 13.8836)
@@ -124,9 +115,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.2122
 [node name="prefab_noentry_short14" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.5664, 0, -32.7606)
 
-[node name="prefab_noentry_short15" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.122, 0, -32.7606)
-
 [node name="prefab_noentry_short16" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.6207, 0, -32.7606)
 
@@ -141,9 +129,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.25
 
 [node name="prefab_noentry_short20" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.8915, 0, -32.7606)
-
-[node name="prefab_noentry_short21" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.65819, 0, -16.8604)
 
 [node name="PlayerScale" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.998698, -0.0510112, 0, 0.0510112, 0.998698, 1.91952, 0.833663, 10.3092)
@@ -188,43 +173,16 @@ mesh = SubResource("PlaneMesh_ppxl0")
 skeleton = NodePath("")
 
 [node name="buildable_dirtpatch" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(0.999724, 0, -0.0234899, 0, 1, 0, 0.0234899, 0, 0.999724, -15.203, 0, -16.572)
+transform = Transform3D(0.999724, 0, -0.0234899, 0, 1, 0, 0.0234899, 0, 0.999724, -15.203, 0, -24.4663)
 
 [node name="buildable_dirtpatch2" parent="." instance=ExtResource("8_41105")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.0737, 0, -11.2878)
-
-[node name="buildable_dirtpatch3" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2976, 0, 5.70512)
-
-[node name="buildable_dirtpatch4" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.63222, 0, 5.70512)
-
-[node name="BulletinBoard" type="CSGBox3D" parent="."]
-transform = Transform3D(1.74608, 0, 0.243823, 0, 2, 0, -0.975293, 0, 0.436521, 9.9121, 0, 12.575)
-
-[node name="FoodStand" type="CSGBox3D" parent="."]
-transform = Transform3D(2.96381, 0, 0.154866, 0, 1, 0, -0.464597, 0, 0.987936, 6.56489, 0, 15.6909)
-
-[node name="WasteBin" type="CSGBox3D" parent="."]
-transform = Transform3D(1.87, 0, -0.35465, 0, 1, 0, 0.7093, 0, 0.934999, -1.39184, 0, 15.1568)
-
-[node name="DonationBox" type="CSGBox3D" parent="."]
-transform = Transform3D(1.9965, 0, -0.0591496, 0, 1, 0, 0.118299, 0, 0.998249, 2.25469, 0, 16.1471)
 
 [node name="Fence" type="CSGBox3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 31.6565, 0.414068, -28.3697)
 size = Vector3(0.960938, 1, 1)
 
 [node name="Fence2" type="CSGBox3D" parent="Fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
-operation = 2
-size = Vector3(0.9198, 1.09753, 0.985962)
-
-[node name="Fence4" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.0216768, 0, -2.99992, 0, 1, 0, 2.99992, 0, -0.0216768, 33.8304, 0, 24.9846)
-size = Vector3(0.960938, 1, 1)
-
-[node name="Fence2" type="CSGBox3D" parent="Fence4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
 operation = 2
 size = Vector3(0.9198, 1.09753, 0.985962)

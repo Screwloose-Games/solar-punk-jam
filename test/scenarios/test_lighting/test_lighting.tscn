@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://c5gv0pyjxatdc" path="res://assets/kenney_food-kit/Models/GLB format/apple.glb" id="9_6ccn1"]
 [ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="10_6ccn1"]
 [ext_resource type="PackedScene" uid="uid://6120fgf52qvi" path="res://assets/3d/buildings/building_01/sm_prototype_building_01.tscn" id="11_a8h1o"]
-[ext_resource type="PackedScene" uid="uid://0fnrnvfja1hy" path="res://assets/3d/props/radish/Radish.fbx" id="12_jdarb"]
+[ext_resource type="PackedScene" uid="uid://0fnrnvfja1hy" path="res://assets/3d/crops/radish/sm_radish.fbx" id="12_jdarb"]
 [ext_resource type="PackedScene" uid="uid://dekw2ivu2l2ns" path="res://assets/3d/buildings/building_02/SM_PrototypeBuilding_02.glb" id="12_jx8jv"]
 [ext_resource type="PackedScene" uid="uid://dt201prswa8pg" path="res://assets/3d/buildings/building_03/SM_PrototypeBuilding_03.glb" id="13_lcj1t"]
-[ext_resource type="PackedScene" uid="uid://cedg86h3elalj" path="res://assets/3d/buildings/building_05/sm_building_05.tscn" id="14_tgc7t"]
-[ext_resource type="PackedScene" uid="uid://cov82kk44bame" path="res://assets/3d/buildings/building_04/sm_building_04.tscn" id="15_k8glj"]
+[ext_resource type="PackedScene" uid="uid://cedg86h3elalj" path="res://assets/3d/buildings/building_farming_tall/sm_building_farming_tall.tscn" id="14_tgc7t"]
+[ext_resource type="PackedScene" uid="uid://cov82kk44bame" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short.tscn" id="15_k8glj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lcj1t"]
 render_priority = 0
@@ -40,8 +40,11 @@ size = Vector3(145.621, 1, 133.235)
 material = SubResource("ShaderMaterial_lcj1t")
 
 [node name="Camera3D2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_b06ku")]
+physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0.184875, 5.12275, 10.881)
+keep_aspect = 1
 v_offset = 0.0
+projection = 0
 size = 10.0
 target = NodePath("../PlayerCharacter")
 shake_intensity_multiplier = 1.0

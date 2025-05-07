@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciean0tou8gw2"]
+
+[ext_resource type="PackedScene" uid="uid://cavavb6t10fg3" path="res://assets/3d/buildings/building_player/sm_building_playerhouse.gltf" id="1_8e5oj"]
+
+[node name="sm_building_playerhouse" instance=ExtResource("1_8e5oj")]

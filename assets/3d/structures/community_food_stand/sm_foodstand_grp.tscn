@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://qmybjelmqunr"]
+
+[ext_resource type="PackedScene" uid="uid://bi44qdst7il0j" path="res://assets/3d/structures/community_food_stand/sm_foodstand_grp.gltf" id="1_0fiyk"]
+
+[node name="sm_foodstand_grp" instance=ExtResource("1_0fiyk")]

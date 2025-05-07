@@ -1,0 +1,22 @@
+Mom: TE, BABY! 
+Mom: COME OVER HERE!
+
+Te: Ugh, what now?
+
+Mom: Don't what now me.
+
+Mom: We all have our part to play, that's the only way--
+
+Te: -we can work with the land and each other to call this place a home. 
+
+Te: I know, I know. You say it all the time. 
+
+Mom: Good, then don't forget to check the bulletin board. 
+
+Mom: If anyone needs help they'll ask for it there. 
+
+Te: Fine.
+
+Mom: Love you too, my little gremlin. 
+
+do QuestManager.start_quest("qst_a1d1_intro")
