@@ -1,6 +1,5 @@
 extends Node
 
-
 @onready var camera_target_marker_3d: Marker3D = $CameraTargetMarker3D
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
 @onready var player: Player = %Player
