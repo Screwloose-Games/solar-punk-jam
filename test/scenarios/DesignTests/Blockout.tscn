@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtsmoat7t1wke" path="res://BuildingTypes/prefab_entry_short.tscn" id="1_qt4sx"]
 [ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_0vjbe"]
-[ext_resource type="PackedScene" uid="uid://2y66piua3d6t" path="res://BuildingTypes/prefab_entry_long2.tscn" id="3_dl6um"]
+[ext_resource type="PackedScene" uid="uid://2y66piua3d6t" path="res://BuildingTypes/prefab_entry_long.tscn" id="3_dl6um"]
 [ext_resource type="Material" uid="uid://tj2eujgmg5i1" path="res://materials/BlockoutPlayer.tres" id="3_qt4sx"]
 [ext_resource type="PackedScene" uid="uid://cvwrm6abynwyd" path="res://BuildingTypes/prefab_noentry_tall.tscn" id="4_rctyn"]
 [ext_resource type="PackedScene" uid="uid://wo17cvj04r6x" path="res://BuildingTypes/prefab_noentry_short.tscn" id="5_ha4op"]
