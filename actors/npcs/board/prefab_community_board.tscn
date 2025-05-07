@@ -82,7 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_t813n")
 
 [node name="sm_community_message_board2" parent="." instance=ExtResource("2_s1nju")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29428, 0, 0)
 
 [node name="InteractableArea3D" parent="." instance=ExtResource("1_ptspw")]
 unique_name_in_owner = true

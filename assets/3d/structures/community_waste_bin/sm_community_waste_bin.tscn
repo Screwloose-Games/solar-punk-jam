@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://m01l6hbbpqw6"]
-
-[ext_resource type="PackedScene" uid="uid://dwn6mqctkig6m" path="res://assets/3d/structures/community_waste_bin/sm_community_waste_bin.gltf" id="1_ohxen"]
-
-[node name="sm_community_waste_bin" instance=ExtResource("1_ohxen")]
