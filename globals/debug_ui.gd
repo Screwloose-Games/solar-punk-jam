@@ -6,11 +6,13 @@ extends CanvasLayer
 @onready var unlock_structures_button: Button = %UnlockStructuresButton
 @onready var update_resources_component: UpdateResourcesComponent = %UpdateResourcesComponent
 @onready var unlock_structures_component: UnlockStructuresComponent = %UnlockStructuresComponent
+@onready var debug_ui_margin_container: PanelContainer = %DebugUIContainer
 
 const end_timeline_label: String = "skip"
 
 func _ready() -> void:
 	hide()
+	debug_ui_margin_container.hide()
 	player_speed_line_edit.text_submitted.connect(_on_speed_updated)
 	give_resources_button.pressed.connect(_on_give_resources_pressed)
 	unlock_structures_button.pressed.connect(_on_unlock_structures_pressed)
@@ -22,7 +24,7 @@ func _process(delta: float) -> void:
 	if not OS.is_debug_build():
 		return
 	if Input.is_action_just_pressed("Debug"):
-		visible = !visible
+		debug_ui_margin_container.visible = !debug_ui_margin_container.visible
 	if Input.is_action_just_pressed("Skip"):
 		skip_to_timeline_end()
 			

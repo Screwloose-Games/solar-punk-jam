@@ -33,80 +33,90 @@ force_type = 0
 metadata/_custom_type_script = "uid://d6gh3spmgbp0"
 
 [node name="DebugUi" type="CanvasLayer"]
-layer = 6
 script = ExtResource("1_7ny8s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="DebugUIContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -91.5
+offset_top = -97.0
+offset_right = 131.5
+offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="DebugUIContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugUIContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="PlayerSpeedLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerSpeedLabel" type="Label" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Player Speed"
 
-[node name="PlayerSpeedLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+[node name="PlayerSpeedLineEdit" type="LineEdit" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GiveResourcesButton" type="Button" parent="VBoxContainer"]
+[node name="GiveResourcesButton" type="Button" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Give Resources"
 
-[node name="UnlockStructuresButton" type="Button" parent="VBoxContainer"]
+[node name="UnlockStructuresButton" type="Button" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Unlock Structures"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = SubResource("Texture2D_tb76i")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "skip dialogue"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = SubResource("Texture2D_ekx6d")
 expand_mode = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "show/hide the UI"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = SubResource("Texture2D_re1eu")
 expand_mode = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer4"]
+[node name="Label3" type="Label" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "show/hide debug UI"
 
@@ -133,3 +143,59 @@ metadata/_custom_type_script = "uid://cp0gcaquk0nu7"
 unique_name_in_owner = true
 script = ExtResource("3_obpqu")
 metadata/_custom_type_script = "uid://bdour1f6ee8mm"
+
+[node name="LabelMarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 102.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LabelMarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LabelMarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "debug build"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="LabelMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="LabelMarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("Texture2D_re1eu")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="LabelMarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "debug UI"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LabelMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="LabelMarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("Texture2D_tb76i")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="LabelMarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "skip dialogue"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="LabelMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="LabelMarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("Texture2D_ekx6d")
+expand_mode = 1
+
+[node name="Label2" type="Label" parent="LabelMarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "show/hide the UI"
