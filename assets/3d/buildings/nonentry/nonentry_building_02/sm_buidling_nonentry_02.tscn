@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://colklion45gew"]
+
+[ext_resource type="PackedScene" uid="uid://wp1l42t5sne4" path="res://assets/3d/buildings/nonentry/nonentry_building_02/sm_buidling_nonentry_02.gltf" id="1_wgbcc"]
+
+[node name="sm_buidling_nonentry_02" instance=ExtResource("1_wgbcc")]
