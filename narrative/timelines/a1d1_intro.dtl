@@ -18,5 +18,5 @@ Mom: If anyone needs help they'll ask for it there.
 Te: Fine.
 
 Mom: Love you too, my little gremlin. 
-
+label skip
 do QuestManager.start_quest("qst_a1d1_intro")

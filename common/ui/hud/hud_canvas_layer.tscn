@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=25 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -46,6 +46,8 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwr8q"]
 bg_color = Color(0.219608, 0.301961, 0.34902, 0.937255)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8yxrh"]
 
 [sub_resource type="Theme" id="Theme_6igmu"]
 
@@ -143,6 +145,7 @@ texture = ExtResource("2_6torc")
 stretch_mode = 3
 
 [node name="CommunityProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 12)
 layout_mode = 2
 size_flags_vertical = 4
@@ -151,7 +154,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5quvr")
 value = 66.0
 show_percentage = false
 
-[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+[node name="CommunityStatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "100"
 
@@ -166,6 +170,7 @@ texture = ExtResource("3_8yxrh")
 stretch_mode = 3
 
 [node name="EnvironmentProgressBar" type="ProgressBar" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 12)
 layout_mode = 2
 size_flags_vertical = 4
@@ -174,7 +179,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_owaxp")
 value = 33.0
 show_percentage = false
 
-[node name="StatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+[node name="EnvironmentStatusLabel" type="Label" parent="HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "100"
 
@@ -351,7 +357,9 @@ layout_mode = 2
 text = "AM"
 
 [node name="LeftMiddleMarginContainer" type="MarginContainer" parent="HUD"]
+unique_name_in_owner = true
 visible = false
+material = SubResource("CanvasItemMaterial_8yxrh")
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

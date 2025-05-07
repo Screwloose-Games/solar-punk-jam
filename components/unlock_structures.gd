@@ -1,3 +1,4 @@
+class_name UnlockStructuresComponent
 extends Node
 
 @export var structures: Dictionary[String, bool] = {
@@ -26,10 +27,6 @@ extends Node
 	"Donation box": false,
 	"Food stand": false,
 }
-
-func _ready() -> void:
-	await owner.ready
-	unlock_structures()
 
 func unlock_structures():
 	for structure in structures:

@@ -12,8 +12,12 @@ var buildable_structures: Array[BuildableStructure] = []
 var resource_to_control = {}
 @export var weather_icon_sunny: Texture
 @export var weather_icon_rainy: Texture
+## How long to show resources on screen when the number changes collect / spend.
+@export var resource_show_time: float = 1.5
+
 
 @onready var bottom_center_margin_container: Control = %BottomCenterMarginContainer
+@onready var left_middle_margin_container: MarginContainer = %LeftMiddleMarginContainer
 
 
 func _ready() -> void:
@@ -50,7 +54,8 @@ func update_time_hud(_offset):
 	%AmPm.text = "PM" if time.is_pm else "AM"
 
 func refresh_resources_ui():
-	#$HUD/LeftMiddleMarginContainer.show()
+	$HUD/LeftMiddleMarginContainer.show()
+	var in_tween: Tween = fade_in_left_middle_container()
 	for i in EnvironmentManager.current_resources:
 		var q = EnvironmentManager.current_resources[i]
 		var t = i + ": " + str(q)
@@ -62,10 +67,24 @@ func refresh_resources_ui():
 			resource_ui_template.get_parent().add_child(ui)
 			ui.text = t
 			ui.show()
-	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/CommunityProgressBar.value = EnvironmentManager.current_resources.get("Happiness", 0)
-	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer/EnvironmentProgressBar.value = EnvironmentManager.current_resources.get("Environment", 0)
-	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/CommunityHBoxContainer/StatusLabel.text = str(EnvironmentManager.current_resources.get("Happiness", 0))
-	$HUD/TopLeftMarginContainer/VBoxContainer/GlobalProgressVBoxContainer/EnvironmentHBoxContainer/StatusLabel.text = str(EnvironmentManager.current_resources.get("Environment", 0))
+	%CommunityProgressBar.value = EnvironmentManager.current_resources.get("Happiness", 0)
+	%EnvironmentProgressBar.value = EnvironmentManager.current_resources.get("Environment", 0)
+	%CommunityStatusLabel.text = str(EnvironmentManager.current_resources.get("Happiness", 0))
+	%EnvironmentStatusLabel.text = str(EnvironmentManager.current_resources.get("Environment", 0))
+	
+	await in_tween.finished
+	await get_tree().create_timer(resource_show_time).timeout
+	fade_out_left_middle_container()
+
+func fade_in_left_middle_container() -> Tween:
+	var tween = create_tween()
+	tween.tween_property(left_middle_margin_container, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	return tween
+
+func fade_out_left_middle_container() -> Tween:
+	var tween = create_tween()
+	tween.tween_property(left_middle_margin_container, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	return tween
 
 class BuildableStructure:
 	var idx: int
