@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq5o3e5omkjfa"]
+
+[ext_resource type="PackedScene" uid="uid://bhnxw5q8bb4ml" path="res://assets/environment/river_run.gltf" id="1_34oih"]
+
+[node name="CSGCombiner3D2" instance=ExtResource("1_34oih")]

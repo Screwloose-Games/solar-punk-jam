@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wbqej5ruxmkg"]
+
+[ext_resource type="PackedScene" uid="uid://b8f3750l0q6c" path="res://assets/3d/environment/river_bank/sm_river_bank.tscn" id="1_0qnih"]
+
+[node name="RiverBank" type="Node3D"]
+
+[node name="sm_river_bank" parent="." instance=ExtResource("1_0qnih")]

@@ -15,7 +15,7 @@
 albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
-size = Vector2(150, 150)
+size = Vector2(148, 140)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ppxl0"]
 size = Vector2(5.5, 100)
@@ -23,7 +23,7 @@ size = Vector2(5.5, 100)
 [node name="DesignTestScene" type="Node3D"]
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.997527, 0, 0, 0, 0.997527, 0, 0, 0, 0.863667, -0.754, 0, -4.342)
+transform = Transform3D(0.997527, 0, 0, 0, 0.997527, 0, 0, 0, 0.863667, -36.2937, 0, -31.1333)
 material_override = SubResource("StandardMaterial3D_pdt6n")
 mesh = SubResource("PlaneMesh_qst22")
 
