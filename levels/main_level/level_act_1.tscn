@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=36 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
@@ -136,6 +136,9 @@ texture = ExtResource("9_io6m6")
 
 [sub_resource type="TileSet" id="TileSet_abo5y"]
 sources/0 = SubResource("TileSetAtlasSource_t2or7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t8hb"]
+size = Vector3(9.69629, 1, 7.49023)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ntgmv"]
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
@@ -309,6 +312,9 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 [node name="SelectionPlaceholder" parent="TrinBuildableSurface2/StructurePlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
+[node name="CollisionShape3D" parent="TrinBuildableSurface2/InteractableBuildableArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.517517, -0.199265)
+
 [node name="HomeBuildableSurface" parent="." instance=ExtResource("8_34qyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3745, 4.0708, -13.0903)
 is_active = false
@@ -325,6 +331,10 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 
 [node name="SelectionPlaceholder" parent="HomeBuildableSurface/StructurePlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
+
+[node name="CollisionShape3D" parent="HomeBuildableSurface/InteractableBuildableArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426392, 0.517517, -0.199265)
+shape = SubResource("BoxShape3D_7t8hb")
 
 [node name="sm_rain_barrel" parent="." instance=ExtResource("10_gdnnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)
