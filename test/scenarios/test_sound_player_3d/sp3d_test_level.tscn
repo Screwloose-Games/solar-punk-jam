@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8oq1ak8luadb"]
+[gd_scene load_steps=14 format=3 uid="uid://8oq1ak8luadb"]
 
 [ext_resource type="Script" uid="uid://cs3aqrqmxkfj0" path="res://test/scenarios/test_sound_player_3d/sp3d_test_level.gd" id="1_i8fqo"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="1_w573e"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="5_lwodk"]
 [ext_resource type="Script" uid="uid://bqaasgleubvyc" path="res://components/sound_player_3d/sound_player_3d.gd" id="6_21ko6"]
 [ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="7_uflf2"]
+[ext_resource type="AudioStream" uid="uid://bctbx2ln5apr5" path="res://common/audio/sfx/ui/aud_ui_load.wav" id="7_ytv67"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ntgmv"]
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
@@ -130,6 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5
 
 [node name="SoundPlayer3D" type="AudioStreamPlayer3D" parent="Trin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2705, 0)
+stream = ExtResource("7_ytv67")
 script = ExtResource("6_21ko6")
 g_start_signal_name = &"talked_to"
 metadata/_custom_type_script = "uid://bqaasgleubvyc"

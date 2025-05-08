@@ -101,9 +101,13 @@ func try_connect_global_stop_signal() -> int:
     return try_connect_g_stop_result 
 
 
-func _on_start() -> void:
+func _on_start(args = null) -> void:
+    if args != null:
+        push_warning("args present: ", args)
     play()
-    
 
-func _on_stop() -> void:
+
+func _on_stop(args) -> void:
+    if args != null:
+        push_warning("args present: ", args)
     stop()
