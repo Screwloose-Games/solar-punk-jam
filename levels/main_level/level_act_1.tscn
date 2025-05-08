@@ -215,7 +215,7 @@ editor_description = "1. Wake up at home
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.99182, -0.00409485, 0.127581, 2.32831e-10, 0.999484, 0.0320797, -0.127646, 0.0318172, -0.991309, -2.85371, 1.52344, -15.0889)
+transform = Transform3D(-0.99182, -0.00409485, 0.127581, 2.32831e-10, 0.999483, 0.0320797, -0.127646, 0.0318172, -0.991309, -2.85371, 1.52344, -15.0889)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
