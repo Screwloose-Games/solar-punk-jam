@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_i8fqo"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="3_ytv67"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="4_4dkwq"]
-[ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="5_lwodk"]
 [ext_resource type="Script" uid="uid://bqaasgleubvyc" path="res://components/sound_player_3d/sound_player_3d.gd" id="6_21ko6"]
+[ext_resource type="PackedScene" uid="uid://ilatnxm00qsl" path="res://test/scenarios/test_sound_player_3d/sp3d_test_npc_trin.tscn" id="6_ytv67"]
+[ext_resource type="AudioStream" uid="uid://drtpl1axb4fiw" path="res://common/audio/sfx/player/jump/jump3.wav" id="7_4dkwq"]
 [ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="7_uflf2"]
-[ext_resource type="AudioStream" uid="uid://bctbx2ln5apr5" path="res://common/audio/sfx/ui/aud_ui_load.wav" id="7_ytv67"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ntgmv"]
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
@@ -90,7 +90,7 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 script = ExtResource("1_i8fqo")
-sound_player_3d = NodePath("Trin/SoundPlayer3D")
+sound_player_3d = NodePath("Trin/GlobalSoundPlayer3D2")
 
 [node name="Environment" parent="." instance=ExtResource("1_w573e")]
 day_length_in_game_hours = 14.0
@@ -126,12 +126,10 @@ layer = 5
 [node name="Player" parent="." instance=ExtResource("4_4dkwq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82898, 1.66893e-06, 15.0925)
 
-[node name="Trin" parent="." instance=ExtResource("5_lwodk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5012)
+[node name="Trin" parent="." instance=ExtResource("6_ytv67")]
 
-[node name="SoundPlayer3D" type="AudioStreamPlayer3D" parent="Trin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2705, 0)
-stream = ExtResource("7_ytv67")
+[node name="GlobalSoundPlayer3D2" type="AudioStreamPlayer3D" parent="Trin"]
+stream = ExtResource("7_4dkwq")
 script = ExtResource("6_21ko6")
 g_start_signal_name = &"talked_to"
 metadata/_custom_type_script = "uid://bqaasgleubvyc"
