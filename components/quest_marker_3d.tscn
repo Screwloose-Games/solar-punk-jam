@@ -1,14 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://vpl7oxh8hf2p"]
 
 [ext_resource type="Script" uid="uid://dnte1st7agpnu" path="res://components/quest_marker_3d.gd" id="1_rwwl4"]
-[ext_resource type="Texture2D" uid="uid://bd4fnnf7ymbcr" path="res://assets/2d/ui/quest-icon.png" id="2_12nou"]
+[ext_resource type="Texture2D" uid="uid://b7wvbv8500qqn" path="res://assets/2d/ui/quest-objective-marker-icon.png" id="2_rwwl4"]
 
 [node name="QuestMarker3D" type="Marker3D"]
 script = ExtResource("1_rwwl4")
+active = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.001
 billboard = 1
 no_depth_test = true
 fixed_size = true
-texture = ExtResource("2_12nou")
+texture = ExtResource("2_rwwl4")
+
+[node name="DistanceLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0101929, 0)
