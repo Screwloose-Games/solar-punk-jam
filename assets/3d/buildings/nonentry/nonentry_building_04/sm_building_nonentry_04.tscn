@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://corbqdc5a3or7"]
+
+[ext_resource type="PackedScene" uid="uid://hoflhhgpbmmg" path="res://assets/3d/buildings/nonentry/nonentry_building_04/sm_building_nonentry_04.gltf" id="1_phie8"]
+
+[node name="sm_building_nonentry_04" instance=ExtResource("1_phie8")]
