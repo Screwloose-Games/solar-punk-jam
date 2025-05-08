@@ -27,6 +27,7 @@ id = "a1d1_intro"
 name = "Check the Community Board"
 quest_giver = "mom"
 description = "Check the Community Board for work orders."
+community_board_text = ""
 objectives = Array[ExtResource("1_rqfjc")]([SubResource("Resource_rqfjc"), SubResource("Resource_pirdi")])
 unlock_structure = ""
 rewards = Dictionary[String, int]({

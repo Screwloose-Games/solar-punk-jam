@@ -22,6 +22,25 @@ var current_act: int = 1:
 			act_updated.emit(current_act)
 			current_act = val
 
+func add_storage_capacity(resource: String, amount: int) -> void:
+	if not resource_storage_limits.has(resource):
+		push_warning("Trying to add storage for an unknown resource: %s" % resource)
+		return
+	resource_storage_limits[resource] += amount
+
+func set_storage_capacity(resource: String, amount: int) -> void:
+	if not resource_storage_limits.has(resource):
+		push_warning("Trying to set storage for an unknown resource: %s" % resource)
+		return
+	resource_storage_limits[resource] = amount
+
+# Gets the current storage capacity
+func get_storage_capacity(resource: String) -> int:
+	if not resource_storage_limits.has(resource):
+		push_warning("Trying to get storage for an unknown resource: %s" % resource)
+		return 0
+	return resource_storage_limits[resource]
+
 func gain_resource(resource: String, quantity: int):
 	prints("Gaining", resource, quantity, current_resources)
 	if resource in current_resources:
