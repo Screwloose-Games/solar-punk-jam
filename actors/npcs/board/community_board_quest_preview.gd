@@ -1,9 +1,6 @@
 class_name CommunityBoardCanvasLayer
 extends CanvasLayer
 
-const HEADER_STRING = "Request: %s"
-const BODY_STRING = "From: %s\nDetails:\n%s"
-
 @onready var header : Label = %Header
 @onready var body : Label = %Body
 @onready var objectives : Label = %Objectives
@@ -35,8 +32,8 @@ func _on_visibility_changed():
 
 
 func rerender():
-	header.text = HEADER_STRING % quest.name
-	body.text = BODY_STRING % [quest.quest_giver.capitalize(), quest.community_board_text]
+	header.text = quest.name
+	body.text = quest.community_board_text
 	var obj_text = ""
 	for objective in quest.objectives:
 		obj_text += objective.description + "\n"

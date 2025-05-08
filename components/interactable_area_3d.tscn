@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d6gh3spmgbp0" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="2_iqwjh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1ur6e"]
+radius = 0.708008
 
 [sub_resource type="Texture2D" id="Texture2D_468fu"]
 resource_local_to_scene = false

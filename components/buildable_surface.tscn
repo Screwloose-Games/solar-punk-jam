@@ -133,7 +133,7 @@ material = SubResource("StandardMaterial3D_af6sc")
 orientation = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5i2rm"]
-size = Vector3(5.37671, 1, 7.49023)
+size = Vector3(9.69629, 1, 7.49023)
 
 [node name="BuildableSurface" type="Node3D"]
 editor_description = "By default it is a 8x8 grid centered on the node's location.
@@ -205,6 +205,7 @@ buildable_surface = NodePath("..")
 unique_name_in_owner = true
 collision_layer = 16
 label_text = "Build"
+toggleable = true
 
 [node name="CollisionShape3D" parent="InteractableBuildableArea" index="0"]
 shape = SubResource("BoxShape3D_5i2rm")
