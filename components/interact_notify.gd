@@ -1,5 +1,7 @@
 extends Node3D
 
+signal talked_to
+
 @export var npc_id = ""
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
@@ -17,4 +19,5 @@ func _on_quest_change():
 
 func _on_interacted(player: Player):
 	GlobalSignalBus.talked_to.emit(npc_id)
+	talked_to.emit()
 	visible = false
