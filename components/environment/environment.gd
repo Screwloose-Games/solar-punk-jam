@@ -33,7 +33,7 @@ func _ready() -> void:
 		animate_day(day_offset)
 
 var animation_tween: Tween
-func animate_day(start_at=0.0):
+func animate_day(start_at=0.0, _dummy=false):
 	EnvironmentManager.day_cycle_start.emit()
 	is_raining = EnvironmentManager.environment_model.is_raining
 	$DirectionalLight3DSun.light_energy = 0.0
@@ -72,6 +72,7 @@ func animate_night(start_at=0.0, bedtime_penalty=false):
 func set_day_time(time: float):
 	EnvironmentManager.day_cycle_update.emit(time)
 	$DirectionalLight3DSun.rotation.y = lerp_angle(-PI*.5, PI*.5, time+1)
+	$DirectionalLight3DSun.rotation.x = sin(time*PI) * -PI*0.25
 	$DirectionalLight3DMoon.rotation.y = lerp_angle(-PI*.5, PI*.5, time+1)
 	$DirectionalLight3DSun.light_energy = sun_energy_curve.sample(time)
 	$DirectionalLight3DMoon.light_energy = 1.0 - $DirectionalLight3DSun.light_energy
@@ -79,15 +80,20 @@ func set_day_time(time: float):
 	if is_raining:
 		$DirectionalLight3DSun.light_energy *= 0.33
 		$WorldEnvironment.environment.background_energy_multiplier = 0.5
+		$WorldEnvironment.environment.sky.sky_material.set_shader_parameter("clouds_cutoff", 0.0)
 	else:
 		$WorldEnvironment.environment.background_energy_multiplier = max(0.5 + $DirectionalLight3DSun.light_energy * 0.5, $DirectionalLight3DMoon.light_energy)
+		$WorldEnvironment.environment.sky.sky_material.set_shader_parameter("clouds_cutoff", 0.3)
 	$WorldEnvironment.environment.fog_light_energy = $DirectionalLight3DSun.light_energy
 	
 func set_night_time(time: float):
 	EnvironmentManager.day_cycle_update.emit(time)
 	$DirectionalLight3DMoon.rotation.y = lerp_angle(-PI*.5, PI*.5, time)
+	$DirectionalLight3DSun.rotation.x = sin(time*PI) * PI*0.25
 	if is_raining:
 		$WorldEnvironment.environment.background_energy_multiplier = 0.5
+		$WorldEnvironment.environment.sky.sky_material.set_shader_parameter("clouds_cutoff", 0.0)
 	else:
 		$WorldEnvironment.environment.background_energy_multiplier = 1.0
+		$WorldEnvironment.environment.sky.sky_material.set_shader_parameter("clouds_cutoff", 0.3)
 	
