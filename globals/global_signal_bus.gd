@@ -22,3 +22,4 @@ signal structure_interacted(structure) # Structure ID
 signal seed_planted(crop: Crop)
 signal player_entered_home
 signal seed_ui_shown
+signal day_passed

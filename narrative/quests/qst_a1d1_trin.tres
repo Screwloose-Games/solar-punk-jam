@@ -63,7 +63,7 @@ signal_name = "seed_ui_shown"
 expected_args = []
 description = "Go into Planting Mode"
 goal = 1
-prerequisites = Array[int]([])
+prerequisites = Array[int]([4])
 play_dialogue = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
