@@ -1,6 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=38 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
+[ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="4_yde30"]
@@ -25,6 +27,43 @@
 [ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
 [ext_resource type="PackedScene" uid="uid://dulhp5ynw5nqr" path="res://assets/3d/structures/community_food_stand/community_food_stand.tscn" id="27_gh1ua"]
 [ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="28_7t8hb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
+render_priority = 0
+shader = ExtResource("2_7t8hb")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/wave_speed = 2.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 1.5
+shader_parameter/time_offset = 0.0
+shader_parameter/water_size = Vector2(128, 128)
+shader_parameter/water_transparency = 0.8
+shader_parameter/water_depth_factor = 0.1
+shader_parameter/foam_width = 0.5
+shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_smoothness = 0.03
+shader_parameter/foam_distortion_speed = 0.5
+shader_parameter/foam_distortion_amount = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_isv6p"]
+material = SubResource("ShaderMaterial_gac30")
+size = Vector2(10, 10)
+subdivide_width = 2
+subdivide_depth = 2
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_cwn0e"]
+item/0/name = ""
+item/0/mesh = SubResource("PlaneMesh_isv6p")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/mesh_cast_shadow = 1
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn"
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
@@ -208,11 +247,22 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 
+[node name="RiverBank" parent="." instance=ExtResource("1_gh1ua")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.091, -0.01, 30.435)
+
+[node name="GridMap" type="GridMap" parent="RiverBank"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -67.5334, -1.57892, -35.2879)
+mesh_library = SubResource("MeshLibrary_cwn0e")
+cell_size = Vector3(10, 2, 10)
+data = {
+"cells": PackedInt32Array(65530, 65533, 0, 0, 65534, 0, 65535, 0, 0, 65534, 1, 0, 65533, 1, 0, 65533, 2, 0, 65532, 3, 0, 65532, 65530, 0, 1, 65530, 0, 0, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65533, 65531, 0, 65532, 65531, 0, 65532, 65532, 0, 65531, 65532, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 0, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65529, 65529, 0, 65529, 65530, 0, 65529, 65531, 0, 65529, 65532, 0, 65529, 65533, 0, 65529, 65534, 0, 65529, 65535, 0, 65529, 0, 0, 65529, 1, 0, 65529, 2, 0, 65529, 3, 0, 65529, 4, 0, 65529, 5, 0, 65530, 65529, 0, 65530, 65530, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 5, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 65532, 65529, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 4, 0, 65532, 5, 0, 65533, 65529, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65534, 65529, 0, 65534, 65531, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 2, 0, 65534, 3, 0, 65534, 4, 0, 65534, 5, 0, 65535, 65529, 0, 65535, 65531, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 0, 65529, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 1, 65529, 0, 1, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 2, 65529, 0, 2, 65530, 0, 2, 65531, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 2, 65532, 0, 1, 65528, 0, 1, 65527, 0, 1, 65526, 0, 2, 65528, 0, 2, 65527, 0, 2, 65526, 0, 2, 65525, 0, 2, 65524, 0, 1, 65524, 0, 1, 65523, 0, 2, 65523, 0, 1, 65525, 0)
+}
+
 [node name="StartFirstDialogue" type="Node3D" parent="."]
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.99182, -0.00409484, 0.127581, 2.32831e-10, 0.999482, 0.0320797, -0.127646, 0.0318172, -0.991309, -2.85371, 1.52344, -15.0889)
+transform = Transform3D(-0.99182, -0.00409484, 0.127581, 2.32831e-10, 0.999482, 0.0320797, -0.127646, 0.0318171, -0.991309, -2.85371, 1.52344, -15.0889)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
@@ -366,9 +416,6 @@ script = ExtResource("12_cxy8c")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("13_xerwd")]
 
-[node name="prefab_noentry_tall9" parent="DesignTestScene" index="8"]
-transform = Transform3D(0.0393644, 0, 0.999225, 0, 1, 0, -0.999225, 0, 0.0393644, -20.6186, 0, -32.965)
-
 [node name="PlayerScale" parent="DesignTestScene" index="27"]
 visible = false
 
@@ -453,7 +500,6 @@ layer = 2
 
 [node name="QuestMarker3D" parent="QuestMarkerCanvasLayer" instance=ExtResource("28_7t8hb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6867, 1.98309, 5.23731)
-active = true
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]

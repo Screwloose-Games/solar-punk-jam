@@ -1,18 +1,75 @@
-[gd_scene load_steps=19 format=3 uid="uid://dr5n6y37v5b8t"]
+[gd_scene load_steps=18 format=3 uid="uid://dr5n6y37v5b8t"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_08mkj"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_ypvyw"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_isv6p"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="5_tnnds"]
-[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="6_1gt21"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="7_xjnxn"]
-[ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="8_7s8ku"]
-[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="9_36ppn"]
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="10_uu54l"]
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="11_3sjjn"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="12_jx4f4"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="13_6qdfi"]
 [ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="15_ypvyw"]
+
+[sub_resource type="Animation" id="Animation_qwrev"]
+resource_name = "flyover_01"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCamera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 9.73544),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(6.72798, 2.86358, 15.3668), Vector3(-4.272, 4.864, 0.367), Vector3(-2.46334, 6.37645, -20.8106)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCamera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 9.73544),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.523599, 0, 0), Vector3(-0.523599, 0, 0), Vector3(-0.523599, 1.45211, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kcgtt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCamera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.72798, 2.86358, 15.3668)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCamera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.523599, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_egt6j"]
+_data = {
+&"RESET": SubResource("Animation_kcgtt"),
+&"flyover_01": SubResource("Animation_qwrev")
+}
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o51hc"]
 dof_blur_far_enabled = true
@@ -65,6 +122,12 @@ metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn
 
 [node name="TestWater" type="Node3D"]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_egt6j")
+}
+autoplay = "flyover_01"
+
 [node name="UnlockStructures" type="Node" parent="."]
 script = ExtResource("2_08mkj")
 structures = Dictionary[String, bool]({
@@ -114,13 +177,8 @@ resource_storage_limits = Dictionary[String, int]({
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 6.72798, 2.86358, 15.3668)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6.72798, 2.86358, 15.3668)
 attributes = SubResource("CameraAttributesPractical_o51hc")
-
-[node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("4_isv6p")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("5_tnnds")]
 
@@ -141,16 +199,7 @@ carve_navigation_mesh = true
 
 [node name="Structures" type="Node3D" parent="."]
 
-[node name="HUDCanvasLayer" parent="." instance=ExtResource("6_1gt21")]
-layer = 5
-
 [node name="Environment" parent="." instance=ExtResource("7_xjnxn")]
-
-[node name="NpcMister" parent="." instance=ExtResource("8_7s8ku")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63211, 0.00260284, 9.51072)
-
-[node name="Player" parent="." instance=ExtResource("9_36ppn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72798, -2.38418e-07, 12.3357)
 
 [node name="CommBoard" parent="." instance=ExtResource("10_uu54l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)

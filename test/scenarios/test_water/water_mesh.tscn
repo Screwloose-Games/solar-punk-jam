@@ -1,30 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bheq1fhcltsoa"]
+[gd_scene load_steps=3 format=3 uid="uid://bheq1fhcltsoa"]
 
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="1_xpd5s"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dhqvo"]
-render_priority = 0
-shader = ExtResource("1_xpd5s")
-shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
-shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
-shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
-shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(5, 5)
-shader_parameter/wave_speed = 2.0
-shader_parameter/wave_amplitude = 0.1
-shader_parameter/wave_frequency = 1.5
-shader_parameter/time_offset = 0.0
-shader_parameter/water_size = Vector2(128, 128)
-shader_parameter/water_transparency = 0.8
-shader_parameter/water_depth_factor = 0.1
-shader_parameter/foam_width = 0.5
-shader_parameter/foam_edge_softness = 0.05
-shader_parameter/foam_smoothness = 0.03
-shader_parameter/foam_distortion_speed = 0.5
-shader_parameter/foam_distortion_amount = 0.1
+[ext_resource type="Material" uid="uid://dmducayrvjsbc" path="res://materials/water_cel_material.tres" id="1_xpd5s"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5mrdt"]
-material = SubResource("ShaderMaterial_dhqvo")
+material = ExtResource("1_xpd5s")
 size = Vector2(128, 128)
 subdivide_width = 32
 subdivide_depth = 32
