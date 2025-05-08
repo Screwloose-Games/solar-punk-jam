@@ -47,7 +47,7 @@ shader_parameter/foam_smoothness = 0.03
 shader_parameter/foam_distortion_speed = 0.5
 shader_parameter/foam_distortion_amount = 0.1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_isv6p"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_5mrdt"]
 material = SubResource("ShaderMaterial_dhqvo")
 size = Vector2(10, 10)
 subdivide_width = 2
@@ -55,7 +55,7 @@ subdivide_depth = 2
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_08mkj"]
 item/0/name = ""
-item/0/mesh = SubResource("PlaneMesh_isv6p")
+item/0/mesh = SubResource("PlaneMesh_5mrdt")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/mesh_cast_shadow = 1
 item/0/shapes = []

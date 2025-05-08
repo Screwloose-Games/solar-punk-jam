@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk5lqw520rox7"]
+[gd_scene load_steps=9 format=3 uid="uid://dk5lqw520rox7"]
 
 [ext_resource type="PackedScene" uid="uid://bk5fvv6icg32" path="res://components/terrain.tscn" id="1_3et75"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="1_bdf1t"]
 [ext_resource type="PackedScene" uid="uid://dlnsau4dubyw1" path="res://components/water_gridmap.tscn" id="2_137k1"]
 [ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="3_gs8vw"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="4_v5kms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
 render_priority = 0
@@ -43,6 +45,8 @@ metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn
 
 [node name="TestTerrainWater" type="Node3D"]
 
+[node name="Environment" parent="." instance=ExtResource("1_bdf1t")]
+
 [node name="Terrain" parent="." instance=ExtResource("1_3et75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8348, 0, -48.642)
 
@@ -52,3 +56,8 @@ mesh_library = SubResource("MeshLibrary_v5kms")
 data = {
 "cells": PackedInt32Array(3, 65532, 0, 3, 65533, 0, 2, 65533, 0, 0, 65534, 0, 65535, 0, 0, 65533, 1, 0, 65533, 2, 0, 65532, 3, 0, 65531, 4, 0, 65533, 65531, 0, 65532, 65531, 0, 65532, 65532, 0, 65531, 2, 0, 65531, 3, 0, 65531, 5, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 4, 0, 65532, 5, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65534, 65531, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 2, 0, 65534, 3, 0, 65534, 4, 0, 65534, 5, 0, 65535, 65531, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 1, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 2, 65531, 0, 2, 65532, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 3, 4, 0, 3, 5, 0, 4, 65532, 0, 4, 65533, 0, 4, 65534, 0, 4, 65535, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 4, 3, 0, 4, 4, 0, 4, 5, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0)
 }
+
+[node name="Player" parent="." instance=ExtResource("4_v5kms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5869, 1.02522, 1.72937)
+
+[editable path="Terrain"]
