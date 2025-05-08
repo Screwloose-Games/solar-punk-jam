@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsskvq83uilps"]
+
+[ext_resource type="PackedScene" uid="uid://cby031dw68y37" path="res://assets/3d/buildings/destroyed/destroyed_building_02/sm_building_destroyed_02.tscn" id="1_l4wm1"]
+
+[node name="prefab_noentry_tall" type="Node3D"]
+
+[node name="sm_building_destroyed_02" parent="." instance=ExtResource("1_l4wm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.138854, 0, -0.473577)

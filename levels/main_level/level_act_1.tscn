@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=33 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dee2tlx6hkx75" path="res://actors/npcs/kai/npc_kai.tscn" id="20_x787j"]
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="21_dedys"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="22_rlc83"]
-[ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="23_i4uv0"]
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="24_c2ahp"]
 [ext_resource type="PackedScene" uid="uid://cyqfwaujvc58l" path="res://assets/3d/structures/compost_bin/compost_bin.tscn" id="25_mfuku"]
 [ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
@@ -213,7 +212,7 @@ editor_description = "1. Wake up at home
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.99182, -0.00409485, 0.127581, 2.32831e-10, 0.999483, 0.0320797, -0.127646, 0.0318172, -0.991309, -2.85371, 1.52344, -15.0889)
+transform = Transform3D(-0.99182, -0.00409484, 0.127581, 2.32831e-10, 0.999482, 0.0320797, -0.127646, 0.0318172, -0.991309, -2.85371, 1.52344, -15.0889)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
@@ -367,19 +366,10 @@ script = ExtResource("12_cxy8c")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("13_xerwd")]
 
-[node name="prefab_entry_tall2" parent="DesignTestScene" index="3"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.7943, 0, -7.74037)
+[node name="prefab_noentry_tall9" parent="DesignTestScene" index="8"]
+transform = Transform3D(0.0393644, 0, 0.999225, 0, 1, 0, -0.999225, 0, 0.0393644, -20.6186, 0, -32.965)
 
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="9"]
-visible = false
-
-[node name="prefab_noentry_tall9" parent="DesignTestScene" index="12"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -11.274)
-
-[node name="prefab_noentry_tall10" parent="DesignTestScene" index="13"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -4.68782)
-
-[node name="PlayerScale" parent="DesignTestScene" index="36"]
+[node name="PlayerScale" parent="DesignTestScene" index="27"]
 visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -437,9 +427,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405251, -0.21441, 0)
 omni_range = 1.524
 omni_attenuation = 0.5
 
-[node name="sm_destroyed_building_01" parent="." instance=ExtResource("23_i4uv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
-
 [node name="Trin" parent="." instance=ExtResource("24_c2ahp")]
 transform = Transform3D(0.632489, 0, 0.774569, 0, 1, 0, -0.774569, 0, 0.632489, -27.2895, 0.00154209, -0.918117)
 
@@ -459,7 +446,7 @@ transform = Transform3D(0.264631, 0, 0.96435, 0, 1, 0, -0.96435, 0, 0.264631, -3
 starting_water = 4
 
 [node name="BuildableStructure" parent="." instance=ExtResource("27_gh1ua")]
-transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.88256, 2.5332e-07, 14.2494)
+transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.92161, 0.00395419, 14.2494)
 
 [node name="QuestMarkerCanvasLayer" type="CanvasLayer" parent="."]
 layer = 2

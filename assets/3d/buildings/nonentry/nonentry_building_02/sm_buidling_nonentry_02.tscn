@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://wp1l42t5sne4" path="res://assets/3d/buildings/nonentry/nonentry_building_02/sm_buidling_nonentry_02.gltf" id="1_wgbcc"]
 
 [node name="sm_buidling_nonentry_02" instance=ExtResource("1_wgbcc")]
+
+[node name="sm_building_nonentry_02" parent="mesh_nonentry_02" index="0"]
+transform = Transform3D(0.0188057, 0, 0.999823, 0, 1, 0, -0.999823, 0, 0.0188057, 0, 0, 0)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cov82kk44bame"]
 
 [ext_resource type="PackedScene" uid="uid://bphslqym0vb7m" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short.gltf" id="1_4tavx"]
-[ext_resource type="Texture2D" uid="uid://bfjqheswu0023" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short_Base_Color.png" id="2_5jc7u"]
+[ext_resource type="Texture2D" uid="uid://ythkkgiv1x5f" path="res://assets/3d/buildings/building_farming_short/sm_building_04_Base_Color.png" id="2_5jc7u"]
 [ext_resource type="Texture2D" uid="uid://b33jfgm7kn257" path="res://assets/3d/buildings/building_farming_short/sm_building_04_Normal.png" id="3_h1fvs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lq0k"]
