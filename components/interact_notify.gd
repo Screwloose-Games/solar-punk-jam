@@ -6,6 +6,7 @@ extends Node3D
 
 
 func _ready() -> void:
+	visible = false
 	QuestManager.quests_changed.connect(_on_quest_change)
 	interactable_area_3d.interacted.connect(_on_interacted)
 

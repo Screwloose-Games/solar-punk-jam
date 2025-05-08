@@ -107,7 +107,17 @@ func _ready() -> void:
 	player_mode = player_mode
 	build_area_3d.started_interacting.connect(_on_started_building)
 	build_area_3d.stopped_interacting.connect(_on_stopped_building)
+	Dialogic.timeline_started.connect(_on_dialogue_started)
+	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	
+func _on_dialogue_started():
+	process_mode = Node.PROCESS_MODE_DISABLED
+	pass
+
+func _on_dialogue_ended():
+	process_mode = Node.PROCESS_MODE_INHERIT
+	pass
+
 func _on_started_building():
 	interact_canvas_layer.hide()
 	player_mode = PlayerMode.BUILD

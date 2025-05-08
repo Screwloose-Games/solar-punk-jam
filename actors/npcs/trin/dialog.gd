@@ -8,12 +8,14 @@ extends Node3D
 func _ready() -> void:
 	interactable_area_3d.interacted.connect(_on_interacted)
 
-
 func _on_interacted(player: Player):
 	start_current_dialogue()
 
+func has_dialogue():
+	return DialogicResourceUtil.get_timeline_resource(npc_id + "_main") != null
 
 func start_current_dialogue():
-	Dialogic.start(npc_id + "_main")
-	await Dialogic.timeline_ended
+	if has_dialogue():
+		Dialogic.start(npc_id + "_main")
+		await Dialogic.timeline_ended
 	interactable_area_3d.stop_interacting()

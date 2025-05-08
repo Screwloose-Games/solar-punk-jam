@@ -205,6 +205,7 @@ buildable_surface = NodePath("..")
 unique_name_in_owner = true
 collision_layer = 16
 label_text = "Build"
+toggleable = true
 
 [node name="CollisionShape3D" parent="InteractableBuildableArea" index="0"]
 shape = SubResource("BoxShape3D_5i2rm")

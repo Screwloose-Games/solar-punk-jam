@@ -9,6 +9,9 @@ class_name InteractableArea3D
 
 @export var show_label: bool = false 
 
+## Should this component allow toggling pressing interact again?
+@export var toggleable: bool = false
+
 signal interacted(player: Player)
 signal stopped_interacting
 signal selected
