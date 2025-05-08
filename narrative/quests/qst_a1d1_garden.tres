@@ -81,6 +81,7 @@ id = "a1d1_garden"
 name = "Start your own garden"
 quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
+community_board_text = ""
 objectives = Array[ExtResource("1_b5u7u")]([SubResource("Resource_b5u7u"), SubResource("Resource_emwmh"), SubResource("Resource_lpidx"), SubResource("Resource_jxjmi"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
 unlock_structure = ""
 rewards = Dictionary[String, int]({

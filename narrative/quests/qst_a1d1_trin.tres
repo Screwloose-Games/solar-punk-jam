@@ -77,7 +77,7 @@ objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_x688r"), SubRe
 unlock_structure = "Vertical garden"
 rewards = Dictionary[String, int]({
 "Happiness": 5,
-"Material": 6,
+"Materials": 6,
 "Seeds": 3,
 "Soil": 3,
 "Water": 3

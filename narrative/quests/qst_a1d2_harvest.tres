@@ -9,6 +9,7 @@ id = "a1d2_harvest"
 name = "Harvest and deliver plants"
 quest_giver = "mom"
 description = "Quest Description"
+community_board_text = ""
 objectives = Array[ExtResource("1_i80ro")]([])
 unlock_structure = ""
 rewards = Dictionary[String, int]({

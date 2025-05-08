@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://42ldv31m725y"]
+
+[ext_resource type="Script" uid="uid://kve8n2lsqauh" path="res://actors/npcs/board/mini_single_reward_item_h_box_container.gd" id="1_6h1sf"]
+[ext_resource type="Texture2D" uid="uid://bux2jq811o0kk" path="res://assets/2d/ui/icon-soil-20px.png" id="2_p3tfj"]
+
+[node name="MiniSingleRewardItemHBoxContainer" type="HBoxContainer"]
+script = ExtResource("1_6h1sf")
+
+[node name="MiniRewardIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_p3tfj")
+
+[node name="MiniRewardLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Soil"
+
+[node name="MiniRewardCountHBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MiniRewardCountPlusLabel" type="Label" parent="MiniRewardCountHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+"
+
+[node name="MiniRewardCountAmountLabel" type="Label" parent="MiniRewardCountHBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
