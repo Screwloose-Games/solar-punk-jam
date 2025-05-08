@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=34 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
@@ -17,8 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="15_phxbu"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="16_t3rkj"]
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="17_u0qwm"]
-[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="18_apu60"]
-[ext_resource type="Resource" uid="uid://cm7t2ur61v8im" path="res://narrative/quests/qst_a1d1_trin.tres" id="19_ru0g3"]
 [ext_resource type="PackedScene" uid="uid://dee2tlx6hkx75" path="res://actors/npcs/kai/npc_kai.tscn" id="20_x787j"]
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="21_dedys"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="22_rlc83"]
@@ -427,7 +425,6 @@ speed = 20.0
 
 [node name="CommBoard" parent="." instance=ExtResource("17_u0qwm")]
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
-quest_list = Array[ExtResource("18_apu60")]([ExtResource("19_ru0g3")])
 
 [node name="Kai" parent="." instance=ExtResource("20_x787j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71573, -0.0248976, -10.7091)
