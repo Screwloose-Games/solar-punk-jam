@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://pymb8encx3b1"]
+
+[ext_resource type="PackedScene" uid="uid://b6f3nxgavr12q" path="res://assets/3d/structures/picnic_table/sm_picnic_table.gltf" id="1_8uwyq"]
+[ext_resource type="Texture2D" uid="uid://7i0c41vedrev" path="res://assets/3d/structures/picnic_table/t_picnictable_baseColor.png" id="2_7nkng"]
+[ext_resource type="Texture2D" uid="uid://djfc7tm0m7pj5" path="res://assets/3d/structures/picnic_table/t_picnictable_normal.png" id="3_xvjjf"]
+[ext_resource type="Texture2D" uid="uid://cmx2lkkthwwar" path="res://assets/3d/structures/picnic_table/t_picnictable_occlusionRoughnessMetallic.png" id="4_45bub"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_586ll"]
+albedo_texture = ExtResource("2_7nkng")
+orm_texture = ExtResource("4_45bub")
+normal_enabled = true
+normal_texture = ExtResource("3_xvjjf")
+
+[node name="sm_picnic_table" instance=ExtResource("1_8uwyq")]
+
+[node name="pCylinder5" parent="PicnicTable_obj" index="1"]
+surface_material_override/0 = SubResource("ORMMaterial3D_586ll")
