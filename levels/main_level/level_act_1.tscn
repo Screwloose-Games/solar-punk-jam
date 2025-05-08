@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=35 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cyqfwaujvc58l" path="res://assets/3d/structures/compost_bin/compost_bin.tscn" id="25_mfuku"]
 [ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
 [ext_resource type="PackedScene" uid="uid://dulhp5ynw5nqr" path="res://assets/3d/structures/community_food_stand/community_food_stand.tscn" id="27_gh1ua"]
+[ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="28_7t8hb"]
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
@@ -351,6 +352,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -4.25633, 3.14492, -9.12453)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -457,6 +459,13 @@ transform = Transform3D(0.264631, 0, 0.96435, 0, 1, 0, -0.96435, 0, 0.264631, -3
 
 [node name="BuildableStructure" parent="." instance=ExtResource("27_gh1ua")]
 transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.88256, 2.5332e-07, 14.2494)
+
+[node name="QuestMarkerCanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="QuestMarker3D" parent="QuestMarkerCanvasLayer" instance=ExtResource("28_7t8hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6867, 1.98309, 5.23731)
+active = true
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
