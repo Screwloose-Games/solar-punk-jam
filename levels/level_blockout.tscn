@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1jp6i2bu3bjt"]
+[gd_scene load_steps=11 format=3 uid="uid://d1jp6i2bu3bjt"]
 
 [ext_resource type="PackedScene" uid="uid://kvdijgf8fysy" path="res://prefabs/buildings/prefab_building_entry_short.tscn" id="1_yxkj8"]
 [ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_q3mb3"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://wo17cvj04r6x" path="res://BuildingTypes/prefab_noentry_short.tscn" id="5_7xul5"]
 [ext_resource type="Material" uid="uid://tj2eujgmg5i1" path="res://materials/BlockoutPlayer.tres" id="6_assy2"]
 [ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="7_nrc00"]
-[ext_resource type="PackedScene" uid="uid://tp1qx1fx7wre" path="res://BuildingTypes/buildable_dirtpatch.tscn" id="8_41105"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdt6n"]
 albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
@@ -171,12 +170,6 @@ transform = Transform3D(-0.999409, 0, -4.49477e-08, 0, 1, 0, 8.73711e-08, 0, -0.
 material_override = ExtResource("7_nrc00")
 mesh = SubResource("PlaneMesh_ppxl0")
 skeleton = NodePath("")
-
-[node name="buildable_dirtpatch" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(0.999724, 0, -0.0234899, 0, 1, 0, 0.0234899, 0, 0.999724, -15.203, 0, -24.4663)
-
-[node name="buildable_dirtpatch2" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.0737, 0, -11.2878)
 
 [node name="Fence" type="CSGBox3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 31.6565, 0.414068, -28.3697)
