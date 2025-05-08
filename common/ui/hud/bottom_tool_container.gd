@@ -17,11 +17,13 @@ func _ready():
 
 func show_with_slide():
 	visible = true
+	base_position.x = -toolbar_background_panel_container.size.x / 2.0
 	tween.kill()
 	tween = create_tween()
 	tween.tween_property(toolbar_background_panel_container, "position", base_position, tween_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func hide_with_slide():
+	base_position.x = -toolbar_background_panel_container.size.x / 2.0
 	tween.kill()
 	tween = create_tween()
 	tween.tween_property(toolbar_background_panel_container, "position", base_position + Vector2(0, offset_y), tween_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)

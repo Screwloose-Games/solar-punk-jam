@@ -142,6 +142,32 @@ metadata/_custom_type_script = "uid://cp0gcaquk0nu7"
 [node name="UnlockStructuresComponent" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("3_obpqu")
+structures = Dictionary[String, bool]({
+"Battery": false,
+"Bench": false,
+"Bioreactor": false,
+"Birdhouse (on pole)": false,
+"Bush (flowers)": false,
+"Compost bin": true,
+"Donation box": true,
+"Food stand": true,
+"Hygiene station": false,
+"Insect Hotel": false,
+"Kitchen": false,
+"Kitchen sink": false,
+"Kitchen stove": false,
+"Lantern (on pole)": false,
+"Picnic Table": false,
+"Rain barrel": true,
+"Raised bed": true,
+"Recycling station": true,
+"Solar panel": true,
+"Tool library": false,
+"Tree": false,
+"Vegetables": false,
+"Vertical garden": true,
+"Waste bin": true
+})
 metadata/_custom_type_script = "uid://bdour1f6ee8mm"
 
 [node name="LabelMarginContainer" type="MarginContainer" parent="."]

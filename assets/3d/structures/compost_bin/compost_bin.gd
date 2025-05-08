@@ -3,6 +3,7 @@ extends Node
 @export var max_capacity: int = 10
 @export var max_soil_output_per_day: int = 100
 @export var max_waste_deposited_per_interaction: int = 2
+@export var starting_soil: int = 0
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
@@ -10,6 +11,7 @@ var current_waste: int = 0
 var soil_ready: int = 0
 
 func _ready() -> void:
+	soil_ready = starting_soil
 	interactable_area_3d.interacted.connect(_on_interacted)
 	EnvironmentManager.day_cycle_end.connect(_on_day_cycle_end)
 

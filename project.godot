@@ -29,8 +29,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.tscn"
-DynamicMusic="*res://globals/DynamicMusic.tscn"
 DebugUi="*res://globals/debug_ui.tscn"
+DynamicMusic="*res://globals/DynamicMusic.tscn"
 
 [dialogic]
 
@@ -122,7 +122,7 @@ project/assembly_name="Capybara"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg")
+enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
 [filesystem]
 
