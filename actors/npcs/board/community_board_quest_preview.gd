@@ -43,9 +43,9 @@ func _update_rewards_large() -> void:
 		reward_instance.reward_name = resource_name
 		reward_instance.show()
 		quest_rewards_row_large.add_child(reward_instance)
-	if quest.unlock_structure:
+	for structure in quest.unlock_on_accept:
 		var reward_instance = reward_icon_large.duplicate()
-		reward_instance.reward_name = quest.unlock_structure
+		reward_instance.reward_name = structure
 		reward_instance.show()
 		quest_rewards_row_large.add_child(reward_instance)
 		

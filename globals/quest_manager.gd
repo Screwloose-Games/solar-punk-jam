@@ -26,18 +26,16 @@ var quests : Array[Quest] = []
 signal quest_started(quest_id : String)
 signal quests_changed
 signal quest_completed(giver : String)
+signal structure_built(name : String)
+signal crop_planted(name : String)
+
 
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
+	# Signals that need to be 'digested' to simplify the argument they pass
 	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
 	StructureManager.StructureBuilt.connect(update_structures)
-	# Global bus toggles
-	GlobalSignalBus.talked_to.connect(update_talk)
 	GlobalSignalBus.seed_planted.connect(update_crop)
-	GlobalSignalBus.community_board_interacted.connect(update_misc.bind("board_met"))
-	GlobalSignalBus.activated_build_mode.connect(update_misc.bind("entered_build"))
-	GlobalSignalBus.seed_ui_shown.connect(update_misc.bind("entered_plant"))
-	GlobalSignalBus.player_entered_home.connect(update_misc.bind("player_entered_home"))
 
 
 func start_quest(file_name : String):
@@ -62,6 +60,15 @@ func update_structures(new_structure):
 		var success = Dialogic.VAR.set_variable(structure_name, true)
 		if not success:
 			push_error("Tried setting non-existant variable")
+	structure_built.emit(StructureManager.get_structure_name(new_structure.structure))
+	check_quests()
+
+
+func update_crop(crop : Crop):
+	match crop.name:
+		"Radish":
+			Dialogic.VAR.crop_radish += 1
+	crop_planted.emit(crop.name)
 	check_quests()
 
 
@@ -75,23 +82,6 @@ func update_resources():
 	check_quests()
 
 
-func update_crop(crop : Crop):
-	match crop.type:
-		Crop.CropType.RADISH:
-			Dialogic.VAR.crop_radish += 1
-	check_quests()
-
-
-func update_talk(npc_id : String):
-	Dialogic.VAR[npc_id + "_met"] = true
-	check_quests()
-
-
-func update_misc(flag : String):
-	Dialogic.VAR[flag] = true
-	check_quests()
-
-
 func check_quests(_changes : Dictionary = {}):
 	for quest in quests:
 		quest.check_progress()
@@ -100,4 +90,5 @@ func check_quests(_changes : Dictionary = {}):
 func _on_quest_complete(giver : String):
 	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false
+	quests_changed.emit()
 	quest_completed.emit(giver)
