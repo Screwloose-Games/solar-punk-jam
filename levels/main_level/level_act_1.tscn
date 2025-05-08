@@ -292,7 +292,7 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
 [node name="TrinBuildableSurface2" parent="." instance=ExtResource("8_34qyl")]
-transform = Transform3D(-0.0110652, 0, 0.999939, 0, 1, 0, -0.999939, 0, -0.0110652, -31.3408, 0, 1.45736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3408, 0, 1.45736)
 is_active = false
 
 [node name="SurfaceMap" parent="TrinBuildableSurface2" index="0"]
@@ -445,7 +445,7 @@ omni_attenuation = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
 
 [node name="Trin" parent="." instance=ExtResource("24_c2ahp")]
-transform = Transform3D(-0.536549, 0, 0.843869, 0, 1, 0, -0.843869, 0, -0.536549, -26.6671, 0.00154209, 5.30422)
+transform = Transform3D(0.632489, 0, 0.774569, 0, 1, 0, -0.774569, 0, 0.632489, -27.2895, 0.00154209, -0.918117)
 
 [node name="TrinCompost" parent="." instance=ExtResource("25_mfuku")]
 transform = Transform3D(-0.998063, 0, -0.0622157, 0, 1, 0, 0.0622157, 0, -0.998063, -29.5158, 0.00590925, 4.49534)
