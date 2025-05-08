@@ -29,8 +29,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestManager="*res://globals/quest_manager.gd"
 EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.tscn"
-DynamicMusic="*res://globals/DynamicMusic.tscn"
 DebugUi="*res://globals/debug_ui.tscn"
+DynamicMusic="*res://globals/DynamicMusic.tscn"
 
 [dialogic]
 
