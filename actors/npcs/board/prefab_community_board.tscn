@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d0b1347oncwvc"]
+[gd_scene load_steps=30 format=3 uid="uid://d0b1347oncwvc"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4fnnf7ymbcr" path="res://assets/2d/ui/quest-icon.png" id="6_s1nju"]
 [ext_resource type="FontFile" uid="uid://dy83ki0pjbk3h" path="res://common/fonts/Komikido.otf" id="7_2y0nt"]
 [ext_resource type="Texture2D" uid="uid://fu5xpch5afyl" path="res://assets/2d/ui/reward-Materials-60px.png" id="8_qiswl"]
+[ext_resource type="Shader" uid="uid://dk5uhk3asdety" path="res://shaders/background_blur.gdshader" id="8_qvtjj"]
 [ext_resource type="Script" uid="uid://dgfpy283mxnq3" path="res://actors/npcs/board/mini_rewards_h_box_container.gd" id="11_m3a1k"]
 [ext_resource type="PackedScene" uid="uid://42ldv31m725y" path="res://common/ui/components/mini_single_reward_item_h_box_container.tscn" id="12_m3a1k"]
 [ext_resource type="Script" uid="uid://ku4nu4x303m8" path="res://actors/npcs/board/reward_icon_large.gd" id="12_qvtjj"]
@@ -25,6 +26,11 @@ radius = 1.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fsbli"]
 radius = 0.4
 height = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4yc5c"]
+shader = ExtResource("8_qvtjj")
+shader_parameter/strength = 3.3
+shader_parameter/mix_percentage = 0.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1qyg"]
 content_margin_left = 29.0
@@ -121,6 +127,16 @@ npc_id = "board"
 unique_name_in_owner = true
 layer = 15
 script = ExtResource("6_3w42p")
+
+[node name="ColorBg" type="ColorRect" parent="CommunityBoardCanvasLayer"]
+material = SubResource("ShaderMaterial_4yc5c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.219608, 0.301961, 0.34902, 0.662745)
 
 [node name="PanelContainer" type="PanelContainer" parent="CommunityBoardCanvasLayer"]
 anchors_preset = 8

@@ -8,7 +8,7 @@ extends CanvasLayer
 @onready var close_button: Button = %CloseButton
 @onready var mini_rewards_h_box_container: MiniRewardsHBoxContainer = %MiniRewardsHBoxContainer
 @onready var quest_rewards_row_large: HBoxContainer = %QuestRewardsRowLarge
-@onready var reward_icon_large: TextureRect = %RewardIconLarge
+@onready var reward_icon_large: RewardIconLarge = %RewardIconLarge
 
 var quest: Quest:
 	set(val):
@@ -43,7 +43,12 @@ func _update_rewards_large() -> void:
 		reward_instance.reward_name = resource_name
 		reward_instance.show()
 		quest_rewards_row_large.add_child(reward_instance)
-
+	if quest.unlock_structure:
+		var reward_instance = reward_icon_large.duplicate()
+		reward_instance.reward_name = quest.unlock_structure
+		reward_instance.show()
+		quest_rewards_row_large.add_child(reward_instance)
+		
 func rerender():
 	header.text = quest.name
 	body.text = quest.community_board_text

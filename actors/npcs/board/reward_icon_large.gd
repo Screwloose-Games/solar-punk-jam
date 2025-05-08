@@ -29,7 +29,7 @@ static var quest_reward_icons = {
 	"Seeds (Strawberry)": REWARD_SEEDS_STRAWBERRY,
 	"Solar panel": REWARD_SOLAR_PANNEL_ICON,
 	"Strawberry": REWARD_STRAWBERRY_ICON,
-	"Vertical planter": REWARD_VERTICAL_PALNTER_ICON,
+	"Vertical garden": REWARD_VERTICAL_PALNTER_ICON,
 	"Water barrel": REWARD_WATER_BARREL,
 }
 
