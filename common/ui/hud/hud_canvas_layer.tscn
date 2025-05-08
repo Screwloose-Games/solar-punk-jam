@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=35 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
 [ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
 [ext_resource type="PackedScene" uid="uid://chvbasb1d20c4" path="res://common/ui/screens/end_day_sequence/end_day_sequence.tscn" id="13_5quvr"]
+[ext_resource type="Texture2D" uid="uid://dfwuulq7no71f" path="res://assets/2d/ui/icon-compost-bin-25px.png" id="13_bgxx2"]
+[ext_resource type="Texture2D" uid="uid://b1mtx54fjcvbv" path="res://assets/2d/ui/Build-icon.png" id="14_54k12"]
+[ext_resource type="Texture2D" uid="uid://bux2jq811o0kk" path="res://assets/2d/ui/icon-soil-20px.png" id="15_45i4j"]
+[ext_resource type="Texture2D" uid="uid://bdkms2w1ts2cr" path="res://assets/2d/ui/icon-compost-bin-118px.png" id="16_2xgu1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
 content_margin_top = 10.0
@@ -112,6 +116,68 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx374"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.164706)
+shadow_size = 6
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thilw"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.385493, 0.385493, 0.385492, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aveuy"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.886275, 0.886275, 0.886275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.384314, 0.384314, 0.384314, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cysu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgcg6"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.886262, 0.886261, 0.886262, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.164706)
+shadow_size = 6
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtf2u"]
 
 [node name="HUDCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_2ngon")
@@ -675,3 +741,291 @@ grow_vertical = 0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 873.0
+offset_top = 97.0
+offset_right = 1129.0
+offset_bottom = 626.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yx374")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainerDisabled" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled/HBoxContainer"]
+layout_mode = 2
+text = "Compost bin"
+
+[node name="PanelContainerEnabled" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aveuy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="PanelContainerDisabled2" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled2/HBoxContainer"]
+layout_mode = 2
+text = "Compost bin"
+
+[node name="PanelContainerEnabled2" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aveuy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="PanelContainerDisabled3" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled3/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled3/HBoxContainer"]
+layout_mode = 2
+text = "Compost bin"
+
+[node name="PanelContainerEnabled3" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aveuy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled3/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled3/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="PanelContainerDisabled4" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled4"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled4/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled4/HBoxContainer"]
+layout_mode = 2
+text = "Compost bin"
+
+[node name="PanelContainerEnabled4" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aveuy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled4"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled4/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled4/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="PanelContainerDisabled5" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled5"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled5/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled5/HBoxContainer"]
+layout_mode = 2
+text = "Compost bin"
+
+[node name="PanelContainerEnabled5" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_aveuy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled5"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled5/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("13_bgxx2")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled5/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mgcg6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon2" type="TextureRect" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("14_54k12")
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Compost bin"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon3" type="TextureRect" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("15_45i4j")
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+text = "Soil 2/2"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mtf2u")
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("16_2xgu1")
+stretch_mode = 3

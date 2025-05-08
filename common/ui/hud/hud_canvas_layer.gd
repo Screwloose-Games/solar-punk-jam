@@ -5,6 +5,7 @@ class Singleton:
 	static var instance: HUDCanvasLayer
 
 @onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
+@onready var buildable_structure_ui_template2 = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
 @onready var resource_ui_template = $HUD/LeftMiddleMarginContainer/VBoxContainer/ResourceLabel
 @export var unlock_all_structures_from_the_start_for_debugging = false
 @onready var act_number_label: Label = %ActNumberLabel
