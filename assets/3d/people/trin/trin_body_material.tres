@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://d3brott5j0u1s"]
+
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="1_x3sh3"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="2_sanc5"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://test/scenarios/test_cel_shading/color_gradient.tres" id="3_4xibb"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://test/scenarios/test_cel_shading/fresnel_gradient.tres" id="4_3eljv"]
+[ext_resource type="Texture2D" uid="uid://daganiw5cfsgu" path="res://assets/3d/people/trin/TrinTexture.png" id="5_x3sh3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41sid"]
+render_priority = 0
+shader = ExtResource("1_x3sh3")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("2_sanc5")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_x3sh3")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("3_4xibb")
+shader_parameter/fresnel_gradient = ExtResource("4_3eljv")

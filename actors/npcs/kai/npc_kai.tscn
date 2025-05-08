@@ -1,14 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dee2tlx6hkx75"]
+[gd_scene load_steps=3 format=3 uid="uid://dee2tlx6hkx75"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_ruym0"]
+[ext_resource type="PackedScene" uid="uid://b5qtnavnsalvo" path="res://assets/3d/people/kai/sk_kai.tscn" id="2_ccyjs"]
 
 [node name="Kai" instance=ExtResource("1_ruym0")]
 
 [node name="Name" parent="." index="0"]
-visible = true
 text = "Kai"
 
-[node name="Dialogue" parent="." index="4"]
+[node name="MeshInstance3D" parent="." index="1"]
+visible = false
+
+[node name="sk_kai" parent="." index="2" instance=ExtResource("2_ccyjs")]
+
+[node name="Dialogue" parent="." index="5"]
 npc_id = "kai"
 
 [editable path="InteractableArea3D"]

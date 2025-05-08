@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="1_0f3yb"]
 [ext_resource type="Script" uid="uid://uxttc8svekgi" path="res://narrative/cutscenes/kai_DAY1S2_INTRODUCTION/kai_day_1s_2_introduction.gd" id="1_2ociy"]
 [ext_resource type="PackedScene" uid="uid://dulsr3d3tohn5" path="res://actors/player_character/model_animations/te/te_placeholder.tscn" id="2_t2kua"]
-[ext_resource type="PackedScene" uid="uid://b5qtnavnsalvo" path="res://assets/3d/people/kai/sm_kai.tscn" id="3_42o8n"]
+[ext_resource type="PackedScene" uid="uid://b5qtnavnsalvo" path="res://assets/3d/people/kai/sk_kai.tscn" id="3_42o8n"]
 
 [node name="KaiDay1s2Introduction" type="Node3D"]
 script = ExtResource("1_2ociy")
