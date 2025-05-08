@@ -451,11 +451,17 @@ transform = Transform3D(0.632489, 0, 0.774569, 0, 1, 0, -0.774569, 0, 0.632489, 
 [node name="TrinCompost" parent="." instance=ExtResource("25_mfuku")]
 transform = Transform3D(-0.998063, 0, -0.0622157, 0, 1, 0, 0.0622157, 0, -0.998063, -29.5158, 0.00590925, 4.49534)
 
+[node name="CompostBin" parent="TrinCompost" index="0"]
+starting_soil = 4
+
 [node name="RespawnMarker3D" type="Marker3D" parent="." groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0279, 0, 15.2942)
 
 [node name="TrinRainBarrel" parent="." instance=ExtResource("26_abo5y")]
 transform = Transform3D(0.264631, 0, 0.96435, 0, 1, 0, -0.96435, 0, 0.264631, -32.3206, 0.00147895, 4.52847)
+
+[node name="RainBarrel" parent="TrinRainBarrel" index="0"]
+starting_water = 4
 
 [node name="BuildableStructure" parent="." instance=ExtResource("27_gh1ua")]
 transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.88256, 2.5332e-07, 14.2494)
@@ -477,3 +483,5 @@ active = true
 [editable path="DesignTestScene"]
 [editable path="TrinCompost"]
 [editable path="TrinCompost/InteractableArea3D"]
+[editable path="TrinRainBarrel"]
+[editable path="TrinRainBarrel/InteractableArea3D"]

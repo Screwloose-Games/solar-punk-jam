@@ -2,12 +2,14 @@ extends Node
 
 @export var regen_rate_per_day: int = 5
 @export var max_capacity: int = 20
+@export var starting_water: int = 0
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
 var current_water: int = 0
 
 func _ready() -> void:
+	current_water = starting_water
 	interactable_area_3d.interacted.connect(_on_interacted)
 	EnvironmentManager.day_cycle_end.connect(_on_day_cycle_end)
 
