@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://co1kf3n1i47iy"]
+[gd_scene load_steps=32 format=3 uid="uid://co1kf3n1i47iy"]
 
 [ext_resource type="Script" uid="uid://dubj2h4di77h5" path="res://actors/player_character/player.gd" id="1_74my2"]
 [ext_resource type="Script" uid="uid://bdyja244hgnh5" path="res://actors/player_character/actions_tracker.gd" id="2_5ra6y"]
@@ -9,13 +9,14 @@
 [ext_resource type="Script" uid="uid://bkkqhihfe2ioh" path="res://actors/player_character/directional_movement.gd" id="6_0lri6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_nnxma"]
 [ext_resource type="Script" uid="uid://xu1267cfx5ai" path="res://actors/player_character/move_option_button.gd" id="9_ffrn3"]
-[ext_resource type="Script" path="res://actors/player_character/camera_option_button.gd" id="9_pnrbl"]
+[ext_resource type="Script" uid="uid://2clx43j4hl4t" path="res://actors/player_character/camera_option_button.gd" id="9_pnrbl"]
 [ext_resource type="Script" uid="uid://btutcnu3trbt6" path="res://components/interact_component.gd" id="10_gj6wn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_pkpyr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_pnrbl"]
 [ext_resource type="Script" uid="uid://dslievd4w48uv" path="res://components/third_person_controller.gd" id="15_5ra6y"]
 [ext_resource type="PackedScene" uid="uid://b8b6q7g4bsaw5" path="res://common/ui/pause_menu/pause_menu.tscn" id="15_32iji"]
 [ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="16_5ra6y"]
+[ext_resource type="PackedScene" uid="uid://cr30u8c8by4i4" path="res://actors/player_character/footstep_player_3D/footstep_player_3d.tscn" id="17_udkoa"]
 
 [sub_resource type="Theme" id="Theme_5ra6y"]
 Label/constants/outline_size = 4
@@ -136,50 +137,50 @@ shape = SubResource("CapsuleShape3D_aeg1h")
 unique_name_in_owner = true
 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
-bones/0/position = Vector3(8.68845, 1.95482, -84.0093)
-bones/0/rotation = Quaternion(-0.723293, -0.0626694, 0.126254, 0.676003)
-bones/1/rotation = Quaternion(-0.0911596, 0.00413749, -0.0584362, 0.994112)
-bones/2/rotation = Quaternion(0.0164598, -0.00487261, -0.0217903, 0.999615)
-bones/3/rotation = Quaternion(0.0165544, -0.00359661, -0.0215405, 0.999625)
-bones/4/rotation = Quaternion(0.105822, 0.00574455, 0.0260276, 0.994028)
-bones/5/rotation = Quaternion(-0.0905058, 0.0208941, 0.00280139, 0.995673)
-bones/7/rotation = Quaternion(-0.639912, -0.339762, 0.58884, -0.358248)
+bones/0/position = Vector3(-0.0415146, 1.02782, -84.5723)
+bones/0/rotation = Quaternion(-0.726661, -0.074244, -0.0388333, 0.681867)
+bones/1/rotation = Quaternion(-0.078986, -0.011165, 0.0817813, 0.993453)
+bones/2/rotation = Quaternion(0.0126342, -0.00358228, 0.0225396, 0.99966)
+bones/3/rotation = Quaternion(0.0129295, -0.00533621, 0.0218736, 0.999663)
+bones/4/rotation = Quaternion(0.0925011, 0.00178598, -0.0540594, 0.994242)
+bones/5/rotation = Quaternion(-0.0880561, -0.0102838, 0.00454854, 0.996052)
+bones/7/rotation = Quaternion(-0.621469, -0.362183, 0.584087, -0.376087)
 bones/8/position = Vector3(1.30587e-07, 9.35619, -5.39685e-06)
-bones/8/rotation = Quaternion(0.334198, 0.0118032, -0.0733396, 0.939571)
-bones/9/rotation = Quaternion(0.0305247, -0.0262603, 0.20797, 0.977306)
+bones/8/rotation = Quaternion(0.454278, -0.0269881, -0.137958, 0.879699)
+bones/9/rotation = Quaternion(0.0270993, -0.0235406, 0.184632, 0.982152)
 bones/10/position = Vector3(3.50162e-06, 20.7568, -2.49155e-06)
-bones/10/rotation = Quaternion(0.0641833, 0.441692, 0.0875566, 0.890574)
-bones/11/rotation = Quaternion(0.0801231, 0.0291938, 0.164453, 0.982692)
+bones/10/rotation = Quaternion(0.0020199, 0.411356, 0.0856808, 0.907436)
+bones/11/rotation = Quaternion(0.0432807, 0.0182624, 0.206951, 0.977223)
 bones/12/position = Vector3(0.125468, 4.08864, 1.59782e-06)
-bones/12/rotation = Quaternion(0.0642975, -0.0042153, -0.178734, 0.981785)
-bones/13/rotation = Quaternion(0.00274519, -0.096096, -0.0173265, 0.995217)
-bones/15/rotation = Quaternion(0.142994, -0.00669522, 0.0649642, 0.987567)
+bones/12/rotation = Quaternion(0.0358059, -0.00236903, -0.129762, 0.990896)
+bones/13/rotation = Quaternion(-0.0122138, -0.0918196, 0.0846732, 0.992094)
+bones/15/rotation = Quaternion(0.0950852, -0.00520006, 0.0470103, 0.994345)
 bones/16/position = Vector3(0.0570316, 5.21198, 7.41806e-06)
-bones/16/rotation = Quaternion(0.167394, 0.00181159, 0.0330824, 0.985333)
-bones/17/rotation = Quaternion(0.223521, 0.00180154, 0.107115, 0.968794)
-bones/19/rotation = Quaternion(0.626164, -0.355823, 0.585408, 0.372299)
+bones/16/rotation = Quaternion(0.106571, 0.000975512, 0.0120299, 0.994232)
+bones/17/rotation = Quaternion(0.128961, 0.00117161, 0.0753709, 0.988781)
+bones/19/rotation = Quaternion(0.615862, -0.363077, 0.596239, 0.365224)
 bones/20/position = Vector3(2.8018e-06, 9.3562, 6.52528e-06)
-bones/20/rotation = Quaternion(0.402427, -0.0779788, 0.00432431, 0.912115)
+bones/20/rotation = Quaternion(0.343603, -0.0524272, 0.0830009, 0.93397)
 bones/21/position = Vector3(-9.04428e-07, 15.2797, 1.62176e-06)
-bones/21/rotation = Quaternion(0.0355504, 0.0307555, -0.243177, 0.968842)
-bones/22/rotation = Quaternion(0.00886427, -0.45519, -0.0434359, 0.88929)
-bones/23/rotation = Quaternion(0.0340209, -0.0291115, -0.222844, 0.973825)
+bones/21/rotation = Quaternion(0.0345812, 0.0299846, -0.236548, 0.970541)
+bones/22/rotation = Quaternion(-0.00862342, -0.432081, -0.0381282, 0.900987)
+bones/23/rotation = Quaternion(0.0305772, -0.0285698, -0.227842, 0.972798)
 bones/24/position = Vector3(-0.199192, 4.04112, -1.78582e-06)
-bones/24/rotation = Quaternion(0.0799694, 0.0224631, 0.267511, 0.959968)
-bones/25/rotation = Quaternion(0.00391843, 0.00115412, -0.0701453, 0.997528)
+bones/24/rotation = Quaternion(0.0680653, 0.023039, 0.250923, 0.965336)
+bones/25/rotation = Quaternion(-0.0193251, 0.00411408, -0.10588, 0.994183)
 bones/26/position = Vector3(-0.0601294, 2.77943, 3.2708e-06)
-bones/27/rotation = Quaternion(0.21904, 0.000845465, -0.0728584, 0.972992)
-bones/28/rotation = Quaternion(0.110183, -0.000305189, -0.0248405, 0.993601)
+bones/27/rotation = Quaternion(0.192636, -0.000213702, -0.0601505, 0.979425)
+bones/28/rotation = Quaternion(0.0852684, -0.000221221, -0.0160622, 0.996229)
 bones/29/position = Vector3(0.0741377, 4.29085, -3.52459e-06)
-bones/29/rotation = Quaternion(0.196752, -0.00136031, -0.0796334, 0.977213)
-bones/31/rotation = Quaternion(0.0155163, 0.061642, 0.991635, 0.112336)
-bones/32/rotation = Quaternion(-0.219985, -0.0779994, -0.0032381, 0.972375)
-bones/33/rotation = Quaternion(0.568937, -0.23258, 0.16878, 0.770539)
-bones/34/rotation = Quaternion(0.308936, 0.00342263, -0.0106836, 0.951017)
-bones/36/rotation = Quaternion(-0.0735436, 0.135599, 0.98281, 0.101429)
-bones/37/rotation = Quaternion(-0.319016, -0.0686448, -0.00740564, 0.945231)
-bones/38/rotation = Quaternion(0.606523, 0.09652, 0.0120701, 0.789093)
-bones/39/rotation = Quaternion(0.306213, -0.0136136, 0.00517735, 0.951852)
+bones/29/rotation = Quaternion(0.126076, -0.000907409, -0.0549777, 0.990496)
+bones/31/rotation = Quaternion(0.0611441, 0.120005, 0.985594, -0.102296)
+bones/32/rotation = Quaternion(-0.334161, -0.0655143, 0.00705126, 0.94021)
+bones/33/rotation = Quaternion(0.618575, -0.122319, 0.0173996, 0.775951)
+bones/34/rotation = Quaternion(0.300947, 0.0201146, -0.00596518, 0.95341)
+bones/36/rotation = Quaternion(-0.0678361, 0.00268171, 0.994297, -0.0822508)
+bones/37/rotation = Quaternion(-0.146085, 0.0503341, 0.0084739, 0.987954)
+bones/38/rotation = Quaternion(0.561533, 0.0757195, -0.0468302, 0.822651)
+bones/39/rotation = Quaternion(0.302353, -0.0144968, 0.00498944, 0.953073)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("%Model")
@@ -347,5 +348,8 @@ camera_3d_resource = SubResource("Resource_evt3b")
 follow_damping = true
 follow_distance = 3.5
 spring_length = 3.5
+
+[node name="FootstepPlayer3D" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("17_udkoa")]
+player_node = NodePath("..")
 
 [editable path="Model"]
