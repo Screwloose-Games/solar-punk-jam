@@ -46,4 +46,3 @@ KAI: Get going. I’ll finish up here.
 # **QUEST: GO TO THE COMMUNITY HUB**
 label skip
 do QuestManager.start_quest("qst_a1d1_intro")
-do QuestManager.unlock_quest_by_id("a1d1_trin")

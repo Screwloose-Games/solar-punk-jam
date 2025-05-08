@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ilatnxm00qsl"]
+
+[ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_c4qox"]
+[ext_resource type="PackedScene" uid="uid://cjqq7gkmrh6v7" path="res://assets/3d/people/trin/tweenbase00.fbx" id="2_1jpor"]
+[ext_resource type="Script" uid="uid://cmt728botv4gf" path="res://test/scenarios/test_sound_player_3d/sp3d_test_npc.gd" id="2_rrvrm"]
+[ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_r3n87"]
+[ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="4_e3nyf"]
+[ext_resource type="Script" uid="uid://bqaasgleubvyc" path="res://components/sound_player_3d/sound_player_3d.gd" id="5_rrvrm"]
+
+[node name="Trin" node_paths=PackedStringArray("sound_player_3d", "signal_node") instance=ExtResource("1_c4qox")]
+script = ExtResource("2_rrvrm")
+sound_player_3d = NodePath("SoundPlayer3D")
+signal_node = NodePath("InteractNotify")
+
+[node name="tweenbase00" parent="." index="0" instance=ExtResource("2_1jpor")]
+
+[node name="Name" parent="." index="1"]
+text = "Trin"
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="InteractNotify" parent="." index="5" instance=ExtResource("3_r3n87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+npc_id = "trin"
+
+[node name="Dialogue" parent="." index="6"]
+npc_id = "trin"
+
+[node name="SoundPlayer3D" type="AudioStreamPlayer3D" parent="." index="12" node_paths=PackedStringArray("start_callable_node")]
+stream = ExtResource("4_e3nyf")
+script = ExtResource("5_rrvrm")
+start_callable_node = NodePath("../InteractNotify")
+start_signal_name = &"talked_to"
+metadata/_custom_type_script = "uid://bqaasgleubvyc"
+
+[editable path="tweenbase00"]
+[editable path="InteractableArea3D"]

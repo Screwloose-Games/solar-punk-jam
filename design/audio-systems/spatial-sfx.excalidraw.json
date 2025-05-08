@@ -1,0 +1,51 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "Jf-G8MYg2wNpiyBJwl1ur",
+      "type": "text",
+      "x": -74.89584350585938,
+      "y": 192.78643798828125,
+      "width": 1013.0390014648438,
+      "height": 225,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "a2",
+      "roundness": null,
+      "seed": 2110820727,
+      "version": 990,
+      "versionNonce": 235169817,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1746666240736,
+      "link": null,
+      "locked": false,
+      "text": "Is a 3D sound effect player triggered by an event\nExtends AudioStreamPlayer3D\ndesigner can add 'SoundEffectPlayer3D' to any scene using \"add child node\"\ndesigner can select a node that has signals to subscribe to in the available tree scope\ndesigner can subscribe the player to an event signal using signal string name\ndesigner can configure the sound effect to be played\nwhen 'SoundEffectPlayer3D' receives subscribed signal it emits sound effect\ndesigner may subscribe the player to an explicit stop signal\nwhen 'SoundEffectPlayer3D' receives subscribed 'stop' signal the sound effect immediately stops playing",
+      "fontSize": 20,
+      "fontFamily": 5,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "Is a 3D sound effect player triggered by an event\nExtends AudioStreamPlayer3D\ndesigner can add 'SoundEffectPlayer3D' to any scene using \"add child node\"\ndesigner can select a node that has signals to subscribe to in the available tree scope\ndesigner can subscribe the player to an event signal using signal string name\ndesigner can configure the sound effect to be played\nwhen 'SoundEffectPlayer3D' receives subscribed signal it emits sound effect\ndesigner may subscribe the player to an explicit stop signal\nwhen 'SoundEffectPlayer3D' receives subscribed 'stop' signal the sound effect immediately stops playing",
+      "autoResize": true,
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
