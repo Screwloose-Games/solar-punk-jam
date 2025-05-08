@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func _on_interacted(player: Player) -> void:
 	if EnvironmentManager.has_at_least("Food", 1):
-		EnvironmentManager.dona
 		EnvironmentManager.spend_resource("Food", 1)
 		GlobalSignalBus.food_donated.emit(1)
 		#EnvironmentManager.gain_resource("Community", community_per_donation)
