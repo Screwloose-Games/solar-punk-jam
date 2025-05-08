@@ -6,7 +6,6 @@
 [sub_resource type="Resource" id="Resource_x688r"]
 script = ExtResource("1_x688r")
 description = "Talk to Trin"
-quest_value = "trin_met"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
@@ -15,7 +14,6 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [sub_resource type="Resource" id="Resource_mbbq3"]
 script = ExtResource("1_x688r")
 description = "Go into Build Mode (B)"
-quest_value = "entered_build"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = "prog1"
@@ -24,7 +22,6 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [sub_resource type="Resource" id="Resource_se44t"]
 script = ExtResource("1_x688r")
 description = "Build a vertical planter"
-quest_value = "built_vplanter"
 goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
@@ -33,7 +30,6 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [sub_resource type="Resource" id="Resource_t80vs"]
 script = ExtResource("1_x688r")
 description = "Collect soil"
-quest_value = "res_soil"
 goal = 1
 prerequisites = Array[int]([2])
 play_dialogue = "prog3"
@@ -42,7 +38,6 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [sub_resource type="Resource" id="Resource_0eyh0"]
 script = ExtResource("1_x688r")
 description = "Collect water"
-quest_value = "res_water"
 goal = 1
 prerequisites = Array[int]([3])
 play_dialogue = "prog4"
@@ -51,7 +46,6 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [sub_resource type="Resource" id="Resource_svb1w"]
 script = ExtResource("1_x688r")
 description = "Go into Planting Mode"
-quest_value = "entered_plant"
 goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
@@ -60,7 +54,6 @@ metadata/_custom_type_script = "uid://drx8xjc56vf8y"
 [sub_resource type="Resource" id="Resource_uq8a5"]
 script = ExtResource("1_x688r")
 description = "Plant radishes"
-quest_value = "crop_radish"
 goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = "prog5"
@@ -74,7 +67,8 @@ quest_giver = "trin"
 description = "Help Trin with her plants."
 community_board_text = "Help Trin..."
 objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_x688r"), SubResource("Resource_mbbq3"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
-unlock_structure = "Vertical garden"
+unlock_on_accept = Array[String](["Vertical garden"])
+unlock_on_complete = Array[String](["Raised bed", "Compost bin", "Rain barrel"])
 rewards = Dictionary[String, int]({
 "Happiness": 5,
 "Materials": 6,

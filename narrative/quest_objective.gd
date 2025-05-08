@@ -2,7 +2,6 @@ extends Resource
 class_name QuestObjective
 
 @export var description : String = "Objective Description"
-@export var quest_value : String = ""
 @export var goal : int = 1
 @export var prerequisites : Array[int] = []
 @export var play_dialogue : String = ""

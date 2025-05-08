@@ -27,6 +27,7 @@ signal quest_started(quest_id : String)
 signal quests_changed
 signal quest_completed(giver : String)
 
+
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
 	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
