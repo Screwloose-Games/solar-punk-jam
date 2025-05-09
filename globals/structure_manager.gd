@@ -125,6 +125,14 @@ func register_character_structures(character: String):
 	UpdatedAvailableStructures.emit()
 
 
+func register_all_structures():
+	prints("Unlocking all structures")
+	for idx in len(structure_data):
+		var struct_name = structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName]
+		register_structure(struct_name)
+	UpdatedAvailableStructures.emit()
+
+
 func build_structure(new_structure: BuiltStructure, skip_resource_consumption=false):
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
