@@ -79,7 +79,6 @@ variables={
 "crop_radish": 0,
 "entered_build": false,
 "entered_plant": false,
-"kaiintro": false,
 "mister_active": false,
 "mister_met": false,
 "mom_active": false,
@@ -89,7 +88,8 @@ variables={
 "res_soil": 0,
 "res_water": 0,
 "trin_active": false,
-"trin_met": false
+"trin_met": false,
+"tringarden": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

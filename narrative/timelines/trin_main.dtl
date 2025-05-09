@@ -1,2 +1,11 @@
 if {a1d1_trin} == true:
 	jump a1d1_trin/prog0
+if {tringarden} == true:
+	Te: What're you doing with these plants?
+	Trin: Cornus sericea!
+	Te: Hunh?
+	Trin: Some people call them Red Twig Dogwood.\
+	Mine prefer to be called Kay and Jay.\ Their roots will help keep the soil from moving when it floods.
+	Te: But...maybe it won't flood this time?
+	Trin: It will eventually, but your mom and my dads are prepared.
+	Trin: It won't be like last time.

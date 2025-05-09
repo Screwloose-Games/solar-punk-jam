@@ -20,5 +20,3 @@ Te: Uggghhhhh.
 
 Mom: Mmmhmm. Love you too, gremlin.
 do QuestManager.start_quest("qst_a1d1_intro")
-set {kaiintro} = true
-[end_timeline]

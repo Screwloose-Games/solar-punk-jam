@@ -49,13 +49,4 @@ Trin (happy): I raise plants, weirdo.
 Te: *I’m the weirdo?*
 Trin: Here. If you like gardening so much, build your own.
 do QuestManager.start_quest("qst_a1d1_garden")
-#Z: I was trying to make the following a conversation we can have if we interact with Trin again after the above "tutorial", but it didn't work??
-[wait time="2.0"]
-Te: What're you doing with these plants?
-Trin: Cornus sericea!
-Te: Hunh?
-Trin: Some people call them Red Twig Dogwood.\
-Mine prefer to be called Kay and Jay.\ Their roots will help keep the soil from moving when it floods.
-Te: But...maybe it won't flood this time?
-Trin: It will eventually, but your mom and my dads are prepared.
-Trin: It won't be like last time.
+set {tringarden} = true
