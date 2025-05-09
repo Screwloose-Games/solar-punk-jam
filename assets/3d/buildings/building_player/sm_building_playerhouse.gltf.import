@@ -34,7 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:mesh_building_playerhouse/sm_building_player_002": {
+"PATH:mesh_building_playerhouse/sm_building_player": {
 "generate/navmesh": 1,
 "generate/physics": true
 }
