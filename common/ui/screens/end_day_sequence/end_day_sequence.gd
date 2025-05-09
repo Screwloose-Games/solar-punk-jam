@@ -15,6 +15,7 @@ func _ready() -> void:
 	EnvironmentManager.day_cycle_end.connect(_on_day_cycle_end)
 	EnvironmentManager.force_end_day.connect(_on_force_end_day)
 	black.hide()
+	#start_sequence()
 
 func _on_force_end_day():
 	player_initialted = true
@@ -34,24 +35,29 @@ func _on_day_cycle_end():
 
 func start_sequence():
 	#on event went to night.
+	black.show()
+	await get_tree().create_timer(2).timeout # we need to wait because environment will skip an extra day if we dont.
 	get_tree().paused = true
-	await fade_to_black()
+	#await fade_to_black()
+	black.color = Color.BLACK
+	
 	if not player_initialted:
 		await show_forced_screen()
-	show_dashboard()
+	await show_dashboard()
 	await fade_from_black()
 	get_tree().paused = false
+	player_initialted = false
 
 func fade_to_black():
 	black.color = Color.TRANSPARENT
 	black.show()
 	var tween = create_tween()
-	tween.tween_property(black, "modulate", Color.BLACK, fade_time)
+	tween.tween_property(black, "color", Color.BLACK, fade_time)
 	await tween.finished
 
 func fade_from_black():
 	black.color = Color.BLACK
 	var tween = create_tween()
-	tween.tween_property(black, "modulate", Color.TRANSPARENT, fade_time)
+	tween.tween_property(black, "color", Color.TRANSPARENT, fade_time)
 	await tween.finished
 	black.hide()

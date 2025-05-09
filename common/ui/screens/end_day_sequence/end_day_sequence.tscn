@@ -9,17 +9,6 @@ layer = 9
 script = ExtResource("1_ulrfe")
 events = Array[String](["fade out", ""])
 
-[node name="MomtakeTeHomeCanvasLayer" parent="." instance=ExtResource("3_dnhqi")]
-unique_name_in_owner = true
-visible = false
-
-[node name="DailyDashboard" parent="." instance=ExtResource("1_demhl")]
-unique_name_in_owner = true
-layer = 1
-visible = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [node name="Black" type="ColorRect" parent="."]
 unique_name_in_owner = true
 anchors_preset = 15
@@ -29,3 +18,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="MomtakeTeHomeCanvasLayer" parent="." instance=ExtResource("3_dnhqi")]
+unique_name_in_owner = true
+layer = 9
+visible = false
+
+[node name="DailyDashboard" parent="." instance=ExtResource("1_demhl")]
+unique_name_in_owner = true
+layer = 10
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
