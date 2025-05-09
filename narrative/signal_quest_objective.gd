@@ -13,7 +13,7 @@ class_name SignalQuestObjective
 #var is_completed : bool = false
 
 ## The global autoload on which to call the signal
-@export_enum("GlobalSignalBus", "QuestManager") var autoload_name: String
+@export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
 
 ## The name of the signal on the global autoload
 @export var signal_name: String = ""

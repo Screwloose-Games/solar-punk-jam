@@ -89,10 +89,10 @@ metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_a0tgy"]
 script = ExtResource("2_lpidx")
-autoload_name = "GlobalSignalBus"
-signal_name = "day_passed"
+autoload_name = "EnvironmentManager"
+signal_name = "day_cycle_end"
 expected_args = []
-description = "Wait 1 day before harvest"
+description = "Wait 1 day before harvesting"
 goal = 1
 prerequisites = Array[int]([6])
 play_dialogue = ""
