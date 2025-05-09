@@ -49,5 +49,5 @@ Trin: I don't garden.
 Trin: I RAISE plants. 
 Te: I think the pollen's getting to your head, Trin.
 Trin: Here. If you like gardening so much, build your own.
-do QuestManager.start_quest("qst_a1d1_garden")
+do QuestManager.start_quest("qsxt_a1d1_garden")
 set {tringarden} = true
