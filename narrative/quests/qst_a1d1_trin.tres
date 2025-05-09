@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_x688r"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_mbbq3"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_se44t"]
-[ext_resource type="Script" path="res://narrative/value_quest_objective.gd" id="3_se44t"]
+[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="3_se44t"]
 
 [sub_resource type="Resource" id="Resource_1j8rw"]
 script = ExtResource("2_se44t")
@@ -84,7 +84,11 @@ id = "a1d1_trin"
 name = "Help out Trin"
 quest_giver = "trin"
 description = "Help Trin with her plants."
-community_board_text = "Help Trin..."
+community_board_text = "My babies need SUSTENANCE
+Help me build a raised bed POSTHASTE!
+Find me in my garden!
+
+-Trin"
 objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_bc2d0"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_on_accept = Array[String](["Vertical garden"])
 unlock_on_complete = Array[String](["Raised bed", "Compost bin", "Rain barrel"])

@@ -5,7 +5,7 @@ class_name Quest
 @export var name : String = "Quest Name"
 @export var quest_giver : String = "npc_name"
 @export var description : String = "Quest Description"
-@export var community_board_text : String = "" # displayed on the community board
+@export_multiline var community_board_text : String = "" # displayed on the community board
 @export var objectives : Array[QuestObjective] = []
 @export var unlock_on_accept : Array[String]
 @export var unlock_on_complete : Array[String]

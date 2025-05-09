@@ -8,40 +8,30 @@
 # Wide shot
 
 
-KAI: TE! 
-
-KAI: COME OUT HERE, MY LITTLE GREMLIN!
+Mom: TE! Come out here, my little gremlin!
 
 # From some entry onto the roof, TE, 12, runs out.
 # Animate run out from roof exit.
 
-TE: I DIDN’T DO IT!
+Te: I didn't do it! It was already like that!
 
-TE: IT WAS ALREADY LIKE THAT!
+Mom: What?
 
-KAI: What?
-
-TE: Nothing!
+Te: Nothing!
 
 # Te stands next to her mom. 
 
-TE: WHOA! 
+Te: WHOA! The city looks even worse than I thought it would.
 
-TE: The city looks even worse from up here. 
+Mom: Lumina will look better when—
 
-KAI: It’ll look better when—
+Te: When everyone does their part. Yeah, yeah, I know…
 
-TE: When everyone does their part. 
+Mom: Good! Then you won’t mind checking if anyone needs help at the community hub.
 
-TE: Yeah, yeah, I know…
+Te: But I just finished unpacking—
 
-KAI: Good! Then you won’t mind checking if anyone needs help at the community hub. 
-
-TE: But I just finished unpacking—
-
-KAI: WHAT?! YOU’D LOVE TO? GREAT!
-
-KAI: Get going. I’ll finish up here. 
+Mom: What was that?! YOU’D LOVE TO? GREAT! Get going. I’ll finish up here.
 
 # **QUEST: GO TO THE COMMUNITY HUB**
 label skip
