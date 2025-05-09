@@ -129,10 +129,8 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
 			EnvironmentManager.gain_resource("Materials", -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
-		var requirements = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
-		if requirements:
-			for item in requirements.split(","):
-				EnvironmentManager.gain_resource(item, -1)
+		var materials_cost = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost]
+		EnvironmentManager.gain_resource("Materials", -materials_cost)
 	var storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.ElectricityStorage]
 	if storage:
 		EnvironmentManager.resource_storage_limits["Electricity"] += storage
