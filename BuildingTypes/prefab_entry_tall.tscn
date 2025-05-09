@@ -17,7 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07365, 8.5665, -6.07951)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06651, 8.75168, -2.01802)
 
 [node name="Destination" parent="RoofDoorway" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05104, -8.66986, 6.35223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05104, -8.38855, 6.82492)
 
 [editable path="GroundDoorway"]
 [editable path="GroundDoorway/InteractableArea3D"]

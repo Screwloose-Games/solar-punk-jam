@@ -5,6 +5,8 @@
 [node name="BaseBuilding" type="Node3D"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+enabled = false
+navigation_layers = 0
 
 [node name="BuildingScenePlaceholder" type="Node" parent="NavigationRegion3D"]
 

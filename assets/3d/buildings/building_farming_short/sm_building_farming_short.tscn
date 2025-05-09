@@ -47,3 +47,4 @@ surface_material_override/7 = SubResource("StandardMaterial3D_0be33")
 
 [node name="NavigationRegion3D" parent="mesh_building_04_farmingshort/sm_building_04_farmingshort-mesh" index="1"]
 enabled = false
+navigation_layers = 0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://cedg86h3elalj"]
 
 [ext_resource type="PackedScene" uid="uid://u0f8aqxotnu2" path="res://assets/3d/buildings/building_farming_tall/sm_building_farming_tall.gltf" id="1_gdbhx"]
-[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_dgpbl"]
+[ext_resource type="Shader" path="res://shaders/base_cel_shading_outline.gdshader" id="2_dgpbl"]
 [ext_resource type="Texture2D" uid="uid://cd4vmw4wuft4x" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Base_Color.png" id="2_ppbxl"]
-[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_n3hm0"]
+[ext_resource type="Shader" path="res://shaders/base_cel_shading.gdshader" id="3_n3hm0"]
 [ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://test/scenarios/test_cel_shading/color_gradient.tres" id="4_vyneq"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="5_ekb0k"]
 [ext_resource type="Texture2D" uid="uid://dad0ei7tw0a37" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Normal.png" id="7_vyneq"]
@@ -35,6 +35,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_merh6"]
 render_priority = 0
@@ -54,6 +55,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s7ire"]
 render_priority = 0
@@ -73,6 +75,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ndw1p"]
 render_priority = 0
@@ -92,6 +95,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f3hcu"]
 render_priority = 0
@@ -111,6 +115,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjm8w"]
 render_priority = 0
@@ -130,6 +135,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tciyj"]
 render_priority = 0
@@ -149,6 +155,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("4_vyneq")
 shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_building_05" instance=ExtResource("1_gdbhx")]
 
@@ -161,5 +168,9 @@ surface_material_override/4 = SubResource("ShaderMaterial_f3hcu")
 surface_material_override/5 = SubResource("ShaderMaterial_mjm8w")
 surface_material_override/6 = SubResource("ShaderMaterial_tciyj")
 
-[node name="building_05-colonly" parent="." index="2"]
+[node name="NavigationRegion3D" parent="building_05-mesh/sm_farmbuilding_tall_05-mesh" index="1"]
+enabled = false
+navigation_layers = 0
+
+[node name="building_05-colonly" parent="." index="1"]
 visible = false
