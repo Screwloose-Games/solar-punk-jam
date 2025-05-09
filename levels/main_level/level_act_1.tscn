@@ -364,6 +364,9 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 [node name="SelectionPlaceholder" parent="TrinBuildableSurface2/StructurePlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
+[node name="QuestMarker3D" parent="TrinBuildableSurface2" instance=ExtResource("28_7t8hb")]
+id = "trin_garden"
+
 [node name="HomeBuildableSurface" parent="." instance=ExtResource("8_34qyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3745, 4.0708, -13.0903)
 is_active = false
@@ -411,6 +414,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -4.25633, 3.14492, -9.12453)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -472,6 +476,10 @@ transform = Transform3D(-0.998063, 0, -0.0622157, 0, 1, 0, 0.0622157, 0, -0.9980
 [node name="CompostBin" parent="TrinCompost" index="0"]
 starting_soil = 4
 
+[node name="QuestMarker3D" parent="TrinCompost" instance=ExtResource("28_7t8hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48547, 0)
+id = "trin_compost"
+
 [node name="RespawnMarker3D" type="Marker3D" parent="." groups=["PlayerSpawner"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0279, 0, 15.2942)
 
@@ -481,14 +489,14 @@ transform = Transform3D(0.264631, 0, 0.96435, 0, 1, 0, -0.96435, 0, 0.264631, -3
 [node name="RainBarrel" parent="TrinRainBarrel" index="0"]
 starting_water = 4
 
-[node name="BuildableStructure" parent="." instance=ExtResource("27_gh1ua")]
+[node name="QuestMarker3D" parent="TrinRainBarrel" instance=ExtResource("28_7t8hb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40393, 0)
+id = "trin_water"
+
+[node name="CommunityFoodStand" parent="." instance=ExtResource("27_gh1ua")]
 transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.92161, 0.00395419, 14.2494)
 
-[node name="QuestMarkerCanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="QuestMarker3D" parent="QuestMarkerCanvasLayer" instance=ExtResource("28_7t8hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6867, 1.98309, 5.23731)
+[node name="QuestMarker3D" parent="CommunityFoodStand" instance=ExtResource("28_7t8hb")]
 
 [node name="WorldBounderies" type="StaticBody3D" parent="."]
 collision_layer = 2

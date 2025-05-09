@@ -22,6 +22,7 @@ const STRUCTURE_MAP = {
 const TUTORIALS = ["a1d1_trin"]
 
 var quests : Array[Quest] = []
+var quest_markers: Array[QuestMarker3D] = []
 
 signal quest_started(quest_id : String)
 signal quests_changed
@@ -92,3 +93,10 @@ func _on_quest_complete(giver : String):
 	Dialogic.VAR[giver + "_active"] = false
 	quests_changed.emit()
 	quest_completed.emit(giver)
+
+func get_quest_markers_by_id(id: String) -> Array[QuestMarker3D]:
+	var markers: Array[QuestMarker3D]
+	var nodes: Array[Node] = get_tree().get_nodes_in_group("QuestMarker")
+	markers.append_array(nodes)
+	markers = markers.filter(func(marker: QuestMarker3D): return marker.id == id)
+	return markers

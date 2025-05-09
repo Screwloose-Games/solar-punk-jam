@@ -12,17 +12,20 @@
 [node name="tweenbase00" parent="." index="1" instance=ExtResource("2_m4qrm")]
 visible = false
 
-[node name="Name" parent="." index="2"]
+[node name="QuestMarker3D" parent="." index="2"]
+id = "trin"
+
+[node name="Name" parent="." index="3"]
 text = "Trin"
 
-[node name="MeshInstance3D" parent="." index="3"]
+[node name="MeshInstance3D" parent="." index="4"]
 visible = false
 
 [node name="InteractNotify" parent="." index="6" instance=ExtResource("3_cqhrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 npc_id = "trin"
 
-[node name="Dialogue" parent="." index="7"]
+[node name="Dialogue" parent="." index="8"]
 npc_id = "trin"
 
 [editable path="tweenbase00"]

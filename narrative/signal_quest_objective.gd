@@ -25,7 +25,7 @@ var autoload_instance : Node
 
 
 func set_active(val : bool):
-	is_active = val
+	super.set_active(val)
 	if is_active:
 		subscribe()
 	else:

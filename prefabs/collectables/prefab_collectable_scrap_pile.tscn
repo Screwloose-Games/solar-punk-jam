@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://7uaiy8fxd3p0"]
+[gd_scene load_steps=4 format=3 uid="uid://7uaiy8fxd3p0"]
 
 [ext_resource type="PackedScene" uid="uid://ccai2o27vcrhp" path="res://components/collectable.tscn" id="1_ywsos"]
+[ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="2_77mau"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_ywsos"]
 size = Vector3(1, 0.1, 1)
@@ -9,7 +10,10 @@ size = Vector3(1, 0.1, 1)
 collected_resource = "Materials"
 count = 5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+[node name="QuestMarker3D" parent="." index="0" instance=ExtResource("2_77mau")]
+id = "material_location"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("PrismMesh_ywsos")
 

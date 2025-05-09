@@ -87,20 +87,23 @@ bones/38/position = Vector3(-9.12036e-07, 32.9032, 1.6399e-06)
 bones/38/rotation = Quaternion(0.528329, 0.0401582, -0.02666, 0.84767)
 bones/39/rotation = Quaternion(0.333086, 0.153771, -0.0373261, 0.929524)
 
-[node name="Name" parent="." index="1"]
+[node name="QuestMarker3D" parent="." index="1"]
+id = "mister"
+
+[node name="Name" parent="." index="2"]
 text = "Mister"
 
-[node name="MeshInstance3D" parent="." index="2"]
+[node name="MeshInstance3D" parent="." index="3"]
 visible = false
 
 [node name="InteractNotify" parent="." index="5" instance=ExtResource("3_g3jaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 npc_id = "mister"
 
-[node name="Dialogue" parent="." index="6"]
+[node name="Dialogue" parent="." index="7"]
 npc_id = "mister"
 
-[node name="AnimationTree" parent="." index="11"]
+[node name="AnimationTree" parent="." index="12"]
 root_node = NodePath("../SM_Mister")
 tree_root = SubResource("AnimationNodeStateMachine_qp07d")
 anim_player = NodePath("../SM_Mister/AnimationPlayer")

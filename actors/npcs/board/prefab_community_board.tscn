@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0b1347oncwvc"]
+[gd_scene load_steps=31 format=3 uid="uid://d0b1347oncwvc"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://b67yh441wsgu3" path="res://assets/3d/structures/community_board/sm_community_board.tscn" id="2_s1nju"]
 [ext_resource type="Resource" uid="uid://cm7t2ur61v8im" path="res://narrative/quests/qst_a1d1_trin.tres" id="3_kaivu"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_khjfs"]
+[ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="4_4yc5c"]
 [ext_resource type="Script" uid="uid://c1y5i2lbvjw6a" path="res://actors/npcs/board/community_board_quest_preview.gd" id="6_3w42p"]
 [ext_resource type="Texture2D" uid="uid://bd4fnnf7ymbcr" path="res://assets/2d/ui/quest-icon.png" id="6_s1nju"]
 [ext_resource type="FontFile" uid="uid://dy83ki0pjbk3h" path="res://common/fonts/Komikido.otf" id="7_2y0nt"]
-[ext_resource type="Shader" uid="uid://dk5uhk3asdety" path="res://shaders/background_blur.gdshader" id="8_qvtjj"]
-[ext_resource type="Script" uid="uid://dgfpy283mxnq3" path="res://actors/npcs/board/mini_rewards_h_box_container.gd" id="11_m3a1k"]
+[ext_resource type="Shader" path="res://shaders/background_blur.gdshader" id="8_qvtjj"]
+[ext_resource type="Script" path="res://actors/npcs/board/mini_rewards_h_box_container.gd" id="11_m3a1k"]
 [ext_resource type="Texture2D" uid="uid://cvvhppdvufwep" path="res://assets/2d/ui/reward-vertical-palnter-icon-60px.png" id="11_qvtjj"]
 [ext_resource type="PackedScene" uid="uid://42ldv31m725y" path="res://common/ui/components/mini_single_reward_item_h_box_container.tscn" id="12_m3a1k"]
 [ext_resource type="Script" uid="uid://ku4nu4x303m8" path="res://actors/npcs/board/reward_icon_large.gd" id="12_qvtjj"]
@@ -98,6 +99,10 @@ corner_radius_bottom_left = 9
 [node name="CommBoard" type="StaticBody3D"]
 script = ExtResource("1_r1qyg")
 quest_list = Array[ExtResource("2_n4pq3")]([ExtResource("3_kaivu")])
+
+[node name="QuestMarker3D" parent="." instance=ExtResource("4_4yc5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19583, 0)
+id = "board"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
