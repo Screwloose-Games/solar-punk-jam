@@ -16,17 +16,6 @@ prerequisites = Array[int]([])
 play_dialogue = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
-[sub_resource type="Resource" id="Resource_jxjmi"]
-script = ExtResource("2_lpidx")
-autoload_name = "QuestManager"
-signal_name = "structure_built"
-expected_args = ["Raised bed"]
-description = "Build a raised bed"
-goal = 1
-prerequisites = Array[int]([0])
-play_dialogue = ""
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
-
 [sub_resource type="Resource" id="Resource_j1jch"]
 script = ExtResource("2_lpidx")
 autoload_name = "QuestManager"
@@ -44,6 +33,17 @@ autoload_name = "QuestManager"
 signal_name = "structure_built"
 expected_args = ["Compost bin"]
 description = "Build a compost bin"
+goal = 1
+prerequisites = Array[int]([0])
+play_dialogue = ""
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
+[sub_resource type="Resource" id="Resource_jxjmi"]
+script = ExtResource("2_lpidx")
+autoload_name = "QuestManager"
+signal_name = "structure_built"
+expected_args = ["Vertical garden"]
+description = "Build a vertial garden"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
@@ -98,7 +98,7 @@ name = "Start your own garden"
 quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
-objectives = Array[ExtResource("1_b5u7u")]([SubResource("Resource_eepgn"), SubResource("Resource_jxjmi"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_k0nsr"), SubResource("Resource_lpidx"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
+objectives = Array[ExtResource("1_b5u7u")]([SubResource("Resource_eepgn"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_jxjmi"), SubResource("Resource_k0nsr"), SubResource("Resource_lpidx"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
 rewards = Dictionary[String, int]({
