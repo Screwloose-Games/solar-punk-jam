@@ -10,26 +10,10 @@ script = ExtResource("1_2ociy")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("1_0f3yb")]
 
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="9"]
+[node name="prefab_noentry_tall6" parent="DesignTestScene" index="25"]
 visible = false
 
-[node name="PlayerScale" parent="DesignTestScene" index="36"]
-visible = false
-
-[node name="buildable_dirtpatch" parent="DesignTestScene" index="43"]
-process_mode = 4
-visible = false
-
-[node name="buildable_dirtpatch2" parent="DesignTestScene" index="44"]
-process_mode = 4
-visible = false
-
-[node name="buildable_dirtpatch3" parent="DesignTestScene" index="45"]
-process_mode = 4
-visible = false
-
-[node name="buildable_dirtpatch4" parent="DesignTestScene" index="46"]
-process_mode = 4
+[node name="PlayerScale" parent="DesignTestScene" index="27"]
 visible = false
 
 [node name="trin_placeholder" parent="." instance=ExtResource("2_t2kua")]
