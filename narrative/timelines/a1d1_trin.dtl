@@ -6,20 +6,21 @@ Trin (neutral): Duh! Who else? You can start building the planter over there.
 Te (neutral): Here's the thing...I kinda forgot how?
 # Tutorial: THIS BEGINS THE **“GARDEN TUTORIAL”**
 Trin (neutral): Even a Berberis thunbergii would know how to do this!
-Trin (sad): Fine. I’ll walk you through it.
+Trin (sad): Fine.\
+I’ll walk you through it.
 [end_timeline]
 label prog1
 Trin (neutral): First, you'll need materials. 
-[wait time= "1.0"]
-Trin (neutral): Your materials, Te.
-[wait time= ".5"]
-Trin (neutral): Te???
+[wait time= ".3"]
+Te (neutral): Ummm.....
+[wait time= ".3"]
+Trin (neutral): Really???
 [wait time= ".3"]
 Trin (sad): *sigh*
-Trin (neutral): I'll give them to you this time to speed things up.
+Trin (neutral): Fine. I'll give them to you THIS ONE TIME to speed things up.
 Te (happy): Thanks, big sis!
-Trin (neutral): Stop calling me that!
-Trin: You can at least pick a spot somewhere. 
+Trin (grumbling): Stop calling me that.
+Trin: Go ahead and pick a spot for the planter.
 # Tutorial: ACCESS BUILD MODE TO VIEW UNLOCKED BUILDABLE ITEMS\
 # SELECT THE VERTICAL PLANTER\
 # PLACE THE VERTICAL PLANTER ON THE GRID.
@@ -42,11 +43,11 @@ Trin (neutral): Recurring crops have to be watered each time you harvest them.
 [end_timeline]
 label prog5
 # Tutorial: **GARDEN TUTORIAL COMPLETE**
-Te: That was fun! 
-Te: No wonder you like gardening. 
-Trin: You garden. 
-Trin (happy): I raise plants, weirdo. 
-Te: *I’m the weirdo?*
+Te: That was fun!\
+No wonder you like gardening. 
+Trin: I don't garden.
+Trin: I RAISE plants. 
+Te: I think the pollen's getting to your head, Trin.
 Trin: Here. If you like gardening so much, build your own.
-do QuestManager.start_quest("qst_a1d1_garden")
+do QuestManager.start_quest("qsxt_a1d1_garden")
 set {tringarden} = true
