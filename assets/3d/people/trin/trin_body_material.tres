@@ -1,32 +1,35 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://d3brott5j0u1s"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://d3brott5j0u1s"]
 
-[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="1_x3sh3"]
-[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="2_sanc5"]
-[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://test/scenarios/test_cel_shading/color_gradient.tres" id="3_4xibb"]
-[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://test/scenarios/test_cel_shading/fresnel_gradient.tres" id="4_3eljv"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="1_umavt"]
+[ext_resource type="Shader" uid="uid://cwu2gutbe27ek" path="res://shaders/botw_toon_shasder2.gdshader" id="2_g4ko6"]
 [ext_resource type="Texture2D" uid="uid://daganiw5cfsgu" path="res://assets/3d/people/trin/TrinTexture.png" id="5_x3sh3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_41sid"]
 render_priority = 0
-shader = ExtResource("1_x3sh3")
+shader = ExtResource("1_umavt")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/size = 1.01
 
 [resource]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_41sid")
-shader = ExtResource("2_sanc5")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("5_x3sh3")
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/specular = 0.0
+shader = ExtResource("2_g4ko6")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("5_x3sh3")
 shader_parameter/metallic = 0.0
-shader_parameter/normal_scale = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("3_4xibb")
-shader_parameter/fresnel_gradient = ExtResource("4_3eljv")
+shader_parameter/shadow_size = 0.045
+shader_parameter/shadow_blend = 0.001
+shader_parameter/shadow_extra_intensity = 0.0
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/light_tint = Color(0, 0, 0, 1)
+shader_parameter/rimlight_size = 0.921
+shader_parameter/rimlight_blend = 0.01
+shader_parameter/rimlight_color = Color(0, 0, 0, 1)
+shader_parameter/use_normalmap = true
+shader_parameter/animated = true
+shader_parameter/time_scale = 0.02
+shader_parameter/normal_bias = Vector3(0, 0, 0)
+shader_parameter/light_bias = Vector3(0, 0, 0)
+shader_parameter/use_view = true
+shader_parameter/view_bias = Color(1, 0, 1, 1)
+shader_parameter/view_multiplier = -1.0

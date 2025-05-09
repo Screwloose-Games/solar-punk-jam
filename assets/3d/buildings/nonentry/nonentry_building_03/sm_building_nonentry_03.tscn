@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmnnhaugxlcy1"]
+[gd_scene load_steps=5 format=3 uid="uid://cmnnhaugxlcy1"]
 
 [ext_resource type="PackedScene" uid="uid://4ppfhjm7lems" path="res://assets/3d/buildings/nonentry/nonentry_building_03/sm_building_nonentry_03.gltf" id="1_ohiog"]
+[ext_resource type="Texture2D" uid="uid://bxglbd6ku3u8x" path="res://assets/3d/buildings/nonentry/nonentry_building_03/t_nonentry_03_Base_Color.png" id="2_2sw3q"]
+[ext_resource type="Texture2D" uid="uid://cyvg2gnmx0dda" path="res://assets/3d/buildings/nonentry/nonentry_building_03/t_nonentry_03_Normal_DirectX.png" id="3_4xljy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kd738"]
+resource_name = "t_nonentry_03_main"
+cull_mode = 2
+albedo_texture = ExtResource("2_2sw3q")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("3_4xljy")
 
 [node name="sm_building_nonentry_03" instance=ExtResource("1_ohiog")]
+
+[node name="sm_building_nonentry_03" parent="mesh_nonentry_03-mesh" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kd738")

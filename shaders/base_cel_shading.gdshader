@@ -18,6 +18,8 @@ uniform vec3 uv2_offset;
 
 uniform sampler2D color_gradient;
 uniform sampler2D fresnel_gradient;
+uniform float fresnel_intensity : hint_range(0.0, 2.0) = 1.0; // Or a smaller default like 0.5
+
 
 float fresnel(float amount, vec3 normal, vec3 view)
 {
