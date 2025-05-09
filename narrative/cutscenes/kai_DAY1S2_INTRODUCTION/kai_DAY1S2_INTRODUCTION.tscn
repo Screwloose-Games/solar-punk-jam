@@ -18,17 +18,4 @@ visible = false
 [node name="trin_placeholder" parent="." instance=ExtResource("2_t2kua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8386, 5.23202, -16.386)
 
-[node name="SmKai" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1593, 4.092, -6.30015)
-script = null
-
 [editable path="DesignTestScene"]

@@ -20,11 +20,5 @@ Te: Uggghhhhh.
 
 Mom: Mmmhmm. Love you too, gremlin.
 do QuestManager.start_quest("qst_a1d1_intro")
-
-# #Z: I was trying to make the following a conversation we can have if we interact with Kai again after the introduction, but it didn't work??
-[wait time="2.0"]
-Mom: Your daddy would've loved a sky like this.
-[wait time="2.0"]
-Te:...You ok, mama?
-[wait time=".5"]
-Mom: I'm fine, baby.
+set {kaiintro} = true
+[end_timeline]
