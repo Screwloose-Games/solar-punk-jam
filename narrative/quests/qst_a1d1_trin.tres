@@ -14,6 +14,7 @@ description = "Talk to Trin"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
+marker_id = "trin"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_tq41l"]
@@ -25,6 +26,7 @@ description = "Go into Build Mode"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = "prog1"
+marker_id = "trin_garden"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_bc2d0"]
@@ -36,6 +38,7 @@ description = "Build a vertical garden"
 goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_t80vs"]
@@ -45,6 +48,7 @@ description = "Collect soil from the compost bin"
 goal = 3
 prerequisites = Array[int]([2])
 play_dialogue = "prog3"
+marker_id = "trin_compost"
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_0eyh0"]
@@ -54,6 +58,7 @@ description = "Collect water from the rain barrel"
 goal = 3
 prerequisites = Array[int]([3])
 play_dialogue = "prog4"
+marker_id = "trin_water"
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_svb1w"]
@@ -65,6 +70,7 @@ description = "Interact with the Vertical garden"
 goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
+marker_id = "vertical_garden"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_uq8a5"]
@@ -76,6 +82,7 @@ description = "Plant a radish"
 goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = "prog5"
+marker_id = "vertical_garden"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]

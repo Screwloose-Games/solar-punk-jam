@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bkkqhihfe2ioh" path="res://actors/player_character/directional_movement.gd" id="6_0lri6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_nnxma"]
 [ext_resource type="Script" uid="uid://xu1267cfx5ai" path="res://actors/player_character/move_option_button.gd" id="9_ffrn3"]
-[ext_resource type="Script" uid="uid://2clx43j4hl4t" path="res://actors/player_character/camera_option_button.gd" id="9_pnrbl"]
+[ext_resource type="Script" path="res://actors/player_character/camera_option_button.gd" id="9_pnrbl"]
 [ext_resource type="Script" uid="uid://btutcnu3trbt6" path="res://components/interact_component.gd" id="10_gj6wn"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="11_pkpyr"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="12_pnrbl"]
@@ -348,6 +348,7 @@ camera_3d_resource = SubResource("Resource_evt3b")
 follow_damping = true
 follow_distance = 3.5
 spring_length = 3.5
+collision_mask = 7
 
 [node name="FootstepPlayer3D" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("17_udkoa")]
 player_node = NodePath("..")

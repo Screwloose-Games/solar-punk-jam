@@ -12,7 +12,7 @@ const REWARD_SEEDS_STRAWBERRY = preload("res://assets/2d/ui/reward-Seeds-Strawbe
 const REWARD_SOIL = preload("res://assets/2d/ui/reward-Soil.png")
 const REWARD_SOLAR_PANNEL_ICON = preload("res://assets/2d/ui/reward-solar-pannel-icon.png")
 const REWARD_STRAWBERRY_ICON = preload("res://assets/2d/ui/reward-strawberry-icon.png")
-const REWARD_VERTICAL_PALNTER_ICON = preload("res://assets/2d/ui/reward-vertical-palnter-icon.png")
+const REWARD_VERTICAL_PLANTER_ICON = preload("res://assets/2d/ui/reward-vertical-palnter-icon.png")
 const REWARD_WATER_BARREL = preload("res://assets/2d/ui/reward-water-barrel.png")
 
 const TEMP_ICON = preload("res://assets/2d/ui/Happiness-icon.png")
@@ -29,7 +29,7 @@ static var quest_reward_icons = {
 	"Seeds (Strawberry)": REWARD_SEEDS_STRAWBERRY,
 	"Solar panel": REWARD_SOLAR_PANNEL_ICON,
 	"Strawberry": REWARD_STRAWBERRY_ICON,
-	"Vertical garden": REWARD_VERTICAL_PALNTER_ICON,
+	"Vertical garden": REWARD_VERTICAL_PLANTER_ICON,
 	"Water barrel": REWARD_WATER_BARREL,
 }
 

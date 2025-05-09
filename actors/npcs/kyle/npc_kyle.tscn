@@ -4,11 +4,11 @@
 
 [node name="Kyle" instance=ExtResource("1_5a01x")]
 
-[node name="Name" parent="." index="0"]
+[node name="Name" parent="." index="1"]
 visible = true
 text = "Kyle"
 
-[node name="Dialogue" parent="." index="4"]
+[node name="Dialogue" parent="." index="5"]
 npc_id = "kyle"
 
 [editable path="InteractableArea3D"]

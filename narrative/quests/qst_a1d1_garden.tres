@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_emwmh"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_lpidx"]
-[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="3_lpidx"]
+[ext_resource type="Script" path="res://narrative/value_quest_objective.gd" id="3_lpidx"]
 
 [sub_resource type="Resource" id="Resource_eepgn"]
 script = ExtResource("2_lpidx")
@@ -14,6 +14,7 @@ description = "Go to your home's rooftop"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
+marker_id = "home_entrance"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_j1jch"]
@@ -25,6 +26,7 @@ description = "Build a rain barrel"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_aaa6b"]
@@ -36,6 +38,7 @@ description = "Build a compost bin"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_jxjmi"]
@@ -47,6 +50,7 @@ description = "Build a vertial garden"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_k0nsr"]
@@ -56,6 +60,7 @@ description = "Collect Materials"
 goal = 3
 prerequisites = Array[int]([1, 2, 3])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_lpidx"]
@@ -67,6 +72,7 @@ description = "Build another raised bed"
 goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_ku037"]
@@ -78,6 +84,7 @@ description = "Plant radishes"
 goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_a0tgy"]
@@ -89,6 +96,7 @@ description = "Wait 1 day before harvest"
 goal = 1
 prerequisites = Array[int]([6])
 play_dialogue = ""
+marker_id = ""
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
