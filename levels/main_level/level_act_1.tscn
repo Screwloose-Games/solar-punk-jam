@@ -456,19 +456,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168
 [node name="ScrapPileSpawner2" parent="." instance=ExtResource("21_dedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
 
-[node name="FakeDoor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1251, 0.722029, -12.0441)
-size = Vector3(0.32959, 1.54932, 1)
-
-[node name="SleepDoor" parent="FakeDoor" node_paths=PackedStringArray("player", "wake_up_location") instance=ExtResource("22_rlc83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301051, -0.722028, 0.168841)
-player = NodePath("../../Player")
+[node name="SleepDoor" parent="." node_paths=PackedStringArray("player", "wake_up_location") instance=ExtResource("22_rlc83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33308, 9.53674e-07, -12.0577)
+player = NodePath("../Player")
 wake_up_location = NodePath(".")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="FakeDoor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405251, -0.21441, 0)
-omni_range = 1.524
-omni_attenuation = 0.5
+[node name="FakeDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1251, 0.722029, -12.0441)
+visible = false
+size = Vector3(0.32959, 1.54932, 1)
 
 [node name="Trin" parent="." instance=ExtResource("24_c2ahp")]
 transform = Transform3D(0.632489, 0, 0.774569, 0, 1, 0, -0.774569, 0, 0.632489, -27.2895, 0.00154209, -0.918117)
