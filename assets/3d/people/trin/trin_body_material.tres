@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://d3brott5j0u1s"]
 
-[ext_resource type="Shader" path="res://shaders/base_cel_shading_outline.gdshader" id="1_umavt"]
-[ext_resource type="Shader" path="res://shaders/botw_toon_shasder2.gdshader" id="2_g4ko6"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="1_umavt"]
+[ext_resource type="Shader" uid="uid://cwu2gutbe27ek" path="res://shaders/botw_toon_shasder2.gdshader" id="2_g4ko6"]
 [ext_resource type="Texture2D" uid="uid://daganiw5cfsgu" path="res://assets/3d/people/trin/TrinTexture.png" id="5_x3sh3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_41sid"]

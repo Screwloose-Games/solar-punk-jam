@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://chvbasb1d20c4"]
+
+[ext_resource type="PackedScene" uid="uid://j2ly0yqcesf4" path="res://common/ui/screens/daily_dashboard/DailyDashboard.tscn" id="1_demhl"]
+[ext_resource type="Script" uid="uid://rq2h104sr586" path="res://common/ui/screens/end_day_sequence/end_day_sequence.gd" id="1_ulrfe"]
+[ext_resource type="PackedScene" uid="uid://cvx016gxki2qv" path="res://common/ui/screens/end_day_sequence/momtake_te_home_canvas_layer.tscn" id="3_dnhqi"]
+
+[node name="EndDaySequence" type="CanvasLayer"]
+layer = 9
+script = ExtResource("1_ulrfe")
+events = Array[String](["fade out", ""])
+
+[node name="Black" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MomtakeTeHomeCanvasLayer" parent="." instance=ExtResource("3_dnhqi")]
+unique_name_in_owner = true
+layer = 9
+visible = false
+
+[node name="DailyDashboard" parent="." instance=ExtResource("1_demhl")]
+unique_name_in_owner = true
+layer = 10
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
