@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://78qxr0h17yig" path="res://common/audio/sfx/player/walk/marb7e_stone_walk/marb7e_stone_walk04.wav" id="4_8rvp6"]
 [ext_resource type="AudioStream" uid="uid://bduvy1xq6xmdw" path="res://common/audio/sfx/player/walk/marb7e_stone_walk/marb7e_stone_walk05.wav" id="5_yeg7p"]
 [ext_resource type="AudioStream" uid="uid://cttergwckfkow" path="res://common/audio/sfx/player/walk/marb7e_stone_walk/marb7e_stone_walk06.wav" id="6_r76tf"]
+[ext_resource type="Script" uid="uid://bn802xgqb4sy6" path="res://actors/player_character/footstep_player_3D/footstep_player_3d.gd" id="7_pan26"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cdymx"]
 random_pitch = 1.45
@@ -18,20 +19,9 @@ stream_3/stream = ExtResource("4_8rvp6")
 stream_4/stream = ExtResource("5_yeg7p")
 stream_5/stream = ExtResource("6_r76tf")
 
-[sub_resource type="GDScript" id="GDScript_uvnsm"]
-script/source = "extends SoundPlayer3D
-
-@export var player_node: Player
-
-func _on_timer_timeout():
-    if player_node.state == player_node.SelfState.WALK:
-        play()
-"
-
-[node name="FootstepPlayer3D" type="AudioStreamPlayer3D" node_paths=PackedStringArray("player_node")]
+[node name="FootstepPlayer3D" type="AudioStreamPlayer3D"]
 stream = SubResource("AudioStreamRandomizer_cdymx")
-script = SubResource("GDScript_uvnsm")
-player_node = NodePath("")
+script = ExtResource("7_pan26")
 metadata/_custom_type_script = "uid://bqaasgleubvyc"
 
 [node name="Timer" type="Timer" parent="."]
