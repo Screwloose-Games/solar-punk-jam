@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds43h35xkeq0s"]
+[gd_scene load_steps=4 format=3 uid="uid://ds43h35xkeq0s"]
 
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="1_0f3yb"]
 [ext_resource type="Script" uid="uid://uxttc8svekgi" path="res://narrative/cutscenes/kai_DAY1S2_INTRODUCTION/kai_day_1s_2_introduction.gd" id="1_2ociy"]
 [ext_resource type="PackedScene" uid="uid://dulsr3d3tohn5" path="res://actors/player_character/model_animations/te/te_placeholder.tscn" id="2_t2kua"]
-[ext_resource type="PackedScene" uid="uid://b5qtnavnsalvo" path="res://assets/3d/people/kai/sk_kai.tscn" id="3_42o8n"]
 
 [node name="KaiDay1s2Introduction" type="Node3D"]
 script = ExtResource("1_2ociy")
@@ -19,7 +18,17 @@ visible = false
 [node name="trin_placeholder" parent="." instance=ExtResource("2_t2kua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8386, 5.23202, -16.386)
 
-[node name="SmKai" parent="." instance=ExtResource("3_42o8n")]
+[node name="SmKai" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1593, 4.092, -6.30015)
+script = null
 
 [editable path="DesignTestScene"]

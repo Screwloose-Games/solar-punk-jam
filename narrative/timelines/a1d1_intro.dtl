@@ -17,5 +17,4 @@ Mom: Good, then don't forget to check the bulletin board again, you hear me?
 Te: Fine.
 
 Mom: Love you too, my little gremlin.
-label skip
-do QuestManager.start_quest("qst_a1d1_intro")
+
