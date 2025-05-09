@@ -91,16 +91,15 @@ func get_structure_name(index : int):
 
 
 func check_structure_requirements(idx):
-	var requirements = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
+	var material_cost = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.MaterialCost]
 	var missing_requirements = []
-	if requirements:
-		for requirement in requirements.split(","):
-			if EnvironmentManager.check_amount(requirement, 1):
-				# We have enough
-				pass
-			else:
-				# We do not have enough
-				missing_requirements.append(requirement)
+	if material_cost > 0:
+		if EnvironmentManager.check_amount("Materials", material_cost):
+			# We have enough
+			pass
+		else:
+			# We do not have enough
+			missing_requirements.append("Materials")
 	# Will return [] if all requirements are satisfied
 	return missing_requirements
 
@@ -129,10 +128,6 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
 			EnvironmentManager.gain_resource("Materials", -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
-		var requirements = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
-		if requirements:
-			for item in requirements.split(","):
-				EnvironmentManager.gain_resource(item, -1)
 	var storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.ElectricityStorage]
 	if storage:
 		EnvironmentManager.resource_storage_limits["Electricity"] += storage
