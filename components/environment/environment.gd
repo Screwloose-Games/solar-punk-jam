@@ -66,7 +66,7 @@ func animate_night(start_at=0.0, bedtime_penalty=false):
 		animation_tween.kill()
 	animation_tween = create_tween()
 	animation_tween.tween_method(set_night_time, start_at, 1.0, night_length_in_seconds*(1.0-start_at))
-	animation_tween.tween_callback(animate_day)
+	#animation_tween.tween_callback(animate_day)
 
 
 func set_day_time(time: float):

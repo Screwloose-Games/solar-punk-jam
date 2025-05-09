@@ -137,6 +137,7 @@ CollectableNodeSpawner=""
 PlayerSpawner=""
 Player=""
 QuestMarker="Used to indicate location where a quest objective can be satisfied."
+DynamicEnvironment=""
 
 [gui]
 

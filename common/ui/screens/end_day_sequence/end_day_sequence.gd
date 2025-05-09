@@ -35,13 +35,16 @@ func start_sequence():
 	black.show()
 	black.color = Color.BLACK
 	black.color = Color.BLACK
-	await get_tree().create_timer(2).timeout # we need to wait because environment will skip an extra day if we dont.
+	EnvironmentManager.environment_model
+	var environment: CapybaraEnvironment = get_tree().get_first_node_in_group("DynamicEnvironment")
+	#await get_tree().create_timer(2).timeout # we need to wait because environment will skip an extra day if we dont.
 	get_tree().paused = true
 	
 	if not player_initialted:
 		await show_forced_screen()
 	await show_dashboard()
 	await fade_from_black()
+	environment.animate_day()
 	get_tree().paused = false
 	player_initialted = false
 
