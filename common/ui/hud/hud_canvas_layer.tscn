@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=25 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -99,16 +99,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgxx2"]
-content_margin_left = 32.0
-content_margin_top = 32.0
-content_margin_right = 32.0
-content_margin_bottom = 32.0
-corner_radius_top_left = 9
-corner_radius_top_right = 9
-corner_radius_bottom_right = 9
-corner_radius_bottom_left = 9
 
 [node name="HUDCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_2ngon")
@@ -661,29 +651,3 @@ grow_vertical = 0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="DailySummaryCenterContainer" type="CenterContainer" parent="HUD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HUD/DailySummaryCenterContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bgxx2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/DailySummaryCenterContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HUD/DailySummaryCenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Today's summary:"
-
-[node name="Summary" type="Label" parent="HUD/DailySummaryCenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="HUD/DailySummaryCenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Close"

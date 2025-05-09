@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://j2ly0yqcesf4"]
+
+[ext_resource type="Script" uid="uid://corqrrsqoaq8h" path="res://common/ui/hud/daily_summary_center_container.gd" id="1_yxfop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg4ft"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[node name="DailyDashboard" type="CanvasLayer"]
+layer = 12
+script = ExtResource("1_yxfop")
+
+[node name="DailySummaryCenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="DailySummaryCenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg4ft")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DailySummaryCenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Today's summary:"
+
+[node name="Summary" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DashboardCloseButton" type="Button" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"

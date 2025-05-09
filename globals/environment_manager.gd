@@ -134,6 +134,9 @@ class TimeStruct:
 
 
 class EnvironmentModel:
+	signal started_raining
+	signal stopped_raining
+	
 	var current_time_in_game_hours = 12.0
 	var day_length_in_game_hours = 12.0
 	var day_start_in_game_hours = 8.0
