@@ -5,7 +5,6 @@ extends CanvasLayer
 @export var show_mom_info_time: float = 3.0
 @export var fade_time: float = 2.0
 
-
 @onready var momtake_te_home_canvas_layer: MomTakeTeHomeCanvasLayer = %MomtakeTeHomeCanvasLayer
 @onready var daily_dashboard: DailySummaryUi = %DailyDashboard
 @onready var black: ColorRect = %Black
@@ -15,7 +14,6 @@ func _ready() -> void:
 	EnvironmentManager.day_cycle_end.connect(_on_day_cycle_end)
 	EnvironmentManager.force_end_day.connect(_on_force_end_day)
 	black.hide()
-	#start_sequence()
 
 func _on_force_end_day():
 	player_initialted = true
@@ -34,12 +32,11 @@ func _on_day_cycle_end():
 	start_sequence()
 
 func start_sequence():
-	#on event went to night.
 	black.show()
+	black.color = Color.BLACK
+	black.color = Color.BLACK
 	await get_tree().create_timer(2).timeout # we need to wait because environment will skip an extra day if we dont.
 	get_tree().paused = true
-	#await fade_to_black()
-	black.color = Color.BLACK
 	
 	if not player_initialted:
 		await show_forced_screen()

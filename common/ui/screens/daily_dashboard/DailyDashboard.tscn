@@ -17,6 +17,7 @@ layer = 12
 script = ExtResource("1_yxfop")
 
 [node name="DailySummaryCenterContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
