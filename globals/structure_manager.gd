@@ -71,6 +71,7 @@ const BUILDABLE_RAISED_BED_SPACE = Vector2i(4,7)
 const OCCUPIED_SPACE = Vector2i(0,7)
 const VALID_TILE_TYPES = [BUILDABLE_EMPTY_SPACE, BUILDABLE_RAISED_BED_SPACE, OCCUPIED_SPACE]
 
+@export var environment_gain_per_structure_built: int = 3
 
 var structure_data = []
 var structure_name_to_idx_map = {}
@@ -137,6 +138,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
+	EnvironmentManager.gain_resource("Environment", environment_gain_per_structure_built)
 
 
 func visual_instance_update(structure: BuiltStructure):
