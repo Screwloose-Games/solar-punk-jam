@@ -29,7 +29,10 @@ func _ready() -> void:
 			register_structure_as_hud_icon(idx)
 	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
 	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
+	EnvironmentManager.day_cycle_end.connect(self.day_cycle_end)
 	$HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close.connect("pressed", close_popup_menu)
+	$HUD/DailySummaryCenterContainer/PanelContainer/VBoxContainer/Button.connect("pressed", $HUD/DailySummaryCenterContainer.hide)
+	$HUD/DailySummaryCenterContainer.hide()
 	# Ensure we update UI on startup
 	refresh_resources_ui.call_deferred()
 
@@ -167,3 +170,11 @@ func show_popup_menu(structure: StructureManager.BuiltStructure):
 	
 func close_popup_menu():
 	$HUD/PopupMenuMarginContainer.hide()
+
+func day_cycle_end():
+	$HUD/DailySummaryCenterContainer.show()
+	var summary = ""
+	for resource in EnvironmentManager.daily_resources:
+		summary += resource + ": " + str(EnvironmentManager.daily_resources[resource])
+		$HUD/DailySummaryCenterContainer/PanelContainer/VBoxContainer/Summary.text = summary
+	EnvironmentManager.daily_resources = {}
