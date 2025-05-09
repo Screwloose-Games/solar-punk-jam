@@ -1,0 +1,201 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v3.1.151885474)"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 520,
+            "type": "VEC3",
+            "max": [
+                90.67604064941406,
+                70.0,
+                82.40635681152344
+            ],
+            "min": [
+                -90.67604064941406,
+                -0.027584075927734376,
+                -82.40635681152344
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 520,
+            "type": "VEC3",
+            "max": [
+                0.9999999403953552,
+                0.9999999403953552,
+                0.9999999403953552
+            ],
+            "min": [
+                -0.9999999403953552,
+                -0.9999999403953552,
+                -0.9999999403953552
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 520,
+            "type": "VEC4",
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 520,
+            "type": "VEC2",
+            "max": [
+                0.9912829995155335,
+                0.9961519837379456
+            ],
+            "min": [
+                -0.9922829866409302,
+                0.00037097930908203125
+            ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1212,
+            "type": "SCALAR",
+            "max": [
+                519.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 27384,
+            "uri": "sm_picnic_table.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 6240,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 6240,
+            "byteLength": 6240,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 12480,
+            "byteLength": 8320,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 20800,
+            "byteLength": 4160,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 24960,
+            "byteLength": 2424,
+            "target": 34963
+        }
+    ],
+    "materials": [
+        {
+            "name": "initialShadingGroup",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.5,
+                    0.5,
+                    0.5,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "pCylinder5",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 4,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TANGENT": 2,
+                        "TEXCOORD_0": 3
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "PicnicTable.obj",
+            "matrix": [
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "children": [
+                1,
+                2
+            ]
+        },
+        {
+            "name": "default"
+        },
+        {
+            "name": "pCylinder5",
+            "mesh": 0
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}
