@@ -38,12 +38,17 @@ func _update_rewards_large() -> void:
 		if child != reward_icon_large:
 			child.queue_free()
 
-	for resource_name in quest.rewards.keys():
+	#for resource_name in quest.rewards.keys():
+		#var reward_instance = reward_icon_large.duplicate()
+		#reward_instance.reward_name = resource_name
+		#reward_instance.show()
+		#quest_rewards_row_large.add_child(reward_instance)
+	for structure in quest.unlock_on_accept:
 		var reward_instance = reward_icon_large.duplicate()
-		reward_instance.reward_name = resource_name
+		reward_instance.reward_name = structure
 		reward_instance.show()
 		quest_rewards_row_large.add_child(reward_instance)
-	for structure in quest.unlock_on_accept:
+	for structure in quest.unlock_on_complete:
 		var reward_instance = reward_icon_large.duplicate()
 		reward_instance.reward_name = structure
 		reward_instance.show()
