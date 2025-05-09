@@ -8,6 +8,6 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	player.cutscene_mode_enabled = true
 	phantom_camera_3d.priority = 30
-	Dialogic.start("kai_DAY1S2_INTRODUCTION")
+	Dialogic.start("a1d1_intro")
 	await Dialogic.timeline_ended
 	player.cutscene_mode_enabled = false
