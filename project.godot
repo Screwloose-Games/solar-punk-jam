@@ -31,7 +31,7 @@ EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.tscn"
 DebugUi="*res://globals/debug_ui.tscn"
 DynamicMusic="*res://globals/DynamicMusic.tscn"
-SoundManager="*res://globals/SoundManager.tscn"
+SoundManager="*res://globals/sound_manager/SoundManager.tscn"
 
 [dialogic]
 
