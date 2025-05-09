@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bin80vom4y8v0"]
+[gd_scene load_steps=5 format=3 uid="uid://bdgtkjdngrmxt"]
 
 [ext_resource type="AudioStream" uid="uid://cof1gsphtelql" path="res://common/audio/music/m_44_83bmp_f_overworld_main_lp.ogg" id="1_rdc84"]
 [ext_resource type="Script" uid="uid://c5rkjw4ipjjqc" path="res://globals/DynamicMusic.gd" id="2_rdc84"]
