@@ -406,6 +406,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -4.25633, 3.14492, -9.12453)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -445,7 +446,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49966, 0.00260284, -3.21364
 [node name="Player" parent="." instance=ExtResource("16_t3rkj")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25633, 0.281344, -12.1556)
-speed = 20.0
+speed = 12.0
 
 [node name="CommBoard" parent="." instance=ExtResource("17_u0qwm")]
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
