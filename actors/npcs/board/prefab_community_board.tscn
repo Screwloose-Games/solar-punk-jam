@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://c1y5i2lbvjw6a" path="res://actors/npcs/board/community_board_quest_preview.gd" id="6_3w42p"]
 [ext_resource type="Texture2D" uid="uid://bd4fnnf7ymbcr" path="res://assets/2d/ui/quest-icon.png" id="6_s1nju"]
 [ext_resource type="FontFile" uid="uid://dy83ki0pjbk3h" path="res://common/fonts/Komikido.otf" id="7_2y0nt"]
-[ext_resource type="Texture2D" uid="uid://fu5xpch5afyl" path="res://assets/2d/ui/reward-Materials-60px.png" id="8_qiswl"]
-[ext_resource type="Shader" uid="uid://dk5uhk3asdety" path="res://shaders/background_blur.gdshader" id="8_qvtjj"]
-[ext_resource type="Script" uid="uid://dgfpy283mxnq3" path="res://actors/npcs/board/mini_rewards_h_box_container.gd" id="11_m3a1k"]
+[ext_resource type="Shader" path="res://shaders/background_blur.gdshader" id="8_qvtjj"]
+[ext_resource type="Script" path="res://actors/npcs/board/mini_rewards_h_box_container.gd" id="11_m3a1k"]
+[ext_resource type="Texture2D" uid="uid://cvvhppdvufwep" path="res://assets/2d/ui/reward-vertical-palnter-icon-60px.png" id="11_qvtjj"]
 [ext_resource type="PackedScene" uid="uid://42ldv31m725y" path="res://common/ui/components/mini_single_reward_item_h_box_container.tscn" id="12_m3a1k"]
-[ext_resource type="Script" uid="uid://ku4nu4x303m8" path="res://actors/npcs/board/reward_icon_large.gd" id="12_qvtjj"]
+[ext_resource type="Script" path="res://actors/npcs/board/reward_icon_large.gd" id="12_qvtjj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t813n"]
 radius = 0.4
@@ -69,6 +69,10 @@ font_color = Color(0.133333, 0.184314, 0.211765, 1)
 
 [sub_resource type="GDScript" id="GDScript_fogbk"]
 
+[sub_resource type="Theme" id="Theme_m3a1k"]
+default_font_size = 16
+Label/colors/font_color = Color(0.133333, 0.184314, 0.211765, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvtjj"]
 content_margin_left = 14.0
 content_margin_top = 10.0
@@ -90,10 +94,6 @@ corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
-
-[sub_resource type="Theme" id="Theme_m3a1k"]
-default_font_size = 16
-Label/colors/font_color = Color(0.133333, 0.184314, 0.211765, 1)
 
 [node name="CommBoard" type="StaticBody3D"]
 script = ExtResource("1_r1qyg")
@@ -199,7 +199,7 @@ label_settings = SubResource("LabelSettings_fogbk")
 [node name="Rewards" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Reward"
+text = "Unlock"
 label_settings = SubResource("LabelSettings_qvtjj")
 vertical_alignment = 1
 
@@ -211,11 +211,35 @@ script = SubResource("GDScript_fogbk")
 
 [node name="RewardIconLarge" type="TextureRect" parent="CommunityBoardCanvasLayer/PanelContainer/Content/QuestRewardsRowLarge"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-texture = ExtResource("8_qiswl")
+texture = ExtResource("11_qvtjj")
 stretch_mode = 2
 script = ExtResource("12_qvtjj")
+
+[node name="Rewards2" type="Label" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reward"
+label_settings = SubResource("LabelSettings_qvtjj")
+vertical_alignment = 1
+
+[node name="MiniRewardsHBoxContainer" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_m3a1k")
+script = ExtResource("11_m3a1k")
+quest_rewards = Dictionary[String, int]({
+"Happiness": 5,
+"Materials": 5,
+"Seeds": 3,
+"Soil": 3,
+"Water": 3
+})
+
+[node name="MiniSingleRewardItemHBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/MiniRewardsHBoxContainer" instance=ExtResource("12_m3a1k")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
 layout_mode = 2
@@ -236,23 +260,5 @@ theme_override_colors/font_color = Color(0.0784314, 0.0823529, 0.0823529, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_4yc5c")
 text = "Close"
-
-[node name="MiniRewardsHBoxContainer" type="HBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_m3a1k")
-script = ExtResource("11_m3a1k")
-quest_rewards = Dictionary[String, int]({
-"Happiness": 5,
-"Materials": 5,
-"Seeds": 3,
-"Soil": 3,
-"Water": 3
-})
-
-[node name="MiniSingleRewardItemHBoxContainer" parent="CommunityBoardCanvasLayer/PanelContainer/Content/MiniRewardsHBoxContainer" instance=ExtResource("12_m3a1k")]
-unique_name_in_owner = true
-layout_mode = 2
 
 [editable path="InteractableArea3D"]
