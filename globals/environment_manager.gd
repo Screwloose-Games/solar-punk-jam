@@ -15,6 +15,7 @@ const hidden_resources = ["Happiness", "Environment"]
 var resource_storage_limits = {"Electricity":0, "Water":0}
 
 var current_resources = {"Happiness":10}
+var daily_resources = {}
 var deposited_resources = {}
 var current_act: int = 1:
 	set(val):
@@ -47,11 +48,21 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] += quantity
 	else:
 		current_resources[resource] = quantity
+		
+		
+	if resource in daily_resources:
+		daily_resources[resource] += quantity
+	else:
+		daily_resources[resource] = quantity
+		
+		
 
 	if resource in resource_storage_limits:
 		if current_resources[resource] > resource_storage_limits[resource]:
 			prints("We cannot store all of this resource, discarding some")
 			current_resources[resource] = resource_storage_limits[resource]
+		if daily_resources[resource] > resource_storage_limits[resource]:
+			daily_resources[resource] = resource_storage_limits[resource]
 
 	UpdatedAvailableResources.emit()
 
