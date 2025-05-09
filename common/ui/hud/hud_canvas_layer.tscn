@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=26 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://d2jw8rv3dbp87" path="res://common/ui/hud/bottom_tool_container.gd" id="9_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
 [ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
+[ext_resource type="PackedScene" uid="uid://chvbasb1d20c4" path="res://common/ui/screens/end_day_sequence/end_day_sequence.tscn" id="13_5quvr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
 content_margin_top = 10.0
@@ -633,6 +634,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ajdrq")
 text = "x"
 label_settings = SubResource("LabelSettings_nvanc")
 horizontal_alignment = 1
+
+[node name="EndDaySequence" parent="HUD" instance=ExtResource("13_5quvr")]
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 1
