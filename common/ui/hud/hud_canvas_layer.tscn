@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=28 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbfwnrfa7yds4" path="res://common/ui/components/quest/quest_list.tscn" id="5_ajdrq"]
 [ext_resource type="Texture2D" uid="uid://ymr1rjs8qkmr" path="res://assets/2d/ui/seed_icon-placeholder.png" id="6_owaxp"]
 [ext_resource type="Texture2D" uid="uid://bc11lu6db7d0l" path="res://assets/2d/ui/water_icon-placeholder.png" id="7_kwr8q"]
+[ext_resource type="Texture2D" uid="uid://cspwcrh5bdnqw" path="res://assets/2d/ui/Sunny.png" id="7_owaxp"]
 [ext_resource type="Theme" uid="uid://w6tefp42fcps" path="res://common/themes/toolbar_theme.tres" id="8_bgxx2"]
 [ext_resource type="Script" uid="uid://d2jw8rv3dbp87" path="res://common/ui/hud/bottom_tool_container.gd" id="9_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
@@ -47,6 +48,16 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwr8q"]
 bg_color = Color(0.219608, 0.301961, 0.34902, 0.937255)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kwr8q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8yxrh"]
 
@@ -57,6 +68,7 @@ atlas = ExtResource("9_54k12")
 region = Rect2(0, 0, 80, 80)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nvanc"]
+font_color = Color(0.960784, 0.960784, 0.960784, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -270,7 +282,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -204.0
+offset_left = -169.0
+offset_right = -1.0
 offset_bottom = 75.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 15
@@ -278,22 +291,26 @@ theme_override_constants/margin_right = 15
 
 [node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_kwr8q")
 
 [node name="WeatherTimeHBoxContainer" type="HBoxContainer" parent="HUD/TopRightMarginContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/separation = 10
 alignment = 2
 
 [node name="WeatherIcon" type="TextureRect" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("5_5quvr")
-expand_mode = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_owaxp")
+stretch_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kwr8q")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -310,15 +327,18 @@ layout_mode = 2
 
 [node name="ActNameLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Act"
 
 [node name="ActNumberLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "I"
 
 [node name="ActSeparatorLabel" type="Label" parent="HUD/TopRightMarginContainer/PanelContainer/WeatherTimeHBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "|"
 

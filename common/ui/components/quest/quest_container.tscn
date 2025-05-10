@@ -8,7 +8,8 @@ script = ExtResource("1_avqpu")
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
 theme_type_variation = &"QuestTitle"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 15
 text = "Quest.name"
 
 [node name="Separator" type="HSeparator" parent="."]
@@ -17,8 +18,9 @@ layout_mode = 2
 [node name="Description" type="RichTextLabel" parent="."]
 layout_mode = 2
 theme_type_variation = &"QuestDescription"
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_colors/font_selected_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "Quest.description"
 fit_content = true

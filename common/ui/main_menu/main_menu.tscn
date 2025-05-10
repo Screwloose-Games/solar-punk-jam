@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://daabskcdhrpea"]
+[gd_scene load_steps=61 format=4 uid="uid://daabskcdhrpea"]
 
 [ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_mqx1g"]
 [ext_resource type="Script" uid="uid://drkkac24eh0sl" path="res://common/ui/viewport_container.gd" id="2_d26fo"]
@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://dynbxfyimjvcv" path="res://common/ui/scene_transitions/fade_transition.tscn" id="4_cec7w"]
 [ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="5_ctl25"]
 [ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="6_mqj1f"]
+[ext_resource type="Texture2D" uid="uid://dnp0xg2o72esv" path="res://assets/2d/ui/main-menu-background.png" id="6_n35mk"]
 [ext_resource type="PackedScene" uid="uid://bvuixmv4n68a6" path="res://common/ui/options_menu/options_menu.tscn" id="6_ntl50"]
 [ext_resource type="PackedScene" uid="uid://cbodbramso3fv" path="res://levels/main_level/level_act_1.tscn" id="7_kjcgm"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="7_oty5u"]
 [ext_resource type="Texture2D" uid="uid://ccq7f3iwggcxc" path="res://common/ui/art/main_menu_title.png" id="9_8wlla"]
 [ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
 [ext_resource type="FontFile" uid="uid://bxxblafxhg1tc" path="res://common/fonts/Wondra.otf" id="10_kjcgm"]
+[ext_resource type="Texture2D" uid="uid://ek3jjtrm57f2" path="res://assets/2d/ui/Lumina-logo-white.png" id="11_ulf6g"]
 
 [sub_resource type="Theme" id="Theme_kjcgm"]
 
@@ -73,10 +75,65 @@ func _return_from_credits():
 		pass
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiebh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g01df"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7ugy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n35mk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n35mk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkfiq"]
+content_margin_top = 52.0
+content_margin_bottom = 52.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_mqx1g"]
 font = ExtResource("10_kjcgm")
 font_size = 50
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_2p7g7"]
+default_font_size = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plehf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ulf6g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aiebh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l57nx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7ugy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjgcw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkfiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m4jlr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l57nx"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c2vwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo066"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2p7g7"]
 
 [sub_resource type="Image" id="Image_kwvdp"]
 data = {
@@ -762,14 +819,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -42.0
-offset_top = -189.0
-offset_right = 6038.0
-offset_bottom = 4523.0
+offset_left = -3.0
+offset_top = -90.0
+offset_right = 3486.0
+offset_bottom = 2702.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
-stretch_mode = 2
+texture = ExtResource("6_n35mk")
 
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -788,38 +845,28 @@ start_scene_path = ExtResource("7_kjcgm")
 transition_path = ExtResource("4_cec7w")
 
 [node name="PanelContainer" type="PanelContainer" parent="Main Menu"]
-texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_aiebh")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu/PanelContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
 
 [node name="TextureRect" type="TextureRect" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 visible = false
@@ -829,7 +876,27 @@ layout_mode = 2
 texture = ExtResource("9_8wlla")
 stretch_mode = 2
 
+[node name="Lumina Logo" type="TextureRect" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_ulf6g")
+stretch_mode = 2
+
+[node name="StartButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.219608, 0.815686, 0.94902, 1)
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_constants/line_spacing = 32
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g01df")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_u7ugy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n35mk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n35mk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkfiq")
+text = "Start Game"
+
 [node name="Label" type="Label" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Capybara"
 label_settings = SubResource("LabelSettings_mqx1g")
@@ -837,32 +904,68 @@ horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Discard" type="VBoxContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="StartButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
-unique_name_in_owner = true
+[node name="TestScenariosButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Discard"]
+visible = false
 layout_mode = 2
-text = "Start"
+text = "Scenarios"
+script = ExtResource("10_8wlla")
 
-[node name="SettingsButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="Second Row container" type="HBoxContainer" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 52
+alignment = 1
+
+[node name="SettingsButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = SubResource("Theme_2p7g7")
+theme_override_colors/font_hover_color = Color(0.219608, 0.815686, 0.94902, 1)
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_plehf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ulf6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_aiebh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l57nx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u7ugy")
 text = "Settings"
 
-[node name="CreditsButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.219608, 0.815686, 0.94902, 1)
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bjgcw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ulf6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gkfiq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m4jlr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l57nx")
 text = "Credits"
 
-[node name="ExitButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.219608, 0.815686, 0.94902, 1)
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c2vwb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ulf6g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n35mk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo066")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2p7g7")
 text = "Exit"
 
 [node name="TestScenariosButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
@@ -878,7 +981,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1152.0
 offset_right = 1152.0
-offset_bottom = 1.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_d26fo")
@@ -985,14 +1088,14 @@ tree_root = SubResource("AnimationNodeStateMachine_11wmy")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
-[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/StartButton" to="Audio Control" method="_on_hover"]
-[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/StartButton" to="Audio Control" method="_on_open"]
-[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/SettingsButton" to="Audio Control" method="_on_hover"]
-[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/SettingsButton" to="Audio Control" method="_on_open"]
-[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/CreditsButton" to="Audio Control" method="_on_hover"]
-[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/CreditsButton" to="Audio Control" method="_on_open"]
-[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/ExitButton" to="Audio Control" method="_on_hover"]
-[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/ExitButton" to="Audio Control" method="_on_close"]
+[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/StartButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/StartButton" to="Audio Control" method="_on_open"]
+[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container/SettingsButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container/SettingsButton" to="Audio Control" method="_on_open"]
+[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container/CreditsButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container/CreditsButton" to="Audio Control" method="_on_open"]
+[connection signal="mouse_entered" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container/ExitButton" to="Audio Control" method="_on_hover"]
+[connection signal="pressed" from="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/Second Row container/ExitButton" to="Audio Control" method="_on_close"]
 [connection signal="mouse_entered" from="Settings Menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Audio Control" method="_on_hover"]
 [connection signal="value_changed" from="Settings Menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Audio Control" method="_on_slider_hover"]
 [connection signal="mouse_entered" from="Settings Menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2" to="Audio Control" method="_on_hover"]
