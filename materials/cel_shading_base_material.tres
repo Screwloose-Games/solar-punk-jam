@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://48yxtwwrpf3m"]
 
-[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="1_82mww"]
-[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="2_rlujm"]
+[ext_resource type="Shader" path="res://shaders/base_cel_shading_outline.gdshader" id="1_82mww"]
+[ext_resource type="Shader" path="res://shaders/base_cel_shading.gdshader" id="2_rlujm"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="3_d6p1r"]
 [ext_resource type="Texture2D" uid="uid://ca3mdfjo1uyya" path="res://assets/3d/structures/rain_barrel/RainBarrel_Base_Color.png" id="4_82mww"]
 

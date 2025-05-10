@@ -1,16 +1,12 @@
 if {mister_met} == false:
-	Te (excited): Jackpot!\
-Hey mister! Can I have those bottles?
-	Mister (drowsy): Hm? These? What for?
-	Te (default): To recycle, duh. My mom crunches ‘em up for building substrate.
-	Mister (curious): Substrate from plastics? You Kai's kid?
-	Te (cheerful): Yup. I’m Te.
-	Mister (default): Hm. All right, kid. Knock yourself out.
-	Te: Thanks, Mister!
+	Mister: Hey, kid. Mom working you hard hunh?
+	Te: I practically do everything around here!
+	Mister: After the flood, the city shut this place down. 
+	Mister: Said it was unlivable.
+	Mister: But look at us. We're here aren't we?
+	Mister: Know why?
+	Te: Why?
+	Mister: 'Cause of hard work.
+	Mister: So keep it up, kid.
 	set {mister_met} = true
-if {mister_progress} == 0.0:
-	jump mister_quest1/
-Mister (drowsy): Hey kid. Back for more bottles?
-Te (default): Nah, just saying hi.
-Mister (drowsy): All right then, suit yourself.
-Te (default): Not a fan of small talk, huh? See ya, I guess?
+Mister: We'll get this city flood-proof in no time.
