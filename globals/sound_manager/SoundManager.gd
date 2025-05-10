@@ -3,9 +3,11 @@ class_name GSoundManager
 
 @onready var ui_sound_player: AudioStreamPlayer = %UiSoundPlayer
 @onready var weather_sound_player: AudioStreamPlayer = %WeatherSoundPlayer
+@onready var ambient_sound_player: AudioStreamPlayer = %AmbientSoundPlayer
 
 enum SoundPlayerType {
-    UI, 
+    UI,
+    AMBIENT, 
     WEATHER,
 }
 

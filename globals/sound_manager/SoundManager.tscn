@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://c54af0wl0auwx"]
+[gd_scene load_steps=20 format=3 uid="uid://c54af0wl0auwx"]
 
 [ext_resource type="Script" uid="uid://b1mijyjkslhfu" path="res://globals/sound_manager/SoundManager.gd" id="1_0wbjb"]
+[ext_resource type="AudioStream" uid="uid://knk8fcd6nusj" path="res://common/audio/sfx/ambi/AMBI_BASE.wav" id="2_3bdi4"]
 [ext_resource type="Script" uid="uid://dd8uxrmtutff5" path="res://globals/sound_manager/sound_effect.gd" id="2_t4w6u"]
 [ext_resource type="AudioStream" uid="uid://cwrmu1482xd6k" path="res://common/audio/sfx/ui/UI_QUEST_ACCEPT.wav" id="3_wh6ep"]
 [ext_resource type="AudioStream" uid="uid://dp0uplfv31exi" path="res://common/audio/sfx/ui/UI_QUEST_COMPLETE.wav" id="4_omyty"]
@@ -39,6 +40,12 @@ script = ExtResource("1_0wbjb")
 
 [node name="UiSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="AmbientSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_3bdi4")
+volume_db = -20.0
+autoplay = true
 
 [node name="WeatherSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
