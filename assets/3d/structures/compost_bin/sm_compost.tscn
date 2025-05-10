@@ -1,5 +1,94 @@
-[gd_scene load_steps=2 format=3 uid="uid://j3lbixiydomm"]
+[gd_scene load_steps=12 format=3 uid="uid://j3lbixiydomm"]
 
 [ext_resource type="PackedScene" uid="uid://uupbb51fenwa" path="res://assets/3d/structures/compost_bin/sm_compost_bin.gltf" id="1_kos17"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_ihgf3"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_gj0im"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_rfrv5"]
+[ext_resource type="Texture2D" uid="uid://0najsiffm7xr" path="res://assets/3d/structures/compost_bin/compostbin_basecolor.png" id="5_d7idu"]
+[ext_resource type="Texture2D" uid="uid://q4runlisyfai" path="res://assets/3d/structures/compost_bin/compostbin_normal.png" id="6_gj0im"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3o6"]
+render_priority = 0
+shader = ExtResource("2_ihgf3")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rv00i"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_tk3o6")
+shader = ExtResource("3_gj0im")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_d7idu")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("6_gj0im")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_rfrv5")
+shader_parameter/fresnel_gradient = ExtResource("4_rfrv5")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gj0im"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_tk3o6")
+shader = ExtResource("3_gj0im")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_d7idu")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("6_gj0im")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_rfrv5")
+shader_parameter/fresnel_gradient = ExtResource("4_rfrv5")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrv5"]
+render_priority = 0
+shader = ExtResource("2_ihgf3")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7idu"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_rfrv5")
+shader = ExtResource("3_gj0im")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_d7idu")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("6_gj0im")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_rfrv5")
+shader_parameter/fresnel_gradient = ExtResource("4_rfrv5")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_compost_bin2" instance=ExtResource("1_kos17")]
+
+[node name="sm_compost_bin" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_rv00i")
+
+[node name="sm_door" parent="sm_compost_bin" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_gj0im")
+
+[node name="sm_legs" parent="sm_compost_bin" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_d7idu")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bk5fvv6icg32" path="res://components/terrain.tscn" id="1_3et75"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="1_bdf1t"]
 [ext_resource type="PackedScene" uid="uid://dlnsau4dubyw1" path="res://components/water_gridmap.tscn" id="2_137k1"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="3_gs8vw"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="3_gs8vw"]
 [ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="4_v5kms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]

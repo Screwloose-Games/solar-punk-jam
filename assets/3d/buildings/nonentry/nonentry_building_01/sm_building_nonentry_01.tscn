@@ -1,5 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs3ucnp4yut0q"]
+[gd_scene load_steps=8 format=3 uid="uid://bs3ucnp4yut0q"]
 
 [ext_resource type="PackedScene" uid="uid://brwnxgmh6xfk1" path="res://assets/3d/buildings/nonentry/nonentry_building_01/sm_building_nonentry_01.gltf" id="1_q5r6y"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_8bkx4"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_kr6hv"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_57il3"]
+[ext_resource type="Texture2D" uid="uid://bh4ya16wf5itj" path="res://assets/3d/buildings/nonentry/nonentry_building_01/BuildingProp01_Base_Color.png" id="5_udv56"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3o6"]
+render_priority = 0
+shader = ExtResource("2_8bkx4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hi75s"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_tk3o6")
+shader = ExtResource("3_kr6hv")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_udv56")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_57il3")
+shader_parameter/fresnel_gradient = ExtResource("4_57il3")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_building_nonentry_01" instance=ExtResource("1_q5r6y")]
+
+[node name="sm_nonentry_building_01" parent="mesh_nonentry_building_01" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/1 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/2 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/3 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/4 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/5 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/6 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/7 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/8 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/9 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/10 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/11 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/12 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/13 = SubResource("ShaderMaterial_hi75s")
+surface_material_override/14 = SubResource("ShaderMaterial_hi75s")

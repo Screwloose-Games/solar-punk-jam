@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://c36h48tpc80wf"]
+
+[ext_resource type="Texture2D" uid="uid://w6fu7iu5ldw2" path="res://assets/3d/structures/community_board/t_message_board_baseColor.png" id="1_oracv"]
+[ext_resource type="Texture2D" uid="uid://2u6jxqj6mvl2" path="res://assets/3d/structures/community_board/t_message_board_normal.png" id="2_kqv0i"]
+[ext_resource type="Texture2D" uid="uid://dobgk7hyan8u6" path="res://assets/3d/structures/community_board/t_message_board_occlusionRoughnessMetallic.png" id="3_gfjei"]
+
+[resource]
+albedo_texture = ExtResource("1_oracv")
+orm_texture = ExtResource("3_gfjei")
+normal_enabled = true
+normal_texture = ExtResource("2_kqv0i")

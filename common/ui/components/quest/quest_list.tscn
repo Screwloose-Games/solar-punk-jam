@@ -7,9 +7,14 @@ content_margin_left = 8.0
 content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 8.0
-bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+bg_color = Color(0.964706, 0.94902, 0.905882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="QuestList" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.501961)
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ngon")
 script = ExtResource("1_81fws")
 
@@ -18,7 +23,9 @@ layout_mode = 2
 
 [node name="Head" type="Label" parent="Content"]
 layout_mode = 2
-text = "CURRENT QUESTS:"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Quests"
 
 [node name="Body" type="VBoxContainer" parent="Content"]
 layout_mode = 2

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://u3r7v7s6gbmh" path="res://assets/3d/people/kai/sk_kai.fbx" id="1_kljnt"]
 [ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_1u0yx"]
-[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://test/scenarios/test_cel_shading/color_gradient.tres" id="4_plkpq"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://materials/color_gradient.tres" id="4_plkpq"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="5_1brbu"]
 [ext_resource type="Texture2D" uid="uid://clydlfp40f0kw" path="res://assets/3d/people/kai/KaiTexture.png" id="6_27w5k"]
-[ext_resource type="Material" uid="uid://bbij7pknej2cl" path="res://materials/no_render.tres" id="10_1u0yx"]
+[ext_resource type="Material" uid="uid://di18wyr22v6wt" path="res://assets/3d/people/kai/texture_kai_face_neutral.tres" id="6_l8s3u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tw3fa"]
 render_priority = 0
@@ -30,4 +30,4 @@ shader_parameter/fresnel_intensity = 1.0
 
 [node name="Kai" parent="." index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_tw3fa")
-surface_material_override/1 = ExtResource("10_1u0yx")
+surface_material_override/1 = ExtResource("6_l8s3u")

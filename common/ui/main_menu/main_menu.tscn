@@ -866,6 +866,7 @@ layout_mode = 2
 text = "Exit"
 
 [node name="TestScenariosButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Scenarios"
 script = ExtResource("10_8wlla")

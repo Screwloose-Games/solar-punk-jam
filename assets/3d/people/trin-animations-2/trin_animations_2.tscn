@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5yfmgmas0rh7"]
+
+[ext_resource type="PackedScene" uid="uid://ibtn65my8asj" path="res://assets/3d/people/trin-animations-2/trin-animations2.gltf" id="1_u3q6f"]
+
+[node name="trin-animations2" instance=ExtResource("1_u3q6f")]

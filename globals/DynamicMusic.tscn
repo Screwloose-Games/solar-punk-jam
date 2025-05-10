@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdgtkjdngrmxt"]
+[gd_scene load_steps=6 format=3 uid="uid://bdgtkjdngrmxt"]
 
-[ext_resource type="AudioStream" uid="uid://cof1gsphtelql" path="res://common/audio/music/m_44_83bmp_f_overworld_main_lp.ogg" id="1_rdc84"]
+[ext_resource type="AudioStream" uid="uid://dfyulri5cm8em" path="res://common/audio/music/main/greencapybara_bgm_echo_loop_v1.ogg" id="1_slerk"]
+[ext_resource type="AudioStream" uid="uid://bfx2ncoy36rtb" path="res://common/audio/music/main/greencapybara_bgm_main_loop_v1.ogg" id="2_5mxcp"]
 [ext_resource type="Script" uid="uid://c5rkjw4ipjjqc" path="res://globals/DynamicMusic.gd" id="2_rdc84"]
-[ext_resource type="AudioStream" uid="uid://3y4vqeunphpf" path="res://common/audio/music/m_44_83bmp_f_overworld_woods_lp.ogg" id="2_slerk"]
+[ext_resource type="AudioStream" uid="uid://ctbfycpar50ci" path="res://common/audio/music/main/greencapybara_bgm_guitar_loop_v1.ogg" id="3_lw7b1"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ktw0i"]
-stream_count = 2
-stream_0/stream = ExtResource("1_rdc84")
+stream_count = 3
+stream_0/stream = ExtResource("2_5mxcp")
 stream_0/volume = 0.0
-stream_1/stream = ExtResource("2_slerk")
+stream_1/stream = ExtResource("1_slerk")
 stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_lw7b1")
+stream_2/volume = 0.0
 
 [node name="DynamicMusic" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_ktw0i")
+volume_db = -27.0
 script = ExtResource("2_rdc84")

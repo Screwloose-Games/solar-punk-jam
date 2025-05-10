@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlnsau4dubyw1"]
 
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="1_80icb"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="1_80icb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
 render_priority = 0

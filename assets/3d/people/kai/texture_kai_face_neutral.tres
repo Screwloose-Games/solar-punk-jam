@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://di18wyr22v6wt"]
+
+[ext_resource type="Texture2D" uid="uid://44ji1jj7a7ak" path="res://assets/2d/faces/kai/kai_neutral.png" id="1_4yuyu"]
+
+[resource]
+transparency = 4
+albedo_texture = ExtResource("1_4yuyu")

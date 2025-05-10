@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://cedg86h3elalj"]
 
 [ext_resource type="PackedScene" uid="uid://u0f8aqxotnu2" path="res://assets/3d/buildings/building_farming_tall/sm_building_farming_tall.gltf" id="1_gdbhx"]
-[ext_resource type="Shader" path="res://shaders/base_cel_shading_outline.gdshader" id="2_dgpbl"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_dgpbl"]
 [ext_resource type="Texture2D" uid="uid://cd4vmw4wuft4x" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Base_Color.png" id="2_ppbxl"]
-[ext_resource type="Shader" path="res://shaders/base_cel_shading.gdshader" id="3_n3hm0"]
-[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://test/scenarios/test_cel_shading/color_gradient.tres" id="4_vyneq"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_n3hm0"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://materials/color_gradient.tres" id="4_vyneq"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="5_ekb0k"]
 [ext_resource type="Texture2D" uid="uid://dad0ei7tw0a37" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Normal.png" id="7_vyneq"]
 [ext_resource type="Texture2D" uid="uid://cwfo6efqyhi7o" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Roughness.png" id="8_ekb0k"]

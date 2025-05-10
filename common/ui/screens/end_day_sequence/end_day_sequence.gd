@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var black: ColorRect = %Black
 
 func _ready() -> void:
+	show()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	EnvironmentManager.day_cycle_end.connect(_on_day_cycle_end)
 	EnvironmentManager.force_end_day.connect(_on_force_end_day)

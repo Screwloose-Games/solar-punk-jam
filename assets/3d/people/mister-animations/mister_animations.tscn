@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chhsojctydtm8"]
+
+[ext_resource type="PackedScene" uid="uid://2t8ibnsusgpp" path="res://assets/3d/people/mister-animations/mister-animations.gltf" id="1_yo3cq"]
+
+[node name="mister-animations" instance=ExtResource("1_yo3cq")]
