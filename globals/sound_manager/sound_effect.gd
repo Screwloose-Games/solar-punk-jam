@@ -2,7 +2,7 @@ extends Node
 class_name SoundEffectConnector
 
 @export var player_type: GSoundManager.SoundPlayerType
-@export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var global_name: String
+@export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager", "StructureManager") var global_name: String
 @export var start_signal_name: String
 @export var stop_signal_name: String
 @export var sound_effect: AudioStream
