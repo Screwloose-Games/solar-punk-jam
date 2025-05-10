@@ -5,9 +5,11 @@ extends Node
 @onready var player: Player = %Player
 
 func _ready() -> void:
+	Dialogic.start("intro_fullscreen")
 	await get_tree().create_timer(0.1).timeout
 	player.cutscene_mode_enabled = true
 	phantom_camera_3d.priority = 30
+	await Dialogic.timeline_ended
 	Dialogic.start("kai_DAY1S2_INTRODUCTION")
 	await Dialogic.timeline_ended
 	player.cutscene_mode_enabled = false
