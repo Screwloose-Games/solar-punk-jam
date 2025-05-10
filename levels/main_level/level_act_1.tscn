@@ -281,7 +281,7 @@ data = {
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.750217, -0.0206972, 0.660869, 9.31323e-10, 0.999507, 0.031303, -0.661193, 0.0234839, -0.749849, 0.304615, 1.52344, -13.8084)
+transform = Transform3D(-0.750214, -0.0206975, 0.660873, -9.31323e-10, 0.999507, 0.0313032, -0.661197, 0.023484, -0.749846, 0.304615, 1.52344, -13.8084)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
@@ -427,7 +427,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, -1.77636e-15, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866026, -2.11981, 2.89492, -15.2033)
+transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
