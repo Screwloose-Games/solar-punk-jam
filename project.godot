@@ -37,13 +37,10 @@ SoundManager="*res://globals/sound_manager/SoundManager.tscn"
 directories/dch_directory={
 "CommBoard": "res://narrative/characters/CommBoard.dch",
 "DogBot": "res://narrative/characters/DogBot.dch",
-"Kelly": "res://narrative/characters/Kelly.dch",
-"Kyle": "res://narrative/characters/Kyle.dch",
 "Mister": "res://narrative/characters/Mister.dch",
 "Mom": "res://narrative/characters/Mom.dch",
 "Te": "res://narrative/characters/Te.dch",
-"Trin": "res://narrative/characters/Trin.dch",
-"Tutorial": "res://narrative/characters/Tutorial.dch"
+"Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
@@ -110,7 +107,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-layout/style_list=["res://common/ui/dialog_ui/dialogic_dialog_style.tres"]
+layout/style_list=["res://common/ui/dialog_ui/dialogic_dialog_style.tres", "res://narrative/styles/base_style.tres"]
 layout/default_style="res://common/ui/dialog_ui/dialogic_dialog_style.tres"
 glossary/default_case_sensitive=true
 
