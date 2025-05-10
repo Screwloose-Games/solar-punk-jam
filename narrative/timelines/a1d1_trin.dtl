@@ -12,8 +12,7 @@ I’ll walk you through it.
 label prog1
 Trin (neutral): First, you'll need materials. 
 Te (neutral): Uhhh...??
-Trin (neutral): Come on!
-[wait time= ".2"]
+Trin (neutral): You don't have them?
 Trin (sad): *sigh*
 Trin (neutral): Fine. I'll give them to you THIS ONE TIME to speed things up.
 Te (happy): Thanks, big sis!
@@ -46,7 +45,7 @@ No wonder you like gardening.
 Trin: I don't garden.
 Trin: I RAISE plants. 
 Te: I think the pollen's gotten to your head, Trin.
-Trin: Here. If you like gardening so much, build your own.
+Trin: Here. If you like gardening you can build your own. T
 Te: Thanks, big sis!
 Trin: *sigh*
 set {tringarden} = true
