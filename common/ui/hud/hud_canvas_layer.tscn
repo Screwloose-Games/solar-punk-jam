@@ -636,6 +636,7 @@ label_settings = SubResource("LabelSettings_nvanc")
 horizontal_alignment = 1
 
 [node name="EndDaySequence" parent="HUD" instance=ExtResource("13_5quvr")]
+visible = false
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 1
