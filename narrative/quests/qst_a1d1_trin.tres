@@ -29,17 +29,15 @@ play_dialogue = "prog1"
 marker_id = "trin_garden"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
-[sub_resource type="Resource" id="Resource_bc2d0"]
-script = ExtResource("2_se44t")
-autoload_name = "QuestManager"
-signal_name = "structure_built"
-expected_args = ["Vertical garden"]
+[sub_resource type="Resource" id="Resource_se44t"]
+script = ExtResource("3_se44t")
+target_value = "built_vplanter"
 description = "Build a vertical garden"
 goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
-marker_id = ""
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+marker_id = "trin_garden"
+metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_t80vs"]
 script = ExtResource("3_se44t")
@@ -96,7 +94,7 @@ Help me build a vertical garden POSTHASTE!
 Find me in my garden!
 
 -Trin"
-objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_bc2d0"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
+objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_on_accept = Array[String](["Vertical garden"])
 unlock_on_complete = Array[String](["Compost bin", "Rain barrel"])
 rewards = Dictionary[String, int]({

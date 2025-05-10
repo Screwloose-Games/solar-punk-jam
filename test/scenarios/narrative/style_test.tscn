@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxmacakq75wgv"]
+[gd_scene load_steps=5 format=3 uid="uid://bxmacakq75wgv"]
 
+[ext_resource type="Script" uid="uid://c31vcq3p3hil" path="res://test/scenarios/narrative/style_test.gd" id="1_2wr8p"]
 [ext_resource type="Texture2D" uid="uid://c4nbk1s6u14y8" path="res://test/scenarios/narrative/style_ref.png" id="1_vtyev"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wr8p"]
@@ -31,9 +32,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2wr8p")
 
 [node name="StyleRef" type="Sprite2D" parent="."]
-position = Vector2(657, 374)
+position = Vector2(774, 217)
 texture = ExtResource("1_vtyev")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -57,3 +59,11 @@ text = "Lorem ipsum dolor dit amet...
 Lorem ipsum dolor dit amet...
 Lorem ipsum dolor dit amet...
 Lorem ipsum dolor dit amet..."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 242.0
+offset_right = 305.0
+offset_bottom = 270.0
+text = "PUNCH IT CHEWIE"
