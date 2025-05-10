@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://48yxtwwrpf3m"]
 
-[ext_resource type="Shader" path="res://shaders/base_cel_shading_outline.gdshader" id="1_82mww"]
-[ext_resource type="Shader" path="res://shaders/base_cel_shading.gdshader" id="2_rlujm"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="1_82mww"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="2_rlujm"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="3_d6p1r"]
 [ext_resource type="Texture2D" uid="uid://ca3mdfjo1uyya" path="res://assets/3d/structures/rain_barrel/RainBarrel_Base_Color.png" id="4_82mww"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrv5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82mww"]
 render_priority = 0
 shader = ExtResource("1_82mww")
 shader_parameter/color = Color(0, 0, 0, 1)
@@ -13,7 +13,7 @@ shader_parameter/size = 1.01
 
 [resource]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_rfrv5")
+next_pass = SubResource("ShaderMaterial_82mww")
 shader = ExtResource("2_rlujm")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("4_82mww")
