@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c54af0wl0auwx"]
+[gd_scene load_steps=19 format=3 uid="uid://c54af0wl0auwx"]
 
 [ext_resource type="Script" uid="uid://b1mijyjkslhfu" path="res://globals/sound_manager/SoundManager.gd" id="1_0wbjb"]
 [ext_resource type="Script" uid="uid://dd8uxrmtutff5" path="res://globals/sound_manager/sound_effect.gd" id="2_t4w6u"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://djeh86a66o5oo" path="res://common/audio/sfx/interact/INTERACT_DOORWAY_FAST.wav" id="12_8ut33"]
 [ext_resource type="AudioStream" uid="uid://swqe8i0xxikk" path="res://common/audio/sfx/interact/INTERACT_SCRAP.wav" id="13_12h0w"]
 [ext_resource type="AudioStream" uid="uid://dhuhjisjlgm20" path="res://common/audio/sfx/interact/INTERACT_HARVEST.wav" id="14_8lw7p"]
+[ext_resource type="AudioStream" uid="uid://civmxnmlw0b6r" path="res://common/audio/sfx/interact/INTERACT_WASTE.wav" id="15_amwb2"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ut33"]
 streams_count = 3
@@ -112,4 +113,11 @@ script = ExtResource("2_t4w6u")
 global_name = "GlobalSignalBus"
 start_signal_name = "crop_harvested"
 sound_effect = ExtResource("14_8lw7p")
+metadata/_custom_type_script = "uid://dd8uxrmtutff5"
+
+[node name="DepositWasteConnector" type="Node" parent="."]
+script = ExtResource("2_t4w6u")
+global_name = "GlobalSignalBus"
+start_signal_name = "waste_deposited"
+sound_effect = ExtResource("15_amwb2")
 metadata/_custom_type_script = "uid://dd8uxrmtutff5"
