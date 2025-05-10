@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_interacted(player: Player):
 	move_to_destination(player)
 	interactable_area_3d.stop_interacting()
+	GlobalSignalBus.stairs_travelled.emit()
 
 func move_to_destination(player: Player):
 	SceneTransitionManager.change_position_with_transition(player, destination, SceneManager.FADE_TRANSITION)

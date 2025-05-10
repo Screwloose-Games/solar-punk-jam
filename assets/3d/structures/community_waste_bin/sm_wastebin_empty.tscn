@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cemi1yj0w04xp"]
+[gd_scene load_steps=6 format=3 uid="uid://cemi1yj0w04xp"]
 
 [ext_resource type="PackedScene" uid="uid://djg2v3yaqs2e5" path="res://assets/3d/structures/community_waste_bin/sm_wastebin_empty.gltf" id="1_ehrl7"]
+[ext_resource type="Texture2D" uid="uid://dbueojiakgxp6" path="res://assets/3d/structures/community_waste_bin/t_wastebin_empty_baseColor.png" id="2_heboc"]
+[ext_resource type="Texture2D" uid="uid://d0vnu3ipdofvo" path="res://assets/3d/structures/community_waste_bin/t_wastebin_empty_normal.png" id="3_a570k"]
+[ext_resource type="Texture2D" uid="uid://62gsqw7ailal" path="res://assets/3d/structures/community_waste_bin/t_wastebin_empty_occlusionRoughnessMetallic.png" id="4_atqp5"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6h1uu"]
+albedo_texture = ExtResource("2_heboc")
+orm_texture = ExtResource("4_atqp5")
+normal_enabled = true
+normal_scale = 0.75
+normal_texture = ExtResource("3_a570k")
 
 [node name="sm_wastebin_empty" instance=ExtResource("1_ehrl7")]
+
+[node name="wastebin_empty" parent="." index="0"]
+surface_material_override/0 = SubResource("ORMMaterial3D_6h1uu")

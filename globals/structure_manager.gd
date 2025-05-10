@@ -71,6 +71,7 @@ const BUILDABLE_RAISED_BED_SPACE = Vector2i(4,7)
 const OCCUPIED_SPACE = Vector2i(0,7)
 const VALID_TILE_TYPES = [BUILDABLE_EMPTY_SPACE, BUILDABLE_RAISED_BED_SPACE, OCCUPIED_SPACE]
 
+@export var environment_gain_per_structure_built: int = 3
 
 var structure_data = []
 var structure_name_to_idx_map = {}
@@ -145,6 +146,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
+	EnvironmentManager.gain_resource("Environment", environment_gain_per_structure_built)
 
 
 func visual_instance_update(structure: BuiltStructure):
@@ -200,12 +202,15 @@ func _get_structure_data():
 	var data = content.split("\n")
 	data = Array(data)
 	data = data.filter(func(val): return val != "")
+	var data_ = []
 	for i in len(data):
 		data[i] = data[i].split("\t")
 		data[i] = Array(data[i])
 		for j in [STRUCTURE_FIELDS.StructureWidth, STRUCTURE_FIELDS.StructureDepth, STRUCTURE_FIELDS.GroundBefore, STRUCTURE_FIELDS.GroundAfter, STRUCTURE_FIELDS.InitialHappiness, STRUCTURE_FIELDS.MaterialCost, STRUCTURE_FIELDS.DaysToComplete, STRUCTURE_FIELDS.Electricity, STRUCTURE_FIELDS.Water, STRUCTURE_FIELDS.Food, STRUCTURE_FIELDS.Waste, STRUCTURE_FIELDS.Soil, STRUCTURE_FIELDS.Happiness, STRUCTURE_FIELDS.ElectricityStorage, STRUCTURE_FIELDS.WaterStorage]:
 			data[i][j] = int(data[i][j])
-	return data
+		if data[i][STRUCTURE_FIELDS.StructureModel]!="_":
+			data_.append(data[i])
+	return data_
 
 func read_tsv() -> String:
 	# this file is a copy paste of the CSV exported from Notion

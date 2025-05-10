@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://jfx77i3uexjk"]
+[gd_scene load_steps=7 format=3 uid="uid://jfx77i3uexjk"]
 
 [ext_resource type="PackedScene" uid="uid://xa0t2gwhefv8" path="res://assets/3d/structures/community_waste_bin/sm_wastebin_full_grp.gltf" id="1_owmof"]
+[ext_resource type="Texture2D" uid="uid://bkx5uh0v2hdor" path="res://assets/3d/structures/community_waste_bin/t_wastebin_full_baseColor.png" id="2_eev26"]
+[ext_resource type="Texture2D" uid="uid://ca5ao1v240a56" path="res://assets/3d/structures/community_waste_bin/t_wastebin_full_normal.png" id="3_kuhdl"]
+[ext_resource type="Texture2D" uid="uid://do2q1oefdl6f2" path="res://assets/3d/structures/community_waste_bin/t_wastebin_full_occlusionRoughnessMetallic.png" id="4_etql4"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hik7k"]
+albedo_texture = ExtResource("2_eev26")
+orm_texture = ExtResource("4_etql4")
+normal_enabled = true
+normal_texture = ExtResource("3_kuhdl")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ios2d"]
+albedo_texture = ExtResource("2_eev26")
+orm_texture = ExtResource("4_etql4")
+normal_enabled = true
+normal_texture = ExtResource("3_kuhdl")
 
 [node name="sm_wastebin_full_grp" instance=ExtResource("1_owmof")]
+
+[node name="sm_wastebin_full" parent="wastebin_full_grp" index="0"]
+surface_material_override/0 = SubResource("ORMMaterial3D_hik7k")
+
+[node name="sm_wastebin_full_lid" parent="wastebin_full_grp" index="1"]
+surface_material_override/0 = SubResource("ORMMaterial3D_ios2d")

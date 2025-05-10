@@ -1,24 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://nwbkxvaa2518"]
+[gd_scene load_steps=5 format=3 uid="uid://nwbkxvaa2518"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_g6pen"]
+[ext_resource type="PackedScene" uid="uid://c5vkhodnbfu5s" path="res://assets/3d/people/trin/sk_trin.tscn" id="2_bimy8"]
 [ext_resource type="PackedScene" uid="uid://cjqq7gkmrh6v7" path="res://assets/3d/people/trin/tweenbase00.fbx" id="2_m4qrm"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_cqhrq"]
 
 [node name="Trin" instance=ExtResource("1_g6pen")]
 
-[node name="tweenbase00" parent="." index="0" instance=ExtResource("2_m4qrm")]
+[node name="sk_trin" parent="." index="0" instance=ExtResource("2_bimy8")]
 
-[node name="Name" parent="." index="1"]
-text = "Trin"
-
-[node name="MeshInstance3D" parent="." index="2"]
+[node name="tweenbase00" parent="." index="1" instance=ExtResource("2_m4qrm")]
 visible = false
 
-[node name="InteractNotify" parent="." index="5" instance=ExtResource("3_cqhrq")]
+[node name="QuestMarker3D" parent="." index="2"]
+id = "trin"
+
+[node name="Name" parent="." index="3"]
+text = "Trin"
+
+[node name="MeshInstance3D" parent="." index="4"]
+visible = false
+
+[node name="InteractNotify" parent="." index="6" instance=ExtResource("3_cqhrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 npc_id = "trin"
 
-[node name="Dialogue" parent="." index="6"]
+[node name="Dialogue" parent="." index="8"]
 npc_id = "trin"
 
 [editable path="tweenbase00"]

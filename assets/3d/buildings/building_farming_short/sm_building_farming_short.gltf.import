@@ -34,6 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:mesh_building_04_farmingshort/farmingshort-navmesh/navmesh_building_04_rooftop": {
+"import/skip_import": true
+},
 "PATH:mesh_building_04_farmingshort/sm_building_04_farmingshort-mesh": {
 "generate/navmesh": 1,
 "generate/physics": true

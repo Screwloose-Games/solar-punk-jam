@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=36 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -12,10 +12,11 @@
 [ext_resource type="Script" uid="uid://d2jw8rv3dbp87" path="res://common/ui/hud/bottom_tool_container.gd" id="9_8yxrh"]
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
 [ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
-[ext_resource type="Texture2D" uid="uid://dfwuulq7no71f" path="res://assets/2d/ui/icon-compost-bin-25px.png" id="13_bgxx2"]
-[ext_resource type="Texture2D" uid="uid://b1mtx54fjcvbv" path="res://assets/2d/ui/Build-icon.png" id="14_54k12"]
-[ext_resource type="Texture2D" uid="uid://bux2jq811o0kk" path="res://assets/2d/ui/icon-soil-20px.png" id="15_45i4j"]
-[ext_resource type="Texture2D" uid="uid://bdkms2w1ts2cr" path="res://assets/2d/ui/icon-compost-bin-118px.png" id="16_2xgu1"]
+[ext_resource type="PackedScene" uid="uid://chvbasb1d20c4" path="res://common/ui/screens/end_day_sequence/end_day_sequence.tscn" id="13_5quvr"]
+[ext_resource type="Texture2D" uid="uid://dfwuulq7no71f" path="res://assets/2d/ui/build_small_icons/icon-compost-bin-25px.png" id="14_54k12"]
+[ext_resource type="Texture2D" uid="uid://b1mtx54fjcvbv" path="res://assets/2d/ui/Build-icon.png" id="15_45i4j"]
+[ext_resource type="Texture2D" uid="uid://bux2jq811o0kk" path="res://assets/2d/ui/icon-soil-20px.png" id="16_2xgu1"]
+[ext_resource type="Texture2D" uid="uid://bdkms2w1ts2cr" path="res://assets/2d/ui/build_main_icons/icon-compost-bin-118px.png" id="17_yx374"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
 content_margin_top = 10.0
@@ -104,11 +105,11 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx374"]
-content_margin_left = 27.0
-content_margin_top = 32.0
-content_margin_right = 27.0
-content_margin_bottom = 32.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thilw"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
@@ -117,7 +118,7 @@ shadow_color = Color(0, 0, 0, 0.164706)
 shadow_size = 6
 shadow_offset = Vector2(6, 6)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thilw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aveuy"]
 content_margin_left = 6.0
 content_margin_top = 6.0
 content_margin_right = 6.0
@@ -133,7 +134,7 @@ corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aveuy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cysu"]
 content_margin_left = 6.0
 content_margin_top = 6.0
 content_margin_right = 6.0
@@ -149,13 +150,13 @@ corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cysu"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgcg6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgcg6"]
-content_margin_left = 27.0
-content_margin_top = 27.0
-content_margin_right = 27.0
-content_margin_bottom = 27.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtf2u"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
 bg_color = Color(0.964706, 0.94902, 0.905882, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
@@ -165,7 +166,7 @@ shadow_color = Color(0, 0, 0, 0.164706)
 shadow_size = 6
 shadow_offset = Vector2(6, 6)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mtf2u"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5etl"]
 
 [node name="HUDCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_2ngon")
@@ -689,7 +690,6 @@ layout_mode = 2
 text = "Close"
 
 [node name="TooltipLabel" type="Label" parent="HUD"]
-visible = false
 layout_mode = 0
 offset_left = 1532.0
 offset_top = 1017.0
@@ -701,6 +701,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ajdrq")
 text = "x"
 label_settings = SubResource("LabelSettings_nvanc")
 horizontal_alignment = 1
+
+[node name="EndDaySequence" parent="HUD" instance=ExtResource("13_5quvr")]
+visible = false
 
 [node name="Control" type="Control" parent="HUD"]
 layout_mode = 1
@@ -720,148 +723,149 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 637.0
-offset_top = 37.0
-offset_right = 893.0
-offset_bottom = 566.0
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+offset_left = 636.0
+offset_top = 49.0
+offset_right = 919.0
+offset_bottom = 699.0
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HUD/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yx374")
+theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/VBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainerDisabled" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_thilw")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled"]
-layout_mode = 2
-alignment = 1
-
-[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled/HBoxContainer"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-texture = ExtResource("13_bgxx2")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Compost bin"
-
-[node name="PanelContainerEnabled" type="PanelContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+[node name="PanelContainerDisabled" type="PanelContainer" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_aveuy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled"]
 layout_mode = 2
 alignment = 1
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled/HBoxContainer"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-texture = ExtResource("13_bgxx2")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
-theme_override_font_sizes/font_size = 18
-text = "Compost bin"
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 28
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
-
-[node name="HoverPanel" type="PanelContainer" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mgcg6")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HoverPanel"]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HoverPanel/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="BuildIcon" type="TextureRect" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer2"]
+[node name="Icon" type="TextureRect" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled/HBoxContainer"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 texture = ExtResource("14_54k12")
 stretch_mode = 3
 
-[node name="Title" type="Label" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 18
 text = "Compost bin"
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HoverPanel/VBoxContainer"]
+[node name="PanelContainerEnabled" type="PanelContainer" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8cysu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HoverPanel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+texture = ExtResource("14_54k12")
+stretch_mode = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
-theme_override_font_sizes/font_size = 18
-text = "Compost bin"
-autowrap_mode = 2
-
-[node name="Label2" type="Label" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
 theme_override_font_sizes/font_size = 18
 text = "Compost bin"
-autowrap_mode = 2
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HUD/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mgcg6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HoverPanel" type="PanelContainer" parent="HUD/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mtf2u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/HoverPanel"]
 layout_mode = 2
 
-[node name="ReqIcon" type="TextureRect" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BuildIcon" type="TextureRect" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 texture = ExtResource("15_45i4j")
 stretch_mode = 3
 
-[node name="ReqLabel" type="Label" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Title" type="Label" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_font_sizes/font_size = 27
+text = "Compost bin"
+
+[node name="HSeparator2" type="HSeparator" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mgcg6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_font_sizes/font_size = 18
+text = "Compost bin"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_font_sizes/font_size = 18
+text = "Compost bin"
+autowrap_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mgcg6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ReqIcon" type="TextureRect" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture = ExtResource("16_2xgu1")
+stretch_mode = 3
+
+[node name="ReqLabel" type="Label" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
 theme_override_font_sizes/font_size = 15
 text = "Soil 2/2"
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/separator = SubResource("StyleBoxEmpty_mtf2u")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u5etl")
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="HUD/VBoxContainer/HoverPanel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-texture = ExtResource("16_2xgu1")
+texture = ExtResource("17_yx374")
 stretch_mode = 3

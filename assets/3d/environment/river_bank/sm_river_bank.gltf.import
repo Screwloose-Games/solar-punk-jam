@@ -34,6 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:Cube": {
+"generate/physics": true,
+"physics/layer": 2,
+"physics/mask": 0
+},
 "PATH:WaterCut2": {
 "import/skip_import": true
 }

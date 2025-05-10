@@ -1,5 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://qmybjelmqunr"]
+[gd_scene load_steps=6 format=3 uid="uid://qmybjelmqunr"]
 
 [ext_resource type="PackedScene" uid="uid://bi44qdst7il0j" path="res://assets/3d/structures/community_food_stand/sm_foodstand_grp.gltf" id="1_0fiyk"]
+[ext_resource type="Texture2D" uid="uid://dbkg07maoxaer" path="res://assets/3d/structures/community_food_stand/t_foodstand_baseColor.png" id="2_0lxot"]
+[ext_resource type="Texture2D" uid="uid://dkctgcjikvfji" path="res://assets/3d/structures/community_food_stand/t_foodstand_normal.png" id="3_m3308"]
+[ext_resource type="Texture2D" uid="uid://dhiufislcr7wi" path="res://assets/3d/structures/community_food_stand/t_foodstand_occlusionRoughnessMetallic.png" id="4_lenbh"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3rx0w"]
+albedo_texture = ExtResource("2_0lxot")
+orm_texture = ExtResource("4_lenbh")
+normal_enabled = true
+normal_texture = ExtResource("3_m3308")
 
 [node name="sm_foodstand_grp" instance=ExtResource("1_0fiyk")]
+
+[node name="sm_foodstand" parent="." index="0"]
+surface_material_override/0 = SubResource("ORMMaterial3D_3rx0w")

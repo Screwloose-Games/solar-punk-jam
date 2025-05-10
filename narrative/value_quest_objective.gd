@@ -21,7 +21,7 @@ class_name ValueQuestObjective
 # If the objective is activated, check the target value
 # to see if it has already reached the goal or not
 func set_active(val : bool):
-	is_active = val
+	super.set_active(val)
 	if is_active:
 		check_value()
 

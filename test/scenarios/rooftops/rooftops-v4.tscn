@@ -296,6 +296,13 @@ offset_top = 0.0
 offset_right = 129.0
 offset_bottom = 23.0
 
+[node name="VBoxContainer" parent="HUDCanvasLayer/HUD" index="8"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 283.0
+offset_bottom = 650.0
+
 [node name="DebugMenuCanvasLayer" parent="." instance=ExtResource("8_snj21")]
 
 [editable path="NPCs/C1"]

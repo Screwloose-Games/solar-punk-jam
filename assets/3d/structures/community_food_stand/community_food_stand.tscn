@@ -6,6 +6,7 @@
 
 [node name="BuildableStructure" instance=ExtResource("1_uw45i")]
 editor_description = "Players can donate the food they harvest to the food stand, earning them +1 community health for each food item donated."
+structure_id = "Food stand"
 
 [node name="FoodStand" type="Node" parent="." index="0"]
 script = ExtResource("2_5fhlr")

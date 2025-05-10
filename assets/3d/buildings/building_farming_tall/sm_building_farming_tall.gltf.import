@@ -37,6 +37,12 @@ _subresources={
 "PATH:building_05-mesh/sm_farmbuilding_tall_05-mesh": {
 "generate/navmesh": 1,
 "generate/physics": true
+},
+"PATH:building_05-navmesh": {
+"import/skip_import": true
+},
+"PATH:building_05-navmesh/navmesh_building_05_rooftop": {
+"import/skip_import": true
 }
 }
 }

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://q2kk3ovvqrnb"]
+
+[ext_resource type="PackedScene" uid="uid://dq3jukaptdnpr" path="res://assets/3d/environment/scrap_pile/sm_collectibles_scrappile.gltf" id="1_amnmf"]
+
+[node name="sm_collectibles_scrappile" instance=ExtResource("1_amnmf")]

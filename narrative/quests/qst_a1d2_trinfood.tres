@@ -11,7 +11,8 @@ quest_giver = "trin"
 description = "Quest Description"
 community_board_text = ""
 objectives = Array[ExtResource("1_u3bvm")]([])
-unlock_structure = ""
+unlock_on_accept = Array[String]([])
+unlock_on_complete = Array[String]([])
 rewards = Dictionary[String, int]({
 "Happiness": 5
 })

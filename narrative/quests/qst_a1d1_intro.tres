@@ -13,6 +13,7 @@ description = "Read the Community Board"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
+marker_id = "board"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_yyvya"]
@@ -24,6 +25,7 @@ description = "Accept Trin's work oder"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
+marker_id = "board"
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]

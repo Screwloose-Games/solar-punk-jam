@@ -44,3 +44,7 @@ surface_material_override/4 = SubResource("StandardMaterial3D_15rw0")
 surface_material_override/5 = SubResource("StandardMaterial3D_74p5i")
 surface_material_override/6 = SubResource("StandardMaterial3D_w4gwq")
 surface_material_override/7 = SubResource("StandardMaterial3D_0be33")
+
+[node name="NavigationRegion3D" parent="mesh_building_04_farmingshort/sm_building_04_farmingshort-mesh" index="1"]
+enabled = false
+navigation_layers = 0

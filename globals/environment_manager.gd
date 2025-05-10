@@ -15,6 +15,7 @@ const hidden_resources = ["Happiness", "Environment"]
 var resource_storage_limits = {"Electricity":0, "Water":0}
 
 var current_resources = {"Happiness":10}
+var daily_resources = {}
 var deposited_resources = {}
 var current_act: int = 1:
 	set(val):
@@ -47,11 +48,21 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] += quantity
 	else:
 		current_resources[resource] = quantity
+		
+		
+	if resource in daily_resources:
+		daily_resources[resource] += quantity
+	else:
+		daily_resources[resource] = quantity
+		
+		
 
 	if resource in resource_storage_limits:
 		if current_resources[resource] > resource_storage_limits[resource]:
 			prints("We cannot store all of this resource, discarding some")
 			current_resources[resource] = resource_storage_limits[resource]
+		if daily_resources[resource] > resource_storage_limits[resource]:
+			daily_resources[resource] = resource_storage_limits[resource]
 
 	UpdatedAvailableResources.emit()
 
@@ -123,6 +134,9 @@ class TimeStruct:
 
 
 class EnvironmentModel:
+	signal started_raining
+	signal stopped_raining
+	
 	var current_time_in_game_hours = 12.0
 	var day_length_in_game_hours = 12.0
 	var day_start_in_game_hours = 8.0
@@ -130,7 +144,17 @@ class EnvironmentModel:
 	var night_length_in_seconds = 2.0
 	var is_paused := false
 	var is_daytime := true
-	var is_raining := false
+	var is_raining: bool = false:
+		set(val):
+			if is_raining != val:
+				if val:
+					started_raining.emit()
+					GlobalSignalBus.started_raining.emit()
+				else:
+					stopped_raining.emit()
+					GlobalSignalBus.stopped_raining.emit()
+			is_raining = val
+			
 	var rain_period = 5
 	var day := 0
 	var offset: float

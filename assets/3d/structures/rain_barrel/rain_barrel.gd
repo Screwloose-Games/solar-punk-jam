@@ -21,6 +21,7 @@ func _on_day_cycle_end():
 func _on_interacted(player: Player):
 	if current_water > 0:
 		EnvironmentManager.gain_resource("Water", current_water)
+		GlobalSignalBus.rain_barrel_collected.emit()
 		current_water = 0
 	else:
 		# feedback that it's empty

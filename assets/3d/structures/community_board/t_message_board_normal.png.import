@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2u6jxqj6mvl2"
-path.s3tc="res://.godot/imported/t_message_board_normal.png-b03f82b2ff48d8f69ff481f8fb61773a.s3tc.ctex"
+path="res://.godot/imported/t_message_board_normal.png-b03f82b2ff48d8f69ff481f8fb61773a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/3d/structures/community_board/t_message_board_normal.png"
-dest_files=["res://.godot/imported/t_message_board_normal.png-b03f82b2ff48d8f69ff481f8fb61773a.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_message_board_normal.png-b03f82b2ff48d8f69ff481f8fb61773a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

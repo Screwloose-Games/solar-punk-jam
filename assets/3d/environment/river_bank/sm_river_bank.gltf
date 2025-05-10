@@ -171,14 +171,14 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":219,
+			"count":320,
 			"max":[
 				1,
 				1,
-				1
+				1.5479830503463745
 			],
 			"min":[
-				-1,
+				-1.4702084064483643,
 				-0.9999998807907104,
 				-1
 			],
@@ -187,19 +187,19 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":219,
+			"count":320,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":219,
+			"count":320,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":7,
 			"componentType":5123,
-			"count":426,
+			"count":702,
 			"type":"SCALAR"
 		}
 	],
@@ -230,32 +230,32 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":2628,
+			"byteLength":3840,
 			"byteOffset":9384,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2628,
-			"byteOffset":12012,
+			"byteLength":3840,
+			"byteOffset":13224,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1752,
-			"byteOffset":14640,
+			"byteLength":2560,
+			"byteOffset":17064,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":852,
-			"byteOffset":16392,
+			"byteLength":1404,
+			"byteOffset":19624,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":17244,
+			"byteLength":21028,
 			"uri":"sm_river_bank.bin"
 		}
 	]

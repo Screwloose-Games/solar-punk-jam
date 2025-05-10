@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1jp6i2bu3bjt"]
+[gd_scene load_steps=15 format=3 uid="uid://d1jp6i2bu3bjt"]
 
 [ext_resource type="PackedScene" uid="uid://kvdijgf8fysy" path="res://prefabs/buildings/prefab_building_entry_short.tscn" id="1_yxkj8"]
 [ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_q3mb3"]
@@ -17,6 +17,9 @@ albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
 size = Vector2(148, 140)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7f6q0"]
+size = Vector3(149.037, 0.01, 139.617)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ppxl0"]
 size = Vector2(5.5, 100)
 
@@ -26,6 +29,14 @@ size = Vector2(5.5, 100)
 transform = Transform3D(0.997527, 0, 0, 0, 0.997527, 0, 0, 0, 0.863667, -36.2937, 0, -31.1333)
 material_override = SubResource("StandardMaterial3D_pdt6n")
 mesh = SubResource("PlaneMesh_qst22")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1, -0.481384, 0, 0.314827)
+shape = SubResource("BoxShape3D_7f6q0")
 
 [node name="prefab_entry_short" parent="." instance=ExtResource("1_yxkj8")]
 transform = Transform3D(-0.0216753, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216753, -33.1956, -1.90735e-06, 14.5108)

@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2i6fcyml2rpx"]
+
+[ext_resource type="Texture2D" uid="uid://cd4vmw4wuft4x" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Base_Color.png" id="1_o6obe"]
+
+[resource]
+albedo_texture = ExtResource("1_o6obe")

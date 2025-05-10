@@ -14,7 +14,10 @@ func _ready() -> void:
 
 
 func _on_quest_change():
-	visible = !Dialogic.VAR[npc_id + "_active"]
+	hide()
+	for quest in QuestManager.unlocked_quests:
+		if quest.quest_giver == npc_id:
+			show()
 
 
 func _on_interacted(player: Player):
