@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=45 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
 [ext_resource type="PackedScene" uid="uid://dulhp5ynw5nqr" path="res://assets/3d/structures/community_food_stand/community_food_stand.tscn" id="27_gh1ua"]
 [ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="28_7t8hb"]
+[ext_resource type="Script" uid="uid://cao3mbil5qlso" path="res://components/dynamic_music_box/d_music_box.gd" id="28_cwn0e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
 render_priority = 0
@@ -189,6 +190,12 @@ sources/0 = SubResource("TileSetAtlasSource_t2or7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t8hb"]
 size = Vector3(9.69629, 1, 7.49023)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7t8hb"]
+radius = 58.619
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cwn0e"]
+radius = 11.2106
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gh1ua"]
 
@@ -506,6 +513,58 @@ id = "trin_water"
 transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.92161, 0.00395419, 14.2494)
 
 [node name="QuestMarker3D" parent="CommunityFoodStand" instance=ExtResource("28_7t8hb")]
+
+[node name="DynamicMusic" type="Node" parent="."]
+
+[node name="DynamicMusicRegion" type="Area3D" parent="DynamicMusic"]
+script = ExtResource("28_cwn0e")
+region_id = "main"
+fade_in_time = 2.0
+fade_out_time = 2.0
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusic/DynamicMusicRegion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54197, 13.5267, -2.12875)
+shape = SubResource("SphereShape3D_7t8hb")
+debug_color = Color(0.0554638, 0.386548, 0.618768, 0.42)
+
+[node name="DynamicMusicRegion2" type="Area3D" parent="DynamicMusic"]
+script = ExtResource("28_cwn0e")
+region_id = "echo"
+track_idx = 1
+fade_in_time = 2.0
+fade_out_time = 2.0
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusic/DynamicMusicRegion2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2405, 20.7632, -13.3343)
+shape = SubResource("SphereShape3D_7t8hb")
+debug_color = Color(0.0554638, 0.386548, 0.618768, 0.42)
+
+[node name="DynamicMusicRegion3" type="Area3D" parent="DynamicMusic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2369, 0, 1.95893)
+script = ExtResource("28_cwn0e")
+region_id = "build"
+track_idx = 2
+fade_in_time = 2.0
+fade_out_time = 2.0
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusic/DynamicMusicRegion3"]
+shape = SubResource("SphereShape3D_cwn0e")
+
+[node name="DynamicMusicRegion4" type="Area3D" parent="DynamicMusic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4939, 1.99719, 4.54122)
+script = ExtResource("28_cwn0e")
+region_id = "build"
+track_idx = 2
+fade_in_time = 2.0
+fade_out_time = 2.0
+metadata/_custom_type_script = "uid://cao3mbil5qlso"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusic/DynamicMusicRegion4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.03391)
+shape = SubResource("SphereShape3D_cwn0e")
 
 [node name="WorldBounderies" type="StaticBody3D" parent="."]
 collision_layer = 2
