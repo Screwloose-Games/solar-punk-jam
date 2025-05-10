@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvuixmv4n68a6"]
+[gd_scene load_steps=11 format=3 uid="uid://bvuixmv4n68a6"]
 
 [ext_resource type="Script" uid="uid://dtr60cafu1bky" path="res://common/ui/options_menu/options_menu.gd" id="1_8l6bt"]
 [ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_t67h2"]
@@ -12,6 +12,24 @@
 line_spacing = 0.0
 font_size = 38
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t67h2"]
+bg_color = Color(0.756863, 0.756863, 0.756863, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wqg"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.756863, 0.756863, 0.756863, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -126,6 +144,7 @@ max_value = 1.0
 step = 0.1
 
 [node name="DialogueOptionsContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/DialogueOptionsContainer"]
@@ -158,6 +177,8 @@ text = "Window"
 [node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_t67h2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2wqg")
 text = "Back"
 
 [node name="DeleteSaveDataButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
