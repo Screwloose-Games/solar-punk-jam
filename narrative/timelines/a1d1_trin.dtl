@@ -5,17 +5,15 @@ Te (thinking): The plants?
 Trin (neutral): Duh! Who else? You can start building the planter over there. 
 Te (neutral): Here's the thing...I kinda forgot how?
 # Tutorial: THIS BEGINS THE **“GARDEN TUTORIAL”**
-Trin (neutral): Even a Berberis thunbergii would know how to do this!
+Trin (neutral): Even a Berberis thunbergii has a better memory than you.
 Trin (sad): Fine.\
 I’ll walk you through it.
 [end_timeline]
 label prog1
 Trin (neutral): First, you'll need materials. 
-[wait time= ".3"]
-Te (neutral): Ummm.....
-[wait time= ".3"]
-Trin (neutral): Really???
-[wait time= ".3"]
+Te (neutral): Uhhh...??
+Trin (neutral): Come on!
+[wait time= ".2"]
 Trin (sad): *sigh*
 Trin (neutral): Fine. I'll give them to you THIS ONE TIME to speed things up.
 Te (happy): Thanks, big sis!
@@ -47,7 +45,9 @@ Te: That was fun!\
 No wonder you like gardening. 
 Trin: I don't garden.
 Trin: I RAISE plants. 
-Te: I think the pollen's getting to your head, Trin.
+Te: I think the pollen's gotten to your head, Trin.
 Trin: Here. If you like gardening so much, build your own.
-do QuestManager.start_quest("qsxt_a1d1_garden")
+Te: Thanks, big sis!
+Trin: *sigh*
 set {tringarden} = true
+do QuestManager.start_quest("qst_a1d1_garden")
