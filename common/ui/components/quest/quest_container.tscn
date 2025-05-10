@@ -8,7 +8,7 @@ script = ExtResource("1_avqpu")
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
 theme_type_variation = &"QuestTitle"
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
 theme_override_font_sizes/font_size = 15
 text = "Quest.name"
 
