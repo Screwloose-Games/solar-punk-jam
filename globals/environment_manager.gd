@@ -144,7 +144,17 @@ class EnvironmentModel:
 	var night_length_in_seconds = 2.0
 	var is_paused := false
 	var is_daytime := true
-	var is_raining := false
+	var is_raining: bool = false:
+		set(val):
+			if is_raining != val:
+				if val:
+					started_raining.emit()
+					GlobalSignalBus.started_raining.emit()
+				else:
+					stopped_raining.emit()
+					GlobalSignalBus.stopped_raining.emit()
+			is_raining = val
+			
 	var rain_period = 5
 	var day := 0
 	var offset: float

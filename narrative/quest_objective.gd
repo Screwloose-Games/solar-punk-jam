@@ -40,3 +40,4 @@ func set_complete(val : bool):
 	if is_completed:
 		set_markers(false)
 		completed.emit(self)
+		GlobalSignalBus.quest_objective_completed.emit()

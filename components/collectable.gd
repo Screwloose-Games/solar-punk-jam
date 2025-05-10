@@ -21,3 +21,4 @@ func collect():
 	EnvironmentManager.gain_resource(collected_resource, count)
 	EnvironmentManager.gain_resource("Environment", environment_gain)
 	collected.emit()
+	GlobalSignalBus.scrap_collected.emit()
