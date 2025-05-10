@@ -43,10 +43,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_r6mc0")
 transform = Transform3D(1, 0, 0, 0, -0.207912, 0.978148, 0, -0.978148, -0.207912, 0, 0.220739, 0.136157)
 
 [node name="sm_foot_left" parent="sm_solar_panels/sm_pole" index="1"]
-transform = Transform3D(-0.5, 0.847101, 0.180057, -8.09637e-08, -0.207912, 0.978148, 0.866026, 0.489074, 0.103956, -0.117915, 0.220739, -0.0680784)
+transform = Transform3D(-0.5, 0.847101, 0.180057, -8.09638e-08, -0.207912, 0.978148, 0.866026, 0.489074, 0.103956, -0.117915, 0.220739, -0.0680784)
 
 [node name="sm_foot_right" parent="sm_solar_panels/sm_pole" index="2"]
-transform = Transform3D(-0.5, -0.847101, -0.180057, 8.09637e-08, -0.207912, 0.978148, -0.866026, 0.489074, 0.103956, 0.117915, 0.220739, -0.0680784)
+transform = Transform3D(-0.5, -0.847101, -0.180057, 8.09638e-08, -0.207912, 0.978148, -0.866026, 0.489074, 0.103956, 0.117915, 0.220739, -0.0680784)
 
 [node name="sm_panel_pivot" parent="sm_solar_panels/sm_pole" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.225877, 0.974156, 0, -0.974156, 0.225877, 0, 2.48238, 0)

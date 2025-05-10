@@ -74,7 +74,7 @@ radius = 0.4
 
 [sub_resource type="Resource" id="Resource_udkoa"]
 script = ExtResource("12_pnrbl")
-duration = 0.3
+duration = 1.0
 transition = 2
 ease = 1
 
@@ -219,7 +219,7 @@ script = ExtResource("6_0lri6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.64984e-07, 2.86358, -3.03106)
+transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.27129e-07, 2.61358, -2.59805)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300
@@ -322,7 +322,7 @@ shape = SubResource("CylinderShape3D_gj6wn")
 
 [node name="IsometricCamera" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 5.29813, 3.92836)
+transform = Transform3D(1, 0, 0, 0, 0.573576, 0.819151, 0, -0.819151, 0.573576, 0, 5.45745, 3.72073)
 script = ExtResource("11_pkpyr")
 follow_mode = 6
 follow_target = NodePath("..")
@@ -342,13 +342,12 @@ shape = SubResource("CylinderShape3D_pkpyr")
 
 [node name="PauseMenu" parent="." instance=ExtResource("15_32iji")]
 
-[node name="ThirdPersonController" type="Node3D" parent="." node_paths=PackedStringArray("_player_direction")]
+[node name="ThirdPersonController" type="Node3D" parent="."]
 script = ExtResource("15_5ra6y")
-_player_direction = NodePath("")
 
 [node name="ThirdPersonCamera" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
-transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.64984e-07, 2.86358, -3.03106)
+transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.27129e-07, 2.61358, -2.59805)
 script = ExtResource("11_pkpyr")
 priority = 10
 follow_mode = 6
@@ -356,8 +355,8 @@ follow_target = NodePath("../CameraFollowTarget")
 tween_resource = SubResource("Resource_udkoa")
 camera_3d_resource = SubResource("Resource_evt3b")
 follow_damping = true
-follow_distance = 3.5
-spring_length = 3.5
+follow_distance = 3.0
+spring_length = 3.0
 collision_mask = 7
 
 [node name="FootstepPlayer3D" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("17_udkoa")]

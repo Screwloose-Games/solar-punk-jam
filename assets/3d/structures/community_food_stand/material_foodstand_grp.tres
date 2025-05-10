@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://bses5g3xxxqnx"]
+
+[ext_resource type="Texture2D" uid="uid://dbkg07maoxaer" path="res://assets/3d/structures/community_food_stand/t_foodstand_baseColor.png" id="1_nk0ck"]
+[ext_resource type="Texture2D" uid="uid://dkctgcjikvfji" path="res://assets/3d/structures/community_food_stand/t_foodstand_normal.png" id="2_3jegp"]
+[ext_resource type="Texture2D" uid="uid://dhiufislcr7wi" path="res://assets/3d/structures/community_food_stand/t_foodstand_occlusionRoughnessMetallic.png" id="3_imsi0"]
+
+[resource]
+albedo_texture = ExtResource("1_nk0ck")
+orm_texture = ExtResource("3_imsi0")
+normal_enabled = true
+normal_texture = ExtResource("2_3jegp")

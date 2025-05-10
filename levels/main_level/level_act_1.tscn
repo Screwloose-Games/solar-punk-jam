@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=43 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="4_yde30"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="5_buxdt"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="6_gh1ua"]
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="6_h10rw"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="7_maonv"]
 [ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="8_34qyl"]
@@ -66,9 +67,23 @@ metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
-duration = 1.0
+duration = 2.0
 transition = 0
-ease = 2
+ease = 1
+
+[sub_resource type="Resource" id="Resource_cwn0e"]
+script = ExtResource("6_gh1ua")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 55.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awabt"]
 texture = ExtResource("9_io6m6")
@@ -266,11 +281,12 @@ data = {
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.99182, -0.00409484, 0.127581, 2.32831e-10, 0.999482, 0.0320797, -0.127646, 0.0318171, -0.991309, -2.85371, 1.52344, -15.0889)
+transform = Transform3D(-0.750217, -0.0206972, 0.660869, 9.31323e-10, 0.999507, 0.031303, -0.661193, 0.0234839, -0.749849, 0.304615, 1.52344, -13.8084)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
 tween_resource = SubResource("Resource_7t8hb")
+camera_3d_resource = SubResource("Resource_cwn0e")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CameraTargetMarker3D" type="Marker3D" parent="StartFirstDialogue"]
@@ -411,7 +427,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, -2.11981, 3.14492, -9.57413)
+transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, -1.77636e-15, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866026, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
@@ -438,7 +454,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49966, 0.00260284, -3.21364
 [node name="Player" parent="." instance=ExtResource("16_t3rkj")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11981, 0.281344, -12.6052)
-speed = 12.0
+speed = 3.5
 
 [node name="CommBoard" parent="." instance=ExtResource("17_u0qwm")]
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
@@ -453,14 +469,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
 
 [node name="SleepDoor" parent="." node_paths=PackedStringArray("player", "wake_up_location") instance=ExtResource("22_rlc83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33308, 9.53674e-07, -12.0577)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97795, 9.53674e-07, -11.9061)
 player = NodePath("../Player")
 wake_up_location = NodePath(".")
 
-[node name="FakeDoor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1251, 0.722029, -12.0441)
-visible = false
-size = Vector3(0.32959, 1.54932, 1)
+[node name="WakeUpMarker3D" type="Marker3D" parent="SleepDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38135, 0.182477, -0.402964)
 
 [node name="Trin" parent="." instance=ExtResource("24_c2ahp")]
 transform = Transform3D(0.632489, 0, 0.774569, 0, 1, 0, -0.774569, 0, 0.632489, -27.2895, 0.00154209, -0.918117)
@@ -532,6 +546,19 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 depth = 10.0
 polygon = PackedVector2Array(13.7633, 34.4929, 35.9793, 35.1791, 49.786, 23.6757, 56.3422, 6.60046, 66.8583, 20.9049, 50.2499, 58.4004, 4.66707, 53.209)
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72446, 1.24854, 12.9387)
+light_energy = 0.5
+omni_range = 2.0
+
+[node name="TrinOmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9307, 1.41028, -0.416077)
+light_energy = 0.5
+omni_range = 2.0
+omni_attenuation = 0.5
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
