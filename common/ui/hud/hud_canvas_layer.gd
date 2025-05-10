@@ -4,7 +4,9 @@ class_name HUDCanvasLayer
 class Singleton:
 	static var instance: HUDCanvasLayer
 
-@onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
+#@onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
+@onready var buildable_structure_ui_template_enabled = $HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerEnabled
+@onready var buildable_structure_ui_template_disabled = $HUD/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/PanelContainerDisabled
 @onready var resource_ui_template = $HUD/LeftMiddleMarginContainer/VBoxContainer/ResourceLabel
 @export var unlock_all_structures_from_the_start_for_debugging = false
 @onready var act_number_label: Label = %ActNumberLabel
@@ -30,6 +32,9 @@ func _ready() -> void:
 	StructureManager.UpdatedAvailableStructures.connect(self.refresh_structure_build_palette)
 	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
 	$HUD/PopupMenuMarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Close.connect("pressed", close_popup_menu)
+	%HoverPanel.hide()
+	buildable_structure_ui_template_enabled.hide()
+	buildable_structure_ui_template_disabled.hide()
 	# Ensure we update UI on startup
 	refresh_resources_ui.call_deferred()
 
@@ -54,6 +59,9 @@ func update_time_hud(_offset):
 	%AmPm.text = "PM" if time.is_pm else "AM"
 
 func refresh_resources_ui():
+	# update any visuals about what you can build
+	refresh_structure_build_palette()
+	
 	$HUD/LeftMiddleMarginContainer.show()
 	var in_tween: Tween = fade_in_left_middle_container()
 	for i in EnvironmentManager.current_resources:
@@ -101,29 +109,50 @@ func refresh_structure_build_palette():
 		register_structure_as_hud_icon(idx)
 
 func register_structure_as_hud_icon(idx):
-	var ui = buildable_structure_ui_template.duplicate()
+	
+	var requirements_missing = StructureManager.check_structure_requirements(idx)
+	var ui = null
+	if requirements_missing:
+		ui = buildable_structure_ui_template_disabled.duplicate()
+	else:
+		ui = buildable_structure_ui_template_enabled.duplicate()
+
 	buildable_structures.append(BuildableStructure.new(idx, ui))
-	buildable_structure_ui_template.get_parent().add_child(ui)
-	var icon = ui.get_node("TextureRect") as TextureRect
-	icon.connect("gui_input", handle_gui_input.bind(idx))
-	icon.texture = icon.texture.duplicate()
-	var atlas = icon.texture as AtlasTexture
-	var icon_atlas_coords = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureIcon].split(",")
-	atlas.region = Rect2(80*int(icon_atlas_coords[0]),80*int(icon_atlas_coords[1]),80,80)
-	var label = ui.get_node("Control/MarginContainer/Label") as Label
-	label.text = str(len(buildable_structures))
+	buildable_structure_ui_template_enabled.get_parent().add_child(ui)
+	var icon = ui.get_node("HBoxContainer/Icon") as TextureRect
+	icon.texture = preload("res://assets/2d/ui/build_small_icons/icon-compost-bin-25px.png")
+	var file_name = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureIcon]
+	var icon_name = "icon-" + file_name + "-25px.png"
+	var icon_data = load("res://assets/2d/ui/build_small_icons/" + icon_name)
+	if icon_data:
+		icon.texture = icon_data
+	var label = ui.get_node("HBoxContainer/Label") as Label
+	label.text = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName]
+	ui.connect("gui_input", handle_gui_input.bind(idx))
+	ui.connect("mouse_entered", %HoverPanel.show)
+	ui.connect("mouse_exited", %HoverPanel.hide)
 	ui.show()
 
 
 func handle_gui_input(event: InputEvent, idx: int):
 	if event is InputEventMouseMotion:
+		%HoverPanel.show()
+		%HoverPanel/VBoxContainer/HBoxContainer2/Title.text = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName]
+		%HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/Label.text = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureDescription]
+		var icon = %HoverPanel/VBoxContainer/HBoxContainer/Icon
+		var file_name = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureIcon]
+		var icon_name = "icon-" + file_name + "-118px.png"
+		var icon_data = load("res://assets/2d/ui/build_main_icons/" + icon_name)
+		if icon_data:
+			icon.texture = icon_data
+
+		
 		var requirements_missing = StructureManager.check_structure_requirements(idx)
 		if requirements_missing:
 			var formatted_requirements_missing = ", ".join(requirements_missing)
-			set_tool_tip("Cannot build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName] + "\nMissing: " + formatted_requirements_missing, 
-			get_viewport().get_mouse_position())
+			%HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/Label2.text = "Missing: " + formatted_requirements_missing	
 		else:
-			set_tool_tip("Build " + StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName], get_viewport().get_mouse_position())
+			%HoverPanel/VBoxContainer/HBoxContainer/VBoxContainer/Label2.text = ""
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		StructureManager.BuildableStructureSelected.emit(idx)

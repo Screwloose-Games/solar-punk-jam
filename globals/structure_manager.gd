@@ -125,6 +125,14 @@ func register_character_structures(character: String):
 	UpdatedAvailableStructures.emit()
 
 
+func register_all_structures():
+	prints("Unlocking all structures")
+	for idx in len(structure_data):
+		var struct_name = structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName]
+		register_structure(struct_name)
+	UpdatedAvailableStructures.emit()
+
+
 func build_structure(new_structure: BuiltStructure, skip_resource_consumption=false):
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
@@ -194,12 +202,15 @@ func _get_structure_data():
 	var data = content.split("\n")
 	data = Array(data)
 	data = data.filter(func(val): return val != "")
+	var data_ = []
 	for i in len(data):
 		data[i] = data[i].split("\t")
 		data[i] = Array(data[i])
 		for j in [STRUCTURE_FIELDS.StructureWidth, STRUCTURE_FIELDS.StructureDepth, STRUCTURE_FIELDS.GroundBefore, STRUCTURE_FIELDS.GroundAfter, STRUCTURE_FIELDS.InitialHappiness, STRUCTURE_FIELDS.MaterialCost, STRUCTURE_FIELDS.DaysToComplete, STRUCTURE_FIELDS.Electricity, STRUCTURE_FIELDS.Water, STRUCTURE_FIELDS.Food, STRUCTURE_FIELDS.Waste, STRUCTURE_FIELDS.Soil, STRUCTURE_FIELDS.Happiness, STRUCTURE_FIELDS.ElectricityStorage, STRUCTURE_FIELDS.WaterStorage]:
 			data[i][j] = int(data[i][j])
-	return data
+		if data[i][STRUCTURE_FIELDS.StructureModel]!="_":
+			data_.append(data[i])
+	return data_
 
 func read_tsv() -> String:
 	# this file is a copy paste of the CSV exported from Notion
