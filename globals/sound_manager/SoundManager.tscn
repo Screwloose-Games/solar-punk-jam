@@ -8,6 +8,12 @@
 [node name="SoundManager" type="AudioStreamPlayer"]
 script = ExtResource("1_0wbjb")
 
+[node name="UiSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="WeatherSoundPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
 [node name="UiQuestAcceptedConnector" type="Node" parent="."]
 script = ExtResource("2_t4w6u")
 global_name = "GlobalSignalBus"

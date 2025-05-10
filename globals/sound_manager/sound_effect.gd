@@ -1,6 +1,7 @@
 extends Node
 class_name SoundEffectConnector
 
+@export var player_type: GSoundManager.SoundPlayerType
 @export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var global_name: String
 @export var start_signal_name: String
 @export var stop_signal_name: String
@@ -17,8 +18,7 @@ enum TryConnectError {
     INSTANCE_INVALID = 49,
     NO_SIGNAL_NAME = 50,
     NO_MATCHING_SIGNAL_NAME = 51,
-}
-    
+}  
 
 func _ready() -> void:
     var result = try_connect_stop_signal()
@@ -70,10 +70,10 @@ func try_connect_stop_signal() -> int:
 func _on_start(args = null) -> void:
     if args != null:
         push_warning("args present: ", args)
-    sound_manager.play_ui_sound(sound_effect)
+    sound_manager.play_sound(sound_effect, player_type)
 
 
 func _on_stop(args = null) -> void:
     if args != null:
         push_warning("args present: ", args)
-    sound_manager.stop_ui_sound()
+    sound_manager.stop_sound(player_type)
