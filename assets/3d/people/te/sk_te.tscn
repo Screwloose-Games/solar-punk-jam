@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dk2yi876p8bmk" path="res://assets/3d/people/te/sk_te.gltf" id="1_ptsvx"]
 [ext_resource type="Texture2D" uid="uid://dwthwkvvbq3ab" path="res://assets/2d/faces/te/te_neutral.png" id="2_ewhnd"]
-[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_lk2hx"]
 [ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_ewhnd"]
+[ext_resource type="Shader" uid="uid://boa1afj4d72qc" path="res://shaders/shader_outline_normal.gdshader" id="3_hs4ys"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_hs4ys"]
 [ext_resource type="Texture2D" uid="uid://c6uca06eejl4s" path="res://assets/3d/people/te/Te_LP_standardSurface1_BaseColor.png" id="5_qnj1p"]
 [ext_resource type="Texture2D" uid="uid://co5q5yt0rnwxp" path="res://assets/3d/people/te/Te_LP_standardSurface1_Roughness.png" id="6_bla1j"]
@@ -14,9 +14,9 @@ albedo_texture = ExtResource("2_ewhnd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrv5"]
 render_priority = 0
-shader = ExtResource("2_lk2hx")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.005
+shader = ExtResource("3_hs4ys")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 0.7
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lk2hx"]
 render_priority = 0

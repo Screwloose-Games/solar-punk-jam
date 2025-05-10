@@ -10,7 +10,7 @@
 render_priority = 0
 shader = ExtResource("1_0nr3j")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/outline_width = 0.0
+shader_parameter/outline_width = 0.9
 
 [sub_resource type="Gradient" id="Gradient_16unr"]
 offsets = PackedFloat32Array(0.580357, 0.776786)

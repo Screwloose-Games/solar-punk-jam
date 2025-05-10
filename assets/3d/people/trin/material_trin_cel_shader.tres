@@ -6,9 +6,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kabe6"]
 render_priority = 0
-shader = ExtResource("1_wl76u")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
+shader = ExtResource("1_d24d4")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 0.8
 
 [sub_resource type="Gradient" id="Gradient_yrb54"]
 offsets = PackedFloat32Array(0.580357, 0.776786)
