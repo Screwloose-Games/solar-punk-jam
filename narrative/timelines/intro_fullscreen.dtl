@@ -1,15 +1,33 @@
 [background arg="res://narrative/styles/intro_fs/bg_black.png" fade="0.0"]
 [style name="intro_fs"]
-[speed=4]Warning\: The game you are about to play is canon.
-[speed=4]This is a test of the fullscreen intro crawl text.\
-EVERY MORNING I WAKE UP AND OPEN PALM SLAM A VHS INTO THE SLOT.\
-ITS CHRONICLES OF RIDDICK AND RIGHT THEN AND THERE I START DOING THE MOVES ALONGSIDE WITH THE MAIN CHARACTER, RIDDICK.\
-I DO EVERY MOVE AND I DO EVERY MOVE HARD.\
-MAKIN WHOOSHING SOUNDS WHEN I SLAM DOWN SOME NECRO BASTARDS OR EVEN WHEN I MESS UP TECHNIQUE.\
-NOT MANY CAN SAY THEY ESCAPED THE GALAXY’S MOST DANGEROUS PRISON.\
-I CAN.\
-I SAY IT AND I SAY IT OUTLOUD EVERYDAY TO PEOPLE IN MY COLLEGE CLASS AND ALL THEY DO IS PROVE PEOPLE IN COLLEGE CLASS CAN STILL BE IMMATURE JERKS.\
-AND IVE LEARNED ALL THE LINES AND IVE LEARNED HOW TO MAKE MYSELF AND MY APARTMENT LESS LONELY BY SHOUTING EM ALL.\
-2 HOURS INCLUDING WIND DOWN EVERY MORNING.\
-THEN I LIFT.
+[speed=4]DEAR DIARY
+[speed=4]It's raining again!!!!
+[speed=4]Dad’s trying to knit me a sweater for my bday but
+[speed=4]I want the Blaster1000!!
+[speed=4]Tommy showed off his at school.
+[speed=4]I wish I had stuff I could show off too.
+[wait time=".3"]
+[speed=4]DEAR DIARY
+ITS ME AGAIN
+it's raining so much now
+it sounds like thousands of people on the roof
+[wait time=".3"]
+[speed=4]DEAR DIARY
+THE SWEATER’S SO UGLY.
+It's blue and green and there's thread everywhere 
+But daddy got really emotional.
+I think he just wanted to give me something
+[wait time=".3"]
+[speed=4]DEAR DIARY
+I kinda like the sweater now
+the Blaster1000 is stupid anyway
+[wait time=".3"]
+[speed=4]DEAR DIARY
+the rain is worse
+mama says we should go
+but daddy got so mad
+he said
+WHERE WE GONNA GO 
+[speed=8]THIS IS THE ONLY HOME WE HAVE
+[wait time="5.0"]
 [style name="dialogic_dialog_style"]
