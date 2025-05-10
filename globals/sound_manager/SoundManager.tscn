@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c54af0wl0auwx"]
+[gd_scene load_steps=6 format=3 uid="uid://c54af0wl0auwx"]
 
 [ext_resource type="Script" uid="uid://b1mijyjkslhfu" path="res://globals/sound_manager/SoundManager.gd" id="1_0wbjb"]
 [ext_resource type="Script" uid="uid://dd8uxrmtutff5" path="res://globals/sound_manager/sound_effect.gd" id="2_t4w6u"]
 [ext_resource type="AudioStream" uid="uid://cwrmu1482xd6k" path="res://common/audio/sfx/ui/UI_QUEST_ACCEPT.wav" id="3_wh6ep"]
 [ext_resource type="AudioStream" uid="uid://dp0uplfv31exi" path="res://common/audio/sfx/ui/UI_QUEST_COMPLETE.wav" id="4_omyty"]
+[ext_resource type="AudioStream" uid="uid://b1yky8tm5n131" path="res://common/audio/sfx/ambi/AMBI_RAIN.wav" id="5_6kart"]
 
 [node name="SoundManager" type="AudioStreamPlayer"]
 script = ExtResource("1_0wbjb")
@@ -25,5 +26,21 @@ metadata/_custom_type_script = "uid://dd8uxrmtutff5"
 script = ExtResource("2_t4w6u")
 global_name = "QuestManager"
 start_signal_name = "quest_completed"
+sound_effect = ExtResource("4_omyty")
+metadata/_custom_type_script = "uid://dd8uxrmtutff5"
+
+[node name="RainEffectConnector" type="Node" parent="."]
+script = ExtResource("2_t4w6u")
+player_type = 1
+global_name = "GlobalSignalBus"
+start_signal_name = "started_raining"
+stop_signal_name = "stopped_raining"
+sound_effect = ExtResource("5_6kart")
+metadata/_custom_type_script = "uid://dd8uxrmtutff5"
+
+[node name="QuestObjectiveCompletedConnector" type="Node" parent="."]
+script = ExtResource("2_t4w6u")
+global_name = "GlobalSignalBus"
+start_signal_name = "quest_objective_completed"
 sound_effect = ExtResource("4_omyty")
 metadata/_custom_type_script = "uid://dd8uxrmtutff5"
