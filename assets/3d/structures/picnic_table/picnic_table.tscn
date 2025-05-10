@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://pymb8encx3b1" path="res://assets/3d/structures/picnic_table/sm_picnic_table.tscn" id="2_vilin"]
 
 [node name="PicnicTable" instance=ExtResource("1_ryhfi")]
+structure_id = "Picnic Table"
 
 [node name="sm_picnic_table" parent="." index="0" instance=ExtResource("2_vilin")]
 
