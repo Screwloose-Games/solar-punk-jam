@@ -8,12 +8,13 @@
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ktw0i"]
 stream_count = 3
 stream_0/stream = ExtResource("2_5mxcp")
-stream_0/volume = -12.0
+stream_0/volume = 0.0
 stream_1/stream = ExtResource("1_slerk")
-stream_1/volume = -12.0
+stream_1/volume = 0.0
 stream_2/stream = ExtResource("3_lw7b1")
-stream_2/volume = -12.0
+stream_2/volume = 0.0
 
 [node name="DynamicMusic" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_ktw0i")
+volume_db = -27.0
 script = ExtResource("2_rdc84")
