@@ -1,16 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d23y0hy44vlkm"]
+[gd_scene load_steps=7 format=3 uid="uid://d23y0hy44vlkm"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_r04gn"]
 [ext_resource type="PackedScene" uid="uid://chhsojctydtm8" path="res://assets/3d/people/mister-animations/mister_animations.tscn" id="2_g3jaa"]
-[ext_resource type="Material" uid="uid://xfg3p147y0vu" path="res://assets/3d/people/mister/material_mister_cel_shader.tres" id="3_drflr"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_g3jaa"]
-[ext_resource type="Texture2D" uid="uid://bhhq5qnw7phop" path="res://assets/2d/faces/mister/mister_neutral.png" id="4_nph6m"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drflr"]
-transparency = 4
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("4_nph6m")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qp07d"]
 animation = &"Idle"
@@ -100,10 +92,6 @@ bones/38/position = Vector3(-1.48373e-06, 45.0896, 1.80097e-06)
 bones/38/rotation = Quaternion(0.40672, 0.0144455, 0.0200541, 0.913219)
 bones/39/position = Vector3(-1.51999e-07, 22.2442, -6.02827e-07)
 bones/39/rotation = Quaternion(0.414601, -0.0526791, 0.0139092, 0.908371)
-
-[node name="Torus_001" parent="mister-animations/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("3_drflr")
-surface_material_override/1 = SubResource("StandardMaterial3D_drflr")
 
 [node name="QuestMarker3D" parent="." index="1"]
 id = "mister"
