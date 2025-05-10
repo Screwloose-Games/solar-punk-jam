@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://3c4nvwttcr0"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://3c4nvwttcr0"]
 
 [ext_resource type="Shader" path="res://shaders/base_cel_shading.gdshader" id="1_bh4sa"]
 [ext_resource type="Shader" path="res://shaders/base_cel_shading_outline.gdshader" id="1_wmcas"]
@@ -8,9 +8,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yn5mr"]
 render_priority = 0
-shader = ExtResource("1_wmcas")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
+shader = ExtResource("1_re3di")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 0.5
 
 [resource]
 render_priority = 0
@@ -28,6 +28,5 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("2_wmcas")
 shader_parameter/fresnel_gradient = ExtResource("3_yn5mr")
 shader_parameter/fresnel_intensity = 1.0

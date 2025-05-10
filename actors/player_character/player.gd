@@ -111,10 +111,12 @@ func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	
 func _on_dialogue_started():
+	return
 	process_mode = Node.PROCESS_MODE_DISABLED
 	pass
 
 func _on_dialogue_ended():
+	return
 	process_mode = Node.PROCESS_MODE_INHERIT
 	pass
 
