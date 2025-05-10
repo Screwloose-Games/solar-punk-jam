@@ -144,6 +144,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170803, 0.00154209, 12.5
 script = ExtResource("7_0a35c")
 region_id = "Trin"
 track_idx = 1
+fade_in_time = 0.5
+fade_out_time = 0.8
 metadata/_custom_type_script = "uid://cao3mbil5qlso"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trin/DynamicMusicRegion"]
@@ -175,6 +177,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.05827)
 script = ExtResource("7_0a35c")
 region_id = "woods"
 track_idx = 1
+fade_in_time = 0.5
+fade_out_time = 0.8
 metadata/_custom_type_script = "uid://cao3mbil5qlso"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DynamicMusicRegion2"]
