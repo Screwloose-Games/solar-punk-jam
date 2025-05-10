@@ -118,7 +118,7 @@ func register_structure_as_hud_icon(idx):
 	buildable_structure_ui_template_enabled.get_parent().add_child(ui)
 	var icon = ui.get_node("HBoxContainer/Icon") as TextureRect
 	icon.connect("gui_input", handle_gui_input.bind(idx))
-	icon.texture = preload("res://assets/2d/ui/icon-compost-bin-25px.png")
+	icon.texture = preload("res://assets/2d/ui/build_small_icons/icon-compost-bin-25px.png")
 	var file_name = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
 	var icon_name = file_name.rsplit(".", true, 1)[0]
 	icon_name = "icon-" + icon_name.replace("_", "-") + "-25px.png"
