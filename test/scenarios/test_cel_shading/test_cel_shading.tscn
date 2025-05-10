@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://u4dibts3mrph"]
+[gd_scene load_steps=42 format=3 uid="uid://u4dibts3mrph"]
 
 [ext_resource type="Environment" uid="uid://dobd7wrpoccx6" path="res://test/scenarios/test_lighting/world_environment_00.tres" id="1_2acoh"]
 [ext_resource type="PackedScene" uid="uid://b1atwunknodlk" path="res://test/scenarios/test_lighting/camera_3d.tscn" id="2_4w5to"]
@@ -8,7 +8,7 @@
 [ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="6_kxlo7"]
 [ext_resource type="PackedScene" uid="uid://c5gv0pyjxatdc" path="res://assets/kenney_food-kit/Models/GLB format/apple.glb" id="7_dai1c"]
 [ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="7_gqtk6"]
-[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://test/scenarios/test_cel_shading/color_gradient.tres" id="8_h0gip"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://materials/color_gradient.tres" id="8_h0gip"]
 [ext_resource type="PackedScene" uid="uid://gutw14xymv2b" path="res://assets/3d/buildings/building_00/building_00.tscn" id="8_i6rgi"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="9_7f80v"]
 [ext_resource type="PackedScene" uid="uid://6120fgf52qvi" path="res://assets/3d/buildings/building_01/sm_prototype_building_01.tscn" id="9_wtr3o"]
@@ -19,13 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://bdtgs0uls40fe" path="res://assets/3d/buildings/building_01/SM_PrototypeBuilding_01_Gradient Pallete.png" id="14_kxlo7"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="14_t6wyn"]
 [ext_resource type="Texture2D" uid="uid://ddx3nswpbp73s" path="res://assets/3d/buildings/building_02/SM_PrototypeBuilding_02_Gradient Pallete.png" id="16_gqtk6"]
-[ext_resource type="Texture2D" uid="uid://o8osr5r0t024" path="res://assets/3d/buildings/building_03/SM_PrototypeBuilding_03_Gradient Pallete.png" id="18_hlonn"]
+[ext_resource type="Material" uid="uid://48yxtwwrpf3m" path="res://materials/cel_shading_base_material.tres" id="18_a8jdd"]
 [ext_resource type="PackedScene" uid="uid://dngvyovn8lew5" path="res://assets/3d/structures/solar_panel/solar_panel.tscn" id="18_i25vb"]
 [ext_resource type="PackedScene" uid="uid://df2kowi4movw2" path="res://assets/kenney_food-kit/Models/GLB format/barrel.glb" id="19_rrgsg"]
-[ext_resource type="Texture2D" uid="uid://bijlrs6gh1232" path="res://actors/npcs/mister/texture_diffuse.png" id="20_f0h81"]
-[ext_resource type="Texture2D" uid="uid://bjten4l3qqxej" path="res://actors/npcs/mister/texture_metallic.png" id="21_emoi6"]
-[ext_resource type="Texture2D" uid="uid://d2t5vovificl1" path="res://actors/npcs/mister/texture_normal.png" id="22_xw4wx"]
-[ext_resource type="Texture2D" uid="uid://gge6saft6lrk" path="res://actors/npcs/mister/texture_roughness.png" id="23_bbjqv"]
 [ext_resource type="Texture2D" uid="uid://ba3u45yrt05tb" path="res://actors/player_character/model_animations/te/texture_diffuse.png" id="25_xpfo1"]
 [ext_resource type="Texture2D" uid="uid://dkfmw074jwoj4" path="res://actors/player_character/model_animations/te/texture_metallic.png" id="26_uvh1o"]
 [ext_resource type="Texture2D" uid="uid://c577axobnwyee" path="res://actors/player_character/model_animations/te/texture_normal.png" id="27_2cqw6"]
@@ -55,6 +51,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("8_h0gip")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a8jdd"]
 render_priority = 0
@@ -80,6 +77,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("8_h0gip")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wio08"]
 render_priority = 0
@@ -104,6 +102,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("9_7f80v")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i75x0"]
 render_priority = 0
@@ -121,6 +120,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("8_h0gip")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v0wjo"]
 render_priority = 0
@@ -146,6 +146,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("9_7f80v")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f3a3v"]
 render_priority = 0
@@ -171,59 +172,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("9_7f80v")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3o6"]
-render_priority = 0
-shader = ExtResource("6_kxlo7")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ou1d"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_tk3o6")
-shader = ExtResource("7_gqtk6")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("18_hlonn")
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
-shader_parameter/normal_scale = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0, 0, 0)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("9_7f80v")
-shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_41sid"]
-render_priority = 0
-shader = ExtResource("6_kxlo7")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpvrk"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_41sid")
-shader = ExtResource("7_gqtk6")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("20_f0h81")
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/texture_metallic = ExtResource("21_emoi6")
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/texture_roughness = ExtResource("23_bbjqv")
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 1.0
-shader_parameter/texture_normal = ExtResource("22_xw4wx")
-shader_parameter/normal_scale = 1.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("8_h0gip")
-shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8m5ml"]
 render_priority = 0
@@ -252,30 +201,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("8_h0gip")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_baeqh"]
-render_priority = 0
-shader = ExtResource("6_kxlo7")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6rhw"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_baeqh")
-shader = ExtResource("7_gqtk6")
-shader_parameter/albedo = Color(0.322921, 0.737302, 1, 1)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/normal_scale = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("8_h0gip")
-shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jdym4"]
 render_priority = 0
@@ -301,6 +227,7 @@ shader_parameter/uv2_scale = Vector3(0, 0, 0)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("8_h0gip")
 shader_parameter/fresnel_gradient = ExtResource("9_7f80v")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="TestLighting" type="Node3D"]
 
@@ -369,77 +296,59 @@ surface_material_override/0 = SubResource("ShaderMaterial_vm6ip")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.28, -0.500002, 3.61438)
 
 [node name="SM_Building_03" parent="SM_PrototypeBuilding_03" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_3ou1d")
+surface_material_override/0 = ExtResource("18_a8jdd")
 
 [node name="NpcMister" parent="." instance=ExtResource("14_t6wyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.460262, -3.02759)
-
-[node name="Skeleton3D" parent="NpcMister/SM_Mister/Armature" index="0"]
-bones/0/position = Vector3(-0.275005, 2.21578, -81.8549)
-bones/0/rotation = Quaternion(-0.731174, -0.0478638, 0.0145878, 0.680354)
-bones/1/rotation = Quaternion(-0.0315618, 0.0158363, 0.0223737, 0.999126)
-bones/2/rotation = Quaternion(0.010278, 0.00242902, 0.0145783, 0.999838)
-bones/3/rotation = Quaternion(0.0100355, 0.00240854, 0.0146024, 0.99984)
-bones/4/rotation = Quaternion(0.114605, -0.00237022, 0.00285482, 0.993404)
-bones/5/rotation = Quaternion(-0.074569, 0.00676279, -0.00159644, 0.997192)
-bones/7/rotation = Quaternion(-0.649757, -0.359134, 0.489654, -0.457251)
-bones/8/rotation = Quaternion(0.489994, 0.116098, 0.0685781, 0.861234)
-bones/9/rotation = Quaternion(0.00174902, -0.00576725, 0.0130955, 0.999896)
-bones/10/rotation = Quaternion(0.0364602, 0.0177226, 0.00104605, 0.999177)
-bones/19/rotation = Quaternion(0.651535, -0.357259, 0.506132, 0.437834)
-bones/20/rotation = Quaternion(0.420972, -0.208043, -0.101548, 0.877034)
-bones/21/rotation = Quaternion(0.00761379, 0.012815, -0.0566121, 0.998285)
-bones/22/rotation = Quaternion(0.0492323, -0.120717, 0.00674507, 0.991443)
-bones/31/rotation = Quaternion(0.137596, 0.0704558, 0.985401, -0.0713298)
-bones/32/rotation = Quaternion(-0.137242, -0.00703048, 0.0483967, 0.98933)
-bones/33/rotation = Quaternion(0.513292, -0.0517256, -0.0116362, 0.856575)
-bones/36/rotation = Quaternion(-0.0908539, -0.0599616, 0.993441, -0.0350063)
-bones/37/rotation = Quaternion(-0.0280727, 0.0840732, -0.0425181, 0.995156)
-bones/38/rotation = Quaternion(0.530725, 0.0417049, -0.0272693, 0.846078)
-bones/39/rotation = Quaternion(0.333772, 0.153856, -0.03726, 0.929267)
-
-[node name="model" parent="NpcMister/SM_Mister/Armature/Skeleton3D" index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_bpvrk")
 
 [node name="Player" parent="." instance=ExtResource("11_05hoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65056, -0.436063, -2.93794)
 
 [node name="Skeleton3D" parent="Player/Model/Armature" index="0"]
-bones/0/position = Vector3(-0.382888, 0.277462, -84.5335)
-bones/0/rotation = Quaternion(-0.726004, -0.0752298, -0.0374152, 0.682539)
-bones/1/rotation = Quaternion(-0.0769337, -0.0108576, 0.0817417, 0.99362)
-bones/2/rotation = Quaternion(0.0182221, -0.00260669, 0.0223833, 0.99958)
-bones/3/rotation = Quaternion(0.0185488, -0.00434651, 0.0216143, 0.999585)
-bones/4/rotation = Quaternion(0.0905936, -0.000400049, -0.0516194, 0.994549)
-bones/5/rotation = Quaternion(-0.0946823, -0.0165484, 0.00960553, 0.995324)
-bones/7/rotation = Quaternion(-0.632992, -0.349573, 0.583579, -0.369535)
-bones/8/rotation = Quaternion(0.430829, -0.00903218, -0.0810786, 0.898739)
-bones/9/rotation = Quaternion(0.0269322, -0.0234076, 0.183491, 0.982374)
-bones/10/rotation = Quaternion(0.0393343, 0.440429, 0.0861291, 0.892781)
-bones/11/rotation = Quaternion(0.0595009, 0.0268153, 0.181932, 0.981143)
-bones/12/rotation = Quaternion(0.048757, 0.00155165, -0.148905, 0.987648)
-bones/13/rotation = Quaternion(-0.0208943, -0.0885893, 0.0168739, 0.995706)
-bones/15/rotation = Quaternion(0.140582, -0.00661524, 0.0640584, 0.987972)
-bones/16/rotation = Quaternion(0.16439, 0.00177044, 0.0320404, 0.985873)
-bones/17/rotation = Quaternion(0.218816, 0.00177014, 0.105543, 0.97004)
-bones/19/rotation = Quaternion(0.634851, -0.344353, 0.590393, 0.360308)
-bones/20/rotation = Quaternion(0.313876, -0.0523573, 0.0568473, 0.946314)
-bones/21/rotation = Quaternion(0.0352191, 0.0304922, -0.240912, 0.969428)
-bones/22/rotation = Quaternion(0.00207966, -0.425668, -0.0350816, 0.904197)
-bones/23/rotation = Quaternion(0.0334268, -0.0290144, -0.22369, 0.973655)
-bones/24/rotation = Quaternion(0.0767158, 0.0226079, 0.262993, 0.961477)
-bones/25/rotation = Quaternion(-0.0024466, 0.00190043, -0.0799107, 0.996797)
-bones/27/rotation = Quaternion(0.211862, 0.000532756, -0.0693913, 0.974833)
-bones/28/rotation = Quaternion(0.103394, -0.000282157, -0.0224475, 0.994387)
-bones/29/rotation = Quaternion(0.177609, -0.00123769, -0.0729613, 0.981392)
-bones/31/rotation = Quaternion(0.0600063, 0.126845, 0.984805, -0.10232)
-bones/32/rotation = Quaternion(-0.337414, -0.0676608, 0.00862, 0.938882)
-bones/33/rotation = Quaternion(0.617091, -0.131076, 0.0190333, 0.775664)
-bones/34/rotation = Quaternion(0.294067, 0.0217209, -0.00562865, 0.955521)
-bones/36/rotation = Quaternion(-0.0700212, 0.011136, 0.993912, -0.0843382)
-bones/37/rotation = Quaternion(-0.152403, 0.0484792, 0.00824211, 0.987094)
-bones/38/rotation = Quaternion(0.560064, 0.0726455, -0.0495207, 0.823771)
-bones/39/rotation = Quaternion(0.303459, -0.0142438, 0.00504336, 0.952725)
+bones/0/position = Vector3(7.9652, 1.16003, -85.0494)
+bones/0/rotation = Quaternion(-0.705789, -0.0602846, 0.0855563, 0.700648)
+bones/1/rotation = Quaternion(-0.0491656, -0.00422915, -0.0484065, 0.997608)
+bones/2/rotation = Quaternion(-0.0498654, -0.0143882, -0.00960128, 0.998606)
+bones/3/rotation = Quaternion(-0.0499737, -0.0146415, -0.00859116, 0.998606)
+bones/4/rotation = Quaternion(0.114241, 0.00188898, 0.0258686, 0.993114)
+bones/5/rotation = Quaternion(-0.0571541, 0.0153084, 0.00706079, 0.998223)
+bones/7/rotation = Quaternion(-0.608455, -0.372495, 0.594354, -0.371178)
+bones/8/position = Vector3(1.30587e-07, 9.35619, -5.39685e-06)
+bones/8/rotation = Quaternion(0.38431, 0.0253904, -0.202708, 0.900317)
+bones/9/rotation = Quaternion(0.0276305, -0.0239622, 0.188249, 0.98144)
+bones/10/position = Vector3(3.50162e-06, 20.7568, -2.49155e-06)
+bones/10/rotation = Quaternion(0.00600516, 0.388109, 0.0865595, 0.91752)
+bones/11/rotation = Quaternion(0.0826803, 0.0241671, 0.173516, 0.981057)
+bones/12/position = Vector3(0.125468, 4.08864, 1.59782e-06)
+bones/12/rotation = Quaternion(0.0660245, -0.0121554, -0.184283, 0.980578)
+bones/13/rotation = Quaternion(0.0292729, -0.102668, 0.0151894, 0.994169)
+bones/15/rotation = Quaternion(0.106045, -0.00551582, 0.0510672, 0.993034)
+bones/16/position = Vector3(0.0570316, 5.21198, 7.41806e-06)
+bones/16/rotation = Quaternion(0.120499, 0.00116672, 0.0168415, 0.99257)
+bones/17/rotation = Quaternion(0.150661, 0.00131657, 0.0826848, 0.985121)
+bones/19/rotation = Quaternion(0.593996, -0.391596, 0.575109, 0.40382)
+bones/20/position = Vector3(2.8018e-06, 9.3562, 6.52528e-06)
+bones/20/rotation = Quaternion(0.43802, -0.0765432, 0.153616, 0.88243)
+bones/21/position = Vector3(-9.04428e-07, 15.2797, 1.62176e-06)
+bones/21/rotation = Quaternion(0.033939, 0.0294734, -0.232154, 0.97164)
+bones/22/rotation = Quaternion(-0.0285731, -0.419813, -0.0431933, 0.906132)
+bones/23/rotation = Quaternion(0.0316562, -0.028722, -0.226208, 0.973141)
+bones/24/position = Vector3(-0.199192, 4.04112, -1.78582e-06)
+bones/24/rotation = Quaternion(0.0703758, 0.0229327, 0.254216, 0.964311)
+bones/25/rotation = Quaternion(-0.0147751, 0.00349048, -0.0987955, 0.994992)
+bones/26/position = Vector3(-0.0601294, 2.77943, 3.2708e-06)
+bones/27/rotation = Quaternion(0.197907, -3.34624e-05, -0.0626408, 0.978217)
+bones/28/rotation = Quaternion(0.0902042, -0.000237871, -0.0178005, 0.995764)
+bones/29/position = Vector3(0.0741377, 4.29085, -3.52459e-06)
+bones/29/rotation = Quaternion(0.140254, -0.000998298, -0.0599285, 0.9883)
+bones/31/rotation = Quaternion(0.0184791, 0.0841796, 0.993575, 0.0733544)
+bones/32/rotation = Quaternion(-0.205318, -0.0793582, -0.00173088, 0.975471)
+bones/33/rotation = Quaternion(0.562272, -0.198002, 0.149104, 0.788932)
+bones/34/rotation = Quaternion(0.308345, 0.00451446, -0.010379, 0.951207)
+bones/36/rotation = Quaternion(-0.0655343, 0.116648, 0.988918, 0.0643486)
+bones/37/rotation = Quaternion(-0.245509, -0.0189022, -0.00515751, 0.969196)
+bones/38/rotation = Quaternion(0.575749, 0.0908303, 0.00957961, 0.812509)
+bones/39/rotation = Quaternion(0.305406, -0.0137984, 0.00513816, 0.952109)
 
 [node name="model" parent="Player/Model/Armature/Skeleton3D" index="0"]
 transform = Transform3D(0.999828, -0.00685744, -0.0172549, 0.00695054, 0.999962, 0.00534136, 0.0172176, -0.00546037, 0.999837, 0, 0, 0)
@@ -448,14 +357,14 @@ surface_material_override/0 = SubResource("ShaderMaterial_07a06")
 [node name="Camera3D" parent="Player" index="10"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 0, 2.86358, 3.03107)
 
+[node name="IsometricCamera" parent="Player" index="14"]
+transform = Transform3D(1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 5.29813, 3.92836)
+
 [node name="ThirdPersonCamera" parent="Player" index="18"]
 transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 0, 2.86358, 3.03107)
 
 [node name="Solar panel" parent="." instance=ExtResource("18_i25vb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147257, -0.582002, 3.48605)
-
-[node name="Mesh" parent="Solar panel" index="1"]
-material = SubResource("ShaderMaterial_r6rhw")
 
 [node name="barrel2" parent="." instance=ExtResource("19_rrgsg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92142, -0.542322, 3.73347)
@@ -470,10 +379,12 @@ surface_material_override/0 = SubResource("ShaderMaterial_p1tlc")
 [editable path="SM_PrototypeBuilding_02"]
 [editable path="SM_PrototypeBuilding_03"]
 [editable path="NpcMister"]
-[editable path="NpcMister/SM_Mister"]
+[editable path="NpcMister/mister-animations"]
 [editable path="NpcMister/InteractableArea3D"]
 [editable path="Player"]
 [editable path="Player/Model"]
+[editable path="Player/Model/sk_te"]
 [editable path="Solar panel"]
 [editable path="Solar panel/sm_solar_panel"]
+[editable path="Solar panel/InteractableArea3D"]
 [editable path="barrel2"]

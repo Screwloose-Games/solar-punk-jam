@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://dyiq862wakvkf"]
 
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_o76ft"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="2_wvfr8"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_wvfr8"]
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="3_0sukh"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_1l2an"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_a0hok"]
@@ -406,7 +406,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -4.25633, 3.14492, -9.12453)
+transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -4.25633, 3.14492, -15.1867)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300

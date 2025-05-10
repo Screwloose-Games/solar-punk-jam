@@ -1,5 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://cii30af5vfhq5"]
+[gd_scene load_steps=9 format=3 uid="uid://cii30af5vfhq5"]
 
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="1_ddfd5"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_fafgk"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_l7uw6"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_3bsbj"]
+[ext_resource type="Texture2D" uid="uid://bq4ayh21hl3be" path="res://assets/3d/structures/solar_panel/solarpanel_basecolor.jpg" id="5_fafgk"]
+[ext_resource type="Texture2D" uid="uid://lkovk4mem6pj" path="res://assets/3d/structures/solar_panel/solarpanel_normal.jpg" id="6_l7uw6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrv5"]
+render_priority = 0
+shader = ExtResource("2_fafgk")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6mc0"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_rfrv5")
+shader = ExtResource("3_l7uw6")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_fafgk")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("6_l7uw6")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_3bsbj")
+shader_parameter/fresnel_gradient = ExtResource("4_3bsbj")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_solar_panel" instance=ExtResource("1_ddfd5")]
+
+[node name="sm_pole" parent="sm_solar_panels" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_r6mc0")
+
+[node name="sm_foot_front" parent="sm_solar_panels/sm_pole" index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.207912, 0.978148, 0, -0.978148, -0.207912, 0, 0.220739, 0.136157)
+
+[node name="sm_foot_left" parent="sm_solar_panels/sm_pole" index="1"]
+transform = Transform3D(-0.5, 0.847101, 0.180057, -8.09637e-08, -0.207912, 0.978148, 0.866026, 0.489074, 0.103956, -0.117915, 0.220739, -0.0680784)
+
+[node name="sm_foot_right" parent="sm_solar_panels/sm_pole" index="2"]
+transform = Transform3D(-0.5, -0.847101, -0.180057, 8.09637e-08, -0.207912, 0.978148, -0.866026, 0.489074, 0.103956, 0.117915, 0.220739, -0.0680784)
+
+[node name="sm_panel_pivot" parent="sm_solar_panels/sm_pole" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.225877, 0.974156, 0, -0.974156, 0.225877, 0, 2.48238, 0)
+
+[node name="sm_panel_left" parent="sm_solar_panels/sm_pole/sm_panel_pivot" index="0"]
+transform = Transform3D(1.54936, -4.61745e-08, -1.57623e-15, 4.61745e-08, 1.54936, 5.96046e-08, -2.00124e-16, -5.96046e-08, 1.54936, 0, 0.235903, 0)
+
+[node name="sm_panel_right" parent="sm_solar_panels/sm_pole/sm_panel_pivot" index="2"]
+transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936, 5.96046e-08, 2.00124e-16, -5.96046e-08, 1.54936, 0, 0.159048, 0)

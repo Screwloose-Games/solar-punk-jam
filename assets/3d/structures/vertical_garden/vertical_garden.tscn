@@ -57,7 +57,7 @@ script = ExtResource("3_7d13l")
 [node name="sm_vertical_garden2" parent="." index="3" instance=ExtResource("2_ajcl4")]
 
 [node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00987127, -0.481983, -0.000938416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00987127, 0.935314, -0.000938416)
 
 [node name="StructureInteractCanvasLayer" type="CanvasLayer" parent="." index="5"]
 unique_name_in_owner = true

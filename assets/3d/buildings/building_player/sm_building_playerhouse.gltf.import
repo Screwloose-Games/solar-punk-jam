@@ -37,6 +37,12 @@ _subresources={
 "PATH:mesh_building_playerhouse/sm_building_player": {
 "generate/navmesh": 1,
 "generate/physics": true
+},
+"PATH:nvmesh_playerhouse-navmesh": {
+"import/skip_import": true
+},
+"PATH:nvmesh_playerhouse-navmesh/nv_playerhouse": {
+"import/skip_import": true
 }
 }
 }

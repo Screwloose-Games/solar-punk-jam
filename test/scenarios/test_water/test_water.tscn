@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="11_3sjjn"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="12_jx4f4"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="13_6qdfi"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="15_ypvyw"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="15_ypvyw"]
 
 [sub_resource type="Animation" id="Animation_qwrev"]
 resource_name = "flyover_01"

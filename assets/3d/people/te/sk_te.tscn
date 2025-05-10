@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://2jronsj1br8g"]
+
+[ext_resource type="PackedScene" uid="uid://dk2yi876p8bmk" path="res://assets/3d/people/te/sk_te.gltf" id="1_ptsvx"]
+
+[node name="sk_te" instance=ExtResource("1_ptsvx")]

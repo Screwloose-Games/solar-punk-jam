@@ -1,8 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=41 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://test/scenarios/test_water/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="4_yde30"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="7_maonv"]
 [ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="8_34qyl"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="9_io6m6"]
-[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel2.tscn" id="10_gdnnp"]
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="11_m072n"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="12_cxy8c"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="13_xerwd"]
@@ -387,9 +386,6 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 [node name="CollisionShape3D" parent="HomeBuildableSurface/InteractableBuildableArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426392, 0.517517, -0.199265)
 shape = SubResource("BoxShape3D_7t8hb")
-
-[node name="sm_rain_barrel" parent="." instance=ExtResource("10_gdnnp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50997, 0.000962734, 0.0685472)
 
 [node name="sm_solar_panel" parent="." instance=ExtResource("11_m072n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50486, -1.07288e-06, 1.97875)
