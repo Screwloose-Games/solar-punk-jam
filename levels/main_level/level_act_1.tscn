@@ -433,7 +433,6 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -467,7 +466,7 @@ speed = 3.5
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
 
 [node name="Kai" parent="." instance=ExtResource("20_x787j")]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -2.00959, -0.0248976, -10.1326)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -2.00959, 0.0218339, -10.1326)
 
 [node name="ScrapPileSpawner" parent="." instance=ExtResource("21_dedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168)
