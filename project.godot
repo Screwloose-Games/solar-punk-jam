@@ -113,6 +113,7 @@ glossary/default_case_sensitive=true
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -246,7 +247,4 @@ common/physics_interpolation=true
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 global_illumination/gi/use_half_resolution=true

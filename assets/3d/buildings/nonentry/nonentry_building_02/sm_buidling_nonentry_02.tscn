@@ -1,8 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://colklion45gew"]
+[gd_scene load_steps=9 format=3 uid="uid://colklion45gew"]
 
 [ext_resource type="PackedScene" uid="uid://wp1l42t5sne4" path="res://assets/3d/buildings/nonentry/nonentry_building_02/sm_buidling_nonentry_02.gltf" id="1_wgbcc"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_6o5dw"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_5mds2"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_vw635"]
+[ext_resource type="Texture2D" uid="uid://c36wyx7uj2x06" path="res://assets/3d/buildings/nonentry/nonentry_building_02/sm_nonentry_02_Base_Color.png" id="5_ynaq7"]
+[ext_resource type="Texture2D" uid="uid://cc0o28sfy02k7" path="res://assets/3d/buildings/nonentry/nonentry_building_02/sm_nonentry_02_Normal_DirectX.png" id="6_5mds2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3o6"]
+render_priority = 0
+shader = ExtResource("2_6o5dw")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ehar"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_tk3o6")
+shader = ExtResource("3_5mds2")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_ynaq7")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("6_5mds2")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vw635")
+shader_parameter/fresnel_gradient = ExtResource("4_vw635")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_buidling_nonentry_02" instance=ExtResource("1_wgbcc")]
 
 [node name="sm_building_nonentry_02" parent="mesh_nonentry_02" index="0"]
 transform = Transform3D(0.0188057, 0, 0.999823, 0, 1, 0, -0.999823, 0, 0.0188057, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/1 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/2 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/3 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/4 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/5 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/6 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/7 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/8 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/9 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/10 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/11 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/12 = SubResource("ShaderMaterial_8ehar")
+surface_material_override/13 = SubResource("ShaderMaterial_8ehar")

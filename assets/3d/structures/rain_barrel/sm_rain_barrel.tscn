@@ -1,5 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://n6pfbx2a72ef"]
+[gd_scene load_steps=3 format=3 uid="uid://n6pfbx2a72ef"]
 
 [ext_resource type="PackedScene" uid="uid://d31ct104ba5vf" path="res://assets/3d/structures/rain_barrel/sm_rain_barrel.gltf" id="1_8hmsw"]
+[ext_resource type="Material" uid="uid://48yxtwwrpf3m" path="res://materials/cel_shading_base_material.tres" id="2_16pv5"]
 
 [node name="sm_rain_barrel" instance=ExtResource("1_8hmsw")]
+
+[node name="SM_RainBarrel_Type_02_001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_16pv5")
+surface_material_override/1 = ExtResource("2_16pv5")
+surface_material_override/2 = ExtResource("2_16pv5")
+surface_material_override/3 = ExtResource("2_16pv5")
+surface_material_override/4 = ExtResource("2_16pv5")
+surface_material_override/5 = ExtResource("2_16pv5")
+surface_material_override/6 = ExtResource("2_16pv5")

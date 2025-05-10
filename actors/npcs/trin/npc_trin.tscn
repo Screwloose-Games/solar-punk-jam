@@ -1,32 +1,109 @@
-[gd_scene load_steps=5 format=3 uid="uid://nwbkxvaa2518"]
+[gd_scene load_steps=10 format=3 uid="uid://nwbkxvaa2518"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_g6pen"]
-[ext_resource type="PackedScene" uid="uid://c5vkhodnbfu5s" path="res://assets/3d/people/trin/sk_trin.tscn" id="2_bimy8"]
-[ext_resource type="PackedScene" uid="uid://cjqq7gkmrh6v7" path="res://assets/3d/people/trin/tweenbase00.fbx" id="2_m4qrm"]
+[ext_resource type="PackedScene" uid="uid://b5yfmgmas0rh7" path="res://assets/3d/people/trin-animations-2/trin_animations_2.tscn" id="2_bimy8"]
+[ext_resource type="Texture2D" uid="uid://ch4dh3hiulqfk" path="res://assets/2d/faces/trin/trin_neutral.png" id="3_6mvsc"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_cqhrq"]
+[ext_resource type="Material" uid="uid://duwfy3f2xfk6g" path="res://assets/3d/people/trin/material_trin_cel_shader.tres" id="3_ihwu3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0xy2"]
+transparency = 1
+albedo_texture = ExtResource("3_6mvsc")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ihwu3"]
+animation = &"trin-idle-standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6mvsc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ihwu3"]
+states/Start/position = Vector2(139, 142)
+states/trin-idle-standing/node = SubResource("AnimationNodeAnimation_ihwu3")
+states/trin-idle-standing/position = Vector2(423, 90)
+transitions = ["Start", "trin-idle-standing", SubResource("AnimationNodeStateMachineTransition_6mvsc")]
+graph_offset = Vector2(-71, 29)
 
 [node name="Trin" instance=ExtResource("1_g6pen")]
 
-[node name="sk_trin" parent="." index="0" instance=ExtResource("2_bimy8")]
+[node name="trin-animations2" parent="." index="0" instance=ExtResource("2_bimy8")]
 
-[node name="tweenbase00" parent="." index="1" instance=ExtResource("2_m4qrm")]
-visible = false
+[node name="Skeleton3D" parent="trin-animations2/Armature" index="0"]
+bones/0/position = Vector3(5.42305, -0.506139, -90.6066)
+bones/0/rotation = Quaternion(-0.711164, -0.0507272, 0.0138873, 0.701056)
+bones/1/rotation = Quaternion(-0.00751946, 0.00383909, 0.0130073, 0.99988)
+bones/2/rotation = Quaternion(0.0181336, 0.0072832, 0.0271127, 0.999441)
+bones/3/rotation = Quaternion(0.0181336, 0.00728321, 0.0271127, 0.999441)
+bones/4/rotation = Quaternion(-0.078077, -0.00173462, 0.0066722, 0.996924)
+bones/5/rotation = Quaternion(0.0291184, 0.0078822, -0.0490704, 0.99834)
+bones/7/rotation = Quaternion(-0.634594, -0.353732, 0.568005, -0.386697)
+bones/8/position = Vector3(2.8009e-06, 9.83615, -2.15616e-07)
+bones/8/rotation = Quaternion(0.410162, 0.170398, 0.0698026, 0.89323)
+bones/9/position = Vector3(3.1475e-08, 21.3645, -1.22016e-06)
+bones/9/rotation = Quaternion(0.0193793, -0.0820554, 0.14669, 0.985583)
+bones/10/rotation = Quaternion(-0.146617, 0.229228, 0.0842089, 0.958575)
+bones/11/rotation = Quaternion(0.127437, -0.0383438, 0.257799, 0.95699)
+bones/12/position = Vector3(0.361452, 5.075, -2.30836e-06)
+bones/12/rotation = Quaternion(0.0292892, 0.0229526, -0.196821, 0.979733)
+bones/13/position = Vector3(-0.499729, 3.80408, -8.44208e-07)
+bones/13/rotation = Quaternion(4.77636e-05, -0.00115425, 0.0881491, 0.996107)
+bones/14/position = Vector3(0.138277, 3.00979, 4.54747e-13)
+bones/15/position = Vector3(-5.24302e-07, 9.2161, 0.479562)
+bones/15/rotation = Quaternion(0.17421, -0.0804833, 0.0710154, 0.978841)
+bones/16/position = Vector3(0.782698, 4.02723, 4.45749e-06)
+bones/16/rotation = Quaternion(0.0887974, 0.00654119, -0.13635, 0.986651)
+bones/17/position = Vector3(-0.641848, 3.63032, 3.06113e-06)
+bones/17/rotation = Quaternion(-0.00150934, 0.0137049, 0.0652462, 0.997774)
+bones/18/position = Vector3(-0.140852, 3.1702, -1.28746e-05)
+bones/19/rotation = Quaternion(0.602042, -0.385734, 0.583076, 0.385717)
+bones/20/position = Vector3(-4.37624e-07, 9.83614, -3.31357e-06)
+bones/20/rotation = Quaternion(0.395632, -0.254327, -0.0555017, 0.880746)
+bones/21/position = Vector3(8.44529e-07, 21.3546, -6.68927e-07)
+bones/21/rotation = Quaternion(0.0106239, 0.0144297, -0.166118, 0.985943)
+bones/22/rotation = Quaternion(-0.223856, 0.0201471, -0.00865242, 0.974376)
+bones/23/rotation = Quaternion(0.133243, 0.0539836, -0.212506, 0.966526)
+bones/24/position = Vector3(-0.269414, 5.07004, 4.148e-06)
+bones/24/rotation = Quaternion(0.0483926, -0.0158562, 0.217281, 0.97478)
+bones/25/rotation = Quaternion(1.22462e-05, 0.000516544, -0.112598, 0.99364)
+bones/27/position = Vector3(3.35007e-06, 10.795, 0.176182)
+bones/27/rotation = Quaternion(0.148579, 0.0671416, -0.0326943, 0.986077)
+bones/28/position = Vector3(-0.276285, 3.5576, 3.07567e-06)
+bones/28/rotation = Quaternion(0.050568, -0.00113824, 0.0314872, 0.998223)
+bones/29/position = Vector3(0.0618954, 2.8173, -4.52703e-07)
+bones/29/rotation = Quaternion(0.000147861, 0.00276982, 0.0312678, 0.999507)
+bones/30/position = Vector3(0.214393, 2.53077, -5.126e-06)
+bones/31/rotation = Quaternion(0.0188828, 0.140025, 0.988956, -0.0447557)
+bones/32/rotation = Quaternion(-0.186047, -0.0031056, 0.0485499, 0.981336)
+bones/33/rotation = Quaternion(0.432826, -0.249247, 0.12915, 0.856655)
+bones/34/rotation = Quaternion(0.285972, -0.0736937, 0.0375494, 0.954662)
+bones/36/rotation = Quaternion(-0.0588163, 0.0104312, 0.99474, -0.0832072)
+bones/37/rotation = Quaternion(-0.0915488, 0.00149421, -0.0513291, 0.994476)
+bones/38/rotation = Quaternion(0.490847, 0.186567, -0.151, 0.837533)
+bones/39/rotation = Quaternion(0.324182, 0.0445375, -0.00776695, 0.944914)
 
-[node name="QuestMarker3D" parent="." index="2"]
+[node name="TrinBase_001" parent="trin-animations2/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c0xy2")
+surface_material_override/1 = ExtResource("3_ihwu3")
+
+[node name="QuestMarker3D" parent="." index="1"]
 id = "trin"
 
-[node name="Name" parent="." index="3"]
+[node name="Name" parent="." index="2"]
 text = "Trin"
 
-[node name="MeshInstance3D" parent="." index="4"]
+[node name="MeshInstance3D" parent="." index="3"]
 visible = false
 
-[node name="InteractNotify" parent="." index="6" instance=ExtResource("3_cqhrq")]
+[node name="InteractNotify" parent="." index="5" instance=ExtResource("3_cqhrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 npc_id = "trin"
 
-[node name="Dialogue" parent="." index="8"]
+[node name="Dialogue" parent="." index="7"]
 npc_id = "trin"
 
-[editable path="tweenbase00"]
+[node name="AnimationTree" parent="." index="12"]
+root_node = NodePath("../trin-animations2")
+tree_root = SubResource("AnimationNodeStateMachine_ihwu3")
+anim_player = NodePath("../trin-animations2/AnimationPlayer")
+
+[editable path="trin-animations2"]
 [editable path="InteractableArea3D"]
