@@ -968,7 +968,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo066")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2p7g7")
 text = "Exit"
 
-[node name="TestScenariosButton" type="Button" parent="Main Menu/PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="Main Menu_PanelContainer_MarginContainer_VBoxContainer_MarginContainer2_VBoxContainer#TestScenariosButton" type="Button" parent="."]
 visible = false
 layout_mode = 2
 text = "Scenarios"
@@ -981,7 +981,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1152.0
 offset_right = 1152.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_d26fo")
