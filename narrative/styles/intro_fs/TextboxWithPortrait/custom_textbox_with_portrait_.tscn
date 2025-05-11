@@ -40,10 +40,10 @@ mouse_filter = 2
 unique_name_in_owner = true
 self_modulate = Color(0.533333, 0.376471, 0.176471, 1)
 layout_mode = 0
-offset_left = -512.0
-offset_top = -584.0
-offset_right = 512.0
-offset_bottom = -64.0
+offset_left = -481.0
+offset_top = -1085.0
+offset_right = 543.0
+offset_bottom = -565.0
 mouse_filter = 2
 
 [node name="HBox" type="HBoxContainer" parent="Anchor/Panel"]

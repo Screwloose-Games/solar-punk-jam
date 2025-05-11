@@ -136,6 +136,7 @@ class TimeStruct:
 class EnvironmentModel:
 	signal started_raining
 	signal stopped_raining
+	signal day_updated(day_num: int)
 	
 	var current_time_in_game_hours = 12.0
 	var day_length_in_game_hours = 12.0
@@ -156,7 +157,12 @@ class EnvironmentModel:
 			is_raining = val
 			
 	var rain_period = 5
-	var day := 0
+	var day := 0:
+		set(val):
+			if val != day:
+				day_updated.emit(val)
+			day = val
+				
 	var offset: float
 	func update(current_time_in_game_hours, day_length_in_game_hours, day_start_in_game_hours, day_length_in_seconds, night_length_in_seconds, is_paused) -> void:
 		self.current_time_in_game_hours = current_time_in_game_hours

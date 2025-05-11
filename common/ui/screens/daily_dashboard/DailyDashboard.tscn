@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://j2ly0yqcesf4"]
 
 [ext_resource type="Script" uid="uid://corqrrsqoaq8h" path="res://common/ui/hud/daily_summary_center_container.gd" id="1_yxfop"]
-[ext_resource type="Script" uid="uid://sq5xxykgvgls" path="res://common/ui/screens/daily_dashboard/daily_dashboard_row_item.gd" id="2_uu7gp"]
+[ext_resource type="Script" path="res://common/ui/screens/daily_dashboard/daily_dashboard_row_item.gd" id="2_uu7gp"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="3_15wlm"]
 [ext_resource type="Script" uid="uid://ku4nu4x303m8" path="res://actors/npcs/board/reward_icon_large.gd" id="4_lehfj"]
 [ext_resource type="Texture2D" uid="uid://cl0lr84e76vsa" path="res://assets/2d/ui/Envior-icon.png" id="4_uu7gp"]
@@ -180,6 +180,7 @@ layout_mode = 2
 
 [node name="CloseButton" type="Button" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/VBoxContainer/SummaryLabel"]
 unique_name_in_owner = true
+layout_mode = 0
 theme_override_colors/font_color = Color(0.0784314, 0.0823529, 0.0823529, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_lehfj")

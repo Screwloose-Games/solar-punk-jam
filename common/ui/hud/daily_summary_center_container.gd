@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _on_close_pressed():
 	closed.emit()
+	GlobalSignalBus.daily_summary_continue_clicked.emit()
 	close()
 
 func _on_visibility_changed():

@@ -38,6 +38,7 @@ streams_count = 1
 stream_0/stream = ExtResource("13_12h0w")
 
 [node name="SoundManager" type="AudioStreamPlayer"]
+process_mode = 3
 script = ExtResource("1_0wbjb")
 
 [node name="UiSoundPlayer" type="AudioStreamPlayer" parent="."]
@@ -86,7 +87,7 @@ metadata/_custom_type_script = "uid://dd8uxrmtutff5"
 
 [node name="RainEffectConnector" type="Node" parent="."]
 script = ExtResource("2_t4w6u")
-player_type = 1
+player_type = 2
 global_name = "GlobalSignalBus"
 start_signal_name = "started_raining"
 stop_signal_name = "stopped_raining"

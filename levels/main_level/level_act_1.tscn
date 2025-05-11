@@ -1,8 +1,9 @@
-[gd_scene load_steps=69 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=69 format=3 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
+[ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
 [ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
@@ -301,6 +302,14 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 
+[node name="Environment" parent="." instance=ExtResource("5_buxdt")]
+unique_name_in_owner = true
+day_length_in_game_hours = 14.0
+is_raining = true
+
+[node name="RainDayTwo" type="Node" parent="."]
+script = ExtResource("1_msodx")
+
 [node name="QuestHelper" type="Node" parent="."]
 script = ExtResource("1_4dpg8")
 
@@ -326,9 +335,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58675, 1.33912, -9.39314)
 [node name="JunkRegenerator" type="Node" parent="."]
 editor_description = "Regenerates Junk on the map at a programmabe rate"
 script = ExtResource("4_yde30")
-
-[node name="Environment" parent="." instance=ExtResource("5_buxdt")]
-day_length_in_game_hours = 14.0
 
 [node name="UnlockStructures" type="Node" parent="."]
 script = ExtResource("6_h10rw")
@@ -686,13 +692,17 @@ id = "trin_compost"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0279, 0, 15.2942)
 
 [node name="TrinRainBarrel" parent="." instance=ExtResource("26_abo5y")]
-transform = Transform3D(0.592716, 0, 0.805412, 0, 1, 0, -0.805412, 0, 0.592716, -32.0478, 0.00147895, 2.69058)
+transform = Transform3D(0.592716, 0, 0.805412, 0, 1, 0, -0.805412, 0, 0.592716, -34.7963, 0.00147895, 5.58299)
+structure_name = "Rain barrel"
 
 [node name="RainBarrel" parent="TrinRainBarrel" index="0"]
 starting_water = 4
 
 [node name="sm_rain_barrel" parent="TrinRainBarrel" index="1"]
-transform = Transform3D(0.432574, 0, 0.901599, 0, 1, 0, -0.901599, 0, 0.432574, -3.50237, 0, -0.196011)
+transform = Transform3D(0.432574, 0, 0.901599, 0, 1, 0, -0.901599, 0, 0.432574, 0, 0, 0)
+
+[node name="SoundPlayer3D" parent="TrinRainBarrel" index="3"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.32296, 0)
 
 [node name="QuestMarker3D" parent="TrinRainBarrel" instance=ExtResource("28_7t8hb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40393, 0)

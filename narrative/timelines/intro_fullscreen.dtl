@@ -1,4 +1,4 @@
-[background arg="res://narrative/styles/intro_fs/bg_black.png" fade="0.0"]
+[background arg="res://narrative/styles/intro_fs/bg_black.png" fade="2.0"]
 [style name="intro_fs"]
 [speed=4] Dear Diary,\
 \

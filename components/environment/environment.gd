@@ -19,6 +19,11 @@ class_name CapybaraEnvironment
 			
 @export var is_raining := false:
 	set(value):
+		if value != is_raining:
+			if value:
+				GlobalSignalBus.started_raining.emit()
+			else:
+				GlobalSignalBus.stopped_raining.emit()
 		is_raining = value
 		$Rain.visible = value
 		$Rain/CanvasLayer.visible = value
