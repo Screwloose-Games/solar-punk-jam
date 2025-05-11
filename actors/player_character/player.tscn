@@ -23,6 +23,7 @@ Label/constants/outline_size = 4
 Label/font_sizes/font_size = 24
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aeg1h"]
+radius = 0.264675
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hm2po"]
 animation = &"te-idle-happy-fidget"

@@ -14,10 +14,11 @@ const REWARD_SOLAR_PANNEL_ICON = preload("res://assets/2d/ui/reward-solar-pannel
 const REWARD_STRAWBERRY_ICON = preload("res://assets/2d/ui/reward-strawberry-icon.png")
 const REWARD_VERTICAL_PLANTER_ICON = preload("res://assets/2d/ui/reward-vertical-palnter-icon.png")
 const REWARD_WATER_BARREL = preload("res://assets/2d/ui/reward-water-barrel.png")
-
+const ENVIOR_ICON = preload("res://assets/2d/ui/Envior-icon.png")
+const HAPPINESS_ICON = preload("res://assets/2d/ui/Happiness-icon.png")
 const TEMP_ICON = preload("res://assets/2d/ui/Happiness-icon.png")
 
-static var quest_reward_icons = {
+static var quest_reward_icons: Dictionary[String, Texture2D] = {
 	"Materials": REWARD_MATERIALS,
 	"Soil": REWARD_SOIL,
 	"Junk": REWARD_JUNK,
@@ -31,14 +32,25 @@ static var quest_reward_icons = {
 	"Strawberry": REWARD_STRAWBERRY_ICON,
 	"Vertical garden": REWARD_VERTICAL_PLANTER_ICON,
 	"Water barrel": REWARD_WATER_BARREL,
+	"Environment": ENVIOR_ICON,
+	"Happiness": HAPPINESS_ICON,
 }
 
-@export var reward_name: String
+@export var reward_name: String:
+	set(val):
+		reward_name = val
+		if not is_node_ready():
+			await ready
+		rerender()
+			
+		
 
-func _ready() -> void:
+func rerender():
 	if reward_name in quest_reward_icons:
 		texture = quest_reward_icons[reward_name]
 	else:
 		texture = TEMP_ICON
 		push_warning("No icon found for reward: '%s'" % reward_name)
 		#visible = false
+func _ready() -> void:
+	rerender()

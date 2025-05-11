@@ -18,6 +18,7 @@ signal community_board_interacted
 signal community_board_quest_accepted
 signal talked_to(npc: String)
 signal activated_build_mode
+signal exited_build_mode
 signal structure_interacted(structure: String)
 signal seed_planted(crop: Crop)
 signal player_entered_home
@@ -32,3 +33,5 @@ signal waste_deposited
 signal stairs_travelled
 signal scrap_collected
 signal crop_harvested(crop_type: Crop.CropType)
+signal ui_button_pressed
+signal ui_button_hovered
