@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ikd807r7spn"]
+
+[ext_resource type="PackedScene" uid="uid://kbg707jk8wvx" path="res://assets/3d/environment/dressing/grass-long.glb" id="1_k5mp1"]
+[ext_resource type="Material" uid="uid://buip07d8drfck" path="res://assets/3d/environment/dressing/plant-1.tres" id="2_26l14"]
+
+[node name="grass-long2" instance=ExtResource("1_k5mp1")]
+
+[node name="grass-long" parent="." index="0"]
+transform = Transform3D(0.800993, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_26l14")

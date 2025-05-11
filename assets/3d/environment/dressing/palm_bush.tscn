@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4eb7702m4uvu"]
+
+[ext_resource type="PackedScene" uid="uid://b5l3oqou58owl" path="res://assets/3d/environment/dressing/palm-bush.glb" id="1_dr47g"]
+[ext_resource type="Material" uid="uid://buip07d8drfck" path="res://assets/3d/environment/dressing/plant-1.tres" id="2_mf581"]
+
+[node name="palm-bush" instance=ExtResource("1_dr47g")]
+
+[node name="palm-bush-big" parent="." index="0"]
+transform = Transform3D(0.74825, 0, 0, 0, 0.747508, 0, 0, 0, 0.797338, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_mf581")

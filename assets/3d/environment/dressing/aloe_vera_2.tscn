@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsffbjppcx7qj"]
+
+[ext_resource type="PackedScene" uid="uid://brsbirmqgkifb" path="res://assets/3d/environment/dressing/aloe-vera.glb" id="1_mqy0i"]
+[ext_resource type="Material" uid="uid://buip07d8drfck" path="res://assets/3d/environment/dressing/plant-1.tres" id="2_oppwd"]
+
+[node name="aloe-vera2" instance=ExtResource("1_mqy0i")]
+
+[node name="aloe-vera" parent="." index="0"]
+transform = Transform3D(1.48322, 0, 0, 0, 1.30484, 0, 0, 0, 1.30665, 0, 0.150231, 0)
+surface_material_override/0 = ExtResource("2_oppwd")
