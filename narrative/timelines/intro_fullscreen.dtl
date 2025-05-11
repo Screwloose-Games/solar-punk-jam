@@ -1,33 +1,11 @@
 [background arg="res://narrative/styles/intro_fs/bg_black.png" fade="0.0"]
 [style name="intro_fs"]
-[speed=4]DEAR DIARY
-[speed=4]It's raining again!!!!
-[speed=4]Dad’s trying to knit me a sweater for my bday but
-[speed=4]I want the Blaster1000!!
-[speed=4]Tommy showed off his at school.
-[speed=4]I wish I had stuff I could show off too.
-[wait time=".3"]
-[speed=4]DEAR DIARY
-ITS ME AGAIN
-it's raining so much now
-it sounds like thousands of people on the roof
-[wait time=".3"]
-[speed=4]DEAR DIARY
-THE SWEATER’S SO UGLY.
-It's blue and green and there's thread everywhere 
-But daddy got really emotional.
-I think he just wanted to give me something
-[wait time=".3"]
-[speed=4]DEAR DIARY
-I kinda like the sweater now
-the Blaster1000 is stupid anyway
-[wait time=".3"]
-[speed=4]DEAR DIARY
-the rain is worse
+[speed=4] Dear Diary,
+it's been raining for days
+it sounds like a hundred trains all around us
+I can hear my parents yelling in the other room
 mama says we should go
-but daddy got so mad
-he said
-WHERE WE GONNA GO 
-[speed=8]THIS IS THE ONLY HOME WE HAVE
+but daddy says where?
+[speed=6]THIS IS THE ONLY HOME WE HAVE
 [wait time="5.0"]
 [style name="dialogic_dialog_style"]
