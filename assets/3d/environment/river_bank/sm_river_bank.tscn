@@ -1,33 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8f3750l0q6c"]
+[gd_scene load_steps=6 format=3 uid="uid://b8f3750l0q6c"]
 
 [ext_resource type="PackedScene" uid="uid://cwifrb8l3i4pq" path="res://assets/3d/environment/river_bank/sm_river_bank.gltf" id="1_caj75"]
-[ext_resource type="Texture2D" uid="uid://dc0g38nt1fmj6" path="res://assets/textures/dirt/dirt_basecolor.png" id="2_cauuw"]
-[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_5v4mr"]
-[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_o0qg8"]
+[ext_resource type="Texture2D" uid="uid://dc0g38nt1fmj6" path="res://assets/textures/dirt/dirt_basecolor.png" id="2_74op2"]
+[ext_resource type="Texture2D" uid="uid://dxc5trii0b6t7" path="res://assets/textures/dirt/dirt_normal.png" id="3_ipg52"]
+[ext_resource type="Texture2D" uid="uid://c5hdxhvessirm" path="res://assets/textures/dirt/dirt_roughness.png" id="4_5v4mr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3o6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i52co"]
-render_priority = 0
-next_pass = SubResource("ShaderMaterial_tk3o6")
-shader = ExtResource("3_5v4mr")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_cauuw")
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
-shader_parameter/normal_scale = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0, 0, 0)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("4_o0qg8")
-shader_parameter/fresnel_gradient = ExtResource("4_o0qg8")
-shader_parameter/fresnel_intensity = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0qg8"]
+albedo_texture = ExtResource("2_74op2")
+roughness_texture = ExtResource("4_5v4mr")
+roughness_texture_channel = 3
+normal_enabled = true
+normal_texture = ExtResource("3_ipg52")
+uv1_scale = Vector3(13.56, 13.56, 13.56)
 
 [node name="sm_river_bank" instance=ExtResource("1_caj75")]
 
 [node name="Cube" parent="." index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_i52co")
+surface_material_override/0 = SubResource("StandardMaterial3D_o0qg8")

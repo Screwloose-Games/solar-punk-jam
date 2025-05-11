@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://c2jegur5j8837"]
+[gd_scene load_steps=14 format=4 uid="uid://c2jegur5j8837"]
 
 [ext_resource type="PackedScene" uid="uid://cncd5rfxsn2wt" path="res://assets/3d/environment/dressing/leaf-1.glb" id="1_u141s"]
 [ext_resource type="Material" uid="uid://buip07d8drfck" path="res://assets/3d/environment/dressing/plant-1.tres" id="2_61alc"]
-[ext_resource type="Material" uid="uid://cmf3jw1db66gm" path="res://assets/3d/environment/dressing/plant-2.tres" id="2_y3bqa"]
+[ext_resource type="Texture2D" uid="uid://byynj2aqcn0ac" path="res://assets/3d/environment/dressing/plant-texture-1.png" id="2_y3bqa"]
 [ext_resource type="Texture2D" uid="uid://bkxh4hmjqpxvc" path="res://assets/3d/environment/dressing/plant-texture-3.jpg" id="4_y3bqa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xk2r5"]
@@ -44,6 +44,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o2lgm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4t7b"]
+albedo_texture = ExtResource("2_y3bqa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hpyl"]
 resource_name = "37 GREEN-LIGHT"
@@ -113,7 +116,7 @@ albedo_texture = ExtResource("4_y3bqa")
 transform = Transform3D(-0.757597, 0.0698812, -0.64897, 0.434044, 0.796508, -0.420927, 0.487495, -0.600576, -0.633764, 0.0855938, 0.06638, 0.410505)
 mesh = SubResource("ArrayMesh_htv47")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_y3bqa")
+surface_material_override/0 = SubResource("StandardMaterial3D_h4t7b")
 
 [node name="leaf-linded3" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(-0.26332, 0.712429, 0.60305, 0.280455, 0.703792, -0.603337, -0.800618, 0.0122223, -0.409688, -0.251866, 0.106281, 0.428747)

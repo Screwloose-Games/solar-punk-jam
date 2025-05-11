@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cbodbramso3fv"]
+[gd_scene load_steps=57 format=3 uid="uid://cbodbramso3fv"]
 
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c2jegur5j8837" path="res://assets/3d/environment/dressing/leaf_cluster-2.tscn" id="30_rycpo"]
 [ext_resource type="PackedScene" uid="uid://coeurwccikebd" path="res://assets/3d/environment/dressing/rock_large_2.tscn" id="31_4dpg8"]
 [ext_resource type="PackedScene" uid="uid://c4eb7702m4uvu" path="res://assets/3d/environment/dressing/palm_bush.tscn" id="38_khisr"]
+[ext_resource type="PackedScene" uid="uid://dt3kntqpa41ew" path="res://assets/3d/environment/dressing/rock_sharp_2.tscn" id="39_rycpo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
 render_priority = 0
@@ -777,6 +778,15 @@ transform = Transform3D(0.684662, 0, -0.728861, 0, 1, 0, 0.728861, 0, 0.684662, 
 
 [node name="palm-bush4" parent="." instance=ExtResource("38_khisr")]
 transform = Transform3D(0.107201, 0, -0.994237, 0, 1, 0, 0.994237, 0, 0.107201, -26.1393, 0.759627, -28.9072)
+
+[node name="rock-sharp2" parent="." instance=ExtResource("39_rycpo")]
+transform = Transform3D(0.554278, 0, 0.832332, 0, 1, 0, -0.832332, 0, 0.554278, 36.4431, 0.449475, 22.0902)
+
+[node name="palm-bush5" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2289, 0.622139, 23.9318)
+
+[node name="palm-bush6" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(0.747265, 0, -0.664526, 0, 1, 0, 0.664526, 0, 0.747265, 16.958, 0.622139, 31.1837)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
