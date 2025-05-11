@@ -39,7 +39,16 @@ func _ready() -> void:
 	StructureManager.StructureBuilt.connect(update_structures)
 	GlobalSignalBus.seed_planted.connect(update_crop)
 	unlock_quest("a1d1_trin")
+	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
 
+func _on_world_unloaded():
+	reset()
+
+func reset():
+	quests.clear()
+	quest_markers.clear()
+	unlocked_quests.clear()
+	Dialogic.VAR.clear_game_state()
 
 func unlock_quest(quest_id : String):
 	var new_quest = load(FILE_PATH % ("qst_" + quest_id))

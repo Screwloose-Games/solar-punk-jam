@@ -1,6 +1,7 @@
-[gd_scene load_steps=69 format=3 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=72 format=3 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
+[ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
 [ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
@@ -301,6 +302,7 @@ editor_description = "1. Wake up at home
     2. ~~Add quest to quest menu (retrieve book for Mister)~~
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
+script = ExtResource("1_6h1tf")
 
 [node name="Environment" parent="." instance=ExtResource("5_buxdt")]
 unique_name_in_owner = true

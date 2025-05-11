@@ -199,7 +199,20 @@ class EnvironmentModel:
 var environment_model: EnvironmentModel
 
 func _ready() -> void:
-	environment_model = EnvironmentModel.new()
+	initialize()
 	self.day_cycle_update.connect(self.environment_model.set_offset)
 	self.day_cycle_start.connect(self.environment_model.set_daytime)
 	self.day_cycle_end.connect(self.environment_model.set_nighttime)
+	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
+
+func initialize():
+	environment_model = EnvironmentModel.new()
+
+func _on_world_unloaded():
+	reset()
+
+func reset():
+	current_resources = {"Happiness":10}
+	daily_resources = {}
+	deposited_resources = {}
+	initialize()
