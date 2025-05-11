@@ -1,12 +1,9 @@
 if {mister_met} == false:
 	Mister: Hey, kid. Mom working you hard hunh?
 	Te: I practically do everything around here!
-	Mister: After the flood, the city shut this place down. 
-	Mister: Said it was unlivable.
-	Mister: But look at us. We're here aren't we?
-	Mister: Know why?
+	Mister: After the flood, the city shut this place down. Said it was unlivable.\
+But look at us. We're here aren't we? Know why?
 	Te: Why?
-	Mister: 'Cause of hard work.
-	Mister: So keep it up, kid.
+	Mister: 'Cause of hard work. So keep it up, kid.
 	set {mister_met} = true
 Mister: We'll get this city flood-proof in no time.

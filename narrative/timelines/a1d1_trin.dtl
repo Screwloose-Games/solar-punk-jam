@@ -1,8 +1,8 @@
 label prog0
 Te (neutral): Hey, Trin. I read your note about the planter--
-Trin (thinking): SHHHH! They're sleeping. 
+Trin (thinking): SHHHH! They're sleeping.
 Te (thinking): The plants?
-Trin (neutral): Duh! Who else? You can start building the planter over there. 
+Trin (neutral): Duh! Who else? You can start building the planter over there.
 Te (neutral): Here's the thing...I kinda forgot how?
 # Tutorial: THIS BEGINS THE **“GARDEN TUTORIAL”**
 Trin (neutral): Even a Berberis thunbergii has a better memory than you.
@@ -10,42 +10,40 @@ Trin (sad): Fine.\
 I’ll walk you through it.
 [end_timeline]
 label prog1
-Trin (neutral): First, you'll need materials. 
+Trin (neutral): First, you'll need materials.
 Te (neutral): Uhhh...??
 Trin (neutral): You don't have them?
-Trin (sad): *sigh*
 Trin (neutral): Fine. I'll give them to you THIS ONE TIME to speed things up.
 Te (happy): Thanks, big sis!
-Trin (grumbling): Stop calling me that.
-Trin: Go ahead and pick a spot for the planter.
+Trin (grumbling): Stop calling me that.\
+Go ahead and pick a spot for the planter.
 # Tutorial: ACCESS BUILD MODE TO VIEW UNLOCKED BUILDABLE ITEMS\
 # SELECT THE VERTICAL PLANTER\
 # PLACE THE VERTICAL PLANTER ON THE GRID.
 [end_timeline]
 label prog2
 Trin (neutral): You might as well plant something too.
-Trin (neutral): Usually you'd need to add food waste to the compost bin to make soil. 
-Trin (happy): But lucky you I've got dirt for days. 
+Trin (neutral): Usually you'd need to add food waste to the compost bin to make soil. But lucky you I've got dirt for days.
 # Tutorial: GRAB SOIL FROM THE COMPOST BIN
 [end_timeline]
 label prog3
-Trin (neutral): Next is water! 
-Trin (neutral): It rained yesterday so my barrels are full. 
+Trin (neutral): Next is water!\
+It rained yesterday so my barrels are full.
 # Tutorial: GET WATER FROM THE RAIN BARREL
 [end_timeline]
 label prog4
-Trin (neutral): Now plant the single yield crop seed. You'll only need to water it once.
-Trin (neutral): Recurring crops have to be watered each time you harvest them.
+Trin (neutral): Now plant the radish seed.\
+You'll only need to water it once, but recurring crops have to be watered each time you harvest them.
 # Tutorial: INTERACT WITH THE VERTICAL GARDEN TO OPEN PLANT MODE
 [end_timeline]
 label prog5
 # Tutorial: **GARDEN TUTORIAL COMPLETE**
 Te: That was fun!\
-No wonder you like gardening. 
-Trin: I don't garden.
-Trin: I RAISE plants. 
+No wonder you like gardening.
+Trin: I don't garden.\
+I RAISE plants.
 Te: I think the pollen's gotten to your head, Trin.
-Trin: Here. If you like gardening you can build your own. 
+Trin: Here. If you like gardening you can build your own.
 Te: Thanks, big sis!
 Trin: *sigh*
 set {tringarden} = true
