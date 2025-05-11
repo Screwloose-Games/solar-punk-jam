@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var update_resources_component: UpdateResourcesComponent = %UpdateResourcesComponent
 @onready var unlock_structures_component: UnlockStructuresComponent = %UnlockStructuresComponent
 @onready var debug_ui_margin_container: PanelContainer = %DebugUIContainer
+@onready var label_margin_container: MarginContainer = %LabelMarginContainer
 
 const end_timeline_label: String = "skip"
 
@@ -24,10 +25,10 @@ func _process(delta: float) -> void:
 	if not OS.is_debug_build():
 		return
 	if Input.is_action_just_pressed("Debug"):
-		debug_ui_margin_container.visible = !debug_ui_margin_container.visible
+		visible = !visible
+		debug_ui_margin_container.visible = visible
 	if Input.is_action_just_pressed("Skip"):
 		skip_to_timeline_end()
-			
 
 func skip_to_timeline_end():
 	if Dialogic.current_timeline != null:

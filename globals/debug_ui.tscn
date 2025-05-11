@@ -171,6 +171,7 @@ structures = Dictionary[String, bool]({
 metadata/_custom_type_script = "uid://bdour1f6ee8mm"
 
 [node name="LabelMarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

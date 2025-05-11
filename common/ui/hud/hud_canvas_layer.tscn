@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=36 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -14,8 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
 [ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
 [ext_resource type="PackedScene" uid="uid://chvbasb1d20c4" path="res://common/ui/screens/end_day_sequence/end_day_sequence.tscn" id="13_5quvr"]
+[ext_resource type="Texture2D" uid="uid://c8t6nj5nejist" path="res://addons/controller_icons/assets/key/p.png" id="15_2xgu1"]
 [ext_resource type="Texture2D" uid="uid://cml8b4jaaaxhh" path="res://assets/2d/ui/B_Key.png" id="15_45i4j"]
 [ext_resource type="Script" uid="uid://bemucfv6jrtyf" path="res://common/ui/build_overlay/build_ui_container.gd" id="15_54k12"]
+[ext_resource type="Script" uid="uid://bmetyd2p46qm7" path="res://common/ui/hud/help_info_margin_container.gd" id="15_yx374"]
 [ext_resource type="PackedScene" uid="uid://b8giku24hrdo3" path="res://common/ui/build_overlay/structure_panel_container.tscn" id="16_54k12"]
 [ext_resource type="PackedScene" uid="uid://dp27yopmide5x" path="res://common/ui/build_overlay/build_hover_panel.tscn" id="16_bgxx2"]
 
@@ -704,6 +706,37 @@ offset_left = 636.0
 offset_top = 49.0
 offset_right = 919.0
 offset_bottom = 699.0
+
+[node name="HelpInfoMarginContainer" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 71
+theme_override_constants/margin_bottom = 30
+script = ExtResource("15_yx374")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HelpInfoMarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/HelpInfoMarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Pause Menu"
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HelpInfoMarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_2xgu1")
+expand_mode = 1
 
 [node name="BuildCanvasLayer" type="CanvasLayer" parent="."]
 
