@@ -1,11 +1,17 @@
 extends Node3D
 
 signal talked_to
+signal quests_available_changed(has_quests: bool)
 
 @export var npc_id = ""
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
+var has_quests_available: bool = false:
+	set(val):
+		if val != has_quests_available:
+			quests_available_changed.emit(val)
+		has_quests_available = val
 
 func _ready() -> void:
 	visible = false
@@ -17,7 +23,10 @@ func _on_quest_change():
 	hide()
 	for quest in QuestManager.unlocked_quests:
 		if quest.quest_giver == npc_id:
+			has_quests_available = true
 			show()
+			return
+	has_quests_available = false
 
 
 func _on_interacted(player: Player):
