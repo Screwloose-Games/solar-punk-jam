@@ -1,18 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc1eebnpxere"]
+[gd_scene load_steps=4 format=3 uid="uid://bc1eebnpxere"]
 
 [ext_resource type="Script" uid="uid://bme1s1qtei1md" path="res://common/ui/components/quest/objective_container.gd" id="1_5h13e"]
+[ext_resource type="Texture2D" uid="uid://cy2x2yinvy2k7" path="res://assets/2d/ui/checked-box.png" id="2_n2acx"]
+[ext_resource type="Texture2D" uid="uid://d0q8s0f1dt4py" path="res://assets/2d/ui/unchecked-box.png" id="3_q5xy0"]
 
 [node name="ObjectiveContainer" type="HBoxContainer"]
 script = ExtResource("1_5h13e")
 
 [node name="Complete" type="CheckBox" parent="."]
 layout_mode = 2
+theme_override_icons/checked = ExtResource("2_n2acx")
+theme_override_icons/unchecked = ExtResource("3_q5xy0")
+theme_override_icons/checked_disabled = ExtResource("2_n2acx")
+theme_override_icons/unchecked_disabled = ExtResource("3_q5xy0")
+disabled = true
 
 [node name="Description" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 bbcode_enabled = true
-text = "Clean up [color=yellow]trash[/color] on the roof. ( 1 / 5 )"
+text = "QuestObjective.description"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

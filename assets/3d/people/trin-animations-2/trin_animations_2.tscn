@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5yfmgmas0rh7"]
+
+[ext_resource type="PackedScene" uid="uid://ibtn65my8asj" path="res://assets/3d/people/trin-animations-2/trin-animations2.gltf" id="1_u3q6f"]
+[ext_resource type="Texture2D" uid="uid://ch4dh3hiulqfk" path="res://assets/2d/faces/trin/trin_neutral.png" id="2_cxxk5"]
+[ext_resource type="Material" uid="uid://duwfy3f2xfk6g" path="res://assets/3d/people/trin/material_trin_cel_shader.tres" id="3_yel2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yel2h"]
+transparency = 1
+albedo_texture = ExtResource("2_cxxk5")
+
+[node name="trin-animations2" instance=ExtResource("1_u3q6f")]
+
+[node name="TrinBase_001" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yel2h")
+surface_material_override/1 = ExtResource("3_yel2h")

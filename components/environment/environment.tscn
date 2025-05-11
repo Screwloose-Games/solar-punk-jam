@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://pgg1u7bhxcxf"]
+[gd_scene load_steps=12 format=3 uid="uid://pgg1u7bhxcxf"]
 
 [ext_resource type="Script" uid="uid://ba4c878q8vgq4" path="res://components/environment/environment.gd" id="1_ldjwe"]
 [ext_resource type="Gradient" uid="uid://dqiyvkrik4e4y" path="res://components/environment/twilight_color_gradient.tres" id="2_otco7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://c3ev2xmxjpya" path="res://components/environment/personal_realish_rain_particle_process_material.tres" id="4_0uvaq"]
 [ext_resource type="RibbonTrailMesh" uid="uid://8f4uu1y7laye" path="res://components/environment/realish_rain_particle_process_material.tres" id="5_7w26c"]
 [ext_resource type="Shader" uid="uid://dsuetip8cfkap" path="res://components/environment/rain_droplets_canvas.gdshader" id="6_x78hx"]
+[ext_resource type="Shader" uid="uid://c0e72qxo4gjut" path="res://components/environment/sky_environment.gdshader" id="7_w4iq7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ctqt"]
 shader = ExtResource("6_x78hx")
@@ -14,22 +15,51 @@ shader_parameter/size = 0.015
 shader_parameter/vignette_radius = 0.3
 shader_parameter/vignette_smoothness = 0.2
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5u3ww"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5msdc"]
+shader = ExtResource("7_w4iq7")
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.2
+shader_parameter/sun_blur = 10.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 4.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.3
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/stars_speed = 1.0
+shader_parameter/overwritten_time = 0.0
 
-[sub_resource type="Sky" id="Sky_v0o6g"]
-sky_material = SubResource("ProceduralSkyMaterial_5u3ww")
+[sub_resource type="Sky" id="Sky_w4iq7"]
+sky_material = SubResource("ShaderMaterial_5msdc")
 
 [sub_resource type="Environment" id="Environment_ksfsk"]
-sky = SubResource("Sky_v0o6g")
+background_mode = 2
+sky = SubResource("Sky_w4iq7")
 sky_rotation = Vector3(0, 0.785398, 0)
 ambient_light_source = 3
 reflected_light_source = 2
-fog_enabled = true
 fog_density = 0.0
 fog_height = -5.0
 fog_height_density = 0.5
 
-[node name="Environment" type="Node3D"]
+[node name="Environment" type="Node3D" groups=["DynamicEnvironment"]]
 script = ExtResource("1_ldjwe")
 day_length_in_seconds = 600.0
 twilight_color_gradient = ExtResource("2_otco7")

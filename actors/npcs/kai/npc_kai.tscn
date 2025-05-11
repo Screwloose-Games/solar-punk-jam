@@ -1,14 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://dee2tlx6hkx75"]
+[gd_scene load_steps=7 format=3 uid="uid://dee2tlx6hkx75"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_ruym0"]
+[ext_resource type="Script" path="res://components/state_machine.gd" id="2_oolyu"]
+[ext_resource type="PackedScene" uid="uid://csgqmhdtto0pw" path="res://assets/3d/people/kai-animations-2/sk_kai_animations_2.tscn" id="3_oolyu"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oolyu"]
+animation = &"f-adult-idle-breathing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o74w8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_t4onf"]
+states/Start/position = Vector2(125, 133)
+states/f-adult-idle-breathing/node = SubResource("AnimationNodeAnimation_oolyu")
+states/f-adult-idle-breathing/position = Vector2(442, 69)
+transitions = ["Start", "f-adult-idle-breathing", SubResource("AnimationNodeStateMachineTransition_o74w8")]
 
 [node name="Kai" instance=ExtResource("1_ruym0")]
 
-[node name="Name" parent="." index="0"]
-visible = true
+[node name="StateMachine" type="Node" parent="." index="0"]
+script = ExtResource("2_oolyu")
+
+[node name="sk_kai_animations2" parent="." index="1" instance=ExtResource("3_oolyu")]
+
+[node name="QuestMarker3D" parent="." index="2"]
+id = "kai"
+
+[node name="Name" parent="." index="3"]
 text = "Kai"
 
-[node name="Dialogue" parent="." index="4"]
+[node name="MeshInstance3D" parent="." index="4"]
+visible = false
+
+[node name="Dialogue" parent="." index="7"]
 npc_id = "kai"
 
+[node name="AnimationTree" parent="." index="12"]
+root_node = NodePath("../sk_kai_animations2")
+tree_root = SubResource("AnimationNodeStateMachine_t4onf")
+anim_player = NodePath("../sk_kai_animations2/AnimationPlayer")
+
+[editable path="sk_kai_animations2"]
 [editable path="InteractableArea3D"]

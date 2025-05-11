@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt3kntqpa41ew"]
+
+[ext_resource type="PackedScene" uid="uid://cuepnh5xv4lv4" path="res://assets/3d/environment/dressing/rock-sharp.glb" id="1_g5civ"]
+[ext_resource type="Texture2D" uid="uid://c7cnhkxataaot" path="res://assets/textures/stylized_rock/t_stylizedstone.png" id="2_q7iqg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_membr"]
+albedo_texture = ExtResource("2_q7iqg")
+
+[node name="rock-sharp2" instance=ExtResource("1_g5civ")]
+
+[node name="rock-sharp" parent="." index="0"]
+transform = Transform3D(0.428983, 0, 0, 0, 0.428983, 0, 0, 0, 0.428983, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_membr")

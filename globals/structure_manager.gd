@@ -32,7 +32,6 @@ class BuiltStructure:
 		self.ready_to_be_collected = []
 		self.status = STRUCTURE_STATUS.EXPENDED
 		StructureManager.visual_instance_update(self)
-		HUDCanvasLayer.Singleton.instance.close_popup_menu()
 	func refill_today():
 		if StructureManager.check_structure_requirements(self.structure):
 			var requirements = StructureManager.structure_data[self.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
@@ -71,11 +70,13 @@ const BUILDABLE_RAISED_BED_SPACE = Vector2i(4,7)
 const OCCUPIED_SPACE = Vector2i(0,7)
 const VALID_TILE_TYPES = [BUILDABLE_EMPTY_SPACE, BUILDABLE_RAISED_BED_SPACE, OCCUPIED_SPACE]
 
+@export var environment_gain_per_structure_built: int = 3
 
 var structure_data = []
 var structure_name_to_idx_map = {}
 var available_structures = []
 var registered_structures = []
+
 
 func _ready() -> void:
 	structure_data = _get_structure_data()
@@ -84,17 +85,21 @@ func _ready() -> void:
 		
 	EnvironmentManager.connect("day_cycle_start", daily_collect_resources_from_structures)
 
+
+func get_structure_name(index : int):
+	return structure_data[index][STRUCTURE_FIELDS.StructureName]
+
+
 func check_structure_requirements(idx):
-	var requirements = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
+	var material_cost = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.MaterialCost]
 	var missing_requirements = []
-	if requirements:
-		for requirement in requirements.split(","):
-			if EnvironmentManager.check_amount(requirement, 1):
-				# We have enough
-				pass
-			else:
-				# We do not have enough
-				missing_requirements.append(requirement)
+	if material_cost > 0:
+		if EnvironmentManager.check_amount("Materials", material_cost):
+			# We have enough
+			pass
+		else:
+			# We do not have enough
+			missing_requirements.append("Materials")
 	# Will return [] if all requirements are satisfied
 	return missing_requirements
 
@@ -119,14 +124,18 @@ func register_character_structures(character: String):
 	UpdatedAvailableStructures.emit()
 
 
+func register_all_structures():
+	prints("Unlocking all structures")
+	for idx in len(structure_data):
+		var struct_name = structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureName]
+		register_structure(struct_name)
+	UpdatedAvailableStructures.emit()
+
+
 func build_structure(new_structure: BuiltStructure, skip_resource_consumption=false):
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
 			EnvironmentManager.gain_resource("Materials", -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
-		var requirements = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
-		if requirements:
-			for item in requirements.split(","):
-				EnvironmentManager.gain_resource(item, -1)
 	var storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.ElectricityStorage]
 	if storage:
 		EnvironmentManager.resource_storage_limits["Electricity"] += storage
@@ -136,6 +145,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
+	EnvironmentManager.gain_resource("Environment", environment_gain_per_structure_built)
 
 
 func visual_instance_update(structure: BuiltStructure):

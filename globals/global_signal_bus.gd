@@ -18,7 +18,20 @@ signal community_board_interacted
 signal community_board_quest_accepted
 signal talked_to(npc: String)
 signal activated_build_mode
-signal structure_interacted(structure) # Structure ID
+signal exited_build_mode
+signal structure_interacted(structure: String)
 signal seed_planted(crop: Crop)
 signal player_entered_home
 signal seed_ui_shown
+signal day_passed
+signal quest_objective_completed
+signal stopped_raining
+signal started_raining
+signal rain_barrel_collected
+signal compost_collected
+signal waste_deposited
+signal stairs_travelled
+signal scrap_collected
+signal crop_harvested(crop_type: Crop.CropType)
+signal ui_button_pressed
+signal ui_button_hovered

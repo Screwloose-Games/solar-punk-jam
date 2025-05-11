@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn4364874b8us"]
+
+[ext_resource type="PackedScene" uid="uid://bs3ucnp4yut0q" path="res://assets/3d/buildings/nonentry/nonentry_building_01/sm_building_nonentry_01.tscn" id="1_dfq1y"]
+
+[node name="PrefabNoEntryShort2" type="Node3D"]
+
+[node name="sm_building_nonentry_01" parent="." instance=ExtResource("1_dfq1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687457, 0, 0.169344)

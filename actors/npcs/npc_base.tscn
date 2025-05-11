@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbiodotokwvrn"]
+[gd_scene load_steps=10 format=3 uid="uid://dbiodotokwvrn"]
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_m1ota"]
+[ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="1_p6w55"]
 [ext_resource type="Script" uid="uid://dbdw5suvtj1ek" path="res://actors/npcs/trin/dialog.gd" id="2_3w63i"]
 [ext_resource type="Script" uid="uid://dk6dodkerkbnx" path="res://components/navigation_agent_3d.gd" id="3_jcyep"]
 [ext_resource type="Script" uid="uid://6lt7efmiccbg" path="res://components/click_to_move.gd" id="4_m1ota"]
@@ -23,6 +24,9 @@ height = 1.5
 
 [node name="NpcBase" type="CharacterBody3D"]
 editor_description = "This is the base scene for other NPCs. By using this scene, we can add or remove node-based functionality from all npcs at once."
+
+[node name="QuestMarker3D" parent="." instance=ExtResource("1_p6w55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24681, 0)
 
 [node name="Name" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65762, 0)

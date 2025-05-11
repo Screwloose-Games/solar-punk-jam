@@ -85,21 +85,24 @@ var is_interacting: bool:
 
 var state: SelfState = SelfState.IDLE
 
+var in_dialogue: bool = false
+
 var player_mode: PlayerMode = PlayerMode.TRAVEL:
 	set(val):
 		player_mode = val
 		match player_mode:
 			PlayerMode.TRAVEL:
+				GlobalSignalBus.exited_build_mode.emit()
 				camera_mode = CameraMode.THIRD_PERSON
 				move_mode = MoveMode.DIRECTIONAL
-				if hud_canvas_layer:
-					hud_canvas_layer.hide_build_tray()
+				#if hud_canvas_layer:
+					#hud_canvas_layer.hide_build_tray()
 			PlayerMode.BUILD:
 				GlobalSignalBus.activated_build_mode.emit()
 				camera_mode = CameraMode.ISOMETRIC
 				move_mode = MoveMode.NONE
-				if hud_canvas_layer:
-					hud_canvas_layer.show_build_tray()
+				#if hud_canvas_layer:
+					#hud_canvas_layer.show_build_tray()
 
 func _ready() -> void:
 	move_mode = move_mode
@@ -107,7 +110,21 @@ func _ready() -> void:
 	player_mode = player_mode
 	build_area_3d.started_interacting.connect(_on_started_building)
 	build_area_3d.stopped_interacting.connect(_on_stopped_building)
+	Dialogic.timeline_started.connect(_on_dialogue_started)
+	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	
+func _on_dialogue_started():
+	in_dialogue = true
+	return
+	process_mode = Node.PROCESS_MODE_DISABLED
+	pass
+
+func _on_dialogue_ended():
+	in_dialogue = false
+	return
+	process_mode = Node.PROCESS_MODE_INHERIT
+	pass
+
 func _on_started_building():
 	interact_canvas_layer.hide()
 	player_mode = PlayerMode.BUILD
@@ -123,6 +140,8 @@ func change_camera_priority(priority_camera: PhantomCamera3D):
 	priority_camera.priority = 10
 
 func get_horizontal_velocity(delta: float) -> Vector3:
+	if in_dialogue:
+		return Vector3.ZERO
 	if is_interacting:
 		return Vector3.ZERO
 	match move_mode:
@@ -144,6 +163,7 @@ func handle_build_mode():
 func _physics_process(delta: float) -> void:
 	if not allow_player_input:
 		return
+	
 	velocity = get_horizontal_velocity(delta)
 	
 	if player_mode == PlayerMode.BUILD:

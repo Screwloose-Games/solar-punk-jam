@@ -1,2 +1,12 @@
-if {a1d1_trin} == true:
+if {a1d1_trin} == true and {tringarden} == false:
 	jump a1d1_trin/prog0
+if {a1d1_garden} == true:
+	Te: What are all these?
+	Trin: Cornus sericea!
+	Te: Hunh?
+	Trin: Some people call them Red Twig Dogwood.
+	Trin: Mine prefer to be called Kay and Jay. 
+	Trin: Their roots keep the soil from moving when it floods.
+	Trin: We're going to work with the water not against it this time.
+#if all else fails 
+Trin: Sorry, busy right now, Te.

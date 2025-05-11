@@ -1,34 +1,189 @@
-[gd_scene load_steps=12 format=3 uid="uid://cov82kk44bame"]
+[gd_scene load_steps=18 format=3 uid="uid://cov82kk44bame"]
 
 [ext_resource type="PackedScene" uid="uid://bphslqym0vb7m" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short.gltf" id="1_4tavx"]
-[ext_resource type="Texture2D" uid="uid://bfjqheswu0023" path="res://assets/3d/buildings/building_farming_short/sm_building_farming_short_Base_Color.png" id="2_5jc7u"]
-[ext_resource type="Texture2D" uid="uid://b33jfgm7kn257" path="res://assets/3d/buildings/building_farming_short/sm_building_04_Normal.png" id="3_h1fvs"]
+[ext_resource type="Texture2D" uid="uid://ythkkgiv1x5f" path="res://assets/3d/buildings/building_farming_short/sm_building_04_Base_Color.png" id="2_5jc7u"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_vi6n8"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_ntxff"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lq0k"]
-albedo_texture = ExtResource("2_5jc7u")
-normal_enabled = true
-normal_texture = ExtResource("3_h1fvs")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15rw0"]
+render_priority = 0
+shader = ExtResource("2_vi6n8")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1fvs"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="Gradient" id="Gradient_74p5i"]
+offsets = PackedFloat32Array(0.580357, 0.776786)
+colors = PackedColorArray(0.0165517, 0.0165517, 0.0165517, 1, 0.529067, 0.529067, 0.529067, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vi6n8"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w4gwq"]
+gradient = SubResource("Gradient_74p5i")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntxff"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="Gradient" id="Gradient_0be33"]
+offsets = PackedFloat32Array(0.580357, 0.776786)
+colors = PackedColorArray(0.0165517, 0.0165517, 0.0165517, 1, 0.509286, 0.509286, 0.509286, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15rw0"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_btgg8"]
+gradient = SubResource("Gradient_0be33")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74p5i"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmyvs"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4gwq"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1qyj"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0be33"]
-albedo_texture = ExtResource("2_5jc7u")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxaeo"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3j1l"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0g2i4"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_017rh"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4g5v"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7n770"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_15rw0")
+shader = ExtResource("3_ntxff")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5jc7u")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_w4gwq")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_btgg8")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_building_04" instance=ExtResource("1_4tavx")]
 
@@ -36,11 +191,15 @@ albedo_texture = ExtResource("2_5jc7u")
 visible = false
 
 [node name="sm_building_04_farmingshort-mesh" parent="mesh_building_04_farmingshort" index="2"]
-surface_material_override/0 = SubResource("StandardMaterial3D_1lq0k")
-surface_material_override/1 = SubResource("StandardMaterial3D_h1fvs")
-surface_material_override/2 = SubResource("StandardMaterial3D_vi6n8")
-surface_material_override/3 = SubResource("StandardMaterial3D_ntxff")
-surface_material_override/4 = SubResource("StandardMaterial3D_15rw0")
-surface_material_override/5 = SubResource("StandardMaterial3D_74p5i")
-surface_material_override/6 = SubResource("StandardMaterial3D_w4gwq")
-surface_material_override/7 = SubResource("StandardMaterial3D_0be33")
+surface_material_override/0 = SubResource("ShaderMaterial_mmyvs")
+surface_material_override/1 = SubResource("ShaderMaterial_r1qyj")
+surface_material_override/2 = SubResource("ShaderMaterial_kxaeo")
+surface_material_override/3 = SubResource("ShaderMaterial_t3j1l")
+surface_material_override/4 = SubResource("ShaderMaterial_0g2i4")
+surface_material_override/5 = SubResource("ShaderMaterial_017rh")
+surface_material_override/6 = SubResource("ShaderMaterial_p4g5v")
+surface_material_override/7 = SubResource("ShaderMaterial_7n770")
+
+[node name="NavigationRegion3D" parent="mesh_building_04_farmingshort/sm_building_04_farmingshort-mesh" index="1"]
+enabled = false
+navigation_layers = 0

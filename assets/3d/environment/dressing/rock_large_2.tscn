@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://coeurwccikebd"]
+
+[ext_resource type="PackedScene" uid="uid://cmsqepof70cyd" path="res://assets/3d/environment/dressing/rock-large.glb" id="1_hemun"]
+[ext_resource type="Texture2D" uid="uid://c7cnhkxataaot" path="res://assets/textures/stylized_rock/t_stylizedstone.png" id="2_k76rh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dkt3"]
+albedo_texture = ExtResource("2_k76rh")
+
+[node name="rock-large2" instance=ExtResource("1_hemun")]
+
+[node name="rock-large" parent="." index="0"]
+transform = Transform3D(0.682057, 0, 0, 0, 0.682057, 0, 0, 0, 0.682057, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_2dkt3")

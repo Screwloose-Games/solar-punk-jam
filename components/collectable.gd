@@ -6,6 +6,7 @@ signal collected
 #@export var collected_resource: ResourceTracker.ResourceType
 @export var collected_resource: String
 @export var count: int
+@export var environment_gain: int = 1
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
@@ -18,4 +19,6 @@ func _on_interacted(_player: Player):
 
 func collect():
 	EnvironmentManager.gain_resource(collected_resource, count)
+	EnvironmentManager.gain_resource("Environment", environment_gain)
 	collected.emit()
+	GlobalSignalBus.scrap_collected.emit()

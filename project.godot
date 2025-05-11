@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
-BMOD="*res://addons/bmod/autoloads/bmod/bmod.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GlobalSignalBus="*res://globals/global_signal_bus.gd"
 SceneManager="*res://globals/scene_manager.gd"
@@ -31,24 +30,24 @@ EnvironmentManager="*res://globals/environment_manager.gd"
 StructureManager="*res://globals/structure_manager.tscn"
 DebugUi="*res://globals/debug_ui.tscn"
 DynamicMusic="*res://globals/DynamicMusic.tscn"
+SoundManager="*res://globals/sound_manager/SoundManager.tscn"
 
 [dialogic]
 
 directories/dch_directory={
 "CommBoard": "res://narrative/characters/CommBoard.dch",
 "DogBot": "res://narrative/characters/DogBot.dch",
-"Kelly": "res://narrative/characters/Kelly.dch",
-"Kyle": "res://narrative/characters/Kyle.dch",
 "Mister": "res://narrative/characters/Mister.dch",
 "Mom": "res://narrative/characters/Mom.dch",
 "Te": "res://narrative/characters/Te.dch",
-"Trin": "res://narrative/characters/Trin.dch",
-"Tutorial": "res://narrative/characters/Tutorial.dch"
+"Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
-"a1d1_intro": "res://narrative/timelines/a1d1_intro.dtl",
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
+"intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
+"kai_main": "res://narrative/timelines/kai_main.dtl",
+"kai_op1": "res://narrative/timelines/kai_op1.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
 "timelines/kai_DAY2S1_ Starts_Delivery": "res://narrative/timelines/kai_DAY2S1_ Starts_Delivery.dtl",
@@ -86,7 +85,8 @@ variables={
 "res_soil": 0,
 "res_water": 0,
 "trin_active": false,
-"trin_met": false
+"trin_met": false,
+"tringarden": false
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -108,12 +108,15 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-layout/style_list=["res://common/ui/dialog_ui/dialogic_dialog_style.tres"]
+layout/style_list=["res://common/ui/dialog_ui/dialogic_dialog_style.tres", "res://narrative/styles/base_style.tres", "res://narrative/styles/intro_fs/intro_fs.tres"]
 layout/default_style="res://common/ui/dialog_ui/dialogic_dialog_style.tres"
 glossary/default_case_sensitive=true
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -122,7 +125,7 @@ project/assembly_name="Capybara"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/bmod/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
 [filesystem]
 
@@ -133,6 +136,8 @@ import/blender/enabled=false
 CollectableNodeSpawner=""
 PlayerSpawner=""
 Player=""
+QuestMarker="Used to indicate location where a quest objective can be satisfied."
+DynamicEnvironment=""
 
 [gui]
 
@@ -183,6 +188,7 @@ pause={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194308,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 Jump={
@@ -205,7 +211,7 @@ dialogic_default_action={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":69,"physical_keycode":0,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
@@ -245,6 +251,4 @@ common/physics_interpolation=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 global_illumination/gi/use_half_resolution=true

@@ -5,9 +5,10 @@ class_name Quest
 @export var name : String = "Quest Name"
 @export var quest_giver : String = "npc_name"
 @export var description : String = "Quest Description"
-@export var community_board_text : String = "" # displayed on the community board
+@export_multiline var community_board_text : String = "" # displayed on the community board
 @export var objectives : Array[QuestObjective] = []
-@export var unlock_structure : String = ""
+@export var unlock_on_accept : Array[String]
+@export var unlock_on_complete : Array[String]
 @export var rewards : Dictionary[String, int] = {
 	"Happiness" : 5
 }
@@ -23,38 +24,26 @@ signal quest_completed(giver : String)
 func start_quest():
 	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
-	if unlock_structure != "":
-		StructureManager.register_structure(unlock_structure)
-	for i in objectives.size():
-		if objectives[i].prerequisites.is_empty():
-			objectives[i].is_unlocked = true
-			objectives[i].is_active = true
+	for structure in unlock_on_accept:
+		StructureManager.register_structure(structure)
+	for objective in objectives:
+		objective.completed.connect(_on_objective_completed)
+		if objective.prerequisites.is_empty():
+			objective.is_unlocked = true
+			objective.is_active = true
 
 
 func check_progress():
 	if !is_complete:
 		for objective in objectives:
-			if objective.is_active:
-				print("quest value: ", objective.quest_value)
-				var check_value = Dialogic.VAR[objective.quest_value]
-				print("Objective check val: " + str(check_value))
-				if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
-					print("Value is not int or bool, aborting check.")
-				else:
-					if int(check_value) >= objective.goal:
-						objective.progress = objective.goal
-						objective.is_completed = true
-						objective.is_active = false
-						if objective.play_dialogue != "":
-							Dialogic.start(id, objective.play_dialogue)
-						_on_objective_completed()
-					else:
-						objective.progress = int(check_value)
-						quest_state_changed.emit()
+			if objective is ValueQuestObjective:
+				objective.check_value()
 
 
 # If an objective is completed, check if the overall quest is completed too
-func _on_objective_completed():
+func _on_objective_completed(this_objective : QuestObjective):
+	if this_objective.play_dialogue != "":
+		Dialogic.start(id, this_objective.play_dialogue)
 	# Check for objectives with prereqs
 	for objective in objectives:
 		if !objective.prerequisites.is_empty():
@@ -76,6 +65,8 @@ func _on_objective_completed():
 			progress += 1
 	if all_complete:
 		is_complete = true
+		for structure in unlock_on_complete:
+			StructureManager.register_structure(structure)
 		for reward in rewards.keys():
 			EnvironmentManager.gain_resource(reward, rewards[reward])
 		quest_completed.emit(quest_giver)

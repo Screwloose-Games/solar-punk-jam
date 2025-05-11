@@ -1,0 +1,191 @@
+[gd_scene load_steps=11 format=3 uid="uid://j2ly0yqcesf4"]
+
+[ext_resource type="Script" uid="uid://corqrrsqoaq8h" path="res://common/ui/hud/daily_summary_center_container.gd" id="1_yxfop"]
+[ext_resource type="Script" uid="uid://sq5xxykgvgls" path="res://common/ui/screens/daily_dashboard/daily_dashboard_row_item.gd" id="2_uu7gp"]
+[ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="3_15wlm"]
+[ext_resource type="Script" uid="uid://ku4nu4x303m8" path="res://actors/npcs/board/reward_icon_large.gd" id="4_lehfj"]
+[ext_resource type="Texture2D" uid="uid://cl0lr84e76vsa" path="res://assets/2d/ui/Envior-icon.png" id="4_uu7gp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu7gp"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+bg_color = Color(0.756863, 0.756863, 0.756863, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="Theme" id="Theme_uu7gp"]
+Button/colors/font_color = Color(0.0784314, 0.0823529, 0.0823529, 1)
+Button/font_sizes/font_size = 20
+Button/styles/normal = SubResource("StyleBoxFlat_uu7gp")
+Label/colors/font_color = Color(0.133333, 0.184314, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg4ft"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.964706, 0.94902, 0.905882, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6m7a"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.219608, 0.301961, 0.34902, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lehfj"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+bg_color = Color(0.756863, 0.756863, 0.756863, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[node name="DailyDashboard" type="CanvasLayer"]
+layer = 12
+script = ExtResource("1_yxfop")
+
+[node name="DailySummaryCenterContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_uu7gp")
+
+[node name="PanelContainer" type="PanelContainer" parent="DailySummaryCenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg4ft")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="DailySummaryCenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="DailyReportLabel" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Daily Report"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6m7a")
+
+[node name="MainStatsVBoxContainer" type="VBoxContainer" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Happiness" type="HBoxContainer" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+script = ExtResource("2_uu7gp")
+item_name = "Happiness"
+
+[node name="RewardIconLarge" type="TextureRect" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer/Happiness"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(26, 21)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_15wlm")
+stretch_mode = 2
+script = ExtResource("4_lehfj")
+reward_name = "Happiness"
+metadata/_custom_type_script = "uid://ku4nu4x303m8"
+
+[node name="RewardLabel" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer/Happiness"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelLight"
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 20
+text = "Happiness"
+
+[node name="CountLabel" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer/Happiness"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelLight"
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 2
+
+[node name="Environment" type="HBoxContainer" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+script = ExtResource("2_uu7gp")
+item_name = "Environment"
+
+[node name="RewardIconLarge" type="TextureRect" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer/Environment"]
+custom_minimum_size = Vector2(23, 21)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_uu7gp")
+stretch_mode = 2
+script = ExtResource("4_lehfj")
+reward_name = "Environment"
+metadata/_custom_type_script = "uid://ku4nu4x303m8"
+
+[node name="RewardLabel" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer/Environment"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelLight"
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 20
+text = "Environment"
+
+[node name="CountLabel" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/PanelContainer/MainStatsVBoxContainer/Environment"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"LabelLight"
+theme_override_colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 2
+
+[node name="RewardList" type="VBoxContainer" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="SummaryLabel" type="Label" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/VBoxContainer/SummaryLabel"]
+unique_name_in_owner = true
+theme_override_colors/font_color = Color(0.0784314, 0.0823529, 0.0823529, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_lehfj")
+text = "Close"
+
+[node name="DashboardCloseButton" type="Button" parent="DailySummaryCenterContainer/PanelContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"

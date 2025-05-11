@@ -67,6 +67,7 @@ func _on_day_passed():
 
 func harvest_crop():
 	EnvironmentManager.gain_resource("Food", crop.harvest_amount)
+	GlobalSignalBus.crop_harvested.emit(crop.type)
 	crop = null
 	clear_visuals()
 	interactable_area_3d.stop_interacting()

@@ -1,48 +1,52 @@
 label prog0
-Te: Hey, are you—
-Trin: *Cornus sericea!*
-Te: What?
-Trin: Some people call them Red Twig Dogwood.\
-Mine prefer to be called Kay and Jay.
-Te: Good for them... I guess.\
-Are you Trin?
-Trin: Yup. You can start building over there.
-Te: Uhhh, I’m not sure how to do that.
+Te (neutral): Hey, Trin. I read your note about the planter--
+Trin (thinking): SHHHH! They're sleeping. 
+Te (thinking): The plants?
+Trin (neutral): Duh! Who else? You can start building the planter over there. 
+Te (neutral): Here's the thing...I kinda forgot how?
 # Tutorial: THIS BEGINS THE **“GARDEN TUTORIAL”**
-Trin: Even a Berberis thunbergii would know how to do this!\
-Fine. I’ll walk you through it.
+Trin (neutral): Even a Berberis thunbergii has a better memory than you.
+Trin (sad): Fine.\
+I’ll walk you through it.
 [end_timeline]
 label prog1
-Trin: Now decide where you want to build and leave your materials there.
-Te: Uh, materials?
-Trin: You don’t have— *sigh*
-Trin: Normally you’d drop off *your own* materials at the build site and, since we’re great that way, everybody in the community would chip in and help build it for you.\
-*But* since you came *unprepared*, I can go ahead and build it this *one* time.
+Trin (neutral): First, you'll need materials. 
+Te (neutral): Uhhh...??
+Trin (neutral): You don't have them?
+Trin (sad): *sigh*
+Trin (neutral): Fine. I'll give them to you THIS ONE TIME to speed things up.
+Te (happy): Thanks, big sis!
+Trin (grumbling): Stop calling me that.
+Trin: Go ahead and pick a spot for the planter.
 # Tutorial: ACCESS BUILD MODE TO VIEW UNLOCKED BUILDABLE ITEMS\
 # SELECT THE VERTICAL PLANTER\
 # PLACE THE VERTICAL PLANTER ON THE GRID.
 [end_timeline]
 label prog2
-Trin: Since you’re here, you might as well help with the plants too.
-Trin: My compost bin already has soil in it, but usually you’d need to collect food waste and add it to the compost to make your own.
+Trin (neutral): You might as well plant something too.
+Trin (neutral): Usually you'd need to add food waste to the compost bin to make soil. 
+Trin (happy): But lucky you I've got dirt for days. 
 # Tutorial: GRAB SOIL FROM THE COMPOST BIN
 [end_timeline]
 label prog3
-Trin: Next is water! It rains every so often here and that helps us fill up the barrels.
+Trin (neutral): Next is water! 
+Trin (neutral): It rained yesterday so my barrels are full. 
 # Tutorial: GET WATER FROM THE RAIN BARREL
 [end_timeline]
 label prog4
-Trin: Next grab a seed and plant it in the vertical garden.\
-These are a single yield crop, which just needs to be watered once you plant it.\
-Recurring crops have to be watered after each time you harvest them.
+Trin (neutral): Now plant the single yield crop seed. You'll only need to water it once.
+Trin (neutral): Recurring crops have to be watered each time you harvest them.
 # Tutorial: INTERACT WITH THE VERTICAL GARDEN TO OPEN PLANT MODE
 [end_timeline]
 label prog5
 # Tutorial: **GARDEN TUTORIAL COMPLETE**
-Trin: And that’s it!
-Te: That was fun!
-Trin: Really?\
-What a weirdo.
-Te: *I’m the weirdo?*
-Trin: Here. If you like gardening so much, go build your own.
+Te: That was fun!\
+No wonder you like gardening. 
+Trin: I don't garden.
+Trin: I RAISE plants. 
+Te: I think the pollen's gotten to your head, Trin.
+Trin: Here. If you like gardening you can build your own. 
+Te: Thanks, big sis!
+Trin: *sigh*
+set {tringarden} = true
 do QuestManager.start_quest("qst_a1d1_garden")

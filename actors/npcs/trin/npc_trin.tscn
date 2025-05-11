@@ -1,25 +1,99 @@
-[gd_scene load_steps=4 format=3 uid="uid://nwbkxvaa2518"]
+[gd_scene load_steps=7 format=3 uid="uid://nwbkxvaa2518"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_g6pen"]
-[ext_resource type="PackedScene" uid="uid://cjqq7gkmrh6v7" path="res://assets/3d/people/trin/tweenbase00.fbx" id="2_m4qrm"]
+[ext_resource type="PackedScene" uid="uid://b5yfmgmas0rh7" path="res://assets/3d/people/trin-animations-2/trin_animations_2.tscn" id="2_bimy8"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_cqhrq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ihwu3"]
+animation = &"trin-idle-standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6mvsc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ihwu3"]
+states/Start/position = Vector2(139, 142)
+states/trin-idle-standing/node = SubResource("AnimationNodeAnimation_ihwu3")
+states/trin-idle-standing/position = Vector2(423, 90)
+transitions = ["Start", "trin-idle-standing", SubResource("AnimationNodeStateMachineTransition_6mvsc")]
+graph_offset = Vector2(-71, 29)
 
 [node name="Trin" instance=ExtResource("1_g6pen")]
 
-[node name="tweenbase00" parent="." index="0" instance=ExtResource("2_m4qrm")]
+[node name="trin-animations2" parent="." index="0" instance=ExtResource("2_bimy8")]
 
-[node name="Name" parent="." index="1"]
+[node name="Skeleton3D" parent="trin-animations2/Armature" index="0"]
+bones/0/position = Vector3(5.45938, -0.570621, -90.6102)
+bones/0/rotation = Quaternion(-0.711203, -0.0511893, 0.0129927, 0.701)
+bones/1/rotation = Quaternion(-0.00737226, 0.00357282, 0.0130557, 0.999881)
+bones/2/rotation = Quaternion(0.0182622, 0.00647658, 0.0274524, 0.999435)
+bones/3/rotation = Quaternion(0.0182623, 0.00647659, 0.0274525, 0.999435)
+bones/4/rotation = Quaternion(-0.078202, -0.0019777, 0.00796547, 0.996904)
+bones/5/rotation = Quaternion(0.0285349, 0.00817403, -0.0499839, 0.998309)
+bones/7/rotation = Quaternion(-0.634251, -0.354131, 0.567994, -0.386911)
+bones/8/position = Vector3(2.8009e-06, 9.83615, -2.15616e-07)
+bones/8/rotation = Quaternion(0.40975, 0.172443, 0.0672643, 0.893221)
+bones/9/position = Vector3(3.1475e-08, 21.3645, -1.22016e-06)
+bones/9/rotation = Quaternion(0.019746, -0.0818559, 0.149922, 0.985106)
+bones/10/rotation = Quaternion(-0.145492, 0.230096, 0.082608, 0.958678)
+bones/11/rotation = Quaternion(0.127437, -0.0383438, 0.257799, 0.95699)
+bones/12/position = Vector3(0.361452, 5.075, -2.30836e-06)
+bones/12/rotation = Quaternion(0.0292892, 0.0229526, -0.196821, 0.979733)
+bones/13/position = Vector3(-0.499729, 3.80408, -8.44208e-07)
+bones/13/rotation = Quaternion(4.77636e-05, -0.00115425, 0.0881491, 0.996107)
+bones/14/position = Vector3(0.138277, 3.00979, 4.54747e-13)
+bones/15/position = Vector3(-5.24302e-07, 9.2161, 0.479562)
+bones/15/rotation = Quaternion(0.174287, -0.0804948, 0.0710645, 0.978823)
+bones/16/position = Vector3(0.782698, 4.02723, 4.45749e-06)
+bones/16/rotation = Quaternion(0.0888781, 0.00654106, -0.136304, 0.986651)
+bones/17/position = Vector3(-0.641848, 3.63032, 3.06113e-06)
+bones/17/rotation = Quaternion(-0.00150934, 0.0137049, 0.0652462, 0.997774)
+bones/18/position = Vector3(-0.140852, 3.1702, -1.28746e-05)
+bones/19/rotation = Quaternion(0.602333, -0.385448, 0.583007, 0.385651)
+bones/20/position = Vector3(-4.37624e-07, 9.83614, -3.31357e-06)
+bones/20/rotation = Quaternion(0.392994, -0.255512, -0.0513338, 0.881836)
+bones/21/position = Vector3(8.44529e-07, 21.3546, -6.68927e-07)
+bones/21/rotation = Quaternion(0.0111815, 0.01452, -0.176668, 0.9841)
+bones/22/rotation = Quaternion(-0.223929, 0.0194567, -0.00363151, 0.974405)
+bones/23/rotation = Quaternion(0.133243, 0.0539836, -0.212506, 0.966526)
+bones/24/position = Vector3(-0.269414, 5.07004, 4.148e-06)
+bones/24/rotation = Quaternion(0.0483926, -0.0158562, 0.217281, 0.97478)
+bones/25/rotation = Quaternion(1.22462e-05, 0.000516544, -0.112598, 0.99364)
+bones/27/position = Vector3(3.35007e-06, 10.795, 0.176182)
+bones/27/rotation = Quaternion(0.16065, 0.0683191, -0.0386859, 0.983884)
+bones/28/position = Vector3(-0.276285, 3.5576, 3.07567e-06)
+bones/28/rotation = Quaternion(0.0631719, -0.000856775, 0.0261333, 0.99766)
+bones/29/position = Vector3(0.0618954, 2.8173, -4.52703e-07)
+bones/29/rotation = Quaternion(0.000147861, 0.00276982, 0.0312678, 0.999507)
+bones/30/position = Vector3(0.214393, 2.53077, -5.126e-06)
+bones/31/rotation = Quaternion(0.0185141, 0.140362, 0.98889, -0.0453079)
+bones/32/rotation = Quaternion(-0.186072, -0.00312448, 0.0485592, 0.981331)
+bones/33/rotation = Quaternion(0.432584, -0.249547, 0.12929, 0.856669)
+bones/34/rotation = Quaternion(0.286677, -0.0737461, 0.0374263, 0.954451)
+bones/36/rotation = Quaternion(-0.0594731, 0.00855015, 0.994629, -0.0842817)
+bones/37/rotation = Quaternion(-0.0875324, 0.00148345, -0.0515142, 0.994828)
+bones/38/rotation = Quaternion(0.490008, 0.186093, -0.15086, 0.838155)
+bones/39/rotation = Quaternion(0.324182, 0.0445375, -0.00776695, 0.944914)
+
+[node name="QuestMarker3D" parent="." index="1"]
+id = "trin"
+
+[node name="Name" parent="." index="2"]
 text = "Trin"
 
-[node name="MeshInstance3D" parent="." index="2"]
+[node name="MeshInstance3D" parent="." index="3"]
 visible = false
 
 [node name="InteractNotify" parent="." index="5" instance=ExtResource("3_cqhrq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 npc_id = "trin"
 
-[node name="Dialogue" parent="." index="6"]
+[node name="Dialogue" parent="." index="7"]
 npc_id = "trin"
 
-[editable path="tweenbase00"]
+[node name="AnimationTree" parent="." index="12"]
+root_node = NodePath("../trin-animations2")
+tree_root = SubResource("AnimationNodeStateMachine_ihwu3")
+anim_player = NodePath("../trin-animations2/AnimationPlayer")
+
+[editable path="trin-animations2"]
 [editable path="InteractableArea3D"]

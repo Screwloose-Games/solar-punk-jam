@@ -7,9 +7,9 @@
 [sub_resource type="Resource" id="Resource_dg3x7"]
 script = ExtResource("2_kv510")
 autoload_name = "GlobalSignalBus"
-signal_name = "GlobalSignalBus"
+signal_name = "player_entered_home"
 expected_args = []
-description = "Objective Description"
+description = "Enter your home"
 quest_value = ""
 goal = 1
 prerequisites = Array[int]([])

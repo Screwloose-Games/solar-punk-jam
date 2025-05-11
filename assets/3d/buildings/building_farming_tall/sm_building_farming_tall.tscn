@@ -1,39 +1,176 @@
-[gd_scene load_steps=10 format=3 uid="uid://cedg86h3elalj"]
+[gd_scene load_steps=17 format=3 uid="uid://cedg86h3elalj"]
 
 [ext_resource type="PackedScene" uid="uid://u0f8aqxotnu2" path="res://assets/3d/buildings/building_farming_tall/sm_building_farming_tall.gltf" id="1_gdbhx"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_dgpbl"]
 [ext_resource type="Texture2D" uid="uid://cd4vmw4wuft4x" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Base_Color.png" id="2_ppbxl"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_n3hm0"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://materials/color_gradient.tres" id="4_vyneq"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="5_ekb0k"]
+[ext_resource type="Texture2D" uid="uid://dad0ei7tw0a37" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Normal.png" id="7_vyneq"]
+[ext_resource type="Texture2D" uid="uid://cwfo6efqyhi7o" path="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Roughness.png" id="8_ekb0k"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tim5n"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41sid"]
+render_priority = 0
+shader = ExtResource("2_dgpbl")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k13s5"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y0vak"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("8_ekb0k")
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("7_vyneq")
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2re4q"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_merh6"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sye3o"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7ire"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgpbl"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndw1p"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3hm0"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3hcu"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyneq"]
-albedo_texture = ExtResource("2_ppbxl")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjm8w"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tciyj"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_41sid")
+shader = ExtResource("3_n3hm0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ppbxl")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_vyneq")
+shader_parameter/fresnel_gradient = ExtResource("5_ekb0k")
+shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_building_05" instance=ExtResource("1_gdbhx")]
 
 [node name="sm_farmbuilding_tall_05-mesh" parent="building_05-mesh" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_tim5n")
-surface_material_override/1 = SubResource("StandardMaterial3D_k13s5")
-surface_material_override/2 = SubResource("StandardMaterial3D_2re4q")
-surface_material_override/3 = SubResource("StandardMaterial3D_sye3o")
-surface_material_override/4 = SubResource("StandardMaterial3D_dgpbl")
-surface_material_override/5 = SubResource("StandardMaterial3D_n3hm0")
-surface_material_override/6 = SubResource("StandardMaterial3D_vyneq")
+surface_material_override/0 = SubResource("ShaderMaterial_y0vak")
+surface_material_override/1 = SubResource("ShaderMaterial_merh6")
+surface_material_override/2 = SubResource("ShaderMaterial_s7ire")
+surface_material_override/3 = SubResource("ShaderMaterial_ndw1p")
+surface_material_override/4 = SubResource("ShaderMaterial_f3hcu")
+surface_material_override/5 = SubResource("ShaderMaterial_mjm8w")
+surface_material_override/6 = SubResource("ShaderMaterial_tciyj")
 
-[node name="building_05-colonly" parent="." index="2"]
+[node name="NavigationRegion3D" parent="building_05-mesh/sm_farmbuilding_tall_05-mesh" index="1"]
+enabled = false
+navigation_layers = 0
+
+[node name="building_05-colonly" parent="." index="1"]
 visible = false

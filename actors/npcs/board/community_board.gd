@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-func _on_quest_complete():
+func _on_quest_complete(_giver : String):
 	if !Dialogic.VAR.board_active:
 		quest_index += 1
 		if quest_index >= quest_list.size():

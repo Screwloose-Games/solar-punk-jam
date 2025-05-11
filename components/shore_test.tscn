@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://f3uvn43r6re"]
+
+[ext_resource type="PackedScene" uid="uid://dlx3lerxn4nf" path="res://assets/3d/environment/river/river2.fbx" id="1_1c7n4"]
+
+[node name="ShoreTest" type="Node3D"]
+
+[node name="river2" parent="." instance=ExtResource("1_1c7n4")]

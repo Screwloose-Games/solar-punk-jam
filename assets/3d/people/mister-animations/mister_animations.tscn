@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://chhsojctydtm8"]
+
+[ext_resource type="PackedScene" uid="uid://2t8ibnsusgpp" path="res://assets/3d/people/mister-animations/mister-animations.gltf" id="1_yo3cq"]
+[ext_resource type="Material" uid="uid://xfg3p147y0vu" path="res://assets/3d/people/mister/material_mister_cel_shader.tres" id="2_ctgmo"]
+[ext_resource type="Texture2D" uid="uid://bhhq5qnw7phop" path="res://assets/2d/faces/mister/mister_neutral.png" id="3_71qtv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d46n7"]
+transparency = 4
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("3_71qtv")
+
+[node name="mister-animations" instance=ExtResource("1_yo3cq")]
+
+[node name="Torus_001" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_ctgmo")
+surface_material_override/1 = SubResource("StandardMaterial3D_d46n7")

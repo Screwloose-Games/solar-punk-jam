@@ -60,19 +60,16 @@ func _on_area_exited(area: Area3D):
 		else:
 			selected = null
 
-
 func _unhandled_input(event):
 	if event.is_action_pressed(interact_action):
-		if owner.is_interacting:
+		if owner.is_interacting and selected and selected.toggleable:
 			is_interacting = false
-			return
-		if selected is InteractableArea3D:
+		elif selected is InteractableArea3D:
 			selected.interact(player)
 			selected.stopped_interacting.connect(_on_stopped_interacting.bind(selected))
 			if not selected.tree_exited.is_connected(_on_stopped_interacting.bind(selected)):
 				selected.tree_exited.connect(_on_stopped_interacting.bind(selected))
 			is_interacting = true
-			
 
 func get_actions():
 	var proj_file := ConfigFile.new()

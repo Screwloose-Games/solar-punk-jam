@@ -1,0 +1,45 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://duwfy3f2xfk6g"]
+
+[ext_resource type="Shader" uid="uid://boa1afj4d72qc" path="res://shaders/shader_outline_normal.gdshader" id="1_d24d4"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="2_d24d4"]
+[ext_resource type="Texture2D" uid="uid://daganiw5cfsgu" path="res://assets/3d/people/trin/TrinTexture.png" id="3_d24d4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kabe6"]
+render_priority = 0
+shader = ExtResource("1_d24d4")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 0.8
+
+[sub_resource type="Gradient" id="Gradient_yrb54"]
+offsets = PackedFloat32Array(0.580357, 0.776786)
+colors = PackedColorArray(0.0165517, 0.0165517, 0.0165517, 1, 0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_whux3"]
+gradient = SubResource("Gradient_yrb54")
+
+[sub_resource type="Gradient" id="Gradient_3gamm"]
+offsets = PackedFloat32Array(0.580357, 0.776786)
+colors = PackedColorArray(0.0165517, 0.0165517, 0.0165517, 1, 0.118581, 0.118581, 0.118581, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nleao"]
+gradient = SubResource("Gradient_3gamm")
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_kabe6")
+shader = ExtResource("2_d24d4")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_d24d4")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture1D_whux3")
+shader_parameter/fresnel_gradient = SubResource("GradientTexture1D_nleao")
+shader_parameter/fresnel_intensity = 1.0

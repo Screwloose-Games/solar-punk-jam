@@ -1,43 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dngvyovn8lew5"]
+[gd_scene load_steps=3 format=3 uid="uid://dngvyovn8lew5"]
 
-[ext_resource type="PackedScene" uid="uid://cii30af5vfhq5" path="res://assets/3d/structures/solar_panel/sm_solar_panel.tscn" id="1_vl6uy"]
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_vl6uy"]
+[ext_resource type="PackedScene" uid="uid://cii30af5vfhq5" path="res://assets/3d/structures/solar_panel/sm_solar_panel.tscn" id="2_lfd48"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h03rj"]
-albedo_color = Color(0.322921, 0.737302, 1, 1)
+[node name="BuildableStructure" instance=ExtResource("1_vl6uy")]
+structure_id = "Solar panel"
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_vl6uy"]
+[node name="sm_solar_panel" parent="." index="0" instance=ExtResource("2_lfd48")]
 
-[node name="Solar panel" type="Node3D"]
-
-[node name="sm_solar_panel" parent="." instance=ExtResource("1_vl6uy")]
-
-[node name="sm_foot_front" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="0"]
-transform = Transform3D(1, 0, 0, 0, -0.207912, 0.978148, 0, -0.978148, -0.207912, 0, 0.220739, 0.136157)
-
-[node name="sm_foot_left" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="1"]
-transform = Transform3D(-0.5, 0.847101, 0.180057, -8.09637e-08, -0.207912, 0.978148, 0.866026, 0.489074, 0.103956, -0.117915, 0.220739, -0.0680784)
-
-[node name="sm_foot_right" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="2"]
-transform = Transform3D(-0.5, -0.847101, -0.180057, 8.09637e-08, -0.207912, 0.978148, -0.866026, 0.489074, 0.103956, 0.117915, 0.220739, -0.0680784)
-
-[node name="sm_panel_pivot" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.225877, 0.974156, 0, -0.974156, 0.225877, 0, 2.48238, 0)
-
-[node name="sm_panel_left" parent="sm_solar_panel/sm_solar_panels/sm_pole/sm_panel_pivot" index="0"]
-transform = Transform3D(1.54936, -4.61745e-08, -1.57623e-15, 4.61745e-08, 1.54936, 5.96046e-08, -2.00124e-16, -5.96046e-08, 1.54936, 0, 0.235903, 0)
-
-[node name="sm_panel_right" parent="sm_solar_panel/sm_solar_panels/sm_pole/sm_panel_pivot" index="2"]
-transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936, 5.96046e-08, 2.00124e-16, -5.96046e-08, 1.54936, 0, 0.159048, 0)
-
-[node name="Mesh" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0.6, 0)
-visible = false
-size = Vector3(2, 1.2, 0.1)
-material = SubResource("StandardMaterial3D_h03rj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_vl6uy")
-
-[node name="Node" type="Node" parent="."]
-
-[editable path="sm_solar_panel"]
+[editable path="InteractableArea3D"]

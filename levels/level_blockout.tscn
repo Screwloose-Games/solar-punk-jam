@@ -1,19 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1jp6i2bu3bjt"]
+[gd_scene load_steps=15 format=3 uid="uid://d1jp6i2bu3bjt"]
 
 [ext_resource type="PackedScene" uid="uid://kvdijgf8fysy" path="res://prefabs/buildings/prefab_building_entry_short.tscn" id="1_yxkj8"]
 [ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="2_q3mb3"]
-[ext_resource type="PackedScene" uid="uid://oqtd7e6ptods" path="res://BuildingTypes/prefab_entry_long.tscn" id="3_44dcu"]
+[ext_resource type="PackedScene" uid="uid://2y66piua3d6t" path="res://BuildingTypes/prefab_entry_long.tscn" id="3_44dcu"]
 [ext_resource type="PackedScene" uid="uid://cvwrm6abynwyd" path="res://BuildingTypes/prefab_noentry_tall.tscn" id="4_663hb"]
 [ext_resource type="PackedScene" uid="uid://wo17cvj04r6x" path="res://BuildingTypes/prefab_noentry_short.tscn" id="5_7xul5"]
 [ext_resource type="Material" uid="uid://tj2eujgmg5i1" path="res://materials/BlockoutPlayer.tres" id="6_assy2"]
 [ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="7_nrc00"]
-[ext_resource type="PackedScene" uid="uid://tp1qx1fx7wre" path="res://BuildingTypes/buildable_dirtpatch.tscn" id="8_41105"]
+[ext_resource type="PackedScene" uid="uid://bkxy20iiqunfd" path="res://BuildingTypes/prefab_noentry_tall2.tscn" id="7_vrejt"]
+[ext_resource type="PackedScene" uid="uid://dsskvq83uilps" path="res://BuildingTypes/prefab_destroyed.tscn" id="8_7f6q0"]
+[ext_resource type="PackedScene" uid="uid://cn4364874b8us" path="res://BuildingTypes/prefab_noentry_short2.tscn" id="8_38r6f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdt6n"]
 albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qst22"]
-size = Vector2(150, 150)
+size = Vector2(148, 140)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7f6q0"]
+size = Vector3(149.037, 0.01, 139.617)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ppxl0"]
 size = Vector2(5.5, 100)
@@ -21,63 +26,47 @@ size = Vector2(5.5, 100)
 [node name="DesignTestScene" type="Node3D"]
 
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.997527, 0, 0, 0, 0.997527, 0, 0, 0, 0.863667, -0.754, 0, -4.342)
+transform = Transform3D(0.997527, 0, 0, 0, 0.997527, 0, 0, 0, 0.863667, -36.2937, 0, -31.1333)
 material_override = SubResource("StandardMaterial3D_pdt6n")
 mesh = SubResource("PlaneMesh_qst22")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1, -0.481384, 0, 0.314827)
+shape = SubResource("BoxShape3D_7f6q0")
+
 [node name="prefab_entry_short" parent="." instance=ExtResource("1_yxkj8")]
-transform = Transform3D(0.99986, 0, 0.0167544, 0, 1, 0, -0.0167544, 0, 0.99986, 15.2962, -1.90735e-06, -31.8727)
+transform = Transform3D(-0.0216753, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216753, -33.1956, -1.90735e-06, 14.5108)
+
+[node name="prefab_entry_short2" parent="." instance=ExtResource("1_yxkj8")]
+transform = Transform3D(0.999944, 0, 0.0106289, 0, 1, 0, -0.0106289, 0, 0.999944, 9.10837, -1.90735e-06, -15.8761)
 
 [node name="prefab_entry_tall" parent="." instance=ExtResource("2_q3mb3")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.0376, 0, 11.4405)
 
 [node name="prefab_entry_tall2" parent="." instance=ExtResource("2_q3mb3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7943, 0, -7.74037)
+transform = Transform3D(0.00760961, 0, -0.999971, 0, 1, 0, 0.999971, 0, 0.00760961, 36.4546, 0, -11.0484)
 
 [node name="prefab_entry_long" parent="." instance=ExtResource("3_44dcu")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -11.271, -0.0572701, -11.8609)
 
 [node name="prefab_noentry_tall2" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 13.8836)
-
-[node name="prefab_noentry_tall3" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 7.06331)
-
-[node name="prefab_noentry_tall4" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, 0.627493)
-
-[node name="prefab_noentry_tall5" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, -16.9721)
-
-[node name="prefab_noentry_tall6" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7356, 0, -23.7911)
+transform = Transform3D(0.0254965, 0, 0.999675, 0, 1, 0, -0.999675, 0, 0.0254965, 36.3959, 0, 12.709)
 
 [node name="prefab_noentry_tall7" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -24.5649)
-
-[node name="prefab_noentry_tall8" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -17.7152)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.4519, 0, -30.0025)
 
 [node name="prefab_noentry_tall9" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -4.76455)
+transform = Transform3D(0.0393644, 0, 0.999225, 0, 1, 0, -0.999225, 0, 0.0393644, -20.6186, 0, -32.965)
 
 [node name="prefab_noentry_tall10" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, 1.81429)
-
-[node name="prefab_noentry_tall11" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, 8.36812)
-
-[node name="prefab_noentry_tall12" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, 14.6671)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -12.8501)
 
 [node name="prefab_noentry_tall13" parent="." instance=ExtResource("4_663hb")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, 21.1489)
-
-[node name="prefab_noentry_short" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.2, 0, 29.3547)
-
-[node name="prefab_noentry_short2" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.2758, 0, 29.3547)
+transform = Transform3D(0.00785404, 0, -0.999969, 0, 1, 0, 0.999969, 0, 0.00785404, -31.9494, 0, 27.7208)
 
 [node name="prefab_noentry_short3" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.9298, 0, 29.3547)
@@ -85,50 +74,47 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.92
 [node name="prefab_noentry_short4" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5676, 0, 29.3547)
 
-[node name="prefab_noentry_short5" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.4945, 0, 29.3547)
-
-[node name="prefab_noentry_short6" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.5212, 0, -0.870005)
-
-[node name="prefab_noentry_short7" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.6817, 0, -0.870005)
-
 [node name="prefab_noentry_short8" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.40663, 0, -0.870005)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.40663, 0, -2.29337)
 
 [node name="prefab_noentry_short9" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.4459, 0, 6.05647)
-
-[node name="prefab_noentry_short10" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 20.4459, 0, 13.1152)
+transform = Transform3D(0.0328237, 0, 0.999461, 0, 1, 0, -0.999461, 0, 0.0328237, 20.4459, 0, 6.89355)
 
 [node name="prefab_noentry_short11" parent="." instance=ExtResource("5_7xul5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.4459, 0, -17.138)
 
-[node name="prefab_noentry_short12" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.6569, 0, -17.138)
-
-[node name="prefab_noentry_short13" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.21221, 0, -17.138)
-
-[node name="prefab_noentry_short14" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.5664, 0, -32.7606)
-
-[node name="prefab_noentry_short16" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.6207, 0, -32.7606)
-
-[node name="prefab_noentry_short17" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.7389, 0, -32.7606)
-
-[node name="prefab_noentry_short18" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.04607, 0, -32.7606)
-
 [node name="prefab_noentry_short19" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2559, 0, -32.7606)
+transform = Transform3D(-0.999443, 0, -0.0333645, 0, 1, 0, 0.0333645, 0, -0.999443, -12.6058, 0, -32.7606)
 
 [node name="prefab_noentry_short20" parent="." instance=ExtResource("5_7xul5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.8915, 0, -32.7606)
+transform = Transform3D(-0.999989, 0, 0.00472988, 0, 1, 0, -0.00472988, 0, -0.999989, -32.0229, 0, -4.29896)
+
+[node name="PrefabNoEntryShort2" parent="." instance=ExtResource("8_38r6f")]
+transform = Transform3D(-0.00876146, 0, 0.999962, 0, 1, 0, -0.999962, 0, -0.00876146, 1.00308, 0, 30.1445)
+
+[node name="PrefabNoEntryShort3" parent="." instance=ExtResource("8_38r6f")]
+transform = Transform3D(0.0203491, 0, -0.999793, 0, 1, 0, 0.999793, 0, 0.0203491, -1.26088, 0, -33.8628)
+
+[node name="prefab_noentry_tall" parent="." instance=ExtResource("7_vrejt")]
+transform = Transform3D(-0.0241182, 0, 0.999709, 0, 1, 0, -0.999709, 0, -0.0241182, 36.9873, 0, 2.41218)
+
+[node name="prefab_noentry_tall11" parent="." instance=ExtResource("7_vrejt")]
+transform = Transform3D(-0.99978, 0, -0.0209774, 0, 1, 0, 0.0209774, 0, -0.99978, -11.6406, 0, 29.0064)
+
+[node name="prefab_noentry_tall3" parent="." instance=ExtResource("7_vrejt")]
+transform = Transform3D(0.999968, 0, 0.00801102, 0, 1, 0, -0.00801102, 0, 0.999968, 16.1176, 0, -1.02697)
+
+[node name="prefab_noentry_tall4" parent="." instance=ExtResource("7_vrejt")]
+transform = Transform3D(-0.999952, 0, -0.00979113, 0, 1, 0, 0.00979113, 0, -0.999952, -35.5166, 0, -21.7083)
+
+[node name="prefab_noentry_tall5" parent="." instance=ExtResource("8_7f6q0")]
+transform = Transform3D(-1, 0, 0.000698241, 0, 1, 0, -0.000698241, 0, -1, 13.2334, 0, -35.7501)
+
+[node name="prefab_noentry_tall6" parent="." instance=ExtResource("8_7f6q0")]
+transform = Transform3D(0.00127406, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00127406, 28.119, 0, -37.4872)
+
+[node name="prefab_noentry_tall8" parent="." instance=ExtResource("8_7f6q0")]
+transform = Transform3D(0.0546714, 0, -0.998505, 0, 1, 0, 0.998505, 0, 0.0546714, 36.5084, 0, -25.9857)
 
 [node name="PlayerScale" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.998698, -0.0510112, 0, 0.0510112, 0.998698, 1.91952, 0.833663, 10.3092)
@@ -171,36 +157,3 @@ transform = Transform3D(-0.999409, 0, -4.49477e-08, 0, 1, 0, 8.73711e-08, 0, -0.
 material_override = ExtResource("7_nrc00")
 mesh = SubResource("PlaneMesh_ppxl0")
 skeleton = NodePath("")
-
-[node name="buildable_dirtpatch" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(0.999724, 0, -0.0234899, 0, 1, 0, 0.0234899, 0, 0.999724, -15.203, 0, -24.4663)
-
-[node name="buildable_dirtpatch2" parent="." instance=ExtResource("8_41105")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.0737, 0, -11.2878)
-
-[node name="Fence" type="CSGBox3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 31.6565, 0.414068, -28.3697)
-size = Vector3(0.960938, 1, 1)
-
-[node name="Fence2" type="CSGBox3D" parent="Fence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
-operation = 2
-size = Vector3(0.9198, 1.09753, 0.985962)
-
-[node name="Fence2" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.0366511, 0, 2.99978, 0, 1, 0, -2.99978, 0, -0.0366511, -26.4441, 0, -29.1487)
-size = Vector3(0.960938, 1, 1)
-
-[node name="Fence2" type="CSGBox3D" parent="Fence2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
-operation = 2
-size = Vector3(0.9198, 1.09753, 0.985962)
-
-[node name="Fence3" type="CSGBox3D" parent="."]
-transform = Transform3D(-2.99911, 0, -0.073035, 0, 1, 0, 0.073035, 0, -2.99911, -27.2157, 0, 25.7251)
-size = Vector3(0.960938, 1, 1)
-
-[node name="Fence2" type="CSGBox3D" parent="Fence3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0401001, -0.0221162, 0.063468)
-operation = 2
-size = Vector3(0.9198, 1.09753, 0.985962)

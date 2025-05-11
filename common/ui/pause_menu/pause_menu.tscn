@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8b6q7g4bsaw5"]
+[gd_scene load_steps=8 format=3 uid="uid://b8b6q7g4bsaw5"]
 
 [ext_resource type="Script" uid="uid://ccji1u8snka5v" path="res://common/ui/pause_menu/pause_menu.gd" id="1_5rnul"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="2_b5b27"]
 [ext_resource type="AudioStream" uid="uid://camm2n4s878j" path="res://common/audio/sfx/ui/aud_ui_navigate.wav" id="3_sjwpg"]
 [ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="4_tj48m"]
 [ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="5_dfou8"]
+[ext_resource type="Theme" uid="uid://5l7y21m58fcs" path="res://common/ui/pause_menu/theme_pause_menu.tres" id="6_rxyku"]
 [ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="6_udpd0"]
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -27,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_rxyku")
 
 [node name="TextureRect" type="TextureRect" parent="PauseMenuBody"]
 modulate = Color(0.286275, 0.286275, 0.286275, 0.713726)
@@ -51,7 +53,8 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.133333, 0.184314, 0.211765, 1)
 text = "Paused
 "
 horizontal_alignment = 1
@@ -72,22 +75,28 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Continue"
 
+[node name="DashboardButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Dashboard"
+
 [node name="OptionsButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Options"
+text = "Settings"
 
 [node name="MainMenuButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+text = "Exit to Main Menu"
 
 [node name="QuitButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit"
+text = "Exit Game"
 
 [node name="TestMenuButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Scenarios"
 script = ExtResource("6_udpd0")
@@ -95,7 +104,7 @@ script = ExtResource("6_udpd0")
 [node name="RespawnButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Respawn"
+text = "I'm Stuck"
 
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="Audio Control" method="_on_hover"]
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="Audio Control" method="_on_hover"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://q2kk3ovvqrnb"]
+
+[ext_resource type="PackedScene" uid="uid://dq3jukaptdnpr" path="res://assets/3d/environment/scrap_pile/sm_collectibles_scrappile.gltf" id="1_amnmf"]
+[ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_r2wc0"]
+[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_7hg0r"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_a7fws"]
+[ext_resource type="Texture2D" uid="uid://boposgplq1plj" path="res://assets/3d/environment/scrap_pile/t_scrap_Base_Color.png" id="5_v2rmj"]
+[ext_resource type="Texture2D" uid="uid://bkbxv6nupb8wn" path="res://assets/3d/environment/scrap_pile/t_scrap_Normal_DirectX.png" id="6_v05cq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrv5"]
+render_priority = 0
+shader = ExtResource("2_r2wc0")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kol25"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_rfrv5")
+shader = ExtResource("3_7hg0r")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_v2rmj")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.5
+shader_parameter/texture_normal = ExtResource("6_v05cq")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("4_a7fws")
+shader_parameter/fresnel_gradient = ExtResource("4_a7fws")
+shader_parameter/fresnel_intensity = 1.0
+
+[node name="sm_collectibles_scrappile" instance=ExtResource("1_amnmf")]
+
+[node name="sm_collectibles_scrappile-mesh" parent="mesh_scrappile-mesh" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_kol25")
+surface_material_override/1 = SubResource("ShaderMaterial_kol25")
+surface_material_override/2 = SubResource("ShaderMaterial_kol25")
+surface_material_override/3 = SubResource("ShaderMaterial_kol25")
+surface_material_override/4 = SubResource("ShaderMaterial_kol25")
+surface_material_override/5 = SubResource("ShaderMaterial_kol25")
+surface_material_override/6 = SubResource("ShaderMaterial_kol25")
+surface_material_override/7 = SubResource("ShaderMaterial_kol25")
+surface_material_override/8 = SubResource("ShaderMaterial_kol25")
+surface_material_override/9 = SubResource("ShaderMaterial_kol25")
+surface_material_override/10 = SubResource("ShaderMaterial_kol25")

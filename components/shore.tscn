@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://virm1bn3fjhn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ttkr"]
+albedo_color = Color(0.329551, 0.22222, 0.127452, 1)
+
+[node name="Shore" type="CSGCombiner3D"]
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -7.28119, 0, 18.8958)
+size = Vector3(15.3909, 1, 30.9007)
+material = SubResource("StandardMaterial3D_1ttkr")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 8.54035, 0, 21.0615)
+size = Vector3(21.5436, 1, 27.79)
+material = SubResource("StandardMaterial3D_1ttkr")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.2533, 0, -9.83996)
+size = Vector3(26.8202, 1, 35.1351)
+material = SubResource("StandardMaterial3D_1ttkr")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 53.9831, 0, -69.1847)
+size = Vector3(85.5354, 1, 169.342)
+material = SubResource("StandardMaterial3D_1ttkr")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -14.0656, 0, 78.7203)
+size = Vector3(208.086, 1, 123.695)
+material = SubResource("StandardMaterial3D_1ttkr")

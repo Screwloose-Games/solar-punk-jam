@@ -1,79 +1,103 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=11 format=3 uid="uid://d3k7l24o3467h"]
+[gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://d3k7l24o3467h"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_emwmh"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_lpidx"]
+[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="3_lpidx"]
 
-[sub_resource type="Resource" id="Resource_b5u7u"]
-script = ExtResource("1_b5u7u")
-description = "Return to your home roof."
-quest_value = "player_entered_home"
+[sub_resource type="Resource" id="Resource_eepgn"]
+script = ExtResource("2_lpidx")
+autoload_name = "GlobalSignalBus"
+signal_name = "player_entered_home"
+expected_args = []
+description = "Go to your home's rooftop"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
+marker_id = "home_entrance"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
-[sub_resource type="Resource" id="Resource_emwmh"]
-script = ExtResource("1_b5u7u")
-description = "Build a Raised Bed"
-quest_value = "built_raised_bed"
+[sub_resource type="Resource" id="Resource_j1jch"]
+script = ExtResource("2_lpidx")
+autoload_name = "QuestManager"
+signal_name = "structure_built"
+expected_args = ["Rain barrel"]
+description = "Build a rain barrel"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
-
-[sub_resource type="Resource" id="Resource_lpidx"]
-script = ExtResource("1_b5u7u")
-description = "Build a Rain Barrel"
-quest_value = "built_rain_barrel"
-goal = 1
-prerequisites = Array[int]([1])
-play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
-
-[sub_resource type="Resource" id="Resource_jxjmi"]
-script = ExtResource("1_b5u7u")
-description = "Build a Compost Bin"
-quest_value = "built_compost"
-goal = 1
-prerequisites = Array[int]([2])
-play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
-
-[sub_resource type="Resource" id="Resource_j1jch"]
-script = ExtResource("1_b5u7u")
-description = "Collect Materials"
-quest_value = "res_material"
-goal = 3
-prerequisites = Array[int]([3])
-play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
+marker_id = "home_roof_garden"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_aaa6b"]
-script = ExtResource("1_b5u7u")
-description = "Build another Raised Bed"
-quest_value = "built_raised_bed"
+script = ExtResource("2_lpidx")
+autoload_name = "QuestManager"
+signal_name = "structure_built"
+expected_args = ["Compost bin"]
+description = "Build a compost bin"
+goal = 1
+prerequisites = Array[int]([0])
+play_dialogue = ""
+marker_id = "home_roof_garden"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
+[sub_resource type="Resource" id="Resource_jxjmi"]
+script = ExtResource("2_lpidx")
+autoload_name = "QuestManager"
+signal_name = "structure_built"
+expected_args = ["Vertical garden"]
+description = "Build a vertial garden"
+goal = 1
+prerequisites = Array[int]([0])
+play_dialogue = ""
+marker_id = "home_roof_garden"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
+[sub_resource type="Resource" id="Resource_k0nsr"]
+script = ExtResource("3_lpidx")
+target_value = "res_material"
+description = "Collect Materials"
+goal = 3
+prerequisites = Array[int]([1, 2, 3])
+play_dialogue = ""
+marker_id = "material_location"
+metadata/_custom_type_script = "uid://cmvp4kmmguagb"
+
+[sub_resource type="Resource" id="Resource_lpidx"]
+script = ExtResource("2_lpidx")
+autoload_name = "QuestManager"
+signal_name = "structure_built"
+expected_args = ["Raised bed"]
+description = "Build a raised bed"
 goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
+marker_id = "home_roof_garden"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_ku037"]
-script = ExtResource("1_b5u7u")
-description = "Plant Radishes in the garden"
-quest_value = "crop_radish"
+script = ExtResource("2_lpidx")
+autoload_name = "QuestManager"
+signal_name = "crop_planted"
+expected_args = ["Radish"]
+description = "Plant a radish"
 goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
+marker_id = "home_roof_garden"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_a0tgy"]
-script = ExtResource("1_b5u7u")
-description = "Wait 1 day"
-quest_value = ""
+script = ExtResource("2_lpidx")
+autoload_name = "EnvironmentManager"
+signal_name = "day_cycle_end"
+expected_args = []
+description = "Wait 1 day before harvesting"
 goal = 1
 prerequisites = Array[int]([6])
 play_dialogue = ""
-metadata/_custom_type_script = "uid://drx8xjc56vf8y"
+marker_id = "go_to_bed_door"
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
 script = ExtResource("2_emwmh")
@@ -81,8 +105,10 @@ id = "a1d1_garden"
 name = "Start your own garden"
 quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
-objectives = Array[ExtResource("1_b5u7u")]([SubResource("Resource_b5u7u"), SubResource("Resource_emwmh"), SubResource("Resource_lpidx"), SubResource("Resource_jxjmi"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
-unlock_structure = ""
+community_board_text = ""
+objectives = Array[ExtResource("1_b5u7u")]([SubResource("Resource_eepgn"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_jxjmi"), SubResource("Resource_k0nsr"), SubResource("Resource_lpidx"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
+unlock_on_accept = Array[String](["Raised bed"])
+unlock_on_complete = Array[String]([])
 rewards = Dictionary[String, int]({
 "Happiness": 5
 })
