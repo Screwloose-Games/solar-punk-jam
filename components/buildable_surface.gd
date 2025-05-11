@@ -62,19 +62,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed:
 		if can_build:
 			build_structure()
-		elif can_check:
-			structure_popup()
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT and event.pressed:
 		reset_cursor_3d()
 	elif event is InputEventMouseMotion:
 		move_cursor_3d()
-
-func structure_popup():
-	var structure_id: int = tile_to_structure_idx[Vector2i(current_coords)]
-	var structure: StructureManager.BuiltStructure = built_structures_local[structure_id]
-	HUDCanvasLayer.Singleton.instance.kill_tool_tip()
-	HUDCanvasLayer.Singleton.instance.show_popup_menu(structure)
-	#StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
 
 func ready_structure_building(idx):
 	if not is_active:
@@ -91,10 +82,6 @@ func ready_structure_building(idx):
 
 func enable_cursor_3d():
 	move_cursor_3d()
-	#var coords = surface_map.get_used_cells(0)[0]
-	#coords += Vector2i(1,1)
-	#selection_placeholder.position = Vector2()
-	#selection_placeholder.show()
 
 func move_cursor_3d():
 	if not is_active or not get_viewport():

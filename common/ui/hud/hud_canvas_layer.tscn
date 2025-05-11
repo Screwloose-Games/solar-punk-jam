@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://4uor5nnaruka"]
+[gd_scene load_steps=34 format=3 uid="uid://4uor5nnaruka"]
 
 [ext_resource type="Script" uid="uid://b6i70abui5qbo" path="res://common/ui/hud/hud_canvas_layer.gd" id="1_2ngon"]
 [ext_resource type="Texture2D" uid="uid://ddxrx5y1b84ln" path="res://assets/2d/ui/Happiness-icon.png" id="2_6torc"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bdy33iqkbh4qq" path="res://assets/2d/ui/toolbar_icons_spritesheet.png" id="9_54k12"]
 [ext_resource type="Texture2D" uid="uid://ctid086g76a2a" path="res://assets/2d/ui/Slot.png" id="11_5quvr"]
 [ext_resource type="PackedScene" uid="uid://chvbasb1d20c4" path="res://common/ui/screens/end_day_sequence/end_day_sequence.tscn" id="13_5quvr"]
+[ext_resource type="Texture2D" uid="uid://cml8b4jaaaxhh" path="res://assets/2d/ui/B_Key.png" id="15_45i4j"]
+[ext_resource type="Script" uid="uid://bemucfv6jrtyf" path="res://common/ui/build_overlay/build_ui_container.gd" id="15_54k12"]
+[ext_resource type="PackedScene" uid="uid://b8giku24hrdo3" path="res://common/ui/build_overlay/structure_panel_container.tscn" id="16_54k12"]
+[ext_resource type="PackedScene" uid="uid://dp27yopmide5x" path="res://common/ui/build_overlay/build_hover_panel.tscn" id="16_bgxx2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8yxrh"]
 content_margin_top = 10.0
@@ -113,6 +117,21 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx374"]
+content_margin_left = 17.0
+content_margin_top = 22.0
+content_margin_right = 17.0
+content_margin_bottom = 22.0
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+shadow_color = Color(0, 0, 0, 0.164706)
+shadow_size = 6
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cysu"]
+
 [node name="HUDCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_2ngon")
 weather_icon_sunny = ExtResource("5_5quvr")
@@ -131,8 +150,8 @@ mouse_filter = 2
 layout_mode = 1
 offset_right = 260.0
 offset_bottom = 189.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_left = 71
+theme_override_constants/margin_top = 54
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/TopLeftMarginContainer"]
 layout_mode = 2
@@ -286,8 +305,8 @@ offset_left = -169.0
 offset_right = -1.0
 offset_bottom = 75.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
+theme_override_constants/margin_top = 54
+theme_override_constants/margin_right = 71
 
 [node name="PanelContainer" type="PanelContainer" parent="HUD/TopRightMarginContainer"]
 layout_mode = 2
@@ -395,6 +414,7 @@ theme_override_constants/margin_left = 5
 layout_mode = 2
 
 [node name="ResourceLabel" type="Label" parent="HUD/LeftMiddleMarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "100x Water"
@@ -453,6 +473,7 @@ text = "100"
 
 [node name="BottomCenterMarginContainer" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -643,6 +664,7 @@ layout_mode = 2
 text = "Close"
 
 [node name="TooltipLabel" type="Label" parent="HUD"]
+visible = false
 layout_mode = 0
 offset_left = 1532.0
 offset_top = 1017.0
@@ -675,3 +697,76 @@ grow_vertical = 0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 49.0
+offset_right = 919.0
+offset_bottom = 699.0
+
+[node name="BuildCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LeaveBuildHBoxContainer" type="HBoxContainer" parent="BuildCanvasLayer"]
+offset_left = 1333.0
+offset_top = 997.0
+offset_right = 1392.0
+offset_bottom = 1037.0
+
+[node name="TextureRect" type="TextureRect" parent="BuildCanvasLayer/LeaveBuildHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_45i4j")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="BuildCanvasLayer/LeaveBuildHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+
+[node name="BuildUIContainer" type="MarginContainer" parent="BuildCanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = -289.0
+offset_bottom = 289.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 71
+script = ExtResource("15_54k12")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildCanvasLayer/BuildUIContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="BuildCanvasLayer/BuildUIContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yx374")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BuildCanvasLayer/BuildUIContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 277)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuildCanvasLayer/BuildUIContainer/VBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StructurePanelContainer" parent="BuildCanvasLayer/BuildUIContainer/VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer" instance=ExtResource("16_54k12")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="BuildCanvasLayer/BuildUIContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 56
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8cysu")
+
+[node name="HoverPanel" parent="BuildCanvasLayer/BuildUIContainer/VBoxContainer" instance=ExtResource("16_bgxx2")]
+unique_name_in_owner = true
+layout_mode = 2
