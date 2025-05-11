@@ -1,7 +1,6 @@
 extends StaticBody3D
 
 @export var quest_list : Array[Quest]
-
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var community_board_canvas_layer: CommunityBoardCanvasLayer = %CommunityBoardCanvasLayer
 
@@ -9,6 +8,7 @@ var quest_index : int = 0
 
 
 func _ready() -> void:
+	$InteractNotify.quests_available_changed.connect(quests_available_changed)
 	QuestManager.quest_completed.connect(_on_quest_complete)
 	interactable_area_3d.interacted.connect(_on_interacted)
 	community_board_canvas_layer.visible = false
@@ -17,6 +17,13 @@ func _ready() -> void:
 	if not quest_list.is_empty():
 		community_board_canvas_layer.quest = quest_list[quest_index]
 
+
+func quests_available_changed(val):
+	var material := $sm_message_board/sm_community_message_board.get_surface_override_material(0) as ShaderMaterial
+	if val:
+		material.set_shader_parameter("texture_albedo", load("res://assets/3d/structures/community_board/t_message_board_flyers_baseColor.png"))
+	else:
+		material.set_shader_parameter("texture_albedo", load("res://assets/3d/structures/community_board/t_message_board_baseColor.png"))
 
 func _on_board_closed():
 	community_board_canvas_layer.visible = false
