@@ -1,11 +1,14 @@
 [background arg="res://narrative/styles/intro_fs/bg_black.png" fade="0.0"]
 [style name="intro_fs"]
-[speed=4] Dear Diary,
-it's been raining for days
-it sounds like a hundred trains all around us
-I can hear my parents yelling in the other room
-mama says we should go
-but daddy says where?
-[speed=6]THIS IS THE ONLY HOME WE HAVE
-[wait time="5.0"]
+[speed=4] Dear Diary,\
+\
+It's been raining for days.\
+It sounds like a hundred trains all around us.\
+\
+I can hear my parents yelling in the other room.\
+Mama says we should go.\
+\
+But Daddy says where?\
+This is the only home we have.
+[wait time="2.0"]
 [style name="dialogic_dialog_style"]
