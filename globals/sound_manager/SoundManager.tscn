@@ -42,15 +42,19 @@ script = ExtResource("1_0wbjb")
 
 [node name="UiSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="AmbientSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_3bdi4")
 volume_db = -20.0
 autoplay = true
+bus = &"Ambient"
 
 [node name="WeatherSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Ambient"
 
 [node name="UiQuestAcceptedConnector" type="Node" parent="."]
 script = ExtResource("2_t4w6u")

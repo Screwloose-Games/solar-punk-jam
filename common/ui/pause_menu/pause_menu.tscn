@@ -68,7 +68,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 12
 
 [node name="ContinueButton" type="Button" parent="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
