@@ -32,7 +32,6 @@ class BuiltStructure:
 		self.ready_to_be_collected = []
 		self.status = STRUCTURE_STATUS.EXPENDED
 		StructureManager.visual_instance_update(self)
-		HUDCanvasLayer.Singleton.instance.close_popup_menu()
 	func refill_today():
 		if StructureManager.check_structure_requirements(self.structure):
 			var requirements = StructureManager.structure_data[self.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
