@@ -17,6 +17,7 @@ func _run():
 	confirmation_dialog.popup_centered()
 
 func _on_confirm_resize(large_pngs):
+	print("Resizing large pngs")
 	for path in large_pngs:
 		resize_file(path, MAX_WIDTH)
 
@@ -35,7 +36,7 @@ func find_large_pngs(root_directory: String, max_width: int = MAX_WIDTH) -> Arra
 			if dir.current_is_dir():
 				large_pngs += find_large_pngs(path, max_width)
 			elif file_name.to_lower().ends_with(".png"):
-				var img := Image.new()
+				var img := Texture2D.new()
 				if img.load(path) == OK and img.get_width() > max_width:
 					var rel_path := ProjectSettings.localize_path(path)
 					large_pngs.append(rel_path)
@@ -49,5 +50,5 @@ func resize_file(png_path: String, max_width: int = MAX_WIDTH) -> void:
 		var new_height := int(img.get_height() * scale_ratio)
 		img.resize(max_width, new_height, Image.INTERPOLATE_LANCZOS)
 		print("Would overwrite: ", png_path)
-		return
+		#return
 		img.save_png(png_path)
