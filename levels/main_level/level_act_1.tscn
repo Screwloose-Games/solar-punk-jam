@@ -451,6 +451,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -852,7 +853,7 @@ shader_params/u_tile_reduction = null
 metadata/_custom_type_script = "uid://dq8f5vhim57ef"
 
 [node name="Water" type="GridMap" parent="HTerrain"]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 407.85, -2.27, 504.792)
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 9.50604, -3.52456, 593.949)
 mesh_library = SubResource("MeshLibrary_cwn0e")
 cell_size = Vector3(10, 2, 10)
 data = {
