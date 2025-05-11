@@ -21,12 +21,9 @@ func _ready() -> void:
 func quests_available_changed(val):
 	var material := $sm_message_board/sm_community_message_board.get_surface_override_material(0) as ShaderMaterial
 	if val:
-		#material.texture = load("res://assets/3d/structures/community_board/t_message_board_flyers_baseColor.png")
 		material.set_shader_parameter("texture_albedo", load("res://assets/3d/structures/community_board/t_message_board_flyers_baseColor.png"))
 	else:
-		#material.texture = load("res://assets/3d/structures/community_board/t_message_board_baseColor.png")
 		material.set_shader_parameter("texture_albedo", load("res://assets/3d/structures/community_board/t_message_board_baseColor.png"))
-	$sm_message_board/sm_community_message_board.set_surface_override_material(0, material)
 
 func _on_board_closed():
 	community_board_canvas_layer.visible = false
