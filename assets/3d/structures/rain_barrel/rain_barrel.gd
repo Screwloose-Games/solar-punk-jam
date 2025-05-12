@@ -20,7 +20,7 @@ func _on_day_cycle_end():
 
 func _on_interacted(_player: Player):
 	if current_water > 0:
-		ResourcesManager.gain_resource("Water", current_water)
+		ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.WATER, current_water)
 		GlobalSignalBus.rain_barrel_collected.emit()
 		current_water = 0
 	else:

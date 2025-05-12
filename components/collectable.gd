@@ -19,6 +19,6 @@ func _on_interacted(_player: Player):
 
 func collect():
 	ResourcesManager.gain_resource(collected_resource, count)
-	ResourcesManager.gain_resource("Environment", environment_gain)
+	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.ENVIRONMENT, environment_gain)
 	collected.emit()
 	GlobalSignalBus.scrap_collected.emit()

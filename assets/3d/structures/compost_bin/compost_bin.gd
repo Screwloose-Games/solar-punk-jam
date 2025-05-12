@@ -25,7 +25,7 @@ func _on_day_cycle_end():
 
 func _on_interacted(_player: Player):
 	if soil_ready > 0:
-		ResourcesManager.gain_resource("Soil", soil_ready)
+		ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.SOIL, soil_ready)
 		GlobalSignalBus.compost_collected.emit()
 		soil_ready = 0
 	elif ResourcesManager.has_at_least("Waste", 1) and current_waste < max_capacity:

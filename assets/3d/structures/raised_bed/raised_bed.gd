@@ -66,7 +66,7 @@ func _on_day_passed():
 	mature_crops()
 
 func harvest_crop():
-	ResourcesManager.gain_resource("Food", crop.harvest_amount)
+	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.FOOD, crop.harvest_amount)
 	GlobalSignalBus.crop_harvested.emit(crop.type)
 	crop = null
 	clear_visuals()

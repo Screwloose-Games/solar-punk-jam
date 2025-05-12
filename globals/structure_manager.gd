@@ -135,7 +135,7 @@ func register_all_structures():
 func build_structure(new_structure: BuiltStructure, skip_resource_consumption=false):
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
-			ResourcesManager.gain_resource("Materials", -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
+			ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.MATERIALS, -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
 	var storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.ElectricityStorage]
 	if storage:
 		ResourcesManager.resource_storage_limits["Electricity"] += storage
@@ -145,7 +145,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
-	ResourcesManager.gain_resource("Environment", environment_gain_per_structure_built)
+	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.ENVIRONMENT, environment_gain_per_structure_built)
 
 
 func visual_instance_update(structure: BuiltStructure):
@@ -184,7 +184,7 @@ func daily_collect_resources_from_structures():
 				"Rain barrel":
 					var how_much_water_if_rains = int(structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier])
 					if EnvironmentManager.environment_model.is_raining:
-						ResourcesManager.gain_resource("Water", how_much_water_if_rains)
+						ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.WATER, how_much_water_if_rains)
 				_:
 					if not structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] or structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] and structure.daily_resources_satisfied:
 						for item in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection].split(","):

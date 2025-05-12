@@ -83,7 +83,7 @@ func end_day():
 
 func animate_night(start_at=0.0, bedtime_penalty=false):
 	if bedtime_penalty:
-		ResourcesManager.gain_resource("Happiness", -10)
+		ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.HAPPINESS, -10)
 	EnvironmentManager.day_cycle_end.emit()
 	$DirectionalLight3DSun.light_energy = 0.0
 	$DirectionalLight3DMoon.light_energy = 1.0

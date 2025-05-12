@@ -46,9 +46,9 @@ var starting_resources: Dictionary = {
 	"Happiness": 10
 }
 
-var current_resources = {}
-var daily_resources = {}
-var deposited_resources = {}
+var current_resources: Dictionary[String, int] = {}
+var daily_resources: Dictionary[String, int] = {}
+var deposited_resources: Dictionary[String, int] = {}
 
 func _ready() -> void:
 	print("resources: ", ResourceType.values())
@@ -90,15 +90,10 @@ func gain_resource(resource: String, quantity: int):
 		current_resources[resource] += quantity
 	else:
 		current_resources[resource] = quantity
-		
-		
 	if resource in daily_resources:
 		daily_resources[resource] += quantity
 	else:
 		daily_resources[resource] = quantity
-		
-		
-
 	if resource in resource_storage_limits:
 		if current_resources[resource] > resource_storage_limits[resource]:
 			prints("We cannot store all of this resource, discarding some")
@@ -108,10 +103,37 @@ func gain_resource(resource: String, quantity: int):
 
 	UpdatedAvailableResources.emit()
 
+func gain_resource_enum(resource: ResourceType, quantity: int):
+	var resource_str = RESOURCE_TYPE_NAMES[resource]
+	if resource in current_resources:
+		current_resources[resource_str] += quantity
+	else:
+		current_resources[resource_str] = quantity
+	if resource in daily_resources:
+		daily_resources[resource_str] += quantity
+	else:
+		daily_resources[resource_str] = quantity
+
+	if resource in resource_storage_limits:
+		if current_resources[resource_str] > resource_storage_limits[resource_str]:
+			prints("We cannot store all of this resource, discarding some")
+			current_resources[resource_str] = resource_storage_limits[resource_str]
+		if daily_resources[resource_str] > resource_storage_limits[resource_str]:
+			daily_resources[resource_str] = resource_storage_limits[resource_str]
+
+	UpdatedAvailableResources.emit()
+
 func gain_resources(new_resources: Dictionary[String, int]):
 	for resource in new_resources:
 		gain_resource(resource, new_resources[resource])
 	return true
+
+func gain_resources_enum(new_resources: Dictionary[ResourceType, int]):
+	for resource in new_resources:
+		gain_resource_enum(resource, new_resources[resource])
+	return true
+
+
 
 func spend_resource(resource: String, quantity: int):
 	if resource in current_resources:

@@ -12,7 +12,7 @@ func _on_interacted(_player: Player) -> void:
 		ResourcesManager.deposit_resource("Food", 1)
 		ResourcesManager.spend_resource("Food", 1)
 		GlobalSignalBus.food_donated.emit(1)
-		ResourcesManager.gain_resource("Community", community_per_donation)
+		ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.COMMUNITY, community_per_donation)
 	else:
 		# feedback to player: not enough food
 		pass
