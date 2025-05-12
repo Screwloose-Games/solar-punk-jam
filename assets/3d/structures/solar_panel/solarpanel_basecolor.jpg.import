@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq4ayh21hl3be"
 path.s3tc="res://.godot/imported/solarpanel_basecolor.jpg-280465cb5fe8785c17f55bf3efdd4625.s3tc.ctex"
+path.etc2="res://.godot/imported/solarpanel_basecolor.jpg-280465cb5fe8785c17f55bf3efdd4625.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/structures/solar_panel/solarpanel_basecolor.jpg"
-dest_files=["res://.godot/imported/solarpanel_basecolor.jpg-280465cb5fe8785c17f55bf3efdd4625.s3tc.ctex"]
+dest_files=["res://.godot/imported/solarpanel_basecolor.jpg-280465cb5fe8785c17f55bf3efdd4625.s3tc.ctex", "res://.godot/imported/solarpanel_basecolor.jpg-280465cb5fe8785c17f55bf3efdd4625.etc2.ctex"]
 
 [params]
 

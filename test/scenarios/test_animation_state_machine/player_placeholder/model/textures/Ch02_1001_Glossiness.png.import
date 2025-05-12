@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3u7xd7imx3i0"
 path.s3tc="res://.godot/imported/Ch02_1001_Glossiness.png-d0dd67b0492918612f53121647ea248a.s3tc.ctex"
+path.etc2="res://.godot/imported/Ch02_1001_Glossiness.png-d0dd67b0492918612f53121647ea248a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://test/scenarios/test_animation_state_machine/player_placeholder/model/textures/Ch02_1001_Glossiness.png"
-dest_files=["res://.godot/imported/Ch02_1001_Glossiness.png-d0dd67b0492918612f53121647ea248a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ch02_1001_Glossiness.png-d0dd67b0492918612f53121647ea248a.s3tc.ctex", "res://.godot/imported/Ch02_1001_Glossiness.png-d0dd67b0492918612f53121647ea248a.etc2.ctex"]
 
 [params]
 

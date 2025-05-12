@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://csskfk4gcjp5x"
 path.s3tc="res://.godot/imported/Face.png-9eea7e9d6899a90765100123b28f5b27.s3tc.ctex"
+path.etc2="res://.godot/imported/Face.png-9eea7e9d6899a90765100123b28f5b27.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/people/example_person/Face.png"
-dest_files=["res://.godot/imported/Face.png-9eea7e9d6899a90765100123b28f5b27.s3tc.ctex"]
+dest_files=["res://.godot/imported/Face.png-9eea7e9d6899a90765100123b28f5b27.s3tc.ctex", "res://.godot/imported/Face.png-9eea7e9d6899a90765100123b28f5b27.etc2.ctex"]
 
 [params]
 

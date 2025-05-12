@@ -47,7 +47,8 @@ func show_happiness():
 
 
 func show_daily_summary():
-	print("day cycle ended")
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	player.force_ignore_input = true
 	daily_summary_center_container.modulate = Color.TRANSPARENT
 	show()
 	show_environment()
@@ -74,4 +75,6 @@ func close():
 	var tween: Tween = create_tween()
 	tween.tween_property(daily_summary_center_container, "modulate", Color.TRANSPARENT, fade_out_time)
 	await tween.finished
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	player.force_ignore_input = false
 	hide()

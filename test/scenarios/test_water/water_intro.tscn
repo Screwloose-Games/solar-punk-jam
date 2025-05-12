@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://dr5n6y37v5b8t"]
+[gd_scene load_steps=19 format=3 uid="uid://bxptf4j6th3y8"]
 
-[ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_08mkj"]
-[ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_ypvyw"]
-[ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="5_tnnds"]
-[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="7_xjnxn"]
-[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="10_uu54l"]
-[ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="11_3sjjn"]
-[ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="12_jx4f4"]
-[ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="13_6qdfi"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="15_ypvyw"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="1_cp714"]
+[ext_resource type="Script" uid="uid://dnua1dknb3abw" path="res://test/scenarios/test_water/water_intro.gd" id="1_xn262"]
+[ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_xn262"]
+[ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_g5yvm"]
+[ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="4_8ri24"]
+[ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="5_2yaoc"]
+[ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="6_y32fn"]
+[ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="7_83olg"]
+[ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="8_6og2m"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="9_827dl"]
 
 [sub_resource type="Animation" id="Animation_kcgtt"]
 length = 0.001
@@ -50,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 4, 9.73544),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(6.72798, 2.86358, 15.3668), Vector3(-4.272, 4.864, 0.367), Vector3(-2.46334, 6.37645, -20.8106)]
+"values": [Vector3(6.72798, 2.86358, 15.3668), Vector3(4.728, 13.864, 0.367), Vector3(-2.46334, 6.37645, -20.8106)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -59,10 +60,10 @@ tracks/1/path = NodePath("MainCamera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 9.73544),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 4, 9.73542, 9.73725),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.523599, 0, 0), Vector3(-0.523599, 0, 0), Vector3(-0.523599, 1.45211, 0)]
+"values": [Vector3(-0.153589, 0, 0), Vector3(-0.523599, 0, 0), Vector3(-0.153589, 1.45211, 0), Vector3(-0.153589, 0.963422, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egt6j"]
@@ -73,10 +74,12 @@ _data = {
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o51hc"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 5.99
+dof_blur_far_distance = 12.2
+dof_blur_far_transition = 127.27
 dof_blur_near_enabled = true
 dof_blur_near_distance = 0.05
-dof_blur_amount = 0.21
+dof_blur_near_transition = 60.14
+dof_blur_amount = 0.09
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y45t7"]
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
@@ -85,7 +88,7 @@ cell_height = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dhqvo"]
 render_priority = 0
-shader = ExtResource("15_ypvyw")
+shader = ExtResource("9_827dl")
 shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
 shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
 shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
@@ -120,9 +123,11 @@ item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 
 item/0/navigation_layers = 1
 metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn"
 
-[node name="TestWater" type="Node3D"]
+[node name="IntroWater" type="Node3D"]
+script = ExtResource("1_xn262")
 
-[node name="Environment" parent="." instance=ExtResource("7_xjnxn")]
+[node name="Environment" parent="." instance=ExtResource("1_cp714")]
+unique_name_in_owner = true
 is_raining = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -132,7 +137,7 @@ libraries = {
 autoplay = "flyover_01"
 
 [node name="UnlockStructures" type="Node" parent="."]
-script = ExtResource("2_08mkj")
+script = ExtResource("2_xn262")
 structures = Dictionary[String, bool]({
 "Battery": false,
 "Bench": false,
@@ -161,7 +166,7 @@ structures = Dictionary[String, bool]({
 })
 
 [node name="SetupResources" type="Node" parent="."]
-script = ExtResource("3_ypvyw")
+script = ExtResource("3_g5yvm")
 resources = Dictionary[String, int]({
 "Electricity": 50,
 "Food": 50,
@@ -182,8 +187,9 @@ unique_name_in_owner = true
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6.72798, 2.86358, 15.3668)
 attributes = SubResource("CameraAttributesPractical_o51hc")
+fov = 50.0
 
-[node name="DesignTestScene" parent="." instance=ExtResource("5_tnnds")]
+[node name="DesignTestScene" parent="." instance=ExtResource("4_8ri24")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_y45t7")
@@ -202,20 +208,20 @@ carve_navigation_mesh = true
 
 [node name="Structures" type="Node3D" parent="."]
 
-[node name="CommBoard" parent="." instance=ExtResource("10_uu54l")]
+[node name="CommBoard" parent="." instance=ExtResource("5_2yaoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17085, -9.53674e-07, 14.0057)
 
-[node name="ScrapPileSpawner" parent="." instance=ExtResource("11_3sjjn")]
+[node name="ScrapPileSpawner" parent="." instance=ExtResource("6_y32fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168)
 
-[node name="ScrapPileSpawner2" parent="." instance=ExtResource("11_3sjjn")]
+[node name="ScrapPileSpawner2" parent="." instance=ExtResource("6_y32fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
 
 [node name="FakeDoor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91107, 0.722029, 14.9745)
 size = Vector3(0.32959, 1.54932, 1)
 
-[node name="SleepDoor" parent="FakeDoor" instance=ExtResource("12_jx4f4")]
+[node name="SleepDoor" parent="FakeDoor" instance=ExtResource("7_83olg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301051, -0.722028, 0.168841)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="FakeDoor"]
@@ -223,7 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405251, -0.21441, 0)
 omni_range = 1.524
 omni_attenuation = 0.5
 
-[node name="sm_destroyed_building_01" parent="." instance=ExtResource("13_6qdfi")]
+[node name="sm_destroyed_building_01" parent="." instance=ExtResource("8_6og2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
 
 [node name="GridMap" type="GridMap" parent="."]

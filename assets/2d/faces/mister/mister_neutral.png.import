@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhhq5qnw7phop"
 path.s3tc="res://.godot/imported/mister_neutral.png-1c0ad56ed30a8e383efe54c3b5491092.s3tc.ctex"
+path.etc2="res://.godot/imported/mister_neutral.png-1c0ad56ed30a8e383efe54c3b5491092.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/faces/mister/mister_neutral.png"
-dest_files=["res://.godot/imported/mister_neutral.png-1c0ad56ed30a8e383efe54c3b5491092.s3tc.ctex"]
+dest_files=["res://.godot/imported/mister_neutral.png-1c0ad56ed30a8e383efe54c3b5491092.s3tc.ctex", "res://.godot/imported/mister_neutral.png-1c0ad56ed30a8e383efe54c3b5491092.etc2.ctex"]
 
 [params]
 

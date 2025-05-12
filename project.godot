@@ -124,6 +124,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Capybara"
 
+[editor]
+
+movie_writer/movie_file="G:/projects/godot/solar-punk-jam/water_fly.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/screwloose-editor-settings/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
@@ -252,4 +256,6 @@ common/physics_interpolation=true
 
 [rendering]
 
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 global_illumination/gi/use_half_resolution=true

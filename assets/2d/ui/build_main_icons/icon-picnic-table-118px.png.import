@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3wbfqj500h35"
 path.s3tc="res://.godot/imported/icon-picnic-table-118px.png-6cead2945e7140b30ce7f6ebf233e60b.s3tc.ctex"
+path.etc2="res://.godot/imported/icon-picnic-table-118px.png-6cead2945e7140b30ce7f6ebf233e60b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/ui/build_main_icons/icon-picnic-table-118px.png"
-dest_files=["res://.godot/imported/icon-picnic-table-118px.png-6cead2945e7140b30ce7f6ebf233e60b.s3tc.ctex"]
+dest_files=["res://.godot/imported/icon-picnic-table-118px.png-6cead2945e7140b30ce7f6ebf233e60b.s3tc.ctex", "res://.godot/imported/icon-picnic-table-118px.png-6cead2945e7140b30ce7f6ebf233e60b.etc2.ctex"]
 
 [params]
 

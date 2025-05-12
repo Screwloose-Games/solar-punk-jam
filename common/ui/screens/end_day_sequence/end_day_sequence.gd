@@ -33,6 +33,7 @@ func _on_day_cycle_end():
 	start_sequence()
 
 func start_sequence():
+	var player: Player = get_tree().get_first_node_in_group("Player")
 	black.show()
 	black.color = Color.BLACK
 	black.color = Color.BLACK

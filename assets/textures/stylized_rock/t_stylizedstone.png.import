@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7cnhkxataaot"
 path.s3tc="res://.godot/imported/t_stylizedstone.png-f01ddfad481754fcb9afa6e49f6fa2b1.s3tc.ctex"
+path.etc2="res://.godot/imported/t_stylizedstone.png-f01ddfad481754fcb9afa6e49f6fa2b1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/stylized_rock/t_stylizedstone.png"
-dest_files=["res://.godot/imported/t_stylizedstone.png-f01ddfad481754fcb9afa6e49f6fa2b1.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_stylizedstone.png-f01ddfad481754fcb9afa6e49f6fa2b1.s3tc.ctex", "res://.godot/imported/t_stylizedstone.png-f01ddfad481754fcb9afa6e49f6fa2b1.etc2.ctex"]
 
 [params]
 

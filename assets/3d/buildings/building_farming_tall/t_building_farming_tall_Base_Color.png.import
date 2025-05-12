@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd4vmw4wuft4x"
 path.s3tc="res://.godot/imported/t_building_farming_tall_Base_Color.png-fcadba76476aed17b03a9b69339674c4.s3tc.ctex"
+path.etc2="res://.godot/imported/t_building_farming_tall_Base_Color.png-fcadba76476aed17b03a9b69339674c4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/buildings/building_farming_tall/t_building_farming_tall_Base_Color.png"
-dest_files=["res://.godot/imported/t_building_farming_tall_Base_Color.png-fcadba76476aed17b03a9b69339674c4.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_building_farming_tall_Base_Color.png-fcadba76476aed17b03a9b69339674c4.s3tc.ctex", "res://.godot/imported/t_building_farming_tall_Base_Color.png-fcadba76476aed17b03a9b69339674c4.etc2.ctex"]
 
 [params]
 

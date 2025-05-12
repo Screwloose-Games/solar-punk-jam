@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6uca06eejl4s"
 path.s3tc="res://.godot/imported/Te_LP_standardSurface1_BaseColor.png-f2bbdffbba0ff6d4d30bee9d5d4bbf49.s3tc.ctex"
+path.etc2="res://.godot/imported/Te_LP_standardSurface1_BaseColor.png-f2bbdffbba0ff6d4d30bee9d5d4bbf49.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/people/te/Te_LP_standardSurface1_BaseColor.png"
-dest_files=["res://.godot/imported/Te_LP_standardSurface1_BaseColor.png-f2bbdffbba0ff6d4d30bee9d5d4bbf49.s3tc.ctex"]
+dest_files=["res://.godot/imported/Te_LP_standardSurface1_BaseColor.png-f2bbdffbba0ff6d4d30bee9d5d4bbf49.s3tc.ctex", "res://.godot/imported/Te_LP_standardSurface1_BaseColor.png-f2bbdffbba0ff6d4d30bee9d5d4bbf49.etc2.ctex"]
 
 [params]
 

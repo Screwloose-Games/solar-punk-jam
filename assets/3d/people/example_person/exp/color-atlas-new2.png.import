@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7wjgyvpsvpq4"
 path.s3tc="res://.godot/imported/color-atlas-new2.png-6d9cf56693846a3102e6c28083f828be.s3tc.ctex"
+path.etc2="res://.godot/imported/color-atlas-new2.png-6d9cf56693846a3102e6c28083f828be.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/people/example_person/exp/color-atlas-new2.png"
-dest_files=["res://.godot/imported/color-atlas-new2.png-6d9cf56693846a3102e6c28083f828be.s3tc.ctex"]
+dest_files=["res://.godot/imported/color-atlas-new2.png-6d9cf56693846a3102e6c28083f828be.s3tc.ctex", "res://.godot/imported/color-atlas-new2.png-6d9cf56693846a3102e6c28083f828be.etc2.ctex"]
 
 [params]
 

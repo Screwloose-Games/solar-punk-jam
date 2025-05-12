@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddx3nswpbp73s"
 path.s3tc="res://.godot/imported/SM_PrototypeBuilding_02_Gradient Pallete.png-f723045af935334a35a751b03c2db140.s3tc.ctex"
+path.etc2="res://.godot/imported/SM_PrototypeBuilding_02_Gradient Pallete.png-f723045af935334a35a751b03c2db140.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3d/buildings/building_02/SM_PrototypeBuilding_02_Gradient Pallete.png"
-dest_files=["res://.godot/imported/SM_PrototypeBuilding_02_Gradient Pallete.png-f723045af935334a35a751b03c2db140.s3tc.ctex"]
+dest_files=["res://.godot/imported/SM_PrototypeBuilding_02_Gradient Pallete.png-f723045af935334a35a751b03c2db140.s3tc.ctex", "res://.godot/imported/SM_PrototypeBuilding_02_Gradient Pallete.png-f723045af935334a35a751b03c2db140.etc2.ctex"]
 
 [params]
 

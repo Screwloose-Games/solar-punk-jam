@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0o8u05uuenwy"
 path.s3tc="res://.godot/imported/veritcal_garden_normal.png-9e73e888b2dc1eed9d68192627c6ed4f.s3tc.ctex"
+path.etc2="res://.godot/imported/veritcal_garden_normal.png-9e73e888b2dc1eed9d68192627c6ed4f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/structures/vertical_garden/veritcal_garden_normal.png"
-dest_files=["res://.godot/imported/veritcal_garden_normal.png-9e73e888b2dc1eed9d68192627c6ed4f.s3tc.ctex"]
+dest_files=["res://.godot/imported/veritcal_garden_normal.png-9e73e888b2dc1eed9d68192627c6ed4f.s3tc.ctex", "res://.godot/imported/veritcal_garden_normal.png-9e73e888b2dc1eed9d68192627c6ed4f.etc2.ctex"]
 
 [params]
 

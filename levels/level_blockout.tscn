@@ -118,6 +118,7 @@ transform = Transform3D(0.0546714, 0, -0.998505, 0, 1, 0, 0.998505, 0, 0.0546714
 
 [node name="PlayerScale" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.998698, -0.0510112, 0, 0.0510112, 0.998698, 1.91952, 0.833663, 10.3092)
+visible = false
 material_override = ExtResource("6_assy2")
 radius = 0.45
 height = 1.37
