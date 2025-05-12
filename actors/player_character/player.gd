@@ -81,11 +81,19 @@ enum SelfState {
 
 var is_interacting: bool:
 	get:
-		return interact_area_3d.is_interacting or build_area_3d.is_interacting
+		var is_player_interacting: bool = interact_area_3d.is_interacting or build_area_3d.is_interacting
+		is_player_interacting = is_player_interacting or in_dialogue
+		return is_player_interacting
 
 var state: SelfState = SelfState.IDLE
 
 var in_dialogue: bool = false
+
+var should_ignore_input: bool:
+	get:
+		return force_ignore_input or is_interacting
+
+var force_ignore_input: bool = false
 
 var player_mode: PlayerMode = PlayerMode.TRAVEL:
 	set(val):
@@ -140,9 +148,7 @@ func change_camera_priority(priority_camera: PhantomCamera3D):
 	priority_camera.priority = 10
 
 func get_horizontal_velocity(delta: float) -> Vector3:
-	if in_dialogue:
-		return Vector3.ZERO
-	if is_interacting:
+	if should_ignore_input:
 		return Vector3.ZERO
 	match move_mode:
 		MoveMode.DIRECTIONAL:

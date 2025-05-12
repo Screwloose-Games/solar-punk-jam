@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _on_daily_dashboard_closed():
 	Dialogic.start(DIALOGIC_TIMELINE)
+	GlobalSignalBus.daily_summary_continue_clicked.disconnect(_on_daily_dashboard_closed)
 
 func _on_day_updated(day_num: int):
 	if day_num == 2:
