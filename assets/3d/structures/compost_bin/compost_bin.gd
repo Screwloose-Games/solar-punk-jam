@@ -5,10 +5,10 @@ extends Node
 @export var max_waste_deposited_per_interaction: int = 2
 @export var starting_soil: int = 0
 
-@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
-
 var current_waste: int = 0
 var soil_ready: int = 0
+
+@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
 func _ready() -> void:
 	soil_ready = starting_soil
@@ -23,15 +23,18 @@ func _on_day_cycle_end():
 		soil_ready += processed
 		current_waste -= processed
 
-func _on_interacted(player: Player):
+func _on_interacted(_player: Player):
 	if soil_ready > 0:
-		EnvironmentManager.gain_resource("Soil", soil_ready)
+		ResourcesManager.gain_resource("Soil", soil_ready)
 		GlobalSignalBus.compost_collected.emit()
 		soil_ready = 0
-	elif EnvironmentManager.has_at_least("Waste", 1) and current_waste < max_capacity:
+	elif ResourcesManager.has_at_least("Waste", 1) and current_waste < max_capacity:
 		var space_left = max_capacity - current_waste
-		var to_add = min(EnvironmentManager.get_resource_count("Waste"), max_waste_deposited_per_interaction)
-		EnvironmentManager.spend_resource("Waste", to_add)
+		var to_add = min(
+			ResourcesManager.get_resource_count("Waste"),
+			max_waste_deposited_per_interaction
+		)
+		ResourcesManager.spend_resource("Waste", to_add)
 		current_waste += to_add
 		GlobalSignalBus.waste_deposited.emit()
 	else:

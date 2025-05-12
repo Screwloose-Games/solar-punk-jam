@@ -38,12 +38,12 @@ func _on_day_cycle_end():
 
 
 func show_environment():
-	if "Environment" in EnvironmentManager.daily_resources:
-		environment.count = EnvironmentManager.daily_resources["Environment"]
+	if "Environment" in ResourcesManager.daily_resources:
+		environment.count = ResourcesManager.daily_resources["Environment"]
 
 func show_happiness():
-	if "Happiness" in EnvironmentManager.daily_resources:
-		happiness.count = EnvironmentManager.daily_resources["Happiness"]
+	if "Happiness" in ResourcesManager.daily_resources:
+		happiness.count = ResourcesManager.daily_resources["Happiness"]
 
 
 func show_daily_summary():
@@ -55,19 +55,19 @@ func show_daily_summary():
 	show_happiness()
 	#show_resources()
 
-	EnvironmentManager.daily_resources = {}
+	ResourcesManager.daily_resources = {}
 	var tween: Tween = create_tween()
 	tween.tween_property(daily_summary_center_container, "modulate", Color.WHITE, fade_in_time)
 
 func show_resources():
 	for child in reward_list.get_children():
 		child.queue_free()
-	
-	for resource in EnvironmentManager.daily_resources:
+
+	for resource in ResourcesManager.daily_resources:
 		if resource == "Happiness" or resource == "Happiness":
 			continue
 		var row_item: DailySummaryItemUi = DAILY_DASHBOARD_ROW_ITEM.instantiate()
-		row_item.count = EnvironmentManager.daily_resources[resource]
+		row_item.count = ResourcesManager.daily_resources[resource]
 		row_item.item_name = resource
 		reward_list.add_child(row_item)
 

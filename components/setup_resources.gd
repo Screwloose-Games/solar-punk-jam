@@ -3,7 +3,7 @@ extends Node
 
 @export var enabled: bool = true
 
-@export var resources: Dictionary[String, int] = {
+@export var resources = {
 	"Electricity": 0,
 	"Water": 0,
 	"Food": 0,
@@ -14,12 +14,12 @@ extends Node
 	"Seeds": 0,
 }
 
-@export var resource_storage_limits: Dictionary[String, int] = {
+@export var resource_storage_limits = {
 	"Electricity": 0,
 	"Water": 0,
 }
 
 func give_resources():
 	for resource in resources:
-		EnvironmentManager.gain_resource(resource, resources[resource])
-		EnvironmentManager.resource_storage_limits = resource_storage_limits
+		ResourcesManager.gain_resource(resource, resources[resource])
+		ResourcesManager.resource_storage_limits = resource_storage_limits

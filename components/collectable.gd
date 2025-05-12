@@ -18,7 +18,7 @@ func _on_interacted(_player: Player):
 	interactable_area_3d.stop_interacting()
 
 func collect():
-	EnvironmentManager.gain_resource(collected_resource, count)
-	EnvironmentManager.gain_resource("Environment", environment_gain)
+	ResourcesManager.gain_resource(collected_resource, count)
+	ResourcesManager.gain_resource("Environment", environment_gain)
 	collected.emit()
 	GlobalSignalBus.scrap_collected.emit()

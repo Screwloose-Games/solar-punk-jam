@@ -8,7 +8,7 @@ const ICON_SOLAR_PANEL_SMALL = preload("res://assets/2d/ui/build_small_icons/ico
 const ICON_VERTICAL_PLANTER_SMALL = preload("res://assets/2d/ui/build_small_icons/icon-vertical-planter-25px.png")
 const ICON_WATER_BARREL_SMALL = preload("res://assets/2d/ui/build_small_icons/icon-water-barrel-25px.png")
 
-static var structure_small_icons: Dictionary[String, Texture2D] = {
+static var structure_small_icons = {
 	"Compost bin": ICON_COMPOST_BIN_SMALL,
 	"Picnic table": ICON_PICNIC_TABLE_SMALL,
 	"Raised bed": ICON_RAISED_BED_SMALL,
@@ -23,7 +23,7 @@ static var structure_small_icons: Dictionary[String, Texture2D] = {
 @export var enabled_style: StyleBoxFlat
 
 func _ready() -> void:
-	EnvironmentManager.UpdatedAvailableResources.connect(_on_resources_available_changed)
+	ResourcesManager.UpdatedAvailableResources.connect(_on_resources_available_changed)
 	var data = StructureManager.structure_data[structure_id]
 	var name = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.StructureName]
 	var structure_name: String = name
@@ -34,5 +34,5 @@ func _ready() -> void:
 func _on_resources_available_changed():
 	var data = StructureManager.structure_data[structure_id]
 	var mats_required = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.MaterialCost]
-	var can_afford = EnvironmentManager.has_at_least("Materials", mats_required)
+	var can_afford = ResourcesManager.has_at_least("Materials", mats_required)
 	disabled = !can_afford

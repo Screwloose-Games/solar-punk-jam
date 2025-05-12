@@ -68,7 +68,7 @@ func _on_objective_completed(this_objective : QuestObjective):
 		for structure in unlock_on_complete:
 			StructureManager.register_structure(structure)
 		for reward in rewards.keys():
-			EnvironmentManager.gain_resource(reward, rewards[reward])
+			ResourcesManager.gain_resource(reward, rewards[reward])
 		quest_completed.emit(quest_giver)
 	else:
 		quest_state_changed.emit()

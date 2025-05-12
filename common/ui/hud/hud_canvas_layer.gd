@@ -31,7 +31,7 @@ func _ready() -> void:
 	HUDCanvasLayer.Singleton.instance = self
 	EnvironmentManager.day_cycle_update.connect(self.update_time_hud)
 
-	EnvironmentManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
+	ResourcesManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
 	# Ensure we update UI on startup
 	refresh_resources_ui.call_deferred()
 
@@ -55,22 +55,34 @@ func update_time_hud(_offset):
 func refresh_resources_ui():
 	$HUD/LeftMiddleMarginContainer.show()
 	var in_tween: Tween = fade_in_left_middle_container()
-	for i in EnvironmentManager.current_resources:
-		var q = EnvironmentManager.current_resources[i]
+
+	# Hide all existing resource labels first
+	for control in resource_to_control.values():
+		control.hide()
+
+	# Show only resources with non-zero counts
+	for i in ResourcesManager.current_resources:
+		var q = ResourcesManager.current_resources[i]
+		# Skip resources with zero count
+		if q == 0:
+			continue
+
 		var t = i + ": " + str(q)
 		if i in resource_to_control:
 			resource_to_control[i].text = t
+			resource_to_control[i].show()
 		else:
 			var ui := resource_ui_template.duplicate() as Label
-			resource_to_control[i]=ui
+			resource_to_control[i] = ui
 			resource_ui_template.get_parent().add_child(ui)
 			ui.text = t
 			ui.show()
-	%CommunityProgressBar.value = EnvironmentManager.current_resources.get("Happiness", 0)
-	%EnvironmentProgressBar.value = EnvironmentManager.current_resources.get("Environment", 0)
-	%CommunityStatusLabel.text = str(EnvironmentManager.current_resources.get("Happiness", 0))
-	%EnvironmentStatusLabel.text = str(EnvironmentManager.current_resources.get("Environment", 0))
-	
+
+	%CommunityProgressBar.value = ResourcesManager.current_resources.get("Happiness", 0)
+	%EnvironmentProgressBar.value = ResourcesManager.current_resources.get("Environment", 0)
+	%CommunityStatusLabel.text = str(ResourcesManager.current_resources.get("Happiness", 0))
+	%EnvironmentStatusLabel.text = str(ResourcesManager.current_resources.get("Environment", 0))
+
 	await in_tween.finished
 	await get_tree().create_timer(resource_show_time).timeout
 	fade_out_left_middle_container()
