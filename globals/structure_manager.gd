@@ -26,27 +26,7 @@ class BuiltStructure:
 		self.visual_instance = visual_instance
 		self.daily_resources_satisfied = true
 		self.ready_to_be_collected = []
-	func collect_today():
-		for i in self.ready_to_be_collected:
-			EnvironmentManager.gain_resource(i, 1)
-		self.ready_to_be_collected = []
-		self.status = STRUCTURE_STATUS.EXPENDED
-		StructureManager.visual_instance_update(self)
-	func refill_today():
-		if StructureManager.check_structure_requirements(self.structure):
-			var requirements = StructureManager.structure_data[self.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
-			for item in requirements.split(","):
-				if StructureManager.structure_data[self.structure][StructureManager.STRUCTURE_FIELDS.ConsumesAllInventory]:
-					# This currently only applies to the donation box, tweak if necessary
-					EnvironmentManager.gain_resource(item, -1*EnvironmentManager.current_resources[item])
-					EnvironmentManager.deposit_resource(item, 1*EnvironmentManager.current_resources[item])
-				else:
-					EnvironmentManager.gain_resource(item, -1)
-			self.daily_resources_satisfied = true
-			return true
-		else:
-			return false
-		
+
 
 @export_file("*.tsv") var tsv_file_path: String = "res://design/data/structures.tsv"
 
@@ -82,7 +62,7 @@ func _ready() -> void:
 	structure_data = _get_structure_data()
 	for idx in len(structure_data):
 		structure_name_to_idx_map[structure_data[idx][STRUCTURE_FIELDS.StructureName]] = idx
-		
+
 	EnvironmentManager.connect("day_cycle_start", daily_collect_resources_from_structures)
 
 
@@ -94,7 +74,7 @@ func check_structure_requirements(idx):
 	var material_cost = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.MaterialCost]
 	var missing_requirements = []
 	if material_cost > 0:
-		if EnvironmentManager.check_amount("Materials", material_cost):
+		if ResourcesManager.check_amount(ResourcesManager.ResourceType.MATERIALS, material_cost):
 			# We have enough
 			pass
 		else:
@@ -135,17 +115,17 @@ func register_all_structures():
 func build_structure(new_structure: BuiltStructure, skip_resource_consumption=false):
 	if not skip_resource_consumption:
 		if structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost] > 0:
-			EnvironmentManager.gain_resource("Materials", -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
+			ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.MATERIALS, -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
 	var storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.ElectricityStorage]
 	if storage:
-		EnvironmentManager.resource_storage_limits["Electricity"] += storage
+		ResourcesManager.add_storage_capacity(ResourcesManager.ResourceType.ELECTRICITY, storage)
 	storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.WaterStorage]
 	if storage:
-		EnvironmentManager.resource_storage_limits["Water"] += storage
+		ResourcesManager.add_storage_capacity(ResourcesManager.ResourceType.WATER, storage)
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
-	EnvironmentManager.gain_resource("Environment", environment_gain_per_structure_built)
+	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.ENVIRONMENT, environment_gain_per_structure_built)
 
 
 func visual_instance_update(structure: BuiltStructure):
@@ -159,14 +139,11 @@ func daily_collect_resources_from_structures():
 			# TODO grow vegetables over many days as needed
 			structure.status = STRUCTURE_STATUS.READY
 			visual_instance_update(structure)
-		
+
 		var record = structure_data[structure.structure]
 		# ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
 		# "Electricity, Water, Food, Waste, Soil, Happiness"
-		for i in 6:
-			var q = record[STRUCTURE_FIELDS.Electricity + i]
-			if q != 0:
-				EnvironmentManager.gain_resource(EnvironmentManager.resources[i], q)
+
 		# reset manual collection
 		structure.ready_to_be_collected = []
 		if structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection]:
@@ -174,24 +151,24 @@ func daily_collect_resources_from_structures():
 			match structure_data[structure.structure][STRUCTURE_FIELDS.StructureName]:
 				"Waste bin":
 					# convert environment food donation to waste and seeds
-					for donated_item in EnvironmentManager.deposited_resources:
-						for donated_quantity in EnvironmentManager.deposited_resources[donated_item]:
+					for donated_item in ResourcesManager.deposited_resources:
+						for donated_quantity in ResourcesManager.deposited_resources[donated_item]:
 							for item in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection].split(","):
 								for count in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier]:
 									structure.ready_to_be_collected.append(item)
 					# clear donated resources
-					EnvironmentManager.deposited_resources = {}
+					ResourcesManager.deposited_resources = {}
 				"Rain barrel":
 					var how_much_water_if_rains = int(structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier])
 					if EnvironmentManager.environment_model.is_raining:
-						EnvironmentManager.gain_resource("Water", how_much_water_if_rains)
+						ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.WATER, how_much_water_if_rains)
 				_:
 					if not structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] or structure_data[structure.structure][STRUCTURE_FIELDS.RequiresRefill] and structure.daily_resources_satisfied:
 						for item in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection].split(","):
 							for count in structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollectionMultiplier]:
 								structure.ready_to_be_collected.append(item)
-		
-		
+
+
 
 enum STRUCTURE_FIELDS {StructureName, StructureHeight, StructureWidth, StructureDepth, StructureDescription, StructureModel, StructureIcon, GroundBefore, GroundAfter, InitialHappiness, MaxStructures, UnlockedBy, MaterialCost, Requirements, DaysToComplete, Electricity, Water, Food, Waste, Soil, Happiness, BuildingConsumes, DailyManualCollection, DailyManualCollectionMultiplier, RequiresRefill, ConsumesAllInventory, ElectricityStorage, WaterStorage}
 

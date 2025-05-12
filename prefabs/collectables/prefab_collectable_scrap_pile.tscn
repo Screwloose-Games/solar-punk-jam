@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://q2kk3ovvqrnb" path="res://assets/3d/environment/scrap_pile/sm_collectibles_scrappile.tscn" id="3_7xlc2"]
 
 [node name="ScrapPile" instance=ExtResource("1_ywsos")]
-collected_resource = "Materials"
 count = 5
 
 [node name="QuestMarker3D" parent="." index="0" instance=ExtResource("2_77mau")]

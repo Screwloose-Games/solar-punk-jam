@@ -41,8 +41,8 @@ func _on_interacted(player: Player):
 		harvest_crop()
 	else:
 		interactable_area_3d.stop_interacting()
-		#todo: Crop not harvestable yet 
-	
+		#todo: Crop not harvestable yet
+
 
 func mature_crops():
 	if not crop:
@@ -66,7 +66,7 @@ func _on_day_passed():
 	mature_crops()
 
 func harvest_crop():
-	EnvironmentManager.gain_resource("Food", crop.harvest_amount)
+	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.FOOD, crop.harvest_amount)
 	GlobalSignalBus.crop_harvested.emit(crop.type)
 	crop = null
 	clear_visuals()
@@ -77,7 +77,7 @@ func _on_seed_planted(crop: Crop):
 
 func plant_crop(new_crop: Crop):
 	# pay cost
-	EnvironmentManager.spend_resources(Crop.planting_requirements)
+	ResourcesManager.spend_resources(Crop.planting_requirements)
 	crop = new_crop
 	add_crop_visuals(crop.planted_scene)
 	GlobalSignalBus.seed_planted.emit(new_crop)
