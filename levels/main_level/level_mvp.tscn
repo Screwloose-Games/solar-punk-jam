@@ -101,7 +101,7 @@ editor_description = "1. Wake up at home
     1. You start outside the front door.
 2. Go to your home’s roof to harvest crops from raised bed → add food to inventory
     1. when you are next to the door, it shows “enter” as part of interact
-    2. The food is ready to harvest. 
+    2. The food is ready to harvest.
         1. There is a raised bed, it can have plants on it. The plants can be in different growth states (seedling, growing, mature). When you “interact”, when it is mature, you harvest it.
     3. click to harvest
     4. If it’s a single-harvest plant, bed gets reset to empty.
@@ -117,26 +117,26 @@ editor_description = "1. Wake up at home
         2. Remove food from inventory
         3. Increase community health by +1
     2. Collect waste
-        1. Click on waste reciprocal 
+        1. Click on waste reciprocal
         2. Add waste to inventory (based on how much food was donated day before or last interaction)
         3. Add seeds to inventory (based on how much food was donated day before or last interaction)
-            
+
             ![ChatGPT Image Apr 27, 2025, 06_37_39 PM.png](attachment:d87d3a4e-59d0-4afe-b033-99370472a271:ChatGPT_Image_Apr_27_2025_06_37_39_PM.png)
-            
+
     3. View community bulletin board
         1. There’s an indicator of a pending community note on the community board
         2. Click on community board
         3. View new note that asks for structure to be built
         4. Structure “unlocks” in build mode
         5. Structure added to quest with number of materials needed
-    
+
     [Create a community board](https://www.notion.so/Create-a-community-board-1e2e3beb843f80518e14e1772c19e993?pvs=21)
-    
+
     Build a solar panel
-    
+
     1. Check **donation chest**
         1. Add materials to inventory
-    
+
 5. Go to neighbor’s roof to harvest crops —> add food to inventory
     1. The food is ready to harvest.
     2. click to harvest
@@ -144,10 +144,10 @@ editor_description = "1. Wake up at home
     4. If it’s a recurring plant, it goes back to being earlier growth. x game hours yield wait period.
 6. Add waste to compost bin on neighbor’s roof
     1. Click on compost bin
-    2. Subtract waste from inventory 
+    2. Subtract waste from inventory
     3. Set timer
-    4. Add soil to compost bin after X real-time minutes 
-7. Plant new seeds in recently harvested raised bed with compost, water, and seeds 
+    4. Add soil to compost bin after X real-time minutes
+7. Plant new seeds in recently harvested raised bed with compost, water, and seeds
     1. Click raised bed/garden
     2. Simple version: automatically subtract 1 compost, 1 water, 1 seed from inventory
     3. Set timer
@@ -201,19 +201,19 @@ structures = Dictionary[String, bool]({
 
 [node name="SetupResources" type="Node" parent="."]
 script = ExtResource("2_80kqf")
-resources = Dictionary[String, int]({
-"Electricity": 50,
-"Food": 50,
-"Happiness": 50,
-"Materials": 50,
-"Seeds": 50,
-"Soil": 50,
-"Waste": 50,
-"Water": 100
+resources = Dictionary[ResourceManager.ResourceType, int]({
+ResourceManager.ResourceType.ELECTRICITY: 50,
+ResourceManager.ResourceType.FOOD: 50,
+ResourceManager.ResourceType.HAPPINESS: 50,
+ResourceManager.ResourceType.MATERIALS: 50,
+ResourceManager.ResourceType.SEEDS: 50,
+ResourceManager.ResourceType.SOIL: 50,
+ResourceManager.ResourceType.WASTE: 50,
+ResourceManager.ResourceType.WATER: 100
 })
-resource_storage_limits = Dictionary[String, int]({
-"Electricity": 20,
-"Water": 20
+resource_storage_limits = Dictionary[ResourceManager.ResourceType, int]({
+ResourceManager.ResourceType.ELECTRICITY: 20,
+ResourceManager.ResourceType.WATER: 20
 })
 
 [node name="DirtBuildableSurface" parent="." instance=ExtResource("7_7w4ga")]

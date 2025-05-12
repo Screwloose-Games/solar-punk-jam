@@ -4,7 +4,7 @@ extends Node3D
 signal collected
 
 #@export var collected_resource: ResourceTracker.ResourceType
-@export var collected_resource: String
+@export var collected_resource: ResourcesManager.ResourceType = ResourcesManager.ResourceType.MATERIALS
 @export var count: int
 @export var environment_gain: int = 1
 
@@ -18,7 +18,7 @@ func _on_interacted(_player: Player):
 	interactable_area_3d.stop_interacting()
 
 func collect():
-	ResourcesManager.gain_resource(collected_resource, count)
+	ResourcesManager.gain_resource_enum(collected_resource, count)
 	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.ENVIRONMENT, environment_gain)
 	collected.emit()
 	GlobalSignalBus.scrap_collected.emit()

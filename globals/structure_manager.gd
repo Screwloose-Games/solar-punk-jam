@@ -26,26 +26,6 @@ class BuiltStructure:
 		self.visual_instance = visual_instance
 		self.daily_resources_satisfied = true
 		self.ready_to_be_collected = []
-	func collect_today():
-		for i in self.ready_to_be_collected:
-			ResourcesManager.gain_resource(i, 1)
-		self.ready_to_be_collected = []
-		self.status = STRUCTURE_STATUS.EXPENDED
-		StructureManager.visual_instance_update(self)
-	func refill_today():
-		if StructureManager.check_structure_requirements(self.structure):
-			var requirements = StructureManager.structure_data[self.structure][StructureManager.STRUCTURE_FIELDS.BuildingConsumes]
-			for item in requirements.split(","):
-				if StructureManager.structure_data[self.structure][StructureManager.STRUCTURE_FIELDS.ConsumesAllInventory]:
-					# This currently only applies to the donation box, tweak if necessary
-					ResourcesManager.gain_resource(item, -1*ResourcesManager.current_resources[item])
-					ResourcesManager.deposit_resource(item, 1*ResourcesManager.current_resources[item])
-				else:
-					ResourcesManager.gain_resource(item, -1)
-			self.daily_resources_satisfied = true
-			return true
-		else:
-			return false
 
 
 @export_file("*.tsv") var tsv_file_path: String = "res://design/data/structures.tsv"
@@ -94,7 +74,7 @@ func check_structure_requirements(idx):
 	var material_cost = StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.MaterialCost]
 	var missing_requirements = []
 	if material_cost > 0:
-		if ResourcesManager.check_amount("Materials", material_cost):
+		if ResourcesManager.check_amount(ResourcesManager.ResourceType.MATERIALS, material_cost):
 			# We have enough
 			pass
 		else:
@@ -138,10 +118,10 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 			ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.MATERIALS, -structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.MaterialCost])
 	var storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.ElectricityStorage]
 	if storage:
-		ResourcesManager.resource_storage_limits["Electricity"] += storage
+		ResourcesManager.add_storage_capacity(ResourcesManager.ResourceType.ELECTRICITY, storage)
 	storage = StructureManager.structure_data[new_structure.structure][StructureManager.STRUCTURE_FIELDS.WaterStorage]
 	if storage:
-		ResourcesManager.resource_storage_limits["Water"] += storage
+		ResourcesManager.add_storage_capacity(ResourcesManager.ResourceType.WATER, storage)
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
@@ -163,10 +143,7 @@ func daily_collect_resources_from_structures():
 		var record = structure_data[structure.structure]
 		# ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
 		# "Electricity, Water, Food, Waste, Soil, Happiness"
-		for i in 6:
-			var q = record[STRUCTURE_FIELDS.Electricity + i]
-			if q != 0:
-				ResourcesManager.gain_resource(ResourcesManager.resources[i], q)
+
 		# reset manual collection
 		structure.ready_to_be_collected = []
 		if structure_data[structure.structure][STRUCTURE_FIELDS.DailyManualCollection]:

@@ -9,8 +9,8 @@ class_name Quest
 @export var objectives : Array[QuestObjective] = []
 @export var unlock_on_accept : Array[String]
 @export var unlock_on_complete : Array[String]
-@export var rewards : Dictionary[String, int] = {
-	"Happiness" : 5
+@export var resource_rewards: Dictionary[ResourcesManager.ResourceType, int] = {
+	ResourcesManager.ResourceType.HAPPINESS : 5
 }
 
 var is_complete : bool = false
@@ -18,6 +18,14 @@ var is_complete : bool = false
 signal quest_state_changed
 signal quest_completed(giver : String)
 
+
+var rewards: Dictionary[String, int] = {}:
+	get:
+		var result: Dictionary[String, int] = {}
+		for reward in resource_rewards:
+			var name: String = ResourcesManager.RESOURCE_TYPE_NAMES[reward]
+			result[name] = resource_rewards[reward]
+		return result
 
 # Initialize quest state
 # Objectives with no prerequisites get set active
@@ -68,7 +76,7 @@ func _on_objective_completed(this_objective : QuestObjective):
 		for structure in unlock_on_complete:
 			StructureManager.register_structure(structure)
 		for reward in rewards.keys():
-			ResourcesManager.gain_resource(reward, rewards[reward])
+			ResourcesManager.gain_resource_str(reward, rewards[reward])
 		quest_completed.emit(quest_giver)
 	else:
 		quest_state_changed.emit()

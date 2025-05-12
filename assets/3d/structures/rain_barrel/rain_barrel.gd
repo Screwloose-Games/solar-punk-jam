@@ -9,7 +9,7 @@ var current_water: int = 0
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 
 func _ready() -> void:
-	ResourcesManager.add_storage_capacity("Water", max_capacity)
+	ResourcesManager.add_storage_capacity(ResourcesManager.ResourceType.WATER, max_capacity)
 	current_water = starting_water
 	interactable_area_3d.interacted.connect(_on_interacted)
 	EnvironmentManager.day_cycle_end.connect(_on_day_cycle_end)

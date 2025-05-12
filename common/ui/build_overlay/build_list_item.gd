@@ -34,5 +34,5 @@ func _ready() -> void:
 func _on_resources_available_changed():
 	var data = StructureManager.structure_data[structure_id]
 	var mats_required = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.MaterialCost]
-	var can_afford = ResourcesManager.has_at_least("Materials", mats_required)
+	var can_afford = ResourcesManager.has_at_least(ResourcesManager.ResourceType.MATERIALS, mats_required)
 	disabled = !can_afford

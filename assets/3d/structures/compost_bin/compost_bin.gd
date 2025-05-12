@@ -28,13 +28,13 @@ func _on_interacted(_player: Player):
 		ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.SOIL, soil_ready)
 		GlobalSignalBus.compost_collected.emit()
 		soil_ready = 0
-	elif ResourcesManager.has_at_least("Waste", 1) and current_waste < max_capacity:
+	elif ResourcesManager.has_at_least(ResourcesManager.ResourceType.WASTE, 1) and current_waste < max_capacity:
 		var space_left = max_capacity - current_waste
 		var to_add = min(
-			ResourcesManager.get_resource_count("Waste"),
+			ResourcesManager.get_resource_count(ResourcesManager.ResourceType.WASTE),
 			max_waste_deposited_per_interaction
 		)
-		ResourcesManager.spend_resource("Waste", to_add)
+		ResourcesManager.spend_resource(ResourcesManager.ResourceType.WASTE, to_add)
 		current_waste += to_add
 		GlobalSignalBus.waste_deposited.emit()
 	else:

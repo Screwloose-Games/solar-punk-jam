@@ -6,10 +6,10 @@ enum CropState {
 	HARVESTABLE
 }
 
-static var planting_requirements = {
-	"Soil": 1,
-	"Seeds": 1,
-	"Water": 1,
+static var planting_requirements: Dictionary[ResourcesManager.ResourceType, int] = {
+	ResourcesManager.ResourceType.SOIL: 1,
+	ResourcesManager.ResourceType.SEEDS: 1,
+	ResourcesManager.ResourceType.WATER: 1,
 }
 
 enum CropType {
