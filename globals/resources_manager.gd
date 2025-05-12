@@ -3,25 +3,39 @@ extends Node
 
 signal UpdatedAvailableResources
 
-const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
+enum ResourceType {
+	ELECTRICITY,
+	WATER,
+	FOOD,
+	WASTE,
+	SOIL,
+	HAPPINESS,
+	MATERIALS,
+	SEEDS,
+	ENVIRONMENT,
+	COMMUNITY,
+}
 
-const resources = [
-	"Electricity",
-	"Water",
-	"Food",
-	"Waste",
-	"Soil",
-	"Happiness",
-	"Materials",
-	"Seeds",
-	"Environment",
-	"Community"
-]
+const RESOURCE_TYPE_NAMES: Dictionary[ResourceType, String] = {
+	ResourceType.ELECTRICITY: "Electricity",
+	ResourceType.WATER: "Water",
+	ResourceType.FOOD: "Food",
+	ResourceType.WASTE: "Waste",
+	ResourceType.SOIL: "Soil",
+	ResourceType.HAPPINESS: "Happiness",
+	ResourceType.MATERIALS: "Materials",
+	ResourceType.SEEDS: "Seeds",
+	ResourceType.ENVIRONMENT: "Environment",
+	ResourceType.COMMUNITY: "Community"
+}
 
-const hidden_resources = [
-	"Environment",
-	"Community"
-]
+var resource_strings: Array[String] = RESOURCE_TYPE_NAMES.values()
+var resource_types: Array[ResourceType] = RESOURCE_TYPE_NAMES.keys()
+var resources = RESOURCE_TYPE_NAMES.values()
+
+func get_resource_by_name(resource_name: String):
+	var index = resource_strings.find(resource_name)
+	return resource_types[index]
 
 var resource_storage_limits = {
 	"Electricity": 0,
@@ -37,6 +51,7 @@ var daily_resources = {}
 var deposited_resources = {}
 
 func _ready() -> void:
+	print("resources: ", ResourceType.values())
 	initialize()
 	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
 
