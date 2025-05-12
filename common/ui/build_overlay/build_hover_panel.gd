@@ -22,8 +22,6 @@ static var structure_large_icons: Dictionary[String, Texture2D] = {
 @export var description: String = ""
 @export var icon_texture: Texture2D
 
-@onready var icon: TextureRect = %Icon
-
 @onready var title_label: Label = %TitleLabel
 @onready var description_label: Label = %DescriptionLabel
 @onready var icon_texture_rect: TextureRect = %IconTextureRect

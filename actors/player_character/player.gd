@@ -93,6 +93,10 @@ var should_ignore_input: bool:
 	get:
 		return force_ignore_input or is_interacting
 
+var should_ignore_interact: bool:
+	get:
+		return is_interacting
+
 var force_ignore_input: bool = false
 
 var player_mode: PlayerMode = PlayerMode.TRAVEL:
