@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b52dwelt6jyrl" path="res://assets/3d/people/kai-animations-2/sk_kai_animations2.gltf" id="1_0o3lm"]
 [ext_resource type="Material" uid="uid://3c4nvwttcr0" path="res://assets/3d/people/kai-animations-2/mat_kai_cel_shader_.tres" id="2_m3qlq"]
 [ext_resource type="Material" uid="uid://di18wyr22v6wt" path="res://assets/3d/people/kai/texture_kai_face_neutral.tres" id="3_wo1sx"]
-[ext_resource type="Script" path="res://components/facial_expressions.gd" id="4_d2jdb"]
+[ext_resource type="Script" uid="uid://c0wxkr2guwg6j" path="res://components/facial_expressions.gd" id="4_d2jdb"]
 [ext_resource type="Texture2D" uid="uid://44ji1jj7a7ak" path="res://assets/2d/faces/kai/kai_neutral.png" id="5_8nrqy"]
 [ext_resource type="Texture2D" uid="uid://b7ew1ig16tr4x" path="res://assets/2d/faces/kai/kai_happy.png" id="6_8s4ha"]
 [ext_resource type="Texture2D" uid="uid://cwscfds2qrwuc" path="res://assets/2d/faces/kai/kai_sad.png" id="7_cnhlt"]
