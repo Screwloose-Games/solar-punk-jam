@@ -157,7 +157,7 @@ func has_enough(required_resources: Dictionary[ResourceType, int]):
 	return true
 
 func get_resource_count(resource: ResourceType):
-	if resource in current_resources:
-		var resource_str: String = RESOURCE_TYPE_NAMES[resource]
+	var resource_str: String = RESOURCE_TYPE_NAMES[resource]
+	if resource_str in current_resources:
 		return current_resources[resource_str]
 	return 0

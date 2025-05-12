@@ -39,11 +39,15 @@ func _on_day_cycle_end():
 
 func show_environment():
 	if "Environment" in ResourcesManager.daily_resources:
-		environment.count = ResourcesManager.daily_resources["Environment"]
+		environment.count = ResourcesManager.daily_resources.get("Environment", 0)
+	else:
+		environment.count = 0
 
 func show_happiness():
 	if "Happiness" in ResourcesManager.daily_resources:
 		happiness.count = ResourcesManager.daily_resources["Happiness"]
+	else:
+		happiness.count = 0
 
 
 func show_daily_summary():
