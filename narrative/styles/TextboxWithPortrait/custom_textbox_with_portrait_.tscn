@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwy1tahmr08kt"]
+[gd_scene load_steps=12 format=3 uid="uid://cwy1tahmr08kt"]
 
 [ext_resource type="Script" uid="uid://0ex3coal4kke" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_4jxq7"]
 [ext_resource type="Script" uid="uid://cl6jfn8h1575x" path="res://narrative/styles/TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
 [ext_resource type="Script" uid="uid://craokydmo3fic" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
 [ext_resource type="Script" uid="uid://dua5misl8htum" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
 [ext_resource type="Script" uid="uid://d23n8t08gn3vq" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
-[ext_resource type="Texture2D" uid="uid://dnfwy4lwrycpu" path="res://assets/2d/ui/E_Key.png" id="6_apign"]
+[ext_resource type="Texture2D" uid="uid://dtgju2qbvxhqp" path="res://addons/controller_icons/assets/key/enter.png" id="6_apign"]
+[ext_resource type="Script" uid="uid://d6gh3spmgbp0" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="7_mj81d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
@@ -36,6 +37,15 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="Texture2D" id="Texture2D_qmhit"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("7_mj81d")
+path = "dialogic_default_action"
+show_mode = 0
+force_type = 0
+metadata/_custom_type_script = "uid://d6gh3spmgbp0"
 
 [node name="TextboxWithSpeakerPortrait" type="Control"]
 layout_mode = 3
@@ -155,18 +165,30 @@ script = ExtResource("5_sr2qw")
 [node name="NextPrompt" type="HBoxContainer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.95
-anchor_top = 0.9
-anchor_right = 0.95
-anchor_bottom = 0.9
-offset_left = -68.0
-offset_top = -30.0
+anchor_left = 1.0
+anchor_top = 0.961
+anchor_right = 1.0
+anchor_bottom = 0.961
+offset_left = -117.0
+offset_top = -83.047
+offset_right = -4.0
+offset_bottom = -0.0470047
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="EKey" type="TextureRect" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText/NextPrompt"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("6_apign")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EKey2" type="TextureRect" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText/NextPrompt"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = SubResource("Texture2D_qmhit")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText/NextPrompt"]
