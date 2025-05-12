@@ -78,10 +78,10 @@ func refresh_resources_ui():
 			ui.text = t
 			ui.show()
 
-	%CommunityProgressBar.value = ResourcesManager.current_resources.get("Happiness", 0)
-	%EnvironmentProgressBar.value = ResourcesManager.current_resources.get("Environment", 0)
-	%CommunityStatusLabel.text = str(ResourcesManager.current_resources.get("Happiness", 0))
-	%EnvironmentStatusLabel.text = str(ResourcesManager.current_resources.get("Environment", 0))
+	%CommunityProgressBar.value = ResourcesManager.get_resource_count(ResourcesManager.ResourceType.HAPPINESS)
+	%EnvironmentProgressBar.value = ResourcesManager.get_resource_count(ResourcesManager.ResourceType.ENVIRONMENT)
+	%CommunityStatusLabel.text = str(ResourcesManager.get_resource_count(ResourcesManager.ResourceType.HAPPINESS))
+	%EnvironmentStatusLabel.text = str(ResourcesManager.get_resource_count(ResourcesManager.ResourceType.ENVIRONMENT))
 
 	await in_tween.finished
 	await get_tree().create_timer(resource_show_time).timeout

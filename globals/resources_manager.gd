@@ -1,5 +1,5 @@
-extends Node
 #class_name ResourcesManager
+extends Node
 
 signal UpdatedAvailableResources
 
