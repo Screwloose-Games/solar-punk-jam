@@ -12,6 +12,8 @@ class_name Quest
 @export var resource_rewards: Dictionary[ResourcesManager.ResourceType, int] = {
 	ResourcesManager.ResourceType.HAPPINESS : 5
 }
+@export var on_complete_starts_quest: Quest
+
 
 var is_complete : bool = false
 
@@ -72,11 +74,17 @@ func _on_objective_completed(this_objective : QuestObjective):
 		else:
 			progress += 1
 	if all_complete:
-		is_complete = true
-		for structure in unlock_on_complete:
-			StructureManager.register_structure(structure)
-		for reward in rewards.keys():
-			ResourcesManager.gain_resource_str(reward, rewards[reward])
-		quest_completed.emit(quest_giver)
+		mark_complete()
+		
 	else:
 		quest_state_changed.emit()
+
+func mark_complete():
+	is_complete = true
+	for structure in unlock_on_complete:
+		StructureManager.register_structure(structure)
+	for reward in rewards.keys():
+		ResourcesManager.gain_resource_str(reward, rewards[reward])
+	quest_completed.emit(quest_giver)
+	if on_complete_starts_quest:
+		QuestManager.start_quest_resource(on_complete_starts_quest)
