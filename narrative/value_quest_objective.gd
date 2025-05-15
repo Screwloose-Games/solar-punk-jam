@@ -1,19 +1,6 @@
 extends QuestObjective
 class_name ValueQuestObjective
 
-# @export var description : String = "Objective Description"
-# @export var goal : int = 1
-# @export var prerequisites : Array[int] = []
-# @export var play_dialogue : String = ""
-
-# var progress : int = 0
-# var is_active : bool = false
-# var is_unlocked : bool = false
-# var is_completed : bool = false
-
-# signal completed(objective : QuestObjective)
-# signal progressed
-
 # Name of the Dialogic variable that we are tracking
 @export var target_value : String = ""
 

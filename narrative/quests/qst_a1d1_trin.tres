@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=12 format=3 uid="uid://cm7t2ur61v8im"]
+[gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://bkchfqhete7o5"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_x688r"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_mbbq3"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_se44t"]
 [ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="3_se44t"]
+[ext_resource type="Resource" uid="uid://d3k7l24o3467h" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_t80vs"]
 
 [sub_resource type="Resource" id="Resource_1j8rw"]
 script = ExtResource("2_se44t")
@@ -15,6 +16,7 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "trin"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_tq41l"]
@@ -27,6 +29,7 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = "prog1"
 marker_id = "trin_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_se44t"]
@@ -37,6 +40,7 @@ goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
 marker_id = "trin_garden"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_t80vs"]
@@ -47,6 +51,7 @@ goal = 3
 prerequisites = Array[int]([2])
 play_dialogue = "prog3"
 marker_id = "trin_compost"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_0eyh0"]
@@ -57,6 +62,7 @@ goal = 3
 prerequisites = Array[int]([3])
 play_dialogue = "prog4"
 marker_id = "trin_water"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_svb1w"]
@@ -69,6 +75,7 @@ goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "vertical_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_uq8a5"]
@@ -81,6 +88,7 @@ goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = "prog5"
 marker_id = "vertical_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
@@ -104,4 +112,5 @@ resource_rewards = Dictionary[int, int]({
 6: 6,
 7: 3
 })
+on_complete_starts_quest = ExtResource("4_t80vs")
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

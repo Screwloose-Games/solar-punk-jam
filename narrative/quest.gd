@@ -15,6 +15,7 @@ class_name Quest
 @export var on_complete_starts_quest: Quest
 
 
+var is_active: bool = false
 var is_complete : bool = false
 
 signal quest_state_changed
