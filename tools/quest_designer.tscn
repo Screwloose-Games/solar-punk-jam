@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://doyskjnn15sqr"]
+[gd_scene load_steps=6 format=3 uid="uid://doyskjnn15sqr"]
 
 [ext_resource type="Script" uid="uid://28hgtltbldkw" path="res://tools/quest_designer.gd" id="1_80pxj"]
-[ext_resource type="Script" uid="uid://cu510vftvtt5d" path="res://tools/quest_node.gd" id="2_qjfn1"]
 [ext_resource type="Script" uid="uid://bh7hmraqtw4fp" path="res://tools/quest_designer_canvas_graph_edit.gd" id="2_uekww"]
-[ext_resource type="Resource" path="res://narrative/quests/qst_a1d1_intro.tres" id="3_ewdis"]
-[ext_resource type="Resource" uid="uid://dliloj64dgu5f" path="res://narrative/quests/qst_a1d2_harvest.tres" id="4_51w1h"]
-[ext_resource type="Script" uid="uid://cjh1dllgya6mn" path="res://tools/resource_auto_editor.gd" id="4_jekkp"]
-[ext_resource type="Resource" uid="uid://d3k7l24o3467h" path="res://narrative/quests/qst_a1d1_garden.tres" id="5_jwma5"]
+[ext_resource type="Resource" uid="uid://k84uim5k6pus" path="res://tools/quest_designer.tres" id="3_jwma5"]
+[ext_resource type="Script" uid="uid://ctp54mbq1si46" path="res://tools/restart_button.gd" id="9_45s1g"]
+[ext_resource type="Script" uid="uid://578enncg1tx4" path="res://tools/quest_list.gd" id="10_uxv71"]
 
 [node name="QuestDesigner" type="Control"]
 layout_mode = 3
@@ -15,9 +13,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_80pxj")
 
-[node name="GraphEdit" type="GraphEdit" parent="."]
+[node name="QuestDesignerCanvas" type="GraphEdit" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,90 +25,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_uekww")
+layout = ExtResource("3_jwma5")
 
-[node name="QuestNode" type="GraphNode" parent="GraphEdit"]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 77.0
-offset_right = 476.0
-offset_bottom = 1017.0
-mouse_filter = 1
-position_offset = Vector2(140, 77)
-resizable = true
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color(1, 1, 1, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = true
-slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-script = ExtResource("2_qjfn1")
-quest = ExtResource("3_ewdis")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
 
-[node name="QuestNode2" type="GraphNode" parent="GraphEdit"]
-layout_mode = 0
-offset_left = 893.0
-offset_top = 96.0
-offset_right = 1229.0
-offset_bottom = 1036.0
-mouse_filter = 1
-position_offset = Vector2(893, 96)
-resizable = true
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = false
-slot/1/left_type = 0
-slot/1/left_color = Color(1, 1, 1, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = true
-slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-script = ExtResource("2_qjfn1")
-quest = ExtResource("4_51w1h")
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+offset_top = 63.0
+offset_right = 176.0
+offset_bottom = 279.0
+theme_override_constants/separation = 40
 
-[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
-visible = false
-layout_mode = 0
-offset_left = 1056.0
-offset_top = 97.0
-offset_right = 1412.0
-offset_bottom = 978.0
-mouse_filter = 1
-position_offset = Vector2(1056, 97)
-resizable = true
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = false
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="GraphEdit/GraphNode"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer2"]
 layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("4_jekkp")
-resource = ExtResource("5_jwma5")
-label_column_min_width = 200
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Reload "
+script = ExtResource("9_45s1g")
+
+[node name="SaveLayoutButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Save Layout"
+
+[node name="RestoreLayoutButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Restore Layout"
+
+[node name="OrganizeLayoutButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Arrage Selected Nodes"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="QuestPreviewList" type="VBoxContainer" parent="CanvasLayer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+script = ExtResource("10_uxv71")

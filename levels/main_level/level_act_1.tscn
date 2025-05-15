@@ -369,19 +369,15 @@ structures = Dictionary[String, bool]({
 
 [node name="SetupResources" type="Node" parent="."]
 script = ExtResource("7_maonv")
-resources = Dictionary[String, int]({
-"Electricity": 50,
-"Food": 50,
-"Happiness": 50,
-"Materials": 50,
-"Seeds": 50,
-"Soil": 50,
-"Waste": 50,
-"Water": 100
-})
-resource_storage_limits = Dictionary[String, int]({
-"Electricity": 20,
-"Water": 20
+resources = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 5,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0
 })
 
 [node name="DirtBuildableSurface" parent="." instance=ExtResource("8_34qyl")]

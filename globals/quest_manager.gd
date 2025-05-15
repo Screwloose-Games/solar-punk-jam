@@ -62,6 +62,9 @@ func start_quest(file_name : String):
 
 
 func start_quest_resource(new_quest: Quest):
+	if new_quest.is_active:
+		return
+	new_quest.is_active = true
 	quests.append(new_quest)
 	for quest in unlocked_quests:
 		if quest.id == new_quest.id:

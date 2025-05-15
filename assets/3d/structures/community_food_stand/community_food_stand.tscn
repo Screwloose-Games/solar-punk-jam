@@ -12,7 +12,7 @@ script = ExtResource("2_5fhlr")
 
 [node name="sm_foodstand_grp" parent="." index="1" instance=ExtResource("3_5fhlr")]
 
-[node name="InteractableArea3D" parent="." index="2"]
+[node name="InteractableArea3D" parent="." index="3"]
 label_text = "Donate Food"
 
 [editable path="InteractableArea3D"]

@@ -1,17 +1,6 @@
 extends QuestObjective
 class_name SignalQuestObjective
 
-#@export var description : String = "Objective Description"
-#@export var quest_value : String = ""
-#@export var goal : int = 1
-#@export var prerequisites : Array[int] = []
-#@export var play_dialogue : String = ""
-
-#var progress : int = 0
-#var is_active : bool = false
-#var is_unlocked : bool = false
-#var is_completed : bool = false
-
 ## The global autoload on which to call the signal
 @export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
 

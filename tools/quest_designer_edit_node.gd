@@ -2,6 +2,9 @@
 class_name QuestEditUi
 extends GraphNode
 
+const QUEST_ON_COMPLETE_PORT_RIGHT = 0
+const QUEST_REF_PORT_LEFT = 0
+
 @export var quest: Quest:
 	set(value):
 		quest = value
@@ -10,23 +13,61 @@ extends GraphNode
 var container: VBoxContainer
 
 func _ready():
-	if Engine.is_editor_hint():
-		_build_ui()
+	#if Engine.is_editor_hint():
+	# Wait for parent to be ready
+	if not get_parent().is_node_ready():
+		await get_parent().ready
+
+	# Build initial UI
+	_build_ui()
+
+	# Check for quest connections
+	await get_tree().process_frame
+	_establish_quest_connections()
+
+
+func _establish_quest_connections():
+	if not quest:
+		return
+
+	# Get the GraphEdit parent
+	var graph_edit = get_parent()
+	if not graph_edit is GraphEdit:
+		return
+
+	# Look through all nodes in the graph
+	for node in graph_edit.get_children():
+		if node is QuestEditUi and node != self:
+			# Check if this node's quest is set as the on_complete_starts_quest
+			if node.quest == quest.on_complete_starts_quest:
+
+				graph_edit.connect_node(
+					get_name(),
+					QUEST_REF_PORT_LEFT,
+					node.get_name(),
+					QUEST_ON_COMPLETE_PORT_RIGHT
+				)
+			elif quest.on_complete_starts_quest == node.quest:
+				graph_edit.connect_node(
+					node.get_name(),
+					QUEST_REF_PORT_LEFT,
+					get_name(),
+					QUEST_ON_COMPLETE_PORT_RIGHT
+				)
 
 func _build_ui():
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
 	if container:
-		remove_child(container)
 		container.queue_free()
 
 	container = VBoxContainer.new()
 	add_child(container)
 
-	# Set up input port (left side) for quest resource
 	set_slot(0, true, 0, Color(1, 1, 1), false, 0, Color(1, 1, 1))
 
+	_add_close_button()
 	_add_label("Quest ID", quest.id, "_on_id_changed")
 	_add_label("Quest Name", quest.name, "_on_name_changed")
 	_add_label("Quest Giver", quest.quest_giver, "_on_giver_changed")
@@ -40,18 +81,34 @@ func _build_ui():
 	_add_resource_rewards_editor()
 	add_child(HSeparator.new())
 
-	# Add the on_complete_starts_quest field
 	_add_quest_connection_field()
 
-	# Add save button
 	_add_save_button()
 
-	# Set up output port (right side) for on_complete_starts_quest
-	var last_slot := get_child_count()
+	set_node_title()
+
+	var last_slot := get_child_count() - 1
 	set_slot(last_slot, false, 0, Color(1, 1, 1), true, 0, Color(1, 1, 1))
+	set_slot_enabled_right(last_slot, true)
+	resizable = true
+
+func _add_close_button():
+	var close_button = Button.new()
+	close_button.text = "Close"
+	close_button.pressed.connect(_on_close_pressed)
+	close_button.self_modulate = Color.RED
+	container.add_child(close_button)
+
+func _on_close_pressed():
+	queue_free()
+
+func set_node_title():
+	if quest:
+		title = quest.name
 
 func _add_label(title: String, initial: String, signal_name: String):
 	var hbox = HBoxContainer.new()
+	hbox.name = title + "_hbox"
 	var label = Label.new()
 	label.text = title
 	hbox.add_child(label)
@@ -64,9 +121,11 @@ func _add_label(title: String, initial: String, signal_name: String):
 
 func _add_multiline(title: String, initial: String, signal_handler: Callable):
 	var label = Label.new()
+	label.name = title + "_label"
 	label.text = title
 	container.add_child(label)
 	var text_edit = TextEdit.new()
+	text_edit.name = title + "_text_edit"
 	text_edit.text = initial
 	text_edit.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	text_edit.custom_minimum_size = Vector2(200, 100)
@@ -75,7 +134,9 @@ func _add_multiline(title: String, initial: String, signal_handler: Callable):
 
 func _add_string_array_editor(title: String, values: Array[String], update_signal: String):
 	var section = VBoxContainer.new()
+	section.name = title + "_section"
 	var label = Label.new()
+	label.name = title + "_label"
 	label.text = title
 	section.add_child(label)
 
@@ -92,23 +153,28 @@ func _add_string_array_editor(title: String, values: Array[String], update_signa
 
 func _add_objective_list_editor():
 	var label = Label.new()
+	label.name = "objectives_label"
 	label.text = "Objectives (count: %d)" % quest.objectives.size()
 	container.add_child(label)
-	# Display only names here for simplicity
-	for obj in quest.objectives:
-		var row = Label.new()
-		row.text = str(obj)
-		container.add_child(row)
+
+	for objective in quest.objectives:
+		var editor := QuestObjectiveEditUi.new()
+		editor.name = "objective_editor_" + objective.description
+		editor.quest_objective = objective
+		container.add_child(editor)
 
 func _add_resource_rewards_editor():
 	var section = VBoxContainer.new()
 	var label = Label.new()
+	label.name = "resource_rewards_label"
 	label.text = "Resource Rewards"
 	section.add_child(label)
 
 	for resource_type in ResourcesManager.ResourceType.values():
 		var hbox = HBoxContainer.new()
+		hbox.name = "resource_rewards_hbox_" + str(resource_type)
 		var resource_label = Label.new()
+		resource_label.name = "resource_rewards_label_" + str(resource_type)
 		resource_label.text = ResourcesManager.RESOURCE_TYPE_NAMES[resource_type]
 		hbox.add_child(resource_label)
 
@@ -124,11 +190,13 @@ func _add_resource_rewards_editor():
 
 func _add_quest_connection_field():
 	var section = VBoxContainer.new()
+	section.name = "quest_connection_field"
 	var label = Label.new()
 	label.text = "Starts Quest On Complete"
 	section.add_child(label)
 
 	var quest_label = Label.new()
+	quest_label.name = "quest_connection_label"
 	if quest.on_complete_starts_quest:
 		quest_label.text = quest.on_complete_starts_quest.name
 	else:
@@ -140,6 +208,7 @@ func _add_quest_connection_field():
 
 func _add_save_button():
 	var button = Button.new()
+	button.name = "save_button"
 	button.text = "Save Quest"
 	button.connect("pressed", Callable(self, "_on_save_pressed"))
 	container.add_child(button)
@@ -174,10 +243,16 @@ func _get_connection_input_slot(from_node: Node, from_port: int, to_port: int) -
 
 func _get_connection_output_slot(from_port: int, to_node: Node, to_port: int) -> int:
 	# Return the last slot index when a connection is made
-	return get_child_count() - 1
+	return get_child_count()  - 1
 
 func _on_connection_request(from_node: Node, from_port: int, to_node: Node, to_port: int) -> void:
-	# Handle connection request
+	# if another connection exists, cancel it.
+	if get_parent().get_connection_count(from_node.name, from_port) > 0:
+		var connection = get_parent().connections.find_custom(func(connection): return connection["from_node"] == from_node.name)
+		if connection != -1:
+			var parent: QuestDesignerCanvas = get_parent()
+			parent.disconnect_node(from_node.name, from_port, connection["to_node"], connection["to_port"])
+
 	if from_node is QuestEditUi and to_node is QuestEditUi:
 		var from_quest: Quest = from_node.quest
 		var to_quest: Quest = to_node.quest
