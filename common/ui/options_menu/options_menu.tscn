@@ -4,9 +4,9 @@
 [ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_t67h2"]
 [ext_resource type="Texture2D" uid="uid://b8qsfmsyqhobk" path="res://common/images/square.png" id="2_cpl0d"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="3_v7ya6"]
-[ext_resource type="AudioStream" uid="uid://camm2n4s878j" path="res://common/audio/sfx/ui/aud_ui_navigate.wav" id="4_n82tp"]
-[ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="5_tj23r"]
-[ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="6_fx1av"]
+[ext_resource type="AudioStream" uid="uid://cwrmu1482xd6k" path="res://common/audio/sfx/ui/UI_QUEST_ACCEPT.wav" id="4_q2wqg"]
+[ext_resource type="AudioStream" uid="uid://dhuhjisjlgm20" path="res://common/audio/sfx/interact/INTERACT_HARVEST.wav" id="5_t67h2"]
+[ext_resource type="AudioStream" uid="uid://dp0uplfv31exi" path="res://common/audio/sfx/ui/UI_QUEST_COMPLETE.wav" id="6_ka8ic"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jqfgi"]
 line_spacing = 0.0
@@ -43,9 +43,9 @@ script = ExtResource("1_8l6bt")
 [node name="Audio Control" type="Control" parent="."]
 layout_mode = 2
 script = ExtResource("3_v7ya6")
-navigate_sound = ExtResource("4_n82tp")
-open_sound = ExtResource("5_tj23r")
-close_sound = ExtResource("6_fx1av")
+navigate_sound = ExtResource("4_q2wqg")
+open_sound = ExtResource("5_t67h2")
+close_sound = ExtResource("6_ka8ic")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
