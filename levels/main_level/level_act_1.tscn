@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=85 format=3 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
@@ -28,18 +28,26 @@
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="21_dedys"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="22_rlc83"]
 [ext_resource type="PackedScene" uid="uid://dsffbjppcx7qj" path="res://assets/3d/environment/dressing/aloe_vera_2.tscn" id="23_li37m"]
+[ext_resource type="PackedScene" uid="uid://brsbirmqgkifb" path="res://assets/3d/environment/dressing/aloe-vera.glb" id="23_sw0e5"]
 [ext_resource type="PackedScene" uid="uid://nwbkxvaa2518" path="res://actors/npcs/trin/npc_trin.tscn" id="24_c2ahp"]
 [ext_resource type="PackedScene" uid="uid://b5bvghqf3u22r" path="res://assets/3d/environment/dressing/grass_2.tscn" id="24_jg63d"]
+[ext_resource type="PackedScene" uid="uid://kbg707jk8wvx" path="res://assets/3d/environment/dressing/grass-long.glb" id="24_w0b2o"]
+[ext_resource type="PackedScene" uid="uid://c1nt8p1vx7vee" path="res://assets/3d/environment/dressing/grass-basic.glb" id="25_gegxl"]
 [ext_resource type="PackedScene" uid="uid://cyqfwaujvc58l" path="res://assets/3d/structures/compost_bin/compost_bin.tscn" id="25_mfuku"]
 [ext_resource type="PackedScene" uid="uid://c6ddvsvj1dhmb" path="res://assets/3d/environment/dressing/grass_basic_2.tscn" id="25_piaxb"]
+[ext_resource type="PackedScene" uid="uid://jgoc0vbjqosm" path="res://assets/3d/environment/dressing/flowers.tscn" id="26_abjik"]
 [ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
 [ext_resource type="PackedScene" uid="uid://3ikd807r7spn" path="res://assets/3d/environment/dressing/grass_long_2.tscn" id="26_myhbd"]
+[ext_resource type="PackedScene" uid="uid://6c6iegd8yfhy" path="res://assets/3d/environment/dressing/leaf-2.glb" id="27_4bg33"]
 [ext_resource type="PackedScene" uid="uid://dulhp5ynw5nqr" path="res://assets/3d/structures/community_food_stand/community_food_stand.tscn" id="27_gh1ua"]
 [ext_resource type="PackedScene" uid="uid://b3urvnahhrdyl" path="res://assets/3d/environment/dressing/leaf_cluster-1.tscn" id="27_jg63d"]
+[ext_resource type="PackedScene" uid="uid://cncd5rfxsn2wt" path="res://assets/3d/environment/dressing/leaf-1.glb" id="28_6okpm"]
 [ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="28_7t8hb"]
 [ext_resource type="Script" uid="uid://cao3mbil5qlso" path="res://components/dynamic_music_box/d_music_box.gd" id="28_cwn0e"]
 [ext_resource type="PackedScene" uid="uid://c2jegur5j8837" path="res://assets/3d/environment/dressing/leaf_cluster-2.tscn" id="30_rycpo"]
 [ext_resource type="PackedScene" uid="uid://coeurwccikebd" path="res://assets/3d/environment/dressing/rock_large_2.tscn" id="31_4dpg8"]
+[ext_resource type="PackedScene" uid="uid://6uutba4hcc8d" path="res://assets/3d/environment/dressing/rocks-tiny.glb" id="33_aa7lc"]
+[ext_resource type="PackedScene" uid="uid://ng1buw3d2iga" path="res://assets/3d/environment/dressing/rocks_small_2.tscn" id="34_b6uo2"]
 [ext_resource type="PackedScene" uid="uid://c4eb7702m4uvu" path="res://assets/3d/environment/dressing/palm_bush.tscn" id="38_khisr"]
 [ext_resource type="PackedScene" uid="uid://b266nphe6hvo8" path="res://assets/3d/environment/dressing/grass.glb" id="39_mvod5"]
 [ext_resource type="PackedScene" uid="uid://dt3kntqpa41ew" path="res://assets/3d/environment/dressing/rock_sharp_2.tscn" id="39_rycpo"]
@@ -56,6 +64,56 @@
 [ext_resource type="Script" uid="uid://wgdtqc77wp61" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="52_x5btk"]
 [ext_resource type="Texture2D" uid="uid://6jmdwj3vn6m0" path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" id="53_2lqsq"]
 [ext_resource type="ArrayMesh" uid="uid://r2imjo7o2734" path="res://shaders/grass/grass2.res" id="53_85o61"]
+
+[sub_resource type="Resource" id="Resource_85o61"]
+script = ExtResource("43_na0ga")
+mode = 0
+textures = [[ExtResource("44_6h1tf"), ExtResource("45_bfia4")], [ExtResource("46_x5btk"), ExtResource("47_2lqsq")]]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
+render_priority = 0
+shader = ExtResource("2_7t8hb")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/wave_speed = 2.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 1.5
+shader_parameter/time_offset = 0.0
+shader_parameter/water_size = Vector2(128, 128)
+shader_parameter/water_transparency = 0.8
+shader_parameter/water_depth_factor = 0.1
+shader_parameter/foam_width = 0.5
+shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_smoothness = 0.03
+shader_parameter/foam_distortion_speed = 0.5
+shader_parameter/foam_distortion_amount = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_isv6p"]
+material = SubResource("ShaderMaterial_gac30")
+size = Vector2(10, 10)
+subdivide_width = 2
+subdivide_depth = 2
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_cwn0e"]
+item/0/name = ""
+item/0/mesh = SubResource("PlaneMesh_isv6p")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/mesh_cast_shadow = 1
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn"
+
+[sub_resource type="Gradient" id="Gradient_ybgau"]
+colors = PackedColorArray(0, 0.270588, 0, 1, 0.358976, 0.337351, 9.62615e-08, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_81csf"]
+gradient = SubResource("Gradient_ybgau")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.491453, 0.282051)
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
@@ -198,56 +256,6 @@ radius = 11.2106
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_df45g"]
 
-[sub_resource type="Resource" id="Resource_85o61"]
-script = ExtResource("43_na0ga")
-mode = 0
-textures = [[ExtResource("44_6h1tf"), ExtResource("45_bfia4")], [ExtResource("46_x5btk"), ExtResource("47_2lqsq")]]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gac30"]
-render_priority = 0
-shader = ExtResource("2_7t8hb")
-shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
-shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
-shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
-shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(5, 5)
-shader_parameter/wave_speed = 2.0
-shader_parameter/wave_amplitude = 0.1
-shader_parameter/wave_frequency = 1.5
-shader_parameter/time_offset = 0.0
-shader_parameter/water_size = Vector2(128, 128)
-shader_parameter/water_transparency = 0.8
-shader_parameter/water_depth_factor = 0.1
-shader_parameter/foam_width = 0.5
-shader_parameter/foam_edge_softness = 0.05
-shader_parameter/foam_smoothness = 0.03
-shader_parameter/foam_distortion_speed = 0.5
-shader_parameter/foam_distortion_amount = 0.1
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_isv6p"]
-material = SubResource("ShaderMaterial_gac30")
-size = Vector2(10, 10)
-subdivide_width = 2
-subdivide_depth = 2
-
-[sub_resource type="MeshLibrary" id="MeshLibrary_cwn0e"]
-item/0/name = ""
-item/0/mesh = SubResource("PlaneMesh_isv6p")
-item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-item/0/mesh_cast_shadow = 1
-item/0/shapes = []
-item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-item/0/navigation_layers = 1
-metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn"
-
-[sub_resource type="Gradient" id="Gradient_ybgau"]
-colors = PackedColorArray(0, 0.270588, 0, 1, 0.358976, 0.337351, 9.62615e-08, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_81csf"]
-gradient = SubResource("Gradient_ybgau")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0.491453, 0.282051)
-
 [node name="ActOne" type="Node3D"]
 editor_description = "1. Wake up at home
     1. You start outside the front door.
@@ -314,6 +322,47 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 script = ExtResource("1_6h1tf")
+
+[node name="HTerrain" type="Node3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -65.686, 0, -60.178)
+script = ExtResource("41_msodx")
+ambient_wind = 0.09
+_terrain_data = ExtResource("42_mpfma")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_85o61")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://dq8f5vhim57ef"
+
+[node name="Water" type="GridMap" parent="HTerrain"]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 9.50604, -3.52456, 593.949)
+mesh_library = SubResource("MeshLibrary_cwn0e")
+cell_size = Vector3(10, 2, 10)
+data = {
+"cells": PackedInt32Array(65530, 65533, 0, 0, 65534, 0, 65535, 0, 0, 65534, 1, 0, 65533, 1, 0, 65533, 2, 0, 65532, 3, 0, 65532, 65530, 0, 1, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65533, 65531, 0, 65532, 65531, 0, 65532, 65532, 0, 65531, 65532, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 0, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65529, 65529, 0, 65529, 65530, 0, 65529, 65531, 0, 65529, 65532, 0, 65529, 65533, 0, 65529, 65534, 0, 65529, 65535, 0, 65529, 0, 0, 65529, 1, 0, 65529, 2, 0, 65529, 3, 0, 65529, 4, 0, 65529, 5, 0, 65530, 65529, 0, 65530, 65530, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 5, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 65532, 65529, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 4, 0, 65532, 5, 0, 65533, 65529, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65534, 65529, 0, 65534, 65531, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 2, 0, 65534, 3, 0, 65534, 4, 0, 65534, 5, 0, 65535, 65529, 0, 65535, 65531, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 1, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 2, 65529, 0, 2, 65530, 0, 2, 65531, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 2, 65532, 0, 1, 65528, 0, 1, 65527, 0, 1, 65526, 0, 2, 65528, 0, 2, 65527, 0, 2, 65526, 0, 2, 65525, 0, 2, 65524, 0, 1, 65523, 0, 2, 65523, 0, 1, 65525, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0, 4, 65532, 0, 3, 65531, 0, 3, 65530, 0, 4, 65530, 0, 4, 65529, 0, 4, 65528, 0, 4, 65527, 0, 4, 65526, 0, 4, 65525, 0, 4, 65524, 0, 3, 65523, 0, 3, 65522, 0, 3, 65521, 0, 3, 65525, 0, 3, 65526, 0, 3, 65527, 0, 3, 65528, 0, 2, 65522, 0, 2, 65521, 0, 1, 65521, 0, 1, 65522, 0, 3, 65520, 0, 3, 65524, 0, 5, 65525, 0, 5, 65524, 0, 5, 65523, 0, 5, 65522, 0, 5, 65521, 0, 5, 65520, 0, 65534, 6, 0, 65533, 6, 0, 65535, 6, 0, 65535, 7, 0, 5, 65518, 0, 5, 65519, 0, 5, 65526, 0, 5, 65527, 0, 5, 65528, 0, 5, 65529, 0, 4, 65518, 0, 4, 65520, 0, 4, 65523, 0, 4, 65522, 0, 4, 65521, 0, 4, 65519, 0, 5, 65531, 0, 5, 65532, 0, 5, 65533, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 6, 1, 0, 6, 65534, 0, 6, 65532, 0, 6, 65530, 0, 6, 65529, 0, 6, 65528, 0, 6, 65526, 0, 5, 65530, 0, 3, 65529, 0, 4, 65535, 0, 4, 65534, 0, 4, 1, 0, 4, 2, 0, 4, 65533, 0, 8, 5, 0, 65534, 7, 0, 65534, 8, 0, 65534, 9, 0, 65534, 10, 0, 65534, 11, 0, 65534, 12, 0, 65534, 13, 0, 65535, 13, 0, 65535, 14, 0, 65535, 15, 0, 0, 15, 0, 1, 15, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 14, 65516, 0, 13, 65516, 0, 12, 65516, 0, 11, 65516, 0, 10, 65516, 0, 9, 65516, 0, 8, 65516, 0, 7, 65516, 0, 6, 65517, 0, 6, 65518, 0, 12, 65526, 0, 12, 5, 0, 4, 65531, 0, 4, 0, 0, 4, 3, 0, 4, 4, 0, 4, 5, 0, 4, 6, 0, 4, 7, 0, 4, 8, 0, 4, 9, 0, 4, 10, 0, 4, 11, 0, 4, 12, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 10, 0, 5, 11, 0, 5, 12, 0, 6, 65519, 0, 6, 65520, 0, 6, 65521, 0, 6, 65522, 0, 6, 65523, 0, 6, 65524, 0, 6, 65525, 0, 6, 65527, 0, 6, 65531, 0, 6, 65533, 0, 6, 65535, 0, 6, 0, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6, 5, 0, 6, 6, 0, 6, 7, 0, 6, 8, 0, 6, 9, 0, 6, 10, 0, 6, 11, 0, 6, 12, 0, 7, 65519, 0, 7, 65520, 0, 7, 65521, 0, 7, 65522, 0, 7, 65523, 0, 7, 65524, 0, 7, 65525, 0, 7, 65526, 0, 7, 65527, 0, 7, 65528, 0, 7, 65529, 0, 7, 65530, 0, 7, 65531, 0, 7, 65532, 0, 7, 65533, 0, 7, 65534, 0, 7, 65535, 0, 7, 0, 0, 7, 1, 0, 7, 2, 0, 7, 3, 0, 7, 4, 0, 7, 5, 0, 7, 6, 0, 7, 7, 0, 7, 8, 0, 7, 9, 0, 7, 10, 0, 7, 11, 0, 7, 12, 0, 8, 65519, 0, 8, 65520, 0, 8, 65521, 0, 8, 65522, 0, 8, 65523, 0, 8, 65524, 0, 8, 65525, 0, 8, 65526, 0, 8, 65527, 0, 8, 65528, 0, 8, 65530, 0, 8, 65531, 0, 8, 65532, 0, 8, 65533, 0, 8, 65534, 0, 8, 65535, 0, 8, 0, 0, 8, 1, 0, 8, 2, 0, 8, 3, 0, 8, 4, 0, 8, 6, 0, 8, 7, 0, 8, 8, 0, 8, 9, 0, 8, 10, 0, 8, 11, 0, 8, 12, 0, 9, 65519, 0, 9, 65520, 0, 9, 65521, 0, 9, 65522, 0, 9, 65523, 0, 9, 65524, 0, 9, 65525, 0, 9, 65526, 0, 9, 65527, 0, 9, 65528, 0, 9, 65529, 0, 9, 65530, 0, 9, 65531, 0, 9, 65532, 0, 9, 65533, 0, 9, 65534, 0, 9, 65535, 0, 9, 0, 0, 9, 1, 0, 9, 2, 0, 9, 3, 0, 9, 4, 0, 9, 5, 0, 9, 6, 0, 9, 7, 0, 9, 8, 0, 9, 9, 0, 9, 10, 0, 9, 11, 0, 9, 12, 0, 10, 65519, 0, 10, 65520, 0, 10, 65521, 0, 10, 65522, 0, 10, 65523, 0, 10, 65524, 0, 10, 65525, 0, 10, 65526, 0, 10, 65527, 0, 10, 65528, 0, 10, 65529, 0, 10, 65530, 0, 10, 65531, 0, 10, 65532, 0, 10, 65533, 0, 10, 65534, 0, 10, 65535, 0, 10, 0, 0, 10, 1, 0, 10, 2, 0, 10, 3, 0, 10, 4, 0, 10, 5, 0, 10, 6, 0, 10, 7, 0, 10, 8, 0, 10, 9, 0, 10, 10, 0, 10, 11, 0, 10, 12, 0, 11, 65519, 0, 11, 65520, 0, 11, 65521, 0, 11, 65522, 0, 11, 65523, 0, 11, 65524, 0, 11, 65525, 0, 11, 65526, 0, 11, 65527, 0, 11, 65528, 0, 11, 65529, 0, 11, 65530, 0, 11, 65531, 0, 11, 65532, 0, 11, 65533, 0, 11, 65534, 0, 11, 65535, 0, 11, 0, 0, 11, 1, 0, 11, 2, 0, 11, 3, 0, 11, 4, 0, 11, 5, 0, 11, 6, 0, 11, 7, 0, 11, 8, 0, 11, 9, 0, 11, 10, 0, 11, 11, 0, 11, 12, 0, 12, 65519, 0, 12, 65520, 0, 12, 65521, 0, 12, 65522, 0, 12, 65523, 0, 12, 65524, 0, 12, 65525, 0, 12, 65527, 0, 12, 65528, 0, 12, 65529, 0, 12, 65530, 0, 12, 65531, 0, 12, 65532, 0, 12, 65533, 0, 12, 65534, 0, 12, 65535, 0, 12, 0, 0, 12, 1, 0, 12, 2, 0, 12, 3, 0, 12, 4, 0, 12, 6, 0, 12, 7, 0, 12, 8, 0, 12, 9, 0, 12, 10, 0, 12, 11, 0, 12, 12, 0, 13, 65519, 0, 13, 65520, 0, 13, 65521, 0, 13, 65522, 0, 13, 65523, 0, 13, 65524, 0, 13, 65525, 0, 13, 65526, 0, 13, 65527, 0, 13, 65528, 0, 13, 65529, 0, 13, 65530, 0, 13, 65531, 0, 13, 65532, 0, 13, 65533, 0, 13, 65534, 0, 13, 65535, 0, 13, 0, 0, 13, 1, 0, 13, 2, 0, 13, 3, 0, 13, 4, 0, 13, 5, 0, 13, 6, 0, 13, 7, 0, 13, 8, 0, 13, 9, 0, 13, 10, 0, 13, 11, 0, 13, 12, 0, 14, 65519, 0, 14, 65520, 0, 14, 65521, 0, 14, 65522, 0, 14, 65523, 0, 14, 65524, 0, 14, 65525, 0, 14, 65526, 0, 14, 65527, 0, 14, 65528, 0, 14, 65529, 0, 14, 65530, 0, 14, 65531, 0, 14, 65532, 0, 14, 65533, 0, 14, 65534, 0, 14, 65535, 0, 14, 0, 0, 14, 1, 0, 14, 2, 0, 14, 3, 0, 14, 4, 0, 14, 5, 0, 14, 6, 0, 14, 7, 0, 14, 8, 0, 14, 9, 0, 14, 10, 0, 14, 11, 0, 14, 12, 0, 65535, 8, 0, 65535, 9, 0, 65535, 10, 0, 65535, 11, 0, 65535, 12, 0, 65535, 16, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 16, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 16, 0, 2, 6, 0, 2, 7, 0, 2, 8, 0, 2, 9, 0, 2, 10, 0, 2, 11, 0, 2, 12, 0, 2, 13, 0, 2, 14, 0, 2, 15, 0, 3, 4, 0, 3, 5, 0, 3, 6, 0, 3, 7, 0, 3, 8, 0, 3, 9, 0, 3, 10, 0, 3, 11, 0, 3, 12, 0, 3, 13, 0, 3, 14, 0, 3, 15, 0, 4, 13, 0, 4, 14, 0, 4, 15, 0, 5, 13, 0, 5, 14, 0, 5, 15, 0, 6, 13, 0, 6, 14, 0, 6, 15, 0, 7, 13, 0, 7, 14, 0, 7, 15, 0, 7, 16, 0, 8, 13, 0, 8, 14, 0, 8, 15, 0, 8, 16, 0, 9, 13, 0, 9, 14, 0, 9, 15, 0, 9, 16, 0, 10, 13, 0, 10, 14, 0, 10, 15, 0, 10, 16, 0, 11, 13, 0, 11, 14, 0, 11, 15, 0, 11, 16, 0, 12, 13, 0, 12, 14, 0, 12, 15, 0, 12, 16, 0, 13, 13, 0, 13, 14, 0, 13, 15, 0, 13, 16, 0, 14, 13, 0, 14, 14, 0, 14, 15, 0, 14, 16, 0, 6, 65516, 0, 7, 65517, 0, 7, 65518, 0, 8, 65517, 0, 8, 65518, 0, 9, 65517, 0, 9, 65518, 0, 10, 65517, 0, 10, 65518, 0, 11, 65517, 0, 11, 65518, 0, 12, 65517, 0, 12, 65518, 0, 13, 65517, 0, 13, 65518, 0, 14, 65517, 0, 14, 65518, 0, 0, 65502, 0, 0, 65503, 0, 0, 65504, 0, 0, 65505, 0, 0, 65506, 0, 0, 65507, 0, 0, 65508, 0, 0, 65509, 0, 0, 65510, 0, 0, 65511, 0, 0, 65512, 0, 0, 65513, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 1, 65502, 0, 1, 65503, 0, 1, 65504, 0, 1, 65505, 0, 1, 65506, 0, 1, 65507, 0, 1, 65508, 0, 1, 65509, 0, 1, 65510, 0, 1, 65511, 0, 1, 65512, 0, 1, 65513, 0, 1, 65514, 0, 1, 65515, 0, 1, 65516, 0, 1, 65517, 0, 1, 65518, 0, 1, 65519, 0, 1, 65520, 0, 2, 65502, 0, 2, 65503, 0, 2, 65504, 0, 2, 65505, 0, 2, 65506, 0, 2, 65507, 0, 2, 65508, 0, 2, 65509, 0, 2, 65510, 0, 2, 65511, 0, 2, 65512, 0, 2, 65513, 0, 2, 65514, 0, 2, 65515, 0, 2, 65516, 0, 2, 65517, 0, 2, 65518, 0, 2, 65519, 0, 2, 65520, 0, 3, 65502, 0, 3, 65503, 0, 3, 65504, 0, 3, 65505, 0, 3, 65506, 0, 3, 65507, 0, 3, 65508, 0, 3, 65509, 0, 3, 65510, 0, 3, 65511, 0, 3, 65512, 0, 3, 65513, 0, 3, 65514, 0, 3, 65515, 0, 3, 65516, 0, 3, 65517, 0, 3, 65518, 0, 3, 65519, 0, 4, 65502, 0, 4, 65503, 0, 4, 65504, 0, 4, 65505, 0, 4, 65506, 0, 4, 65507, 0, 4, 65508, 0, 4, 65509, 0, 4, 65510, 0, 4, 65511, 0, 4, 65512, 0, 4, 65513, 0, 4, 65514, 0, 4, 65515, 0, 4, 65516, 0, 4, 65517, 0, 5, 65502, 0, 5, 65503, 0, 5, 65504, 0, 5, 65505, 0, 5, 65506, 0, 5, 65507, 0, 5, 65508, 0, 5, 65509, 0, 5, 65510, 0, 5, 65511, 0, 5, 65512, 0, 5, 65513, 0, 5, 65514, 0, 5, 65515, 0, 5, 65516, 0, 5, 65517, 0, 6, 65502, 0, 6, 65503, 0, 6, 65504, 0, 6, 65505, 0, 6, 65506, 0, 6, 65507, 0, 6, 65508, 0, 6, 65509, 0, 6, 65510, 0, 6, 65511, 0, 6, 65512, 0, 6, 65513, 0, 6, 65514, 0, 6, 65515, 0, 7, 65502, 0, 7, 65503, 0, 7, 65504, 0, 7, 65505, 0, 7, 65506, 0, 7, 65507, 0, 7, 65508, 0, 7, 65509, 0, 7, 65510, 0, 7, 65511, 0, 7, 65512, 0, 7, 65513, 0, 7, 65514, 0, 7, 65515, 0, 8, 65502, 0, 8, 65503, 0, 8, 65504, 0, 8, 65505, 0, 8, 65506, 0, 8, 65507, 0, 8, 65508, 0, 8, 65509, 0, 8, 65510, 0, 8, 65511, 0, 8, 65512, 0, 8, 65513, 0, 8, 65514, 0, 8, 65515, 0, 9, 65502, 0, 9, 65503, 0, 9, 65504, 0, 9, 65505, 0, 9, 65506, 0, 9, 65507, 0, 9, 65508, 0, 9, 65509, 0, 9, 65510, 0, 9, 65511, 0, 9, 65512, 0, 9, 65513, 0, 9, 65514, 0, 9, 65515, 0, 10, 65502, 0, 10, 65503, 0, 10, 65504, 0, 10, 65505, 0, 10, 65506, 0, 10, 65507, 0, 10, 65508, 0, 10, 65509, 0, 10, 65510, 0, 10, 65511, 0, 10, 65512, 0, 10, 65513, 0, 10, 65514, 0, 10, 65515, 0, 11, 65502, 0, 11, 65503, 0, 11, 65504, 0, 11, 65505, 0, 11, 65506, 0, 11, 65507, 0, 11, 65508, 0, 11, 65509, 0, 11, 65510, 0, 11, 65511, 0, 11, 65512, 0, 11, 65513, 0, 11, 65514, 0, 11, 65515, 0, 12, 65502, 0, 12, 65503, 0, 12, 65504, 0, 12, 65505, 0, 12, 65506, 0, 12, 65507, 0, 12, 65508, 0, 12, 65509, 0, 12, 65510, 0, 12, 65511, 0, 12, 65512, 0, 12, 65513, 0, 12, 65514, 0, 12, 65515, 0, 13, 65502, 0, 13, 65503, 0, 13, 65504, 0, 13, 65505, 0, 13, 65506, 0, 13, 65507, 0, 13, 65508, 0, 13, 65509, 0, 13, 65510, 0, 13, 65511, 0, 13, 65512, 0, 13, 65513, 0, 13, 65514, 0, 13, 65515, 0, 14, 65502, 0, 14, 65503, 0, 14, 65504, 0, 14, 65505, 0, 14, 65506, 0, 14, 65507, 0, 14, 65508, 0, 14, 65509, 0, 14, 65510, 0, 14, 65511, 0, 14, 65512, 0, 14, 65513, 0, 14, 65514, 0, 14, 65515, 0, 1, 65529, 0, 0, 65529, 0, 0, 65530, 0, 0, 65528, 0, 0, 65527, 0, 0, 65526, 0, 0, 65525, 0, 65535, 65528, 0, 65535, 65527, 0, 1, 65524, 0)
+}
+
+[node name="Grass" type="Node3D" parent="HTerrain"]
+script = ExtResource("52_x5btk")
+texture = SubResource("GradientTexture2D_81csf")
+density = 5.26
+instance_mesh = ExtResource("53_85o61")
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = null
+shader_params/u_roughness = null
+metadata/_editor_icon = ExtResource("53_2lqsq")
 
 [node name="SetDressing" type="Node3D" parent="."]
 
@@ -396,6 +445,541 @@ transform = Transform3D(-0.0962279, -0.976474, -0.192975, -0.976932, 0.129787, -
 
 [node name="leaf-8" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
 transform = Transform3D(-0.215871, -0.817672, -0.0543992, 0.510556, -0.173066, 0.735742, -0.642, 0.137308, 0.603396, -17.5991, 2.57543, -1.19505)
+
+[node name="aloe-vera8" parent="SetDressing/Plants" instance=ExtResource("23_li37m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0757, 0.0409018, -19.5409)
+
+[node name="grass6" parent="SetDressing/Plants" instance=ExtResource("24_jg63d")]
+transform = Transform3D(-0.0127056, 0, -0.999919, 0, 1, 0, 0.999919, 0, -0.0127056, -28.0908, 0.298013, -6.32307)
+
+[node name="grass7" parent="SetDressing/Plants" instance=ExtResource("24_jg63d")]
+transform = Transform3D(-0.0127056, 0, -0.999919, 0, 1, 0, 0.999919, 0, -0.0127056, -4.86089, 0.298013, -6.32307)
+
+[node name="grass8" parent="SetDressing/Plants" instance=ExtResource("24_jg63d")]
+transform = Transform3D(0.999985, 0, 0.00548038, 0, 1.21451, 0, -0.00548038, 0, 0.999985, -7.42027, 0.33506, -20.2452)
+
+[node name="leaf-9" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.103053, -0.994676, 0, 0.994676, 0.103053, 0, 0, 0, 1, 17.1513, 2.89785, 7.45412)
+
+[node name="leaf-10" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.102787, 0.992113, 0.0717411, 0.994676, 0.103053, 0, -0.00739313, 0.0713591, -0.997423, 14.7362, 2.89785, 31.8909)
+
+[node name="leaf-11" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.102787, 0.992113, 0.0717411, 0.994676, 0.103053, 0, -0.00739313, 0.0713591, -0.997423, 14.7362, 1.46337, 29.7429)
+
+[node name="leaf-12" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(0.376609, -0.414919, -0.828256, 0.740465, 0.672095, 1.88517e-08, 0.556667, -0.613294, 0.56035, 2.97135, 4.19559, -19.3215)
+
+[node name="aloe-vera9" parent="SetDressing/Plants" instance=ExtResource("23_li37m")]
+transform = Transform3D(1.05849, 0, 0, 0, 1.22769, 0, 0, 0, 1.02815, -8.52207, 0.0409018, 5.98659)
+
+[node name="palm-bush" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.983105, 0, 0.183042, 0, 1, 0, -0.183042, 0, 0.983105, 16.1524, 0.759627, 3.26157)
+
+[node name="palm-bush2" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.947456, 0, -0.319885, 0, 1, 0, 0.319885, 0, 0.947456, -10.2409, 0.759627, 17.6513)
+
+[node name="palm-bush3" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.684662, 0, -0.728861, 0, 1, 0, 0.728861, 0, 0.684662, -30.0202, 0.759627, 21.8089)
+
+[node name="palm-bush4" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.107201, 0, -0.994237, 0, 1, 0, 0.994237, 0, 0.107201, -26.1393, 0.759627, -28.9072)
+
+[node name="palm-bush5" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1255, 0.615102, 23.3776)
+
+[node name="palm-bush17" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3822, 0.615102, 21.4882)
+
+[node name="palm-bush18" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2466, 0.615102, 17.9542)
+
+[node name="palm-bush19" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.4923, 0.615102, 21.2679)
+
+[node name="palm-bush6" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.851288, 0, -0.524699, 0, 1, 0, 0.524699, 0, 0.851288, 16.2048, 0.622139, 31.5668)
+
+[node name="grass9" parent="SetDressing/Plants" instance=ExtResource("39_mvod5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3127, 0.298013, -0.788208)
+
+[node name="grass10" parent="SetDressing/Plants" instance=ExtResource("39_mvod5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2639, 0.226775, 7.79567)
+
+[node name="grass11" parent="SetDressing/Plants" instance=ExtResource("39_mvod5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4279, 0.226775, 6.89793)
+
+[node name="palm-bush7" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -31.314, 0.370662, 7.3966)
+
+[node name="palm-bush9" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.9526, 0.370662, 7.15101)
+
+[node name="palm-bush12" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.5694, 0.370662, 6.24912)
+
+[node name="palm-bush10" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -36.3182, 0.370662, -2.09065)
+
+[node name="palm-bush11" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.7804, 0.370662, -1.87296)
+
+[node name="flowers" parent="SetDressing/Plants" instance=ExtResource("49_2h70j")]
+transform = Transform3D(0.498624, 0, -0.866818, 0, 1, 0, 0.866818, 0, 0.498624, -30.5404, 0.390152, 7.31787)
+
+[node name="flowers2" parent="SetDressing/Plants" instance=ExtResource("49_2h70j")]
+transform = Transform3D(-0.724725, 0, -0.689038, 0, 1, 0, 0.689038, 0, -0.724725, -32.1341, 0.48235, 6.87694)
+
+[node name="flowers4" parent="SetDressing/Plants" instance=ExtResource("49_2h70j")]
+transform = Transform3D(-0.724725, 0, -0.689038, 0, 1, 0, 0.689038, 0, -0.724725, -36.9258, 0.48235, -1.15886)
+
+[node name="flowers5" parent="SetDressing/Plants" instance=ExtResource("49_2h70j")]
+transform = Transform3D(-0.724725, 0, -0.689038, 0, 1, 0, 0.689038, 0, -0.724725, -36.8548, 0.48235, 6.42228)
+
+[node name="flowers3" parent="SetDressing/Plants" instance=ExtResource("49_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0222, 0.504487, -0.459394)
+
+[node name="palm-bush8" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -30.1145, 0.304307, -1.62202)
+
+[node name="palm-bush13" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.79986, 0, 0.349664, 0, 1, 0, -0.47598, 0, 0.587592, 14.7315, 0.836054, 26.6488)
+
+[node name="palm-bush20" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.79986, 0, 0.349664, 0, 1, 0, -0.47598, 0, 0.587592, 13.0305, 0.836054, 33.8403)
+
+[node name="palm-bush21" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.655111, 0.165764, 0.472307, 0.07852, 0.946006, -0.214003, -0.656503, 0.278558, 0.44571, 16.6823, 0.836054, 34.4014)
+
+[node name="palm-bush14" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(-0.404376, 0, -0.914593, 0, 1, 0, 0.914593, 0, -0.404376, -18.9721, 1.03114, 25.9639)
+
+[node name="aloe-vera10" parent="SetDressing/Plants" instance=ExtResource("23_sw0e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5701, 0.147645, 25.0339)
+
+[node name="aloe-vera11" parent="SetDressing/Plants" instance=ExtResource("23_sw0e5")]
+transform = Transform3D(0.703754, 0, 0.710443, 0, 1, 0, -0.710443, 0, 0.703754, -12.0526, 0.147645, 25.3398)
+
+[node name="aloe-vera12" parent="SetDressing/Plants" instance=ExtResource("23_sw0e5")]
+transform = Transform3D(0.999999, 0.00118903, 8.45546e-05, -0.00118913, 0.999999, 0.00112718, -8.31893e-05, -0.00112728, 0.999999, -11.5542, 0.147645, 24.9574)
+
+[node name="grass-long7" parent="SetDressing/Plants" instance=ExtResource("24_w0b2o")]
+transform = Transform3D(0.955314, 0, -0.295591, 0, 1, 0, 0.295591, 0, 0.955314, -15.4313, 0.240772, 26.0674)
+
+[node name="grass-long8" parent="SetDressing/Plants" instance=ExtResource("24_w0b2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5244, 0.255707, 26.1519)
+
+[node name="grass-basic5" parent="SetDressing/Plants" instance=ExtResource("25_gegxl")]
+transform = Transform3D(-0.730556, 0, 0.682853, 0, 1, 0, -0.682853, 0, -0.730556, -4.70607, 0.374389, 26.1952)
+
+[node name="grass-basic6" parent="SetDressing/Plants" instance=ExtResource("25_gegxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7251, 1.02378, 25.8)
+
+[node name="palm-bush15" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7251, 1.02378, 25.8)
+
+[node name="grass-basic7" parent="SetDressing/Plants" instance=ExtResource("25_gegxl")]
+transform = Transform3D(0.866984, 0, -0.498336, 0, 1, 0, 0.498336, 0, 0.866984, 38.0382, 1.04353, 27.0866)
+
+[node name="palm-bush16" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.866984, 0, -0.498336, 0, 1, 0, 0.498336, 0, 0.866984, 38.0382, 1.04353, 27.0866)
+
+[node name="flowers6" parent="SetDressing/Plants" instance=ExtResource("26_abjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6025, 0.499499, 24.7921)
+
+[node name="flowers7" parent="SetDressing/Plants" instance=ExtResource("49_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8798, 0.504487, 18.6137)
+
+[node name="grass-basic8" parent="SetDressing/Plants" instance=ExtResource("25_gegxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0369, 1.0288, 20.4042)
+
+[node name="palm-bush22" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0369, 1.0288, 20.4042)
+
+[node name="grass-basic9" parent="SetDressing/Plants" instance=ExtResource("25_piaxb")]
+transform = Transform3D(0.388513, 0, 0.921443, 0, 1, 0, -0.921443, 0, 0.388513, -6.21582, 0.309797, 13.773)
+
+[node name="grass-basic10" parent="SetDressing/Plants" instance=ExtResource("25_piaxb")]
+transform = Transform3D(0.77418, 0.00733681, -0.632923, -0.00350253, 0.999967, 0.00730733, 0.632956, -0.00344034, 0.77418, 1.0913, 0.309797, 14.4982)
+
+[node name="aloe-vera13" parent="SetDressing/Plants" instance=ExtResource("23_li37m")]
+transform = Transform3D(0.546513, -6.36927e-05, 0.837451, 0.0028987, 0.999994, -0.0018156, -0.837446, 0.00341977, 0.54651, 3.50556, 0.0370099, 13.2758)
+
+[node name="aloe-vera14" parent="SetDressing/Plants" instance=ExtResource("23_li37m")]
+transform = Transform3D(0.8936, -6.36928e-05, 0.448865, 0.00159194, 0.999994, -0.00302731, -0.448862, 0.00341977, 0.893594, 3.3329, 0.0383803, 12.8718)
+
+[node name="leaf-13" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(1, 0, 0, 0, -0.31265, -0.949868, 0, 0.949868, -0.31265, 3.85748, 4.04182, 1.42406)
+
+[node name="leaf-14" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.657204, 0, 0.753713, 0.715928, -0.31265, -0.624258, 0.235648, 0.949869, -0.205475, 4.60456, 4.04182, 1.42406)
+
+[node name="leaf-15" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.264565, 0.503344, 0.822588, 0.569965, -0.606448, 0.554402, 0.777911, 0.615521, -0.126443, 8.6017, 4.01856, 1.77332)
+
+[node name="aloe-vera15" parent="SetDressing/Plants" instance=ExtResource("23_li37m")]
+transform = Transform3D(0.428446, 0, -0.903567, 0, 1, 0, 0.903567, 0, 0.428446, 33.0898, 0.040902, 26.5447)
+
+[node name="aloe-vera16" parent="SetDressing/Plants" instance=ExtResource("23_sw0e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7251, 0.147645, 26.4464)
+
+[node name="aloe-vera17" parent="SetDressing/Plants" instance=ExtResource("23_sw0e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8091, 0.147645, 14.3443)
+
+[node name="aloe-vera18" parent="SetDressing/Plants" instance=ExtResource("23_sw0e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8235, 0.147645, 14.3467)
+
+[node name="grass-basic11" parent="SetDressing/Plants" instance=ExtResource("25_piaxb")]
+transform = Transform3D(0.355596, 0, 0.93464, 0, 1, 0, -0.93464, 0, 0.355596, 23.6997, 0.309797, 8.62206)
+
+[node name="palm-bush23" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5901, 1.02381, 30.9715)
+
+[node name="palm-bush24" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.640378, 0, 0.76806, 0, 1, 0, -0.76806, 0, 0.640378, -26.8478, 1.02381, 32.3826)
+
+[node name="palm-bush25" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.736993, -0.00535384, 0.675879, 0.00144344, 0.999979, 0.00634719, -0.675899, -0.00370226, 0.736985, 8.88324, 1.0288, 2.52872)
+
+[node name="leaf-16" parent="SetDressing/Plants" instance=ExtResource("27_4bg33")]
+transform = Transform3D(0.928939, 0, 0.370233, 0, 1, 0, -0.370233, 0, 0.928939, 18.1547, 0.0389814, 31.9605)
+
+[node name="leaf-17" parent="SetDressing/Plants" instance=ExtResource("28_6okpm")]
+transform = Transform3D(0.039661, 0, -0.999213, 0, 1, 0, 0.999213, 0, 0.039661, 17.1597, 0.0314859, 33.1016)
+
+[node name="leaf-18" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7958, 0.270662, 34.0445)
+
+[node name="leaf-19" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.904916, 0, -0.42559, 0, 1, 0, 0.42559, 0, 0.904916, 20.7711, 0.191639, 33.3268)
+
+[node name="leaf-20" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.300722, 0, -0.953712, 0, 1, 0, 0.953712, 0, 0.300722, 35.6834, 0.196626, 22.467)
+
+[node name="palm-bush26" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.926345, 0, -0.376677, 0, 1, 0, 0.376677, 0, 0.926345, -5.75716, 1.0288, 6.52167)
+
+[node name="palm-bush27" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.977571, 0, 0.210608, 0, 1, 0, -0.210608, 0, 0.977571, 17.3123, 1.0288, 2.53361)
+
+[node name="palm-bush28" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0005, 1.0288, 0.969208)
+
+[node name="palm-bush29" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.690857, 0, -0.722991, 0, 1, 0, 0.722991, 0, 0.690857, 23.8621, 1.0288, 2.73106)
+
+[node name="leaf-21" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(0.989696, 0.143182, 0, -0.143182, 0.989696, 0, 0, 0, 1, 24.6959, 0.277075, 1.29893)
+
+[node name="leaf-22" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.877448, 0.479672, -1.49012e-08, -0.458206, 0.83818, 0.295808, 0.141891, -0.259556, 0.955247, -7.10237, 0.196627, 5.50289)
+
+[node name="leaf-23" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6153, 0.275649, 1.00809)
+
+[node name="palm-bush30" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78705, 0.770294, -1.61871)
+
+[node name="palm-bush31" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(-0.0112572, 0, 0.999937, 0, 1, 0, -0.999937, 0, -0.0112572, -5.3686, 0.770293, 7.95375)
+
+[node name="palm-bush32" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.978104, 0, -0.208117, 0, 1, 0, 0.208117, 0, 0.978104, 3.53536, 0.770294, -11.2892)
+
+[node name="leaf-24" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02053, 0.206338, -11.983)
+
+[node name="leaf-25" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(0.0386839, 0.950029, -0.309755, -0.928566, 0.148693, 0.340082, 0.369147, 0.274472, 0.887917, -10.9283, 3.56447, -30.8638)
+
+[node name="leaf-26" parent="SetDressing/Plants" instance=ExtResource("27_jg63d")]
+transform = Transform3D(0.962343, 0.0364228, 0.269389, 0.19623, 0.592722, -0.781137, -0.188124, 0.804584, 0.563254, -11.5314, 4.81094, -30.431)
+
+[node name="palm-bush33" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0298, 0.770294, -29.3809)
+
+[node name="palm-bush34" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.917018, 0, -0.398845, 0, 1.70145, 0, 0.398845, 0, 0.917018, -17.5984, 1.33337, -33.6935)
+
+[node name="palm-bush35" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9002, 0.770293, -8.19452)
+
+[node name="palm-bush36" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8597, 0.770294, 9.66903)
+
+[node name="palm-bush37" parent="SetDressing/Plants" instance=ExtResource("40_2h70j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3511, 1.0288, 8.37765)
+
+[node name="Vine" type="Node3D" parent="SetDressing/Plants"]
+
+[node name="leaf-15" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0504186, -0.973685, -0.222252, 0.998728, -0.0491543, -0.0112199, 0, -0.222535, 0.974925, -15.7852, 3.35698, 10.659)
+
+[node name="leaf-16" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8816, 3.98371, 11.2582)
+
+[node name="leaf-17" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8533, 4.38387, 11.497)
+
+[node name="leaf-18" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.8122, 4.65474, 12.2057)
+
+[node name="leaf-19" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.7107, 4.97937, 12.6254)
+
+[node name="leaf-20" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0183101, -0.939505, 0.342045, 0.687393, 0.236598, 0.686668, -0.726056, 0.247692, 0.641477, -15.7863, 5.56336, 12.7413)
+
+[node name="leaf-21" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.8227, 2.10381, 7.74067)
+
+[node name="leaf-22" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.9206, 2.26188, 8.16892)
+
+[node name="leaf-23" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.0333, 2.02447, 8.88185)
+
+[node name="leaf-24" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.065, 2.01801, 9.42112)
+
+[node name="leaf-25" parent="SetDressing/Plants/Vine" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0924483, -0.991999, 0.0859727, 0.984599, -0.0782076, 0.156361, -0.148386, 0.0991039, 0.983951, -16.2918, 2.38344, 9.83967)
+
+[node name="Vine2" type="Node3D" parent="SetDressing/Plants"]
+transform = Transform3D(-0.00834259, -0.260714, 0.96538, 2.32831e-10, 0.965414, 0.260724, -0.999965, 0.00217511, -0.00805405, -21.1642, 0.763629, 0.77643)
+
+[node name="leaf-15" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0504186, -0.973685, -0.222252, 0.998728, -0.0491543, -0.0112199, 0, -0.222535, 0.974925, -15.7852, 3.35698, 10.659)
+
+[node name="leaf-16" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8816, 3.98371, 11.2582)
+
+[node name="leaf-17" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8533, 4.38387, 11.497)
+
+[node name="leaf-18" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.8122, 4.65474, 12.2057)
+
+[node name="leaf-19" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.7107, 4.97937, 12.6254)
+
+[node name="leaf-20" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0183101, -0.939505, 0.342045, 0.687393, 0.236598, 0.686668, -0.726056, 0.247692, 0.641477, -15.7863, 5.56336, 12.7413)
+
+[node name="leaf-21" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.8227, 2.10381, 7.74067)
+
+[node name="leaf-22" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.9206, 2.26188, 8.16892)
+
+[node name="leaf-26" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.346914, -0.776964, -0.525338, 0.779226, 0.0729626, -0.622483, 0.521976, -0.625304, 0.580119, -15.6242, 3.45966, 7.74472)
+
+[node name="leaf-27" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.346914, -0.776964, -0.525338, 0.779226, 0.0729626, -0.622483, 0.521976, -0.625304, 0.580119, -15.9299, 3.17968, 7.95953)
+
+[node name="leaf-23" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.0333, 2.02447, 8.88185)
+
+[node name="leaf-24" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.065, 2.01801, 9.42112)
+
+[node name="leaf-25" parent="SetDressing/Plants/Vine2" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0924483, -0.991999, 0.0859727, 0.984599, -0.0782076, 0.156361, -0.148386, 0.0991039, 0.983951, -16.2918, 2.38344, 9.83967)
+
+[node name="Vine3" type="Node3D" parent="SetDressing/Plants"]
+transform = Transform3D(0.302751, -0.231209, 0.924599, -0.210951, 0.92981, 0.301585, -0.929431, -0.28635, 0.232727, 9.15368, -0.795963, -14.6195)
+
+[node name="leaf-15" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0504186, -0.973685, -0.222252, 0.998728, -0.0491543, -0.0112199, 0, -0.222535, 0.974925, -15.7852, 3.35698, 10.659)
+
+[node name="leaf-16" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8816, 3.98371, 11.2582)
+
+[node name="leaf-17" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8533, 4.38387, 11.497)
+
+[node name="leaf-18" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.8122, 4.65474, 12.2057)
+
+[node name="leaf-19" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.7107, 4.97937, 12.6254)
+
+[node name="leaf-20" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0183101, -0.939505, 0.342045, 0.687393, 0.236598, 0.686668, -0.726056, 0.247692, 0.641477, -15.7863, 5.56336, 12.7413)
+
+[node name="leaf-21" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.8227, 2.10381, 7.74067)
+
+[node name="leaf-22" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.9206, 2.26188, 8.16892)
+
+[node name="leaf-26" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.346914, -0.776964, -0.525338, 0.779226, 0.0729626, -0.622483, 0.521976, -0.625304, 0.580119, -15.6242, 3.45966, 7.74472)
+
+[node name="leaf-27" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.346914, -0.776964, -0.525338, 0.779226, 0.0729626, -0.622483, 0.521976, -0.625304, 0.580119, -15.9299, 3.17968, 7.95953)
+
+[node name="leaf-23" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.0333, 2.02447, 8.88185)
+
+[node name="leaf-24" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.065, 2.01801, 9.42112)
+
+[node name="leaf-25" parent="SetDressing/Plants/Vine3" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0924483, -0.991999, 0.0859727, 0.984599, -0.0782076, 0.156361, -0.148386, 0.0991039, 0.983951, -16.2918, 2.38344, 9.83967)
+
+[node name="Vine4" type="Node3D" parent="SetDressing/Plants"]
+transform = Transform3D(0.978433, -0.118589, 0.169131, 0.190005, 0.8379, -0.511686, -0.0810344, 0.532786, 0.842362, 24.6065, 12.5218, -14.4989)
+
+[node name="leaf-15" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0504186, -0.973685, -0.222252, 0.998728, -0.0491543, -0.0112199, 0, -0.222535, 0.974925, -15.7852, 3.35698, 10.659)
+
+[node name="leaf-16" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8816, 3.98371, 11.2582)
+
+[node name="leaf-17" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.12599, -0.963742, 0.235217, 0.514983, 0.139117, 0.845836, -0.847891, 0.227699, 0.478784, -15.8533, 4.38387, 11.497)
+
+[node name="leaf-18" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.8122, 4.65474, 12.2057)
+
+[node name="leaf-19" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.254018, -0.926385, -0.278004, 0.739609, 0.371269, -0.561372, 0.623261, -0.0630154, 0.779471, -15.7107, 4.97937, 12.6254)
+
+[node name="leaf-20" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0183101, -0.939505, 0.342045, 0.687393, 0.236598, 0.686668, -0.726056, 0.247692, 0.641477, -15.7863, 5.56336, 12.7413)
+
+[node name="leaf-21" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.322636, -0.786376, -0.526801, 0.924882, 0.380251, -0.00117522, 0.20124, -0.48685, 0.849988, -15.1611, 1.95427, 8.62399)
+
+[node name="leaf-22" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.13987, -0.989554, -0.0349052, 0.918097, -0.142812, 0.369733, -0.370855, 0.0196683, 0.928482, -15.9206, 2.26188, 8.16892)
+
+[node name="leaf-26" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.346914, -0.776964, -0.525338, 0.779226, 0.0729626, -0.622483, 0.521976, -0.625304, 0.580119, -14.8781, 2.57622, 8.37527)
+
+[node name="leaf-27" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.419967, -0.177891, -0.889936, 0.61871, 0.661279, -0.424159, 0.663948, -0.728744, -0.167652, -15.1483, 2.78948, 9.34451)
+
+[node name="leaf-23" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.0333, 2.02447, 8.88185)
+
+[node name="leaf-24" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.00922051, -0.973225, -0.229668, 0.198855, 0.223306, -0.954249, 0.979986, -0.0544694, 0.191472, -16.065, 2.01801, 9.42112)
+
+[node name="leaf-25" parent="SetDressing/Plants/Vine4" instance=ExtResource("30_rycpo")]
+transform = Transform3D(-0.0924483, -0.991999, 0.0859727, 0.984599, -0.0782076, 0.156361, -0.148386, 0.0991039, 0.983951, -16.2918, 2.38344, 9.83967)
+
+[node name="palm-bush" parent="SetDressing/Plants/Vine4" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.978433, 0.190005, -0.0810343, -0.118589, 0.8379, 0.532785, 0.169131, -0.511685, 0.842361, -32.484, 17.6378, 21.1223)
+
+[node name="palm-bush2" parent="SetDressing/Plants/Vine4" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.978433, 0.190005, -0.0810343, -0.118589, 0.8379, 0.532786, 0.169131, -0.511685, 0.842361, -31.8906, 15.1661, 17.4811)
+
+[node name="palm-bush3" parent="SetDressing/Plants/Vine4" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.978433, 0.190005, -0.0810343, -0.118589, 0.8379, 0.532786, 0.169131, -0.511685, 0.842361, -32.0704, 16.7057, 19.9355)
+
+[node name="palm-bush4" parent="SetDressing/Plants/Vine4" instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.500002, 0.862224, -0.0810343, -0.709376, 0.461438, 0.532786, 0.496773, -0.20891, 0.842361, -31.7831, 14.5598, 16.5367)
+
+[node name="palm-bush5" parent="SetDressing/Plants/Vine4" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.978433, 0.190005, -0.0810343, -0.118589, 0.8379, 0.532786, 0.169131, -0.511685, 0.842361, -31.5603, 13.1795, 14.3506)
+
+[node name="palm-bush6" parent="SetDressing/Plants/Vine4" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.978433, 0.190005, -0.0810343, -0.118589, 0.8379, 0.532786, 0.169131, -0.511685, 0.842361, -31.7614, 14.0239, 15.6586)
+
+[node name="palm-bush7" parent="SetDressing/Plants/Vine4" instance=ExtResource("38_khisr")]
+transform = Transform3D(0.319117, 0.712836, -0.624523, 0.12467, 0.621675, 0.77329, 0.939479, -0.324629, 0.109517, -32.0269, 15.7541, 18.9286)
+
+[node name="leaf-27" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.287298, -0.902755, -0.320145, 0.661991, 0.428704, -0.614802, 0.692263, -0.0353014, 0.720781, -15.5651, 6.28112, 15.6915)
+
+[node name="leaf-28" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.704544, -0.653643, 0.276348, 0.701973, 0.699062, -0.136181, -0.104171, 0.289935, 0.95136, -15.8926, 6.18397, 15.0622)
+
+[node name="leaf-29" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.129538, -0.991428, -0.0170572, 0.978587, 0.125047, 0.163498, -0.159963, -0.037871, 0.986396, -15.8057, 5.95318, 14.5508)
+
+[node name="leaf-30" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.1147, -0.991428, 0.0625692, 0.694183, 0.125047, 0.708854, -0.710601, -0.037871, 0.702575, -15.7929, 5.83012, 13.8083)
+
+[node name="leaf-31" parent="SetDressing/Plants" instance=ExtResource("30_rycpo")]
+transform = Transform3D(0.44474, -0.607679, 0.657976, 0.370106, 0.793661, 0.482829, -0.815615, 0.0287876, 0.577879, -15.7762, 5.80978, 13.3054)
+
+[node name="Rocks" type="Node3D" parent="SetDressing"]
+
+[node name="rock-large2" parent="SetDressing/Rocks" instance=ExtResource("31_4dpg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0839, 0.748354, -21.608)
+
+[node name="rock-large3" parent="SetDressing/Rocks" instance=ExtResource("31_4dpg8")]
+transform = Transform3D(0.726479, 0, 0.687189, 0, 1, 0, -0.687189, 0, 0.726479, 15.2137, 0.748354, 33.7401)
+
+[node name="rock-large4" parent="SetDressing/Rocks" instance=ExtResource("31_4dpg8")]
+transform = Transform3D(-0.972236, 0, 0.196792, 0, 1.06652, 0, -0.13503, 0, -1.41693, 38.7712, 0.748354, 19.5809)
+
+[node name="rock-large7" parent="SetDressing/Rocks" instance=ExtResource("31_4dpg8")]
+transform = Transform3D(-0.981301, 0, -0.0333783, 0, 1.06652, 0, 0.0229029, 0, -1.43014, 19.9282, 0.100602, 34.882)
+
+[node name="rocks-small2" parent="SetDressing/Rocks" instance=ExtResource("19_0snht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26517, 0.116112, -0.28576)
+
+[node name="rocks-small3" parent="SetDressing/Rocks" instance=ExtResource("19_0snht")]
+transform = Transform3D(0.578071, 0, -0.815986, 0, 1, 0, 0.815986, 0, 0.578071, 11.804, 0.116112, -11.264)
+
+[node name="rocks-tiny2" parent="SetDressing/Rocks" instance=ExtResource("20_khisr")]
+transform = Transform3D(0.493486, 0, 0.869753, 0, 1, 0, -0.869753, 0, 0.493486, -6.96787, 0.0485452, -20.5431)
+
+[node name="rocks-tiny3" parent="SetDressing/Rocks" instance=ExtResource("20_khisr")]
+transform = Transform3D(-0.156141, 0, 0.987735, 0, 1, 0, -0.987735, 0, -0.156141, -6.64056, 0.0485452, 7.76084)
+
+[node name="rocks-tiny4" parent="SetDressing/Rocks" instance=ExtResource("20_khisr")]
+transform = Transform3D(-0.156141, 0, 0.987735, 0, 1, 0, -0.987735, 0, -0.156141, -6.64056, 0.0485452, 7.76084)
+
+[node name="rocks-tiny5" parent="SetDressing/Rocks" instance=ExtResource("20_khisr")]
+transform = Transform3D(-0.547442, 0, 0.703562, 0, 1, 0, -0.509178, 0, -0.756434, -1.25264, 0.0327498, 13.9582)
+
+[node name="rocks-tiny6" parent="SetDressing/Rocks" instance=ExtResource("20_khisr")]
+transform = Transform3D(-0.547442, 0, 0.703562, 0, 1, 0, -0.509178, 0, -0.756434, -18.1119, 0.0327498, -28.6198)
+
+[node name="rock-sharp2" parent="SetDressing/Rocks" instance=ExtResource("39_rycpo")]
+transform = Transform3D(0.554278, 0, 0.832332, 0, 1, 0, -0.832332, 0, 0.554278, 36.4431, 0.449475, 22.0902)
+
+[node name="rock-large5" parent="SetDressing/Rocks" instance=ExtResource("31_4dpg8")]
+transform = Transform3D(-2.21399, 0, -0.400953, 0, 2.25, 0, 0.400953, 0, -2.21399, -39.0864, 0.748354, -3.63427)
+
+[node name="rock-sharp3" parent="SetDressing/Rocks" instance=ExtResource("39_rycpo")]
+transform = Transform3D(1.75702, 0, 0.955452, 0, 2, 0, -0.955452, 0, 1.75702, -40.4024, 0.595765, 7.23477)
+
+[node name="rock-large6" parent="SetDressing/Rocks" instance=ExtResource("31_4dpg8")]
+transform = Transform3D(1.32736, 0, -1.49604, 0, 2, 0, 1.49604, 0, 1.32736, -42.8529, 0.766382, 6.28477)
+
+[node name="rocks-tiny7" parent="SetDressing/Rocks" instance=ExtResource("33_aa7lc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96561, 0.0485452, 1.30381)
+
+[node name="rocks-small4" parent="SetDressing/Rocks" instance=ExtResource("19_0snht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67168, 0.116112, 8.79006)
+
+[node name="rocks-tiny8" parent="SetDressing/Rocks" instance=ExtResource("33_aa7lc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1533, 0.0485452, 19.1612)
+
+[node name="rocks-tiny9" parent="SetDressing/Rocks" instance=ExtResource("33_aa7lc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7702, 0.0485452, 15.933)
+
+[node name="rocks-small5" parent="SetDressing/Rocks" instance=ExtResource("34_b6uo2")]
+transform = Transform3D(0.107633, -0.00421965, -0.994182, 0.000250659, 0.999991, -0.00421717, 0.994191, 0.000204709, 0.107633, 7.90938, 0.116112, 27.484)
+
+[node name="rocks-small6" parent="SetDressing/Rocks" instance=ExtResource("34_b6uo2")]
+transform = Transform3D(0.810625, 0, 0.585566, 0, 1, 0, -0.585566, 0, 0.810625, 35.6394, 0.116112, 18.9065)
+
+[node name="rocks-small7" parent="SetDressing/Rocks" instance=ExtResource("34_b6uo2")]
+transform = Transform3D(0.890443, 0, -0.455094, 0, 1, 0, 0.455094, 0, 0.890443, 37.4695, 0.116112, 25.7504)
+
+[node name="rocks-tiny10" parent="SetDressing/Rocks" instance=ExtResource("33_aa7lc")]
+transform = Transform3D(0.902983, 0, 0.429676, 0, 1, 0, -0.429676, 0, 0.902983, 14.6461, 0.100739, 24.6105)
+
+[node name="rocks-small8" parent="SetDressing/Rocks" instance=ExtResource("19_0snht")]
+transform = Transform3D(0.713299, 0, 0.700859, 0, 1, 0, -0.700859, 0, 0.713299, 27.7537, 0.116112, 19.847)
 
 [node name="Environment" parent="." instance=ExtResource("5_buxdt")]
 unique_name_in_owner = true
@@ -519,6 +1103,9 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 [node name="SelectionPlaceholder" parent="HomeBuildableSurface/StructurePlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
+[node name="InteractableBuildableArea" parent="HomeBuildableSurface" index="7"]
+visible = false
+
 [node name="CollisionShape3D" parent="HomeBuildableSurface/InteractableBuildableArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426392, 0.517517, -0.199265)
 shape = SubResource("BoxShape3D_7t8hb")
@@ -587,51 +1174,6 @@ visible = false
 [node name="Pavement4" parent="DesignTestScene" index="33"]
 visible = false
 
-[node name="aloe-vera2" parent="DesignTestScene" instance=ExtResource("23_li37m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0757, 0.0409018, -19.5409)
-
-[node name="grass2" parent="DesignTestScene" instance=ExtResource("24_jg63d")]
-transform = Transform3D(-0.0127056, 0, -0.999919, 0, 1, 0, 0.999919, 0, -0.0127056, -28.0908, 0.298013, -6.32307)
-
-[node name="grass3" parent="DesignTestScene" instance=ExtResource("24_jg63d")]
-transform = Transform3D(-0.0127056, 0, -0.999919, 0, 1, 0, 0.999919, 0, -0.0127056, -4.86089, 0.298013, -6.32307)
-
-[node name="grass4" parent="DesignTestScene" instance=ExtResource("24_jg63d")]
-transform = Transform3D(0.999985, 0, 0.00548038, 0, 1.21451, 0, -0.00548038, 0, 0.999985, -7.42027, 0.33506, -20.2452)
-
-[node name="rocks-small2" parent="DesignTestScene" instance=ExtResource("19_0snht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26517, 0.116112, -0.28576)
-
-[node name="rocks-small3" parent="DesignTestScene" instance=ExtResource("19_0snht")]
-transform = Transform3D(0.578071, 0, -0.815986, 0, 1, 0, 0.815986, 0, 0.578071, 11.804, 0.116112, -11.264)
-
-[node name="rocks-tiny2" parent="DesignTestScene" instance=ExtResource("20_khisr")]
-transform = Transform3D(0.493486, 0, 0.869753, 0, 1, 0, -0.869753, 0, 0.493486, -6.96787, 0.0485452, -20.5431)
-
-[node name="rocks-tiny3" parent="DesignTestScene" instance=ExtResource("20_khisr")]
-transform = Transform3D(-0.156141, 0, 0.987735, 0, 1, 0, -0.987735, 0, -0.156141, -6.64056, 0.0485452, 7.76084)
-
-[node name="rocks-tiny4" parent="DesignTestScene" instance=ExtResource("20_khisr")]
-transform = Transform3D(-0.156141, 0, 0.987735, 0, 1, 0, -0.987735, 0, -0.156141, -6.64056, 0.0485452, 7.76084)
-
-[node name="rocks-tiny5" parent="DesignTestScene" instance=ExtResource("20_khisr")]
-transform = Transform3D(-0.547442, 0, 0.703562, 0, 1, 0, -0.509178, 0, -0.756434, -1.25264, 0.0327498, 13.9582)
-
-[node name="leaf-1" parent="DesignTestScene" instance=ExtResource("30_rycpo")]
-transform = Transform3D(0.103053, -0.994676, 0, 0.994676, 0.103053, 0, 0, 0, 1, 17.1513, 2.89785, 7.45412)
-
-[node name="leaf-3" parent="DesignTestScene" instance=ExtResource("30_rycpo")]
-transform = Transform3D(-0.102787, 0.992113, 0.0717411, 0.994676, 0.103053, 0, -0.00739313, 0.0713591, -0.997423, 14.7362, 2.89785, 31.8909)
-
-[node name="leaf-4" parent="DesignTestScene" instance=ExtResource("30_rycpo")]
-transform = Transform3D(-0.102787, 0.992113, 0.0717411, 0.994676, 0.103053, 0, -0.00739313, 0.0713591, -0.997423, 14.7362, 1.46337, 29.7429)
-
-[node name="rocks-tiny6" parent="DesignTestScene" instance=ExtResource("20_khisr")]
-transform = Transform3D(-0.547442, 0, 0.703562, 0, 1, 0, -0.509178, 0, -0.756434, -18.1119, 0.0327498, -28.6198)
-
-[node name="leaf-2" parent="DesignTestScene" instance=ExtResource("27_jg63d")]
-transform = Transform3D(0.376609, -0.414919, -0.828256, 0.740465, 0.672095, 1.88517e-08, 0.556667, -0.613294, 0.56035, 2.97135, 4.19559, -19.3215)
-
 [node name="Structures" type="Node3D" parent="."]
 
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("14_tvm5u")]
@@ -657,17 +1199,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168
 
 [node name="ScrapPileSpawner2" parent="." instance=ExtResource("21_dedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
-
-[node name="PlantRocks" type="Node3D" parent="."]
-
-[node name="rock-large2" parent="PlantRocks" instance=ExtResource("31_4dpg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0839, 0.748354, -21.608)
-
-[node name="rock-large3" parent="PlantRocks" instance=ExtResource("31_4dpg8")]
-transform = Transform3D(0.726479, 0, 0.687189, 0, 1, 0, -0.687189, 0, 0.726479, 15.2137, 0.748354, 33.7401)
-
-[node name="rock-large4" parent="PlantRocks" instance=ExtResource("31_4dpg8")]
-transform = Transform3D(-0.972236, 0, 0.196792, 0, 1.06652, 0, -0.13503, 0, -1.41693, 38.7712, 0.748354, 19.5809)
 
 [node name="SleepDoor" parent="." node_paths=PackedStringArray("player", "wake_up_location") instance=ExtResource("22_rlc83")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97795, 9.53674e-07, -11.9061)
@@ -820,130 +1351,47 @@ light_energy = 0.5
 omni_range = 2.0
 omni_attenuation = 0.5
 
-[node name="aloe-vera2" parent="." instance=ExtResource("23_li37m")]
-transform = Transform3D(1.05849, 0, 0, 0, 1.22769, 0, 0, 0, 1.02815, -8.52207, 0.0409018, 5.98659)
-
-[node name="palm-bush" parent="." instance=ExtResource("38_khisr")]
-transform = Transform3D(0.983105, 0, 0.183042, 0, 1, 0, -0.183042, 0, 0.983105, 16.1524, 0.759627, 3.26157)
-
-[node name="palm-bush2" parent="." instance=ExtResource("38_khisr")]
-transform = Transform3D(0.947456, 0, -0.319885, 0, 1, 0, 0.319885, 0, 0.947456, -10.2409, 0.759627, 17.6513)
-
-[node name="palm-bush3" parent="." instance=ExtResource("38_khisr")]
-transform = Transform3D(0.684662, 0, -0.728861, 0, 1, 0, 0.728861, 0, 0.684662, -30.0202, 0.759627, 21.8089)
-
-[node name="palm-bush4" parent="." instance=ExtResource("38_khisr")]
-transform = Transform3D(0.107201, 0, -0.994237, 0, 1, 0, 0.994237, 0, 0.107201, -26.1393, 0.759627, -28.9072)
-
-[node name="rock-sharp2" parent="." instance=ExtResource("39_rycpo")]
-transform = Transform3D(0.554278, 0, 0.832332, 0, 1, 0, -0.832332, 0, 0.554278, 36.4431, 0.449475, 22.0902)
-
-[node name="palm-bush5" parent="." instance=ExtResource("38_khisr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2289, 0.622139, 23.9318)
-
-[node name="palm-bush6" parent="." instance=ExtResource("38_khisr")]
-transform = Transform3D(0.747265, 0, -0.664526, 0, 1, 0, 0.664526, 0, 0.747265, 16.958, 0.622139, 31.1837)
-
-[node name="grass2" parent="." instance=ExtResource("39_mvod5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3127, 0.298013, -0.788208)
-
-[node name="grass3" parent="." instance=ExtResource("39_mvod5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2639, 0.226775, 7.79567)
-
-[node name="grass4" parent="." instance=ExtResource("39_mvod5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4279, 0.226775, 6.89793)
-
-[node name="palm-bush7" parent="." instance=ExtResource("40_2h70j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -31.314, 0.370662, 7.3966)
-
-[node name="palm-bush9" parent="." instance=ExtResource("40_2h70j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.9526, 0.370662, 7.15101)
-
-[node name="palm-bush12" parent="." instance=ExtResource("40_2h70j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.5694, 0.370662, 6.24912)
-
-[node name="palm-bush10" parent="." instance=ExtResource("40_2h70j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -36.3182, 0.370662, -2.09065)
-
-[node name="palm-bush11" parent="." instance=ExtResource("40_2h70j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -37.7804, 0.370662, -1.87296)
-
-[node name="HTerrain" type="Node3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.5, 0, 0, 0, 0.25, -65.686, 0, -60.178)
-script = ExtResource("41_msodx")
-ambient_wind = 0.09
-_terrain_data = ExtResource("42_mpfma")
-chunk_size = 32
-collision_enabled = true
-collision_layer = 1
-collision_mask = 1
-shader_type = "Classic4Lite"
-custom_shader = null
-custom_globalmap_shader = null
-texture_set = SubResource("Resource_85o61")
-render_layers = 1
-cast_shadow = 1
-shader_params/u_ground_uv_scale = 20
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = null
-shader_params/u_tile_reduction = null
-metadata/_custom_type_script = "uid://dq8f5vhim57ef"
-
-[node name="Water" type="GridMap" parent="HTerrain"]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 9.50604, -3.52456, 593.949)
-mesh_library = SubResource("MeshLibrary_cwn0e")
-cell_size = Vector3(10, 2, 10)
-data = {
-"cells": PackedInt32Array(65530, 65533, 0, 0, 65534, 0, 65535, 0, 0, 65534, 1, 0, 65533, 1, 0, 65533, 2, 0, 65532, 3, 0, 65532, 65530, 0, 1, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65533, 65531, 0, 65532, 65531, 0, 65532, 65532, 0, 65531, 65532, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 0, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65529, 65529, 0, 65529, 65530, 0, 65529, 65531, 0, 65529, 65532, 0, 65529, 65533, 0, 65529, 65534, 0, 65529, 65535, 0, 65529, 0, 0, 65529, 1, 0, 65529, 2, 0, 65529, 3, 0, 65529, 4, 0, 65529, 5, 0, 65530, 65529, 0, 65530, 65530, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 5, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 65532, 65529, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 4, 0, 65532, 5, 0, 65533, 65529, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65534, 65529, 0, 65534, 65531, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 2, 0, 65534, 3, 0, 65534, 4, 0, 65534, 5, 0, 65535, 65529, 0, 65535, 65531, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 1, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 2, 65529, 0, 2, 65530, 0, 2, 65531, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 2, 65532, 0, 1, 65528, 0, 1, 65527, 0, 1, 65526, 0, 2, 65528, 0, 2, 65527, 0, 2, 65526, 0, 2, 65525, 0, 2, 65524, 0, 1, 65523, 0, 2, 65523, 0, 1, 65525, 0, 2, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0, 4, 65532, 0, 3, 65531, 0, 3, 65530, 0, 4, 65530, 0, 4, 65529, 0, 4, 65528, 0, 4, 65527, 0, 4, 65526, 0, 4, 65525, 0, 4, 65524, 0, 3, 65523, 0, 3, 65522, 0, 3, 65521, 0, 3, 65525, 0, 3, 65526, 0, 3, 65527, 0, 3, 65528, 0, 2, 65522, 0, 2, 65521, 0, 1, 65521, 0, 1, 65522, 0, 3, 65520, 0, 3, 65524, 0, 5, 65525, 0, 5, 65524, 0, 5, 65523, 0, 5, 65522, 0, 5, 65521, 0, 5, 65520, 0, 65534, 6, 0, 65533, 6, 0, 65535, 6, 0, 65535, 7, 0, 5, 65518, 0, 5, 65519, 0, 5, 65526, 0, 5, 65527, 0, 5, 65528, 0, 5, 65529, 0, 4, 65518, 0, 4, 65520, 0, 4, 65523, 0, 4, 65522, 0, 4, 65521, 0, 4, 65519, 0, 5, 65531, 0, 5, 65532, 0, 5, 65533, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 6, 1, 0, 6, 65534, 0, 6, 65532, 0, 6, 65530, 0, 6, 65529, 0, 6, 65528, 0, 6, 65526, 0, 5, 65530, 0, 3, 65529, 0, 4, 65535, 0, 4, 65534, 0, 4, 1, 0, 4, 2, 0, 4, 65533, 0, 8, 5, 0, 65534, 7, 0, 65534, 8, 0, 65534, 9, 0, 65534, 10, 0, 65534, 11, 0, 65534, 12, 0, 65534, 13, 0, 65535, 13, 0, 65535, 14, 0, 65535, 15, 0, 0, 15, 0, 1, 15, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 14, 65516, 0, 13, 65516, 0, 12, 65516, 0, 11, 65516, 0, 10, 65516, 0, 9, 65516, 0, 8, 65516, 0, 7, 65516, 0, 6, 65517, 0, 6, 65518, 0, 12, 65526, 0, 12, 5, 0, 4, 65531, 0, 4, 0, 0, 4, 3, 0, 4, 4, 0, 4, 5, 0, 4, 6, 0, 4, 7, 0, 4, 8, 0, 4, 9, 0, 4, 10, 0, 4, 11, 0, 4, 12, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0, 5, 8, 0, 5, 9, 0, 5, 10, 0, 5, 11, 0, 5, 12, 0, 6, 65519, 0, 6, 65520, 0, 6, 65521, 0, 6, 65522, 0, 6, 65523, 0, 6, 65524, 0, 6, 65525, 0, 6, 65527, 0, 6, 65531, 0, 6, 65533, 0, 6, 65535, 0, 6, 0, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6, 5, 0, 6, 6, 0, 6, 7, 0, 6, 8, 0, 6, 9, 0, 6, 10, 0, 6, 11, 0, 6, 12, 0, 7, 65519, 0, 7, 65520, 0, 7, 65521, 0, 7, 65522, 0, 7, 65523, 0, 7, 65524, 0, 7, 65525, 0, 7, 65526, 0, 7, 65527, 0, 7, 65528, 0, 7, 65529, 0, 7, 65530, 0, 7, 65531, 0, 7, 65532, 0, 7, 65533, 0, 7, 65534, 0, 7, 65535, 0, 7, 0, 0, 7, 1, 0, 7, 2, 0, 7, 3, 0, 7, 4, 0, 7, 5, 0, 7, 6, 0, 7, 7, 0, 7, 8, 0, 7, 9, 0, 7, 10, 0, 7, 11, 0, 7, 12, 0, 8, 65519, 0, 8, 65520, 0, 8, 65521, 0, 8, 65522, 0, 8, 65523, 0, 8, 65524, 0, 8, 65525, 0, 8, 65526, 0, 8, 65527, 0, 8, 65528, 0, 8, 65530, 0, 8, 65531, 0, 8, 65532, 0, 8, 65533, 0, 8, 65534, 0, 8, 65535, 0, 8, 0, 0, 8, 1, 0, 8, 2, 0, 8, 3, 0, 8, 4, 0, 8, 6, 0, 8, 7, 0, 8, 8, 0, 8, 9, 0, 8, 10, 0, 8, 11, 0, 8, 12, 0, 9, 65519, 0, 9, 65520, 0, 9, 65521, 0, 9, 65522, 0, 9, 65523, 0, 9, 65524, 0, 9, 65525, 0, 9, 65526, 0, 9, 65527, 0, 9, 65528, 0, 9, 65529, 0, 9, 65530, 0, 9, 65531, 0, 9, 65532, 0, 9, 65533, 0, 9, 65534, 0, 9, 65535, 0, 9, 0, 0, 9, 1, 0, 9, 2, 0, 9, 3, 0, 9, 4, 0, 9, 5, 0, 9, 6, 0, 9, 7, 0, 9, 8, 0, 9, 9, 0, 9, 10, 0, 9, 11, 0, 9, 12, 0, 10, 65519, 0, 10, 65520, 0, 10, 65521, 0, 10, 65522, 0, 10, 65523, 0, 10, 65524, 0, 10, 65525, 0, 10, 65526, 0, 10, 65527, 0, 10, 65528, 0, 10, 65529, 0, 10, 65530, 0, 10, 65531, 0, 10, 65532, 0, 10, 65533, 0, 10, 65534, 0, 10, 65535, 0, 10, 0, 0, 10, 1, 0, 10, 2, 0, 10, 3, 0, 10, 4, 0, 10, 5, 0, 10, 6, 0, 10, 7, 0, 10, 8, 0, 10, 9, 0, 10, 10, 0, 10, 11, 0, 10, 12, 0, 11, 65519, 0, 11, 65520, 0, 11, 65521, 0, 11, 65522, 0, 11, 65523, 0, 11, 65524, 0, 11, 65525, 0, 11, 65526, 0, 11, 65527, 0, 11, 65528, 0, 11, 65529, 0, 11, 65530, 0, 11, 65531, 0, 11, 65532, 0, 11, 65533, 0, 11, 65534, 0, 11, 65535, 0, 11, 0, 0, 11, 1, 0, 11, 2, 0, 11, 3, 0, 11, 4, 0, 11, 5, 0, 11, 6, 0, 11, 7, 0, 11, 8, 0, 11, 9, 0, 11, 10, 0, 11, 11, 0, 11, 12, 0, 12, 65519, 0, 12, 65520, 0, 12, 65521, 0, 12, 65522, 0, 12, 65523, 0, 12, 65524, 0, 12, 65525, 0, 12, 65527, 0, 12, 65528, 0, 12, 65529, 0, 12, 65530, 0, 12, 65531, 0, 12, 65532, 0, 12, 65533, 0, 12, 65534, 0, 12, 65535, 0, 12, 0, 0, 12, 1, 0, 12, 2, 0, 12, 3, 0, 12, 4, 0, 12, 6, 0, 12, 7, 0, 12, 8, 0, 12, 9, 0, 12, 10, 0, 12, 11, 0, 12, 12, 0, 13, 65519, 0, 13, 65520, 0, 13, 65521, 0, 13, 65522, 0, 13, 65523, 0, 13, 65524, 0, 13, 65525, 0, 13, 65526, 0, 13, 65527, 0, 13, 65528, 0, 13, 65529, 0, 13, 65530, 0, 13, 65531, 0, 13, 65532, 0, 13, 65533, 0, 13, 65534, 0, 13, 65535, 0, 13, 0, 0, 13, 1, 0, 13, 2, 0, 13, 3, 0, 13, 4, 0, 13, 5, 0, 13, 6, 0, 13, 7, 0, 13, 8, 0, 13, 9, 0, 13, 10, 0, 13, 11, 0, 13, 12, 0, 14, 65519, 0, 14, 65520, 0, 14, 65521, 0, 14, 65522, 0, 14, 65523, 0, 14, 65524, 0, 14, 65525, 0, 14, 65526, 0, 14, 65527, 0, 14, 65528, 0, 14, 65529, 0, 14, 65530, 0, 14, 65531, 0, 14, 65532, 0, 14, 65533, 0, 14, 65534, 0, 14, 65535, 0, 14, 0, 0, 14, 1, 0, 14, 2, 0, 14, 3, 0, 14, 4, 0, 14, 5, 0, 14, 6, 0, 14, 7, 0, 14, 8, 0, 14, 9, 0, 14, 10, 0, 14, 11, 0, 14, 12, 0, 65535, 8, 0, 65535, 9, 0, 65535, 10, 0, 65535, 11, 0, 65535, 12, 0, 65535, 16, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 16, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 16, 0, 2, 6, 0, 2, 7, 0, 2, 8, 0, 2, 9, 0, 2, 10, 0, 2, 11, 0, 2, 12, 0, 2, 13, 0, 2, 14, 0, 2, 15, 0, 3, 4, 0, 3, 5, 0, 3, 6, 0, 3, 7, 0, 3, 8, 0, 3, 9, 0, 3, 10, 0, 3, 11, 0, 3, 12, 0, 3, 13, 0, 3, 14, 0, 3, 15, 0, 4, 13, 0, 4, 14, 0, 4, 15, 0, 5, 13, 0, 5, 14, 0, 5, 15, 0, 6, 13, 0, 6, 14, 0, 6, 15, 0, 7, 13, 0, 7, 14, 0, 7, 15, 0, 7, 16, 0, 8, 13, 0, 8, 14, 0, 8, 15, 0, 8, 16, 0, 9, 13, 0, 9, 14, 0, 9, 15, 0, 9, 16, 0, 10, 13, 0, 10, 14, 0, 10, 15, 0, 10, 16, 0, 11, 13, 0, 11, 14, 0, 11, 15, 0, 11, 16, 0, 12, 13, 0, 12, 14, 0, 12, 15, 0, 12, 16, 0, 13, 13, 0, 13, 14, 0, 13, 15, 0, 13, 16, 0, 14, 13, 0, 14, 14, 0, 14, 15, 0, 14, 16, 0, 6, 65516, 0, 7, 65517, 0, 7, 65518, 0, 8, 65517, 0, 8, 65518, 0, 9, 65517, 0, 9, 65518, 0, 10, 65517, 0, 10, 65518, 0, 11, 65517, 0, 11, 65518, 0, 12, 65517, 0, 12, 65518, 0, 13, 65517, 0, 13, 65518, 0, 14, 65517, 0, 14, 65518, 0, 0, 65502, 0, 0, 65503, 0, 0, 65504, 0, 0, 65505, 0, 0, 65506, 0, 0, 65507, 0, 0, 65508, 0, 0, 65509, 0, 0, 65510, 0, 0, 65511, 0, 0, 65512, 0, 0, 65513, 0, 0, 65514, 0, 0, 65515, 0, 0, 65516, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 1, 65502, 0, 1, 65503, 0, 1, 65504, 0, 1, 65505, 0, 1, 65506, 0, 1, 65507, 0, 1, 65508, 0, 1, 65509, 0, 1, 65510, 0, 1, 65511, 0, 1, 65512, 0, 1, 65513, 0, 1, 65514, 0, 1, 65515, 0, 1, 65516, 0, 1, 65517, 0, 1, 65518, 0, 1, 65519, 0, 1, 65520, 0, 2, 65502, 0, 2, 65503, 0, 2, 65504, 0, 2, 65505, 0, 2, 65506, 0, 2, 65507, 0, 2, 65508, 0, 2, 65509, 0, 2, 65510, 0, 2, 65511, 0, 2, 65512, 0, 2, 65513, 0, 2, 65514, 0, 2, 65515, 0, 2, 65516, 0, 2, 65517, 0, 2, 65518, 0, 2, 65519, 0, 2, 65520, 0, 3, 65502, 0, 3, 65503, 0, 3, 65504, 0, 3, 65505, 0, 3, 65506, 0, 3, 65507, 0, 3, 65508, 0, 3, 65509, 0, 3, 65510, 0, 3, 65511, 0, 3, 65512, 0, 3, 65513, 0, 3, 65514, 0, 3, 65515, 0, 3, 65516, 0, 3, 65517, 0, 3, 65518, 0, 3, 65519, 0, 4, 65502, 0, 4, 65503, 0, 4, 65504, 0, 4, 65505, 0, 4, 65506, 0, 4, 65507, 0, 4, 65508, 0, 4, 65509, 0, 4, 65510, 0, 4, 65511, 0, 4, 65512, 0, 4, 65513, 0, 4, 65514, 0, 4, 65515, 0, 4, 65516, 0, 4, 65517, 0, 5, 65502, 0, 5, 65503, 0, 5, 65504, 0, 5, 65505, 0, 5, 65506, 0, 5, 65507, 0, 5, 65508, 0, 5, 65509, 0, 5, 65510, 0, 5, 65511, 0, 5, 65512, 0, 5, 65513, 0, 5, 65514, 0, 5, 65515, 0, 5, 65516, 0, 5, 65517, 0, 6, 65502, 0, 6, 65503, 0, 6, 65504, 0, 6, 65505, 0, 6, 65506, 0, 6, 65507, 0, 6, 65508, 0, 6, 65509, 0, 6, 65510, 0, 6, 65511, 0, 6, 65512, 0, 6, 65513, 0, 6, 65514, 0, 6, 65515, 0, 7, 65502, 0, 7, 65503, 0, 7, 65504, 0, 7, 65505, 0, 7, 65506, 0, 7, 65507, 0, 7, 65508, 0, 7, 65509, 0, 7, 65510, 0, 7, 65511, 0, 7, 65512, 0, 7, 65513, 0, 7, 65514, 0, 7, 65515, 0, 8, 65502, 0, 8, 65503, 0, 8, 65504, 0, 8, 65505, 0, 8, 65506, 0, 8, 65507, 0, 8, 65508, 0, 8, 65509, 0, 8, 65510, 0, 8, 65511, 0, 8, 65512, 0, 8, 65513, 0, 8, 65514, 0, 8, 65515, 0, 9, 65502, 0, 9, 65503, 0, 9, 65504, 0, 9, 65505, 0, 9, 65506, 0, 9, 65507, 0, 9, 65508, 0, 9, 65509, 0, 9, 65510, 0, 9, 65511, 0, 9, 65512, 0, 9, 65513, 0, 9, 65514, 0, 9, 65515, 0, 10, 65502, 0, 10, 65503, 0, 10, 65504, 0, 10, 65505, 0, 10, 65506, 0, 10, 65507, 0, 10, 65508, 0, 10, 65509, 0, 10, 65510, 0, 10, 65511, 0, 10, 65512, 0, 10, 65513, 0, 10, 65514, 0, 10, 65515, 0, 11, 65502, 0, 11, 65503, 0, 11, 65504, 0, 11, 65505, 0, 11, 65506, 0, 11, 65507, 0, 11, 65508, 0, 11, 65509, 0, 11, 65510, 0, 11, 65511, 0, 11, 65512, 0, 11, 65513, 0, 11, 65514, 0, 11, 65515, 0, 12, 65502, 0, 12, 65503, 0, 12, 65504, 0, 12, 65505, 0, 12, 65506, 0, 12, 65507, 0, 12, 65508, 0, 12, 65509, 0, 12, 65510, 0, 12, 65511, 0, 12, 65512, 0, 12, 65513, 0, 12, 65514, 0, 12, 65515, 0, 13, 65502, 0, 13, 65503, 0, 13, 65504, 0, 13, 65505, 0, 13, 65506, 0, 13, 65507, 0, 13, 65508, 0, 13, 65509, 0, 13, 65510, 0, 13, 65511, 0, 13, 65512, 0, 13, 65513, 0, 13, 65514, 0, 13, 65515, 0, 14, 65502, 0, 14, 65503, 0, 14, 65504, 0, 14, 65505, 0, 14, 65506, 0, 14, 65507, 0, 14, 65508, 0, 14, 65509, 0, 14, 65510, 0, 14, 65511, 0, 14, 65512, 0, 14, 65513, 0, 14, 65514, 0, 14, 65515, 0, 1, 65529, 0, 0, 65529, 0, 0, 65530, 0, 0, 65528, 0, 0, 65527, 0, 0, 65526, 0, 0, 65525, 0, 65535, 65528, 0, 65535, 65527, 0, 1, 65524, 0)
-}
-
-[node name="Grass" type="Node3D" parent="HTerrain"]
-script = ExtResource("52_x5btk")
-texture = SubResource("GradientTexture2D_81csf")
-density = 5.26
-instance_mesh = ExtResource("53_85o61")
-shader_params/u_globalmap_tint_bottom = null
-shader_params/u_globalmap_tint_top = null
-shader_params/u_bottom_ao = null
-shader_params/u_instance_scale = null
-shader_params/u_roughness = null
-metadata/_editor_icon = ExtResource("53_2lqsq")
-
-[node name="flowers" parent="." instance=ExtResource("49_2h70j")]
-transform = Transform3D(0.498624, 0, -0.866818, 0, 1, 0, 0.866818, 0, 0.498624, -30.5404, 0.390152, 7.31787)
-
-[node name="flowers2" parent="." instance=ExtResource("49_2h70j")]
-transform = Transform3D(-0.724725, 0, -0.689038, 0, 1, 0, 0.689038, 0, -0.724725, -32.1341, 0.48235, 6.87694)
-
-[node name="flowers4" parent="." instance=ExtResource("49_2h70j")]
-transform = Transform3D(-0.724725, 0, -0.689038, 0, 1, 0, 0.689038, 0, -0.724725, -36.9258, 0.48235, -1.15886)
-
-[node name="flowers5" parent="." instance=ExtResource("49_2h70j")]
-transform = Transform3D(-0.724725, 0, -0.689038, 0, 1, 0, 0.689038, 0, -0.724725, -36.8548, 0.48235, 6.42228)
-
-[node name="flowers3" parent="." instance=ExtResource("49_2h70j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0222, 0.504487, -0.459394)
-
-[node name="palm-bush8" parent="." instance=ExtResource("40_2h70j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -30.1145, 0.304307, -1.62202)
-
-[node name="rock-large2" parent="." instance=ExtResource("31_4dpg8")]
-transform = Transform3D(-2.21399, 0, -0.400953, 0, 2.25, 0, 0.400953, 0, -2.21399, -39.0864, 0.748354, -3.63427)
-
-[node name="rock-sharp3" parent="." instance=ExtResource("39_rycpo")]
-transform = Transform3D(1.75702, 0, 0.955452, 0, 2, 0, -0.955452, 0, 1.75702, -40.4024, 0.595765, 7.23477)
-
-[node name="rock-large3" parent="." instance=ExtResource("31_4dpg8")]
-transform = Transform3D(1.32736, 0, -1.49604, 0, 2, 0, 1.49604, 0, 1.32736, -42.8529, 0.766382, 6.28477)
-
 [node name="sm_picnic_table" parent="." instance=ExtResource("50_msodx")]
-transform = Transform3D(-0.254163, 0, -0.967161, 0, 1, 0, 0.967161, 0, -0.254163, 14.0514, -0.0272304, 5.86781)
+transform = Transform3D(0.79381, 0, -0.608166, 0, 1, 0, 0.608166, 0, 0.79381, 14.6854, -0.0272309, 14.2936)
+
+[node name="sm_picnic_table3" parent="." instance=ExtResource("50_msodx")]
+transform = Transform3D(0.216576, 0, -0.976266, 0, 1, 0, 0.976266, 0, 0.216576, 32.612, 0.0749275, 25.5044)
 
 [node name="sm_picnic_table2" parent="." instance=ExtResource("50_msodx")]
-transform = Transform3D(0.913609, 0, -0.406593, 0, 1, 0, 0.406593, 0, 0.913609, 8.74785, 0.0374633, 2.97189)
+transform = Transform3D(0.999025, 0, -0.0441599, 0, 1, 0, 0.0441599, 0, 0.999025, 19.3538, 0.0374637, 15.2606)
 
-[node name="sm_picnic_table2" parent="sm_picnic_table2" instance=ExtResource("50_msodx")]
-transform = Transform3D(0.594809, 0, -0.803867, 0, 1, 0, 0.803867, 0, 0.594809, 30.9641, 0.0374642, 10.883)
+[node name="palm-bush" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62096, 0.765306, 33.9851)
+
+[node name="palm-bush2" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17063, 0.765306, 34.8497)
+
+[node name="palm-bush3" parent="." instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.942116, 0, 0.335287, 0, 1, 0, -0.335287, 0, 0.942116, 8.59434, 1.02381, 35.6681)
+
+[node name="palm-bush4" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(0.986723, -0.078278, -0.142305, 0, 0.876189, -0.481968, 0.162413, 0.475569, 0.864556, 22.7897, 1.48317, 11.3566)
+
+[node name="palm-bush5" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(0.847055, 0.439015, -0.299607, -0.460153, 0.887839, 0, 0.266003, 0.137865, 0.954063, 23.5929, 1.02528, 10.6063)
+
+[node name="palm-bush6" parent="." instance=ExtResource("38_khisr")]
+transform = Transform3D(0.918819, -0.39468, 0, 0.39468, 0.918819, 0, 0, 0, 1, 31.4843, 0.841561, 9.67575)
+
+[node name="palm-bush7" parent="." instance=ExtResource("40_2h70j")]
+transform = Transform3D(0.956639, -0.29016, 0.025474, 0.290146, 0.941577, -0.171022, 0.0256382, 0.170998, 0.984938, 31.4784, 0.888238, 7.50186)
+
+[node name="rock-large2" parent="." instance=ExtResource("31_4dpg8")]
+transform = Transform3D(0.153038, 0, -0.98822, 0, 1, 0, 0.98822, 0, 0.153038, 32.0403, 0.748354, 11.9766)
+
+[node name="rock-sharp2" parent="." instance=ExtResource("39_rycpo")]
+transform = Transform3D(0.635512, 0, -0.772091, 0, 1, 0, 0.772091, 0, 0.635512, 32.0231, 0.449475, -5.36414)
+
+[node name="rocks-tiny2" parent="." instance=ExtResource("33_aa7lc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7669, 0.0485499, -8.39415)
+
+[node name="rocks-tiny3" parent="." instance=ExtResource("33_aa7lc")]
+transform = Transform3D(0.833597, 0, 0.552374, 0, 1, 0, -0.552374, 0, 0.833597, 26.2029, 0.0485499, -5.00674)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
