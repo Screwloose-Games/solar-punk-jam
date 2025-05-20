@@ -116,13 +116,11 @@ func gain_resources_enum(new_resources: Dictionary[ResourceType, int]):
 
 func spend_resource(resource: ResourceType, quantity: int):
 	var resource_str: String = RESOURCE_TYPE_NAMES[resource]
-	if resource in current_resources:
+	if resource_str in current_resources:
 		current_resources[resource_str] -= quantity
 		if current_resources[resource_str] < 0:
 			current_resources[resource_str] = 0
-	else:
-		current_resources[resource_str] = 0
-	UpdatedAvailableResources.emit()
+		UpdatedAvailableResources.emit()
 
 func spend_resources(new_resources: Dictionary[ResourceType, int]):
 	for resource in new_resources:
@@ -132,7 +130,7 @@ func spend_resources(new_resources: Dictionary[ResourceType, int]):
 func deposit_resource(resource: ResourceType, quantity: int):
 	prints("Depositing", resource, quantity, current_resources)
 	var resource_str: String = RESOURCE_TYPE_NAMES[resource]
-	if resource in current_resources:
+	if resource_str in current_resources:
 		deposited_resources[resource_str] += quantity
 	else:
 		deposited_resources[resource_str] = quantity

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2y66piua3d6t"]
+[gd_scene load_steps=5 format=3 uid="uid://2y66piua3d6t"]
 
 [ext_resource type="Script" uid="uid://dtrajf4os8vhv" path="res://components/player_home_event_emitter.gd" id="1_7x0f8"]
 [ext_resource type="PackedScene" uid="uid://b7nvor7es6a1e" path="res://BuildingTypes/base_building.tscn" id="1_lx2i0"]
 [ext_resource type="PackedScene" uid="uid://ciean0tou8gw2" path="res://assets/3d/buildings/building_player/sm_building_playerhouse.tscn" id="3_x0ulv"]
+[ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="4_dcvdd"]
 
 [node name="BaseBuilding" instance=ExtResource("1_lx2i0")]
 
@@ -27,6 +28,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172387, -6.53744, -3.99243
 
 [node name="sm_building_playerhouse" parent="." index="5" instance=ExtResource("3_x0ulv")]
 transform = Transform3D(0.00436342, 0, -0.99999, 0, 1, 0, 0.99999, 0, 0.00436342, 0.0304426, 0.0911951, 0.123144)
+
+[node name="HomeStairsQuestMarker3D" parent="." index="6" instance=ExtResource("4_dcvdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27163, 2.65504, -13.0535)
+id = "home_entrance"
+
+[node name="GoToBedQuestMarker3D" parent="." index="7" instance=ExtResource("4_dcvdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15212, 2.07756, 0.199843)
+id = "go_to_bed_door"
 
 [editable path="GroundDoorway"]
 [editable path="GroundDoorway/InteractableArea3D"]

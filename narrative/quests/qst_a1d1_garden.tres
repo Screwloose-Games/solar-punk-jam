@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://d3k7l24o3467h"]
+[gd_resource type="Resource" script_class="Quest" load_steps=14 format=3 uid="uid://d3k7l24o3467h"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_emwmh"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_lpidx"]
 [ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="3_lpidx"]
+[ext_resource type="Resource" uid="uid://dliloj64dgu5f" path="res://narrative/quests/qst_a1d2_harvest.tres" id="4_jxjmi"]
 
 [sub_resource type="Resource" id="Resource_eepgn"]
 script = ExtResource("2_lpidx")
@@ -15,6 +16,7 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "home_entrance"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_j1jch"]
@@ -27,6 +29,7 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_aaa6b"]
@@ -39,6 +42,7 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_jxjmi"]
@@ -51,6 +55,7 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_k0nsr"]
@@ -61,6 +66,7 @@ goal = 3
 prerequisites = Array[int]([1, 2, 3])
 play_dialogue = ""
 marker_id = "material_location"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_lpidx"]
@@ -73,6 +79,7 @@ goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "home_roof_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_ku037"]
@@ -85,6 +92,7 @@ goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = ""
 marker_id = "home_roof_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_a0tgy"]
@@ -97,6 +105,7 @@ goal = 1
 prerequisites = Array[int]([6])
 play_dialogue = ""
 marker_id = "go_to_bed_door"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
@@ -109,10 +118,8 @@ community_board_text = ""
 objectives = Array[ExtResource("1_b5u7u")]([SubResource("Resource_eepgn"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_jxjmi"), SubResource("Resource_k0nsr"), SubResource("Resource_lpidx"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
 unlock_on_accept = Array[String](["Raised bed"])
 unlock_on_complete = Array[String]([])
-rewards = Dictionary[String, int]({
-"Happiness": 5
-})
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
+on_complete_starts_quest = ExtResource("4_jxjmi")
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

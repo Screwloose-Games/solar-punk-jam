@@ -5,6 +5,7 @@
 
 [node name="QuestMarker3D" type="Marker3D" groups=["QuestMarker"]]
 script = ExtResource("1_rwwl4")
+id = "mom"
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.001

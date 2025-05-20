@@ -462,8 +462,16 @@ structures = Dictionary[String, bool]({
 
 [node name="SetupResources" type="Node" parent="."]
 script = ExtResource("7_maonv")
-resources = Dictionary[int, int]({})
-resource_storage_limits = Dictionary[int, int]({})
+resources = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 5,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0
+})
 
 [node name="DirtBuildableSurface" parent="." instance=ExtResource("8_34qyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0057, -0.0210762, 5.97323)

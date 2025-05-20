@@ -126,7 +126,7 @@ script = ExtResource("2_sxc7k")
 resources = Dictionary[int, int]({
 0: 20,
 1: 20,
-2: -20,
+2: 20,
 3: 20,
 4: 20,
 5: 20,
@@ -174,6 +174,7 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 102.0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LabelMarginContainer"]
 layout_mode = 2
