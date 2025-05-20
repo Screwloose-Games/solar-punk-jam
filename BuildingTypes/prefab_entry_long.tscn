@@ -30,12 +30,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172387, -6.53744, -3.99243
 transform = Transform3D(0.00436342, 0, -0.99999, 0, 1, 0, 0.99999, 0, 0.00436342, 0.0304426, 0.0911951, 0.123144)
 
 [node name="HomeStairsQuestMarker3D" parent="." index="6" instance=ExtResource("4_dcvdd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27163, -0.334532, -13.0535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27163, 2.65504, -13.0535)
 id = "home_entrance"
 
 [node name="GoToBedQuestMarker3D" parent="." index="7" instance=ExtResource("4_dcvdd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15212, 0.0379045, 0.199843)
-id = "home_entrance"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15212, 2.07756, 0.199843)
+id = "go_to_bed_door"
 
 [editable path="GroundDoorway"]
 [editable path="GroundDoorway/InteractableArea3D"]
