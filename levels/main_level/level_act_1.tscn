@@ -554,6 +554,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -644,6 +645,7 @@ transform = Transform3D(0.376609, -0.414919, -0.828256, 0.740465, 0.672095, 1.88
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("14_tvm5u")]
 unique_name_in_owner = true
 layer = 5
+visible = false
 
 [node name="NpcMister" parent="." instance=ExtResource("15_phxbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49966, 0.00260284, -3.21364)

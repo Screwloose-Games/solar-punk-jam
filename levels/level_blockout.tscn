@@ -102,7 +102,7 @@ transform = Transform3D(-0.0241182, 0, 0.999709, 0, 1, 0, -0.999709, 0, -0.02411
 transform = Transform3D(-0.99978, 0, -0.0209774, 0, 1, 0, 0.0209774, 0, -0.99978, -11.6406, 0, 29.0064)
 
 [node name="prefab_noentry_tall3" parent="." instance=ExtResource("7_vrejt")]
-transform = Transform3D(0.999968, 0, 0.00801102, 0, 1, 0, -0.00801102, 0, 0.999968, 16.1176, 0, -1.02697)
+transform = Transform3D(0.999968, 0, 0.00801102, 0, 1, 0, -0.00801102, 0, 0.999968, 16.118, -0.2, -1.027)
 
 [node name="prefab_noentry_tall4" parent="." instance=ExtResource("7_vrejt")]
 transform = Transform3D(-0.999952, 0, -0.00979113, 0, 1, 0, 0.00979113, 0, -0.999952, -35.5166, 0, -21.7083)
