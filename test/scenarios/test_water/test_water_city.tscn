@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dr3r5i76kl6nm"]
+[gd_scene load_steps=26 format=3 uid="uid://c0b35k4c8dpfm"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_llkjj"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_b3wb7"]
