@@ -8,8 +8,8 @@ const ICON_SEED_STRAWBERRY_20_PX = preload("res://assets/2d/ui/icon-seed-strawbe
 const ICON_SOIL_20_PX = preload("res://assets/2d/ui/icon-soil-20px.png")
 const ICON_WASTE_20_PX = preload("res://assets/2d/ui/icon-waste-20px.png")
 const ICON_WATER_20_PX = preload("res://assets/2d/ui/icon-water-20px.png")
-const HAPPINESS_ICON = preload("res://assets/2d/ui/Happiness-icon.png")
-
+#const HAPPINESS_ICON = preload("res://assets/2d/ui/Happiness-icon.png")
+const HAPPINESS_ICON = preload("res://assets/2d/ui/icon-happiness-20px.png")
 
 static var resource_icons = {
 	"Materials": ICON_MATERIAL_20_PX,
@@ -19,7 +19,7 @@ static var resource_icons = {
 	"Water": ICON_WATER_20_PX,
 	"Electricity": null,
 	"Food": ICON_RADISH_20_PX,
-	"Happiness": null,
+	"Happiness": HAPPINESS_ICON,
 	"Environment": null
 }
 
