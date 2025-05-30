@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnp0xg2o72esv" path="res://assets/2d/ui/main-menu-background.png" id="6_n35mk"]
 [ext_resource type="PackedScene" uid="uid://bvuixmv4n68a6" path="res://common/ui/options_menu/options_menu.tscn" id="6_ntl50"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="7_oty5u"]
-[ext_resource type="PackedScene" uid="uid://dr5n6y37v5b8t" path="res://test/scenarios/test_water/test_water.tscn" id="8_n35mk"]
+[ext_resource type="PackedScene" uid="uid://dr5n6y37v5b8t" path="res://cinematics/water_city/cin_water_city.tscn" id="8_n35mk"]
 [ext_resource type="Texture2D" uid="uid://ccq7f3iwggcxc" path="res://common/ui/art/main_menu_title.png" id="9_8wlla"]
 [ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
 [ext_resource type="FontFile" uid="uid://bxxblafxhg1tc" path="res://common/fonts/Wondra.otf" id="10_kjcgm"]

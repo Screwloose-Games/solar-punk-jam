@@ -14,6 +14,21 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="13_isv6p"]
 [ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="15_ypvyw"]
 
+[sub_resource type="Animation" id="Animation_08mkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.21649, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_5mrdt"]
 resource_name = "panright"
 length = 20.0
@@ -28,21 +43,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector3(0, 1.21649, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_08mkj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.21649, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ypvyw"]
@@ -177,7 +177,7 @@ libraries = {
 }
 
 [node name="PhantomCamera3D" type="Node3D" parent="."]
-transform = Transform3D(0.346936, 0, 0.937889, 0, 1, 0, -0.937889, 0, 0.346936, 12.864, 2.163, 6.287)
+transform = Transform3D(0.34694, 0, 0.937887, 0, 1, 0, -0.937887, 0, 0.34694, 12.864, 2.163, 6.287)
 script = ExtResource("1_5mrdt")
 tween_resource = SubResource("Resource_tnnds")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
@@ -273,6 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
 
 [node name="FakeDoor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91107, 0.722029, 14.9745)
+visible = false
 size = Vector3(0.32959, 1.54932, 1)
 
 [node name="SleepDoor" parent="FakeDoor" instance=ExtResource("12_jx4f4")]
