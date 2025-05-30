@@ -1,14 +1,61 @@
-[gd_scene load_steps=18 format=3 uid="uid://dr5n6y37v5b8t"]
+[gd_scene load_steps=26 format=3 uid="uid://dr5n6y37v5b8t"]
 
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_5mrdt"]
+[ext_resource type="Script" uid="uid://ci3xfflcl5kx3" path="res://test/scenarios/test_water/make_rain.gd" id="1_qwrev"]
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_08mkj"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_ypvyw"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_ypvyw"]
+[ext_resource type="PackedScene" uid="uid://kxapmhhgn48m" path="res://levels/main_level/level_act_1.tscn" id="4_5mrdt"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="5_tnnds"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="7_xjnxn"]
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="10_uu54l"]
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="11_3sjjn"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="12_jx4f4"]
-[ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="13_6qdfi"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="13_isv6p"]
 [ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="15_ypvyw"]
+
+[sub_resource type="Animation" id="Animation_08mkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.21649, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5mrdt"]
+resource_name = "panright"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.9),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 1.21649, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypvyw"]
+_data = {
+&"RESET": SubResource("Animation_08mkj"),
+&"panright": SubResource("Animation_5mrdt")
+}
+
+[sub_resource type="Resource" id="Resource_tnnds"]
+script = ExtResource("2_ypvyw")
+duration = 1.0
+transition = 0
+ease = 2
 
 [sub_resource type="Animation" id="Animation_kcgtt"]
 length = 0.001
@@ -39,7 +86,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_qwrev"]
 resource_name = "flyover_01"
-length = 15.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,10 +94,10 @@ tracks/0/path = NodePath("MainCamera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4, 9.73544),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 9.47974, 20.3667, 29.8667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(6.72798, 2.86358, 15.3668), Vector3(-4.272, 4.864, 0.367), Vector3(-2.46334, 6.37645, -20.8106)]
+"values": [Vector3(6.72798, 2.86358, 15.3668), Vector3(1.608, 10, 8.385), Vector3(-4.272, 4.864, 0.367), Vector3(-2.46334, 6.37645, -20.8106)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -59,10 +106,10 @@ tracks/1/path = NodePath("MainCamera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 9.73544),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 9.47974, 20.3667, 29.8667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.523599, 0, 0), Vector3(-0.523599, 0, 0), Vector3(-0.523599, 1.45211, 0)]
+"values": [Vector3(-0.0471239, 0, 0), Vector3(-0.698132, 0, 0), Vector3(-0.174533, 0, 0), Vector3(-0.174533, 1.45211, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egt6j"]
@@ -73,10 +120,10 @@ _data = {
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o51hc"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 5.99
+dof_blur_far_distance = 48.67
+dof_blur_far_transition = 10.0
 dof_blur_near_enabled = true
 dof_blur_near_distance = 0.05
-dof_blur_amount = 0.21
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y45t7"]
 vertices = PackedVector3Array(-49.5, 0.2, -49.5, -49.5, 0.2, 49.5, 49.5, 0.2, 49.5, 49.5, 0.2, -49.5)
@@ -90,7 +137,7 @@ shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
 shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
 shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
 shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(5, 5)
+shader_parameter/tile = Vector2(400, 400)
 shader_parameter/wave_speed = 2.0
 shader_parameter/wave_amplitude = 0.1
 shader_parameter/wave_frequency = 1.5
@@ -99,14 +146,14 @@ shader_parameter/water_size = Vector2(128, 128)
 shader_parameter/water_transparency = 0.8
 shader_parameter/water_depth_factor = 0.1
 shader_parameter/foam_width = 0.5
-shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_edge_softness = 0.0
 shader_parameter/foam_smoothness = 0.03
 shader_parameter/foam_distortion_speed = 0.5
 shader_parameter/foam_distortion_amount = 0.1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5mrdt"]
 material = SubResource("ShaderMaterial_dhqvo")
-size = Vector2(10, 10)
+size = Vector2(400, 400)
 subdivide_width = 2
 subdivide_depth = 2
 
@@ -122,7 +169,32 @@ metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn
 
 [node name="TestWater" type="Node3D"]
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../PhantomCamera3D")
+libraries = {
+&"": SubResource("AnimationLibrary_ypvyw")
+}
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(0.34694, 0, 0.937887, 0, 1, 0, -0.937887, 0, 0.34694, 12.864, 2.163, 6.287)
+script = ExtResource("1_5mrdt")
+tween_resource = SubResource("Resource_tnnds")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="StationaryPhantomCamera3D2" type="Node3D" parent="."]
+transform = Transform3D(0.346936, 0.0947796, 0.933088, 0, 0.994881, -0.101056, -0.937889, 0.03506, 0.34516, 18.093, 1.137, 19.598)
+script = ExtResource("1_5mrdt")
+priority = 10
+tween_resource = SubResource("Resource_tnnds")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_qwrev")
+next_scene = ExtResource("4_5mrdt")
+
 [node name="Environment" parent="." instance=ExtResource("7_xjnxn")]
+unique_name_in_owner = true
 is_raining = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -162,20 +234,8 @@ structures = Dictionary[String, bool]({
 
 [node name="SetupResources" type="Node" parent="."]
 script = ExtResource("3_ypvyw")
-resources = Dictionary[String, int]({
-"Electricity": 50,
-"Food": 50,
-"Happiness": 50,
-"Materials": 50,
-"Seeds": 50,
-"Soil": 50,
-"Waste": 50,
-"Water": 100
-})
-resource_storage_limits = Dictionary[String, int]({
-"Electricity": 20,
-"Water": 20
-})
+resources = Dictionary[int, int]({})
+resource_storage_limits = Dictionary[int, int]({})
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
@@ -213,6 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50266, 0, -6.16971)
 
 [node name="FakeDoor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91107, 0.722029, 14.9745)
+visible = false
 size = Vector3(0.32959, 1.54932, 1)
 
 [node name="SleepDoor" parent="FakeDoor" instance=ExtResource("12_jx4f4")]
@@ -223,13 +284,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405251, -0.21441, 0)
 omni_range = 1.524
 omni_attenuation = 0.5
 
-[node name="sm_destroyed_building_01" parent="." instance=ExtResource("13_6qdfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
-
 [node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, -0.9, 92)
 mesh_library = SubResource("MeshLibrary_08mkj")
-cell_size = Vector3(10, 2, 10)
+cell_size = Vector3(400, 2, 400)
 data = {
 "cells": PackedInt32Array(65530, 65533, 0, 65530, 65534, 0, 65530, 65535, 0, 65530, 0, 0, 65530, 1, 0, 65530, 2, 0, 65530, 3, 0, 65530, 4, 0, 5, 65530, 0, 4, 65530, 0, 4, 65531, 0, 3, 65532, 0, 3, 65533, 0, 2, 65533, 0, 0, 65534, 0, 65535, 0, 0, 65534, 1, 0, 65533, 1, 0, 65533, 2, 0, 65532, 3, 0, 65531, 4, 0, 65532, 65530, 0, 1, 65530, 0, 0, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65533, 65531, 0, 65532, 65531, 0, 65532, 65532, 0, 65531, 65532, 0, 65531, 65533, 0, 65531, 65534, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 0, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65528, 6, 0, 65528, 7, 0, 65529, 65529, 0, 65529, 65530, 0, 65529, 65531, 0, 65529, 65532, 0, 65529, 65533, 0, 65529, 65534, 0, 65529, 65535, 0, 65529, 0, 0, 65529, 1, 0, 65529, 2, 0, 65529, 3, 0, 65529, 4, 0, 65529, 5, 0, 65529, 6, 0, 65529, 7, 0, 65530, 65529, 0, 65530, 65530, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 5, 0, 65530, 6, 0, 65530, 7, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 65531, 65535, 0, 65531, 0, 0, 65531, 1, 0, 65531, 2, 0, 65531, 3, 0, 65531, 5, 0, 65531, 6, 0, 65531, 7, 0, 65532, 65529, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 65532, 4, 0, 65532, 5, 0, 65532, 6, 0, 65532, 7, 0, 65533, 65529, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 3, 0, 65533, 4, 0, 65533, 5, 0, 65533, 6, 0, 65533, 7, 0, 65534, 65529, 0, 65534, 65531, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 2, 0, 65534, 3, 0, 65534, 4, 0, 65534, 5, 0, 65534, 6, 0, 65534, 7, 0, 65535, 65529, 0, 65535, 65531, 0, 65535, 65532, 0, 65535, 65533, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 65535, 4, 0, 65535, 5, 0, 65535, 6, 0, 65535, 7, 0, 0, 65529, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 1, 65529, 0, 1, 65531, 0, 1, 65532, 0, 1, 65533, 0, 1, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 2, 65529, 0, 2, 65530, 0, 2, 65531, 0, 2, 65532, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 2, 6, 0, 2, 7, 0, 3, 65529, 0, 3, 65530, 0, 3, 65531, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 3, 4, 0, 3, 5, 0, 3, 6, 0, 3, 7, 0, 4, 65529, 0, 4, 65532, 0, 4, 65533, 0, 4, 65534, 0, 4, 65535, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 4, 3, 0, 4, 4, 0, 4, 5, 0, 4, 6, 0, 4, 7, 0, 5, 65529, 0, 5, 65531, 0, 5, 65532, 0, 5, 65533, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 5, 7, 0)
 }
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.346936, 0.0947796, 0.933088, 0, 0.994881, -0.101056, -0.937889, 0.03506, 0.34516, 18.093, 1.137, 19.598)
+current = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("13_isv6p")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"

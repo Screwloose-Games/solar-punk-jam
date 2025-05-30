@@ -3,3 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://b7nvor7es6a1e" path="res://BuildingTypes/base_building.tscn" id="1_omtvb"]
 
 [node name="PlayerHouseBuilding" instance=ExtResource("1_omtvb")]
+
+[editable path="GroundDoorway"]
+[editable path="GroundDoorway/InteractableArea3D"]
+[editable path="RoofDoorway"]
+[editable path="RoofDoorway/InteractableArea3D"]

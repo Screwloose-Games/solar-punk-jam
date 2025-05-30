@@ -644,6 +644,7 @@ transform = Transform3D(0.376609, -0.414919, -0.828256, 0.740465, 0.672095, 1.88
 [node name="HUDCanvasLayer" parent="." instance=ExtResource("14_tvm5u")]
 unique_name_in_owner = true
 layer = 5
+visible = false
 
 [node name="NpcMister" parent="." instance=ExtResource("15_phxbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49966, 0.00260284, -3.21364)
