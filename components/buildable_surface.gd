@@ -55,6 +55,8 @@ func create_preview():
 		visual_instance2.show()
 		preview2.add_child(visual_instance2)
 	preview.visible = is_active
+	preview.visible = false # TODO: Temp fix
+	preview2.visible = false # TODO: Temp fix
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
