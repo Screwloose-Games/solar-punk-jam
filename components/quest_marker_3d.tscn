@@ -12,6 +12,7 @@ pixel_size = 0.001
 billboard = 1
 no_depth_test = true
 fixed_size = true
+render_priority = 1
 texture = ExtResource("2_rwwl4")
 
 [node name="DistanceLabel3D" type="Label3D" parent="."]
@@ -21,5 +22,6 @@ offset = Vector2(0, 10)
 billboard = 1
 no_depth_test = true
 fixed_size = true
+render_priority = 1
 font_size = 8
 outline_size = 5
