@@ -9776,6 +9776,7 @@
 	],
 	"materials":[
 		{
+			"alphaMode":"MASK",
 			"doubleSided":true,
 			"name":"TeFace",
 			"pbrMetallicRoughness":{
@@ -9783,7 +9784,7 @@
 					0.8254275321960449,
 					0.8852721452713013,
 					1,
-					1
+					0
 				],
 				"metallicFactor":0,
 				"roughnessFactor":0.5527864098548889
@@ -9793,12 +9794,9 @@
 			"doubleSided":true,
 			"name":"TeBody",
 			"pbrMetallicRoughness":{
-				"baseColorFactor":[
-					1,
-					0,
-					0.5726102590560913,
-					1
-				],
+				"baseColorTexture":{
+					"index":0
+				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5527864098548889
 			}
@@ -9833,6 +9831,19 @@
 					"material":1
 				}
 			]
+		}
+	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"Te_LP_standardSurface1_BaseColor",
+			"uri":"Te_LP_standardSurface1_BaseColor.png"
 		}
 	],
 	"skins":[
@@ -18407,6 +18418,12 @@
 			"buffer":0,
 			"byteLength":24,
 			"byteOffset":826420
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
 		}
 	],
 	"buffers":[

@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1sihlgi232vk"]
+
+[ext_resource type="PackedScene" uid="uid://dee2tlx6hkx75" path="res://actors/npcs/kai/npc_kai.tscn" id="1_a7oc8"]
+[ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="2_7uaqs"]
+[ext_resource type="Shader" uid="uid://dendhnnu5ydsc" path="res://shaders/cel_shaded_face.gdshader" id="2_tani2"]
+[ext_resource type="Texture2D" uid="uid://bcedkkbrsj431" path="res://materials/color_gradient.tres" id="3_bpb3l"]
+[ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_11ess"]
+[ext_resource type="Texture2D" uid="uid://44ji1jj7a7ak" path="res://assets/2d/faces/kai/kai_neutral.png" id="5_1royb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1royb"]
+render_priority = 0
+shader = ExtResource("2_tani2")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_1royb")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/alpha_hash_scale = 0.0
+shader_parameter/alpha_antialiasing_edge = 0.0
+shader_parameter/alpha_cutoff = 0.8
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("3_bpb3l")
+shader_parameter/fresnel_gradient = ExtResource("4_11ess")
+shader_parameter/fresnel_intensity = 1.0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a7oc8"]
+states/Start/position = Vector2(125, 133)
+
+[node name="TestKaiFace" type="Node3D"]
+
+[node name="Kai" parent="." instance=ExtResource("1_a7oc8")]
+
+[node name="StateMachine" parent="Kai" index="0"]
+state = 0
+
+[node name="Skeleton3D" parent="Kai/sk_kai_animations2/Armature" index="0"]
+bones/0/position = Vector3(4.95911e-05, 0.188556, -109.641)
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/1/rotation = Quaternion(-0.039172, 0, 0, 0.999232)
+bones/2/rotation = Quaternion(-1.11759e-07, 0, 0, 1)
+bones/3/rotation = Quaternion(3.1665e-08, 0, 0, 1)
+bones/4/rotation = Quaternion(0.0391721, 0, 0, 0.999232)
+bones/5/rotation = Quaternion(3.98916e-09, 0, 0, 1)
+bones/6/position = Vector3(0, 29.8804, -0.413404)
+bones/7/position = Vector3(7.28738, 11.7672, -0.286539)
+bones/7/rotation = Quaternion(-0.56903, -0.411533, 0.591821, -0.395718)
+bones/8/position = Vector3(1.19209e-07, 15.6873, 2.19047e-05)
+bones/8/rotation = Quaternion(0.221917, -0.0156709, 0.00356721, 0.974933)
+bones/9/position = Vector3(2.6226e-06, 22.3119, 1.40071e-06)
+bones/9/rotation = Quaternion(-0.110143, -0.00800226, 0.072018, 0.991271)
+bones/10/position = Vector3(2.38419e-07, 28.2726, -6.83963e-06)
+bones/10/rotation = Quaternion(0.0336095, 0.293758, 0.126478, 0.946879)
+bones/11/position = Vector3(-3.5064, 6.34938, -1.04904e-05)
+bones/11/rotation = Quaternion(-2.33224e-08, 7.81299e-07, 0.285487, 0.958382)
+bones/12/position = Vector3(0.431699, 5.7865, 4.29153e-06)
+bones/12/rotation = Quaternion(0.123026, -1.18245e-07, 8.94977e-16, 0.992403)
+bones/13/position = Vector3(-0.470995, 4.76914, 2.67029e-05)
+bones/13/rotation = Quaternion(-0.0375276, -1.603e-07, -1.00654e-07, 0.999296)
+bones/14/position = Vector3(0.0392923, 3.9484, -6.67572e-06)
+bones/15/position = Vector3(-5.24521e-06, 14.3269, -0.00257611)
+bones/15/rotation = Quaternion(0.00482863, 4.25061e-06, 0.000824685, 0.999988)
+bones/16/position = Vector3(0.550274, 4.14774, 1.74046e-05)
+bones/16/rotation = Quaternion(0.140222, -8.84179e-08, 5.26745e-08, 0.99012)
+bones/17/position = Vector3(-0.146935, 4.05139, -3.33786e-06)
+bones/17/rotation = Quaternion(0.0711089, 2.80106e-07, -3.17453e-08, 0.997469)
+bones/18/position = Vector3(-0.403348, 3.3205, 3.8147e-06)
+bones/19/position = Vector3(-7.28738, 11.7556, -0.139618)
+bones/19/rotation = Quaternion(0.575252, -0.407118, 0.586402, 0.39934)
+bones/20/position = Vector3(3.57628e-07, 15.6873, 9.95398e-06)
+bones/20/rotation = Quaternion(0.220567, -0.0194111, 0.00439049, 0.975169)
+bones/21/position = Vector3(2.08616e-07, 22.2987, -3.23355e-06)
+bones/21/rotation = Quaternion(-0.115353, 0.0081053, -0.0696215, 0.990849)
+bones/22/position = Vector3(2.6226e-06, 28.2561, 2.02507e-05)
+bones/22/rotation = Quaternion(0.0160412, -0.284544, -0.164395, 0.944326)
+bones/23/position = Vector3(3.00187, 6.54052, -8.58307e-06)
+bones/23/rotation = Quaternion(1.7341e-08, 5.973e-07, -0.255848, 0.966717)
+bones/24/position = Vector3(-0.501173, 5.73535, 1.28746e-05)
+bones/24/rotation = Quaternion(0.102779, 1.36697e-07, 8.23927e-08, 0.994704)
+bones/25/position = Vector3(0.69183, 4.82664, -8.58307e-06)
+bones/25/rotation = Quaternion(0.0188095, -1.58353e-06, -5.04866e-07, 0.999823)
+bones/26/position = Vector3(-0.190648, 3.9222, 1.62125e-05)
+bones/27/position = Vector3(-1.38283e-05, 12.4963, 0.319492)
+bones/27/rotation = Quaternion(-0.0348461, -0.000658553, 0.0189016, 0.999214)
+bones/28/position = Vector3(-0.990616, 5.21561, 2.74181e-05)
+bones/28/rotation = Quaternion(0.227012, -2.21859e-07, 1.20492e-07, 0.973892)
+bones/29/position = Vector3(0.525579, 4.43318, -2.09808e-05)
+bones/29/rotation = Quaternion(-0.00977465, -5.5882e-09, -1.86273e-07, 0.999952)
+bones/30/position = Vector3(0.465046, 4.40897, -6.19888e-06)
+bones/31/rotation = Quaternion(-8.85645e-05, -0.00348083, 0.999669, -0.025497)
+bones/32/rotation = Quaternion(-0.000520753, -8.35129e-07, 0.00213472, 0.999998)
+bones/33/rotation = Quaternion(0.401131, -0.0979526, 0.0431899, 0.909744)
+bones/34/rotation = Quaternion(0.350752, -0.0108761, 0.00407389, 0.936396)
+bones/36/position = Vector3(-11.0177, -5.33119, 1.20017)
+bones/36/rotation = Quaternion(0.000205009, -0.00804324, 0.999643, 0.0254936)
+bones/37/rotation = Quaternion(0.00507904, -1.11197e-05, -0.00213911, 0.999985)
+bones/38/position = Vector3(1.28316e-06, 47.6932, -4.47035e-08)
+bones/38/rotation = Quaternion(0.407281, 0.0951047, -0.0426899, 0.907334)
+bones/39/position = Vector3(-2.22772e-06, 18.5812, -2.98023e-06)
+bones/39/rotation = Quaternion(0.343875, 0.0123784, -0.00453339, 0.938923)
+
+[node name="Kai" parent="Kai/sk_kai_animations2/Armature/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("ShaderMaterial_1royb")
+
+[node name="AnimationTree" parent="Kai" index="12"]
+tree_root = SubResource("AnimationNodeStateMachine_a7oc8")
+
+[node name="Environment" parent="." instance=ExtResource("2_7uaqs")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0217052, 1.79033, 0.43349)
+fov = 40.0
+
+[editable path="Kai"]
+[editable path="Kai/sk_kai_animations2"]
+[editable path="Kai/InteractableArea3D"]
