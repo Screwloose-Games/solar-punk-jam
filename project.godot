@@ -33,6 +33,10 @@ DebugUi="*res://globals/debug_ui.tscn"
 DynamicMusic="*res://globals/DynamicMusic.tscn"
 SoundManager="*res://globals/sound_manager/SoundManager.tscn"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [dialogic]
 
 directories/dch_directory={
