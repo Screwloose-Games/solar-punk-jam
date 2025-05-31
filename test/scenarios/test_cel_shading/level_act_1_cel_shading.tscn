@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://dyiq862wakvkf"]
 
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_o76ft"]
-[ext_resource type="Shader" path="res://shaders/water_toon.gdshader" id="2_wvfr8"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_wvfr8"]
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="3_0sukh"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_1l2an"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_a0hok"]
@@ -310,20 +310,8 @@ structures = Dictionary[String, bool]({
 
 [node name="SetupResources" type="Node" parent="."]
 script = ExtResource("9_77a14")
-resources = Dictionary[String, int]({
-"Electricity": 50,
-"Food": 50,
-"Happiness": 50,
-"Materials": 50,
-"Seeds": 50,
-"Soil": 50,
-"Waste": 50,
-"Water": 100
-})
-resource_storage_limits = Dictionary[String, int]({
-"Electricity": 20,
-"Water": 20
-})
+resources = Dictionary[int, int]({})
+resource_storage_limits = Dictionary[int, int]({})
 
 [node name="DirtBuildableSurface" parent="." instance=ExtResource("10_botx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
@@ -414,9 +402,6 @@ process_physics_priority = 300
 script = ExtResource("14_da3c0")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("15_566v4")]
-
-[node name="PlayerScale" parent="DesignTestScene" index="27"]
-visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ntgmv")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dr5n6y37v5b8t"]
+[gd_scene load_steps=27 format=3 uid="uid://dr5n6y37v5b8t"]
 
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="1_5mrdt"]
+[ext_resource type="Script" uid="uid://dpp0jxijd3yco" path="res://cinematics/water_city/cin_water_city.gd" id="1_ace56"]
 [ext_resource type="Script" uid="uid://ci3xfflcl5kx3" path="res://test/scenarios/test_water/make_rain.gd" id="1_qwrev"]
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_08mkj"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_ypvyw"]
@@ -167,7 +168,8 @@ item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 
 item/0/navigation_layers = 1
 metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn"
 
-[node name="TestWater" type="Node3D"]
+[node name="CinematicWater" type="Node3D"]
+script = ExtResource("1_ace56")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

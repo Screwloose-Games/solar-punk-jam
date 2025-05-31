@@ -128,4 +128,3 @@ func set_night_time(time: float):
 	else:
 		$WorldEnvironment.environment.background_energy_multiplier = 1.0
 		$WorldEnvironment.environment.sky.sky_material.set_shader_parameter("clouds_cutoff", 0.3)
-
