@@ -57,7 +57,7 @@ float apply_slope_limit(float brush_value, vec3 normal, float normal_min_y, floa
 
 void fragment() {
 	float brush_value = u_opacity * texture(TEXTURE, UV).r;
-	
+
 	vec2 src_uv = get_src_uv(SCREEN_UV);
 	vec3 normal = get_normal(u_heightmap, src_uv);
 	brush_value = apply_slope_limit(brush_value, normal, u_normal_min_y, u_normal_max_y);
