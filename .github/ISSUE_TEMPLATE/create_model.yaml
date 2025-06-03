@@ -50,20 +50,8 @@ body:
       value: |
         ## Acceptance Criteria:
 
-        - [ ] Poly count optimized.
-        - [ ] Model normals correct.
-        - [ ] The model contains UV mapping.
-        - [ ] UV islands created as needed.
-        - [ ] Set the pivot point of the model to the correct location (often bottom center)
-        - [ ] Align the pivot point of the model to the world origin.
-        - [ ] Model facing direction __Positive-Y direction__
-        - [ ] Model is the correct __dimentions__ as defined above.
-        - [ ] Ensure no mesh has a child mesh (breaks collision shape generation)
-        - [ ] The model is saved in `.blend` file format.
-        - [ ] The model is prefixed with sk_ for skeletal mesh and sm_ for static mesh.
-        - [ ] The model is saved to the specified filepath: `game/{game_object_directory}/sk_{model_name}.blend`.
-        - [ ] The model is exported as gltf to the specified filepath: `game/{game_object_directory}/sk_{model_name}.gltf`.
-        - [ ] A pull request (PR) is created with the changes.
+        Complete the acceptance criteria in the field below.
+
     
   - type: textarea
     validations:
