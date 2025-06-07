@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwng7p76j1ywo"]
+
+[ext_resource type="PackedScene" uid="uid://bbfdw204uwtna" path="res://assets/3d/structures/rain_barrel/rain_barrel2.tscn" id="2_xtrcp"]
+[ext_resource type="PackedScene" uid="uid://dngvyovn8lew5" path="res://assets/3d/structures/solar_panel/solar_panel.tscn" id="3_dbsm7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k733h"]
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k733h"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="GridMeshLibrary" type="Node3D"]
+
+[node name="BuildableGridSquare" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_k733h")
+surface_material_override/0 = SubResource("StandardMaterial3D_k733h")
+
+[node name="sm_rain_barrel" parent="." instance=ExtResource("2_xtrcp")]
+
+[node name="Solar panel" parent="." instance=ExtResource("3_dbsm7")]
