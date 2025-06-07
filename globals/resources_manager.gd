@@ -130,7 +130,7 @@ func spend_resources(new_resources: Dictionary[ResourceType, int]):
 func deposit_resource(resource: ResourceType, quantity: int):
 	prints("Depositing", resource, quantity, current_resources)
 	var resource_str: String = RESOURCE_TYPE_NAMES[resource]
-	if resource_str in current_resources:
+	if resource_str in deposited_resources:
 		deposited_resources[resource_str] += quantity
 	else:
 		deposited_resources[resource_str] = quantity
