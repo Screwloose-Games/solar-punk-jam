@@ -6,13 +6,14 @@ signal quests_available_changed(has_quests: bool)
 @export var npc_id = ""
 @export var show_indicator: bool = true
 
-@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
-
 var has_quests_available: bool = false:
 	set(val):
 		if val != has_quests_available:
 			quests_available_changed.emit(val)
 		has_quests_available = val
+
+@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
+
 
 func _ready() -> void:
 	visible = false
@@ -31,7 +32,7 @@ func _on_quest_change():
 	has_quests_available = false
 
 
-func _on_interacted(player: Player):
+func _on_interacted(_player: Player):
 	GlobalSignalBus.talked_to.emit(npc_id)
 	talked_to.emit()
 	visible = false
