@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://xfg3p147y0vu"]
 
 [ext_resource type="Shader" uid="uid://boa1afj4d72qc" path="res://shaders/shader_outline_normal.gdshader" id="1_0nr3j"]
-[ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="2_0nr3j"]
+[ext_resource type="Shader" path="res://shaders/base_cel_shading.gdshader" id="2_0nr3j"]
 [ext_resource type="Texture2D" uid="uid://g2sfro5q4atj" path="res://assets/3d/people/mister/texture_mister_albedo.png" id="3_0nr3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uycpp"]
