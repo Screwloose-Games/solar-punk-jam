@@ -128,6 +128,7 @@ shape = SubResource("CapsuleShape3D_fsbli")
 [node name="InteractNotify" parent="." instance=ExtResource("3_khjfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3247, 0)
 npc_id = "board"
+show_indicator = false
 
 [node name="CommunityBoardCanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
