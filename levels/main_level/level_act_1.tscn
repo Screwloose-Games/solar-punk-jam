@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
 [ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Shader" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="4_yde30"]
@@ -128,7 +128,7 @@ texture = ExtResource("9_io6m6")
 [sub_resource type="TileSet" id="TileSet_ejtm4"]
 sources/0 = SubResource("TileSetAtlasSource_awabt")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2or7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lqsq"]
 texture = ExtResource("9_io6m6")
 0:0/0 = 0
 1:0/0 = 0
@@ -176,8 +176,8 @@ texture = ExtResource("9_io6m6")
 3:7/0 = 0
 4:7/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_abo5y"]
-sources/0 = SubResource("TileSetAtlasSource_t2or7")
+[sub_resource type="TileSet" id="TileSet_85o61"]
+sources/0 = SubResource("TileSetAtlasSource_2lqsq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t8hb"]
 size = Vector3(9.69629, 1, 7.49023)
@@ -474,7 +474,7 @@ resources = Dictionary[int, int]({
 })
 
 [node name="DirtBuildableSurface" parent="." instance=ExtResource("8_34qyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0057, -0.0210762, 5.97323)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.1, 6)
 is_active = false
 
 [node name="SurfaceMap" parent="DirtBuildableSurface" index="0"]
@@ -491,7 +491,7 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
 [node name="TrinBuildableSurface2" parent="." instance=ExtResource("8_34qyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3408, 0, 1.45736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 2)
 is_active = false
 
 [node name="SurfaceMap" parent="TrinBuildableSurface2" index="0"]
@@ -514,12 +514,12 @@ visible = true
 id = "trin_garden"
 
 [node name="HomeBuildableSurface" parent="." instance=ExtResource("8_34qyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3745, 4.0708, -13.0903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 4.071, -13)
 is_active = false
 
 [node name="SurfaceMap" parent="HomeBuildableSurface" index="0"]
-tile_set = SubResource("TileSet_abo5y")
-layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7, -131076, 131072, 7, -65540, 131072, 7, -4, 131072, 7, 65532, 131072, 7, 131068, 131072, 7, 196604, 131072, 7, -131075, 131072, 7, -65539, 131072, 7, -3, 131072, 7, 65533, 131072, 7, 131069, 131072, 7, 196605, 131072, 7, -131074, 131072, 7, 196606, 131072, 7, -131073, 131072, 7, 196607, 131072, 7, -196608, 131072, 7, 131072, 131072, 7, -196607, 131072, 7, 131073, 131072, 7, -196606, 131072, 7, -131070, 131072, 7, -65534, 131072, 7, 2, 131072, 7, 65538, 131072, 7, 131074, 131072, 7, -196605, 131072, 7, -131069, 131072, 7, -65533, 131072, 7, 3, 131072, 7, 65539, 131072, 7, 131075, 131072, 7, 65540, 131072, 7, 4, 131072, 7, -65532, 131072, 7, -131068, 131072, 7, -65541, 131072, 7, -5, 131072, 7, 65531, 131072, 7, 131067, 131072, 7, 131066, 131072, 7, 65530, 131072, 7, -6, 131072, 7, -65542, 131072, 7, -131067, 131072, 7, -65531, 131072, 7, 5, 131072, 7, 65541, 131072, 7, -131078, 131072, 7, -131077, 131072, 7, -196604, 131072, 7, -196603, 131072, 7, 131077, 131072, 7, 131076, 131072, 7, 196603, 131072, 7, 196602, 131072, 7)
+tile_set = SubResource("TileSet_85o61")
+layer_0/tile_data = PackedInt32Array(-65538, 131072, 7, -2, 131072, 7, 65534, 131072, 7, 131070, 131072, 7, -65537, 131072, 7, -1, 131072, 7, 65535, 131072, 7, 131071, 131072, 7, -131072, 131072, 7, -65536, 131072, 7, 0, 131072, 7, 65536, 131072, 7, -131071, 131072, 7, -65535, 131072, 7, 1, 131072, 7, 65537, 131072, 7, -131076, 131072, 7, -65540, 131072, 7, -4, 131072, 7, 65532, 131072, 7, 131068, 131072, 7, 196604, 131072, 7, -131075, 131072, 7, -65539, 131072, 7, -3, 131072, 7, 65533, 131072, 7, 131069, 131072, 7, 196605, 131072, 7, -131074, 131072, 7, 196606, 131072, 7, -131073, 131072, 7, 196607, 131072, 7, -196608, 131072, 7, 131072, 131072, 7, -196607, 131072, 7, 131073, 131072, 7, -196606, 131072, 7, -131070, 131072, 7, -65534, 131072, 7, 2, 131072, 7, 65538, 131072, 7, 131074, 131072, 7, -196605, 131072, 7, -131069, 131072, 7, -65533, 131072, 7, 3, 131072, 7, 65539, 131072, 7, 131075, 131072, 7, 65540, 131072, 7, 4, 131072, 7, -65532, 131072, 7, -131068, 131072, 7, -196604, 131072, 7, 131076, 131072, 7)
 
 [node name="SelectionPlaceholder" parent="HomeBuildableSurface" index="1"]
 skeleton = NodePath("../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
@@ -557,6 +557,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
