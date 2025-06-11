@@ -1,0 +1,105 @@
+# Workflow to automatically lint gdscript code
+name: gdlint on push
+
+on:
+  pull_request:
+    paths:
+    - '**/*.gd'
+  # push:
+  #   paths:
+  #   - '**/*.gd'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  gdlint:
+    name: gdlint scripts
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Find changed GDScript files
+        id: changed-files
+        uses: tj-actions/changed-files@v46
+        with:
+          files: |
+            **.gd
+      
+      # Ensure python is installed
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Install gdtoolkit
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install 'gdtoolkit==4.*'
+
+      - name: Save changed files list
+        if: steps.changed-files.outputs.any_changed == 'true'
+        id: gd_script_files
+        run: |
+          echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' > gd_script_files.txt
+          echo "files=$(cat gd_script_files.txt | paste -sd ',' -)" >> $GITHUB_OUTPUT
+      # Lint all GDScript files except those in the addons directory
+      # This is a workaround for the fact that gdlint does not support ignoring directories
+
+      - name : Lint Godot Project
+        id: lint
+        if: steps.gd_script_files.outputs.files != ''
+        run: |
+          set +e
+          lint_output=$(gdlint $(cat gd_script_files.txt | grep -v '^addons/') 2>&1)
+          exit_code=$?
+          echo "$lint_output"
+          echo "lint_output<<EOF" >> $GITHUB_OUTPUT
+          echo "$lint_output" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+          exit 0
+
+        # capture output.
+        # run: |
+        
+      
+      # - name: Lint Godot Project ignoring addons
+      #   run: |
+      #     gdlint $(find . -maxdepth 1 \( -type d ! -name '.*' ! -name 'addons' -printf '%P\n' \) -o \( -type f -name '*.gd' -printf '%P\n' \))
+
+
+      - name: Comment PR with gdlint Output
+        uses: thollander/actions-comment-pull-request@v3
+        if: steps.lint.outputs.lint_output != ''
+        with:
+          comment-tag: gdlint-check
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            ## 🧪 GDScript Lint Check
+
+            This PR has been checked for `gdlint` issues.
+
+            ${{ steps.lint.outputs.exit_code == '0' && '✅ No issues found' || '❌ Issues found' }}
+
+            ### Files Checked
+            
+            ${{ steps.changed-files.outputs.all_changed_files }}
+            ### Lint Output
+            ```text
+            ${{ steps.lint.outputs.lint_output }}
+            ```
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+
+      - name: Set output for gdlint results
+        id: gdlint_results
+        run: |
+          echo "lint results"
+          exit ${{ steps.lint.outputs.exit_code }}
