@@ -71,6 +71,7 @@ func reset():
 	Dialogic.VAR.clear_game_state()
 
 
+
 func unlock_quest(quest_id: String):
 	var new_quest = load(FILE_PATH % ("qst_" + quest_id))
 	unlock_quest_res(new_quest)
@@ -139,7 +140,11 @@ func check_quests(_changes: Dictionary = {}):
 		quest.check_progress()
 
 
-func _on_quest_complete(giver: String):
+func _on_world_unloaded():
+	reset()
+
+
+func _on_quest_complete(giver : String):
 	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false
 	quests_changed.emit()
