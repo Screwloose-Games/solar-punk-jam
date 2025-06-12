@@ -1,8 +1,12 @@
 class_name GiveResourceQuestStep
-extends QuestStep
+extends SignalQuestStep
 
 @export var recipient : String
-@export var resource
-@export var goal : int = 1
+@export var resource : String
 
-var count : int = 0
+
+func set_active(val : bool):
+	autoload_name = "GlobalSignalBus"
+	signal_name = "resource_given"
+	expected_args = [recipient, resource]
+	super.set_active(val)

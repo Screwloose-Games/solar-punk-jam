@@ -67,8 +67,6 @@ enum QuestObjectiveType {
 	DELIVER_RESOURCE_TO, # to a donation builting type? Drop off waste TO compost. Drop off FOOD to FOOD_STAND
 	# -----------------
 	ACHIEVE_RESOURCE_TARGET, # Type of resource, target number
-	
-	
 }
 
 
