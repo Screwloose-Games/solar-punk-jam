@@ -1,38 +1,31 @@
+extends QuestStep
 class_name SignalQuestStep
-extends SignalQuestStepBase
 
-# The global autoload on which to call the signal
+## The global autoload on which to call the signal
 @export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
 
-# The name of the signal on the global autoload
+## The name of the signal on the global autoload
 @export var signal_name: String = ""
 
-# Arguments expect passed to the signal
+## Arguments expect passed to the signal
 @export var expected_args: Array
 
-var _autoload_instance: Node
+var autoload_instance : Node
 
 
-func _setup():
-	_autoload_instance = get_autoload_instance(autoload_name)
-	if signal_name:
-		_signal = _autoload_instance.get(signal_name)
-
-
-func _init():
-	if !Engine.get_main_loop().root.is_node_ready():
-		await Engine.get_main_loop().root.ready
-	_setup()
-
-
-func set_active(val: bool):
+func set_active(val : bool):
 	super.set_active(val)
+	if is_active:
+		subscribe()
+	else:
+		if autoload_instance:
+			autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
 
 
 func _on_autoload_signal_emitted(a = null, b = null, c = null, d = null):
 	var received_args = [a, b, c, d]
-	for i in _expected_args.size():
-		var expected_value = _expected_args[i]
+	for i in expected_args.size():
+		var expected_value = expected_args[i]
 		if expected_value != received_args[i]:
 			return
 	event_occured()
@@ -49,18 +42,26 @@ func event_occured():
 		progressed.emit()
 
 
-func get_autoload_instance(global_name: StringName):
+func subscribe():
+	# Validation check 1: Does the autoload exist?
 	var root_ref = Engine.get_main_loop().root
-	var autoload_node_path = "/root/" + global_name
+	var autoload_node_path = "/root/" + autoload_name
 	if not root_ref.has_node(autoload_node_path):
-		printerr("Autoload node '", global_name, "' not found in the scene tree.")
+		printerr("Autoload node '", autoload_name, "' not found in the scene tree.")
 		return
-	return root_ref.get_node(autoload_node_path)
+	autoload_instance = root_ref.get_node(autoload_node_path)
+	if autoload_instance == null:
+		printerr("Failed to get autoload instance: ", autoload_name)
+		return
 
+	# Validation check 2: Does it have the correct signal?
+	if not autoload_instance.has_signal(signal_name):
+		printerr("Autoload '", autoload_name, "' does not have signal '", signal_name, "'.")
+		return
 
-func get_signal(name: StringName) -> Signal:
-	if _autoload_instance == null:
-		printerr("Autoload instance is null. Cannot get signal.")
-	if not _autoload_instance.has_signal(name):
-		printerr("Autoload '", autoload_name, "' does not have signal '", name, "'.")
-	return _autoload_instance.get(name)
+	var error_code = autoload_instance.connect(signal_name, _on_autoload_signal_emitted)
+	if error_code == OK:
+		print("Successfully subscribed to signal '", signal_name, "' on autoload '", autoload_name, "'")
+	else:
+		printerr("Failed to connect to signal '", signal_name, "' on autoload '",
+		autoload_name, "'. Error code: ", error_code)

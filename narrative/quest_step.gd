@@ -1,5 +1,5 @@
-class_name QuestStep
 extends Resource
+class_name QuestStep
 
 signal progressed
 signal completed(quest_step: QuestStep)
@@ -27,16 +27,42 @@ signal completed(quest_step: QuestStep)
 	"vertical_garden"
 )
 var marker_id: String
-var progress: int = 0
-var is_active: bool = false:
-	set = set_active
-var is_unlocked: bool = false
-var is_completed: bool = false:
-	set = set_complete
+
+@export var type: QuestObjectiveType = QuestObjectiveType.CUSTOM
+
+enum QuestObjectiveType {
+	CUSTOM, # Legacy, complex and flexible
+	INTERACT_WITH, # the interactable must have an ID. A specific, custom string.
+	INTERACT_WITH_TYPE, # Any of a given TYPE. Any water barrel, any of a TYPE
+	ACCEPT_QUEST,
+	TALK_TO,
+	BUILD_STRUCTURE, # Strucutre has a structure id ENUM
+	COLLECT_RESOURCE, # By count. Collect a certain number.
+	COLLECT_RESOURCE_TYPE, # Collect a TYPE of resource  a certain number of times. pick up 2 PIECES of scrap
+	PLANT_CROP,
+	GO_TO, # your roof, a certain area. These have tags. They are Area3D
+	WAIT_DAYS, # wait a specific number of days to pass.
+	WAIT_EVENT, # Wait until a specific event occurs... List of events?
+	HARVEST_CROP, # any, specific type
+	DONATE_FOOD,
+	DELIVER_RESOURCE_TO, # to a donation builting type? Drop off waste TO compost. Drop off FOOD to FOOD_STAND
+	# -----------------
+	ACHIEVE_RESOURCE_TARGET, # Type of resource, target number
+	
+	
+}
+
+var progress : int = 0
+var is_active : bool = false : set = set_active
+var is_unlocked : bool = false
+var is_completed : bool = false : set = set_complete
 var markers: Array[QuestMarker3D] = []
 
+signal progressed
+signal completed(this_objective : QuestStep)
 
-func set_active(val: bool):
+
+func set_active(val : bool):
 	is_active = val
 	if is_active and marker_id:
 		setup_markers()
@@ -54,7 +80,7 @@ func set_markers(active: bool):
 			marker.active = active
 
 
-func set_complete(val: bool):
+func set_complete(val : bool):
 	is_completed = val
 	if is_completed:
 		set_markers(false)
