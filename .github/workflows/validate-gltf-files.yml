@@ -102,7 +102,7 @@ jobs:
           if ! git show-ref --verify --quiet refs/heads/assets; then
             git checkout --orphan assets
             git fetch origin assets || true
-            git reset --hard origin/main
+            git reset --hard origin/assets || true
             git rm -rf .
             git commit --allow-empty -m "Initial empty commit on assets branch"
             git push origin assets
