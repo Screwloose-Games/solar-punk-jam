@@ -51,7 +51,6 @@ jobs:
       - name: Install Xvfb and dependencies
         run: sudo apt-get update && sudo apt-get install -y xvfb
 
-
       - name: GLTF validator
         id: gltf-validator
         if: steps.changed-files.outputs.any_changed == 'true'
@@ -91,6 +90,13 @@ jobs:
           name: gltf-validation-results
           path: gltf-validation-results/
           retention-days: 1
+
+      - name: Configure Git author
+        run: |
+          # local to this repo:
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
       - name: Create assets branch
         run: |
           if ! git show-ref --verify --quiet refs/heads/assets; then
@@ -99,6 +105,7 @@ jobs:
             git commit --allow-empty -m "Initial empty commit on assets branch"
             git push origin assets
           fi
+
       - name: Checkout assets branch
         uses: actions/checkout@v3
         with:
