@@ -107,12 +107,15 @@ jobs:
             git push origin assets
           fi
 
-      - name: Checkout assets branch
-        uses: actions/checkout@v3
-        with:
-          ref: assets
-          path: assets-branch
+      # - name: Checkout assets branch
+      #   uses: actions/checkout@v3
+      #   with:
+      #     ref: assets
+      #     path: assets-branch
       
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run markdown processor
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
