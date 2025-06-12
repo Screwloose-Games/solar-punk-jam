@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc1eebnpxere"]
 
-[ext_resource type="Script" uid="uid://bme1s1qtei1md" path="res://common/ui/components/quest/objective_container.gd" id="1_5h13e"]
+[ext_resource type="Script" uid="uid://bme1s1qtei1md" path="res://common/ui/components/quest/step_container.gd" id="1_5h13e"]
 [ext_resource type="Texture2D" uid="uid://cy2x2yinvy2k7" path="res://assets/2d/ui/checked-box.png" id="2_n2acx"]
 [ext_resource type="Texture2D" uid="uid://d0q8s0f1dt4py" path="res://assets/2d/ui/unchecked-box.png" id="3_q5xy0"]
 

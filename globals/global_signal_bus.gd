@@ -13,6 +13,7 @@ signal level_reset
 signal set_ending_visibility(show_panel: bool)
 
 # quest-related
+signal quest_trigger_area_entered(area_id : String)
 
 signal community_board_interacted
 signal community_board_quest_accepted

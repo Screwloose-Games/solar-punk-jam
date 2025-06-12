@@ -58,8 +58,8 @@ func rerender():
 	header.text = quest.name
 	body.text = quest.community_board_text
 	var obj_text = ""
-	for objective in quest.objectives:
-		obj_text += objective.description + "\n"
+	for step in quest.steps:
+		obj_text += step.description + "\n"
 	objectives.text = obj_text
 	_update_rewards_large()
 	mini_rewards_h_box_container.quest_rewards = quest.rewards

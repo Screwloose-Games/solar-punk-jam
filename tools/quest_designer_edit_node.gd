@@ -155,11 +155,11 @@ func _add_string_array_editor(title: String, values: Array[String], update_signa
 func _add_objective_list_editor():
 	var label = Label.new()
 	label.name = "objectives_label"
-	label.text = "Objectives (count: %d)" % quest.objectives.size()
+	label.text = "Steps (count: %d)" % quest.objectives.size()
 	container.add_child(label)
 
 	for objective in quest.objectives:
-		var editor := QuestObjectiveEditUi.new()
+		var editor := QuestStepEditUi.new()
 		editor.name = "objective_editor_" + objective.description
 		editor.quest_objective = objective
 		container.add_child(editor)

@@ -13,5 +13,8 @@ func set_step(val):
 
 func update():
 	step.button_pressed = step.is_completed
-	desc.text = "%s : %d / %d" % [step.description, step.progress, step.goal]
+	if step.goal == 1:
+		desc.text = step.description
+	else:
+		desc.text = "%s : %d / %d" % [step.description, step.progress, step.goal]
 	visible = step.is_unlocked

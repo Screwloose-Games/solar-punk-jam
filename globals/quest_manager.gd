@@ -66,6 +66,7 @@ func reset():
 	unlocked_quests.clear()
 	Dialogic.VAR.clear_game_state()
 
+
 func unlock_quest(quest_id : String):
 	var new_quest = load(FILE_PATH % ("qst_" + quest_id))
 	unlock_quest_res(new_quest)
@@ -135,6 +136,7 @@ func _on_quest_complete(giver : String):
 	Dialogic.VAR[giver + "_active"] = false
 	quests_changed.emit()
 	quest_completed.emit(giver)
+
 
 func get_quest_markers_by_id(id: String) -> Array[QuestMarker3D]:
 	var markers: Array[QuestMarker3D]
