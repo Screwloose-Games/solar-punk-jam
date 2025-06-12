@@ -106,15 +106,15 @@ jobs:
       #       git commit --allow-empty -m "Initial empty commit on assets branch"
       #       git push origin assets
       #     fi
-
-      # - name: Checkout assets branch
-      #   uses: actions/checkout@v3
-      #   with:
-      #     ref: assets
-      #     path: assets-branch
       
       # - name: Checkout code
       #   uses: actions/checkout@v4
+      
+      - name: Checkout assets branch
+        uses: actions/checkout@v3
+        with:
+          ref: assets
+          path: assets-branch
 
       - name: Run markdown processor
         env:
