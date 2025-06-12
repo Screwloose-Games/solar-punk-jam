@@ -1,5 +1,5 @@
-extends QuestObjective
-class_name ValueQuestObjective
+extends QuestStep
+class_name ValueQuestStep
 
 # Name of the Dialogic variable that we are tracking
 @export var target_value : String = ""
