@@ -8,8 +8,7 @@ Mom: It's another great day in Lumina and we've got work to do!
 
 Te: But I just got up!
 
-Mom: We talked about this.
-Mom: Everyone does their part here, that's--
+Mom: We talked about this. Everyone does their part here, that's the only way--
 
 Te: --the only way to make this place a home. You've said that a bajillion times already!
 
@@ -18,5 +17,5 @@ don't forget to check the Community Board again, ok?
 
 Te: Uggghhhhh.
 
-Mom: Mmmhmm. Love you too, gremlin.
+Mom: Love you too, gremlin.
 do QuestManager.start_quest("qst_a1d1_intro")
