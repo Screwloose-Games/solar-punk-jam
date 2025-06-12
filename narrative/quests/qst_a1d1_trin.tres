@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://bkchfqhete7o5"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_x688r"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_x688r"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_mbbq3"]
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_se44t"]
-[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="3_se44t"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_step.gd" id="2_se44t"]
+[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_step.gd" id="3_se44t"]
 [ext_resource type="Resource" uid="uid://d3k7l24o3467h" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_t80vs"]
 
 [sub_resource type="Resource" id="Resource_1j8rw"]
@@ -102,7 +102,7 @@ Help me build a vertical garden POSTHASTE!
 Find me in my garden!
 
 -Trin"
-objectives = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
+steps = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_on_accept = Array[String](["Vertical garden"])
 unlock_on_complete = Array[String](["Compost bin", "Rain barrel"])
 resource_rewards = Dictionary[int, int]({

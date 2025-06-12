@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://bu1d4dg0wcjvm"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_5amx1"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_5amx1"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_clbho"]
 
 [resource]
@@ -10,7 +10,7 @@ name = "Build a waste bin"
 quest_giver = "kyle"
 description = "Quest Description"
 community_board_text = ""
-objectives = Array[ExtResource("1_5amx1")]([])
+steps = Array[ExtResource("1_5amx1")]([])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({

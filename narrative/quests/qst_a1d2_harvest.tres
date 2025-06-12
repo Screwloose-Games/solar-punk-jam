@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=8 format=3 uid="uid://dliloj64dgu5f"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_i80ro"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_cascf"]
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_lgqfx"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_step.gd" id="2_lgqfx"]
 
 [sub_resource type="Resource" id="Resource_77q8f"]
 script = ExtResource("2_lgqfx")
@@ -63,7 +63,7 @@ name = "Harvest and deliver plants"
 quest_giver = "mom"
 description = "Quest Description"
 community_board_text = ""
-objectives = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
+steps = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({

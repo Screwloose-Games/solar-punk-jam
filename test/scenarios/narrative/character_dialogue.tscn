@@ -75,35 +75,6 @@ look_at_target = NodePath("../Scene/Char2")
 tween_resource = SubResource("Resource_u105d")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="ActionList" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.032
-offset_left = 106.0
-offset_top = 179.0
-offset_right = 277.0
-offset_bottom = 314.264
-
-[node name="BtnFischer" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Fischer"
-
-[node name="BtnMarge" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Marge"
-
-[node name="BtnSunny" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Sunny"
-
-[node name="BtnWendy" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Talk to Wendy"
-
-[node name="BtnCamTest" type="Button" parent="ActionList"]
-layout_mode = 2
-text = "Dialogue Camera Test"
-
 [node name="QuestInfo" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3

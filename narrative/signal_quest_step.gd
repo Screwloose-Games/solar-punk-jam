@@ -1,5 +1,5 @@
-class_name SignalQuestObjective
-extends QuestObjective
+class_name SignalQuestStep
+extends QuestStep
 
 ## The global autoload on which to call the signal
 @export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
