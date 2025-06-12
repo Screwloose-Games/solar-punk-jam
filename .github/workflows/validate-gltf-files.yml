@@ -91,7 +91,14 @@ jobs:
           name: gltf-validation-results
           path: gltf-validation-results/
           retention-days: 1
-      
+      - name: Create assets branch
+        run: |
+          if ! git show-ref --verify --quiet refs/heads/assets; then
+            git checkout --orphan assets
+            git rm -rf .
+            git commit --allow-empty -m "Initial empty commit on assets branch"
+            git push origin assets
+          fi
       - name: Checkout assets branch
         uses: actions/checkout@v3
         with:
@@ -105,14 +112,6 @@ jobs:
           GITHUB_ISSUE_NUMBER: ${{ github.event.pull_request.number }}
         run: python .github/scripts/process_markdown.py "gltf-validation-results/github_comment.md"
 
-      - name: Create assets branch
-        run: |
-          if ! git show-ref --verify --quiet refs/heads/assets; then
-            git checkout --orphan assets
-            git rm -rf .
-            git commit --allow-empty -m "Initial empty commit on assets branch"
-            git push origin assets
-          fi
       - name: Commit and push new images to `assets` branch
         run: |
           cd assets-branch
