@@ -91,21 +91,21 @@ jobs:
           path: gltf-validation-results/
           retention-days: 1
 
-      - name: Configure Git author
-        run: |
-          # local to this repo:
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+      # - name: Configure Git author
+      #   run: |
+      #     # local to this repo:
+      #     git config user.name "GitHub Actions"
+      #     git config user.email "actions@github.com"
 
-      - name: Create assets branch
-        run: |
-          if ! git show-ref --verify --quiet refs/heads/assets; then
-            git checkout --orphan assets
-            git fetch origin assets || true
-            git reset --hard origin/assets || true
-            git commit --allow-empty -m "Initial empty commit on assets branch"
-            git push origin assets
-          fi
+      # - name: Create assets branch
+      #   run: |
+      #     if ! git show-ref --verify --quiet refs/heads/assets; then
+      #       git checkout --orphan assets
+      #       git fetch origin assets || true
+      #       git reset --hard origin/assets || true
+      #       git commit --allow-empty -m "Initial empty commit on assets branch"
+      #       git push origin assets
+      #     fi
 
       # - name: Checkout assets branch
       #   uses: actions/checkout@v3
@@ -113,8 +113,8 @@ jobs:
       #     ref: assets
       #     path: assets-branch
       
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # - name: Checkout code
+      #   uses: actions/checkout@v4
 
       - name: Run markdown processor
         env:
