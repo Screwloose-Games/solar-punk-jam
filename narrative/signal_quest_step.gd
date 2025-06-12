@@ -2,14 +2,17 @@ extends QuestStep
 class_name SignalQuestStep
 
 ## The global autoload on which to call the signal
-@export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
+#@export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
 
 ## The name of the signal on the global autoload
-@export var signal_name: String = ""
+#@export var signal_name: String = ""
 
 ## Arguments expect passed to the signal
-@export var expected_args: Array
+#@export var expected_args: Array
 
+var autoload_name : String = "GlobalSignalBus"
+var signal_name : String = ""
+var expected_args : Array
 var autoload_instance : Node
 
 

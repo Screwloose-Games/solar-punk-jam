@@ -1,7 +1,11 @@
 class_name BuildStructQuestStep
-extends QuestStep
+extends SignalQuestStep
 
-@export var structure_type
-@export var goal : int = 1
+@export var structure_type : String
 
-var count : int = 0
+
+func set_active(val : bool):
+	autoload_name = "StructureManager"
+	signal_name = "built_structure"
+	expected_args = [structure_type]
+	super.set_active(val)

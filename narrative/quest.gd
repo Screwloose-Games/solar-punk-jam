@@ -29,8 +29,8 @@ var rewards: Dictionary[String, int] = {}:
 			result[name] = resource_rewards[reward]
 		return result
 
-# Initialize quest state
-# steps with no prerequisites get set active
+
+# Initialize quest state, steps with no prerequisites get set active
 func start_quest():
 	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
@@ -78,6 +78,7 @@ func _on_step_completed(this_step : QuestStep):
 
 	else:
 		quest_state_changed.emit()
+
 
 func mark_complete():
 	is_complete = true
