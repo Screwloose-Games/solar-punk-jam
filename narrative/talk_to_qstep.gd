@@ -6,6 +6,6 @@ extends SignalQuestStep
 
 func set_active(val : bool):
 	autoload_name = "GlobalSignalBus"
-	signal_name = "npc_interacted"
+	signal_name = "talked_to"
 	expected_args = [npc_id]
 	super.set_active(val)
