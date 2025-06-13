@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://3fvsqv5t6x7i"]
+
+[ext_resource type="PackedScene" uid="uid://c3qqsqjxik3ky" path="res://assets/3d/crops/radish/sm_radish.tscn" id="1_bw36y"]
+
+[node name="RadishPile" type="Node3D"]
+
+[node name="sm_radish" parent="." instance=ExtResource("1_bw36y")]
+transform = Transform3D(0.961834, 0.22765, -0.151821, -0.153773, 0.908631, 0.388258, 0.226337, -0.350094, 0.908959, 0.0376288, 0.0328668, 0.0685683)
+
+[node name="sm_radish2" parent="." instance=ExtResource("1_bw36y")]
+transform = Transform3D(1, 0, 0, 0, 0.930334, 0.366712, 0, -0.366712, 0.930334, 0.00653769, 0.0334468, -0.055945)
+
+[node name="sm_radish3" parent="." instance=ExtResource("1_bw36y")]
+transform = Transform3D(0.776541, -0.232076, 0.585768, -1.29141e-08, 0.929693, 0.368336, -0.630066, -0.286028, 0.721945, -0.0320895, 0.0108997, 0.0312954)
