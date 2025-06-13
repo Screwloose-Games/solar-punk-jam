@@ -1,8 +1,5 @@
 extends Node
 
-@onready var environment: CapybaraEnvironment = %Environment
-@onready var animation_player_2: AnimationPlayer = %AnimationPlayer2
-
 @export var next_scene: PackedScene
 #
 ## Called when the node enters the scene tree for the first time.
@@ -14,6 +11,9 @@ extends Node
 	##await get_tree().create_timer(4).timeout
 
 var in_dialogue: bool = true
+
+@onready var environment: CapybaraEnvironment = %Environment
+@onready var animation_player_2: AnimationPlayer = %AnimationPlayer2
 
 func _ready():
 	Dialogic.start("intro_fullscreen")
