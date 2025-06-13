@@ -10,6 +10,7 @@ func _ready() -> void:
 func _on_interacted(_player: Player) -> void:
 	if ResourcesManager.has_at_least(ResourcesManager.ResourceType.FOOD, 1):
 		ResourcesManager.spend_resource(ResourcesManager.ResourceType.FOOD, 1)
+		ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.FOOD, 1)
 		GlobalSignalBus.food_donated.emit(1)
 		#ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.COMMUNITY, community_per_donation)
 	else:

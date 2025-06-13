@@ -19,5 +19,6 @@ script = ExtResource("2_ndh12")
 [node name="sm_wastebin_empty" parent="." index="1" instance=ExtResource("3_srsw2")]
 
 [node name="sm_wastebin_full_grp" parent="." index="2" instance=ExtResource("4_05ews")]
+visible = false
 
 [editable path="InteractableArea3D"]
