@@ -1,11 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dngvyovn8lew5"]
+[gd_scene load_steps=6 format=3 uid="uid://dngvyovn8lew5"]
 
 [ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_vl6uy"]
+[ext_resource type="Script" uid="uid://b37vyvfagk8qw" path="res://assets/3d/structures/solar_panel/solar_panel_logic.gd" id="2_2t4ok"]
 [ext_resource type="PackedScene" uid="uid://cii30af5vfhq5" path="res://assets/3d/structures/solar_panel/sm_solar_panel.tscn" id="2_lfd48"]
+[ext_resource type="Animation" uid="uid://dxxmsgnwgkrun" path="res://assets/3d/structures/solar_panel/animation_deploy_solar_panel.tres" id="3_cqa8m"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t4ok"]
+_data = {
+&"Deploy": ExtResource("3_cqa8m")
+}
 
 [node name="BuildableStructure" instance=ExtResource("1_vl6uy")]
-structure_id = "Solar panel"
 
-[node name="sm_solar_panel" parent="." index="0" instance=ExtResource("2_lfd48")]
+[node name="SolarPanelLogic" type="Node" parent="." index="0"]
+script = ExtResource("2_2t4ok")
 
+[node name="sm_solar_panel" parent="." index="1" instance=ExtResource("2_lfd48")]
+
+[node name="AnimationPlayer" parent="sm_solar_panel" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_2t4ok")
+}
+
+[node name="InteractableArea3D" parent="." index="3"]
+monitorable = false
+
+[editable path="sm_solar_panel"]
 [editable path="InteractableArea3D"]
