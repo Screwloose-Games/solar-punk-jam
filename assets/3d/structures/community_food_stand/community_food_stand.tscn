@@ -12,7 +12,14 @@ script = ExtResource("2_5fhlr")
 
 [node name="sm_foodstand_grp" parent="." index="1" instance=ExtResource("3_5fhlr")]
 
+<<<<<<< Updated upstream
 [node name="InteractableArea3D" parent="." index="2"]
+=======
+[node name="Marker3D" type="Marker3D" parent="sm_foodstand_grp" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.927706, -0.373312, 0, 0.373312, 0.927706, -0.0942171, 0.827669, 0.246177)
+
+[node name="InteractableArea3D" parent="." index="3"]
+>>>>>>> Stashed changes
 label_text = "Donate Food"
 
 [editable path="InteractableArea3D"]

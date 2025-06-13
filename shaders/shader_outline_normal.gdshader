@@ -9,6 +9,7 @@ void vertex() {
 }
 
 void fragment() {
+	discard;
 	ALBEDO = outline_color.rgb;
 	ALPHA = outline_color.a;
 }

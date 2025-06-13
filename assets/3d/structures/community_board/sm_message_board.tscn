@@ -1,34 +1,34 @@
 [gd_scene load_steps=10 format=3 uid="uid://cockbui21lpt3"]
 
 [ext_resource type="PackedScene" uid="uid://b41h8mygm35qp" path="res://assets/3d/structures/community_board/sm_message_board.gltf" id="1_qyloo"]
-[ext_resource type="Texture2D" uid="uid://w6fu7iu5ldw2" path="res://assets/3d/structures/community_board/t_message_board_baseColor.png" id="2_aqhtc"]
 [ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_x5jkg"]
-[ext_resource type="Texture2D" uid="uid://2u6jxqj6mvl2" path="res://assets/3d/structures/community_board/t_message_board_normal.png" id="3_c6xcn"]
 [ext_resource type="Shader" uid="uid://cp84jy242myl6" path="res://shaders/base_cel_shading.gdshader" id="3_qyrx0"]
-[ext_resource type="Texture2D" uid="uid://dobgk7hyan8u6" path="res://assets/3d/structures/community_board/t_message_board_occlusionRoughnessMetallic.png" id="4_66v6q"]
 [ext_resource type="Texture2D" uid="uid://did3p25l52we" path="res://materials/fresnel_gradient.tres" id="4_y8tuj"]
+[ext_resource type="Texture2D" uid="uid://ckmpdd36u36rf" path="res://assets/3d/structures/community_board/t_message_board_flyers_baseColor.png" id="5_y8tuj"]
+[ext_resource type="Texture2D" uid="uid://drh5t3vujc6id" path="res://assets/3d/structures/community_board/t_message_board_flyers_occlusionRoughnessMetallic.png" id="6_xdfmb"]
+[ext_resource type="Texture2D" uid="uid://co5gqkjq581ej" path="res://assets/3d/structures/community_board/t_message_board_flyers_normal.png" id="7_yltvk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfrv5"]
 render_priority = 0
 shader = ExtResource("2_x5jkg")
 shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
+shader_parameter/size = 1.005
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yltvk"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_rfrv5")
 shader = ExtResource("3_qyrx0")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_aqhtc")
+shader_parameter/texture_albedo = ExtResource("5_y8tuj")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_metallic = ExtResource("4_66v6q")
+shader_parameter/texture_metallic = ExtResource("6_xdfmb")
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 1, 0)
-shader_parameter/texture_roughness = ExtResource("4_66v6q")
+shader_parameter/texture_roughness = ExtResource("6_xdfmb")
 shader_parameter/specular = 0.0
 shader_parameter/metallic = -0.5
-shader_parameter/texture_normal = ExtResource("3_c6xcn")
-shader_parameter/normal_scale = 1.0
+shader_parameter/texture_normal = ExtResource("7_yltvk")
+shader_parameter/normal_scale = 0.500001
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(0, 0, 0)

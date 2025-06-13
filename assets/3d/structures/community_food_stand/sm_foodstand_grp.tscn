@@ -12,7 +12,7 @@
 render_priority = 0
 shader = ExtResource("2_m3308")
 shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/size = 1.01
+shader_parameter/size = 1.005
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbnub"]
 render_priority = 0
