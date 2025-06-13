@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8hwmtk03oavn"
 path.s3tc="res://.godot/imported/t_nonentry_04_Base_Color.png-5266ab9e8d627e629fa36653a07166b7.s3tc.ctex"
+path.etc2="res://.godot/imported/t_nonentry_04_Base_Color.png-5266ab9e8d627e629fa36653a07166b7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/buildings/nonentry/nonentry_building_04/t_nonentry_04_Base_Color.png"
-dest_files=["res://.godot/imported/t_nonentry_04_Base_Color.png-5266ab9e8d627e629fa36653a07166b7.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_nonentry_04_Base_Color.png-5266ab9e8d627e629fa36653a07166b7.s3tc.ctex", "res://.godot/imported/t_nonentry_04_Base_Color.png-5266ab9e8d627e629fa36653a07166b7.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://do2q1oefdl6f2"
 path.s3tc="res://.godot/imported/t_wastebin_full_occlusionRoughnessMetallic.png-44ac1a78d15f25415c66a6cef91c812b.s3tc.ctex"
+path.etc2="res://.godot/imported/t_wastebin_full_occlusionRoughnessMetallic.png-44ac1a78d15f25415c66a6cef91c812b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/structures/community_waste_bin/t_wastebin_full_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/t_wastebin_full_occlusionRoughnessMetallic.png-44ac1a78d15f25415c66a6cef91c812b.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_wastebin_full_occlusionRoughnessMetallic.png-44ac1a78d15f25415c66a6cef91c812b.s3tc.ctex", "res://.godot/imported/t_wastebin_full_occlusionRoughnessMetallic.png-44ac1a78d15f25415c66a6cef91c812b.etc2.ctex"]
 
 [params]
 

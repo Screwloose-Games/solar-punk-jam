@@ -177,20 +177,8 @@ structures = Dictionary[String, bool]({
 
 [node name="SetupResources" type="Node" parent="."]
 script = ExtResource("3_mdx4t")
-resources = Dictionary[String, int]({
-"Electricity": 50,
-"Food": 50,
-"Happiness": 50,
-"Materials": 50,
-"Seeds": 50,
-"Soil": 50,
-"Waste": 50,
-"Water": 100
-})
-resource_storage_limits = Dictionary[String, int]({
-"Electricity": 20,
-"Water": 20
-})
+resources = Dictionary[int, int]({})
+resource_storage_limits = Dictionary[int, int]({})
 
 [node name="DirtBuildableSurface" parent="." instance=ExtResource("4_xx0ke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
@@ -239,7 +227,7 @@ transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.999999, 0, 0, 0, 0.866022, 0.499996, 0, -0.499998, 0.866019, 6.72798, 2.86358, 15.3668)
+transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, 6.72798, 2.61358, 9.73765)
 attributes = SubResource("CameraAttributesPractical_i42vj")
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -249,29 +237,7 @@ script = ExtResource("8_xj3rj")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("9_2cms5")]
 
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="12"]
-visible = false
-
-[node name="PlayerScale" parent="DesignTestScene" index="41"]
-visible = false
-
-[node name="buildable_dirtpatch" parent="DesignTestScene" index="48"]
-process_mode = 4
-visible = false
-
-[node name="buildable_dirtpatch2" parent="DesignTestScene" index="49"]
-process_mode = 4
-visible = false
-
-[node name="buildable_dirtpatch3" parent="DesignTestScene" index="50"]
-process_mode = 4
-visible = false
-
-[node name="SurfaceMap" parent="DesignTestScene/buildable_dirtpatch3/BuildableSurface" index="0"]
-visible = false
-
-[node name="buildable_dirtpatch4" parent="DesignTestScene" index="51"]
-process_mode = 4
+[node name="prefab_noentry_tall6" parent="DesignTestScene" index="25"]
 visible = false
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -330,6 +296,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
 [editable path="sm_solar_panel"]
 [editable path="DesignTestScene"]
-[editable path="DesignTestScene/buildable_dirtpatch3"]
-[editable path="DesignTestScene/buildable_dirtpatch3/BuildableSurface"]
-[editable path="DesignTestScene/buildable_dirtpatch3/BuildableSurface/InteractableBuildableArea"]

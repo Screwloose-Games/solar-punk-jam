@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://craokydmo3fic" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
 [ext_resource type="Script" uid="uid://dua5misl8htum" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
 [ext_resource type="Script" uid="uid://d23n8t08gn3vq" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
-[ext_resource type="Texture2D" uid="uid://dnfwy4lwrycpu" path="res://assets/2d/ui/E_Key.png" id="6_apign"]
+[ext_resource type="Texture2D" uid="uid://txkb7jkcq3gv" path="res://assets/2d/ui/Enter_Key.png" id="6_apign"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
@@ -152,21 +152,33 @@ textbox_root = NodePath("../../..")
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
 script = ExtResource("5_sr2qw")
 
-[node name="NextPrompt" type="HBoxContainer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
+[node name="NextPrompt" type="VBoxContainer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.95
-anchor_top = 0.9
-anchor_right = 0.95
-anchor_bottom = 0.9
-offset_left = -68.0
-offset_top = -30.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -54.0
+offset_right = -9.0
+offset_bottom = -6.0
 grow_horizontal = 0
 grow_vertical = 0
+alignment = 1
 
 [node name="EKey" type="TextureRect" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText/NextPrompt"]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("6_apign")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EKey2" type="TextureRect" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText/NextPrompt"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText/NextPrompt"]

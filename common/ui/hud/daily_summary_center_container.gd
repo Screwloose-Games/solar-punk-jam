@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _on_close_pressed():
 	closed.emit()
+	GlobalSignalBus.daily_summary_continue_clicked.emit()
 	close()
 
 func _on_visibility_changed():
@@ -37,35 +38,40 @@ func _on_day_cycle_end():
 
 
 func show_environment():
-	if "Environment" in EnvironmentManager.daily_resources:
-		environment.count = EnvironmentManager.daily_resources["Environment"]
+	if "Environment" in ResourcesManager.daily_resources:
+		environment.count = ResourcesManager.daily_resources.get("Environment", 0)
+	else:
+		environment.count = 0
 
 func show_happiness():
-	if "Happiness" in EnvironmentManager.daily_resources:
-		happiness.count = EnvironmentManager.daily_resources["Happiness"]
+	if "Happiness" in ResourcesManager.daily_resources:
+		happiness.count = ResourcesManager.daily_resources["Happiness"]
+	else:
+		happiness.count = 0
 
 
 func show_daily_summary():
-	print("day cycle ended")
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	player.force_ignore_input = true
 	daily_summary_center_container.modulate = Color.TRANSPARENT
 	show()
 	show_environment()
 	show_happiness()
 	#show_resources()
 
-	EnvironmentManager.daily_resources = {}
+	ResourcesManager.daily_resources = {}
 	var tween: Tween = create_tween()
 	tween.tween_property(daily_summary_center_container, "modulate", Color.WHITE, fade_in_time)
 
 func show_resources():
 	for child in reward_list.get_children():
 		child.queue_free()
-	
-	for resource in EnvironmentManager.daily_resources:
+
+	for resource in ResourcesManager.daily_resources:
 		if resource == "Happiness" or resource == "Happiness":
 			continue
 		var row_item: DailySummaryItemUi = DAILY_DASHBOARD_ROW_ITEM.instantiate()
-		row_item.count = EnvironmentManager.daily_resources[resource]
+		row_item.count = ResourcesManager.daily_resources[resource]
 		row_item.item_name = resource
 		reward_list.add_child(row_item)
 
@@ -73,4 +79,6 @@ func close():
 	var tween: Tween = create_tween()
 	tween.tween_property(daily_summary_center_container, "modulate", Color.TRANSPARENT, fade_out_time)
 	await tween.finished
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	player.force_ignore_input = false
 	hide()

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkfmw074jwoj4"
 path.s3tc="res://.godot/imported/texture_metallic.png-7d8a8321702d633985d9faa1e3c0133a.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_metallic.png-7d8a8321702d633985d9faa1e3c0133a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://actors/player_character/model_animations/te/texture_metallic.png"
-dest_files=["res://.godot/imported/texture_metallic.png-7d8a8321702d633985d9faa1e3c0133a.s3tc.ctex"]
+dest_files=["res://.godot/imported/texture_metallic.png-7d8a8321702d633985d9faa1e3c0133a.s3tc.ctex", "res://.godot/imported/texture_metallic.png-7d8a8321702d633985d9faa1e3c0133a.etc2.ctex"]
 
 [params]
 

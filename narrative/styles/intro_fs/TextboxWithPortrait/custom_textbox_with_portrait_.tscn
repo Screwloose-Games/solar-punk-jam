@@ -25,6 +25,22 @@ mouse_filter = 2
 script = ExtResource("1_7jt4d")
 box_panel = "res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/default_stylebox.tres"
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.701961)
+
 [node name="Anchor" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -40,10 +56,10 @@ mouse_filter = 2
 unique_name_in_owner = true
 self_modulate = Color(0.533333, 0.376471, 0.176471, 1)
 layout_mode = 0
-offset_left = -512.0
-offset_top = -584.0
-offset_right = 512.0
-offset_bottom = -64.0
+offset_left = -481.0
+offset_top = -1085.0
+offset_right = 543.0
+offset_bottom = -565.0
 mouse_filter = 2
 
 [node name="HBox" type="HBoxContainer" parent="Anchor/Panel"]

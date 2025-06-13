@@ -1,0 +1,70 @@
+name: Validate Audio Files
+
+on:
+  pull_request:
+    paths:
+      - '**/*.wav'
+      - '**/*.ogg'
+      - '**/*.mp3'
+
+permissions:
+  pull-requests: write
+  contents: read
+jobs:
+  validate-audio:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Find changed GLTF files
+      id: changed-files
+      uses: tj-actions/changed-files@v46
+      with:
+        files: |
+          **.wav
+          **.ogg
+          **.mp3
+  
+    - name: Save changed files list
+      if: steps.changed-files.outputs.any_changed == 'true'
+      id: audio_files
+      run: |
+        echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep -E '\.(wav|ogg|mp3)$' > audio_files.txt
+        echo "files=$(cat audio_files.txt | paste -sd ',' -)" >> $GITHUB_OUTPUT
+    # output the list of changed audio files
+    # - name: Get list of added or changed audio files
+    #   id: audio_files
+    #   run: |
+    #     git fetch origin ${{ github.base_ref }}
+    #     git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -E '\.(wav|ogg|mp3)$' || true > audio_files.txt
+    #     echo "files=$(cat audio_files.txt | paste -sd ',' -)" >> $GITHUB_OUTPUT
+
+    - name: Validate audio files
+      if: steps.audio_files.outputs.files != ''
+      id: validate-audio-files
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+      run: python .github/scripts/validate-audio-files.py $(cat audio_files.txt)
+
+    - name: Comment PR
+      uses: thollander/actions-comment-pull-request@v3
+      with:
+        comment-tag: sound-file-checks
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        message: |
+          # This PR has been checked for audio files. 🔊
+          ## File Reports:
+          ${{ fromJson(steps.validate-audio-files.outputs.metadata).audio_reports }}
+          <br />
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        GITHUB_ISSUE_NUMBER: ${{ github.event.pull_request.number }}

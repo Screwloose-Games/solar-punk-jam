@@ -2,14 +2,14 @@
 
 [ext_resource type="Theme" uid="uid://dxcditpyjnw8h" path="res://common/themes/theme.tres" id="1_mqx1g"]
 [ext_resource type="Script" uid="uid://drkkac24eh0sl" path="res://common/ui/viewport_container.gd" id="2_d26fo"]
-[ext_resource type="AudioStream" uid="uid://camm2n4s878j" path="res://common/audio/sfx/ui/aud_ui_navigate.wav" id="4_84s81"]
+[ext_resource type="AudioStream" uid="uid://cwrmu1482xd6k" path="res://common/audio/sfx/ui/UI_QUEST_ACCEPT.wav" id="3_n35mk"]
 [ext_resource type="PackedScene" uid="uid://dynbxfyimjvcv" path="res://common/ui/scene_transitions/fade_transition.tscn" id="4_cec7w"]
-[ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="5_ctl25"]
-[ext_resource type="AudioStream" uid="uid://50crscd7p7bx" path="res://common/audio/sfx/ui/aud_ui_close.wav" id="6_mqj1f"]
-[ext_resource type="Texture2D" uid="uid://dnp0xg2o72esv" path="res://assets/2d/ui/main-menu-background.png" id="6_n35mk"]
+[ext_resource type="AudioStream" uid="uid://dp0uplfv31exi" path="res://common/audio/sfx/ui/UI_QUEST_COMPLETE.wav" id="4_n35mk"]
+[ext_resource type="AudioStream" uid="uid://dhuhjisjlgm20" path="res://common/audio/sfx/interact/INTERACT_HARVEST.wav" id="5_ulf6g"]
+[ext_resource type="Texture2D" uid="uid://bgs6c2knf5gmq" path="res://assets/2d/ui/main_menu/main_menu_background.png" id="6_n35mk"]
 [ext_resource type="PackedScene" uid="uid://bvuixmv4n68a6" path="res://common/ui/options_menu/options_menu.tscn" id="6_ntl50"]
-[ext_resource type="PackedScene" uid="uid://cbodbramso3fv" path="res://levels/main_level/level_act_1.tscn" id="7_kjcgm"]
 [ext_resource type="Script" uid="uid://bbffeeruv7sea" path="res://common/ui/main_menu/SFX/main_menu_audio.gd" id="7_oty5u"]
+[ext_resource type="PackedScene" uid="uid://dr5n6y37v5b8t" path="res://cinematics/water_city/cin_water_city.tscn" id="8_n35mk"]
 [ext_resource type="Texture2D" uid="uid://ccq7f3iwggcxc" path="res://common/ui/art/main_menu_title.png" id="9_8wlla"]
 [ext_resource type="Script" uid="uid://bua0gnkahihk3" path="res://common/ui/components/buttons/button_scripts/test_menu_button.gd" id="10_8wlla"]
 [ext_resource type="FontFile" uid="uid://bxxblafxhg1tc" path="res://common/fonts/Wondra.otf" id="10_kjcgm"]
@@ -810,9 +810,9 @@ offset_left = 1404.0
 offset_right = 3324.0
 offset_bottom = 1080.0
 script = ExtResource("7_oty5u")
-navigate_sound = ExtResource("4_84s81")
-open_sound = ExtResource("5_ctl25")
-close_sound = ExtResource("6_mqj1f")
+navigate_sound = ExtResource("3_n35mk")
+open_sound = ExtResource("4_n35mk")
+close_sound = ExtResource("5_ulf6g")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -836,7 +836,7 @@ script = ExtResource("2_d26fo")
 layout_mode = 2
 theme = SubResource("Theme_kjcgm")
 script = SubResource("GDScript_q8jcd")
-start_scene_path = ExtResource("7_kjcgm")
+start_scene_path = ExtResource("8_n35mk")
 transition_path = ExtResource("4_cec7w")
 
 [node name="PanelContainer" type="PanelContainer" parent="Main Menu"]

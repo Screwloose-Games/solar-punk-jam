@@ -5,19 +5,23 @@
 
 [node name="QuestMarker3D" type="Marker3D" groups=["QuestMarker"]]
 script = ExtResource("1_rwwl4")
+id = "mom"
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.001
 billboard = 1
 no_depth_test = true
 fixed_size = true
+render_priority = 1
 texture = ExtResource("2_rwwl4")
 
 [node name="DistanceLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0101929, 0)
+offset = Vector2(0, 10)
 billboard = 1
 no_depth_test = true
 fixed_size = true
-font_size = 10
-outline_size = 7
+render_priority = 1
+font_size = 8
+outline_size = 5

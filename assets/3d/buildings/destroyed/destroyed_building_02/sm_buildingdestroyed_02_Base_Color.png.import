@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://rhmg1hxqgn3m"
 path.s3tc="res://.godot/imported/sm_buildingdestroyed_02_Base_Color.png-d465acbf42056cbd25bf5b9fea795db3.s3tc.ctex"
+path.etc2="res://.godot/imported/sm_buildingdestroyed_02_Base_Color.png-d465acbf42056cbd25bf5b9fea795db3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/buildings/destroyed/destroyed_building_02/sm_buildingdestroyed_02_Base_Color.png"
-dest_files=["res://.godot/imported/sm_buildingdestroyed_02_Base_Color.png-d465acbf42056cbd25bf5b9fea795db3.s3tc.ctex"]
+dest_files=["res://.godot/imported/sm_buildingdestroyed_02_Base_Color.png-d465acbf42056cbd25bf5b9fea795db3.s3tc.ctex", "res://.godot/imported/sm_buildingdestroyed_02_Base_Color.png-d465acbf42056cbd25bf5b9fea795db3.etc2.ctex"]
 
 [params]
 

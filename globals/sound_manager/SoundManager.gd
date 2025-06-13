@@ -18,6 +18,8 @@ func get_sound_player(player_type: SoundPlayerType):
 			return ui_sound_player
 		SoundPlayerType.WEATHER: 
 			return weather_sound_player
+		SoundPlayerType.AMBIENT: 
+			return ambient_sound_player
 		_:
 			return null
 

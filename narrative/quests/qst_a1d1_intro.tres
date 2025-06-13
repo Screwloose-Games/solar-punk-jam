@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=6 format=3 uid="uid://dsymfcowmajj3"]
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://kpvjfs8lnqiy"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_rqfjc"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_4l7h4"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_pirdi"]
+[ext_resource type="Resource" uid="uid://bkchfqhete7o5" path="res://narrative/quests/qst_a1d1_trin.tres" id="3_4l7h4"]
 
 [sub_resource type="Resource" id="Resource_7on4j"]
 script = ExtResource("2_4l7h4")
@@ -14,6 +15,7 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "board"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_yyvya"]
@@ -26,6 +28,7 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "board"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
@@ -34,13 +37,14 @@ id = "a1d1_intro"
 name = "Check the Community Board"
 quest_giver = "mom"
 description = "Check the Community Board for work orders."
-community_board_text = ""
+community_board_text = "its good"
 objectives = Array[ExtResource("1_rqfjc")]([SubResource("Resource_7on4j"), SubResource("Resource_yyvya")])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
-rewards = Dictionary[String, int]({
-"Happiness": 5,
-"Materials": 3,
-"Seeds": 1
+resource_rewards = Dictionary[int, int]({
+5: 5,
+6: 3,
+7: 1
 })
+on_complete_starts_quest = ExtResource("3_4l7h4")
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

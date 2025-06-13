@@ -35,3 +35,8 @@ signal scrap_collected
 signal crop_harvested(crop_type: Crop.CropType)
 signal ui_button_pressed
 signal ui_button_hovered
+signal daily_summary_continue_clicked
+signal food_donated(count: int)
+
+signal world_loaded
+signal world_unloaded

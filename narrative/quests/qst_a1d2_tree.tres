@@ -13,7 +13,7 @@ community_board_text = ""
 objectives = Array[ExtResource("1_a516e")]([])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
-rewards = Dictionary[String, int]({
-"Happiness": 5
+resource_rewards = Dictionary[int, int]({
+5: 5
 })
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

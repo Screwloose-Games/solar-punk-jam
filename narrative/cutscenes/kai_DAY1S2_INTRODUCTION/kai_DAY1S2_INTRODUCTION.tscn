@@ -12,9 +12,6 @@ script = ExtResource("1_2ociy")
 [node name="prefab_noentry_tall6" parent="DesignTestScene" index="25"]
 visible = false
 
-[node name="PlayerScale" parent="DesignTestScene" index="27"]
-visible = false
-
 [node name="trin_placeholder" parent="." instance=ExtResource("2_t2kua")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8386, 5.23202, -16.386)
 

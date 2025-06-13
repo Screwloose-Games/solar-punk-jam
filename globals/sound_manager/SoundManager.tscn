@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c54af0wl0auwx"]
+[gd_scene load_steps=23 format=3 uid="uid://c54af0wl0auwx"]
 
 [ext_resource type="Script" uid="uid://b1mijyjkslhfu" path="res://globals/sound_manager/SoundManager.gd" id="1_0wbjb"]
 [ext_resource type="AudioStream" uid="uid://knk8fcd6nusj" path="res://common/audio/sfx/ambi/AMBI_BASE.wav" id="2_3bdi4"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dhuhjisjlgm20" path="res://common/audio/sfx/interact/INTERACT_HARVEST.wav" id="14_8lw7p"]
 [ext_resource type="AudioStream" uid="uid://civmxnmlw0b6r" path="res://common/audio/sfx/interact/INTERACT_WASTE.wav" id="15_amwb2"]
 [ext_resource type="AudioStream" uid="uid://cjqacppbmh2tk" path="res://common/audio/sfx/ui/aud_ui_open.wav" id="17_ymhco"]
+[ext_resource type="AudioStream" uid="uid://mc8ug8dpsbet" path="res://common/audio/sfx/ambi/AMBI_DAY.wav" id="19_skmex"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ut33"]
 streams_count = 3
@@ -38,19 +39,24 @@ streams_count = 1
 stream_0/stream = ExtResource("13_12h0w")
 
 [node name="SoundManager" type="AudioStreamPlayer"]
+process_mode = 3
 script = ExtResource("1_0wbjb")
 
 [node name="UiSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+volume_db = -5.0
+bus = &"SFX"
 
 [node name="AmbientSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_3bdi4")
-volume_db = -20.0
+volume_db = -12.0
 autoplay = true
+bus = &"Ambient"
 
 [node name="WeatherSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+bus = &"Ambient"
 
 [node name="UiQuestAcceptedConnector" type="Node" parent="."]
 script = ExtResource("2_t4w6u")
@@ -82,7 +88,7 @@ metadata/_custom_type_script = "uid://dd8uxrmtutff5"
 
 [node name="RainEffectConnector" type="Node" parent="."]
 script = ExtResource("2_t4w6u")
-player_type = 1
+player_type = 2
 global_name = "GlobalSignalBus"
 start_signal_name = "started_raining"
 stop_signal_name = "stopped_raining"
@@ -143,4 +149,13 @@ script = ExtResource("2_t4w6u")
 global_name = "GlobalSignalBus"
 start_signal_name = "waste_deposited"
 sound_effect = ExtResource("15_amwb2")
+metadata/_custom_type_script = "uid://dd8uxrmtutff5"
+
+[node name="AmbientTitleConnector" type="Node" parent="."]
+script = ExtResource("2_t4w6u")
+player_type = 1
+global_name = "GlobalSignalBus"
+start_signal_name = "title_screen_started"
+stop_signal_name = "level_started"
+sound_effect = ExtResource("19_skmex")
 metadata/_custom_type_script = "uid://dd8uxrmtutff5"

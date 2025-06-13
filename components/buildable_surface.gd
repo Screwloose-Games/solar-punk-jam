@@ -55,6 +55,8 @@ func create_preview():
 		visual_instance2.show()
 		preview2.add_child(visual_instance2)
 	preview.visible = is_active
+	preview.visible = false # TODO: Temp fix
+	preview2.visible = false # TODO: Temp fix
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
@@ -189,10 +191,6 @@ func reset_cursor_3d():
 	can_build = false
 	building_idx = -1
 	structure_placeholder.hide()
-
-func collect_today():
-	for structure in built_structures_local:
-		structure.collect_today()
 
 func surface_check(origin: Vector2i, w:int, h:int, required_kind: Vector2i, update_kind: Vector2i) -> bool:
 	for ix in w:

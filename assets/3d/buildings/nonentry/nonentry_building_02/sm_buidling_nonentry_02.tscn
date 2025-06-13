@@ -36,6 +36,9 @@ shader_parameter/fresnel_intensity = 1.0
 
 [node name="sm_buidling_nonentry_02" instance=ExtResource("1_wgbcc")]
 
+[node name="CollisionShape3D" parent="coll_nonentry_02-colonly/collision_nonentry_02" index="0"]
+transform = Transform3D(0.907815, 0, 0, 0, 1, 0, 0, 0, 1, -1.41036, 0, 0)
+
 [node name="sm_building_nonentry_02" parent="mesh_nonentry_02" index="0"]
 transform = Transform3D(0.0188057, 0, 0.999823, 0, 1, 0, -0.999823, 0, 0.0188057, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_8ehar")

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b38sjjbhruie0"
 path.s3tc="res://.godot/imported/Ch02_1001_Diffuse.png-7d02ecf010f070895c16297b100160d2.s3tc.ctex"
+path.etc2="res://.godot/imported/Ch02_1001_Diffuse.png-7d02ecf010f070895c16297b100160d2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://test/scenarios/test_animation_state_machine/player_placeholder/model/textures/Ch02_1001_Diffuse.png"
-dest_files=["res://.godot/imported/Ch02_1001_Diffuse.png-7d02ecf010f070895c16297b100160d2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ch02_1001_Diffuse.png-7d02ecf010f070895c16297b100160d2.s3tc.ctex", "res://.godot/imported/Ch02_1001_Diffuse.png-7d02ecf010f070895c16297b100160d2.etc2.ctex"]
 
 [params]
 

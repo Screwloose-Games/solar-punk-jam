@@ -59,7 +59,7 @@ enabled = false
 navigation_layers = 0
 
 [node name="CollisionShape3D" parent="collision_playerhouse-colonly/col_playerhouse" index="0"]
-transform = Transform3D(0.853661, 0, 0, 0, 1, 0, 0, 0, 1, 1.41954, 0, 0)
+transform = Transform3D(0.897084, 0, 0, 0, 1, 0, 0, 0, 1, -0.59898, 0, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="collision_playerhouse-colonly/col_playerhouse" index="1"]
 transform = Transform3D(0.370183, 0, 0, 0, 1, 0, 0, 0, 0.790529, -8.44993, 0, -0.852662)

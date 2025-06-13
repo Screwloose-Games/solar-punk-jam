@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dolfwlp3t2a15"
 path.s3tc="res://.godot/imported/color-atlas-emission-night.png-5381b3ef32256978b6a182d11ece3b20.s3tc.ctex"
+path.etc2="res://.godot/imported/color-atlas-emission-night.png-5381b3ef32256978b6a182d11ece3b20.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/buildings/destroyed/destroyed_building_01/color-atlas-emission-night.png"
-dest_files=["res://.godot/imported/color-atlas-emission-night.png-5381b3ef32256978b6a182d11ece3b20.s3tc.ctex"]
+dest_files=["res://.godot/imported/color-atlas-emission-night.png-5381b3ef32256978b6a182d11ece3b20.s3tc.ctex", "res://.godot/imported/color-atlas-emission-night.png-5381b3ef32256978b6a182d11ece3b20.etc2.ctex"]
 
 [params]
 

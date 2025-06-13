@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbax186btc83h"]
+
+[ext_resource type="Script" uid="uid://bnxskbcbq6k0y" path="res://test/scenarios/test_unlock_next_quest.gd" id="1_ov75o"]
+[ext_resource type="Resource" uid="uid://d3k7l24o3467h" path="res://narrative/quests/qst_a1d1_garden.tres" id="2_v7s81"]
+[ext_resource type="PackedScene" uid="uid://co1kf3n1i47iy" path="res://actors/player_character/player.tscn" id="3_y20da"]
+[ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="4_cxgvt"]
+
+[node name="TestUnlockNextQuest" type="Node3D"]
+script = ExtResource("1_ov75o")
+quest = ExtResource("2_v7s81")
+
+[node name="Player" parent="." instance=ExtResource("3_y20da")]
+
+[node name="HUDCanvasLayer" parent="." instance=ExtResource("4_cxgvt")]

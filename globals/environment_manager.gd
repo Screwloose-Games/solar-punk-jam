@@ -4,115 +4,13 @@ signal day_cycle_start()
 signal day_cycle_end()
 signal day_cycle_update(offset: float)
 signal force_end_day()
-signal UpdatedAvailableResources
 signal act_updated(act_num: int)
 
-const characters = ["Seeds","Contractor","Electrician","Craftor","Plumber"]
-const resources = ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds", "Environment"]
-# These will not be enumerated in the HUD by default since they are displayed in other ways
-const hidden_resources = ["Happiness", "Environment"]
-
-var resource_storage_limits = {"Electricity":0, "Water":0}
-
-var current_resources = {"Happiness":10}
-var daily_resources = {}
-var deposited_resources = {}
 var current_act: int = 1:
 	set(val):
 		if current_act != val:
 			act_updated.emit(current_act)
 			current_act = val
-
-func add_storage_capacity(resource: String, amount: int) -> void:
-	if not resource_storage_limits.has(resource):
-		push_warning("Trying to add storage for an unknown resource: %s" % resource)
-		return
-	resource_storage_limits[resource] += amount
-
-func set_storage_capacity(resource: String, amount: int) -> void:
-	if not resource_storage_limits.has(resource):
-		push_warning("Trying to set storage for an unknown resource: %s" % resource)
-		return
-	resource_storage_limits[resource] = amount
-
-# Gets the current storage capacity
-func get_storage_capacity(resource: String) -> int:
-	if not resource_storage_limits.has(resource):
-		push_warning("Trying to get storage for an unknown resource: %s" % resource)
-		return 0
-	return resource_storage_limits[resource]
-
-func gain_resource(resource: String, quantity: int):
-	prints("Gaining", resource, quantity, current_resources)
-	if resource in current_resources:
-		current_resources[resource] += quantity
-	else:
-		current_resources[resource] = quantity
-		
-		
-	if resource in daily_resources:
-		daily_resources[resource] += quantity
-	else:
-		daily_resources[resource] = quantity
-		
-		
-
-	if resource in resource_storage_limits:
-		if current_resources[resource] > resource_storage_limits[resource]:
-			prints("We cannot store all of this resource, discarding some")
-			current_resources[resource] = resource_storage_limits[resource]
-		if daily_resources[resource] > resource_storage_limits[resource]:
-			daily_resources[resource] = resource_storage_limits[resource]
-
-	UpdatedAvailableResources.emit()
-
-func gain_resources(new_resources: Dictionary[String, int]):
-	for resource in new_resources:
-		gain_resource(resource, new_resources[resource])
-	return true
-
-func spend_resource(resource: String, quantity: int):
-	if resource in current_resources:
-		current_resources[resource] -= quantity
-		if current_resources[resource] < 0:
-			current_resources[resource] = 0
-	else:
-		current_resources[resource] = 0
-	UpdatedAvailableResources.emit()
-
-func spend_resources(new_resources: Dictionary[String, int]):
-	for resource in new_resources:
-		spend_resource(resource, new_resources[resource])
-	return true
-
-func deposit_resource(resource: String, quantity: int):
-	prints("Depositing", resource, quantity, current_resources)
-	if resource in current_resources:
-		deposited_resources[resource] += quantity
-	else:
-		deposited_resources[resource] = quantity
-	UpdatedAvailableResources.emit()
-
-func check_amount(resource: String, quantity: int):
-	return has_at_least(resource, quantity)
-		
-func has_at_least(resource: String, quantity: int):
-	if resource in current_resources:
-		return current_resources[resource] >= quantity
-	else:
-		return false
-
-func has_enough(required_resources: Dictionary[String, int]):
-	for resource in required_resources:
-		if resource in current_resources:
-			if current_resources[resource] < required_resources[resource]:
-				return false
-	return true
-
-func get_resource_count(resource: String):
-	if resource in current_resources:
-		return current_resources[resource]
-	return 0
 
 func end_day():
 	force_end_day.emit()
@@ -136,6 +34,7 @@ class TimeStruct:
 class EnvironmentModel:
 	signal started_raining
 	signal stopped_raining
+	signal day_updated(day_num: int)
 	
 	var current_time_in_game_hours = 12.0
 	var day_length_in_game_hours = 12.0
@@ -156,7 +55,12 @@ class EnvironmentModel:
 			is_raining = val
 			
 	var rain_period = 5
-	var day := 0
+	var day := 0:
+		set(val):
+			if val != day:
+				day_updated.emit(val)
+			day = val
+				
 	var offset: float
 	func update(current_time_in_game_hours, day_length_in_game_hours, day_start_in_game_hours, day_length_in_seconds, night_length_in_seconds, is_paused) -> void:
 		self.current_time_in_game_hours = current_time_in_game_hours
@@ -193,7 +97,17 @@ class EnvironmentModel:
 var environment_model: EnvironmentModel
 
 func _ready() -> void:
+	initialize()
+	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
+
+func initialize():
 	environment_model = EnvironmentModel.new()
 	self.day_cycle_update.connect(self.environment_model.set_offset)
 	self.day_cycle_start.connect(self.environment_model.set_daytime)
 	self.day_cycle_end.connect(self.environment_model.set_nighttime)
+
+func _on_world_unloaded():
+	reset()
+
+func reset():
+	initialize()

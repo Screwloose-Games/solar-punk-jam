@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfgc0yyg5uiko"]
+
+[ext_resource type="PackedScene" uid="uid://cqjna6ks7h84t" path="res://assets/3d/structures/buildable_structure.tscn" id="1_ryhfi"]
+[ext_resource type="PackedScene" uid="uid://pymb8encx3b1" path="res://assets/3d/structures/picnic_table/sm_picnic_table.tscn" id="2_vilin"]
+
+[node name="PicnicTable" instance=ExtResource("1_ryhfi")]
+structure_id = "Picnic Table"
+
+[node name="sm_picnic_table" parent="." index="0" instance=ExtResource("2_vilin")]
+
+[editable path="InteractableArea3D"]

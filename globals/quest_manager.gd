@@ -35,11 +35,20 @@ signal crop_planted(name : String)
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
 	# Signals that need to be 'digested' to simplify the argument they pass
-	EnvironmentManager.UpdatedAvailableResources.connect(update_resources)
+	ResourcesManager.UpdatedAvailableResources.connect(update_resources)
 	StructureManager.StructureBuilt.connect(update_structures)
 	GlobalSignalBus.seed_planted.connect(update_crop)
 	unlock_quest("a1d1_trin")
+	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
 
+func _on_world_unloaded():
+	reset()
+
+func reset():
+	quests.clear()
+	quest_markers.clear()
+	unlocked_quests.clear()
+	Dialogic.VAR.clear_game_state()
 
 func unlock_quest(quest_id : String):
 	var new_quest = load(FILE_PATH % ("qst_" + quest_id))
@@ -53,6 +62,9 @@ func start_quest(file_name : String):
 
 
 func start_quest_resource(new_quest: Quest):
+	if new_quest.is_active:
+		return
+	new_quest.is_active = true
 	quests.append(new_quest)
 	for quest in unlocked_quests:
 		if quest.id == new_quest.id:
@@ -86,10 +98,10 @@ func update_crop(crop : Crop):
 
 func update_resources():
 	for res_name in RESOURCE_MAP.keys():
-		if res_name in EnvironmentManager.current_resources.keys():
+		if res_name in ResourcesManager.current_resources.keys():
 			var res_varname = RESOURCE_MAP[res_name]
 			if res_varname in Dialogic.VAR.variables():
-				var res_value = EnvironmentManager.current_resources[res_name]
+				var res_value = ResourcesManager.current_resources[res_name]
 				Dialogic.VAR.set_variable(res_varname, res_value)
 	check_quests()
 

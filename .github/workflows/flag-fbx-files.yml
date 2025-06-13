@@ -1,0 +1,42 @@
+name: Flag FBX Files
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.fbx'
+permissions:
+  pull-requests: write
+  contents: write
+jobs:
+  flag-fbx-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get changed files
+        id: fbx_check
+        uses: tj-actions/changed-files@v46
+        with:
+          json: true
+          write_output_files: true
+          separator: "\n"
+          files: '**.fbx'
+      - name: Comment on PR if .fbx files found
+        if: steps.fbx_check.outputs.any_changed == 'true'
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-id: 'flag-fbx-files-comment'
+          body: |
+            # :warning: `FBX` files detected in this PR. 
+            Please ensure that these files are necessary and consider converting them to `GLTF` format if possible.
+
+            * Export GLTF from Maya using [Babel plugin](https://doc.babylonjs.com/features/featuresDeepDive/Exporters/Maya_to_glTF)
+            * [Export GLTF with Blender](https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html)
+            * [Exporting Unreal Engine Content to glTF](https://dev.epicgames.com/documentation/en-us/unreal-engine/exporting-unreal-engine-content-to-gltf)
+            * [Export to GLTF from Substance Painter](https://community.adobe.com/t5/substance-3d-painter-discussions/how-to-export-from-adobe-substance-3d-painter-to-glb-files/td-p/14210721)
+            * Changed FBX files: ${{ steps.fbx_check.outputs.all_changed_files }}
+      - name: Fail the job if .fbx files are found
+        if: steps.fbx_check.outputs.any_changed == 'true'
+        run: |
+          echo "FBX files found in this PR. Please convert them to GLTF format."
+          exit 1

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://clydlfp40f0kw"
 path.s3tc="res://.godot/imported/KaiTexture.png-ccb242bae911ea67769aae578e7b86de.s3tc.ctex"
+path.etc2="res://.godot/imported/KaiTexture.png-ccb242bae911ea67769aae578e7b86de.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/people/kai/KaiTexture.png"
-dest_files=["res://.godot/imported/KaiTexture.png-ccb242bae911ea67769aae578e7b86de.s3tc.ctex"]
+dest_files=["res://.godot/imported/KaiTexture.png-ccb242bae911ea67769aae578e7b86de.s3tc.ctex", "res://.godot/imported/KaiTexture.png-ccb242bae911ea67769aae578e7b86de.etc2.ctex"]
 
 [params]
 

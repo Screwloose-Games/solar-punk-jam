@@ -123,19 +123,15 @@ text = "show/hide debug UI"
 [node name="UpdateResourcesComponent" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_sxc7k")
-resources = Dictionary[String, int]({
-"Electricity": 100,
-"Food": 100,
-"Happiness": 100,
-"Materials": 100,
-"Seeds": 100,
-"Soil": 100,
-"Waste": 100,
-"Water": 100
-})
-resource_storage_limits = Dictionary[String, int]({
-"Electricity": 100,
-"Water": 100
+resources = Dictionary[int, int]({
+0: 20,
+1: 20,
+2: 20,
+3: 20,
+4: 20,
+5: 20,
+6: 20,
+7: 20
 })
 metadata/_custom_type_script = "uid://cp0gcaquk0nu7"
 
@@ -171,12 +167,14 @@ structures = Dictionary[String, bool]({
 metadata/_custom_type_script = "uid://bdour1f6ee8mm"
 
 [node name="LabelMarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 102.0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LabelMarginContainer"]
 layout_mode = 2

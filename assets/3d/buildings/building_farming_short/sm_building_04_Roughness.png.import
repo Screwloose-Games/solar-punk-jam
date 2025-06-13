@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckogxwbp0mxo4"
 path.s3tc="res://.godot/imported/sm_building_04_Roughness.png-d69a8c05a1d97bf2ce928e7b7cb9d47e.s3tc.ctex"
+path.etc2="res://.godot/imported/sm_building_04_Roughness.png-d69a8c05a1d97bf2ce928e7b7cb9d47e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/buildings/building_farming_short/sm_building_04_Roughness.png"
-dest_files=["res://.godot/imported/sm_building_04_Roughness.png-d69a8c05a1d97bf2ce928e7b7cb9d47e.s3tc.ctex"]
+dest_files=["res://.godot/imported/sm_building_04_Roughness.png-d69a8c05a1d97bf2ce928e7b7cb9d47e.s3tc.ctex", "res://.godot/imported/sm_building_04_Roughness.png-d69a8c05a1d97bf2ce928e7b7cb9d47e.etc2.ctex"]
 
 [params]
 

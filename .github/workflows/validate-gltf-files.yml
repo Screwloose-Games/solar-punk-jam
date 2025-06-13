@@ -1,0 +1,143 @@
+name: Validate GLTF Files
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '**.gltf'
+      - '**.glb'
+
+# Add permissions block
+permissions:
+  pull-requests: write  # Required to create/update comments
+  contents: write # write access to the repository contents
+  packages: read # read access to the GitHub Packages
+
+jobs:
+  validate-gltf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Find changed GLTF files
+        id: changed-files
+        uses: tj-actions/changed-files@v46
+        with:
+          json: true
+          write_output_files: true
+          separator: "\n"
+          files: |
+            **.gltf
+            **.glb
+      - name: Verify the contents of the .github/outputs/all_changed_files.json file
+        run: |
+          cat .github/outputs/all_changed_files.json
+          echo "All changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+
+      - name: Create output directory
+        run: mkdir -p gltf-validation-results
+
+      - name: Install Xvfb and dependencies
+        run: sudo apt-get update && sudo apt-get install -y xvfb
+
+      - name: GLTF validator
+        id: gltf-validator
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_COMMIT_SHA: ${{ github.sha }}
+        run: |
+          HOST_OUTPUT_DIR="$(dirname "$GITHUB_OUTPUT")"
+
+          if [ -s .github/outputs/all_changed_files.json ]; then
+            echo "Processing files from JSON..."
+
+            # Parse JSON array into a Bash array
+            mapfile -t files < <(jq -r '.[]' .github/outputs/all_changed_files.json)
+
+            for f in "${files[@]}"; do
+              echo "  $f"
+            done
+
+            docker run --rm \
+              -v "$(pwd):/workspace" \
+              -v "${HOST_OUTPUT_DIR}:${HOST_OUTPUT_DIR}" \
+              -w /workspace \
+              -e GITHUB_OUTPUT="${GITHUB_OUTPUT}" \
+              -e GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
+              -e GITHUB_COMMIT_SHA="${GITHUB_COMMIT_SHA}" \
+              ghcr.io/screwloose-games/gltf-validator:latest \
+              "/workspace/gltf-validation-results" "${files[@]}"
+          else
+            echo "No GLTF files to process"
+          fi
+
+      - name: Upload validation results
+        if: steps.changed-files.outputs.any_changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gltf-validation-results
+          path: gltf-validation-results/
+          retention-days: 1
+
+      # - name: Configure Git author
+      #   run: |
+      #     # local to this repo:
+      #     git config user.name "GitHub Actions"
+      #     git config user.email "actions@github.com"
+
+      # - name: Create assets branch
+      #   run: |
+      #     if ! git show-ref --verify --quiet refs/heads/assets; then
+      #       git checkout --orphan assets
+      #       git fetch origin assets || true
+      #       git reset --hard origin/assets || true
+      #       git commit --allow-empty -m "Initial empty commit on assets branch"
+      #       git push origin assets
+      #     fi
+      
+      # - name: Checkout code
+      #   uses: actions/checkout@v4
+      
+      - name: Checkout assets branch
+        uses: actions/checkout@v3
+        with:
+          ref: assets
+          path: assets-branch
+
+      - name: Run markdown processor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+        run: python .github/scripts/process_markdown.py "gltf-validation-results/github_comment.md"
+
+      - name: Commit and push new images to `assets` branch
+        run: |
+          cd assets-branch
+          git status
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add uploaded-assets
+          git commit -m "Add uploaded assets" || echo "No changes to commit"
+          git push origin HEAD:assets
+      
+      - name: Set workflow status
+        run: |
+          if [ "${{ steps.gltf-validator.outputs.success }}" == "true" ]; then
+            echo "GLTF validation completed successfully."
+          else
+            echo "GLTF validation failed. Please check the results."
+            exit 1
+          fi

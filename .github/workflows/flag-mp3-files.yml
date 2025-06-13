@@ -1,0 +1,44 @@
+name: Flag MP3 Files
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.mp3'
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  flag-mp3-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get changed files
+        id: mp3_check
+        uses: tj-actions/changed-files@v46
+        with:
+          json: true
+          write_output_files: true
+          separator: "\n"
+          files: '**.mp3'
+
+      - name: Comment on PR if .mp3 files found
+        if: steps.mp3_check.outputs.any_changed == 'true'
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-id: 'flag-mp3-files-comment'
+          body: |
+            # :warning: `MP3` files detected in this PR.
+
+            MP3 files are often not ideal for game audio, especially for sounds that need to loop seamlessly, due to the silence added at the beginning and end of the file. Please consider using `.WAV` for short, looping sounds or `.OGG` for longer music tracks.
+
+            * [A Quick Developer's Guide to Game Audio Files](https://blog.blips.fm/articles/game-audio-files-a-quick-developers-guide#:~:text=Also%2C%20MP3%20should%20not%20be,and%20disruptive%20to%20the%20player.)
+            * **Changed MP3 files:** ${{ steps.mp3_check.outputs.all_changed_files }}
+
+      - name: Fail the job if .mp3 files are found
+        if: steps.mp3_check.outputs.any_changed == 'true'
+        run: |
+          echo "Error: MP3 files found in this PR. Please consider using WAV or OGG instead for better in-game performance."
+          exit 1

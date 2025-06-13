@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://doyskjnn15sqr"]
+
+[ext_resource type="Script" uid="uid://28hgtltbldkw" path="res://tools/quest_designer.gd" id="1_80pxj"]
+[ext_resource type="Script" uid="uid://bh7hmraqtw4fp" path="res://tools/quest_designer_canvas_graph_edit.gd" id="2_uekww"]
+[ext_resource type="Resource" uid="uid://k84uim5k6pus" path="res://tools/quest_designer.tres" id="3_jwma5"]
+[ext_resource type="Script" uid="uid://ctp54mbq1si46" path="res://tools/restart_button.gd" id="9_45s1g"]
+[ext_resource type="Script" uid="uid://578enncg1tx4" path="res://tools/quest_list.gd" id="10_uxv71"]
+
+[node name="QuestDesigner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_80pxj")
+
+[node name="QuestDesignerCanvas" type="GraphEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_uekww")
+layout = ExtResource("3_jwma5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+offset_top = 63.0
+offset_right = 176.0
+offset_bottom = 279.0
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Reload "
+script = ExtResource("9_45s1g")
+
+[node name="SaveLayoutButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Save Layout"
+
+[node name="RestoreLayoutButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Restore Layout"
+
+[node name="OrganizeLayoutButton" type="Button" parent="CanvasLayer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Arrage Selected Nodes"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="QuestPreviewList" type="VBoxContainer" parent="CanvasLayer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+script = ExtResource("10_uxv71")

@@ -6,6 +6,10 @@ extends Control
 @export var close_sound: AudioStream
 
 
+func _ready():
+	GlobalSignalBus.title_screen_started.emit()
+
+
 func _on_open():
 	SoundManager.play_sound(open_sound, GSoundManager.SoundPlayerType.UI)
 

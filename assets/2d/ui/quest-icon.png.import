@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd4fnnf7ymbcr"
 path.s3tc="res://.godot/imported/quest-icon.png-988d54d268337017f42d4736064503ed.s3tc.ctex"
+path.etc2="res://.godot/imported/quest-icon.png-988d54d268337017f42d4736064503ed.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/ui/quest-icon.png"
-dest_files=["res://.godot/imported/quest-icon.png-988d54d268337017f42d4736064503ed.s3tc.ctex"]
+dest_files=["res://.godot/imported/quest-icon.png-988d54d268337017f42d4736064503ed.s3tc.ctex", "res://.godot/imported/quest-icon.png-988d54d268337017f42d4736064503ed.etc2.ctex"]
 
 [params]
 

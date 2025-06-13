@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7i0c41vedrev"
 path.s3tc="res://.godot/imported/t_picnictable_baseColor.png-35554f3981e2160662ea18f1f28cd069.s3tc.ctex"
+path.etc2="res://.godot/imported/t_picnictable_baseColor.png-35554f3981e2160662ea18f1f28cd069.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/structures/picnic_table/t_picnictable_baseColor.png"
-dest_files=["res://.godot/imported/t_picnictable_baseColor.png-35554f3981e2160662ea18f1f28cd069.s3tc.ctex"]
+dest_files=["res://.godot/imported/t_picnictable_baseColor.png-35554f3981e2160662ea18f1f28cd069.s3tc.ctex", "res://.godot/imported/t_picnictable_baseColor.png-35554f3981e2160662ea18f1f28cd069.etc2.ctex"]
 
 [params]
 

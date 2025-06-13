@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cclc1y2vurii7"
 path.s3tc="res://.godot/imported/Radish_standardSurface1_Metallic.png-144b3fff12f6e29f66caf8278c439ab2.s3tc.ctex"
+path.etc2="res://.godot/imported/Radish_standardSurface1_Metallic.png-144b3fff12f6e29f66caf8278c439ab2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/crops/radish/Radish_standardSurface1_Metallic.png"
-dest_files=["res://.godot/imported/Radish_standardSurface1_Metallic.png-144b3fff12f6e29f66caf8278c439ab2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Radish_standardSurface1_Metallic.png-144b3fff12f6e29f66caf8278c439ab2.s3tc.ctex", "res://.godot/imported/Radish_standardSurface1_Metallic.png-144b3fff12f6e29f66caf8278c439ab2.etc2.ctex"]
 
 [params]
 

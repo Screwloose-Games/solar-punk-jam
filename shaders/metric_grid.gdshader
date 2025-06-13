@@ -22,27 +22,27 @@ void fragment(){
 	if (pos.z <= 0.0) pos.z = abs(pos.z - half);
 	pos /= gridSize;
 	//pos += gridSize * half;
-	
+
 	pos.y += float(fract(float(int(pos.x*half))/half));
 	pos.z += float(fract(float(int(pos.y*half))/half));
-	
+
 	vec3 col = vec3(0.0);
 	if (vec3(fract(float(int(pos.z*half))/half)) == vec3(0.0)) {
 		col += lightColor.rgb;
 	} else {
 		col += darkColor.rgb;
 	}
-	
+
 	// border color
 	if (borde(pos.x)) col = borderColor.rgb;
 	if (borde(pos.y)) col = borderColor.rgb;
 	if (borde(pos.z)) col = borderColor.rgb;
-	
+
 	ROUGHNESS = col.x / half + 1.0;
 	ALBEDO = col;
 	//METALLIC = 1f;
 	//SPECULAR = 1f;
-	
+
 	// alpha changes the rendering order
 	//ALPHA = 1f;
 }

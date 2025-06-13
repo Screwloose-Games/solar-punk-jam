@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp86x70152prr"]
+
+[ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="1_nulit"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xdnvy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdnvy"]
+albedo_color = Color(0, 0.4, 0.52549, 1)
+
+[node name="SolarPanel" type="StaticBody3D"]
+
+[node name="sm_solar_panel" parent="." instance=ExtResource("1_nulit")]
+
+[node name="SolarPanelBase" type="MeshInstance3D" parent="sm_solar_panel"]
+mesh = SubResource("PlaneMesh_xdnvy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xdnvy")

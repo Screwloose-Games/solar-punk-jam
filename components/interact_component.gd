@@ -64,6 +64,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed(interact_action):
 		if owner.is_interacting and selected and selected.toggleable:
 			is_interacting = false
+		if owner.should_ignore_interact:
+			return
 		elif selected is InteractableArea3D:
 			selected.interact(player)
 			selected.stopped_interacting.connect(_on_stopped_interacting.bind(selected))

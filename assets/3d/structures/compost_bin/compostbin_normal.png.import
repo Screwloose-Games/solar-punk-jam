@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://q4runlisyfai"
 path.s3tc="res://.godot/imported/compostbin_normal.png-078c5c4c6004a65afe367ab219385bbd.s3tc.ctex"
+path.etc2="res://.godot/imported/compostbin_normal.png-078c5c4c6004a65afe367ab219385bbd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/structures/compost_bin/compostbin_normal.png"
-dest_files=["res://.godot/imported/compostbin_normal.png-078c5c4c6004a65afe367ab219385bbd.s3tc.ctex"]
+dest_files=["res://.godot/imported/compostbin_normal.png-078c5c4c6004a65afe367ab219385bbd.s3tc.ctex", "res://.godot/imported/compostbin_normal.png-078c5c4c6004a65afe367ab219385bbd.etc2.ctex"]
 
 [params]
 
