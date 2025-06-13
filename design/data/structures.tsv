@@ -13,7 +13,7 @@ Rain barrel	2	2	2	Collects water each time it rains. 	rain_barrel.tscn	water-bar
 Raised bed	0.5	1	2	Turns seeds into food when planted with compost and water. A large area gardening bed. 	raised_bed.tscn	raised-bed	0	1	1	25	Contractor	3		86						0	Soil						
 Vertical garden	0.5	1	1	Turns seeds into food when planted with compost and water. A tall vertical gardening bed. 	vertical_garden.tscn		0	1	1	25	Contractor	3		86						0							
 Recycling station	1.8	2	2	Bins and sorting area for recyclable materials	_		0	2	10	1	Contractor	4	Solar panel	344						0							
-Solar panel	1.2	2	1	Photovoltaic panel for converting sunlight into electricity	solar_panel.tscn	solar-pannel	0	2	10	3	Electrician	4		215	10					0							
+Solar panel	1.2	2	2	Photovoltaic panel for converting sunlight into electricity	solar_panel.tscn	solar-pannel	0	2	10	3	Electrician	4		215	10					0							
 Tool library	2.8	4	4	TBD	_		0	2	5	1	Contractor_	2		215						0							
 Tree	2.5	2	2	Fruit-bearing trees or bushes	_		1	2	2		Seeds	0		43						0	Seeds	Food					
 Vegetables	0.5	1	1	Small garden bed for growing vegetables	_		1	2	2		Seeds	0		1						0	Seeds,Water,Soil	Food	1	1			
