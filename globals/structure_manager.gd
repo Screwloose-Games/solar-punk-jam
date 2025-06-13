@@ -44,6 +44,7 @@ func set_active_surface(surface):
 signal UpdatedAvailableStructures()
 signal BuildableStructureSelected(idx: int)
 signal StructureBuilt(s: BuiltStructure)
+signal built_structure(s_name : String)
 
 const BUILDABLE_EMPTY_SPACE = Vector2i(2,7)
 const BUILDABLE_RAISED_BED_SPACE = Vector2i(4,7)
@@ -125,6 +126,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption=fa
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	StructureBuilt.emit(new_structure)
+	built_structure.emit(get_structure_name(new_structure.structure))
 	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.ENVIRONMENT, environment_gain_per_structure_built)
 
 
