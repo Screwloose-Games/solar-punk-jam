@@ -821,11 +821,6 @@ polygon = PackedVector2Array(13.7633, 34.4929, 35.9793, 35.1791, 49.786, 23.6757
 
 [node name="Lighting" type="Node3D" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72446, 1.24854, 12.9387)
-light_energy = 0.5
-omni_range = 2.0
-
 [node name="TrinOmniLight3D" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9307, 1.41028, -0.416077)
 light_energy = 0.5
