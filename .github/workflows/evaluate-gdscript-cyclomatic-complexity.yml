@@ -74,11 +74,11 @@ jobs:
 
       - name: Comment PR with Complexity Report
         if: steps.changed-files.outputs.any_changed == 'true' && steps.cc.outputs.cc_output != ''
-        uses: thollander/actions-comment-pull-request@v3
+        uses: peter-evans/create-or-update-comment@v3
         with:
-          comment-tag: cyclomatic-complexity-check
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          message: |
+          comment-id: cyclomatic-complexity-check
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
             ## 📊 Cyclomatic Complexity Report
             ${{ steps.cc.outputs.exit_code == '0' && '✅ Complexity within acceptable bounds' || '❌ Complexity thresholds exceeded' }}
 
