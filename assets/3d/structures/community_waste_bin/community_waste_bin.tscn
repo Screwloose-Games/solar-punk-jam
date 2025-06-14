@@ -11,6 +11,7 @@ editor_description = "Players receive food waste and seeds from the NPCs in rela
 Day A: player donates 10 food items
 
 Day B: player receives 10 waste and seeds"
+structure_name = "Waste bin"
 
 [node name="WasteBin" type="Node" parent="." index="0"]
 script = ExtResource("2_ndh12")
