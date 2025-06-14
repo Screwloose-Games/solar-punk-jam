@@ -1,5 +1,5 @@
-extends Resource
 class_name Quest
+extends Resource
 
 signal quest_state_changed
 signal quest_completed(giver : String)
@@ -75,7 +75,7 @@ func _on_objective_completed(this_objective : QuestObjective):
 			progress += 1
 	if all_complete:
 		mark_complete()
-		
+
 	else:
 		quest_state_changed.emit()
 
@@ -105,4 +105,3 @@ func reset():
 	is_complete = false
 	for objective in objectives:
 		objective.reset()
-	
