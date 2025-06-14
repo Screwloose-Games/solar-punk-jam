@@ -101,7 +101,7 @@ script = ExtResource("1_r1qyg")
 quest_list = Array[ExtResource("2_n4pq3")]([ExtResource("3_kaivu")])
 
 [node name="QuestMarker3D" parent="." instance=ExtResource("4_4yc5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19583, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41133, 0)
 id = "board"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -127,6 +127,7 @@ shape = SubResource("CapsuleShape3D_fsbli")
 
 [node name="InteractNotify" parent="." instance=ExtResource("3_khjfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3247, 0)
+visible = false
 npc_id = "board"
 show_indicator = false
 

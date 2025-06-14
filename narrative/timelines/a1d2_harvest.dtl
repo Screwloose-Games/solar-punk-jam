@@ -1,6 +1,7 @@
 # **EXT. HOME - ROOF - MORNING** 
 
 # Kai stands on the roof, looking at Te’s garden.
+label prog1
 
 Mom: TEEEEE!!!
 
@@ -22,4 +23,5 @@ Te: Fine…I’ll go check the board.
 
 Mom: I love you too, Gremlin.
 label skip
+[end_timeline]
 # **QUEST FOR DAILY DUTY**
