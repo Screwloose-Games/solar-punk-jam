@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_cascf"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_lgqfx"]
-[ext_resource type="Resource" uid="uid://cp4hipgme2pa1" path="res://narrative/quests/qst_a1d2_tempunlocks.tres" id="3_lgqfx"]
 
 [sub_resource type="Resource" id="Resource_77q8f"]
 script = ExtResource("2_lgqfx")
 autoload_name = "GlobalSignalBus"
 signal_name = "talked_to"
-expected_args = [null]
+expected_args = ["mom"]
 description = "Talk to Kai"
 goal = 1
 prerequisites = Array[int]([])
@@ -20,7 +19,7 @@ metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_i1qdm"]
 script = ExtResource("2_lgqfx")
-autoload_name = "QuestManager"
+autoload_name = "GlobalSignalBus"
 signal_name = "crop_harvested"
 expected_args = []
 description = "Harvest a radish"
@@ -44,6 +43,19 @@ marker_id = "community_food_stand"
 type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
+[sub_resource type="Resource" id="Resource_lgqfx"]
+script = ExtResource("2_lgqfx")
+autoload_name = "GlobalSignalBus"
+signal_name = "community_board_interacted"
+expected_args = []
+description = "Check the Community board"
+goal = 1
+prerequisites = Array[int]([2])
+play_dialogue = "prog2"
+marker_id = "board"
+type = 0
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
 [resource]
 script = ExtResource("2_cascf")
 id = "a1d2_harvest"
@@ -51,11 +63,10 @@ name = "Harvest and deliver plants"
 quest_giver = "mom"
 description = "Quest Description"
 community_board_text = ""
-objectives = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa")])
+objectives = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
-on_complete_starts_quest = ExtResource("3_lgqfx")
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

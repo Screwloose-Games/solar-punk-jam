@@ -1,5 +1,8 @@
-extends Resource
 class_name Quest
+extends Resource
+
+signal quest_state_changed
+signal quest_completed(giver : String)
 
 @export var id : String = "quest_id"
 @export var name : String = "Quest Name"
@@ -17,10 +20,6 @@ class_name Quest
 
 var is_active: bool = false
 var is_complete : bool = false
-
-signal quest_state_changed
-signal quest_completed(giver : String)
-
 
 var rewards: Dictionary[String, int] = {}:
 	get:
@@ -76,7 +75,7 @@ func _on_objective_completed(this_objective : QuestObjective):
 			progress += 1
 	if all_complete:
 		mark_complete()
-		
+
 	else:
 		quest_state_changed.emit()
 
@@ -89,3 +88,20 @@ func mark_complete():
 	quest_completed.emit(quest_giver)
 	if on_complete_starts_quest:
 		QuestManager.start_quest_resource(on_complete_starts_quest)
+
+func get_next_step() -> QuestObjective:
+	for objective in objectives:
+		if objective.is_unlocked and !objective.is_completed:
+			return objective
+	return null
+
+func complete_next_step() -> void:
+	var next_step = get_next_step()
+	if next_step:
+		next_step.set_complete(true)
+
+func reset():
+	is_active = false
+	is_complete = false
+	for objective in objectives:
+		objective.reset()

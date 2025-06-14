@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://b061t0r5qdbh6"]
+[gd_scene load_steps=10 format=3 uid="uid://b061t0r5qdbh6"]
 
 [ext_resource type="Script" uid="uid://dymscuems4irn" path="res://globals/debug_ui.gd" id="1_7ny8s"]
 [ext_resource type="Script" uid="uid://d6gh3spmgbp0" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="2_2j3hm"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="2_sxc7k"]
+[ext_resource type="Script" uid="uid://btd27cbw2fm4u" path="res://globals/debug_ui/start_quest_debug_ui.gd" id="2_tb76i"]
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="3_obpqu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb76i"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Texture2D" id="Texture2D_tb76i"]
 resource_local_to_scene = false
@@ -70,6 +74,34 @@ text = "Player Speed"
 [node name="PlayerSpeedLineEdit" type="LineEdit" parent="DebugUIContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="StartQuestDebugUI" type="HBoxContainer" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_tb76i")
+
+[node name="QuestOptions" type="OptionButton" parent="DebugUIContainer/MarginContainer/VBoxContainer/StartQuestDebugUI"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuestActionButton" type="Button" parent="DebugUIContainer/MarginContainer/VBoxContainer/StartQuestDebugUI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+text = "Start Quest
+"
+
+[node name="QuestCompleteStepButton" type="Button" parent="DebugUIContainer/MarginContainer/VBoxContainer/StartQuestDebugUI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "Complete step"
+
+[node name="QuestCancelButton" type="Button" parent="DebugUIContainer/MarginContainer/VBoxContainer/StartQuestDebugUI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tb76i")
+text = "X"
 
 [node name="GiveResourcesButton" type="Button" parent="DebugUIContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
