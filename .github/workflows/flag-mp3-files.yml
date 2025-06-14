@@ -25,11 +25,11 @@ jobs:
 
       - name: Comment on PR if .mp3 files found
         if: steps.mp3_check.outputs.any_changed == 'true'
-        uses: peter-evans/create-or-update-comment@v3
+        uses: thollander/actions-comment-pull-request@v3
         with:
-          issue-number: ${{ github.event.pull_request.number }}
-          comment-id: 'flag-mp3-files-comment'
-          body: |
+          comment-tag: flag-mp3-files-comment
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          message: |
             # :warning: `MP3` files detected in this PR.
 
             MP3 files are often not ideal for game audio, especially for sounds that need to loop seamlessly, due to the silence added at the beginning and end of the file. Please consider using `.WAV` for short, looping sounds or `.OGG` for longer music tracks.

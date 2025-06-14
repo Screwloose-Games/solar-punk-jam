@@ -80,11 +80,11 @@ jobs:
     # 7) comment PR with CC report
     - name: Comment PR with Cyclomatic Complexity Report
       if: steps.changed-files.outputs.any_changed == 'true' && steps.cc.outputs.cc_output
-      uses: peter-evans/create-or-update-comment@v3
+      uses: thollander/actions-comment-pull-request@v3
       with:
-        issue-number: ${{ github.event.pull_request.number }}
-        comment-id: 'gdscript-cyclomatic-complexity-check'
-        body: |
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        comment-tag: 'gdscript-cyclomatic-complexity-check'
+        message: |
           ## 📈 Cyclomatic Complexity Report
           ${{ steps.cc.outputs.cc_exit_code == '0' && '✅ No complexity issues detected' || '❌ Complexity issues found' }}
 
