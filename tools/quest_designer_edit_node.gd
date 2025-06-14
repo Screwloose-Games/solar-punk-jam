@@ -1,4 +1,5 @@
 @tool
+## This is the UI for editing a Quest in the Quest Designer.
 class_name QuestEditUi
 extends GraphNode
 
