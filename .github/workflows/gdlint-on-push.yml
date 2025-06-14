@@ -26,45 +26,80 @@ jobs:
         uses: tj-actions/changed-files@v46
         with:
           files: '**/*.gd'
+          files_ignore: 'addons/**'
 
-      - name: Save changed files list
+      - name: Early exit if no GD files changed
+        if: steps.changed-files.outputs.any_changed != 'true'
+        run: echo "No GDScript files changed, skipping lint"
+
+      - name: Set up Python with enhanced caching
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          echo "${{ steps.changed-files.outputs.all_changed_files }}"\
-            | tr ' ' '\n' > gd_script_files.txt
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
           cache: 'pip'
-      - name: Install gdtoolkit
-        run: pip install -q gdtoolkit==4.*
+          cache-dependency-path: |
+            **/requirements*.txt
+            **/pyproject.toml
+            **/setup.py
+
+      - name: Cache gdtoolkit installation
         if: steps.changed-files.outputs.any_changed == 'true'
-      
-      - name: Install & Lint
+        uses: actions/cache@v4
+        id: gdtoolkit-cache
+        with:
+          path: ~/.cache/pip
+          key: gdtoolkit-4-${{ runner.os }}-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            gdtoolkit-4-${{ runner.os }}-
+
+      - name: Install gdtoolkit
+        if: steps.changed-files.outputs.any_changed == 'true' && steps.gdtoolkit-cache.outputs.cache-hit != 'true'
+        run: |
+          pip install --no-warn-script-location gdtoolkit==4.*
+          
+      - name: Lint changed files
         id: lint
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          files=$(cat gd_script_files.txt | grep -v '^addons/')
-          lint_output=$(gdlint $files 2>&1)
+          # Convert space-separated list to array and process
+          files_array=(${{ steps.changed-files.outputs.all_changed_files }})
+          
+          # Early exit if no files to lint
+          if [ ${#files_array[@]} -eq 0 ]; then
+            echo "No files to lint"
+            exit 0
+          fi
+          
+          # Run gdlint on all files at once (faster than individual files)
+          lint_output=$(gdlint "${files_array[@]}" 2>&1)
           exit_code=$?
-          echo "lint_output<<EOF" >> $GITHUB_OUTPUT
-          echo "$lint_output"       >> $GITHUB_OUTPUT
-          echo "EOF"                >> $GITHUB_OUTPUT
-          echo "exit_code=$exit_code" >> $GITHUB_OUTPUT
+          
+          # Use more efficient output method
+          {
+            echo "lint_output<<EOF"
+            echo "$lint_output"
+            echo "EOF"
+            echo "exit_code=$exit_code"
+          } >> $GITHUB_OUTPUT
+          
           exit $exit_code
         continue-on-error: true
 
       - name: Comment PR with gdlint Output
-        if: steps.lint.outputs.lint_output != ''
+        if: steps.changed-files.outputs.any_changed == 'true' && steps.lint.outputs.lint_output != ''
         uses: thollander/actions-comment-pull-request@v3
         with:
           comment-tag: gdlint-check
           github-token: ${{ secrets.GITHUB_TOKEN }}
           message: |
             ## 🧪 GDScript Lint Check
-            ${{ steps.lint.outputs.exit_code == '0' && '✅ No issues' || '❌ Issues found' }}
+            ${{ steps.lint.outputs.exit_code == '0' && '✅ No issues found' || '❌ Issues found' }}
+            
+            <details>
+            <summary>Lint Output (${{ steps.changed-files.outputs.all_changed_files_count }} files checked)</summary>
+            
             ```text
             ${{ steps.lint.outputs.lint_output }}
             ```
+            </details>
