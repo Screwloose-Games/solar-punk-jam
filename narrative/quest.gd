@@ -25,8 +25,8 @@ var rewards: Dictionary[String, int] = {}:
 	get:
 		var result: Dictionary[String, int] = {}
 		for reward in resource_rewards:
-			var _name: String = ResourcesManager.RESOURCE_TYPE_NAMES[reward]
-			result[_name] = resource_rewards[reward]
+			var name: String = ResourcesManager.RESOURCE_TYPE_NAMES[reward]
+			result[name] = resource_rewards[reward]
 		return result
 
 # Initialize quest state
