@@ -1,0 +1,97 @@
+name: Check GDScript Complexity
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/*.gd'
+  push:
+    branches: [ main ]
+permissions:
+  pull-requests: write
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1) checkout + find changed .gd files
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+    - uses: tj-actions/changed-files@v46
+      id: changed-files
+      with:
+        files: '**/*.gd'
+        files_ignore: 'addons/**'
+
+    # 2) install Godot‐GDScript‐Toolkit so gdlint & gdradon are on PATH
+    - uses: Scony/godot-gdscript-toolkit@master
+
+    # # 3) (optional) gdformat check
+    # - name: GDFormat check
+    #   run: gdformat --check ${{ steps.changed-files.outputs.all_changed_files }}
+
+    # # 4) run gdlint, capture exit & output
+    # - name: Run gdlint
+    #   id: gdlint
+    #   continue-on-error: true
+    #   shell: bash
+    #   run: |
+    #     output=$(gdlint ${{ steps.changed-files.outputs.all_changed_files }} 2>&1)
+    #     exit_code=$?
+    #     echo "lint_exit_code=$exit_code"        >> $GITHUB_OUTPUT
+    #     echo "lint_output<<EOF"                  >> $GITHUB_OUTPUT
+    #     echo "$output"                          >> $GITHUB_OUTPUT
+    #     echo "EOF"                              >> $GITHUB_OUTPUT
+
+    # # 5) comment PR with gdlint results
+    # - name: Comment PR with gdlint Output
+    #   if: steps.changed-files.outputs.any_changed == 'true' && steps.gdlint.outputs.lint_output
+    #   uses: thollander/actions-comment-pull-request@v3
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
+    #     comment-tag: gdlint-check
+    #     message: |
+    #       ## 🧪 GDScript Lint Check
+    #       ${{ steps.gdlint.outputs.lint_exit_code == '0' && '✅ No issues found' || '❌ Issues found' }}
+
+    #       <details>
+    #       <summary>Show lint output</summary>
+
+    #       ```text
+    #       ${{ steps.gdlint.outputs.lint_output }}
+    #       ```
+    #       </details>
+
+    # 6) run cyclomatic complexity, capture exit & output
+    - name: Run cyclomatic complexity
+      id: cc
+      continue-on-error: true
+      shell: bash
+      run: |
+        output=$(gdradon cc ${{ steps.changed-files.outputs.all_changed_files }} 2>&1)
+        exit_code=$?
+        echo "cc_exit_code=$exit_code"          >> $GITHUB_OUTPUT
+        echo "cc_output<<EOF"                    >> $GITHUB_OUTPUT
+        echo "$output"                          >> $GITHUB_OUTPUT
+        echo "EOF"                              >> $GITHUB_OUTPUT
+
+    # 7) comment PR with CC report
+    - name: Comment PR with Cyclomatic Complexity Report
+      if: steps.changed-files.outputs.any_changed == 'true' && steps.cc.outputs.cc_output
+      uses: thollander/actions-comment-pull-request@v3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        comment-tag: 'gdscript-cyclomatic-complexity-check'
+        message: |
+          ## 📈 Cyclomatic Complexity Report
+          ${{ steps.cc.outputs.cc_exit_code == '0' && '✅ No complexity issues detected' || '❌ Complexity issues found' }}
+
+          <details>
+          <summary>Show full complexity report</summary>
+
+          ```text
+          ${{ steps.cc.outputs.cc_output }}
+          ```
+          </details>
