@@ -94,7 +94,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           message: |
             ## 🧪 GDScript Lint Check
-            ${{ steps.lint.outputs.exit_code == '0' && '✅ No issues found' || '❌ Issues found' }}
             
             <details>
             <summary>Lint Output (${{ steps.changed-files.outputs.all_changed_files_count }} files checked)</summary>
