@@ -1,7 +1,48 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dliloj64dgu5f"]
+[gd_resource type="Resource" script_class="Quest" load_steps=8 format=3 uid="uid://dliloj64dgu5f"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_cascf"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_lgqfx"]
+[ext_resource type="Resource" uid="uid://cp4hipgme2pa1" path="res://narrative/quests/qst_a1d2_tempunlocks.tres" id="3_lgqfx"]
+
+[sub_resource type="Resource" id="Resource_77q8f"]
+script = ExtResource("2_lgqfx")
+autoload_name = "GlobalSignalBus"
+signal_name = "talked_to"
+expected_args = [null]
+description = "Talk to Kai"
+goal = 1
+prerequisites = Array[int]([])
+play_dialogue = "prog1"
+marker_id = "mom"
+type = 0
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
+[sub_resource type="Resource" id="Resource_i1qdm"]
+script = ExtResource("2_lgqfx")
+autoload_name = "QuestManager"
+signal_name = "crop_harvested"
+expected_args = []
+description = "Harvest a radish"
+goal = 1
+prerequisites = Array[int]([0])
+play_dialogue = ""
+marker_id = ""
+type = 0
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
+[sub_resource type="Resource" id="Resource_105xa"]
+script = ExtResource("2_lgqfx")
+autoload_name = "GlobalSignalBus"
+signal_name = "food_donated"
+expected_args = []
+description = "Donate food to the food stand"
+goal = 1
+prerequisites = Array[int]([1])
+play_dialogue = ""
+marker_id = "community_food_stand"
+type = 0
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
 script = ExtResource("2_cascf")
@@ -10,10 +51,11 @@ name = "Harvest and deliver plants"
 quest_giver = "mom"
 description = "Quest Description"
 community_board_text = ""
-objectives = Array[ExtResource("1_i80ro")]([])
+objectives = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa")])
 unlock_on_accept = Array[String]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
+on_complete_starts_quest = ExtResource("3_lgqfx")
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

@@ -49,6 +49,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
+"a1d2_harvest": "res://narrative/timelines/a1d2_harvest.dtl",
 "end_day_1_fullscreen": "res://narrative/timelines/end_day_1_fullscreen.dtl",
 "intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
@@ -56,7 +57,6 @@ directories/dtl_directory={
 "kai_op1": "res://narrative/timelines/kai_op1.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
-"timelines/kai_DAY2S1_ Starts_Delivery": "res://narrative/timelines/kai_DAY2S1_ Starts_Delivery.dtl",
 "timelines/kyle_DAY2SB_KYLE": "res://narrative/timelines/kyle_DAY2SB_KYLE.dtl",
 "timelines/trin_DAY2SA_Trin": "res://narrative/timelines/trin_DAY2SA_Trin.dtl",
 "trin_intro": "res://narrative/timelines/trin_intro.dtl",

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://cp4hipgme2pa1"]
+
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_ugpma"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_objective.gd" id="2_nat3w"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="5_w4y3a"]
+
+[sub_resource type="Resource" id="Resource_tq41l"]
+script = ExtResource("2_nat3w")
+autoload_name = "GlobalSignalBus"
+signal_name = "activated_build_mode"
+expected_args = []
+description = "Go into Build Mode"
+goal = 1
+prerequisites = Array[int]([0])
+play_dialogue = "prog1"
+marker_id = "trin_garden"
+type = 0
+metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+
+[resource]
+script = ExtResource("5_w4y3a")
+id = "a1d2_tempunlocks"
+name = "Beautify the Community Hub"
+quest_giver = "board"
+description = "test"
+community_board_text = "We could use more power. Why don't you try building a solar panel in the community hub?
+
+-Mister"
+objectives = Array[ExtResource("1_ugpma")]([SubResource("Resource_tq41l")])
+unlock_on_accept = Array[String](["Solar panel", "Picnic Table"])
+unlock_on_complete = Array[String]([])
+resource_rewards = Dictionary[int, int]({
+1: 3,
+4: 3,
+5: 5,
+6: 6,
+7: 3
+})
+metadata/_custom_type_script = "uid://5ejc1odxmtck"
