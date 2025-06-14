@@ -1,3 +1,4 @@
+## Tracks the quests in the game, their progress, and handles starting and completing quests.
 extends Node
 
 signal quest_started(quest_id : String)
