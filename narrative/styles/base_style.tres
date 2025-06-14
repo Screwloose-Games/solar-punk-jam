@@ -30,6 +30,7 @@ scene = ExtResource("4_ufpwv")
 overrides = {
 "box_modulate_custom_color": "Color(0.470588, 0.317647, 0.164706, 0)",
 "box_modulate_global_color": "false",
+"box_panel": "\"default_stylebox.tres\"",
 "name_label_color_mode": "1",
 "name_label_custom_size": "24.0",
 "name_label_use_global_size": "false",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=86 format=4 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="7_maonv"]
 [ext_resource type="PackedScene" uid="uid://dyb6nwaiae8ea" path="res://components/buildable_surface.tscn" id="8_34qyl"]
 [ext_resource type="Texture2D" uid="uid://b5xmoaivoh8wn" path="res://components/buildable_surface_use_icons.png" id="9_io6m6"]
-[ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="11_m072n"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="12_cxy8c"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="13_xerwd"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="14_tvm5u"]
@@ -32,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://b5bvghqf3u22r" path="res://assets/3d/environment/dressing/grass_2.tscn" id="24_jg63d"]
 [ext_resource type="PackedScene" uid="uid://cyqfwaujvc58l" path="res://assets/3d/structures/compost_bin/compost_bin.tscn" id="25_mfuku"]
 [ext_resource type="PackedScene" uid="uid://c6ddvsvj1dhmb" path="res://assets/3d/environment/dressing/grass_basic_2.tscn" id="25_piaxb"]
-[ext_resource type="Material" uid="uid://cvlpfft4tnlr" path="res://materials/PrototypePavement.tres" id="25_qmx3x"]
 [ext_resource type="PackedScene" uid="uid://b1f5gngln3iyv" path="res://assets/3d/structures/rain_barrel/rain_barrel.tscn" id="26_abo5y"]
 [ext_resource type="PackedScene" uid="uid://3ikd807r7spn" path="res://assets/3d/environment/dressing/grass_long_2.tscn" id="26_myhbd"]
 [ext_resource type="PackedScene" uid="uid://dulhp5ynw5nqr" path="res://assets/3d/structures/community_food_stand/community_food_stand.tscn" id="27_gh1ua"]
@@ -66,7 +64,7 @@
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
-duration = 2.0
+duration = 0.0
 transition = 0
 ease = 1
 
@@ -188,9 +186,6 @@ sources/0 = SubResource("TileSetAtlasSource_2lqsq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7t8hb"]
 size = Vector3(9.69629, 1, 7.49023)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ppxl0"]
-size = Vector2(5.5, 100)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7t8hb"]
 radius = 58.619
@@ -469,7 +464,7 @@ visible = false
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.750214, -0.0206975, 0.660873, -9.31324e-10, 0.999507, 0.0313032, -0.661197, 0.023484, -0.749846, 0.304615, 1.52344, -13.8084)
+transform = Transform3D(-0.774318, -0.0202064, 0.632476, -9.31323e-10, 0.999487, 0.031932, -0.632799, 0.0247254, -0.773923, 0.0640705, 1.52344, -13.8604)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
@@ -587,27 +582,6 @@ skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurf
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.426392, 0.517517, -0.199265)
 shape = SubResource("BoxShape3D_7t8hb")
 
-[node name="sm_solar_panel" parent="." instance=ExtResource("11_m072n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50486, -1.07288e-06, 1.97875)
-
-[node name="sm_foot_front" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="0"]
-transform = Transform3D(1, 0, 0, 0, -0.207912, 0.978148, 0, -0.978148, -0.207912, 0, 0.220739, 0.136157)
-
-[node name="sm_foot_left" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="1"]
-transform = Transform3D(-0.5, 0.847101, 0.180057, -8.09637e-08, -0.207912, 0.978148, 0.866026, 0.489074, 0.103956, -0.117915, 0.220739, -0.0680784)
-
-[node name="sm_foot_right" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="2"]
-transform = Transform3D(-0.5, -0.847101, -0.180057, 8.09637e-08, -0.207912, 0.978148, -0.866026, 0.489074, 0.103956, 0.117915, 0.220739, -0.0680784)
-
-[node name="sm_panel_pivot" parent="sm_solar_panel/sm_solar_panels/sm_pole" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.225877, 0.974156, 0, -0.974156, 0.225877, 0, 2.48238, 0)
-
-[node name="sm_panel_left" parent="sm_solar_panel/sm_solar_panels/sm_pole/sm_panel_pivot" index="0"]
-transform = Transform3D(1.54936, -4.61745e-08, -1.57623e-15, 4.61745e-08, 1.54936, 5.96046e-08, -2.00124e-16, -5.96046e-08, 1.54936, 0, 0.235903, 0)
-
-[node name="sm_panel_right" parent="sm_solar_panel/sm_solar_panels/sm_pole/sm_panel_pivot" index="2"]
-transform = Transform3D(1.54936, 4.61745e-08, 1.57623e-15, -4.61745e-08, 1.54936, 5.96046e-08, 2.00124e-16, -5.96046e-08, 1.54936, 0, 0.159048, 0)
-
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
@@ -622,107 +596,23 @@ script = ExtResource("12_cxy8c")
 [node name="Ground" parent="DesignTestScene" index="0"]
 visible = false
 
-[node name="prefab_entry_short" parent="DesignTestScene" index="1"]
-transform = Transform3D(-0.0216753, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216753, -33.1956, -1.90735e-06, 14.5108)
-
-[node name="prefab_entry_short2" parent="DesignTestScene" index="2"]
-transform = Transform3D(0.999944, 0, 0.0106289, 0, 1, 0, -0.0106289, 0, 0.999944, 9.10837, -1.90735e-06, -15.8761)
-
-[node name="prefab_entry_tall" parent="DesignTestScene" index="3"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.0376, 0, 11.4405)
-
-[node name="prefab_entry_tall2" parent="DesignTestScene" index="4"]
-transform = Transform3D(0.00760961, 0, -0.999971, 0, 1, 0, 0.999971, 0, 0.00760961, 36.4546, 0, -11.0484)
-
-[node name="prefab_entry_long" parent="DesignTestScene" index="5"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -11.271, -0.0572701, -11.8609)
-
-[node name="prefab_noentry_tall2" parent="DesignTestScene" index="6"]
-transform = Transform3D(0.0254965, 0, 0.999675, 0, 1, 0, -0.999675, 0, 0.0254965, 36.3959, 0, 12.709)
-
-[node name="prefab_noentry_tall7" parent="DesignTestScene" index="7"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.4519, 0, -30.0025)
-
-[node name="prefab_noentry_tall9" parent="DesignTestScene" index="8"]
-transform = Transform3D(0.0393644, 0, 0.999225, 0, 1, 0, -0.999225, 0, 0.0393644, -20.6186, 0, -32.965)
-
-[node name="prefab_noentry_tall10" parent="DesignTestScene" index="9"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32.7066, 0, -12.8501)
-
-[node name="prefab_noentry_tall13" parent="DesignTestScene" index="10"]
-transform = Transform3D(0.00785404, 0, -0.999969, 0, 1, 0, 0.999969, 0, 0.00785404, -31.9494, 0, 27.7208)
-
-[node name="prefab_noentry_short3" parent="DesignTestScene" index="11"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.9298, 0, 29.3547)
-
-[node name="prefab_noentry_short4" parent="DesignTestScene" index="12"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5676, 0, 29.3547)
-
-[node name="prefab_noentry_short8" parent="DesignTestScene" index="13"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.40663, 0, -2.29337)
-
-[node name="prefab_noentry_short9" parent="DesignTestScene" index="14"]
-transform = Transform3D(0.0328237, 0, 0.999461, 0, 1, 0, -0.999461, 0, 0.0328237, 20.4459, 0, 6.89355)
-
-[node name="prefab_noentry_short11" parent="DesignTestScene" index="15"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.4459, 0, -17.138)
-
-[node name="prefab_noentry_short19" parent="DesignTestScene" index="16"]
-transform = Transform3D(-0.999443, 0, -0.0333645, 0, 1, 0, 0.0333645, 0, -0.999443, -12.6058, 0, -32.7606)
-
-[node name="prefab_noentry_short20" parent="DesignTestScene" index="17"]
-transform = Transform3D(-0.999989, 0, 0.00472988, 0, 1, 0, -0.00472988, 0, -0.999989, -32.0229, 0, -4.29896)
-
-[node name="PrefabNoEntryShort2" parent="DesignTestScene" index="18"]
-transform = Transform3D(-0.00876146, 0, 0.999962, 0, 1, 0, -0.999962, 0, -0.00876146, 1.00308, 0, 30.1445)
-
-[node name="PrefabNoEntryShort3" parent="DesignTestScene" index="19"]
-transform = Transform3D(0.0203491, 0, -0.999793, 0, 1, 0, 0.999793, 0, 0.0203491, -1.26088, 0, -33.8628)
-
-[node name="prefab_noentry_tall" parent="DesignTestScene" index="20"]
-transform = Transform3D(-0.0241182, 0, 0.999709, 0, 1, 0, -0.999709, 0, -0.0241182, 36.9873, 0, 2.41218)
-
-[node name="prefab_noentry_tall11" parent="DesignTestScene" index="21"]
-transform = Transform3D(-0.99978, 0, -0.0209774, 0, 1, 0, 0.0209774, 0, -0.99978, -11.6406, 0, 29.0064)
-
-[node name="prefab_noentry_tall3" parent="DesignTestScene" index="22"]
-transform = Transform3D(0.999968, 0, 0.00801102, 0, 1, 0, -0.00801102, 0, 0.999968, 16.118, -0.2, -1.027)
-
-[node name="prefab_noentry_tall4" parent="DesignTestScene" index="23"]
-transform = Transform3D(-0.999952, 0, -0.00979113, 0, 1, 0, 0.00979113, 0, -0.999952, -35.5166, 0, -21.7083)
-
-[node name="prefab_noentry_tall5" parent="DesignTestScene" index="24"]
-transform = Transform3D(-1, 0, 0.000698241, 0, 1, 0, -0.000698241, 0, -1, 13.2334, 0, -35.7501)
-
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="25"]
-transform = Transform3D(0.00127406, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00127406, 28.119, 0, -37.4872)
-
-[node name="prefab_noentry_tall8" parent="DesignTestScene" index="26"]
-transform = Transform3D(0.0546714, 0, -0.998505, 0, 1, 0, 0.998505, 0, 0.0546714, 36.5084, 0, -25.9857)
-
-[node name="Pavement" parent="DesignTestScene" index="28"]
+[node name="Pavement" parent="DesignTestScene" index="2"]
 transform = Transform3D(-4.35671e-08, 0, 0.545816, 0, 0.997289, 0, -0.9967, 0, -2.38585e-08, 2.36364, 0.01, 21.7826)
 visible = false
 
-[node name="Pavement2" parent="DesignTestScene" index="29"]
+[node name="Pavement2" parent="DesignTestScene" index="3"]
 transform = Transform3D(-4.36855e-08, 0, -0.5473, 0, 1, 0, 0.999409, 0, -2.39233e-08, 2.36364, 0.01, -24.212)
 visible = false
 
-[node name="Pavement5" parent="DesignTestScene" index="30"]
-transform = Transform3D(-4.36855e-08, 0, -0.291148, 0, 1, 0, 0.999409, 0, -1.27265e-08, 14.7414, 0.01, -8.67437)
-material_override = ExtResource("25_qmx3x")
-mesh = SubResource("PlaneMesh_ppxl0")
-skeleton = NodePath("")
-
-[node name="Pavement6" parent="DesignTestScene" index="31"]
+[node name="Pavement6" parent="DesignTestScene" index="4"]
 transform = Transform3D(0.999409, 0, 0, 0, 1, 0, 0, 0, 0.291148, -1.03235, 0.01, -11.9709)
 visible = false
 
-[node name="Pavement3" parent="DesignTestScene" index="32"]
+[node name="Pavement3" parent="DesignTestScene" index="5"]
 transform = Transform3D(-0.999409, 0, -4.49372e-08, 0, 1, 0, 8.73711e-08, 0, -0.514022, 27.4993, 0.01, -1.4459)
 visible = false
 
-[node name="Pavement4" parent="DesignTestScene" index="33"]
+[node name="Pavement4" parent="DesignTestScene" index="6"]
 transform = Transform3D(-0.999409, 0, -4.49477e-08, 0, 1, 0, 8.73711e-08, 0, -0.514142, -22.9634, 0.01, -1.27692)
 visible = false
 
@@ -785,7 +675,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49966, 0.00260284, -3.21364
 [node name="Player" parent="." instance=ExtResource("16_t3rkj")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11981, 0.281344, -12.6052)
-speed = 3.5
+speed = 4.0
 
 [node name="CommBoard" parent="." instance=ExtResource("17_u0qwm")]
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
@@ -853,8 +743,6 @@ id = "trin_water"
 
 [node name="CommunityFoodStand" parent="." instance=ExtResource("27_gh1ua")]
 transform = Transform3D(-0.988599, 0, -0.150571, 0, 1, 0, 0.150571, 0, -0.988599, 1.92161, 0.00395419, 14.2494)
-
-[node name="QuestMarker3D" parent="CommunityFoodStand" instance=ExtResource("28_7t8hb")]
 
 [node name="DynamicMusic" type="Node" parent="."]
 
@@ -1143,7 +1031,6 @@ transform = Transform3D(0.580518, 0, 0.814247, 0, 1, 0, -0.814247, 0, 0.580518, 
 [editable path="TrinBuildableSurface2/InteractableBuildableArea"]
 [editable path="HomeBuildableSurface"]
 [editable path="HomeBuildableSurface/InteractableBuildableArea"]
-[editable path="sm_solar_panel"]
 [editable path="DesignTestScene"]
 [editable path="TrinCompost"]
 [editable path="TrinCompost/InteractableArea3D"]

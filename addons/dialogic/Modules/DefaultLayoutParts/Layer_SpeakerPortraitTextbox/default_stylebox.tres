@@ -2,9 +2,9 @@
 
 [resource]
 content_margin_left = 10.0
-content_margin_top = 10.0
+content_margin_top = 20.0
 content_margin_right = 10.0
-content_margin_bottom = 10.0
+content_margin_bottom = 20.0
 bg_color = Color(1, 1, 1, 1)
 skew = Vector2(0.073, 0)
 corner_radius_top_left = 10

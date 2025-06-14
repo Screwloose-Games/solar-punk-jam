@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const END_TIMELINE_LABEL: String = "skip"
+
 @onready var player_speed_label: Label = %PlayerSpeedLabel
 @onready var player_speed_line_edit: LineEdit = %PlayerSpeedLineEdit
 @onready var give_resources_button: Button = %GiveResourcesButton
@@ -9,8 +11,6 @@ extends CanvasLayer
 @onready var debug_ui_margin_container: PanelContainer = %DebugUIContainer
 @onready var label_margin_container: MarginContainer = %LabelMarginContainer
 
-const end_timeline_label: String = "skip"
-
 func _ready() -> void:
 	hide()
 	debug_ui_margin_container.hide()
@@ -18,10 +18,11 @@ func _ready() -> void:
 	give_resources_button.pressed.connect(_on_give_resources_pressed)
 	unlock_structures_button.pressed.connect(_on_unlock_structures_pressed)
 	debug_ui_margin_container.visibility_changed.connect(_on_visibility_changed)
+
 	if OS.is_debug_build():
 		show()
-	
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	if not OS.is_debug_build():
 		return
 	if Input.is_action_just_pressed("Debug"):
@@ -36,10 +37,10 @@ func skip_to_timeline_end():
 		var events: Array = timeline.events
 		var d_events: Array[DialogicEvent] = []
 		d_events.append_array(events)
-		var lbl_index = d_events.find_custom(func(event: DialogicEvent): return event is DialogicLabelEvent and event.name == end_timeline_label)
+		var lbl_index = d_events.find_custom(func(event: DialogicEvent):
+			return event is DialogicLabelEvent and event.name == END_TIMELINE_LABEL)
 		if lbl_index != -1:
-			Dialogic.Jump.jump_to_label(end_timeline_label)
-			
+			Dialogic.Jump.jump_to_label(END_TIMELINE_LABEL)
 
 func _on_visibility_changed():
 	if debug_ui_margin_container.visible:

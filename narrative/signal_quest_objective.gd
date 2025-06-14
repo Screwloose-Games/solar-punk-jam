@@ -1,5 +1,5 @@
-extends QuestObjective
 class_name SignalQuestObjective
+extends QuestObjective
 
 ## The global autoload on which to call the signal
 @export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
@@ -18,7 +18,8 @@ func set_active(val : bool):
 	if is_active:
 		subscribe()
 	else:
-		autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
+		if autoload_instance:
+			autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
 
 
 func _on_autoload_signal_emitted(a = null, b = null, c = null, d = null):
@@ -62,4 +63,5 @@ func subscribe():
 	if error_code == OK:
 		print("Successfully subscribed to signal '", signal_name, "' on autoload '", autoload_name, "'")
 	else:
-		printerr("Failed to connect to signal '", signal_name, "' on autoload '", autoload_name, "'. Error code: ", error_code)
+		printerr("Failed to connect to signal '", signal_name, "' on autoload '",
+		autoload_name, "'. Error code: ", error_code)

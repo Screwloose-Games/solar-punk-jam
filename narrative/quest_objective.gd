@@ -67,3 +67,8 @@ func set_complete(val : bool):
 		set_markers(false)
 		completed.emit(self)
 		GlobalSignalBus.quest_objective_completed.emit()
+
+func reset():
+	is_active = false
+	is_unlocked = false
+	is_completed = false

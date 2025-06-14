@@ -24,4 +24,8 @@ Te: Fine…I’ll go check the board.
 Mom: I love you too, Gremlin.
 label skip
 [end_timeline]
+
 # **QUEST FOR DAILY DUTY**
+
+label prog2
+do QuestManager.start_quest("qst_a1d2_tempunlocks")

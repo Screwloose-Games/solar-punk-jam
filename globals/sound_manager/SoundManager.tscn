@@ -44,7 +44,7 @@ script = ExtResource("1_0wbjb")
 
 [node name="UiSoundPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-volume_db = -5.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="AmbientSoundPlayer" type="AudioStreamPlayer" parent="."]
