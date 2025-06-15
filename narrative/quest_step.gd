@@ -2,9 +2,9 @@ class_name QuestStep
 extends Resource
 
 signal progressed
-signal completed(this_objective: QuestObjective)
+signal completed(quest_step: QuestStep)
 
-enum QuestObjectiveType {
+enum QuestStepType {
 	CUSTOM,  # Legacy, complex and flexible
 	INTERACT_WITH,  # the interactable must have an ID. A specific, custom string.
 	INTERACT_WITH_TYPE,  # Any of a given TYPE. Any water barrel, any of a TYPE
@@ -47,28 +47,7 @@ enum QuestObjectiveType {
 )
 var marker_id: String
 
-@export var type: QuestObjectiveType = QuestObjectiveType.CUSTOM
-
-enum QuestObjectiveType {
-	CUSTOM, # Legacy, complex and flexible
-	INTERACT_WITH, # the interactable must have an ID. A specific, custom string.
-	INTERACT_WITH_TYPE, # Any of a given TYPE. Any water barrel, any of a TYPE
-	ACCEPT_QUEST,
-	TALK_TO,
-	BUILD_STRUCTURE, # Strucutre has a structure id ENUM
-	COLLECT_RESOURCE, # By count. Collect a certain number.
-	COLLECT_RESOURCE_TYPE, # Collect a TYPE of resource  a certain number of times. pick up 2 PIECES of scrap
-	PLANT_CROP,
-	GO_TO, # your roof, a certain area. These have tags. They are Area3D
-	WAIT_DAYS, # wait a specific number of days to pass.
-	WAIT_EVENT, # Wait until a specific event occurs... List of events?
-	HARVEST_CROP, # any, specific type
-	DONATE_FOOD,
-	DELIVER_RESOURCE_TO, # to a donation builting type? Drop off waste TO compost. Drop off FOOD to FOOD_STAND
-	# -----------------
-	ACHIEVE_RESOURCE_TARGET, # Type of resource, target number
-}
-
+@export var type: QuestStepType = QuestStepType.CUSTOM
 
 var progress: int = 0
 var is_active: bool = false:

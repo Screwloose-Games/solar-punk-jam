@@ -90,10 +90,10 @@ func mark_complete():
 	if on_complete_starts_quest:
 		QuestManager.start_quest_resource(on_complete_starts_quest)
 
-func get_next_step() -> QuestObjective:
-	for objective in objectives:
-		if objective.is_unlocked and !objective.is_completed:
-			return objective
+func get_next_step() -> QuestStep:
+	for step in steps:
+		if step.is_unlocked and !step.is_completed:
+			return step
 	return null
 
 func complete_next_step() -> void:
@@ -104,5 +104,5 @@ func complete_next_step() -> void:
 func reset():
 	is_active = false
 	is_complete = false
-	for objective in objectives:
-		objective.reset()
+	for step in steps:
+		step.reset()
