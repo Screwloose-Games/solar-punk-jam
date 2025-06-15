@@ -12,7 +12,7 @@ func set_step(val):
 
 
 func update():
-	step.button_pressed = step.is_completed
+	complete.button_pressed = step.is_completed
 	if step.goal == 1:
 		desc.text = step.description
 	else:
