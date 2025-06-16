@@ -1,7 +1,8 @@
 class_name HaveStructQuestStep
 extends ValueQuestStep
 
-@export var structure_type : String
+@export var structure_type: String
+
 
 func check_value():
 	if is_active:

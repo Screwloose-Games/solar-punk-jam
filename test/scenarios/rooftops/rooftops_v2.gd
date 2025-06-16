@@ -59,7 +59,7 @@ func load_building_palette():
 			$CanvasLayer/VBoxContainer/VBoxContainer.add_child(b)
 		else:
 			hud.register_structure(idx)
-	hud.connect("BuildableStructureSelected", self.select_structure_from_palette)
+	hud.connect("buildable_structure_selected", self.select_structure_from_palette)
 
 @onready var player := $Player as Node3D
 @export var player_walk_speed := 8.0

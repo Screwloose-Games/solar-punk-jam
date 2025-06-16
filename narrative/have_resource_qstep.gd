@@ -1,7 +1,7 @@
 class_name HaveResourceQuestStep
 extends ValueQuestStep
 
-@export var resource_type : String
+@export var resource_type: String
 
 
 func check_value():

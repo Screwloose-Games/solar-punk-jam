@@ -1,4 +1,4 @@
-class_name EnterAreaQuestStep 
+class_name EnterAreaQuestStep
 extends SignalQuestStepBase
 
 @export var area_id: String = "area_id"

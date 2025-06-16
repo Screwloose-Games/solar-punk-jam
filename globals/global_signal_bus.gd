@@ -13,12 +13,11 @@ signal level_reset
 signal set_ending_visibility(show_panel: bool)
 
 # Signals for new QuestStep subclasses
-signal quest_trigger_area_entered(area_id : String)
-signal item_received(item_id : String)
-signal item_given(item_id : String, npc_id : String)
+signal quest_trigger_area_entered(area_id: String)
+signal item_received(item_id: String)
+signal item_given(item_id: String, npc_id: String)
 signal resource_given(npc_id: String, resource: ResourcesManager.ResourceType)
-signal object_interacted(interact_id : String)
-
+signal object_interacted(interact_id: String)
 
 signal community_board_interacted
 signal community_board_quest_accepted

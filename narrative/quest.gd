@@ -2,26 +2,46 @@ class_name Quest
 extends Resource
 
 signal quest_state_changed
-signal quest_completed(giver : String)
+signal quest_completed(giver: String)
 
-@export var id : String = "quest_id"
-@export var name : String = "Quest Name"
-@export var quest_giver : String = "npc_name"
+@export var id: String = "quest_id"
+@export var name: String = "Quest Name"
+@export var quest_giver: String = "npc_name"
 # @export var quest_source: DialogicCharacter
-@export var description : String = "Quest Description"
-@export_multiline var community_board_text : String = "" # displayed on the community board
-@export_enum("Compost bin", "Picnic Table", "Raised bed", "Rain barrel", "Vertical garden",
-"Recycling station", "Solar panel", "Waste bin", "Donation box",
-"Food stand") var unlock_on_accept : Array[String]
-@export var steps : Array[QuestStep] = []
+@export var description: String = "Quest Description"
+@export_multiline var community_board_text: String = ""  # displayed on the community board
+@export_enum(
+	"Compost bin",
+	"Picnic Table",
+	"Raised bed",
+	"Rain barrel",
+	"Vertical garden",
+	"Recycling station",
+	"Solar panel",
+	"Waste bin",
+	"Donation box",
+	"Food stand"
+)
+var unlock_on_accept: Array[String]
+@export var steps: Array[QuestStep] = []
 
 @export_category("When complete")
-@export_enum("Compost bin", "Picnic Table", "Raised bed", "Rain barrel", "Vertical garden",
-"Recycling station", "Solar panel", "Waste bin", "Donation box",
-"Food stand") var unlock_on_complete : Array[String]
+@export_enum(
+	"Compost bin",
+	"Picnic Table",
+	"Raised bed",
+	"Rain barrel",
+	"Vertical garden",
+	"Recycling station",
+	"Solar panel",
+	"Waste bin",
+	"Donation box",
+	"Food stand"
+)
+var unlock_on_complete: Array[String]
 
 @export var resource_rewards: Dictionary[ResourcesManager.ResourceType, int] = {
-	ResourcesManager.ResourceType.HAPPINESS : 5
+	ResourcesManager.ResourceType.HAPPINESS: 5
 }
 ## Story variables to change as a result of completing this quest
 #@export var change_story_variables: Dictionary[String, String]
@@ -32,7 +52,7 @@ signal quest_completed(giver : String)
 @export var start_next_quest: bool = true
 
 var is_active: bool = false
-var is_complete : bool = false
+var is_complete: bool = false
 
 var rewards: Dictionary[String, int] = {}:
 	get:
@@ -65,7 +85,7 @@ func check_progress():
 
 
 # If an step is completed, check if the overall quest is completed too
-func _on_step_completed(this_step : QuestStep):
+func _on_step_completed(this_step: QuestStep):
 	if this_step.play_dialogue != "":
 		Dialogic.start(id, this_step.play_dialogue)
 	# Check for steps with prereqs
@@ -104,16 +124,19 @@ func mark_complete():
 	if next_quest:
 		QuestManager.start_quest_resource(next_quest)
 
+
 func get_next_step() -> QuestStep:
 	for step in steps:
 		if step.is_unlocked and !step.is_completed:
 			return step
 	return null
 
+
 func complete_next_step() -> void:
 	var next_step = get_next_step()
 	if next_step:
 		next_step.set_complete(true)
+
 
 func reset():
 	is_active = false

@@ -1,9 +1,10 @@
 extends HBoxContainer
 
+var step: QuestStep:
+	set = set_step
+
 @onready var complete = $Complete
 @onready var desc = $Description
-
-var step : QuestStep : set = set_step
 
 
 func set_step(val):

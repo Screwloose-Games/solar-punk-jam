@@ -1,45 +1,46 @@
 ## Tracks the quests in the game, their progress, and handles starting and completing quests.
 extends Node
 
-signal quest_started(quest_id : String)
-signal quest_started_res(quest : Quest)
+signal quest_started(quest_id: String)
+signal quest_started_res(quest: Quest)
 signal quests_changed
-signal quest_completed(giver : String)
-signal quest_cancelled(quest : Quest)
-signal structure_built(name : String)
-signal crop_planted(name : String)
+signal quest_completed(giver: String)
+signal quest_cancelled(quest: Quest)
+signal structure_built(name: String)
+signal crop_planted(name: String)
 
 const FILE_PATH = "res://narrative/quests/%s.tres"
 const RESOURCE_MAP = {
-	"Electricity" : "res_electric",
-	"Water" : "res_water",
-	"Food" : "res_food",
-	"Waste" : "res_waste",
-	"Soil" : "res_soil",
-	"Happiness" : "res_happy",
-	"Materials" : "res_material",
-	"Seeds" : "res_seed",
+	"Electricity": "res_electric",
+	"Water": "res_water",
+	"Food": "res_food",
+	"Waste": "res_waste",
+	"Soil": "res_soil",
+	"Happiness": "res_happy",
+	"Materials": "res_material",
+	"Seeds": "res_seed",
 }
 const STRUCTURE_MAP = {
-	5 : "built_compost",
-	6 : "built_hygiene",
-	11 : "built_rain_barrel",
-	12 : "built_raised_bed",
-	13 : "built_vplanter",
-	15 : "built_solar_panel",
-	20 : "built_donation"
+	5: "built_compost",
+	6: "built_hygiene",
+	11: "built_rain_barrel",
+	12: "built_raised_bed",
+	13: "built_vplanter",
+	15: "built_solar_panel",
+	20: "built_donation"
 }
 const TUTORIALS = ["a1d1_trin"]
 
-var quests : Array[Quest] = []
+var quests: Array[Quest] = []
 var quest_markers: Array[QuestMarker3D] = []
-var unlocked_quests : Array[Quest] = []
+var unlocked_quests: Array[Quest] = []
+
 
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
 	# Signals that need to be 'digested' to simplify the argument they pass
 	ResourcesManager.UpdatedAvailableResources.connect(update_resources)
-	StructureManager.StructureBuilt.connect(update_structures)
+	StructureManager.structure_built.connect(update_structures)
 	GlobalSignalBus.seed_planted.connect(update_crop)
 	unlock_quest("a1d1_trin")
 	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
@@ -50,13 +51,16 @@ func cancel_quest(quest: Quest):
 	quest_cancelled.emit(quest)
 	quests_changed.emit()
 
+
 func _on_world_unloaded():
 	reset()
+
 
 func reset_quests():
 	for quest in quests:
 		print(quest.resource_path)
 		quest.reset()
+
 
 func reset():
 	#var all_quests: Array[Quest]
@@ -67,15 +71,17 @@ func reset():
 	Dialogic.VAR.clear_game_state()
 
 
-func unlock_quest(quest_id : String):
+func unlock_quest(quest_id: String):
 	var new_quest = load(FILE_PATH % ("qst_" + quest_id))
 	unlock_quest_res(new_quest)
+
 
 func unlock_quest_res(quest: Quest):
 	unlocked_quests.append(quest)
 	quests_changed.emit()
 
-func start_quest(file_name : String):
+
+func start_quest(file_name: String):
 	var new_quest = load(FILE_PATH % file_name)
 	start_quest_resource(new_quest)
 
@@ -110,7 +116,7 @@ func update_structures(new_structure):
 	check_quests()
 
 
-func update_crop(crop : Crop):
+func update_crop(crop: Crop):
 	match crop.name:
 		"Radish":
 			Dialogic.VAR.crop_radish += 1
@@ -128,12 +134,12 @@ func update_resources():
 	check_quests()
 
 
-func check_quests(_changes : Dictionary = {}):
+func check_quests(_changes: Dictionary = {}):
 	for quest in quests:
 		quest.check_progress()
 
 
-func _on_quest_complete(giver : String):
+func _on_quest_complete(giver: String):
 	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false
 	quests_changed.emit()

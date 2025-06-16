@@ -10,19 +10,22 @@ extends SignalQuestStepBase
 # Arguments expect passed to the signal
 @export var expected_args: Array
 
-var _autoload_instance : Node
+var _autoload_instance: Node
+
 
 func _setup():
 	_autoload_instance = get_autoload_instance(autoload_name)
 	if signal_name:
 		_signal = _autoload_instance.get(signal_name)
-	
+
+
 func _init():
 	if !Engine.get_main_loop().root.is_node_ready():
 		await Engine.get_main_loop().root.ready
 	_setup()
 
-func set_active(val : bool):
+
+func set_active(val: bool):
 	super.set_active(val)
 
 
@@ -45,13 +48,15 @@ func event_occured():
 	else:
 		progressed.emit()
 
+
 func get_autoload_instance(global_name: StringName):
 	var root_ref = Engine.get_main_loop().root
-	var autoload_node_path = "/root/" + autoload_name
+	var autoload_node_path = "/root/" + global_name
 	if not root_ref.has_node(autoload_node_path):
-		printerr("Autoload node '", autoload_name, "' not found in the scene tree.")
+		printerr("Autoload node '", global_name, "' not found in the scene tree.")
 		return
 	return root_ref.get_node(autoload_node_path)
+
 
 func get_signal(name: StringName) -> Signal:
 	if _autoload_instance == null:

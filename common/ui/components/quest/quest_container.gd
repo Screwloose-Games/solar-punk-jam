@@ -2,14 +2,14 @@ extends VBoxContainer
 
 const OBJ_RESOURCE = preload("res://common/ui/components/quest/step_container.tscn")
 
+var quest: Quest:
+	set = set_quest
+
 @onready var title = $Title
 @onready var desc = $Description
 @onready var obj_list = $Objectives
 
-var quest : Quest : set = set_quest
-
-
-func set_quest(val : Quest):
+func set_quest(val: Quest):
 	quest = val
 	title.text = quest.name
 	desc.text = quest.description

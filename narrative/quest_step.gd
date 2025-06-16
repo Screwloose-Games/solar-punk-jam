@@ -36,7 +36,7 @@ var is_completed: bool = false:
 var markers: Array[QuestMarker3D] = []
 
 
-func set_active(val : bool):
+func set_active(val: bool):
 	is_active = val
 	if is_active and marker_id:
 		setup_markers()
@@ -60,6 +60,7 @@ func set_complete(val: bool):
 		set_markers(false)
 		completed.emit(self)
 		GlobalSignalBus.quest_objective_completed.emit()
+
 
 func reset():
 	is_active = false
