@@ -108,10 +108,17 @@ jobs:
           message: |
             ## 🧪 GDScript Lint Check
             
-            <details>
-            <summary>Lint Output (${{ steps.changed-files.outputs.all_changed_files_count }} files checked)</summary>
+            ${{ steps.lint.outputs.exit_code == '0' && '✅ No issues found' || '❌ Issues found' }}
+            
+            Lint Output (${{ steps.changed-files.outputs.all_changed_files_count }} files checked)
             
             ```text
             ${{ steps.lint.outputs.lint_output }}
             ```
-            </details>
+            
+      - name: Fail the job if lint issues found
+        if: steps.changed-files.outputs.any_changed == 'true' && steps.lint.outputs.exit_code != '0'
+        run: |
+          echo "Error: Lint issues found in this PR. Please fix them before merging."
+          exit 1
+      
