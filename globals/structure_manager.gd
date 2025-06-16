@@ -3,7 +3,7 @@ extends Node
 signal updated_available_structures
 signal buildable_structure_selected(idx: int)
 signal structure_built(s: BuiltStructure)
-signal built_structure(s_name: String)
+signal built_structure(index : int)
 
 enum StructureStatus { JUST_CREATED, NOT_READY, READY, EXPENDED }
 
@@ -164,7 +164,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption = 
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	structure_built.emit(new_structure)
-	built_structure.emit(get_structure_name(new_structure.structure))
+	built_structure.emit(new_structure.structure)
 	ResourcesManager.gain_resource_enum(
 		ResourcesManager.ResourceType.ENVIRONMENT, environment_gain_per_structure_built
 	)

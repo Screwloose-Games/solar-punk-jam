@@ -1,0 +1,12 @@
+# ACCEPT_QUEST quest step
+# Used for when the player must accept a certain quest
+extends QuestStep
+class_name QuestStepAcceptQuest
+
+@export var quest_id : String
+
+
+func set_active(val: bool):
+	_signal = QuestManager.quest_started
+	_expected_args = [quest_id]
+	super.set_active(val)

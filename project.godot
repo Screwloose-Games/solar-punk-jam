@@ -12,10 +12,10 @@ config_version=5
 
 config/name="Capybara"
 config/version="0.0.05"
+config/tags=PackedStringArray("game_jam")
 run/main_scene="uid://daabskcdhrpea"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-config/tags=PackedStringArray("game_jam")
 
 [autoload]
 

@@ -1,5 +1,5 @@
-class_name Quest
 extends Resource
+class_name Quest
 
 signal quest_state_changed
 signal quest_completed(giver: String)
@@ -80,8 +80,7 @@ func start_quest():
 func check_progress():
 	if !is_complete:
 		for step in steps:
-			if step is ValueQuestStep:
-				step.check_value()
+			step.check_value()
 
 
 # If an step is completed, check if the overall quest is completed too

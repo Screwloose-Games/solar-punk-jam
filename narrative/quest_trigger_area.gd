@@ -5,4 +5,5 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
+		print("Player entered quest trigger: %s" % id)
 		GlobalSignalBus.quest_trigger_area_entered.emit(id)

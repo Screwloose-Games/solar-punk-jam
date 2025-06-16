@@ -1,18 +1,13 @@
+# CUSTOM quest step, more generic and customizable
+# Not intended for regular use, for objectives that other types don't cover
 extends QuestStep
-class_name SignalQuestStep
+class_name QuestStepCustom
 
-## The global autoload on which to call the signal
-#@export_enum("GlobalSignalBus", "QuestManager", "EnvironmentManager") var autoload_name: String
-
-## The name of the signal on the global autoload
-#@export var signal_name: String = ""
-
-## Arguments expect passed to the signal
-#@export var expected_args: Array
-
-var autoload_name : String = "GlobalSignalBus"
-var signal_name : String = ""
-var expected_args : Array
+@export var autoload_name : String = "GlobalSignalBus"
+@export var signal_name : String = ""
+@export var expected_args : Array[String]
+@export var var_name : String = ""
+@export var target_value : int = 1
 var autoload_instance : Node
 
 
@@ -20,29 +15,33 @@ func set_active(val : bool):
 	super.set_active(val)
 	if is_active:
 		subscribe()
+		check_value()
 	else:
-		if autoload_instance:
-			autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
-
-
-func _on_autoload_signal_emitted(a = null, b = null, c = null, d = null):
-	var received_args = [a, b, c, d]
-	for i in expected_args.size():
-		var expected_value = expected_args[i]
-		if expected_value != received_args[i]:
-			return
-	event_occured()
+		unsubscribe()
 
 
 func event_occured():
 	if is_completed:
 		return
 	progress += 1
-	if progress >= goal:
+	if progress >= target_value:
 		is_completed = true
 		is_active = false
 	else:
 		progressed.emit()
+
+
+func check_value():
+	if is_active:
+		var value = QuestManager[var_name]
+		print("Objective check val: " + str(value))
+		if int(value) >= goal:
+			progress = goal
+			is_completed = true
+			is_active = false
+		else:
+			progress = int(value)
+			progressed.emit()
 
 
 func subscribe():
@@ -68,3 +67,17 @@ func subscribe():
 	else:
 		printerr("Failed to connect to signal '", signal_name, "' on autoload '",
 		autoload_name, "'. Error code: ", error_code)
+
+
+func unsubscribe():
+	if autoload_instance:
+		autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
+
+
+func _on_autoload_signal_emitted(a = null, b = null, c = null, d = null):
+	var received_args = [a, b, c, d]
+	for i in expected_args.size():
+		var expected_value = expected_args[i]
+		if expected_value != received_args[i]:
+			return
+	event_occured()

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="QuestDesignerLayout" load_steps=7 format=3 uid="uid://k84uim5k6pus"]
 
-[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="1_xh8er"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="1_xh8er"]
 [ext_resource type="Script" uid="uid://c403k3ehx0c0s" path="res://tools/quest_designer_layout.gd" id="2_j0eui"]
 [ext_resource type="Resource" uid="uid://kpvjfs8lnqiy" path="res://narrative/quests/qst_a1d1_intro.tres" id="2_tp35h"]
-[ext_resource type="Resource" uid="uid://dliloj64dgu5f" path="res://narrative/quests/qst_a1d2_harvest.tres" id="3_7pxm4"]
-[ext_resource type="Resource" uid="uid://d3k7l24o3467h" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_xej3u"]
-[ext_resource type="Resource" uid="uid://bkchfqhete7o5" path="res://narrative/quests/qst_a1d1_trin.tres" id="5_pgq4r"]
+[ext_resource type="Resource" uid="uid://5nhrwkcewlem" path="res://narrative/quests/qst_a1d2_harvest.tres" id="3_7pxm4"]
+[ext_resource type="Resource" uid="uid://bk1qhgoe1a432" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_xej3u"]
+[ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="5_pgq4r"]
 
 [resource]
 script = ExtResource("2_j0eui")

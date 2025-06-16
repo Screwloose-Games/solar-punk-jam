@@ -15,15 +15,12 @@ func set_active(val: bool):
 
 func check_value():
 	if is_active:
-		var check_value = Dialogic.VAR[target_value]
-		print("Objective check val: " + str(check_value))
-		if typeof(check_value) not in [TYPE_BOOL, TYPE_INT]:
-			print("Value is not int or bool, aborting check.")
+		var value = Dialogic.VAR[target_value]
+		print("Objective check val: " + str(value))
+		if int(value) >= goal:
+			progress = goal
+			is_completed = true
+			is_active = false
 		else:
-			if int(check_value) >= goal:
-				progress = goal
-				is_completed = true
-				is_active = false
-			else:
-				progress = int(check_value)
-				progressed.emit()
+			progress = int(value)
+			progressed.emit()

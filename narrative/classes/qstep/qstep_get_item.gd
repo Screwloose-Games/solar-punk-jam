@@ -1,5 +1,5 @@
-class_name GetItemQuestStep
-extends SignalQuestStepBase
+extends QuestStep
+class_name QuestStepGetItem
 
 @export var item: String
 

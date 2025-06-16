@@ -1,31 +1,29 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://bkchfqhete7o5"]
+[gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://b6iwcl3xdip0a"]
 
-[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_mbbq3"]
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="3_mbbq3"]
-[ext_resource type="Resource" uid="uid://d3k7l24o3467h" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_t80vs"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_x688r"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_mbbq3"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/classes/qstep/qstep_custom.gd" id="2_se44t"]
+[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_step.gd" id="3_se44t"]
+[ext_resource type="Resource" uid="uid://bk1qhgoe1a432" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_t80vs"]
 
 [sub_resource type="Resource" id="Resource_1j8rw"]
 script = ExtResource("2_se44t")
-autoload_name = "GlobalSignalBus"
-signal_name = "talked_to"
-expected_args = ["trin"]
 description = "Talk to Trin"
 goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "trin"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_tq41l"]
 script = ExtResource("2_se44t")
-autoload_name = "GlobalSignalBus"
-signal_name = "activated_build_mode"
-expected_args = []
 description = "Go into Build Mode"
 goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = "prog1"
 marker_id = "trin_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_se44t"]
@@ -36,6 +34,7 @@ goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
 marker_id = "trin_garden"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_t80vs"]
@@ -46,6 +45,7 @@ goal = 3
 prerequisites = Array[int]([2])
 play_dialogue = "prog3"
 marker_id = "trin_compost"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_0eyh0"]
@@ -56,30 +56,27 @@ goal = 3
 prerequisites = Array[int]([3])
 play_dialogue = "prog4"
 marker_id = "trin_water"
+type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_svb1w"]
 script = ExtResource("2_se44t")
-autoload_name = "GlobalSignalBus"
-signal_name = "seed_ui_shown"
-expected_args = []
 description = "Interact with the Vertical garden"
 goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "vertical_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_uq8a5"]
 script = ExtResource("2_se44t")
-autoload_name = "QuestManager"
-signal_name = "crop_planted"
-expected_args = ["Radish"]
 description = "Plant a radish"
 goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = "prog5"
 marker_id = "vertical_garden"
+type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
@@ -93,7 +90,6 @@ Help me build a vertical garden POSTHASTE!
 Find me in my garden!
 
 -Trin"
-steps = Array[ExtResource("3_mbbq3")]([])
 unlock_on_accept = Array[String](["Vertical garden"])
 steps = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_on_complete = Array[String](["Compost bin", "Rain barrel"])

@@ -6,29 +6,8 @@ signal quest_started_res(quest: Quest)
 signal quests_changed
 signal quest_completed(giver: String)
 signal quest_cancelled(quest: Quest)
-signal structure_built(name: String)
-signal crop_planted(name: String)
 
 const FILE_PATH = "res://narrative/quests/%s.tres"
-const RESOURCE_MAP = {
-	"Electricity": "res_electric",
-	"Water": "res_water",
-	"Food": "res_food",
-	"Waste": "res_waste",
-	"Soil": "res_soil",
-	"Happiness": "res_happy",
-	"Materials": "res_material",
-	"Seeds": "res_seed",
-}
-const STRUCTURE_MAP = {
-	5: "built_compost",
-	6: "built_hygiene",
-	11: "built_rain_barrel",
-	12: "built_raised_bed",
-	13: "built_vplanter",
-	15: "built_solar_panel",
-	20: "built_donation"
-}
 const TUTORIALS = ["a1d1_trin"]
 
 var quests: Array[Quest] = []
@@ -38,10 +17,6 @@ var unlocked_quests: Array[Quest] = []
 
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
-	# Signals that need to be 'digested' to simplify the argument they pass
-	ResourcesManager.UpdatedAvailableResources.connect(update_resources)
-	StructureManager.structure_built.connect(update_structures)
-	GlobalSignalBus.seed_planted.connect(update_crop)
 	unlock_quest("a1d1_trin")
 	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
 
@@ -50,10 +25,6 @@ func cancel_quest(quest: Quest):
 	quests.erase(quest)
 	quest_cancelled.emit(quest)
 	quests_changed.emit()
-
-
-func _on_world_unloaded():
-	reset()
 
 
 func reset_quests():
@@ -69,7 +40,6 @@ func reset():
 	quest_markers.clear()
 	unlocked_quests.clear()
 	Dialogic.VAR.clear_game_state()
-
 
 
 func unlock_quest(quest_id: String):
@@ -105,34 +75,6 @@ func start_quest_resource(new_quest: Quest):
 	quest_started_res.emit(new_quest)
 	quests_changed.emit()
 	print("Quest started: %s" % new_quest.name)
-
-
-func update_structures(new_structure):
-	if new_structure.structure in STRUCTURE_MAP.keys():
-		var structure_name = STRUCTURE_MAP[new_structure.structure]
-		var success = Dialogic.VAR.set_variable(structure_name, true)
-		if not success:
-			push_error("Tried setting non-existant variable")
-	structure_built.emit(StructureManager.get_structure_name(new_structure.structure))
-	check_quests()
-
-
-func update_crop(crop: Crop):
-	match crop.name:
-		"Radish":
-			Dialogic.VAR.crop_radish += 1
-	crop_planted.emit(crop.name)
-	check_quests()
-
-
-func update_resources():
-	for res_name in RESOURCE_MAP.keys():
-		if res_name in ResourcesManager.current_resources.keys():
-			var res_varname = RESOURCE_MAP[res_name]
-			if res_varname in Dialogic.VAR.variables():
-				var res_value = ResourcesManager.current_resources[res_name]
-				Dialogic.VAR.set_variable(res_varname, res_value)
-	check_quests()
 
 
 func check_quests(_changes: Dictionary = {}):

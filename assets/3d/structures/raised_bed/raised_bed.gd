@@ -80,5 +80,5 @@ func plant_crop(new_crop: Crop):
 	ResourcesManager.spend_resources(Crop.planting_requirements)
 	crop = new_crop
 	add_crop_visuals(crop.planted_scene)
-	GlobalSignalBus.seed_planted.emit(new_crop)
+	GlobalSignalBus.crop_planted.emit(new_crop.type)
 	hide_ui()
