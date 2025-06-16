@@ -1,56 +1,7 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=8 format=3 uid="uid://dliloj64dgu5f"]
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://dliloj64dgu5f"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_cascf"]
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_step.gd" id="2_lgqfx"]
-
-[sub_resource type="Resource" id="Resource_77q8f"]
-script = ExtResource("2_lgqfx")
-autoload_name = "GlobalSignalBus"
-signal_name = "talked_to"
-expected_args = ["mom"]
-description = "Talk to Kai"
-goal = 1
-prerequisites = Array[int]([])
-play_dialogue = "prog1"
-marker_id = "mom"
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
-
-[sub_resource type="Resource" id="Resource_i1qdm"]
-script = ExtResource("2_lgqfx")
-autoload_name = "GlobalSignalBus"
-signal_name = "crop_harvested"
-expected_args = []
-description = "Harvest a radish"
-goal = 1
-prerequisites = Array[int]([0])
-play_dialogue = ""
-marker_id = ""
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
-
-[sub_resource type="Resource" id="Resource_105xa"]
-script = ExtResource("2_lgqfx")
-autoload_name = "GlobalSignalBus"
-signal_name = "food_donated"
-expected_args = []
-description = "Donate food to the food stand"
-goal = 1
-prerequisites = Array[int]([1])
-play_dialogue = ""
-marker_id = "community_food_stand"
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
-
-[sub_resource type="Resource" id="Resource_lgqfx"]
-script = ExtResource("2_lgqfx")
-autoload_name = "GlobalSignalBus"
-signal_name = "community_board_interacted"
-expected_args = []
-description = "Check the Community board"
-goal = 1
-prerequisites = Array[int]([2])
-play_dialogue = "prog2"
-marker_id = "board"
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="2_i80ro"]
 
 [resource]
 script = ExtResource("2_cascf")
@@ -59,7 +10,7 @@ name = "Harvest and deliver plants"
 quest_giver = "mom"
 description = "Quest Description"
 community_board_text = ""
-steps = Array[ExtResource("1_i80ro")]([])
+steps = Array[ExtResource("2_i80ro")]([])
 unlock_on_accept = Array[String]([])
 steps = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
 unlock_on_complete = Array[String]([])

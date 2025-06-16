@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=4 format=3 uid="uid://d3k7l24o3467h"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_emwmh"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="3_emwmh"]
 [ext_resource type="Resource" uid="uid://dliloj64dgu5f" path="res://narrative/quests/qst_a1d2_harvest.tres" id="4_jxjmi"]
 
 [resource]
@@ -11,7 +11,7 @@ name = "Start your own garden"
 quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
-steps = Array[ExtResource("1_b5u7u")]([])
+steps = Array[ExtResource("3_emwmh")]([])
 unlock_on_accept = Array[String](["Raised bed"])
 steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_eepgn"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_jxjmi"), SubResource("Resource_k0nsr"), SubResource("Resource_lpidx"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
 unlock_on_complete = Array[String]([])

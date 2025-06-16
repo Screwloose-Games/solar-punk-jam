@@ -237,9 +237,6 @@ script = ExtResource("8_xj3rj")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("9_2cms5")]
 
-[node name="prefab_noentry_tall6" parent="DesignTestScene" index="25"]
-visible = false
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ntgmv")
 
