@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m8muqdbiwcj4" path="res://test/scenarios/test_signal_quest_objective/test_quest_giver.gd" id="1_cb28k"]
 [ext_resource type="Resource" uid="uid://cwr1inx2ohgup" path="res://test/scenarios/test_signal_quest_objective/tst_qst.tres" id="2_2nss0"]
-[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="3_6o5mj"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="3_6o5mj"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="4_vc1ro"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_mx4nu"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="11_301s4"]

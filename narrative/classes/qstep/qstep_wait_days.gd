@@ -1,6 +1,7 @@
-## Wait for a day to pass in the game.
-class_name DaysPassedQuestStep
-extends SignalQuestStepBase
+# WAIT_DAYS quest step
+# Used when the player has to wait X number of days in game
+extends QuestStep
+class_name QuestStepWaitDays
 
 var days_waited: int = 0
 

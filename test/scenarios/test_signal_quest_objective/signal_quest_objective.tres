@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SignalQuestObjective" load_steps=2 format=3 uid="uid://033drupooqel"]
 
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/signal_quest_step.gd" id="1_ubgpb"]
+[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/classes/qstep/qstep_custom.gd" id="1_ubgpb"]
 
 [resource]
 script = ExtResource("1_ubgpb")

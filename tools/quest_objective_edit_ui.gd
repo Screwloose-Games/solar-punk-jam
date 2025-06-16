@@ -57,7 +57,6 @@ func _build_ui():
 	# Detect subtype and add subtype-specific UI
 	if quest_step is SignalQuestStep:
 		_add_signal_objective_fields(quest_step)
-	elif quest_step is ValueQuestStep:
 		_add_value_objective_fields(quest_step)
 
 
@@ -74,9 +73,6 @@ func _add_signal_objective_fields(obj: SignalQuestStep):
 	add_child(
 		_make_array_editor("Expected Args", obj.expected_args, func(val): obj.expected_args = val)
 	)
-
-
-func _add_value_objective_fields(obj: ValueQuestStep):
 	add_child(_make_line_edit("Target Value", obj.target_value, func(val): obj.target_value = val))
 
 

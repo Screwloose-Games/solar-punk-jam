@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://74l5iu6uynq6" path="res://components/interactable_area_3d.tscn" id="1_ptspw"]
 [ext_resource type="Script" uid="uid://y8y2amc1kb5j" path="res://actors/npcs/board/community_board.gd" id="1_r1qyg"]
-[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_n4pq3"]
-[ext_resource type="Resource" uid="uid://bkchfqhete7o5" path="res://narrative/quests/qst_a1d1_trin.tres" id="3_kaivu"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_n4pq3"]
+[ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="3_kaivu"]
 [ext_resource type="PackedScene" uid="uid://byfoxs7fp3xet" path="res://components/interact_notify.tscn" id="3_khjfs"]
 [ext_resource type="PackedScene" uid="uid://vpl7oxh8hf2p" path="res://components/quest_marker_3d.tscn" id="4_4yc5c"]
 [ext_resource type="PackedScene" uid="uid://cockbui21lpt3" path="res://assets/3d/structures/community_board/sm_message_board.tscn" id="5_4yc5c"]

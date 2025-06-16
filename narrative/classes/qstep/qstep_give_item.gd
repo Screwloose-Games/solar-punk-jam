@@ -1,5 +1,5 @@
-class_name GiveItemQuestStep
-extends SignalQuestStepBase
+extends QuestStep
+class_name QuestStepGiveItem
 
 @export var recipient: String
 @export var item: String

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjw8avx8722yi"]
+[gd_scene load_steps=22 format=3 uid="uid://cjw8avx8722yi"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_ubq5j"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_mdx4t"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d0b1347oncwvc" path="res://actors/npcs/board/prefab_community_board.tscn" id="14_sxhv7"]
 [ext_resource type="PackedScene" uid="uid://bf188yp1g8anl" path="res://prefabs/collectables/prefab_scrap_node_spawner.tscn" id="15_jboto"]
 [ext_resource type="PackedScene" uid="uid://kyagm2ni422i" path="res://components/sleep_door.tscn" id="16_veoe8"]
+[ext_resource type="PackedScene" uid="uid://cbsiuo2vyniyk" path="res://narrative/quest_trigger_area.tscn" id="17_3f5lh"]
 [ext_resource type="PackedScene" uid="uid://fgjkfmg0jtrv" path="res://assets/3d/buildings/destroyed/destroyed_building_01/sm_destroyed_building_01.tscn" id="17_fhdxx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umr73"]
@@ -288,6 +289,10 @@ omni_attenuation = 0.5
 
 [node name="sm_destroyed_building_01" parent="." instance=ExtResource("17_fhdxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5249, 3.8147e-06, -28.762)
+
+[node name="QuestTriggerArea" parent="." instance=ExtResource("17_3f5lh")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 17, 0, 8)
+id = "test_trigger"
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
