@@ -1,6 +1,7 @@
 name: gdlint on push
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
     - '**/*.gd'
