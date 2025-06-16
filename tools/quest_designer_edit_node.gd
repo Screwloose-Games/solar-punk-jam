@@ -39,8 +39,8 @@ func _establish_quest_connections():
 	# Look through all nodes in the graph
 	for node in graph_edit.get_children():
 		if node is QuestEditUi and node != self:
-			# Check if this node's quest is set as the on_complete_starts_quest
-			if node.quest == quest.on_complete_starts_quest:
+			# Check if this node's quest is set as the next_quest
+			if node.quest == quest.next_quest:
 
 				graph_edit.connect_node(
 					get_name(),
@@ -48,7 +48,7 @@ func _establish_quest_connections():
 					node.get_name(),
 					QUEST_ON_COMPLETE_PORT_RIGHT
 				)
-			elif quest.on_complete_starts_quest == node.quest:
+			elif quest.next_quest == node.quest:
 				graph_edit.connect_node(
 					node.get_name(),
 					QUEST_REF_PORT_LEFT,
@@ -198,8 +198,8 @@ func _add_quest_connection_field():
 
 	var quest_label = Label.new()
 	quest_label.name = "quest_connection_label"
-	if quest.on_complete_starts_quest:
-		quest_label.text = quest.on_complete_starts_quest.name
+	if quest.next_quest:
+		quest_label.text = quest.next_quest.name
 	else:
 		quest_label.text = "None"
 	quest_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -257,7 +257,7 @@ func _on_connection_request(from_node: Node, from_port: int, to_node: Node, to_p
 	if from_node is QuestEditUi and to_node is QuestEditUi:
 		var from_quest: Quest = from_node.quest
 		var to_quest: Quest = to_node.quest
-		from_quest.on_complete_starts_quest = to_quest
+		from_quest.next_quest = to_quest
 	_build_ui()
 
 func _on_save_pressed():

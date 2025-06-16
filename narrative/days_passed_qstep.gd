@@ -1,9 +1,10 @@
+## Wait for a day to pass in the game.
 class_name DaysPassedQuestStep
-extends SignalQuestStep
+extends SignalQuestStepBase
 
+var days_waited: int = 0
 
-func set_active(val : bool):
-	autoload_name = "EnvironmentManager"
-	signal_name = "day_passed"
-	expected_args = []
+func set_active(val: bool):
+	_signal = GlobalSignalBus.day_passed
+	_expected_args = []
 	super.set_active(val)

@@ -16,7 +16,7 @@ signal set_ending_visibility(show_panel: bool)
 signal quest_trigger_area_entered(area_id : String)
 signal item_received(item_id : String)
 signal item_given(item_id : String, npc_id : String)
-signal resource_given(res_id : String, npc_id : String)
+signal resource_given(npc_id: String, resource: ResourcesManager.ResourceType)
 signal object_interacted(interact_id : String)
 
 

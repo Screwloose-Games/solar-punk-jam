@@ -14,7 +14,6 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = "prog1"
 marker_id = "mom"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_i1qdm"]
@@ -27,7 +26,6 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = ""
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_105xa"]
@@ -40,7 +38,6 @@ goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = ""
 marker_id = "community_food_stand"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_lgqfx"]
@@ -53,7 +50,6 @@ goal = 1
 prerequisites = Array[int]([2])
 play_dialogue = "prog2"
 marker_id = "board"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]

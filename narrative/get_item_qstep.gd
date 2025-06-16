@@ -1,11 +1,10 @@
 class_name GetItemQuestStep
-extends SignalQuestStep
+extends SignalQuestStepBase
 
-@export var item : String
+@export var item: String
 
-
-func set_active(val : bool):
-	autoload_name = "GlobalSignalBus"
-	signal_name = "item_received"
-	expected_args = [item]
+func set_active(val: bool):
+	_signal = GlobalSignalBus.item_received
+	_expected_args = [item]
 	super.set_active(val)
+	

@@ -3,7 +3,6 @@ extends ValueQuestStep
 
 @export var structure_type : String
 
-
 func check_value():
 	if is_active:
 		# Check if structure_type is in built_structures

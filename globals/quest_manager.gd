@@ -88,8 +88,10 @@ func start_quest_resource(new_quest: Quest):
 	for quest in unlocked_quests:
 		if quest.id == new_quest.id:
 			unlocked_quests.erase(quest)
-	new_quest.quest_state_changed.connect(emit_signal.bind("quests_changed"))
-	new_quest.quest_completed.connect(_on_quest_complete)
+	if !new_quest.quest_state_changed.is_connected(emit_signal.bind("quests_changed")):
+		new_quest.quest_state_changed.connect(emit_signal.bind("quests_changed"))
+	if !new_quest.quest_completed.is_connected(_on_quest_complete):
+		new_quest.quest_completed.connect(_on_quest_complete)
 	new_quest.start_quest()
 	check_quests()
 	quest_started.emit(new_quest.id)

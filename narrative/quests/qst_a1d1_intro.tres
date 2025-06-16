@@ -15,7 +15,6 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "board"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_yyvya"]
@@ -28,7 +27,6 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "board"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
@@ -38,13 +36,14 @@ name = "Check the Community Board"
 quest_giver = "mom"
 description = "Check the Community Board for work orders."
 community_board_text = "its good"
-steps = Array[ExtResource("1_rqfjc")]([SubResource("Resource_7on4j"), SubResource("Resource_yyvya")])
 unlock_on_accept = Array[String]([])
+steps = Array[ExtResource("1_rqfjc")]([SubResource("Resource_7on4j"), SubResource("Resource_yyvya")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5,
 6: 3,
 7: 1
 })
-on_complete_starts_quest = ExtResource("3_4l7h4")
+next_quest = ExtResource("3_4l7h4")
+start_next_quest = true
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

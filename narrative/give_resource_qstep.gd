@@ -1,12 +1,10 @@
 class_name GiveResourceQuestStep
-extends SignalQuestStep
+extends SignalQuestStepBase
 
-@export var recipient : String
-@export var resource : String
+@export var recipient: String
+@export var resource: ResourcesManager.ResourceType
 
-
-func set_active(val : bool):
-	autoload_name = "GlobalSignalBus"
-	signal_name = "resource_given"
-	expected_args = [recipient, resource]
+func set_active(val: bool):
+	_signal = GlobalSignalBus.resource_given
+	_expected_args = [recipient, resource]
 	super.set_active(val)

@@ -27,9 +27,9 @@ func _on_disconnection_request(from_node: StringName, from_port: int, to_node: S
 	var from: QuestEditUi = quest_designer_canvas.get_node(NodePath(from_node))
 	var to: QuestEditUi = quest_designer_canvas.get_node(NodePath(to_node))
 
-	# Clear the on_complete_starts_quest reference
+	# Clear the next_quest reference
 	if from.quest:
-		from.quest.on_complete_starts_quest = null
+		from.quest.next_quest = null
 
 	# Remove the connection from the graph
 	quest_designer_canvas.disconnect_node(from_node, from_port, to_node, to_port)

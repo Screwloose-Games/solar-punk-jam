@@ -16,7 +16,6 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "trin"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_tq41l"]
@@ -29,7 +28,6 @@ goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = "prog1"
 marker_id = "trin_garden"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_se44t"]
@@ -40,7 +38,6 @@ goal = 1
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
 marker_id = "trin_garden"
-type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_t80vs"]
@@ -51,7 +48,6 @@ goal = 3
 prerequisites = Array[int]([2])
 play_dialogue = "prog3"
 marker_id = "trin_compost"
-type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_0eyh0"]
@@ -62,7 +58,6 @@ goal = 3
 prerequisites = Array[int]([3])
 play_dialogue = "prog4"
 marker_id = "trin_water"
-type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [sub_resource type="Resource" id="Resource_svb1w"]
@@ -75,7 +70,6 @@ goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "vertical_garden"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_uq8a5"]
@@ -88,7 +82,6 @@ goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = "prog5"
 marker_id = "vertical_garden"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
@@ -102,8 +95,8 @@ Help me build a vertical garden POSTHASTE!
 Find me in my garden!
 
 -Trin"
-steps = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_on_accept = Array[String](["Vertical garden"])
+steps = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_se44t"), SubResource("Resource_t80vs"), SubResource("Resource_0eyh0"), SubResource("Resource_svb1w"), SubResource("Resource_uq8a5")])
 unlock_on_complete = Array[String](["Compost bin", "Rain barrel"])
 resource_rewards = Dictionary[int, int]({
 1: 3,
@@ -112,5 +105,6 @@ resource_rewards = Dictionary[int, int]({
 6: 6,
 7: 3
 })
-on_complete_starts_quest = ExtResource("4_t80vs")
+next_quest = ExtResource("4_t80vs")
+start_next_quest = true
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

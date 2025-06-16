@@ -7,16 +7,29 @@ signal quest_completed(giver : String)
 @export var id : String = "quest_id"
 @export var name : String = "Quest Name"
 @export var quest_giver : String = "npc_name"
+# @export var quest_source: DialogicCharacter
 @export var description : String = "Quest Description"
 @export_multiline var community_board_text : String = "" # displayed on the community board
+@export_enum("Compost bin", "Picnic Table", "Raised bed", "Rain barrel", "Vertical garden",
+"Recycling station", "Solar panel", "Waste bin", "Donation box",
+"Food stand") var unlock_on_accept : Array[String]
 @export var steps : Array[QuestStep] = []
-@export var unlock_on_accept : Array[String]
-@export var unlock_on_complete : Array[String]
+
+@export_category("When complete")
+@export_enum("Compost bin", "Picnic Table", "Raised bed", "Rain barrel", "Vertical garden",
+"Recycling station", "Solar panel", "Waste bin", "Donation box",
+"Food stand") var unlock_on_complete : Array[String]
+
 @export var resource_rewards: Dictionary[ResourcesManager.ResourceType, int] = {
 	ResourcesManager.ResourceType.HAPPINESS : 5
 }
-@export var on_complete_starts_quest: Quest
+## Story variables to change as a result of completing this quest
+#@export var change_story_variables: Dictionary[String, String]
+## The next quest after this one
+@export var next_quest: Quest
 
+## Start the next quest automatically
+@export var start_next_quest: bool = true
 
 var is_active: bool = false
 var is_complete : bool = false
@@ -37,7 +50,8 @@ func start_quest():
 	for structure in unlock_on_accept:
 		StructureManager.register_structure(structure)
 	for step in steps:
-		step.completed.connect(_on_step_completed)
+		if !step.completed.is_connected(_on_step_completed):
+			step.completed.connect(_on_step_completed)
 		if step.prerequisites.is_empty():
 			step.is_unlocked = true
 			step.is_active = true
@@ -87,8 +101,8 @@ func mark_complete():
 	for reward in rewards.keys():
 		ResourcesManager.gain_resource_str(reward, rewards[reward])
 	quest_completed.emit(quest_giver)
-	if on_complete_starts_quest:
-		QuestManager.start_quest_resource(on_complete_starts_quest)
+	if next_quest:
+		QuestManager.start_quest_resource(next_quest)
 
 func get_next_step() -> QuestStep:
 	for step in steps:
