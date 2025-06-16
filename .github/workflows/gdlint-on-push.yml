@@ -86,7 +86,10 @@ jobs:
             echo "EOF"
             echo "exit_code=$exit_code"
           } >> $GITHUB_OUTPUT
-          
+           
+          echo "Linting completed with exit code $exit_code"
+          echo "Lint output:"
+          echo "$lint_output"
           exit $exit_code
         continue-on-error: true
 
