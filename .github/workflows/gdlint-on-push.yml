@@ -77,7 +77,10 @@ jobs:
           fi
           
           # Run gdlint on all files at once (faster than individual files)
+          echo "Running gdlint on ${#files_array[@]} files"
           lint_output=$(gdlint "${files_array[@]}" 2>&1)
+          echo "gdlint completed with output:"
+          echo "$lint_output"
           exit_code=$?
           
           # Use more efficient output method
