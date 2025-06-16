@@ -62,24 +62,24 @@ jobs:
         id: lint
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
-          # Set the Internal Field Separator to newline to handle filenames with spaces
-          IFS=$'\n'
-          
           # Read the file list into an array robustly
-          files_array=(${{ steps.changed-files.outputs.all_changed_files }})
+          # files_array=(${{ steps.changed-files.outputs.all_changed_files }})
+          changed_files="${{ steps.changed-files.outputs.all_changed_files }}"
           
-          # Early exit if no files to lint
-          if [ ${#files_array[@]} -eq 0 ]; then
-            echo "No files to lint"
-            exit 0
-          fi
+          # Create a space-separated, double-quoted list
+          quoted_files=""
+          for file in $changed_files; do
+            quoted_files+="\"$file\" "
+          done
+
+          # Trim trailing space
+          quoted_files=$(echo "$quoted_files" | sed 's/ *$//')
+
+          # Run gdlint with all files as arguments
+          echo "Running gdlint on changed files:"
+          echo "$quoted_files"
           
-          echo "Linting the following files:"
-          printf -- "- %s\n" "${files_array[@]}"
-          
-          # Run gdlint, passing each file as a distinct, quoted argument
-          # The -- is a good practice to prevent files starting with "-" from being treated as options
-          lint_output=$(gdlint -- "${files_array[@]}" 2>&1)
+          lint_output=$(eval gdlint $quoted_files 2>&1)
           exit_code=$?
           
           # Use more efficient output method
