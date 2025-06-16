@@ -53,39 +53,22 @@ jobs:
           restore-keys: |
             gdtoolkit-4-${{ runner.os }}-
 
-      # - name: Install gdtoolkit
-      #   # if: steps.changed-files.outputs.any_changed == 'true'
-      #   run: |
-      #     pip install --no-warn-script-location gdtoolkit==4.*
-          
       - name: Lint changed files
         id: lint
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           pip install --no-warn-script-location gdtoolkit==4.*
-          # Ensure gdlint is available
-          if ! command -v gdlint &> /dev/null; then
-            echo "gdlint could not be found, please install gdtoolkit first."
-            exit 1
+          # Convert space-separated list to array and process
+          files_array=(${{ steps.changed-files.outputs.all_changed_files }})
+          
+          # Early exit if no files to lint
+          if [ ${#files_array[@]} -eq 0 ]; then
+            echo "No files to lint"
+            exit 0
           fi
-          # Read the file list into an array robustly
-          # files_array=(${{ steps.changed-files.outputs.all_changed_files }})
-          changed_files="${{ steps.changed-files.outputs.all_changed_files }}"
           
-          # Create a space-separated, double-quoted list
-          quoted_files=""
-          for file in $changed_files; do
-            quoted_files+="\"$file\" "
-          done
-
-          # Trim trailing space
-          quoted_files=$(echo "$quoted_files" | sed 's/ *$//')
-
-          # Run gdlint with all files as arguments
-          echo "Running gdlint on changed files:"
-          # echo "$quoted_files"
-          
-          lint_output=$(eval gdlint $quoted_files 2>&1)
+          # Run gdlint on all files at once (faster than individual files)
+          lint_output=$(gdlint "${files_array[@]}" 2>&1)
           exit_code=$?
           
           # Use more efficient output method
