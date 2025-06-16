@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://cp4hipgme2pa1"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_ugpma"]
-[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_objective.gd" id="2_pkoq2"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_ugpma"]
+[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_step.gd" id="2_pkoq2"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="5_w4y3a"]
 
 [sub_resource type="Resource" id="Resource_p3qs0"]
@@ -12,7 +12,6 @@ goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = ""
-type = 0
 metadata/_custom_type_script = "uid://cmvp4kmmguagb"
 
 [resource]
@@ -24,8 +23,8 @@ description = "Build a solar panel"
 community_board_text = "We could use more power. Why don't you try building a solar panel in the community hub?
 
 -Mister"
-objectives = Array[ExtResource("1_ugpma")]([SubResource("Resource_p3qs0")])
 unlock_on_accept = Array[String](["Solar panel", "Picnic Table"])
+steps = Array[ExtResource("1_ugpma")]([SubResource("Resource_p3qs0")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 1: 3,
@@ -34,4 +33,5 @@ resource_rewards = Dictionary[int, int]({
 6: 6,
 7: 3
 })
+start_next_quest = true
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

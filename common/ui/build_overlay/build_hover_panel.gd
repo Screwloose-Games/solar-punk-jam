@@ -39,8 +39,8 @@ func update_content(new_title: String, new_description: String, new_icon: Textur
 
 func show_preview(structure_id: int) -> void:
 	var data = StructureManager.structure_data[structure_id]
-	var name = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.StructureName]
-	var desc = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.StructureDescription]
+	var name = StructureManager.structure_data[structure_id][StructureManager.StructureFields.STRUCTURE_NAME]
+	var desc = StructureManager.structure_data[structure_id][StructureManager.StructureFields.STRUCTURE_DESCRIPTION]
 	var icon = structure_large_icons.get(name, null)
 
 	if icon == null:

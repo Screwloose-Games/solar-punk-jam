@@ -25,7 +25,7 @@ static var structure_small_icons = {
 func _ready() -> void:
 	ResourcesManager.UpdatedAvailableResources.connect(_on_resources_available_changed)
 	var data = StructureManager.structure_data[structure_id]
-	var name = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.StructureName]
+	var name = StructureManager.structure_data[structure_id][StructureManager.StructureFields.STRUCTURE_NAME]
 	var structure_name: String = name
 	if structure_small_icons.has(name):
 		icon = structure_small_icons[name]
@@ -33,6 +33,6 @@ func _ready() -> void:
 
 func _on_resources_available_changed():
 	var data = StructureManager.structure_data[structure_id]
-	var mats_required = StructureManager.structure_data[structure_id][StructureManager.STRUCTURE_FIELDS.MaterialCost]
+	var mats_required = StructureManager.structure_data[structure_id][StructureManager.StructureFields.MATERIAL_COST]
 	var can_afford = ResourcesManager.has_at_least(ResourcesManager.ResourceType.MATERIALS, mats_required)
 	disabled = !can_afford

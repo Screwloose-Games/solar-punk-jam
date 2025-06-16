@@ -32,7 +32,7 @@ var tile_to_structure_idx: Dictionary[Vector2i, int]= {} # coords, structure_id
 
 
 func _ready() -> void:
-	StructureManager.BuildableStructureSelected.connect(ready_structure_building)
+	StructureManager.buildable_structure_selected.connect(ready_structure_building)
 	selection_placeholder.hide()
 	structure_placeholder.hide()
 	create_preview()
@@ -75,8 +75,8 @@ func ready_structure_building(idx):
 	if StructureManager.check_structure_requirements(idx):
 		return
 	structure_placeholder.show()
-	var w = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
-	var h = int(StructureManager.structure_data[idx][StructureManager.STRUCTURE_FIELDS.StructureDepth])
+	var w = int(StructureManager.structure_data[idx][StructureManager.StructureFields.STRUCTURE_WIDTH])
+	var h = int(StructureManager.structure_data[idx][StructureManager.StructureFields.STRUCTURE_DEPTH])
 	building_rect = Rect2i(0,0,w,h)
 	structure_placeholder.scale = Vector3(building_rect.size.x, 1, building_rect.size.y)
 	can_build = false
@@ -111,7 +111,7 @@ func move_cursor_3d():
 			structure_placeholder.show()
 			selection_placeholder.hide()
 			#can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.BUILDABLE_EMPTY_SPACE, Vector2i.ZERO)
-			can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundBefore]], Vector2i.ZERO)
+			can_build = surface_check(coords, building_rect.size.x, building_rect.size.y, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.StructureFields.GROUND_BEFORE]], Vector2i.ZERO)
 			if can_build:
 				structure_placeholder.get_node("SelectionPlaceholder").mesh.material.albedo_color = Color.CHARTREUSE
 				structure_placeholder.get_node("SelectionPlaceholder/SelectionPlaceholder").mesh.material.albedo_color = Color.CHARTREUSE
@@ -128,7 +128,7 @@ func move_cursor_3d():
 					can_check = true
 					current_coords = coords
 					var structure = built_structures_local[tile_to_structure_idx[current_coords]]
-					HUDCanvasLayer.Singleton.instance.set_tool_tip(StructureManager.structure_data[structure.structure][StructureManager.STRUCTURE_FIELDS.StructureName], position_screen)
+					HUDCanvasLayer.Singleton.instance.set_tool_tip(StructureManager.structure_data[structure.structure][StructureManager.StructureFields.STRUCTURE_NAME], position_screen)
 			else:
 				selection_placeholder.hide()
 
@@ -144,8 +144,8 @@ func create_initial_build():
 			building_idx = StructureManager.structure_name_to_idx_map[data[0]]
 			var coords_ = Vector2i(int(coords[0].strip_edges()), int(coords[1].strip_edges()))
 			#coords_ += Vector2i.ONE
-			var w = int(StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureWidth])
-			var h = int(StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureDepth])
+			var w = int(StructureManager.structure_data[building_idx][StructureManager.StructureFields.STRUCTURE_WIDTH])
+			var h = int(StructureManager.structure_data[building_idx][StructureManager.StructureFields.STRUCTURE_DEPTH])
 			building_rect = Rect2i(0,0,w,h)
 			_build_structure(building_idx, coords_, building_rect, true)
 	reset_cursor_3d()
@@ -165,7 +165,7 @@ func build_structure():
 
 func _build_structure(building_idx, coords, building_rect, skip_resource_consumption=false):
 	prints("building structure at",coords)
-	var file_name = StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.StructureModel]
+	var file_name = StructureManager.structure_data[building_idx][StructureManager.StructureFields.STRUCTURE_MODEL]
 	var directory_name = file_name.rsplit(".", true, 1)[0]
 	var visual_instance = null
 	var visual_instance_scene = load("res://assets/3d/structures/" + directory_name + "/" + file_name)
@@ -173,9 +173,9 @@ func _build_structure(building_idx, coords, building_rect, skip_resource_consump
 		visual_instance = visual_instance_scene.instantiate()
 		visual_instance.position = Vector3(coords.x, 0, coords.y) + Vector3(building_rect.size.x / 2.0, 0, building_rect.size.y/2.0)
 		add_child(visual_instance)
-	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.STRUCTURE_FIELDS.GroundAfter]])
+	surface_check(coords, building_rect.size.x, building_rect.size.y, Vector2i.ZERO, StructureManager.VALID_TILE_TYPES[StructureManager.structure_data[building_idx][StructureManager.StructureFields.GROUND_AFTER]])
 
-	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.STRUCTURE_STATUS.JUST_CREATED, visual_instance)
+	var new_structure = StructureManager.BuiltStructure.new(self, coords, building_idx, EnvironmentManager.environment_model.day, StructureManager.StructureStatus.JUST_CREATED, visual_instance)
 	built_structures_local.append(new_structure)
 	register_tiles(len(built_structures_local)-1, coords, building_rect.size.x, building_rect.size.y)
 	StructureManager.build_structure(new_structure, skip_resource_consumption)

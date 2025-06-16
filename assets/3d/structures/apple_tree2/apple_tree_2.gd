@@ -1,8 +1,8 @@
 extends StructureVisualInstance
 
-func set_structure_status(status: StructureManager.STRUCTURE_STATUS):
+func set_StructureStatus(status: StructureManager.StructureStatus):
 	match status:
-		StructureManager.STRUCTURE_STATUS.JUST_CREATED:
+		StructureManager.StructureStatus.JUST_CREATED:
 			$apple_tree.hide()
 		_:
 			$apple_tree.show()

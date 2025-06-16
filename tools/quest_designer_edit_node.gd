@@ -13,6 +13,7 @@ const QUEST_REF_PORT_LEFT = 0
 
 var container: VBoxContainer
 
+
 func _ready():
 	#if Engine.is_editor_hint():
 	# Wait for parent to be ready
@@ -39,22 +40,16 @@ func _establish_quest_connections():
 	# Look through all nodes in the graph
 	for node in graph_edit.get_children():
 		if node is QuestEditUi and node != self:
-			# Check if this node's quest is set as the on_complete_starts_quest
-			if node.quest == quest.on_complete_starts_quest:
+			# Check if this node's quest is set as the next_quest
+			if node.quest == quest.next_quest:
+				graph_edit.connect_node(
+					get_name(), QUEST_REF_PORT_LEFT, node.get_name(), QUEST_ON_COMPLETE_PORT_RIGHT
+				)
+			elif quest.next_quest == node.quest:
+				graph_edit.connect_node(
+					node.get_name(), QUEST_REF_PORT_LEFT, get_name(), QUEST_ON_COMPLETE_PORT_RIGHT
+				)
 
-				graph_edit.connect_node(
-					get_name(),
-					QUEST_REF_PORT_LEFT,
-					node.get_name(),
-					QUEST_ON_COMPLETE_PORT_RIGHT
-				)
-			elif quest.on_complete_starts_quest == node.quest:
-				graph_edit.connect_node(
-					node.get_name(),
-					QUEST_REF_PORT_LEFT,
-					get_name(),
-					QUEST_ON_COMPLETE_PORT_RIGHT
-				)
 
 func _build_ui():
 	for child in get_children():
@@ -75,8 +70,12 @@ func _build_ui():
 	_add_label("Description", quest.description, "_on_description_changed")
 	_add_multiline("Community Board Text", quest.community_board_text, _on_board_text_changed)
 
-	_add_string_array_editor("Unlock On Accept", quest.unlock_on_accept, "_on_unlock_accept_changed")
-	_add_string_array_editor("Unlock On Complete", quest.unlock_on_complete, "_on_unlock_complete_changed")
+	_add_string_array_editor(
+		"Unlock On Accept", quest.unlock_on_accept, "_on_unlock_accept_changed"
+	)
+	_add_string_array_editor(
+		"Unlock On Complete", quest.unlock_on_complete, "_on_unlock_complete_changed"
+	)
 
 	_add_objective_list_editor()
 	_add_resource_rewards_editor()
@@ -93,6 +92,7 @@ func _build_ui():
 	set_slot_enabled_right(last_slot, true)
 	resizable = true
 
+
 func _add_close_button():
 	var close_button = Button.new()
 	close_button.text = "Close"
@@ -100,12 +100,15 @@ func _add_close_button():
 	close_button.self_modulate = Color.RED
 	container.add_child(close_button)
 
+
 func _on_close_pressed():
 	queue_free()
+
 
 func set_node_title():
 	if quest:
 		title = quest.name
+
 
 func _add_label(title: String, initial: String, signal_name: String):
 	var hbox = HBoxContainer.new()
@@ -120,6 +123,7 @@ func _add_label(title: String, initial: String, signal_name: String):
 	hbox.add_child(line_edit)
 	container.add_child(hbox)
 
+
 func _add_multiline(title: String, initial: String, signal_handler: Callable):
 	var label = Label.new()
 	label.name = title + "_label"
@@ -132,6 +136,7 @@ func _add_multiline(title: String, initial: String, signal_handler: Callable):
 	text_edit.custom_minimum_size = Vector2(200, 100)
 	text_edit.connect("text_changed", func(): signal_handler.call(text_edit.get_text()))
 	container.add_child(text_edit)
+
 
 func _add_string_array_editor(title: String, values: Array[String], update_signal: String):
 	var section = VBoxContainer.new()
@@ -152,17 +157,19 @@ func _add_string_array_editor(title: String, values: Array[String], update_signa
 
 	container.add_child(section)
 
+
 func _add_objective_list_editor():
 	var label = Label.new()
 	label.name = "objectives_label"
-	label.text = "Objectives (count: %d)" % quest.objectives.size()
+	label.text = "Steps (count: %d)" % quest.objectives.size()
 	container.add_child(label)
 
 	for objective in quest.objectives:
-		var editor := QuestObjectiveEditUi.new()
+		var editor := QuestStepEditUi.new()
 		editor.name = "objective_editor_" + objective.description
 		editor.quest_objective = objective
 		container.add_child(editor)
+
 
 func _add_resource_rewards_editor():
 	var section = VBoxContainer.new()
@@ -183,11 +190,14 @@ func _add_resource_rewards_editor():
 		spin.min_value = 0
 		spin.max_value = 100
 		spin.value = quest.resource_rewards.get(resource_type, 0)
-		spin.connect("value_changed", Callable(self, "_on_resource_reward_changed").bind(resource_type))
+		spin.connect(
+			"value_changed", Callable(self, "_on_resource_reward_changed").bind(resource_type)
+		)
 		hbox.add_child(spin)
 		section.add_child(hbox)
 
 	container.add_child(section)
+
 
 func _add_quest_connection_field():
 	var section = VBoxContainer.new()
@@ -198,14 +208,15 @@ func _add_quest_connection_field():
 
 	var quest_label = Label.new()
 	quest_label.name = "quest_connection_label"
-	if quest.on_complete_starts_quest:
-		quest_label.text = quest.on_complete_starts_quest.name
+	if quest.next_quest:
+		quest_label.text = quest.next_quest.name
 	else:
 		quest_label.text = "None"
 	quest_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	section.add_child(quest_label)
 
 	container.add_child(section)
+
 
 func _add_save_button():
 	var button = Button.new()
@@ -214,18 +225,41 @@ func _add_save_button():
 	button.connect("pressed", Callable(self, "_on_save_pressed"))
 	container.add_child(button)
 
+
 # --- Signal Handlers ---
 
-func _on_id_changed(text): quest.id = text
-func _on_name_changed(text): quest.name = text
-func _on_giver_changed(text): quest.quest_giver = text
-func _on_description_changed(text): quest.description = text
-func _on_board_text_changed(text): quest.community_board_text = text
-func _on_unlock_accept_changed(_text): _rebuild_unlock("unlock_on_accept")
-func _on_unlock_complete_changed(_text): _rebuild_unlock("unlock_on_complete")
+
+func _on_id_changed(text):
+	quest.id = text
+
+
+func _on_name_changed(text):
+	quest.name = text
+
+
+func _on_giver_changed(text):
+	quest.quest_giver = text
+
+
+func _on_description_changed(text):
+	quest.description = text
+
+
+func _on_board_text_changed(text):
+	quest.community_board_text = text
+
+
+func _on_unlock_accept_changed(_text):
+	_rebuild_unlock("unlock_on_accept")
+
+
+func _on_unlock_complete_changed(_text):
+	_rebuild_unlock("unlock_on_complete")
+
 
 func _on_resource_reward_changed(value: float, resource_type):
 	quest.resource_rewards[resource_type] = int(value)
+
 
 # --- Helpers ---
 func _rebuild_unlock(field_name: String):
@@ -238,27 +272,35 @@ func _rebuild_unlock(field_name: String):
 				result.append(line.text)
 	quest.set(field_name, result)
 
-func _get_connection_input_slot(from_node: Node, from_port: int, to_port: int) -> int:
+
+func _get_connection_input_slot(_from_node: Node, _from_port: int, _to_port: int) -> int:
 	# Return the input slot index (0) when a connection is made
 	return 0
 
-func _get_connection_output_slot(from_port: int, to_node: Node, to_port: int) -> int:
-	# Return the last slot index when a connection is made
-	return get_child_count()  - 1
 
-func _on_connection_request(from_node: Node, from_port: int, to_node: Node, to_port: int) -> void:
+func _get_connection_output_slot(_from_port: int, _to_node: Node, _to_port: int) -> int:
+	# Return the last slot index when a connection is made
+	return get_child_count() - 1
+
+
+func _on_connection_request(from_node: Node, from_port: int, to_node: Node, _to_port: int) -> void:
 	# if another connection exists, cancel it.
 	if get_parent().get_connection_count(from_node.name, from_port) > 0:
-		var connection = get_parent().connections.find_custom(func(connection): return connection["from_node"] == from_node.name)
+		var connection = get_parent().connections.find_custom(
+			func(connection): return connection["from_node"] == from_node.name
+		)
 		if connection != -1:
 			var parent: QuestDesignerCanvas = get_parent()
-			parent.disconnect_node(from_node.name, from_port, connection["to_node"], connection["to_port"])
+			parent.disconnect_node(
+				from_node.name, from_port, connection["to_node"], connection["to_port"]
+			)
 
 	if from_node is QuestEditUi and to_node is QuestEditUi:
 		var from_quest: Quest = from_node.quest
 		var to_quest: Quest = to_node.quest
-		from_quest.on_complete_starts_quest = to_quest
+		from_quest.next_quest = to_quest
 	_build_ui()
+
 
 func _on_save_pressed():
 	if quest and quest.resource_path:

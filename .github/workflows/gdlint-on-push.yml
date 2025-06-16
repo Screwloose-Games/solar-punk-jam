@@ -1,6 +1,7 @@
 name: gdlint on push
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
     - '**/*.gd'
@@ -53,16 +54,20 @@ jobs:
           restore-keys: |
             gdtoolkit-4-${{ runner.os }}-
 
-      - name: Install gdtoolkit
-        if: steps.changed-files.outputs.any_changed == 'true' && steps.gdtoolkit-cache.outputs.cache-hit != 'true'
-        run: |
-          pip install --no-warn-script-location gdtoolkit==4.*
-          
       - name: Lint changed files
         id: lint
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
+          pip install --no-warn-script-location gdtoolkit==4.*
+          # Ensure gdlint command is available
+          if ! command -v gdlint &> /dev/null; then
+            echo "gdlint could not be found, please check the installation"
+            exit 1
+          fi
+          
           # Convert space-separated list to array and process
+          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+          echo "Converting changed files to array"
           files_array=(${{ steps.changed-files.outputs.all_changed_files }})
           
           # Early exit if no files to lint
@@ -72,8 +77,13 @@ jobs:
           fi
           
           # Run gdlint on all files at once (faster than individual files)
+          echo "Running gdlint on ${#files_array[@]} files"
+          set +e
           lint_output=$(gdlint "${files_array[@]}" 2>&1)
           exit_code=$?
+          set -e
+          echo "gdlint completed with output:"
+          echo "$lint_output"
           
           # Use more efficient output method
           {
@@ -82,7 +92,10 @@ jobs:
             echo "EOF"
             echo "exit_code=$exit_code"
           } >> $GITHUB_OUTPUT
-          
+           
+          echo "Linting completed with exit code $exit_code"
+          echo "Lint output:"
+          echo "$lint_output"
           exit $exit_code
         continue-on-error: true
 
@@ -95,10 +108,17 @@ jobs:
           message: |
             ## 🧪 GDScript Lint Check
             
-            <details>
-            <summary>Lint Output (${{ steps.changed-files.outputs.all_changed_files_count }} files checked)</summary>
+            ${{ steps.lint.outputs.exit_code == '0' && '✅ No issues found' || '❌ Issues found' }}
+            
+            Lint Output (${{ steps.changed-files.outputs.all_changed_files_count }} files checked)
             
             ```text
             ${{ steps.lint.outputs.lint_output }}
             ```
-            </details>
+            
+      - name: Fail the job if lint issues found
+        if: steps.changed-files.outputs.any_changed == 'true' && steps.lint.outputs.exit_code != '0'
+        run: |
+          echo "Error: Lint issues found in this PR. Please fix them before merging."
+          exit 1
+      

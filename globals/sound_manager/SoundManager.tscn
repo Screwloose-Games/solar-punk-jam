@@ -112,7 +112,7 @@ metadata/_custom_type_script = "uid://dd8uxrmtutff5"
 [node name="StructurePlacedConnector" type="Node" parent="."]
 script = ExtResource("2_t4w6u")
 global_name = "StructureManager"
-start_signal_name = "StructureBuilt"
+start_signal_name = "structure_built"
 sound_effect = SubResource("AudioStreamRandomizer_8ut33")
 metadata/_custom_type_script = "uid://dd8uxrmtutff5"
 

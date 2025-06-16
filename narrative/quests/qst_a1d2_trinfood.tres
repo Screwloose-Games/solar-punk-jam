@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://bosgk3xsf174w"]
 
-[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_objective.gd" id="1_u3bvm"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/quest_step.gd" id="1_u3bvm"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/quest.gd" id="2_lkoja"]
 
 [resource]
@@ -10,10 +10,11 @@ name = "Trin's food"
 quest_giver = "trin"
 description = "Quest Description"
 community_board_text = ""
-objectives = Array[ExtResource("1_u3bvm")]([])
 unlock_on_accept = Array[String]([])
+steps = Array[ExtResource("1_u3bvm")]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
+start_next_quest = true
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

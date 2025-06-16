@@ -1,8 +1,8 @@
 extends StructureVisualInstance
 
-func set_structure_status(status: StructureManager.STRUCTURE_STATUS):
+func set_StructureStatus(status: StructureManager.StructureStatus):
 	match status:
-		StructureManager.STRUCTURE_STATUS.READY:
+		StructureManager.StructureStatus.READY:
 			$Fruit.show()
 		_:
 			$Fruit.hide()
