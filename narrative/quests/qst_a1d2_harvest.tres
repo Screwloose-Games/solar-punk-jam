@@ -59,10 +59,11 @@ name = "Harvest and deliver plants"
 quest_giver = "mom"
 description = "Quest Description"
 community_board_text = ""
-steps = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
 unlock_on_accept = Array[String]([])
+steps = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
+start_next_quest = true
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

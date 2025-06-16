@@ -10,10 +10,11 @@ name = "Build a waste bin"
 quest_giver = "kyle"
 description = "Quest Description"
 community_board_text = ""
-steps = Array[ExtResource("1_5amx1")]([])
 unlock_on_accept = Array[String]([])
+steps = Array[ExtResource("1_5amx1")]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
+start_next_quest = true
 metadata/_custom_type_script = "uid://5ejc1odxmtck"
