@@ -58,7 +58,15 @@ jobs:
         if: steps.changed-files.outputs.any_changed == 'true'
         run: |
           pip install --no-warn-script-location gdtoolkit==4.*
+          # Ensure gdlint command is available
+          if ! command -v gdlint &> /dev/null; then
+            echo "gdlint could not be found, please check the installation"
+            exit 1
+          fi
+          
           # Convert space-separated list to array and process
+          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+          echo "Converting changed files to array"
           files_array=(${{ steps.changed-files.outputs.all_changed_files }})
           
           # Early exit if no files to lint
