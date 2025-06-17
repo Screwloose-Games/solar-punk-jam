@@ -1,8 +1,9 @@
-# INTERACT_WITH_TYPE quest step
-# Used for when a specific *type* of interactable object must be interacted with
-extends QuestStep
 class_name QuestStepInteractType
+extends QuestStep
+## INTERACT_WITH_TYPE quest step
+## Used for when a specific *type* of interactable object must be interacted with
 
+## The type of interactable to be interacted with
 @export var interactable_type : String
 
 

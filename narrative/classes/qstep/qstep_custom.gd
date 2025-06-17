@@ -1,13 +1,19 @@
-# CUSTOM quest step, more generic and customizable
-# Not intended for regular use, for objectives that other types don't cover
-extends QuestStep
 class_name QuestStepCustom
+extends QuestStep
+## CUSTOM quest step, more generic and customizable
+## Not intended for regular use, for objectives that other types don't cover
 
+## Name of the Global to listen to
 @export var autoload_name : String = "GlobalSignalBus"
+## Name of the signal to listen for
 @export var signal_name : String = ""
+## Array of expected parameters passed by the signal
 @export var expected_args : Array[String]
+## Name of variable being tracked (optional)
 @export var var_name : String = ""
+## Target value for the tracked variable (optional)
 @export var target_value : int = 1
+
 var autoload_instance : Node
 
 

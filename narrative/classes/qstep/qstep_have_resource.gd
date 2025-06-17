@@ -1,9 +1,11 @@
-# HAVE_RESOURCE quest step
-# Used for when a certain amount of a certain resource must be available
-extends QuestStep
 class_name QuestStepHaveResource
+extends QuestStep
+## HAVE_RESOURCE quest step
+## Used for when a certain amount of a certain resource must be available
 
+## Type of resource to have
 @export var resource : ResourcesManager.ResourceType
+## Amount of resource to have
 @export var amount : int = 1
 
 
@@ -16,12 +18,12 @@ func set_active(val: bool):
 
 func check_value():
 	if is_active:
-		var check_value = ResourcesManager.get_resource_count(resource)
-		print("Objective check val: " + str(check_value))
-		if int(check_value) >= goal:
+		var value = ResourcesManager.get_resource_count(resource)
+		print("Objective check val: " + str(value))
+		if int(value) >= goal:
 			progress = goal
 			is_completed = true
 			is_active = false
 		else:
-			progress = int(check_value)
+			progress = int(value)
 			progressed.emit()

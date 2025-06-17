@@ -1,8 +1,9 @@
-# TALK_TO quest step
-# Used for when a specific NPC must be talked to
-extends QuestStep
 class_name QuestStepTalkTo
+extends QuestStep
+## TALK_TO quest step
+## Used for when a specific NPC must be talked to
 
+## The NPC to be talked to
 @export_enum(
 	"Kai:kai",
 	"Trin:trin",

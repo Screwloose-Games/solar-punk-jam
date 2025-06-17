@@ -1,8 +1,9 @@
-# INTERACT_WITH quest step
-# Used for when a specific interactable object must be interacted with
-extends QuestStep
 class_name QuestStepInteractWith
+extends QuestStep
+## INTERACT_WITH quest step
+## Used for when a specific interactable object must be interacted with
 
+## The ID string of the specific interactable object
 @export var interactable_id : String
 
 
