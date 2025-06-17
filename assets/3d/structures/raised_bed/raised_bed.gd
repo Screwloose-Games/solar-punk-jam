@@ -1,15 +1,15 @@
 extends Node
 
-@export var crop: Crop
 ## Where the visual instance of a crop should be located.
+@export var crop: Crop
+var current_crop_visual_instances: Array[Node3D] = []
+var markers: Array[Node]
+
 @onready var structure_interact_canvas_layer: CanvasLayer = %StructureInteractCanvasLayer
 @onready var planting_ui_margin_container: PlantingUI = %PlantingUiMarginContainer
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var visual_instance_target: Marker3D = %VisualInstanceMarker3D
 @onready var visual_instance_marker_3d: Marker3D = %VisualInstanceMarker3D
-
-var current_crop_visual_instances: Array[Node3D] = []
-var markers: Array[Node]
 
 
 func _ready() -> void:

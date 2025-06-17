@@ -5,11 +5,11 @@ extends QuestStep
 
 ## The NPC to be talked to
 @export_enum(
-	"Kai:kai",
-	"Trin:trin",
-	"Mister:mister",
-	"Kyle:kyle"
-) var npc : String = "Kai"
+	"kai",
+	"trin",
+	"mister",
+	"kyle"
+) var npc : String = "kai"
 
 
 func set_active(val : bool):

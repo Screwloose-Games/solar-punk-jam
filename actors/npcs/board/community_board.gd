@@ -40,6 +40,7 @@ func _on_quest_accepted():
 
 func _on_interacted(player: Player):
 	GlobalSignalBus.community_board_interacted.emit()
+	GlobalSignalBus.object_interacted.emit("board")
 	if !Dialogic.VAR.board_active:
 		community_board_canvas_layer.visible = !community_board_canvas_layer.visible
 	else:

@@ -58,10 +58,9 @@ var is_active : bool = false : set = set_active
 var is_unlocked : bool = false
 var is_completed : bool = false : set = set_complete
 var markers: Array[QuestMarker3D] = []
-
 var _signal: Signal
 var _expected_args: Array
-var _var_name : String = "var_name"
+var _var_name : String = ""
 
 
 func set_active(val : bool):
@@ -87,8 +86,8 @@ func event_occured():
 
 
 func check_value():
-	if is_active:
-		var value = QuestManager[_var_name]
+	if is_active and _var_name != "":
+		var value = QuestManager.get(_var_name)
 		print("Objective check val: " + str(value))
 		if int(value) >= goal:
 			progress = goal

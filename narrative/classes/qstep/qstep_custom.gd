@@ -21,6 +21,7 @@ func set_active(val : bool):
 	super.set_active(val)
 	if is_active:
 		subscribe()
+		_var_name = var_name # TODO: This is awful. Stop it.
 		check_value()
 	else:
 		unsubscribe()
@@ -29,20 +30,21 @@ func set_active(val : bool):
 func event_occured():
 	if is_completed:
 		return
-	progress += 1
-	if progress >= target_value:
-		is_completed = true
-		is_active = false
-	else:
-		progressed.emit()
+	if var_name == "":
+		progress += 1
+		if progress >= goal:
+			is_completed = true
+			is_active = false
+		else:
+			progressed.emit()
 
 
 func check_value():
-	if is_active:
-		var value = QuestManager[var_name]
+	if is_active and var_name != "":
+		var value = QuestManager.get(var_name)
 		print("Objective check val: " + str(value))
-		if int(value) >= goal:
-			progress = goal
+		if int(value) >= target_value:
+			progress = target_value
 			is_completed = true
 			is_active = false
 		else:

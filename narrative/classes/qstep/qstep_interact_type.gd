@@ -4,7 +4,17 @@ extends QuestStep
 ## Used for when a specific *type* of interactable object must be interacted with
 
 ## The type of interactable to be interacted with
-@export var interactable_type : String
+@export_enum("Compost bin",
+	"Picnic Table",
+	"Raised bed",
+	"Rain barrel",
+	"Vertical garden",
+	"Recycling station",
+	"Solar panel",
+	"Waste bin",
+	"Donation box",
+	"Food stand",
+) var interactable_type : String
 
 
 func set_active(val: bool):

@@ -15,15 +15,15 @@ script = ExtResource("2_20n7k")
 
 [node name="sm_rain_barrel" parent="." index="1" instance=ExtResource("2_o7ty7")]
 
-[node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.98305, -0.0218806)
-shape = SubResource("CylinderShape3D_xvrc8")
-
 [node name="SoundPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00498199, 0.32296, 0.334737)
 stream = ExtResource("4_dumlk")
 script = ExtResource("4_20n7k")
 g_start_signal_name = &"rain_barrel_collected"
 metadata/_custom_type_script = "uid://bqaasgleubvyc"
+
+[node name="CollisionShape3D" parent="InteractableArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.98305, -0.0218806)
+shape = SubResource("CylinderShape3D_xvrc8")
 
 [editable path="InteractableArea3D"]
