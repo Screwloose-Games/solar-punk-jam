@@ -1,5 +1,7 @@
-extends Resource
 class_name Quest
+extends Resource
+## Quest class
+## Used to describe and outline tasks for the player to do as part of a quest in game
 
 signal quest_state_changed
 signal quest_completed(giver: String)
@@ -58,8 +60,8 @@ var rewards: Dictionary[String, int] = {}:
 	get:
 		var result: Dictionary[String, int] = {}
 		for reward in resource_rewards:
-			var name: String = ResourcesManager.RESOURCE_TYPE_NAMES[reward]
-			result[name] = resource_rewards[reward]
+			var reward_name: String = ResourcesManager.RESOURCE_TYPE_NAMES[reward]
+			result[reward_name] = resource_rewards[reward]
 		return result
 
 
@@ -100,15 +102,11 @@ func _on_step_completed(this_step: QuestStep):
 					step.is_active = true
 	# Check for overall completion
 	var all_complete = true
-	var progress = 0
 	for step in steps:
 		if !step.is_completed:
 			all_complete = false
-		else:
-			progress += 1
 	if all_complete:
 		mark_complete()
-
 	else:
 		quest_state_changed.emit()
 

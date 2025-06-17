@@ -1,7 +1,7 @@
-# BUILD_STRUCTURE quest step
-# Used for when a certain structure must be built
-extends QuestStep
 class_name QuestStepBuildStructure
+extends QuestStep
+## BUILD_STRUCTURE quest step
+## Used for when a certain structure must be built
 
 enum StructureType {
 	BATTERY,
@@ -28,6 +28,7 @@ enum StructureType {
 	FOOD_STAND,
 }
 
+## Type of structure to be built
 @export var structure_type : StructureType
 
 

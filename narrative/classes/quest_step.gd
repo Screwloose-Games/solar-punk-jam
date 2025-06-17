@@ -1,7 +1,7 @@
-# Base quest step class
-# Base logic for quest objectives
-extends Resource
 class_name QuestStep
+extends Resource
+## Base quest step class
+## Base logic for quest objectives
 
 signal progressed
 signal completed(this_step: QuestStep)

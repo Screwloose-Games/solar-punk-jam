@@ -1,17 +1,21 @@
-# GO_TO quest step
-# Used when the player must go to a certain area in the game world
-# Optional: When the player has to be at the area at a certain time in the game
-extends QuestStep
 class_name QuestStepGoTo
+extends QuestStep
+## GO_TO quest step
+## Used when the player must go to a certain area in the game world
+## Optional: When the player has to be at the area at a certain time in the game
 
+## ID string of the QuestTriggerArea
 @export var area_id: String = "area_id"
+## If the player has to enter the Area at a certain time, this is the start of that time period
 @export_group("Start Time", "start_")
 @export_range(0, 23) var start_hour : int = 0
 @export_range(0, 59) var start_minute : int = 0
+## If the player has to enter the Area at a certain time, this is the end of that time period
 @export_group("End Time", "end_")
 @export_range(0, 23) var end_hour : int = 0
 @export_range(0, 59) var end_minute : int = 0
 @export_group("")
+## If we want to give the player some leeway, add this number of minutes to the end time
 @export_range(0, 59) var grace_period_minutes : int = 0
 
 

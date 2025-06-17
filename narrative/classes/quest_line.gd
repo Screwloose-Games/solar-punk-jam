@@ -1,5 +1,5 @@
-extends Resource
 class_name QuestLine
+extends Resource
 ## A queue of quests. When one is completed, the next one immediately becomes active.
 
 signal completed
