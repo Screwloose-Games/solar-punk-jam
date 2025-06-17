@@ -1,91 +1,100 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=14 format=3 uid="uid://bk1qhgoe1a432"]
+[gd_resource type="Resource" script_class="Quest" load_steps=17 format=3 uid="uid://bk1qhgoe1a432"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_emwmh"]
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/classes/qstep/qstep_custom.gd" id="2_lpidx"]
-[ext_resource type="Script" uid="uid://cmvp4kmmguagb" path="res://narrative/value_quest_step.gd" id="3_lpidx"]
 [ext_resource type="Resource" uid="uid://5nhrwkcewlem" path="res://narrative/quests/qst_a1d2_harvest.tres" id="4_jxjmi"]
+[ext_resource type="Script" uid="uid://bvpbf61rkwgom" path="res://narrative/classes/qstep/qstep_go_to.gd" id="4_ku037"]
+[ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="5_a0tgy"]
+[ext_resource type="Script" uid="uid://dm6u0eitlfqup" path="res://narrative/classes/qstep/qstep_have_resource.gd" id="6_eepgn"]
+[ext_resource type="Script" uid="uid://dfunhlrmsp6qb" path="res://narrative/classes/qstep/qstep_plant_crop.gd" id="7_b3m5d"]
+[ext_resource type="Script" uid="uid://cngh4nyaovsbs" path="res://narrative/classes/qstep/qstep_wait_days.gd" id="8_k0nsr"]
 
-[sub_resource type="Resource" id="Resource_eepgn"]
-script = ExtResource("2_lpidx")
+[sub_resource type="Resource" id="Resource_ke0jf"]
+script = ExtResource("4_ku037")
+area_id = "home_roof"
+start_hour = 0
+start_minute = 0
+end_hour = 0
+end_minute = 0
+grace_period_minutes = 0
 description = "Go to your home's rooftop"
-goal = 1
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "home_entrance"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 9
+metadata/_custom_type_script = "uid://bvpbf61rkwgom"
 
-[sub_resource type="Resource" id="Resource_j1jch"]
-script = ExtResource("2_lpidx")
+[sub_resource type="Resource" id="Resource_qkafw"]
+script = ExtResource("5_a0tgy")
+structure_type = 11
 description = "Build a rain barrel"
-goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 5
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
-[sub_resource type="Resource" id="Resource_aaa6b"]
-script = ExtResource("2_lpidx")
+[sub_resource type="Resource" id="Resource_iwql8"]
+script = ExtResource("5_a0tgy")
+structure_type = 5
 description = "Build a compost bin"
-goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 5
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
-[sub_resource type="Resource" id="Resource_jxjmi"]
-script = ExtResource("2_lpidx")
-description = "Build a vertial garden"
-goal = 1
+[sub_resource type="Resource" id="Resource_n1b1o"]
+script = ExtResource("5_a0tgy")
+structure_type = 13
+description = "Build a vertical garden"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 5
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
-[sub_resource type="Resource" id="Resource_k0nsr"]
-script = ExtResource("3_lpidx")
-target_value = "res_material"
+[sub_resource type="Resource" id="Resource_vrajp"]
+script = ExtResource("6_eepgn")
+resource = 6
+amount = 3
 description = "Collect Materials"
-goal = 3
 prerequisites = Array[int]([1, 2, 3])
 play_dialogue = ""
 marker_id = "material_location"
-type = 0
-metadata/_custom_type_script = "uid://cmvp4kmmguagb"
+type = 15
+metadata/_custom_type_script = "uid://dm6u0eitlfqup"
 
-[sub_resource type="Resource" id="Resource_lpidx"]
-script = ExtResource("2_lpidx")
+[sub_resource type="Resource" id="Resource_fhsga"]
+script = ExtResource("5_a0tgy")
+structure_type = 12
 description = "Build a raised bed"
-goal = 1
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 5
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
-[sub_resource type="Resource" id="Resource_ku037"]
-script = ExtResource("2_lpidx")
+[sub_resource type="Resource" id="Resource_ap2x4"]
+script = ExtResource("7_b3m5d")
+crop_type = 0
+amount = 1
 description = "Plant a radish"
-goal = 1
 prerequisites = Array[int]([5])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 8
+metadata/_custom_type_script = "uid://dfunhlrmsp6qb"
 
-[sub_resource type="Resource" id="Resource_a0tgy"]
-script = ExtResource("2_lpidx")
+[sub_resource type="Resource" id="Resource_rr3nd"]
+script = ExtResource("8_k0nsr")
+days_to_wait = 1
 description = "Wait 1 day before harvesting"
-goal = 1
 prerequisites = Array[int]([6])
 play_dialogue = ""
 marker_id = "go_to_bed_door"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 10
+metadata/_custom_type_script = "uid://cngh4nyaovsbs"
 
 [resource]
 script = ExtResource("2_emwmh")
@@ -95,7 +104,7 @@ quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
 unlock_on_accept = Array[String](["Raised bed"])
-steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_eepgn"), SubResource("Resource_j1jch"), SubResource("Resource_aaa6b"), SubResource("Resource_jxjmi"), SubResource("Resource_k0nsr"), SubResource("Resource_lpidx"), SubResource("Resource_ku037"), SubResource("Resource_a0tgy")])
+steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_ke0jf"), SubResource("Resource_qkafw"), SubResource("Resource_iwql8"), SubResource("Resource_n1b1o"), SubResource("Resource_vrajp"), SubResource("Resource_fhsga"), SubResource("Resource_ap2x4"), SubResource("Resource_rr3nd")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5

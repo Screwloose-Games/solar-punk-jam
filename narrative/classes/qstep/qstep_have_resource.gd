@@ -16,6 +16,13 @@ func set_active(val: bool):
 	super.set_active(val)
 
 
+func event_occured():
+	if is_completed:
+		return
+	else:
+		check_value()
+
+
 func check_value():
 	if is_active:
 		var value = ResourcesManager.get_resource_count(resource)

@@ -1,48 +1,53 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=8 format=3 uid="uid://5nhrwkcewlem"]
+[gd_resource type="Resource" script_class="Quest" load_steps=11 format=3 uid="uid://5nhrwkcewlem"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_cascf"]
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/classes/qstep/qstep_custom.gd" id="2_lgqfx"]
+[ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="3_i1qdm"]
+[ext_resource type="Script" uid="uid://uqp0lnf5k3dk" path="res://narrative/classes/qstep/qstep_harvest_crop.gd" id="4_105xa"]
+[ext_resource type="Script" uid="uid://cdcaho3h6rnxi" path="res://narrative/classes/qstep/qstep_donate_food.gd" id="5_xv4md"]
+[ext_resource type="Script" uid="uid://cmusiekpmyfl5" path="res://narrative/classes/qstep/qstep_interact_with.gd" id="6_aum3j"]
 
-[sub_resource type="Resource" id="Resource_77q8f"]
-script = ExtResource("2_lgqfx")
+[sub_resource type="Resource" id="Resource_a0c38"]
+script = ExtResource("3_i1qdm")
+npc = "kai"
 description = "Talk to Kai"
-goal = 1
 prerequisites = Array[int]([])
 play_dialogue = "prog1"
 marker_id = "mom"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 4
+metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 
-[sub_resource type="Resource" id="Resource_i1qdm"]
-script = ExtResource("2_lgqfx")
+[sub_resource type="Resource" id="Resource_ggtcy"]
+script = ExtResource("4_105xa")
+crop_type = 0
+amount = 1
 description = "Harvest a radish"
-goal = 1
 prerequisites = Array[int]([0])
 play_dialogue = ""
-marker_id = ""
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+marker_id = "home_roof_garden"
+type = 12
+metadata/_custom_type_script = "uid://uqp0lnf5k3dk"
 
-[sub_resource type="Resource" id="Resource_105xa"]
-script = ExtResource("2_lgqfx")
+[sub_resource type="Resource" id="Resource_bawi8"]
+script = ExtResource("5_xv4md")
+crop_type = 0
+amount = 1
 description = "Donate food to the food stand"
-goal = 1
-prerequisites = Array[int]([1])
+prerequisites = Array[int]([2])
 play_dialogue = ""
 marker_id = "community_food_stand"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 13
+metadata/_custom_type_script = "uid://cdcaho3h6rnxi"
 
-[sub_resource type="Resource" id="Resource_lgqfx"]
-script = ExtResource("2_lgqfx")
-description = "Check the Community board"
-goal = 1
+[sub_resource type="Resource" id="Resource_wpt7l"]
+script = ExtResource("6_aum3j")
+interactable_id = "board"
+description = "Read the Community Board"
 prerequisites = Array[int]([2])
-play_dialogue = "prog2"
+play_dialogue = ""
 marker_id = "board"
-type = 0
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
+type = 1
+metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 
 [resource]
 script = ExtResource("2_cascf")
@@ -52,10 +57,10 @@ quest_giver = "mom"
 description = "Quest Description"
 community_board_text = ""
 unlock_on_accept = Array[String]([])
-steps = Array[ExtResource("1_i80ro")]([SubResource("Resource_77q8f"), SubResource("Resource_i1qdm"), SubResource("Resource_105xa"), SubResource("Resource_lgqfx")])
+steps = Array[ExtResource("1_i80ro")]([SubResource("Resource_a0c38"), SubResource("Resource_ggtcy"), SubResource("Resource_bawi8"), SubResource("Resource_wpt7l")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
-start_next_quest = true
+start_next_quest = false
 metadata/_custom_type_script = "uid://5ejc1odxmtck"
