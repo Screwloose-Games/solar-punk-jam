@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=87 format=4 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
@@ -60,6 +60,7 @@
 [ext_resource type="PackedScene" uid="uid://fvqi4c2ac2an" path="res://assets/3d/environment/Blockade/blockade.tscn" id="57_85o61"]
 [ext_resource type="Texture2D" uid="uid://cucuaastu5rc0" path="res://assets/3d/environment/Blockade/textures/Blockade.png" id="58_81csf"]
 [ext_resource type="PackedScene" uid="uid://ng1buw3d2iga" path="res://assets/3d/environment/dressing/rocks_small_2.tscn" id="59_eide0"]
+[ext_resource type="PackedScene" uid="uid://cbsiuo2vyniyk" path="res://narrative/quest_trigger_area.tscn" id="62_lf4sq"]
 [ext_resource type="PackedScene" uid="uid://dcs35ropseut8" path="res://assets/3d/structures/community_waste_bin/community_waste_bin.tscn" id="63_sw0e5"]
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
@@ -464,7 +465,7 @@ visible = false
 script = ExtResource("1_7i1tu")
 
 [node name="PhantomCamera3D" type="Node3D" parent="StartFirstDialogue" node_paths=PackedStringArray("look_at_target")]
-transform = Transform3D(-0.774318, -0.0202064, 0.632476, -9.31323e-10, 0.999487, 0.031932, -0.632799, 0.0247254, -0.773923, 0.0640705, 1.52344, -13.8604)
+transform = Transform3D(-0.774316, -0.0202066, 0.632478, -9.31324e-10, 0.999487, 0.0319321, -0.632801, 0.0247254, -0.773921, 0.0640705, 1.52344, -13.8604)
 script = ExtResource("2_mjfy1")
 look_at_mode = 2
 look_at_target = NodePath("../CameraTargetMarker3D")
@@ -584,6 +585,7 @@ shape = SubResource("BoxShape3D_7t8hb")
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -1024,6 +1026,12 @@ transform = Transform3D(0.486915, 0, 0.873449, 0, 1, 0, -0.873449, 0, 0.486915, 
 
 [node name="BuildableStructure" parent="." instance=ExtResource("63_sw0e5")]
 transform = Transform3D(0.580518, 0, 0.814247, 0, 1, 0, -0.814247, 0, 0.580518, 3.20127, 0.0049878, 14.4732)
+
+[node name="QuestTriggers" type="Node3D" parent="."]
+
+[node name="QuestTriggerArea" parent="QuestTriggers" instance=ExtResource("62_lf4sq")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.5505, 5.93097, -4.3579)
+id = "trigger_home_roof"
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]

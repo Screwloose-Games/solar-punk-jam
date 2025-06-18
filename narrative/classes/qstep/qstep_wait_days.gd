@@ -6,8 +6,6 @@ extends QuestStep
 ## Number of days to wait
 @export var days_to_wait : int = 1
 
-var days_waited: int = 0
-
 
 func set_active(val: bool):
 	_signal = GlobalSignalBus.day_passed

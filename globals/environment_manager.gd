@@ -13,6 +13,7 @@ var current_act: int = 1:
 			current_act = val
 
 func end_day():
+	GlobalSignalBus.day_passed.emit()
 	force_end_day.emit()
 
 enum TimeIcon {MORNING, MIDDAY, AFTERNOON, NIGHT}
@@ -58,6 +59,7 @@ class EnvironmentModel:
 	var day := 0:
 		set(val):
 			if val != day:
+				GlobalSignalBus.day_passed.emit()
 				day_updated.emit(val)
 			day = val
 				

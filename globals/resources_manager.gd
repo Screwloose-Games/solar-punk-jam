@@ -1,7 +1,7 @@
 #class_name ResourcesManager
 extends Node
 
-signal UpdatedAvailableResources
+signal updated_available_resources
 
 enum ResourceType {
 	ELECTRICITY,
@@ -112,7 +112,7 @@ func gain_resource_enum(resource: ResourceType, quantity: int):
 			current_resources[resource_str] = resource_storage_limits[resource]
 		if daily_resources[resource_str] > resource_storage_limits[resource]:
 			daily_resources[resource_str] = resource_storage_limits[resource]
-	UpdatedAvailableResources.emit()
+	updated_available_resources.emit()
 
 
 func gain_resources_enum(new_resources: Dictionary[ResourceType, int]):
@@ -127,7 +127,7 @@ func spend_resource(resource: ResourceType, quantity: int):
 		current_resources[resource_str] -= quantity
 		if current_resources[resource_str] < 0:
 			current_resources[resource_str] = 0
-		UpdatedAvailableResources.emit()
+		updated_available_resources.emit()
 
 
 func spend_resources(new_resources: Dictionary[ResourceType, int]):
@@ -143,7 +143,7 @@ func deposit_resource(resource: ResourceType, quantity: int):
 		deposited_resources[resource_str] += quantity
 	else:
 		deposited_resources[resource_str] = quantity
-	UpdatedAvailableResources.emit()
+	updated_available_resources.emit()
 
 
 func check_amount(resource: ResourceType, quantity: int):
@@ -154,8 +154,7 @@ func has_at_least(resource: ResourceType, quantity: int):
 	var resource_str: String = RESOURCE_TYPE_NAMES[resource]
 	if resource_str in current_resources:
 		return current_resources[resource_str] >= quantity
-	else:
-		return false
+	return false
 
 
 func has_enough(required_resources: Dictionary[ResourceType, int]):

@@ -10,7 +10,7 @@ extends QuestStep
 
 
 func set_active(val: bool):
-	_signal = ResourcesManager.UpdatedAvailableResources
+	_signal = ResourcesManager.updated_available_resources
 	_expected_args = []
 	goal = amount
 	super.set_active(val)
@@ -19,8 +19,7 @@ func set_active(val: bool):
 func event_occured():
 	if is_completed:
 		return
-	else:
-		check_value()
+	check_value()
 
 
 func check_value():

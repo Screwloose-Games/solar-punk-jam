@@ -31,7 +31,7 @@ func _ready() -> void:
 	HUDCanvasLayer.Singleton.instance = self
 	EnvironmentManager.day_cycle_update.connect(self.update_time_hud)
 
-	ResourcesManager.UpdatedAvailableResources.connect(self.refresh_resources_ui)
+	ResourcesManager.updated_available_resources.connect(self.refresh_resources_ui)
 	# Ensure we update UI on startup
 	refresh_resources_ui.call_deferred()
 
