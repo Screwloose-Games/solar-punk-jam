@@ -62,7 +62,8 @@ class EnvironmentModel:
 				day_updated.emit(val)
 			day = val
 
-	func update(current_time_in_game_hours, day_length_in_game_hours, day_start_in_game_hours, day_length_in_seconds, night_length_in_seconds, is_paused) -> void:
+	func update(current_time_in_game_hours, day_length_in_game_hours, day_start_in_game_hours,
+				day_length_in_seconds, night_length_in_seconds, _is_paused) -> void:
 		self.current_time_in_game_hours = current_time_in_game_hours
 		self.day_length_in_game_hours = day_length_in_game_hours
 		self.day_start_in_game_hours = day_start_in_game_hours
@@ -93,10 +94,10 @@ class EnvironmentModel:
 		if hour > 24.0:
 			is_pm = false
 		var minute = hour - floor(hour)
-		var hour_ = int(hour) % 12
-		if hour_ == 0:
-			hour_ = 12
-		return TimeStruct.new(day, hour_, int(minute*60), is_pm, TimeIcon.MIDDAY)
+		var hour_conv = int(hour) % 12
+		if hour_conv == 0:
+			hour_conv = 12
+		return TimeStruct.new(day, hour_conv, int(minute*60), is_pm, TimeIcon.MIDDAY)
 
 
 func _ready() -> void:

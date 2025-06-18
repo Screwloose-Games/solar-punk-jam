@@ -12,7 +12,7 @@ signal unselected
 		label_text = val
 		if interactable_label_3d:
 			interactable_label_3d.text = label_text
-@export var show_label: bool = false 
+@export var show_label: bool = false
 ## Should this component allow toggling pressing interact again?
 @export var toggleable: bool = false
 

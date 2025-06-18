@@ -9,7 +9,6 @@ extends CanvasLayer
 var tool_tip_tween: Tween
 var resource_to_control = {}
 
-#@onready var buildable_structure_ui_template = $HUD/BottomCenterMarginContainer/ToolbarBackgroundPanelContainer/ToolbarMarginContainer/ToolbarHBoxContainer/ToolbarItemPanelContainer
 @onready var structure_panel_container = %StructurePanelContainer
 @onready var resource_ui_template = %ResourceLabel
 @onready var act_number_label: Label = %ActNumberLabel
