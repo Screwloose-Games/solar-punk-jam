@@ -6,27 +6,6 @@ extends Resource
 signal progressed
 signal completed(this_step: QuestStep)
 
-enum QuestStepType {
-	CUSTOM,  				# [x] Legacy, complex and flexible
-	INTERACT_WITH,  		# [x] The interactable must have an ID. A specific, custom string.
-	INTERACT_WITH_TYPE,  	# [x] Any of a given TYPE. Any water barrel, any of a TYPE
-	ACCEPT_QUEST,			# [x] Accept a certain quest
-	TALK_TO,				# [x] Talk to a certain NPC
-	BUILD_STRUCTURE,  		# [x] Build a certain structure
-	COLLECT_RESOURCE,  		# [] By count. Collect a certain number.
-	COLLECT_RESOURCE_TYPE,	# [] Collect a certain amount of a certain resource.
-	PLANT_CROP,				# [x] Plant a certain amount of any crop or a specific type.
-	GO_TO,  				# [x] your roof, a certain area. These have tags. They are Area3D
-	WAIT_DAYS,  			# [] Wait a specific number of days to pass.
-	WAIT_EVENT,  			# [] Wait until a specific event occurs. List of events?
-	HARVEST_CROP,  			# [x] Harvest a certain amount of any crop or a specific type.
-	DONATE_FOOD,			# [x] Donate a certain amount of food
-	GIVE_RESOURCE_TO,		# [] Give a certain amount of a certain resource to a certain NPC
-	HAVE_RESOURCE,			# [x] Type of resource, target number
-	GET_ITEM, 				# [] Receive a certain item
-	GIVE_ITEM,				# [] Give a certain item to a certain NPC
-}
-
 @export var description: String = "Objective Description"
 @export var prerequisites: Array[int] = []
 @export var play_dialogue: String = ""
@@ -49,8 +28,6 @@ enum QuestStepType {
 	"vertical_garden"
 )
 var marker_id: String
-
-@export var type: QuestStepType = QuestStepType.CUSTOM
 
 var goal: int = 1
 var progress : int = 0

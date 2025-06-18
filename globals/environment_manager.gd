@@ -116,7 +116,6 @@ func reset():
 
 
 func end_day():
-	GlobalSignalBus.day_passed.emit()
 	force_end_day.emit()
 
 
