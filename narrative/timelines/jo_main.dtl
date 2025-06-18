@@ -1,0 +1,2 @@
+Jo: Hi, I'm jo, get scrap
+do QuestManager.start_quest("qst_a1d1_jo_get_scrap")

@@ -8,7 +8,7 @@ signal quest_completed(giver: String)
 
 @export var id: String = "quest_id"
 @export var name: String = "Quest Name"
-@export var quest_giver: String = "npc_name"
+@export_enum("trin", "kai", "board", "kyle", "mister", "jo") var quest_giver: String = ""
 # @export var quest_source: DialogicCharacter
 @export var description: String = "Quest Description"
 @export_multiline var community_board_text: String = ""  # displayed on the community board

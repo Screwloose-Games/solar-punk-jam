@@ -35,7 +35,7 @@ class EnvironmentModel:
 	signal started_raining
 	signal stopped_raining
 	signal day_updated(day_num: int)
-	
+
 	var current_time_in_game_hours = 12.0
 	var day_length_in_game_hours = 12.0
 	var day_start_in_game_hours = 8.0

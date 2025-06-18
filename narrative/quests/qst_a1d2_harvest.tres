@@ -14,7 +14,7 @@ npc = "kai"
 description = "Talk to Kai"
 prerequisites = Array[int]([])
 play_dialogue = "prog1"
-marker_id = "mom"
+marker_id = "kai"
 metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 
 [sub_resource type="Resource" id="Resource_ggtcy"]
@@ -49,7 +49,7 @@ metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 script = ExtResource("2_cascf")
 id = "a1d2_harvest"
 name = "Harvest and deliver plants"
-quest_giver = "mom"
+quest_giver = "kai"
 description = "Quest Description"
 community_board_text = ""
 unlock_on_accept = Array[String]([])

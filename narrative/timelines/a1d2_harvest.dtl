@@ -3,25 +3,25 @@
 # Kai stands on the roof, looking at Te’s garden.
 label prog1
 
-Mom: TEEEEE!!!
+Kai: TEEEEE!!!
 
 # Te runs out. 
 
 Te: MAAAAAA!! Stop yelling!
 
-Mom: Hey, baby. Your vegetables looks fantastic!
+Kai: Hey, baby. Your vegetables looks fantastic!
 
-Mom: You should take them down to the food stand in the community hub.\
+Kai: You should take them down to the food stand in the community hub.\
 Your daily duty can be making sure our food supply is well-stocked from now on.
 
 Te: What? Why me?
 
-Mom: All we have is this land and a few resources.\
+Kai: All we have is this land and a few resources.\
 If we want this to be a home where everyone is welcome, we have to rely on each other first.
 
 Te: Fine…I’ll go check the board.
 
-Mom: I love you too, Gremlin.
+Kai: I love you too, Gremlin.
 label skip
 [end_timeline]
 

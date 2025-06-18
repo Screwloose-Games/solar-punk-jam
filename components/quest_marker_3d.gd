@@ -1,7 +1,7 @@
 class_name QuestMarker3D
 extends Marker3D
 
-@export_enum("trin", "mom", "home_entrance", "mister", "material_location", 
+@export_enum("jo", "trin", "kai", "home_entrance", "mister", "material_location",
 "board", "water", "trin_garden", "home_roof_garden", "go_to_bed_door",
 "trin_compost", "trin_water", "community_food_stand", "vertical_garden") var id: String
 @export var active: bool = false:
@@ -28,7 +28,7 @@ var distance_to_player_meters: float
 func _ready() -> void:
 	visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if active:
 		distance_to_player_meters = player.global_position.distance_to(global_position)
 		distance_label_3d.visible = !is_within_hide_distance

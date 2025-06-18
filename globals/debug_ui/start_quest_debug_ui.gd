@@ -97,8 +97,8 @@ func _on_quest_action_button_pressed() -> void:
 	var selected_id = quest_options_button.get_selected_id()
 	if selected_id >= 0 and selected_id < all_quests.size():
 		if selected_quest.is_active:
-			for objective in selected_quest.objectives:
-				objective.set_complete(true)
+			for step in selected_quest.steps:
+				step.set_complete(true)
 		else:
 			print("Debug UI is starting quest: '", selected_quest.name, "'")
 			QuestManager.start_quest_resource(selected_quest)

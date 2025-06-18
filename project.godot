@@ -43,8 +43,9 @@ gdscript/warnings/unused_signal=0
 directories/dch_directory={
 "CommBoard": "res://narrative/characters/CommBoard.dch",
 "DogBot": "res://narrative/characters/DogBot.dch",
+"Jo": "res://narrative/characters/Jo.dch",
+"Kai": "res://narrative/characters/Kai.dch",
 "Mister": "res://narrative/characters/Mister.dch",
-"Mom": "res://narrative/characters/Mom.dch",
 "Te": "res://narrative/characters/Te.dch",
 "Trin": "res://narrative/characters/Trin.dch"
 }
@@ -53,6 +54,7 @@ directories/dtl_directory={
 "a1d2_harvest": "res://narrative/timelines/a1d2_harvest.dtl",
 "end_day_1_fullscreen": "res://narrative/timelines/end_day_1_fullscreen.dtl",
 "intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",
+"jo_main": "res://narrative/timelines/jo_main.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
 "kai_main": "res://narrative/timelines/kai_main.dtl",
 "kai_op1": "res://narrative/timelines/kai_op1.dtl",
@@ -85,10 +87,12 @@ variables={
 "crop_radish": 0,
 "entered_build": false,
 "entered_plant": false,
+"jo_active": false,
+"jo_get_scrap": false,
+"kai_active": false,
+"kai_met": false,
 "mister_active": false,
 "mister_met": false,
-"mom_active": false,
-"mom_met": false,
 "player_entered_home": false,
 "res_material": 0,
 "res_soil": 0,
@@ -118,7 +122,7 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 layout/style_list=["res://common/ui/dialog_ui/dialogic_dialog_style.tres", "res://narrative/styles/base_style.tres", "res://narrative/styles/intro_fs/intro_fs.tres"]
-layout/default_style="res://common/ui/dialog_ui/dialogic_dialog_style.tres"
+layout/default_style="res://narrative/styles/base_style.tres"
 glossary/default_case_sensitive=true
 
 [display]

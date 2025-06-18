@@ -12,20 +12,20 @@ signal completed(this_step: QuestStep)
 # @export var dialogue_timeline: DialogicTimeline
 
 @export_enum(
-	"trin",
-	"mom",
-	"home_entrance",
-	"mister",
-	"material_location",
 	"board",
-	"water",
-	"trin_garden",
-	"home_roof_garden",
-	"go_to_bed_door",
-	"trin_compost",
-	"trin_water",
 	"community_food_stand",
-	"vertical_garden"
+	"go_to_bed_door",
+	"home_entrance",
+	"home_roof_garden",
+	"kai",
+	"material_location",
+	"mister",
+	"trin",
+	"trin_compost",
+	"trin_garden",
+	"trin_water",
+	"vertical_garden",
+	"water"
 )
 var marker_id: String
 
