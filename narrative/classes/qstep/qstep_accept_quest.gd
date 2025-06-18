@@ -4,10 +4,10 @@ extends QuestStep
 ## Used for when the player must accept a certain quest
 
 ## ID string of the quest
-@export var quest_id : String
+@export var quest : Quest
 
 
 func set_active(val: bool):
 	_signal = QuestManager.quest_started
-	_expected_args = [quest_id]
+	_expected_args = [quest]
 	super.set_active(val)

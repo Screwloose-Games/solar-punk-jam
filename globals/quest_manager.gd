@@ -1,7 +1,7 @@
 ## Tracks the quests in the game, their progress, and handles starting and completing quests.
 extends Node
 
-signal quest_started(quest_id: String)
+signal quest_started(quest: Quest)
 signal quest_started_res(quest: Quest)
 signal quests_changed
 signal quest_completed(giver: String)
@@ -71,7 +71,7 @@ func start_quest_resource(new_quest: Quest):
 		new_quest.quest_completed.connect(_on_quest_complete)
 	new_quest.start_quest()
 	check_quests()
-	quest_started.emit(new_quest.id)
+	quest_started.emit(new_quest)
 	quest_started_res.emit(new_quest)
 	quests_changed.emit()
 	print("Quest started: %s" % new_quest.name)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=17 format=3 uid="uid://b6iwcl3xdip0a"]
+[gd_resource type="Resource" script_class="Quest" load_steps=18 format=3 uid="uid://b6iwcl3xdip0a"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_x688r"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_mbbq3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dm6u0eitlfqup" path="res://narrative/classes/qstep/qstep_have_resource.gd" id="7_1j8rw"]
 [ext_resource type="Script" uid="uid://cdt1y0awuf1ns" path="res://narrative/classes/qstep/qstep_interact_type.gd" id="8_tq41l"]
 [ext_resource type="Script" uid="uid://dfunhlrmsp6qb" path="res://narrative/classes/qstep/qstep_plant_crop.gd" id="9_bc2d0"]
+[ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="9_tq41l"]
 
 [sub_resource type="Resource" id="Resource_1j8rw"]
 script = ExtResource("4_svb1w")
@@ -17,7 +18,6 @@ description = "Talk to Trin"
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "trin"
-type = 4
 metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 
 [sub_resource type="Resource" id="Resource_tq41l"]
@@ -31,17 +31,15 @@ description = "Go into Build Mode"
 prerequisites = Array[int]([0])
 play_dialogue = "prog1"
 marker_id = "trin_garden"
-type = 0
 metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [sub_resource type="Resource" id="Resource_bc2d0"]
 script = ExtResource("6_uq8a5")
-structure_type = 13
+structure_type = "Vertical garden"
 description = "Build a vertical garden"
 prerequisites = Array[int]([1])
 play_dialogue = "prog2"
 marker_id = "trin_garden"
-type = 5
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
 [sub_resource type="Resource" id="Resource_kmro7"]
@@ -52,7 +50,6 @@ description = "Collect soil from the compost bin"
 prerequisites = Array[int]([2])
 play_dialogue = "prog3"
 marker_id = "trin_compost"
-type = 15
 metadata/_custom_type_script = "uid://dm6u0eitlfqup"
 
 [sub_resource type="Resource" id="Resource_en1iy"]
@@ -63,7 +60,6 @@ description = "Collect water from the rain barrel"
 prerequisites = Array[int]([3])
 play_dialogue = "prog4"
 marker_id = "trin_water"
-type = 15
 metadata/_custom_type_script = "uid://dm6u0eitlfqup"
 
 [sub_resource type="Resource" id="Resource_rqprq"]
@@ -73,18 +69,16 @@ description = "Interact with the vertical garden"
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "vertical_garden"
-type = 2
 metadata/_custom_type_script = "uid://cdt1y0awuf1ns"
 
 [sub_resource type="Resource" id="Resource_1ih5u"]
 script = ExtResource("9_bc2d0")
-crop_type = 0
+crop = ExtResource("9_tq41l")
 amount = 1
 description = "Plant a radish"
 prerequisites = Array[int]([5])
 play_dialogue = "prog5"
 marker_id = "vertical_garden"
-type = 8
 metadata/_custom_type_script = "uid://dfunhlrmsp6qb"
 
 [resource]

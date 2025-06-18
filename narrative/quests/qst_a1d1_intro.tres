@@ -13,17 +13,15 @@ description = "Read the Community Board"
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "board"
-type = 1
 metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 
 [sub_resource type="Resource" id="Resource_h2kdd"]
 script = ExtResource("5_yyvya")
-quest_id = "a1d1_trin"
+quest = ExtResource("3_4l7h4")
 description = "Accept Trin's work order"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "board"
-type = 3
 metadata/_custom_type_script = "uid://ct3kdllut1707"
 
 [resource]

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=11 format=3 uid="uid://5nhrwkcewlem"]
+[gd_resource type="Resource" script_class="Quest" load_steps=12 format=3 uid="uid://5nhrwkcewlem"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_cascf"]
 [ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="3_i1qdm"]
 [ext_resource type="Script" uid="uid://uqp0lnf5k3dk" path="res://narrative/classes/qstep/qstep_harvest_crop.gd" id="4_105xa"]
+[ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="4_xv4md"]
 [ext_resource type="Script" uid="uid://cdcaho3h6rnxi" path="res://narrative/classes/qstep/qstep_donate_food.gd" id="5_xv4md"]
 [ext_resource type="Script" uid="uid://cmusiekpmyfl5" path="res://narrative/classes/qstep/qstep_interact_with.gd" id="6_aum3j"]
 
@@ -14,29 +15,25 @@ description = "Talk to Kai"
 prerequisites = Array[int]([])
 play_dialogue = "prog1"
 marker_id = "mom"
-type = 4
 metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 
 [sub_resource type="Resource" id="Resource_ggtcy"]
 script = ExtResource("4_105xa")
-crop_type = 0
+crop = ExtResource("4_xv4md")
 amount = 1
 description = "Harvest a radish"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 12
 metadata/_custom_type_script = "uid://uqp0lnf5k3dk"
 
 [sub_resource type="Resource" id="Resource_bawi8"]
 script = ExtResource("5_xv4md")
-crop_type = 0
 amount = 1
 description = "Donate food to the food stand"
 prerequisites = Array[int]([1])
 play_dialogue = ""
 marker_id = "community_food_stand"
-type = 13
 metadata/_custom_type_script = "uid://cdcaho3h6rnxi"
 
 [sub_resource type="Resource" id="Resource_wpt7l"]
@@ -46,7 +43,6 @@ description = "Read the Community Board"
 prerequisites = Array[int]([2])
 play_dialogue = ""
 marker_id = "board"
-type = 1
 metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 
 [resource]

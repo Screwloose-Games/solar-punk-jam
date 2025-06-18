@@ -75,7 +75,7 @@ func _on_day_passed():
 
 func harvest_crop():
 	ResourcesManager.gain_resource_enum(ResourcesManager.ResourceType.FOOD, crop.harvest_amount)
-	GlobalSignalBus.crop_harvested.emit(crop.type)
+	GlobalSignalBus.crop_harvested.emit(crop)
 	crop = null
 	clear_visuals()
 	interactable_area_3d.stop_interacting()
@@ -90,5 +90,5 @@ func plant_crop(new_crop: Crop):
 	ResourcesManager.spend_resources(Crop.planting_requirements)
 	crop = new_crop
 	add_crop_visuals(crop.planted_scene)
-	GlobalSignalBus.crop_planted.emit(new_crop.type)
+	GlobalSignalBus.crop_planted.emit(new_crop)
 	hide_ui()

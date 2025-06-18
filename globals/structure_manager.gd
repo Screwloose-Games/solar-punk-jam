@@ -6,7 +6,6 @@ signal structure_built(s: BuiltStructure)
 signal built_structure(index : int)
 
 enum StructureStatus { JUST_CREATED, NOT_READY, READY, EXPENDED }
-
 enum StructureFields {
 	STRUCTURE_NAME,
 	STRUCTURE_HEIGHT,
@@ -43,6 +42,16 @@ const BUILDABLE_RAISED_BED_SPACE = Vector2i(4, 7)
 const OCCUPIED_SPACE = Vector2i(0, 7)
 const VALID_TILE_TYPES = [BUILDABLE_EMPTY_SPACE, BUILDABLE_RAISED_BED_SPACE, OCCUPIED_SPACE]
 
+@export_file("*.tsv") var tsv_file_path: String = "res://design/data/structures.tsv"
+@export var environment_gain_per_structure_built: int = 3
+
+var built_structures: Array[BuiltStructure] = []
+var current_active_surface = null
+var structure_data = []
+var structure_name_to_idx_map = {}
+var available_structures = []
+var registered_structures = []
+
 class BuiltStructure:
 	var surface: BuildableSurface
 	var coords: Vector2i
@@ -64,15 +73,11 @@ class BuiltStructure:
 		self.ready_to_be_collected = []
 
 
-@export_file("*.tsv") var tsv_file_path: String = "res://design/data/structures.tsv"
-@export var environment_gain_per_structure_built: int = 3
-
-var built_structures: Array[BuiltStructure] = []
-var current_active_surface = null
-var structure_data = []
-var structure_name_to_idx_map = {}
-var available_structures = []
-var registered_structures = []
+func _ready() -> void:
+	structure_data = _get_structure_data()
+	for idx in len(structure_data):
+		structure_name_to_idx_map[structure_data[idx][StructureFields.STRUCTURE_NAME]] = idx
+	EnvironmentManager.connect("day_cycle_start", daily_collect_resources_from_structures)
 
 
 func set_active_surface(surface):
@@ -82,13 +87,6 @@ func set_active_surface(surface):
 	if current_active_surface:
 		current_active_surface.is_active = false
 	current_active_surface = surface
-
-func _ready() -> void:
-	structure_data = _get_structure_data()
-	for idx in len(structure_data):
-		structure_name_to_idx_map[structure_data[idx][StructureFields.STRUCTURE_NAME]] = idx
-
-	EnvironmentManager.connect("day_cycle_start", daily_collect_resources_from_structures)
 
 
 func get_structure_name(index: int):
@@ -164,7 +162,7 @@ func build_structure(new_structure: BuiltStructure, skip_resource_consumption = 
 	visual_instance_update(new_structure)
 	built_structures.append(new_structure)
 	structure_built.emit(new_structure)
-	built_structure.emit(new_structure.structure)
+	built_structure.emit(get_structure_name(new_structure.structure))
 	ResourcesManager.gain_resource_enum(
 		ResourcesManager.ResourceType.ENVIRONMENT, environment_gain_per_structure_built
 	)
@@ -188,7 +186,6 @@ func daily_collect_resources_from_structures():
 		var record = structure_data[structure.structure]
 		# ["Electricity", "Water", "Food", "Waste", "Soil", "Happiness", "Materials", "Seeds"]
 		# "Electricity, Water, Food, Waste, Soil, Happiness"
-
 		# reset manual collection
 		structure.ready_to_be_collected = []
 		if structure_data[structure.structure][StructureFields.DAILY_MANUAL_COLLECTION]:
@@ -266,6 +263,7 @@ func _get_structure_data():
 		]:
 			data[i][j] = int(data[i][j])
 	return data
+
 
 func read_tsv() -> String:
 	# this file is a copy paste of the CSV exported from Notion
