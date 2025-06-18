@@ -23,7 +23,7 @@ static var structure_small_icons = {
 @export var enabled_style: StyleBoxFlat
 
 func _ready() -> void:
-	ResourcesManager.UpdatedAvailableResources.connect(_on_resources_available_changed)
+	ResourcesManager.updated_available_resources.connect(_on_resources_available_changed)
 	var data = StructureManager.structure_data[structure_id]
 	var name = StructureManager.structure_data[structure_id][StructureManager.StructureFields.STRUCTURE_NAME]
 	var structure_name: String = name

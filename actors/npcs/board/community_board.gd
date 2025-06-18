@@ -1,10 +1,11 @@
 extends StaticBody3D
 
 @export var quest_list : Array[Quest]
-@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
-@onready var community_board_canvas_layer: CommunityBoardCanvasLayer = %CommunityBoardCanvasLayer
 
 var quest_index : int = 0
+
+@onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
+@onready var community_board_canvas_layer: CommunityBoardCanvasLayer = %CommunityBoardCanvasLayer
 
 
 func _ready() -> void:
@@ -18,12 +19,26 @@ func _ready() -> void:
 		community_board_canvas_layer.quest = quest_list[quest_index]
 
 
+func _process(_delta: float) -> void:
+	if community_board_canvas_layer.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
 func quests_available_changed(val):
 	var material := $sm_message_board/sm_community_message_board.get_surface_override_material(0) as ShaderMaterial
 	if val:
-		material.set_shader_parameter("texture_albedo", load("res://assets/3d/structures/community_board/t_message_board_flyers_baseColor.png"))
+		material.set_shader_parameter(
+			"texture_albedo",
+			load("res://assets/3d/structures/community_board/t_message_board_flyers_baseColor.png"))
 	else:
-		material.set_shader_parameter("texture_albedo", load("res://assets/3d/structures/community_board/t_message_board_baseColor.png"))
+		material.set_shader_parameter(
+			"texture_albedo",
+			load("res://assets/3d/structures/community_board/t_message_board_baseColor.png"))
+
+
+func show_community_board_ui():
+	pass
+
 
 func _on_board_closed():
 	community_board_canvas_layer.visible = false
@@ -38,21 +53,13 @@ func _on_quest_accepted():
 	interactable_area_3d.stop_interacting()
 
 
-func _on_interacted(player: Player):
+func _on_interacted(_player: Player):
 	GlobalSignalBus.community_board_interacted.emit()
 	GlobalSignalBus.object_interacted.emit("board")
 	if !Dialogic.VAR.board_active:
 		community_board_canvas_layer.visible = !community_board_canvas_layer.visible
 	else:
 		interactable_area_3d.stop_interacting()
-
-
-func show_community_board_ui():
-	pass
-
-func _process(delta: float) -> void:
-	if community_board_canvas_layer.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _on_quest_complete(_giver : String):

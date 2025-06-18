@@ -23,6 +23,7 @@ signal crop_planted(crop_type: Crop.CropType)
 signal crop_harvested(crop_type: Crop.CropType)
 signal talked_to(npc: String)
 signal food_donated(count: int)
+signal day_passed
 
 signal community_board_interacted
 signal community_board_quest_accepted
@@ -30,7 +31,6 @@ signal activated_build_mode
 signal exited_build_mode
 signal player_entered_home
 signal seed_ui_shown
-signal day_passed
 signal quest_objective_completed
 signal stopped_raining
 signal started_raining

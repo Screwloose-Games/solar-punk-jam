@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_ke0jf"]
 script = ExtResource("4_ku037")
-area_id = "home_roof"
+area_id = "trigger_home_roof"
 start_hour = 0
 start_minute = 0
 end_hour = 0
