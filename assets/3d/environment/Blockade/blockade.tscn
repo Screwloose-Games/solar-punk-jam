@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://fvqi4c2ac2an"]
+[gd_scene load_steps=5 format=3 uid="uid://fvqi4c2ac2an"]
 
 [ext_resource type="PackedScene" uid="uid://b5qiwrt7msko0" path="res://assets/3d/environment/Blockade/Blockade.gltf" id="1_tw277"]
+[ext_resource type="Texture2D" uid="uid://cucuaastu5rc0" path="res://assets/3d/environment/Blockade/textures/Blockade.png" id="2_q3l1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdm35"]
+albedo_texture = ExtResource("2_q3l1s")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q3l1s"]
 size = Vector3(0.5, 1.65, 2.48)
 
 [node name="Blockade" instance=ExtResource("1_tw277")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fdm35")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 collision_layer = 4
