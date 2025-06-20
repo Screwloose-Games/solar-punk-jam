@@ -8,5 +8,6 @@ if {a1d1_garden} == true:
 	Trin: Mine prefer to be called Kay and Jay.
 	Trin: Their roots keep the soil from moving when it floods.
 	Trin: We're going to work with the water not against it this time.
-# #if all else fails 
-Trin: Sorry, busy right now, Te.
+	[end_timeline]
+
+Trin: <Trin: Sorry, busy right now, Te./I AM ERROR./You smell something?>
