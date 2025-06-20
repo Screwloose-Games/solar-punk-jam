@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pymb8encx3b1"]
+[gd_scene load_steps=7 format=3 uid="uid://pymb8encx3b1"]
 
 [ext_resource type="PackedScene" uid="uid://b6f3nxgavr12q" path="res://assets/3d/structures/picnic_table/sm_picnic_table.gltf" id="1_8uwyq"]
 [ext_resource type="Texture2D" uid="uid://7i0c41vedrev" path="res://assets/3d/structures/picnic_table/t_picnictable_baseColor.png" id="2_7nkng"]
@@ -11,7 +11,16 @@ orm_texture = ExtResource("4_45bub")
 normal_enabled = true
 normal_texture = ExtResource("3_xvjjf")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7nkng"]
+size = Vector3(1, 32, 0.6)
+
 [node name="sm_picnic_table" instance=ExtResource("1_8uwyq")]
 
 [node name="pCylinder5" parent="PicnicTable_obj" index="1"]
 surface_material_override/0 = SubResource("ORMMaterial3D_586ll")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PicnicTable_obj" index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PicnicTable_obj/StaticBody3D" index="0"]
+transform = Transform3D(186.48, 0, 0, 0, 2.3, 0, 0, 0, 279.6, 0, 35.65, -1.49012e-05)
+shape = SubResource("BoxShape3D_7nkng")

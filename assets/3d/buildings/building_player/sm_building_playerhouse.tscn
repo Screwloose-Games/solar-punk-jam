@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciean0tou8gw2"]
+[gd_scene load_steps=18 format=3 uid="uid://ciean0tou8gw2"]
 
 [ext_resource type="PackedScene" uid="uid://cavavb6t10fg3" path="res://assets/3d/buildings/building_player/sm_building_playerhouse.gltf" id="1_8e5oj"]
 [ext_resource type="Shader" uid="uid://sroeeelt5iag" path="res://shaders/base_cel_shading_outline.gdshader" id="2_k0xou"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b3urvnahhrdyl" path="res://assets/3d/environment/dressing/leaf_cluster-1.tscn" id="11_4y8in"]
 [ext_resource type="PackedScene" uid="uid://dsffbjppcx7qj" path="res://assets/3d/environment/dressing/aloe_vera_2.tscn" id="12_416ni"]
 [ext_resource type="PackedScene" uid="uid://brsbirmqgkifb" path="res://assets/3d/environment/dressing/aloe-vera.glb" id="13_kgvlp"]
+[ext_resource type="PackedScene" uid="uid://cx3kh23002o5q" path="res://assets/3d/environment/DirtMound.glb" id="14_h5wll"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3o6"]
 render_priority = 0
@@ -73,80 +74,82 @@ transform = Transform3D(0.370183, 0, 0, 0, 1, 0, 0, 0, 0.790529, -8.44993, 0, -0
 shape = SubResource("ConcavePolygonShape3D_0jb6g")
 
 [node name="Plants" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
-[node name="Node3D" type="Node3D" parent="Plants" index="0"]
-
-[node name="flowers" parent="." index="4" instance=ExtResource("7_qyxt4")]
+[node name="flowers" parent="Plants" index="0" instance=ExtResource("7_qyxt4")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 7.52927, 4.9, 4.11519)
 
-[node name="flowers2" parent="." index="5" instance=ExtResource("7_qyxt4")]
+[node name="flowers2" parent="Plants" index="1" instance=ExtResource("7_qyxt4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 4.8, 2.2)
 
-[node name="flowers3" parent="." index="6" instance=ExtResource("7_qyxt4")]
+[node name="flowers3" parent="Plants" index="2" instance=ExtResource("7_qyxt4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 4.8, -4.3)
 
-[node name="flowers4" parent="." index="7" instance=ExtResource("7_qyxt4")]
+[node name="flowers4" parent="Plants" index="3" instance=ExtResource("7_qyxt4")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 7.7, 4.7, -3.7)
 
-[node name="flowers5" parent="." index="8" instance=ExtResource("7_qyxt4")]
+[node name="flowers5" parent="Plants" index="4" instance=ExtResource("7_qyxt4")]
 transform = Transform3D(-0.19829, 0, -0.980143, 0, 1, 0, 0.980143, 0, -0.19829, 8.7, 4.8, -4.4)
 
-[node name="palm-bush" parent="." index="9" instance=ExtResource("8_h5wll")]
-transform = Transform3D(0.862098, 0, -0.506741, 0, 1, 0, 0.506741, 0, 0.862098, 7.7, 5, 1.2)
+[node name="palm-bush" parent="Plants" index="5" instance=ExtResource("8_h5wll")]
+transform = Transform3D(0.862098, 0, -0.506741, 0, 1, 0, 0.506741, 0, 0.862098, 7.7, 5.16, 1.2)
 
-[node name="palm-bush2" parent="." index="10" instance=ExtResource("9_hxlwu")]
+[node name="palm-bush2" parent="Plants" index="6" instance=ExtResource("9_hxlwu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 5, 3.6)
 
-[node name="palm-bush3" parent="." index="11" instance=ExtResource("9_hxlwu")]
+[node name="palm-bush3" parent="Plants" index="7" instance=ExtResource("9_hxlwu")]
 transform = Transform3D(-0.790134, 0, 0.612935, 0, 1, 0, -0.612935, 0, -0.790134, 7.36398, 5.08697, -1.80145)
 
-[node name="palm-bush4" parent="." index="12" instance=ExtResource("9_hxlwu")]
+[node name="palm-bush4" parent="Plants" index="8" instance=ExtResource("9_hxlwu")]
 transform = Transform3D(-0.599167, -0.210762, -0.772385, -0.129183, 0.977537, -0.16653, 0.790134, 0, -0.612935, 8.66399, 4.68697, -3.10145)
 
-[node name="leaf-1" parent="." index="13" instance=ExtResource("10_8yj6s")]
+[node name="leaf-1" parent="Plants" index="9" instance=ExtResource("10_8yj6s")]
 transform = Transform3D(-0.784506, 0, 0.620121, 0, 1, 0, -0.620121, 0, -0.784506, 7.3, 4.41972, 0.4)
 
-[node name="leaf-2" parent="." index="14" instance=ExtResource("10_8yj6s")]
+[node name="leaf-2" parent="Plants" index="10" instance=ExtResource("10_8yj6s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 4.5, -1.3)
 
-[node name="leaf-3" parent="." index="15" instance=ExtResource("11_4y8in")]
+[node name="leaf-3" parent="Plants" index="11" instance=ExtResource("11_4y8in")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 8.66752, 4.6, 0.326941)
 
-[node name="palm-bush5" parent="." index="16" instance=ExtResource("8_h5wll")]
+[node name="palm-bush5" parent="Plants" index="12" instance=ExtResource("8_h5wll")]
 transform = Transform3D(0.715975, -0.0459654, 0.352248, 0.0775639, 0.636595, -0.0278582, -0.348373, 0.0472676, 0.717736, 8.8, 4.8, -1.8)
 
-[node name="aloe-vera2" parent="." index="17" instance=ExtResource("12_416ni")]
+[node name="aloe-vera2" parent="Plants" index="13" instance=ExtResource("12_416ni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, 4.4, 3.4)
 
-[node name="aloe-vera3" parent="." index="18" instance=ExtResource("13_kgvlp")]
+[node name="aloe-vera3" parent="Plants" index="14" instance=ExtResource("13_kgvlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 4.5, 2.4)
 
-[node name="aloe-vera4" parent="." index="19" instance=ExtResource("12_416ni")]
+[node name="aloe-vera4" parent="Plants" index="15" instance=ExtResource("12_416ni")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 8.2, 4.4, 2.9)
 
-[node name="aloe-vera5" parent="." index="20" instance=ExtResource("12_416ni")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 7.3, 4.4, -3)
+[node name="aloe-vera5" parent="Plants" index="16" instance=ExtResource("12_416ni")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 7.3, 4.34, -3)
 
-[node name="aloe-vera6" parent="." index="21" instance=ExtResource("12_416ni")]
+[node name="aloe-vera6" parent="Plants" index="17" instance=ExtResource("12_416ni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1, 4.4, -4.5)
 
-[node name="aloe-vera7" parent="." index="22" instance=ExtResource("13_kgvlp")]
+[node name="aloe-vera7" parent="Plants" index="18" instance=ExtResource("13_kgvlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.5, -2.6)
 
-[node name="aloe-vera8" parent="." index="23" instance=ExtResource("13_kgvlp")]
+[node name="aloe-vera8" parent="Plants" index="19" instance=ExtResource("13_kgvlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 4.5, -0.1)
 
-[node name="aloe-vera9" parent="." index="24" instance=ExtResource("13_kgvlp")]
+[node name="aloe-vera9" parent="Plants" index="20" instance=ExtResource("13_kgvlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3, 4.5, -0.5)
 
-[node name="aloe-vera10" parent="." index="25" instance=ExtResource("12_416ni")]
+[node name="aloe-vera10" parent="Plants" index="21" instance=ExtResource("12_416ni")]
 transform = Transform3D(0.788054, 0, -0.615606, 0, 1, 0, 0.615606, 0, 0.788054, 7.8, 4.4, -1.1)
 
-[node name="aloe-vera11" parent="." index="26" instance=ExtResource("12_416ni")]
-transform = Transform3D(1.3, 0, 0, 0, 1.8, 0, 0, 0, 1.5, 8.2, 4.5, -0.4)
+[node name="aloe-vera11" parent="Plants" index="22" instance=ExtResource("12_416ni")]
+transform = Transform3D(1.3, 0, 0, 0, 1.8, 0, 0, 0, 1.5, 8.2, 4.39, -0.4)
 
-[node name="aloe-vera12" parent="." index="27" instance=ExtResource("12_416ni")]
-transform = Transform3D(1.07715, 0, 0.839809, 0, 1.8, 0, -0.727835, 0, 1.24287, 7.3, 4.5, 2.7)
+[node name="aloe-vera12" parent="Plants" index="23" instance=ExtResource("12_416ni")]
+transform = Transform3D(1.07715, 0, 0.839809, 0, 1.8, 0, -0.727835, 0, 1.24287, 7.3, 4.3, 2.7)
 
-[node name="aloe-vera13" parent="." index="28" instance=ExtResource("12_416ni")]
-transform = Transform3D(1.07715, 0, 0.839809, 0, 1.8, 0, -0.727835, 0, 1.24287, 8.8, 4.5, 0.4)
+[node name="aloe-vera13" parent="Plants" index="24" instance=ExtResource("12_416ni")]
+transform = Transform3D(1.07715, 0, 0.839809, 0, 1.8, 0, -0.727835, 0, 1.24287, 8.8, 4.36, 0.4)
+
+[node name="DirtMound" parent="." index="4" instance=ExtResource("14_h5wll")]
+transform = Transform3D(1, 0, 0, 0, 0.95, 0, 0, 0, 1.05, 8.06374, 4.5, -0.1)
