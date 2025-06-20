@@ -7,4 +7,7 @@ if {kelly_met} == false:
 	set {kelly_met} = true
 else:
 	# Random lines after we've met Kelly
-	Mister: <Welcome to Corneria!/I AM ERROR./You smell something?>
+	Mister: <Welcome to Corneria!/\
+I AM ERROR./\
+another dialogue/\
+You smell something?>

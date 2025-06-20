@@ -11,22 +11,8 @@ signal completed(this_step: QuestStep)
 @export var play_dialogue: String = ""
 # @export var dialogue_timeline: DialogicTimeline
 
-@export_enum(
-	"board",
-	"community_food_stand",
-	"go_to_bed_door",
-	"home_entrance",
-	"home_roof_garden",
-	"kai",
-	"material_location",
-	"mister",
-	"trin",
-	"trin_compost",
-	"trin_garden",
-	"trin_water",
-	"vertical_garden",
-	"water"
-)
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION, "board,community_food_stand,go_to_bed_door,home_entrance,home_roof_garden,
+kai,kelly,kyle,material_location,mister,trin,trin_compost,trin_garden,trin_water,vertical_garden,water")
 var marker_id: String
 
 var goal: int = 1
@@ -123,6 +109,7 @@ func set_complete(val : bool):
 		set_markers(false)
 		completed.emit(self)
 		GlobalSignalBus.quest_objective_completed.emit()
+		set_active(false)
 
 
 func reset():

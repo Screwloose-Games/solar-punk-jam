@@ -155,6 +155,12 @@ DynamicEnvironment=""
 
 theme/custom_font="uid://bu0jifvxjxegr"
 
+[importer_defaults]
+
+animation_library={
+&"animation/import_rest_as_RESET": true
+}
+
 [input]
 
 Move_Forward={
