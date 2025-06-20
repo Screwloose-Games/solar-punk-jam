@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkjhuoo8evdy"]
+
+[ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_xwpta"]
+
+[node name="Kyle" instance=ExtResource("1_xwpta")]
+
+[node name="QuestMarker3D" parent="." index="0"]
+id = "kelly"
+
+[node name="Name" parent="." index="1"]
+visible = true
+text = "Kelly"
+
+[node name="InteractableArea3D" parent="." index="4"]
+interactable_id = "kelly"
+
+[node name="Dialogue" parent="." index="5"]
+npc_id = "kelly"
+
+[node name="InteractNotify" parent="." index="11"]
+npc_id = "kelly"
+
+[editable path="InteractableArea3D"]

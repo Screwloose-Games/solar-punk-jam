@@ -4,11 +4,20 @@
 
 [node name="Kyle" instance=ExtResource("1_5a01x")]
 
+[node name="QuestMarker3D" parent="." index="0"]
+id = "kyle"
+
 [node name="Name" parent="." index="1"]
 visible = true
 text = "Kyle"
 
+[node name="InteractableArea3D" parent="." index="4"]
+interactable_id = "kyle"
+
 [node name="Dialogue" parent="." index="5"]
+npc_id = "kyle"
+
+[node name="InteractNotify" parent="." index="11"]
 npc_id = "kyle"
 
 [editable path="InteractableArea3D"]

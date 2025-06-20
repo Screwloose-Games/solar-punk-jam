@@ -1,7 +1,7 @@
 class_name QuestMarker3D
 extends Marker3D
 
-@export_enum("jo", "trin", "kai", "home_entrance", "mister", "material_location",
+@export_enum("jo", "trin", "kai", "kyle", "kelly", "home_entrance", "mister", "material_location",
 "board", "water", "trin_garden", "home_roof_garden", "go_to_bed_door",
 "trin_compost", "trin_water", "community_food_stand", "vertical_garden") var id: String
 @export var active: bool = false:
