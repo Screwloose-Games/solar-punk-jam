@@ -1,4 +1,11 @@
-Kai: *sigh*
-Kai: Your daddy would've loved a day like this.
-Te: You ok, mama?
-Kai: I'm fine, baby.
+if {kai_met} == false:
+	Kai: *sigh*
+	Kai: Your daddy would've loved a day like this.
+	Te: You ok, mama?
+	Kai: I'm fine, baby.
+	set {kai_met} = true
+
+Kai: <Isn't it a nice day?/\
+We'll make due./\
+Things will get better./\
+It's going to be okay.>

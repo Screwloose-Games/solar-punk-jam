@@ -86,7 +86,7 @@ variables={
 "jo_active": false,
 "jo_get_scrap": false,
 "kai_active": false,
-"kai_met": true,
+"kai_met": false,
 "kelly_met": false,
 "kyle_met": false,
 "mister_active": false,
