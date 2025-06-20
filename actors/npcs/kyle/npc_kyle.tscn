@@ -1,14 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://s785ymaq0v5d"]
+[gd_scene load_steps=4 format=3 uid="uid://s785ymaq0v5d"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_5a01x"]
+[ext_resource type="Resource" uid="uid://goophsmwiv6e" path="res://narrative/characters/Kyle.dch" id="2_eu4ac"]
+[ext_resource type="PackedScene" uid="uid://cbdn2ggindyvx" path="res://assets/3d/people/placeholder/sk_npc_placeholder.tscn" id="3_2fdmx"]
 
 [node name="Kyle" instance=ExtResource("1_5a01x")]
+character = ExtResource("2_eu4ac")
+
+[node name="QuestMarker3D" parent="." index="0"]
+id = "kyle"
 
 [node name="Name" parent="." index="1"]
-visible = true
 text = "Kyle"
 
-[node name="Dialogue" parent="." index="5"]
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="sk_npc_placeholder" parent="." index="3" instance=ExtResource("3_2fdmx")]
+
+[node name="InteractableArea3D" parent="." index="5"]
+interactable_id = "kyle"
+
+[node name="Dialogue" parent="." index="6"]
+npc_id = "kyle"
+
+[node name="InteractNotify" parent="." index="12"]
 npc_id = "kyle"
 
 [editable path="InteractableArea3D"]

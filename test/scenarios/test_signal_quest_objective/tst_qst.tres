@@ -1,20 +1,7 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://cwr1inx2ohgup"]
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://cwr1inx2ohgup"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_7nnci"]
-[ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/classes/qstep/qstep_custom.gd" id="2_kv510"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_r1162"]
-
-[sub_resource type="Resource" id="Resource_dg3x7"]
-script = ExtResource("2_kv510")
-autoload_name = "GlobalSignalBus"
-signal_name = "player_entered_home"
-expected_args = []
-description = "Enter your home"
-goal = 1
-prerequisites = Array[int]([])
-play_dialogue = ""
-marker_id = ""
-metadata/_custom_type_script = "uid://c03vs1udr2qbe"
 
 [resource]
 script = ExtResource("2_r1162")
@@ -24,7 +11,7 @@ quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
 unlock_on_accept = Array[String]([])
-steps = Array[ExtResource("1_7nnci")]([SubResource("Resource_dg3x7")])
+steps = Array[ExtResource("1_7nnci")]([null])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5

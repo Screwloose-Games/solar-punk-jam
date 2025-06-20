@@ -36,10 +36,6 @@ func quests_available_changed(val):
 			load("res://assets/3d/structures/community_board/t_message_board_baseColor.png"))
 
 
-func show_community_board_ui():
-	pass
-
-
 func _on_board_closed():
 	community_board_canvas_layer.visible = false
 	interactable_area_3d.stop_interacting()
@@ -54,8 +50,6 @@ func _on_quest_accepted():
 
 
 func _on_interacted(_player: Player):
-	GlobalSignalBus.community_board_interacted.emit()
-	GlobalSignalBus.object_interacted.emit("board")
 	if !Dialogic.VAR.board_active:
 		community_board_canvas_layer.visible = !community_board_canvas_layer.visible
 	else:

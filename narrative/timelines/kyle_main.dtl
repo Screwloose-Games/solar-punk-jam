@@ -1,0 +1,8 @@
+# Intro chat when we first talk to Kyle
+if {kyle_met} == false:
+	Kyle: Hi, I'm Kyle. I'm sort of a new character?
+	Te: Uh, OK. Good luck with that.
+	set {kyle_met} = true
+else:
+	# Random lines after we've met Kyle
+	Mister: <Welcome to Corneria!/I AM ERROR./You smell something?>

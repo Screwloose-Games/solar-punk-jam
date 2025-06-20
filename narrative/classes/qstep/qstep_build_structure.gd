@@ -4,32 +4,33 @@ extends QuestStep
 ## Used for when a certain structure must be built
 
 enum StructureType {
-	BATTERY,
-	BENCH,
-	BIOREACTOR,
-	BIRDHOUSE,
-	FLOWER_BUSH,
-	COMPOST_BIN,
-	HYGIENE_STATION,
-	INSECT_HOTEL,
-	KITCHEN,
-	LANTERN,
-	PICNIC_TABLE,
-	RAIN_BARREL,
-	RAISED_BED,
-	VERTICAL_GARDEN,
-	RECYCLING_STATION,
-	SOLAR_PANEL,
-	TOOL_LIBRARY,
-	TREE,
-	VEGETABLES,
-	WASTE_BIN,
-	DONATION_BOX,
-	FOOD_STAND,
 }
 
 ## Type of structure to be built
-@export var structure_type : StructureType
+@export_enum(
+	"Battery",
+	"Bench",
+	"Bioreactor",
+	"Birdhouse (on pole)",
+	"Bush (flowers)",
+	"Compost bin",
+	"Hygiene station",
+	"Insect Hotel",
+	"Kitchen",
+	"Lantern (on pole)",
+	"Picnic Table",
+	"Rain barrel",
+	"Raised bed",
+	"Vertical garden",
+	"Recycling station",
+	"Solar panel",
+	"Tool library",
+	"Tree",
+	"Vegetables",
+	"Community Waste Bin",
+	"Donation box",
+	"Food stand",
+) var structure_type : String
 
 
 func set_active(val: bool):

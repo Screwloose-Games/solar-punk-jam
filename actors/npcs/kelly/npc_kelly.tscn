@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkjhuoo8evdy"]
+
+[ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_xwpta"]
+[ext_resource type="Resource" uid="uid://cixkm6vh6ryoa" path="res://narrative/characters/Kelly.dch" id="2_iwupw"]
+[ext_resource type="PackedScene" uid="uid://cbdn2ggindyvx" path="res://assets/3d/people/placeholder/sk_npc_placeholder.tscn" id="3_14k84"]
+
+[node name="Kelly" instance=ExtResource("1_xwpta")]
+character = ExtResource("2_iwupw")
+
+[node name="QuestMarker3D" parent="." index="0"]
+id = "kelly"
+
+[node name="Name" parent="." index="1"]
+text = "Kelly"
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="sk_npc_placeholder" parent="." index="3" instance=ExtResource("3_14k84")]
+
+[node name="InteractableArea3D" parent="." index="5"]
+interactable_id = "kelly"
+
+[node name="Dialogue" parent="." index="6"]
+npc_id = "kelly"
+
+[node name="InteractNotify" parent="." index="12"]
+npc_id = "kelly"
+
+[editable path="InteractableArea3D"]

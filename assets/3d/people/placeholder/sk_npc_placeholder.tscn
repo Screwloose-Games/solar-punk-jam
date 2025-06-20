@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbdn2ggindyvx"]
+
+[ext_resource type="PackedScene" uid="uid://uiir8hq7nv1k" path="res://assets/3d/people/placeholder/sk_npc_placeholder.gltf" id="1_eti7p"]
+
+[node name="sk_npc_placeholder" instance=ExtResource("1_eti7p")]

@@ -14,9 +14,6 @@ extends QuestStep
 @export_group("End Time", "end_")
 @export_range(0, 23) var end_hour : int = 0
 @export_range(0, 59) var end_minute : int = 0
-@export_group("")
-## If we want to give the player some leeway, add this number of minutes to the end time
-@export_range(0, 59) var grace_period_minutes : int = 0
 
 
 func set_active(val: bool):
@@ -29,7 +26,7 @@ func event_occured():
 	var game_time = EnvironmentManager.environment_model.get_in_game_time()
 	var game_time_minutes = (game_time.hour * 60) + game_time.minute
 	var start_time_minutes = int(start_hour * 60) + start_minute
-	var end_time_minutes = int(end_hour * 60) + end_minute + grace_period_minutes
+	var end_time_minutes = int(end_hour * 60) + end_minute
 	if start_time_minutes == end_time_minutes:
 		super.event_occured()
 	elif game_time_minutes >= start_time_minutes and game_time_minutes <= end_time_minutes:

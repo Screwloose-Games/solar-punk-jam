@@ -13,4 +13,7 @@ id = "material_location"
 [node name="sm_collectibles_scrappile" parent="." index="1" instance=ExtResource("3_7xlc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0286514, 0.0308959, -0.0124826)
 
+[node name="InteractableArea3D" parent="." index="2"]
+interactable_id = "scrap"
+
 [editable path="InteractableArea3D"]

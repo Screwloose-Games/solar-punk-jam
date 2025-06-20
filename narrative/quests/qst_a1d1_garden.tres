@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=17 format=3 uid="uid://bk1qhgoe1a432"]
+[gd_resource type="Resource" script_class="Quest" load_steps=18 format=3 uid="uid://bk1qhgoe1a432"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_emwmh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bvpbf61rkwgom" path="res://narrative/classes/qstep/qstep_go_to.gd" id="4_ku037"]
 [ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="5_a0tgy"]
 [ext_resource type="Script" uid="uid://dm6u0eitlfqup" path="res://narrative/classes/qstep/qstep_have_resource.gd" id="6_eepgn"]
+[ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="7_a0tgy"]
 [ext_resource type="Script" uid="uid://dfunhlrmsp6qb" path="res://narrative/classes/qstep/qstep_plant_crop.gd" id="7_b3m5d"]
 [ext_resource type="Script" uid="uid://cngh4nyaovsbs" path="res://narrative/classes/qstep/qstep_wait_days.gd" id="8_k0nsr"]
 
@@ -16,42 +17,37 @@ start_hour = 0
 start_minute = 0
 end_hour = 0
 end_minute = 0
-grace_period_minutes = 0
 description = "Go to your home's rooftop"
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "home_entrance"
-type = 9
 metadata/_custom_type_script = "uid://bvpbf61rkwgom"
 
 [sub_resource type="Resource" id="Resource_qkafw"]
 script = ExtResource("5_a0tgy")
-structure_type = 11
+structure_type = "Rain barrel"
 description = "Build a rain barrel"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 5
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
 [sub_resource type="Resource" id="Resource_iwql8"]
 script = ExtResource("5_a0tgy")
-structure_type = 5
+structure_type = "Compost bin"
 description = "Build a compost bin"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 5
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
 [sub_resource type="Resource" id="Resource_n1b1o"]
 script = ExtResource("5_a0tgy")
-structure_type = 13
+structure_type = "Vertical garden"
 description = "Build a vertical garden"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 5
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
 [sub_resource type="Resource" id="Resource_vrajp"]
@@ -62,28 +58,25 @@ description = "Collect Materials"
 prerequisites = Array[int]([1, 2, 3])
 play_dialogue = ""
 marker_id = "material_location"
-type = 15
 metadata/_custom_type_script = "uid://dm6u0eitlfqup"
 
 [sub_resource type="Resource" id="Resource_fhsga"]
 script = ExtResource("5_a0tgy")
-structure_type = 12
+structure_type = "Raised bed"
 description = "Build a raised bed"
 prerequisites = Array[int]([4])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 5
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
 [sub_resource type="Resource" id="Resource_ap2x4"]
 script = ExtResource("7_b3m5d")
-crop_type = 0
+crop = ExtResource("7_a0tgy")
 amount = 1
 description = "Plant a radish"
 prerequisites = Array[int]([5])
 play_dialogue = ""
 marker_id = "home_roof_garden"
-type = 8
 metadata/_custom_type_script = "uid://dfunhlrmsp6qb"
 
 [sub_resource type="Resource" id="Resource_rr3nd"]
@@ -93,7 +86,6 @@ description = "Wait 1 day before harvesting"
 prerequisites = Array[int]([6])
 play_dialogue = ""
 marker_id = "go_to_bed_door"
-type = 10
 metadata/_custom_type_script = "uid://cngh4nyaovsbs"
 
 [resource]

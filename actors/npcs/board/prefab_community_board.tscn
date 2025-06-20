@@ -113,6 +113,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114545, -1.19209e-07, 0.00
 
 [node name="InteractableArea3D" parent="." instance=ExtResource("1_ptspw")]
 unique_name_in_owner = true
+interactable_id = "board"
 label_text = "Read"
 
 [node name="CollisionShape3D" parent="InteractableArea3D" index="0"]

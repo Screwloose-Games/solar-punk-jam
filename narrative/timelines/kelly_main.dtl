@@ -1,0 +1,13 @@
+# Intro chat when we first talk to Kelly
+if {kelly_met} == false:
+	Kelly: Hi, I'm Kelly. I'm a new character!
+	Te: Ah, I was wondering why I hadn't seen your model before...
+	Kelly: Come again?
+	Te: Don't worry about it.
+	set {kelly_met} = true
+else:
+	# Random lines after we've met Kelly
+	Mister: <Welcome to Corneria!/\
+I AM ERROR./\
+another dialogue/\
+You smell something?>

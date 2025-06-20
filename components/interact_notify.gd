@@ -1,3 +1,4 @@
+class_name InteractNotifyComponent
 extends Node3D
 
 signal talked_to

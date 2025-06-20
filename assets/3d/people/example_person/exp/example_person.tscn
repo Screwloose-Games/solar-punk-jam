@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2iwwotns4aa2"]
-
-[ext_resource type="PackedScene" uid="uid://dr7nojcwjyddt" path="res://assets/3d/people/example_person/exp/example_person.gltf" id="1_nb041"]
-
-[node name="example_person" instance=ExtResource("1_nb041")]

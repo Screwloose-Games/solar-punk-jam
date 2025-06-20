@@ -13,24 +13,22 @@ description = "Read the Community Board"
 prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "board"
-type = 1
 metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 
 [sub_resource type="Resource" id="Resource_h2kdd"]
 script = ExtResource("5_yyvya")
-quest_id = "a1d1_trin"
+quest = ExtResource("3_4l7h4")
 description = "Accept Trin's work order"
 prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "board"
-type = 3
 metadata/_custom_type_script = "uid://ct3kdllut1707"
 
 [resource]
 script = ExtResource("2_pirdi")
 id = "a1d1_intro"
 name = "Check the Community Board"
-quest_giver = "mom"
+quest_giver = "kai"
 description = "Check the Community Board for work orders."
 community_board_text = "its good"
 unlock_on_accept = Array[String]([])

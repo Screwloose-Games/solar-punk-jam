@@ -1,3 +1,4 @@
+# Intro chat when we first talk to Mister
 if {mister_met} == false:
 	Mister: Hey, kid. Mom working you hard hunh?
 	Te: I practically do everything around here!
@@ -6,4 +7,15 @@ But look at us. We're here aren't we? Know why?
 	Te: Why?
 	Mister: 'Cause of hard work. So keep it up, kid.
 	set {mister_met} = true
-Mister: We'll get this city flood-proof in no time.
+else:
+	# Random lines after we've met Mister
+	Mister: <Number 1, that's terror./\
+Number 2, that's terror./\
+Number 3, that's terror./\
+Number 4, that's terror./\
+Number 5, that's terror./\
+Number 6, that's terror./\
+Number 7, that's terror./\
+Number 8, that's terror./\
+Number 9, that's terror./\
+Number 10, that's terror.>

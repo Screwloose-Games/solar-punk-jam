@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://c80ajiirl6usj"]
+
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="1_2ap0s"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="2_g33vt"]
+[ext_resource type="Script" uid="uid://cmusiekpmyfl5" path="res://narrative/classes/qstep/qstep_interact_with.gd" id="3_g33vt"]
+
+[sub_resource type="Resource" id="Resource_uc1yk"]
+script = ExtResource("3_g33vt")
+interactable_id = "scrap"
+description = "get scrap"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://cmusiekpmyfl5"
+
+[resource]
+script = ExtResource("1_2ap0s")
+id = "jo_get_scrap"
+name = "Get scrap for Jo"
+quest_giver = "jo"
+description = "get scrap"
+community_board_text = ""
+unlock_on_accept = Array[String]([])
+steps = Array[ExtResource("2_g33vt")]([SubResource("Resource_uc1yk")])
+unlock_on_complete = Array[String]([])
+resource_rewards = Dictionary[int, int]({
+5: 5
+})
+start_next_quest = true
+metadata/_custom_type_script = "uid://5ejc1odxmtck"

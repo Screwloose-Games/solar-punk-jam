@@ -1,6 +1,6 @@
 @tool
-extends Area3D
 class_name InteractArea3D
+extends Area3D
 
 signal selected_updated(current_selected: InteractableArea3D)
 signal started_interacting
@@ -62,16 +62,20 @@ func _on_area_exited(area: Area3D):
 
 func _unhandled_input(event):
 	if event.is_action_pressed(interact_action):
-		if owner.is_interacting and selected and selected.toggleable:
-			is_interacting = false
-		if owner.should_ignore_interact:
-			return
-		elif selected is InteractableArea3D:
-			selected.interact(player)
+		handle_interact()
+
+func handle_interact():
+	if owner.is_interacting and selected and selected.toggleable:
+		is_interacting = false
+	if owner.should_ignore_interact:
+		return
+	if selected is InteractableArea3D:
+		selected.interact(player)
+		if !selected.stopped_interacting.is_connected(_on_stopped_interacting.bind(selected)):
 			selected.stopped_interacting.connect(_on_stopped_interacting.bind(selected))
-			if not selected.tree_exited.is_connected(_on_stopped_interacting.bind(selected)):
-				selected.tree_exited.connect(_on_stopped_interacting.bind(selected))
-			is_interacting = true
+		if !selected.tree_exited.is_connected(_on_stopped_interacting.bind(selected)):
+			selected.tree_exited.connect(_on_stopped_interacting.bind(selected))
+		is_interacting = true
 
 func get_actions():
 	var proj_file := ConfigFile.new()

@@ -9,10 +9,10 @@
 "style": "base_style"
 },
 &"default_portrait": "",
-&"description": "Kai is Te's mom. She joined the commune because it was her and her late husband's dream/vision.",
-&"display_name": "Kai",
+&"description": "",
+&"display_name": "Jo",
 &"mirror": false,
-&"nicknames": ["Mom"],
+&"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0
