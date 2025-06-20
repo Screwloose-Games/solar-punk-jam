@@ -27,7 +27,8 @@ var is_interacting: bool = false:
 
 func _on_stopped_interacting(interactable: InteractableArea3D):
 	is_interacting = false
-	interactable.stopped_interacting.disconnect(_on_stopped_interacting)
+	if interactable.stopped_interacting.is_connected(_on_stopped_interacting):
+		interactable.stopped_interacting.disconnect(_on_stopped_interacting)
 
 func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
