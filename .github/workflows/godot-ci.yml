@@ -1,0 +1,81 @@
+name: "godot-ci export"
+on:
+  push:
+    branches:
+      - main
+      - jonny
+
+# on:
+#   workflow_dispatch:
+
+env:
+  GODOT_VERSION: 4.4.1
+  EXPORT_NAME: godot_test_framework
+  PROJECT_PATH: .
+
+jobs:
+  web:
+    env:
+      STAGING_DIRECTORY: build/web
+      EXPORT_NAME: web
+    name: Web Export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # - name: Configure Git Safe Directory
+      #   run: git config --global --add safe.directory /__w/kpop-survivor/kpop-survivor
+
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+      
+      # - name: Set execute permissions for save_version.sh
+      #   run: |
+      #     cd $PROJECT_PATH
+      #     chmod +x save_version.sh
+
+      # - name: Save Version
+      #   run: |
+      #     cd $PROJECT_PATH
+      #     ./save_version.sh
+      
+      - name: Create staging directory
+        run: mkdir -v -p $STAGING_DIRECTORY
+      
+      - name: Import Assets
+        run: |
+          cd $PROJECT_PATH
+          timeout 200s godot --headless --verbose --editor --quit
+      
+      - name: Web Build
+        run: |
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "web" $STAGING_DIRECTORY/index.html
+        # cd $STAGING_DIRECTORY && zip -r ../../web.zip ./* && cd -
+      
+      - name: Add coi-service-worker
+        run: |
+          git clone https://github.com/gzuidhof/coi-serviceworker.git
+          mv coi-serviceworker/coi-serviceworker.js $STAGING_DIRECTORY/coi-serviceworker.js
+          sed -i '3 i <script src="coi-serviceworker.js"></script>' $STAGING_DIRECTORY/index.html
+      
+      - name: Zip Web artifacts
+        run: zip -r web.zip $STAGING_DIRECTORY
+
+      - name: Upload Web artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: web
+          path: web.zip
+
+      - name: Release
+        id: release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: web.zip
