@@ -33,17 +33,14 @@ jobs:
 
       - name: echo godot templates contents tree
         run: |
-          echo "Godot Templates Directory Contents:"
-          ls -laR /root/.local/share/godot/export_templates
-          ls -laR $GODOT_TEMPLATES_DIRECTORY
-          echo "Godot Templates Version:"
-          ls -laR $GODOT_TEMPLATES_DIRECTORY/${GODOT_VERSION}.stable
-        continue-on-error: true
-      - name: Setup
-        run: |
-          mkdir -v -p $GODOT_TEMPLATES_DIRECTORY
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable $GODOT_TEMPLATES_DIRECTORY
-        continue-on-error: true
+          echo "Godot templates directory:"
+          ls -laR ${{ env.GODOT_TEMPLATES_DIRECTORY }}
+        # continue-on-error: true
+      # - name: Setup
+      #   run: |
+      #     mkdir -v -p ${{ env.GODOT_TEMPLATES_DIRECTORY }}
+      #     mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates
+      #   continue-on-error: true
       # - name: Set execute permissions for save_version.sh
       #   run: |
       #     cd $PROJECT_PATH
