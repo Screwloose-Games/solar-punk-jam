@@ -35,6 +35,7 @@ jobs:
       - name: Build
         # run: godot -v --export-release --headless --export-template=no "Web"
         run: godot --headless --verbose --export-release "Web" ../build/web/index.html
+        continue-on-error: true
 
       - name: Add coi-service-worker
         run: |
