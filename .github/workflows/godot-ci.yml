@@ -11,6 +11,7 @@ on:
 env:
   GODOT_VERSION: 4.4.1
   EXPORT_NAME: godot_test_framework
+  GODOT_TEMPLATES_DIRECTORY: ~/.local/share/godot/export_templates
   PROJECT_PATH: .
 
 jobs:
@@ -30,11 +31,19 @@ jobs:
       # - name: Configure Git Safe Directory
       #   run: git config --global --add safe.directory /__w/kpop-survivor/kpop-survivor
 
-      # - name: Setup
-      #   run: |
-      #     mkdir -v -p ~/.local/share/godot/export_templates
-      #     mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
-      
+      - name: echo godot templates contents tree
+        run: |
+          echo "Godot Templates Directory Contents:"
+          ls -laR /root/.local/share/godot/export_templates
+          ls -laR $GODOT_TEMPLATES_DIRECTORY
+          echo "Godot Templates Version:"
+          ls -laR $GODOT_TEMPLATES_DIRECTORY/${GODOT_VERSION}.stable
+        continue-on-error: true
+      - name: Setup
+        run: |
+          mkdir -v -p $GODOT_TEMPLATES_DIRECTORY
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable $GODOT_TEMPLATES_DIRECTORY
+        continue-on-error: true
       # - name: Set execute permissions for save_version.sh
       #   run: |
       #     cd $PROJECT_PATH
@@ -56,6 +65,16 @@ jobs:
             godot-import-${{ hashFiles('**') }}
         continue-on-error: true
 
+      # - name: Download Godot Export Templates
+      #   run: |
+      #     mkdir -p $GODOT_TEMPLATES_DIRECTORY
+      #     cd $GODOT_TEMPLATES_DIRECTORY
+      #     wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz
+      #     mkdir -p ${GODOT_VERSION}.stable
+      #     tar -xf Godot_v${GODOT_VERSION}_export_templates.tpz -C ${GODOT_VERSION}.stable
+      
+
+        
       - name: Create staging directory
         run: mkdir -v -p $STAGING_DIRECTORY
       
