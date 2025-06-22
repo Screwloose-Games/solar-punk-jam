@@ -1,0 +1,6 @@
+## Learn more about CODEOWNERS at https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# This makes @jonathandavidlewis the owner of everything
+* @jonathandavidlewis
+
+/narrative/ @Tupperwarez

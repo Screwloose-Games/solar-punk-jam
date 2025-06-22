@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b74t3imsms6oa"]
+
+[ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_4r4va"]
+[ext_resource type="PackedScene" uid="uid://cbdn2ggindyvx" path="res://assets/3d/people/placeholder/sk_npc_placeholder.tscn" id="2_8npag"]
+
+[node name="NpcPlaceholder" instance=ExtResource("1_4r4va")]
+editor_description = "To use:
+* Copy this scene.
+* Create a new Dialogic character.
+* Configure the dialogic character on the base of this scene."
+
+[node name="MeshInstance3D" parent="." index="2"]
+visible = false
+
+[node name="sk_npc_placeholder" parent="." index="3" instance=ExtResource("2_8npag")]
+
+[editable path="InteractableArea3D"]
