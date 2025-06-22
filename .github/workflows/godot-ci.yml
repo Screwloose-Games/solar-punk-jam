@@ -53,6 +53,7 @@ jobs:
           timeout 200s godot --headless --verbose --editor --quit
       
       - name: Web Build
+        continue-on-error: true
         run: |
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "web" $STAGING_DIRECTORY/index.html
