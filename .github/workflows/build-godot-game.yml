@@ -33,7 +33,8 @@ jobs:
         run: mkdir -v -p build/web
 
       - name: Build
-        run: godot -v --export-release --headless --export-template=no "Web"
+        # run: godot -v --export-release --headless --export-template=no "Web"
+        run: godot --headless --verbose --export-release "Web" ../build/web/index.html
 
       - name: Add coi-service-worker
         run: |
