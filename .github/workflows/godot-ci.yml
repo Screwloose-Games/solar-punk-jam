@@ -137,6 +137,10 @@ jobs:
       #     files: web.zip
   
   release_web:
+    env:
+      ITCH_USER: jonathandavidlewis
+      ITCH_GAME: lumina-qa
+      BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
     runs-on: ubuntu-latest
     needs: web
     steps:
