@@ -11,7 +11,8 @@ on:
 env:
   GODOT_VERSION: 4.4.1
   EXPORT_NAME: godot_test_framework
-  GODOT_TEMPLATES_DIRECTORY: ~/.local/share/godot/export_templates
+  GODOT_TEMPLATES_DIRECTORY_SOURCE: /root/.local/share/godot/export_templates
+  GODOT_TEMPLATES_DIRECTORY_DESTINATION: ~/.local/share/godot/export_templates
   PROJECT_PATH: .
 
 jobs:
@@ -31,16 +32,24 @@ jobs:
       # - name: Configure Git Safe Directory
       #   run: git config --global --add safe.directory /__w/kpop-survivor/kpop-survivor
 
-      - name: echo godot templates contents tree
-        run: |
-          echo "Godot templates directory:"
-          ls -laR ${{ env.GODOT_TEMPLATES_DIRECTORY }}
-        # continue-on-error: true
-      # - name: Setup
+      # - name: echo godot templates contents tree
       #   run: |
-      #     mkdir -v -p ${{ env.GODOT_TEMPLATES_DIRECTORY }}
-      #     mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates
-      #   continue-on-error: true
+      #     echo "Godot templates directory:"
+      #     ls -laR ${{ env.GODOT_TEMPLATES_DIRECTORY }}
+        # continue-on-error: true
+
+      - name: Make Template Destination Directory
+        run: |
+          mkdir -v -p ${{ env.GODOT_TEMPLATES_DIRECTORY_DESTINATION }}      
+      - name: Move Template Directory
+        run: |
+          if [ "$(realpath ${{ env.GODOT_TEMPLATES_DIRECTORY_SOURCE }})" != "$(realpath ${{ env.GODOT_TEMPLATES_DIRECTORY_DESTINATION }})" ]; then
+            echo "Directories are different, moving templates..."
+            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates
+          else
+            echo "Directories are the same, no action needed."
+          fi
+      
       # - name: Set execute permissions for save_version.sh
       #   run: |
       #     cd $PROJECT_PATH
