@@ -37,6 +37,9 @@ jobs:
       #     echo "Godot templates directory:"
       #     ls -laR ${{ env.GODOT_TEMPLATES_DIRECTORY }}
         # continue-on-error: true
+      - name: Install lsb-release
+        run: |
+          apt-get update && apt-get install -y lsb-release
 
       - name: Make Template Destination Directory
         run: |
@@ -74,15 +77,25 @@ jobs:
       - name: Create staging directory
         run: mkdir -v -p $STAGING_DIRECTORY
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-          cache: 'pip'
+      - name: Install Python
+        run: |
+          apt-get update && apt-get install -y python3
+
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.12'
+      #     cache: 'pip'
+
+      - name: Ensure pip is installed
+        run: |
+          python3 -m ensurepip --upgrade || apt-get update && apt-get install -y python3-pip
+          python3 -m pip install --upgrade pip
+          pip3 install -r .github/workflows/scripts/requirements.txt
         
       - name: Resize Textures
         id: resize-textures
-        run: python .github/workflows/scripts/resize_large_pngs.py
+        run: python3 .github/workflows/scripts/resize_large_pngs.py
         
       - name: Import Assets
         run: |

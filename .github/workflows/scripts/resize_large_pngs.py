@@ -31,12 +31,6 @@ def main():
     root_directory = os.getcwd() if len(sys.argv) < 2 else sys.argv[1]
     max_width = int(sys.argv[2]) if len(sys.argv) > 2 else 1024
 
-    print(f"Are you sure you want to resize all .png images in '{os.path.abspath(root_directory)}' that are greater than {max_width} pixels to {max_width} pixels? [y/N]")
-    confirmation = input().strip().lower()
-    if confirmation != 'y':
-        print("Operation cancelled.")
-        sys.exit(0)
-
     large_pngs = find_large_pngs(root_directory, max_width)
     resize_pngs(large_pngs, max_width)
     print(f"Resized {len(large_pngs)} images to a max width of {max_width}.")
