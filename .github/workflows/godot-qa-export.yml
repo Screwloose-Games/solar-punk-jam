@@ -91,7 +91,7 @@ jobs:
         run: |
           python3 -m ensurepip --upgrade || apt-get update && apt-get install -y python3-pip
           python3 -m pip install --upgrade pip
-          pip3 install --upgrade setuptools wheel
+          pip3 install -r .github/workflows/scripts/requirements.txt
         
       - name: Resize Textures
         id: resize-textures
