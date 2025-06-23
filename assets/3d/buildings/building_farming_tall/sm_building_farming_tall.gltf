@@ -323,17 +323,17 @@
 		{
 			"mimeType":"image/png",
 			"name":"t_building_05_Base_Color",
-			"uri":"t_building_05_Base_Color.png"
+			"uri":"t_building_farming_tall_Base_Color.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"t_building_05_Roughness",
-			"uri":"t_building_05_Roughness.png"
+			"uri":"t_building_farming_tall_Roughness.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"t_building_05_Normal",
-			"uri":"t_building_05_Normal.png"
+			"uri":"t_building_farming_tall_Normal.png"
 		}
 	],
 	"accessors":[

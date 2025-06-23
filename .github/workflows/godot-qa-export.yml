@@ -1,0 +1,160 @@
+name: "Godot QA Export"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# on:
+#   workflow_dispatch:
+
+env:
+  GODOT_VERSION: 4.4.1
+  EXPORT_NAME: godot_test_framework
+  GODOT_TEMPLATES_DIRECTORY_SOURCE: /root/.local/share/godot/export_templates
+  GODOT_TEMPLATES_DIRECTORY_DESTINATION: ~/.local/share/godot/export_templates
+  PROJECT_PATH: .
+
+jobs:
+  web:
+    env:
+      STAGING_DIRECTORY: build/web
+      EXPORT_NAME: web
+    name: Web Export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      # - name: Configure Git Safe Directory
+      #   run: git config --global --add safe.directory /__w/kpop-survivor/kpop-survivor
+
+      # - name: echo godot templates contents tree
+      #   run: |
+      #     echo "Godot templates directory:"
+      #     ls -laR ${{ env.GODOT_TEMPLATES_DIRECTORY }}
+        # continue-on-error: true
+
+      - name: Make Template Destination Directory
+        run: |
+          mkdir -v -p ${{ env.GODOT_TEMPLATES_DIRECTORY_DESTINATION }}      
+      - name: Move Template Directory
+        run: |
+          if [ "$(realpath ${{ env.GODOT_TEMPLATES_DIRECTORY_SOURCE }})" != "$(realpath ${{ env.GODOT_TEMPLATES_DIRECTORY_DESTINATION }})" ]; then
+            echo "Directories are different, moving templates..."
+            mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates
+          else
+            echo "Directories are the same, no action needed."
+          fi
+      
+      # - name: Set execute permissions for save_version.sh
+      #   run: |
+      #     cd $PROJECT_PATH
+      #     chmod +x save_version.sh
+
+      # - name: Save Version
+      #   run: |
+      #     cd $PROJECT_PATH
+      #     ./save_version.sh
+    # Restore .import and .godot cache
+      - name: Restore Godot Import Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ env.PROJECT_PATH }}/.import
+            ${{ env.PROJECT_PATH }}/.godot
+          key: godot-import-${{ hashFiles('**') }}
+          restore-keys: |
+            godot-import-${{ hashFiles('**') }}
+        continue-on-error: true
+
+      - name: Create staging directory
+        run: mkdir -v -p $STAGING_DIRECTORY
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+        
+      - name: Resize Textures
+        id: resize-textures
+        run: python .github/workflows/scripts/resize_large_pngs.py
+        
+      - name: Import Assets
+        run: |
+          cd $PROJECT_PATH
+          timeout 200s godot --headless --verbose --import
+      
+      - name: Web Build
+        continue-on-error: true
+        run: |
+          cd $PROJECT_PATH
+
+          echo "🟨 Exporting Web Build..."
+          set +e
+          EXPORT_LOG=$(mktemp)
+          godot --headless --verbose --export-release "Web" "$STAGING_DIRECTORY/index.html" 2>&1 | tee "$EXPORT_LOG"
+          EXPORT_EXIT_CODE=$?
+          set -e
+
+          echo ""
+          echo "🔍 Checking for errors in export log..."
+          if grep -i -C 2 "error" "$EXPORT_LOG"; then
+            echo "❌ Errors found in export log!"
+          else
+            echo "✅ No errors found in export log."
+          fi
+
+          exit $EXPORT_EXIT_CODE
+          
+      - name: List export directory contents
+        run: ls -la $STAGING_DIRECTORY
+      
+      - name: Add coi-service-worker
+        run: |
+          git clone https://github.com/gzuidhof/coi-serviceworker.git
+          mv coi-serviceworker/coi-serviceworker.js $STAGING_DIRECTORY/coi-serviceworker.js
+          sed -i '3 i <script src="coi-serviceworker.js"></script>' $STAGING_DIRECTORY/index.html
+      
+      - name: Zip Web artifacts
+        run: zip -r web.zip $STAGING_DIRECTORY
+
+      - name: Upload Web artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: web
+          path: web.zip
+
+      # - name: Release
+      #   id: release
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     files: web.zip
+  
+  release_web:
+    env:
+      ITCH_USER: jonathandavidlewis
+      ITCH_GAME: lumina-qa
+      BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
+    runs-on: ubuntu-latest
+    needs: web
+    steps:
+      - name: download Web artifact
+        id: download-web-artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web
+      - name: deploy to itch.io (web)
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: web
+          ITCH_GAME: ${{ env.ITCH_GAME }}
+          ITCH_USER: ${{ env.ITCH_USER }}
+          PACKAGE: web.zip
+          VERSION: ${{ github.sha }}
