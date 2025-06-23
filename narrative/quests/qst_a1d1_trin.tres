@@ -16,7 +16,7 @@ script = ExtResource("4_svb1w")
 npc = "trin"
 description = "Talk to Trin"
 prerequisites = Array[int]([])
-play_dialogue = ""
+play_dialogue = "prog0"
 marker_id = "trin"
 metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 
