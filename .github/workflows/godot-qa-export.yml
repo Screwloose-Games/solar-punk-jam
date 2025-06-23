@@ -40,6 +40,7 @@ jobs:
       - name: Install lsb-release
         run: |
           apt-get update && apt-get install -y lsb-release
+
       - name: Make Template Destination Directory
         run: |
           mkdir -v -p ${{ env.GODOT_TEMPLATES_DIRECTORY_DESTINATION }}      
@@ -81,6 +82,11 @@ jobs:
         with:
           python-version: '3.x'
           cache: 'pip'
+
+      - name: Ensure pip is installed
+        run: |
+          python -m ensurepip --upgrade || apt-get update && apt-get install -y python3-pip
+          python -m pip install --upgrade pip
         
       - name: Resize Textures
         id: resize-textures
