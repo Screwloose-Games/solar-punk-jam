@@ -5,8 +5,8 @@ on:
     branches: [ main ]
     paths:
       - '**/*.gd'
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
 permissions:
   pull-requests: write
 jobs:
