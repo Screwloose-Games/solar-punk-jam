@@ -37,7 +37,9 @@ jobs:
       #     echo "Godot templates directory:"
       #     ls -laR ${{ env.GODOT_TEMPLATES_DIRECTORY }}
         # continue-on-error: true
-
+      - name: Install lsb-release
+        run: |
+          apt-get update && apt-get install -y lsb-release
       - name: Make Template Destination Directory
         run: |
           mkdir -v -p ${{ env.GODOT_TEMPLATES_DIRECTORY_DESTINATION }}      
