@@ -91,7 +91,7 @@ metadata/_custom_type_script = "uid://cngh4nyaovsbs"
 [resource]
 script = ExtResource("2_emwmh")
 id = "a1d1_garden"
-name = "Start your own garden"
+name = "Start Your Own Garden"
 quest_giver = "trin"
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""

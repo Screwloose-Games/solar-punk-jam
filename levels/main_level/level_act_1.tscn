@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
 [ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
-[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Shader" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="4_yde30"]
@@ -488,7 +488,7 @@ transform = Transform3D(0.107201, 0, -0.994237, 0, 1, 0, 0.994237, 0, 0.107201, 
 transform = Transform3D(0.554278, 0, 0.832332, 0, 1, 0, -0.832332, 0, 0.554278, 36.4431, 0.449475, 22.0902)
 
 [node name="palm-bush5" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
-transform = Transform3D(0.985859, 0.167578, 0, -0.167578, 0.985859, 0, 0, 0, 1, 41.2289, 0.504947, 22.0318)
+transform = Transform3D(0.985859, 0.167578, 0, -0.167578, 0.985859, 0, 0, 0, 1, 38.8117, 0.504947, 22.0318)
 
 [node name="palm-bush6" parent="SetDressing/Plants" instance=ExtResource("38_khisr")]
 transform = Transform3D(0.747265, 0, -0.664526, 0, 1, 0, 0.664526, 0, 0.747265, 17.858, 1.02214, 33.3837)
@@ -711,7 +711,6 @@ shape = SubResource("BoxShape3D_7t8hb")
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -819,7 +818,7 @@ weather_icon_sunny = ExtResource("28_ybgau")
 weather_icon_rainy = ExtResource("29_81csf")
 
 [node name="NpcMister" parent="." instance=ExtResource("15_phxbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49966, 0.00260284, -3.21364)
+transform = Transform3D(0.505191, 0, -0.863008, 0, 1, 0, 0.863008, 0, 0.505191, 34.448, 0.00260284, -4.83964)
 
 [node name="Player" parent="." instance=ExtResource("16_t3rkj")]
 unique_name_in_owner = true
@@ -858,7 +857,7 @@ wake_up_location = NodePath(".")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38135, 0.182477, -0.402964)
 
 [node name="Trin" parent="." instance=ExtResource("24_c2ahp")]
-transform = Transform3D(0.727317, 0, 0.686301, 0, 1, 0, -0.686301, 0, 0.727317, -28.4087, 0.0217785, -0.00823873)
+transform = Transform3D(0.872539, 0, -0.488544, 0, 1, 0, 0.488544, 0, 0.872539, -29.1677, 0.0217785, -0.00823873)
 
 [node name="TrinCompost" parent="." instance=ExtResource("25_mfuku")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.9585, 0.00590925, 5.56155)
@@ -993,7 +992,7 @@ light_energy = 0.5
 omni_range = 2.0
 
 [node name="TrinOmniLight3D" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9307, 1.41028, -0.416077)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2862, 1.48204, 0.697327)
 light_energy = 0.5
 omni_range = 2.0
 omni_attenuation = 0.5
@@ -1095,7 +1094,7 @@ id = "trigger_home_roof"
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.48148, 0.135315, 6.1153)
 
 [node name="Kyle" parent="." instance=ExtResource("64_gegxl")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.136263, 0.00653955, 5.78576)
+transform = Transform3D(0.315036, 0, -0.94908, 0, 1, 0, 0.94908, 0, 0.315036, 15.5175, 0.00653955, 10.4417)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]

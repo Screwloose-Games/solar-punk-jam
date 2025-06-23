@@ -5,7 +5,7 @@ if {kai_met} == false:
 	Kai: I'm fine, baby.
 	set {kai_met} = true
 
-Kai: <Isn't it a nice day?/\
-We'll make due./\
-Things will get better./\
-It's going to be okay.>
+Kai: <Your daddy would've loved a day like this./\
+Things will get better in no time if we keep working together./\
+It's going to be okay./\
+Get back to it, Gremlin.>

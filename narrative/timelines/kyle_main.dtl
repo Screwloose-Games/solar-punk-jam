@@ -1,8 +1,12 @@
 # Intro chat when we first talk to Kyle
 if {kyle_met} == false:
-	Kyle: Hi, I'm Kyle. I'm sort of a new character?
-	Te: Uh, OK. Good luck with that.
+	Kyle: It's nice to be back home. I just wish we had more support in getting this place liveable again. 
+	Te: Why can't we ask for help?
+	Kyle: Your mom has tried getting the city to rebuild, but they don't think it's worth it.
+	Te: But don't they have to help us? That's their job!
+	Kyle: It's complicatd. But at least we all have each other. We can make it happen without them.
 	set {kyle_met} = true
 else:
 	# Random lines after we've met Kyle
-	Kyle: <Welcome to Corneria!/I AM ERROR./You smell something?>
+	Kyle: <I love finding new ways to use food we've been growing to make fresh dishes./\
+Hope you're keeping busy in that garden.>
