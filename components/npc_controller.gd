@@ -1,12 +1,10 @@
+class_name NpcController
 extends Node
 
 ## Plays animations each night.
 
 ## Daily animations occur at night
-@export var daily_animations: Dictionary[int, Array] = {
-	1: [],
-	2: []
-}
+@export var daily_animations: Dictionary[int, Array] = {}
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
