@@ -80,17 +80,17 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
           cache: 'pip'
 
       - name: Ensure pip is installed
         run: |
-          python -m ensurepip --upgrade || apt-get update && apt-get install -y python3-pip
-          python -m pip install --upgrade pip
+          python3 -m ensurepip --upgrade || apt-get update && apt-get install -y python3-pip
+          python3 -m pip install --upgrade pip
         
       - name: Resize Textures
         id: resize-textures
-        run: python .github/workflows/scripts/resize_large_pngs.py
+        run: python3 .github/workflows/scripts/resize_large_pngs.py
         
       - name: Import Assets
         run: |
