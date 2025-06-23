@@ -33,7 +33,6 @@ overrides = {
 "box_distance": "100.0",
 "box_modulate_custom_color": "Color(0.470588, 0.317647, 0.164706, 0)",
 "box_modulate_global_color": "false",
-"box_panel": "\"default_stylebox.tres\"",
 "box_size": "Vector2(724, 600)",
 "name_label_color_mode": "1",
 "name_label_custom_size": "34.0",
