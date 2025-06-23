@@ -77,6 +77,10 @@ jobs:
       - name: Create staging directory
         run: mkdir -v -p $STAGING_DIRECTORY
 
+      - name: Install Python
+        run: |
+          apt-get update && apt-get install -y python3
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
