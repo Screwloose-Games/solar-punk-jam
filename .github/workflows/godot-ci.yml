@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 # on:
 #   workflow_dispatch:
@@ -70,19 +71,19 @@ jobs:
             godot-import-${{ hashFiles('**') }}
         continue-on-error: true
 
-      # - name: Download Godot Export Templates
-      #   run: |
-      #     mkdir -p $GODOT_TEMPLATES_DIRECTORY
-      #     cd $GODOT_TEMPLATES_DIRECTORY
-      #     wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz
-      #     mkdir -p ${GODOT_VERSION}.stable
-      #     tar -xf Godot_v${GODOT_VERSION}_export_templates.tpz -C ${GODOT_VERSION}.stable
-      
-
-        
       - name: Create staging directory
         run: mkdir -v -p $STAGING_DIRECTORY
-      
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+        
+      - name: Resize Textures
+        id: resize-textures
+        run: python .github/workflows/scripts/resize_large_pngs.py
+        
       - name: Import Assets
         run: |
           cd $PROJECT_PATH
