@@ -54,7 +54,6 @@ directories/dch_directory={
 directories/dtl_directory={
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
 "a1d2_harvest": "res://narrative/timelines/a1d2_harvest.dtl",
-"end_day_1_fullscreen": "res://narrative/timelines/end_day_1_fullscreen.dtl",
 "intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",
 "jo_main": "res://narrative/timelines/jo_main.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",

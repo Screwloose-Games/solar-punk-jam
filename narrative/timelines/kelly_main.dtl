@@ -1,13 +1,13 @@
 # Intro chat when we first talk to Kelly
 if {kelly_met} == false:
-	Kelly: Hi, I'm Kelly. I'm a new character!
-	Te: Ah, I was wondering why I hadn't seen your model before...
-	Kelly: Come again?
-	Te: Don't worry about it.
+	Kelly: This place is kind of a dump.
+	Te: You didn't see it before. Lumina is my home.
+	Kelly: I didn't want to move here, but my parents are obsessed with this whole community thing. I don't get it.
+	Te: You could at least give it a shot.
+	Kelly: I've got more important things to do.
 	set {kelly_met} = true
 else:
 	# Random lines after we've met Kelly
-	Kelly: <Welcome to Corneria!/\
-I AM ERROR./\
-another dialogue/\
-You smell something?>
+	Kelly: <Lumina is alright, I guess./\
+We need better wifi here./\
+Is there anything fun to do here?>

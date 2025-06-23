@@ -1,7 +1,5 @@
-Mister: Hey kid, heard you were looking for work to do.
-Te: Yeah?
-Mister: Well, you might wanna check out the Community Board then.\
-News, material requests, work orders, everything goes up on the board.
-Te: Gotcha. Thanks, Mister!
-Mister: Ayup.
+Te: Hey Mister. I built that solar panel you asked for.
+Mister: Thanks, kid. I've been wanting to get my woodshop back and running. I think with the extra power we can start buiding some new improvements for this place.
+Te: I'm glad I could help.
+Mister: We can onky rely on each other. Keep it up and this place will be even better than it was before.
 do QuestManager.start_quest("qst_mister01")

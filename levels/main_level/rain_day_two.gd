@@ -1,7 +1,5 @@
 extends Node
 
-const DIALOGIC_TIMELINE = preload("res://narrative/timelines/end_day_1_fullscreen.dtl")
-
 @onready var environment: CapybaraEnvironment = %Environment
 
 func _ready() -> void:

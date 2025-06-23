@@ -27,9 +27,9 @@ metadata/_custom_type_script = "uid://ct3kdllut1707"
 [resource]
 script = ExtResource("2_pirdi")
 id = "a1d1_intro"
-name = "Check the Community Board"
+name = "Do Your Part"
 quest_giver = "kai"
-description = "Check the Community Board for work orders."
+description = "Go to the community hub and find out if anyone needs help."
 community_board_text = "its good"
 unlock_on_accept = Array[String]([])
 steps = Array[ExtResource("1_rqfjc")]([SubResource("Resource_j4y65"), SubResource("Resource_h2kdd")])
