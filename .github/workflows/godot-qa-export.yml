@@ -81,16 +81,17 @@ jobs:
         run: |
           apt-get update && apt-get install -y python3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.12'
+      #     cache: 'pip'
 
       - name: Ensure pip is installed
         run: |
           python3 -m ensurepip --upgrade || apt-get update && apt-get install -y python3-pip
           python3 -m pip install --upgrade pip
+          pip3 install --upgrade setuptools wheel
         
       - name: Resize Textures
         id: resize-textures

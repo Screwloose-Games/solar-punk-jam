@@ -1,0 +1,3 @@
+# git+https://github.com/crapola/godot_dependency_graph.git@cff6b09fd3283fd569e412ecc03e1be849328688#egg=godot_dependency_graph
+# gdtoolkit==4.3.3
+pillow==11.2.1
