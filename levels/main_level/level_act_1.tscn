@@ -1,11 +1,12 @@
-[gd_scene load_steps=91 format=4 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=95 format=4 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
 [ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
-[ext_resource type="Shader" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Script" uid="uid://bsyglopb3deds" path="res://components/npc_controller.gd" id="2_gegxl"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
 [ext_resource type="Script" uid="uid://cpl5nqhc483s" path="res://components/junk_regenerator.gd" id="4_yde30"]
@@ -65,6 +66,66 @@
 [ext_resource type="PackedScene" uid="uid://dcs35ropseut8" path="res://assets/3d/structures/community_waste_bin/community_waste_bin.tscn" id="63_sw0e5"]
 [ext_resource type="PackedScene" uid="uid://dkjhuoo8evdy" path="res://actors/npcs/kelly/npc_kelly.tscn" id="63_w0b2o"]
 [ext_resource type="PackedScene" uid="uid://s785ymaq0v5d" path="res://actors/npcs/kyle/npc_kyle.tscn" id="64_gegxl"]
+
+[sub_resource type="Animation" id="Animation_gegxl"]
+resource_name = "Move Kai to player home roof immediately"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Kai:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-12.6875, 4.09717, -9.78626)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Kai:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.55699, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_abjik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Kai:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.00959, 0.0218339, -10.1326)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Kai:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.61799, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4bg33"]
+_data = {
+&"Move Kai to player home roof immediately": SubResource("Animation_gegxl"),
+&"RESET": SubResource("Animation_abjik")
+}
 
 [sub_resource type="Resource" id="Resource_7t8hb"]
 script = ExtResource("3_0tja5")
@@ -368,6 +429,18 @@ editor_description = "1. Wake up at home
 10. ~~Walk around neighborhood to find book (narratively, I don’t know how this works yet…if you are finding things in the environment or other npcs)~~
 11. Return home for bed (ends day) OR we hit 10PM in-game and we do some sort of fade to black"
 script = ExtResource("1_6h1tf")
+
+[node name="NpcController" type="Node" parent="."]
+script = ExtResource("2_gegxl")
+daily_animations = Dictionary[int, Array]({
+1: [],
+2: ["Move Kai to player home roof immediately"]
+})
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NpcController"]
+libraries = {
+&"": SubResource("AnimationLibrary_4bg33")
+}
 
 [node name="SetDressing" type="Node3D" parent="."]
 
@@ -711,6 +784,7 @@ shape = SubResource("BoxShape3D_7t8hb")
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
@@ -829,7 +903,7 @@ speed = 4.0
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
 
 [node name="Kai" parent="." instance=ExtResource("20_x787j")]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -2.00959, 0.0218339, -10.1326)
+transform = Transform3D(-0.866023, 0, -0.500003, 0, 1, 0, 0.500003, 0, -0.866023, -2.00959, 0.0218339, -10.1326)
 
 [node name="ScrapPileSpawner" parent="." instance=ExtResource("21_dedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168)
