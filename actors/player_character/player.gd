@@ -20,6 +20,7 @@ enum CameraMode {
 enum SelfState {
 	WALK,
 	IDLE,
+	FIDGET,
 }
 
 @export var allow_player_input: bool = true:
@@ -76,7 +77,7 @@ enum SelfState {
 @onready var build_area_3d: InteractArea3D = %BuildArea3D
 @onready var interact_canvas_layer: CanvasLayer = %InteractCanvasLayer
 
-@onready var hud_canvas_layer: HUDCanvasLayer = %HUDCanvasLayer
+#@onready var hud_canvas_layer: HUDCanvasLayer = %HUDCanvasLayer
 
 
 var is_interacting: bool:
@@ -86,6 +87,9 @@ var is_interacting: bool:
 		return is_player_interacting
 
 var state: SelfState = SelfState.IDLE
+var idle_timer: float = 0.0
+var idle_anim_duration: float = 10.0
+var fidget_anim_duration: float = 3.8
 
 var in_dialogue: bool = false
 
@@ -169,12 +173,24 @@ func handle_build_mode():
 		player_mode = PlayerMode.TRAVEL
 		build_area_3d.is_interacting = false
 		
+func set_animation_state(delta:float, is_moving: bool):
+	if is_moving:
+		state = SelfState.WALK
+		idle_timer = 0
+	else: # toggle back and forth between idle and fidget
+		idle_timer += delta
+		var total_anim_duration = idle_anim_duration + fidget_anim_duration;
+		if fmod(idle_timer, total_anim_duration) <= idle_anim_duration :
+			state = SelfState.IDLE
+		else:
+			state = SelfState.FIDGET
 
 func _physics_process(delta: float) -> void:
 	if not allow_player_input:
 		return
 	
 	velocity = get_horizontal_velocity(delta)
+	var is_moving = false
 	
 	if player_mode == PlayerMode.BUILD:
 		handle_build_mode()
@@ -186,12 +202,11 @@ func _physics_process(delta: float) -> void:
 	var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
 	
 	if horizontal_velocity.length_squared() > 0.01:
-		state = SelfState.WALK
+		is_moving = true
 		var direction = horizontal_velocity.normalized()
 		var target_basis = Basis.looking_at(-direction, Vector3.UP)
 		model.basis = model.basis.slerp(target_basis, 1.0 / rotation_duration * delta)
-
-	else:
-		state = SelfState.IDLE
+			
+	set_animation_state(delta, is_moving)
 	
 	move_and_slide()
