@@ -1,10 +1,10 @@
 # Intro chat when we first talk to Kyle
 if {kyle_met} == false:
-	Kyle: It's nice to be back home. I just wish we had more support in getting this place liveable again. 
+	Kyle: It's nice to be back home. I just wish we had more support in getting this place liveable again.
 	Te: Why can't we ask for help?
 	Kyle: Your mom has tried getting the city to rebuild, but they don't think it's worth it.
 	Te: But don't they have to help us? That's their job!
-	Kyle: It's complicatd. But at least we all have each other. We can make it happen without them.
+	Kyle: It's complicated. But at least we all have each other. We can make it happen without them.
 	set {kyle_met} = true
 else:
 	# Random lines after we've met Kyle
