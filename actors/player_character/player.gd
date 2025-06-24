@@ -64,20 +64,7 @@ enum SelfState {
 
 @export var rotation_duration: float = 0.2
 @export var speed = 5.0
-@export var JUMP_VELOCITY = 4.5
-
-@onready var model: Node3D = %Model
-@onready var directional_movement: DirectionalMovement = %DirectionalMovement
-@onready var click_to_move: ClickToMove = %ClickToMove
-
-@onready var isometric_camera: PhantomCamera3D = %IsometricCamera
-@onready var third_person_camera: PhantomCamera3D = %ThirdPersonCamera
-
-@onready var interact_area_3d: InteractArea3D = %InteractArea3D
-@onready var build_area_3d: InteractArea3D = %BuildArea3D
-@onready var interact_canvas_layer: CanvasLayer = %InteractCanvasLayer
-
-#@onready var hud_canvas_layer: HUDCanvasLayer = %HUDCanvasLayer
+@export var jump_velocity = 4.5
 
 var is_interacting: bool:
 	get:
@@ -120,6 +107,19 @@ var player_mode: PlayerMode = PlayerMode.TRAVEL:
 				move_mode = MoveMode.NONE
 				#if hud_canvas_layer:
 				#hud_canvas_layer.show_build_tray()
+
+@onready var model: Node3D = %Model
+@onready var directional_movement: DirectionalMovement = %DirectionalMovement
+@onready var click_to_move: ClickToMove = %ClickToMove
+
+@onready var isometric_camera: PhantomCamera3D = %IsometricCamera
+@onready var third_person_camera: PhantomCamera3D = %ThirdPersonCamera
+
+@onready var interact_area_3d: InteractArea3D = %InteractArea3D
+@onready var build_area_3d: InteractArea3D = %BuildArea3D
+@onready var interact_canvas_layer: CanvasLayer = %InteractCanvasLayer
+
+#@onready var hud_canvas_layer: HUDCanvasLayer = %HUDCanvasLayer
 
 
 func _ready() -> void:
