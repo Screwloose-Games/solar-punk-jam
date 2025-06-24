@@ -821,6 +821,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.55,
 [node name="prefab_noentry_tall9" parent="DesignTestScene/Ground/Buildings" index="7"]
 transform = Transform3D(0.0393644, 0, 0.999225, 0, 1, 0, -0.999225, 0, 0.0393644, -20.8671, 0, -36.1231)
 
+[node name="prefab_noentry_tall" parent="DesignTestScene/Ground/Buildings" index="19"]
+transform = Transform3D(-0.0241182, 0, 0.999709, 0, 1, 0, -0.999709, 0, -0.0241182, 40.713, -0.271883, 2.3223)
+
 [node name="prefab_noentry_tall6" parent="DesignTestScene/Ground/Buildings" index="24"]
 transform = Transform3D(-1.16727, 0, -0.224587, 0, 1, 0, 0.257368, 0, -1.0186, 28.4489, -2.7, -36.625)
 
