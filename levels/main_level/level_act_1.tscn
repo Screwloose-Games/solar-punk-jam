@@ -1,11 +1,11 @@
-[gd_scene load_steps=95 format=4 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=96 format=4 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
 [ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
-[ext_resource type="Shader" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://bsyglopb3deds" path="res://components/npc_controller.gd" id="2_gegxl"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://c2jegur5j8837" path="res://assets/3d/environment/dressing/leaf_cluster-2.tscn" id="30_rycpo"]
 [ext_resource type="PackedScene" uid="uid://coeurwccikebd" path="res://assets/3d/environment/dressing/rock_large_2.tscn" id="31_4dpg8"]
 [ext_resource type="PackedScene" uid="uid://dsskvq83uilps" path="res://BuildingTypes/prefab_destroyed.tscn" id="32_w0b2o"]
+[ext_resource type="PackedScene" uid="uid://b6dxilitpobm7" path="res://assets/3d/buildings/NewTestHouse.fbx" id="34_abjik"]
 [ext_resource type="PackedScene" uid="uid://c4eb7702m4uvu" path="res://assets/3d/environment/dressing/palm_bush.tscn" id="38_khisr"]
 [ext_resource type="PackedScene" uid="uid://b266nphe6hvo8" path="res://assets/3d/environment/dressing/grass.glb" id="39_mvod5"]
 [ext_resource type="PackedScene" uid="uid://dt3kntqpa41ew" path="res://assets/3d/environment/dressing/rock_sharp_2.tscn" id="39_rycpo"]
@@ -785,7 +786,7 @@ shape = SubResource("BoxShape3D_7t8hb")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
+transform = Transform3D(-1.3, 5.68246e-08, -9.84226e-08, 0, 1.12583, 0.649995, 1.1365e-07, 0.649997, -1.12582, -2.11981, 3.229, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
@@ -818,14 +819,81 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.55,
 [node name="Sidewalk_CurbSmall10" parent="DesignTestScene/Ground/Sidewalks" index="50"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.55, -2.3, -20.8304)
 
+[node name="prefab_entry_short" parent="DesignTestScene/Ground/Buildings" index="0"]
+transform = Transform3D(-0.0216752, 0, 0.999765, 0, 1, 0, -0.999765, 0, -0.0216752, -32.873, -1.90735e-06, 14.1251)
+
+[node name="prefab_entry_short2" parent="DesignTestScene/Ground/Buildings" index="1"]
+transform = Transform3D(0.999944, 0, 0.0106289, 0, 1, 0, -0.0106289, 0, 0.999944, 8.98373, -1.90735e-06, -14.7335)
+
+[node name="prefab_entry_tall" parent="DesignTestScene/Ground/Buildings" index="2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.7509, 0, 9.22377)
+visible = false
+
+[node name="prefab_entry_tall2" parent="DesignTestScene/Ground/Buildings" index="3"]
+transform = Transform3D(0.00760961, 0, -0.999971, 0, 1, 0, 0.999971, 0, 0.00760961, 39.5515, 0, -11.072)
+
+[node name="prefab_entry_long" parent="DesignTestScene/Ground/Buildings" index="4"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -11.952, -0.0572701, -13.2781)
+
+[node name="prefab_noentry_tall2" parent="DesignTestScene/Ground/Buildings" index="5"]
+transform = Transform3D(0.0254965, 0, 0.999675, 0, 1, 0, -0.999675, 0, 0.0254965, 39.5367, 0, 12.7891)
+
+[node name="prefab_noentry_tall7" parent="DesignTestScene/Ground/Buildings" index="6"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -31.4519, 0, -30.0025)
+
 [node name="prefab_noentry_tall9" parent="DesignTestScene/Ground/Buildings" index="7"]
 transform = Transform3D(0.0393644, 0, 0.999225, 0, 1, 0, -0.999225, 0, 0.0393644, -20.8671, 0, -36.1231)
+
+[node name="prefab_noentry_tall10" parent="DesignTestScene/Ground/Buildings" index="8"]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -32.7066, 0, -12.8501)
+
+[node name="prefab_noentry_tall13" parent="DesignTestScene/Ground/Buildings" index="9"]
+transform = Transform3D(0.0078541, 0, -0.999969, 0, 1, 0, 0.999969, 0, 0.0078541, -31.3485, 0, 27.2446)
+
+[node name="prefab_noentry_short3" parent="DesignTestScene/Ground/Buildings" index="10"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.9298, 0, 29.3547)
+
+[node name="prefab_noentry_short4" parent="DesignTestScene/Ground/Buildings" index="11"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5676, 0, 29.3547)
+
+[node name="prefab_noentry_short8" parent="DesignTestScene/Ground/Buildings" index="12"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.40663, 0, -4.06667)
+
+[node name="prefab_noentry_short9" parent="DesignTestScene/Ground/Buildings" index="13"]
+transform = Transform3D(0.0328237, 0, 0.999461, 0, 1, 0, -0.999461, 0, 0.0328237, 21.0001, 0, 5.21906)
+
+[node name="prefab_noentry_short11" parent="DesignTestScene/Ground/Buildings" index="14"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.0453, 0, -16.378)
+
+[node name="prefab_noentry_short19" parent="DesignTestScene/Ground/Buildings" index="15"]
+transform = Transform3D(-0.999443, 0, -0.0333644, 0, 1, 0, 0.0333644, 0, -0.999443, -12.6058, 0, -34.1897)
+
+[node name="prefab_noentry_short20" parent="DesignTestScene/Ground/Buildings" index="16"]
+transform = Transform3D(-0.999989, 0, 0.00472988, 0, 1, 0, -0.00472988, 0, -0.999989, -32.0229, 0, -4.29896)
+
+[node name="PrefabNoEntryShort3" parent="DesignTestScene/Ground/Buildings" index="18"]
+transform = Transform3D(0.0203491, 0, -0.999793, 0, 1, 0, 0.999793, 0, 0.0203491, -1.26088, 0, -36.4724)
 
 [node name="prefab_noentry_tall" parent="DesignTestScene/Ground/Buildings" index="19"]
 transform = Transform3D(-0.0241182, 0, 0.999709, 0, 1, 0, -0.999709, 0, -0.0241182, 40.713, -0.271883, 2.3223)
 
+[node name="prefab_noentry_tall11" parent="DesignTestScene/Ground/Buildings" index="20"]
+transform = Transform3D(-0.99978, 0, -0.0209773, 0, 1, 0, 0.0209773, 0, -0.99978, -11.6543, -0.295925, 28.3512)
+
+[node name="prefab_noentry_tall3" parent="DesignTestScene/Ground/Buildings" index="21"]
+transform = Transform3D(0.999968, 0, 0.00801102, 0, 1, 0, -0.00801102, 0, 0.999968, 17.212, -0.2, -3.05152)
+
+[node name="prefab_noentry_tall4" parent="DesignTestScene/Ground/Buildings" index="22"]
+transform = Transform3D(-0.999952, 0, -0.00979113, 0, 1, 0, 0.00979113, 0, -0.999952, -35.5166, 0, -21.7083)
+
+[node name="prefab_noentry_tall5" parent="DesignTestScene/Ground/Buildings" index="23"]
+transform = Transform3D(-1, 0, 0.000698241, 0, 1, 0, -0.000698241, 0, -1, 13.2334, 0, -37.1791)
+
 [node name="prefab_noentry_tall6" parent="DesignTestScene/Ground/Buildings" index="24"]
-transform = Transform3D(-1.16727, 0, -0.224587, 0, 1, 0, 0.257368, 0, -1.0186, 28.4489, -2.7, -36.625)
+transform = Transform3D(-1.16727, 0, -0.224588, 0, 1, 0, 0.257368, 0, -1.0186, 28.4489, -2.7, -36.625)
+
+[node name="prefab_noentry_tall8" parent="DesignTestScene/Ground/Buildings" index="25"]
+transform = Transform3D(0.0546714, 0, -0.998505, 0, 1, 0, 0.998505, 0, 0.0546714, 38.0457, 0, -26.0699)
 
 [node name="prefab_noentry_tall12" parent="DesignTestScene/Ground/Buildings" index="26" instance=ExtResource("32_w0b2o")]
 transform = Transform3D(0.808709, 0, -0.588209, 0, 1.25186, 0, 0.588209, 0, 0.808709, 11.7697, 4.6, -49.2964)
@@ -834,16 +902,64 @@ transform = Transform3D(0.808709, 0, -0.588209, 0, 1.25186, 0, 0.588209, 0, 0.80
 transform = Transform3D(0.257639, 0, -0.966242, 0, 1.25186, 0, 0.966242, 0, 0.257639, 3.36971, -2.4, -49.2964)
 
 [node name="prefab_noentry_tall14" parent="DesignTestScene/Ground/Buildings" index="28" instance=ExtResource("32_w0b2o")]
-transform = Transform3D(0.014152, 0, 1.16457, 0, 1.62742, 0, -1.00223, 0, 0.0164445, 27.0712, 3.25877, -50.2537)
+transform = Transform3D(0.014152, 0, 1.16457, 0, 1.62742, 0, -1.00223, 0, 0.0164443, 27.0712, 3.25877, -50.2537)
 
 [node name="prefab_noentry_tall15" parent="DesignTestScene/Ground/Buildings" index="29" instance=ExtResource("32_w0b2o")]
 transform = Transform3D(-0.483329, 0, 0.87544, 0, 1.25186, 0, -0.87544, 0, -0.483329, 38.6307, 5.41156, -40.1327)
 
 [node name="prefab_noentry_tall17" parent="DesignTestScene/Ground/Buildings" index="30" instance=ExtResource("32_w0b2o")]
-transform = Transform3D(-0.465407, 0.0731084, -0.44312, -0.079859, 1.09558, 0.317637, 0.263892, 0.460482, -0.685375, 30.9307, -9.08032, -31.5327)
+transform = Transform3D(-0.465407, 0.073109, -0.44312, -0.079859, 1.09558, 0.317638, 0.263892, 0.460482, -0.685374, 30.9307, -9.08032, -31.5327)
 
 [node name="prefab_noentry_tall18" parent="DesignTestScene/Ground/Buildings" index="31" instance=ExtResource("32_w0b2o")]
-transform = Transform3D(0.481059, -0.0440503, 0.39921, -0.079859, 1.09558, 0.317638, -0.234148, -0.464164, 0.711846, 9.63069, -9.08032, -23.5327)
+transform = Transform3D(0.481059, -0.0440509, 0.39921, -0.079859, 1.09558, 0.317639, -0.234148, -0.464164, 0.711846, 9.63069, -9.08032, -23.5327)
+
+[node name="NewTestHouse" parent="DesignTestScene/Ground/Buildings" index="32" instance=ExtResource("34_abjik")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.7, 0, 8.6)
+
+[node name="Chimmneyroof" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="0"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="Cube_003" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="1"]
+transform = Transform3D(-2.48801e-07, 5.6919, 2.48801e-07, 0, -2.48801e-07, 5.6919, 5.6919, 2.48801e-07, 1.08754e-14, -9.31323e-10, 0, 0)
+
+[node name="Cube_004" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="2"]
+transform = Transform3D(-2.48801e-07, 5.6919, 2.48801e-07, 0, -2.48801e-07, 5.6919, 5.6919, 2.48801e-07, 1.08754e-14, 0, 0, 0)
+
+[node name="Cube_005" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="3"]
+transform = Transform3D(-3.80897e-08, 0.698004, 7.64067e-09, 0, -3.05107e-08, 0.174798, 0.87139, 3.05107e-08, 3.33984e-16, 0, 2.38419e-07, 0)
+
+[node name="Cube_006" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="4"]
+transform = Transform3D(1.30708, -1.61423e-06, 2.73039, -2.73039, -2.41756e-07, 1.30708, -2.36446e-07, -6.13179, -7.70325e-07, 0, 3.57628e-07, 0)
+
+[node name="Cube_007" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="5"]
+transform = Transform3D(-4.94149e-08, 0.905542, 9.91247e-09, 0, -3.95825e-08, 0.226771, 1.13048, 3.95825e-08, 4.33288e-16, 0, -9.53674e-07, -2.38419e-07)
+
+[node name="Cube_008" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="6"]
+transform = Transform3D(0.0935046, -0.312927, -1.69791e-09, 0, -1.74577e-08, 0.0495759, -0.117906, -0.248164, -1.34652e-09, 0, 0, 2.38419e-07)
+
+[node name="Cube_009" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="7"]
+transform = Transform3D(0.120268, -0.238452, -0.00343196, 0.0345766, 0.0787055, 0.04725, -0.0835771, -0.310572, 0.0146091, 0, 4.76837e-07, 0)
+
+[node name="Cube_010" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="8"]
+transform = Transform3D(0.119534, -0.240522, -0.00395011, 0.0110374, -0.0140277, 0.0494117, -0.0907459, -0.31853, 0.000806693, 4.76837e-07, 4.76837e-07, 0)
+
+[node name="building_05-colonly" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="9"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.116138, 0.0534444, 0.0276346)
+
+[node name="building_05-mesh" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="10"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.116138, 0.0534444, 0.0276346)
+
+[node name="building_05-navmesh" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="11"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.116138, 8.48446, 0.0276346)
+
+[node name="door" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="12"]
+transform = Transform3D(0.989611, -0.143768, -6.28431e-09, 0, -4.37114e-08, 1, -0.143768, -0.989611, -4.32573e-08, 0, -1.19209e-07, 0)
+
+[node name="door_001" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="13"]
+transform = Transform3D(0.151439, -0.988466, -4.32072e-08, 0, -4.37114e-08, 1, -0.988466, -0.151439, -6.61961e-09, 2.38419e-07, 0, 0)
+
+[node name="rainpipe" parent="DesignTestScene/Ground/Buildings/NewTestHouse" index="14"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0, 0)
 
 [node name="Pavement" parent="DesignTestScene" index="2"]
 transform = Transform3D(-4.35671e-08, 0, 0.545816, 0, 0.997289, 0, -0.9967, 0, -2.38585e-08, 2.36364, 0.01, 21.7826)
@@ -895,18 +1011,18 @@ weather_icon_sunny = ExtResource("28_ybgau")
 weather_icon_rainy = ExtResource("29_81csf")
 
 [node name="NpcMister" parent="." instance=ExtResource("15_phxbu")]
-transform = Transform3D(0.505191, 0, -0.863008, 0, 1, 0, 0.863008, 0, 0.505191, 34.448, 0.00260284, -4.83964)
+transform = Transform3D(0.656748, 0, -1.12191, 0, 1.3, 0, 1.12191, 0, 0.656748, 34.448, 0.00260284, -4.83964)
 
 [node name="Player" parent="." instance=ExtResource("16_t3rkj")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11981, 0.281344, -12.6052)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -2.11981, 0.281344, -12.6052)
 speed = 4.0
 
 [node name="CommBoard" parent="." instance=ExtResource("17_u0qwm")]
 transform = Transform3D(0.94702, 0, -0.321175, 0, 1, 0, 0.321175, 0, 0.94702, -1.79645, -9.53674e-07, 14.0057)
 
 [node name="Kai" parent="." instance=ExtResource("20_x787j")]
-transform = Transform3D(-0.866023, 0, -0.500003, 0, 1, 0, 0.500003, 0, -0.866023, -2.00959, 0.0218339, -10.1326)
+transform = Transform3D(-1.12583, 0, -0.650004, 0, 1.3, 0, 0.650004, 0, -1.12583, -2.00959, 0.0218339, -10.1326)
 
 [node name="ScrapPileSpawner" parent="." instance=ExtResource("21_dedys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.23964, 2.38419e-07, 6.91168)
@@ -1168,10 +1284,10 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.5505, 5.93097, -4.3579)
 id = "trigger_home_roof"
 
 [node name="Kelly" parent="." instance=ExtResource("63_w0b2o")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.48148, 0.135315, 6.1153)
+transform = Transform3D(-1.3, 0, -1.96295e-07, 0, 1.3, 0, 1.96295e-07, 0, -1.3, -5.48148, 0.135315, 6.1153)
 
 [node name="Kyle" parent="." instance=ExtResource("64_gegxl")]
-transform = Transform3D(0.315036, 0, -0.94908, 0, 1, 0, 0.94908, 0, 0.315036, 15.5175, 0.00653955, 10.4417)
+transform = Transform3D(0.409547, 0, -1.2338, 0, 1.3, 0, 1.2338, 0, 0.409547, 15.5175, 0.00653955, 10.4417)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]
@@ -1180,6 +1296,7 @@ transform = Transform3D(0.315036, 0, -0.94908, 0, 1, 0, 0.94908, 0, 0.315036, 15
 [editable path="HomeBuildableSurface"]
 [editable path="HomeBuildableSurface/InteractableBuildableArea"]
 [editable path="DesignTestScene"]
+[editable path="DesignTestScene/Ground/Buildings/NewTestHouse"]
 [editable path="TrinCompost"]
 [editable path="TrinCompost/InteractableArea3D"]
 [editable path="TrinRainBarrel"]
