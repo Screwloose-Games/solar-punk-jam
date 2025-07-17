@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf8pr6wkaolo2"]
+
+[ext_resource type="PackedScene" uid="uid://h7fpbo8igtli" path="res://assets/3d/environment/TelephonePole/TelephonePole.gltf" id="1_nh55a"]
+[ext_resource type="Texture2D" uid="uid://c1usqe0uph07p" path="res://assets/3d/environment/TelephonePole/textures/TelephonePole.png" id="2_l7q54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iua8n"]
+albedo_texture = ExtResource("2_l7q54")
+
+[node name="TelephonePole2" instance=ExtResource("1_nh55a")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="TelephonePole" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_iua8n")
