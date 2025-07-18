@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwskbk4aqnlqb"]
+
+[ext_resource type="PackedScene" uid="uid://cmjetf6ikxpsi" path="res://assets/environment/trees/sm_witchhazel.gltf" id="1_sbhj1"]
+[ext_resource type="Texture2D" uid="uid://cakd2e3rfg5ct" path="res://assets/environment/trees/WitchHazelTree_baseColor.png" id="2_i5kcs"]
+[ext_resource type="Texture2D" uid="uid://bwd71o2k0a27p" path="res://assets/environment/trees/WitchHazelTree_normal.png" id="3_tt0px"]
+[ext_resource type="Texture2D" uid="uid://hxj0rcwvi6lh" path="res://assets/environment/trees/WitchHazelTree_occlusionRoughnessMetallic.png" id="4_mlnvf"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_m6tr2"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_i5kcs")
+orm_texture = ExtResource("4_mlnvf")
+normal_enabled = true
+normal_texture = ExtResource("3_tt0px")
+
+[node name="sm_witchhazel" instance=ExtResource("1_sbhj1")]
+
+[node name="sm_bush" parent="Bush01_obj" index="1"]
+surface_material_override/0 = SubResource("ORMMaterial3D_m6tr2")
