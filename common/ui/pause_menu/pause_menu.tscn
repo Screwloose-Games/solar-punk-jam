@@ -107,9 +107,12 @@ layout_mode = 2
 text = "I'm Stuck"
 
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="Audio Control" method="_on_hover"]
+[connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/DashboardButton" to="Audio Control" method="_on_hover"]
+[connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/DashboardButton" to="Audio Control" method="_on_dashboard_button_mouse_entered"]
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="Audio Control" method="_on_hover"]
 [connection signal="pressed" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/OptionsButton" to="Audio Control" method="_on_open"]
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MainMenuButton" to="Audio Control" method="_on_hover"]
 [connection signal="pressed" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MainMenuButton" to="Audio Control" method="_on_close"]
 [connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="Audio Control" method="_on_hover"]
 [connection signal="pressed" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="Audio Control" method="_on_close"]
+[connection signal="mouse_entered" from="PauseMenuBody/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/RespawnButton" to="Audio Control" method="_on_hover"]
