@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjw8avx8722yi"]
+[gd_scene load_steps=23 format=3 uid="uid://cjw8avx8722yi"]
 
 [ext_resource type="Script" uid="uid://bdour1f6ee8mm" path="res://components/unlock_structures.gd" id="2_ubq5j"]
 [ext_resource type="Script" uid="uid://cp0gcaquk0nu7" path="res://components/setup_resources.gd" id="3_mdx4t"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cphgyfabs5rn1" path="res://assets/3d/structures/solar_panel/sm_solar_panel.gltf" id="7_2f8sb"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_xj3rj"]
 [ext_resource type="PackedScene" uid="uid://d1jp6i2bu3bjt" path="res://levels/level_blockout.tscn" id="9_2cms5"]
+[ext_resource type="PackedScene" uid="uid://dsskvq83uilps" path="res://BuildingTypes/prefab_destroyed.tscn" id="9_65kd0"]
 [ext_resource type="PackedScene" uid="uid://4uor5nnaruka" path="res://common/ui/hud/hud_canvas_layer.tscn" id="10_igv7y"]
 [ext_resource type="PackedScene" uid="uid://pgg1u7bhxcxf" path="res://components/environment/environment.tscn" id="11_rhs8g"]
 [ext_resource type="PackedScene" uid="uid://d23y0hy44vlkm" path="res://actors/npcs/mister/npc_mister.tscn" id="12_5rgew"]
@@ -237,6 +238,9 @@ process_physics_priority = 300
 script = ExtResource("8_xj3rj")
 
 [node name="DesignTestScene" parent="." instance=ExtResource("9_2cms5")]
+
+[node name="prefab_noentry_tall12" parent="DesignTestScene/Ground/Buildings" index="25" instance=ExtResource("9_65kd0")]
+transform = Transform3D(0.00127406, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00127406, 28.1503, -0.228485, -39.2137)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ntgmv")

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://br0awlrqbqrcv" path="res://narrative/scene_scripts/start_first_quest.gd" id="1_7i1tu"]
 [ext_resource type="PackedScene" uid="uid://wbqej5ruxmkg" path="res://assets/3d/environment/river_bank/river_bank.tscn" id="1_gh1ua"]
 [ext_resource type="Script" uid="uid://b5bong637anp7" path="res://levels/main_level/rain_day_two.gd" id="1_msodx"]
-[ext_resource type="Shader" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
+[ext_resource type="Shader" uid="uid://da7gwbb0ltjhi" path="res://shaders/water_toon.gdshader" id="2_7t8hb"]
 [ext_resource type="Script" uid="uid://bsyglopb3deds" path="res://components/npc_controller.gd" id="2_gegxl"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_mjfy1"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tja5"]
@@ -294,7 +294,7 @@ shader_parameter/foam_smoothness = 0.03
 shader_parameter/foam_distortion_speed = 0.5
 shader_parameter/foam_distortion_amount = 0.1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_isv6p"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_gegxl"]
 material = SubResource("ShaderMaterial_gac30")
 size = Vector2(10, 10)
 subdivide_width = 2
@@ -302,7 +302,7 @@ subdivide_depth = 2
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_cwn0e"]
 item/0/name = ""
-item/0/mesh = SubResource("PlaneMesh_isv6p")
+item/0/mesh = SubResource("PlaneMesh_gegxl")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/mesh_cast_shadow = 1
 item/0/shapes = []
@@ -310,11 +310,11 @@ item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 
 item/0/navigation_layers = 1
 metadata/_editor_source_scene = "res://test/scenarios/test_water/water_mesh.tscn"
 
-[sub_resource type="Gradient" id="Gradient_ybgau"]
+[sub_resource type="Gradient" id="Gradient_abjik"]
 colors = PackedColorArray(0, 0.270588, 0, 1, 0.358976, 0.337351, 9.62615e-08, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_81csf"]
-gradient = SubResource("Gradient_ybgau")
+gradient = SubResource("Gradient_abjik")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.491453, 0.282051)
 
@@ -784,7 +784,6 @@ shape = SubResource("BoxShape3D_7t8hb")
 
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
 transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
