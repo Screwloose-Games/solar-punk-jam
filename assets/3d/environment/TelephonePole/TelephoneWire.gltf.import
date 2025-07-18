@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ccojo4yyik8ko"
+uid="uid://w87lft6ajdv"
 path="res://.godot/imported/TelephoneWire.gltf-84c879cd88d625188bf4b2151f3f7bf4.scn"
 
 [deps]
@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/TelephoneWire.gltf-84c879cd88d625188bf4b2151f
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=0.7
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true

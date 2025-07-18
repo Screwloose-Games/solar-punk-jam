@@ -68,14 +68,14 @@
 		{
 			"mimeType":"image/png",
 			"name":"TelephonePole",
-			"uri":"../../../../..textures/TelephonePole.png"
+			"uri":"textures/TelephonePole.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":547,
+			"count":469,
 			"max":[
 				5.291197776794434,
 				1.9690382480621338,
@@ -91,13 +91,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":547,
+			"count":469,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":547,
+			"count":469,
 			"type":"VEC2"
 		},
 		{
@@ -110,26 +110,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":6564,
+			"byteLength":5628,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6564,
-			"byteOffset":6564,
+			"byteLength":5628,
+			"byteOffset":5628,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":4376,
-			"byteOffset":13128,
+			"byteLength":3752,
+			"byteOffset":11256,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3444,
-			"byteOffset":17504,
+			"byteOffset":15008,
 			"target":34963
 		}
 	],
@@ -141,7 +141,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":20948,
+			"byteLength":18452,
 			"uri":"TelephonePole.bin"
 		}
 	]

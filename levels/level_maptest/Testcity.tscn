@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bso67mahnnyx7"]
 
-[ext_resource type="PackedScene" uid="uid://cf8pr6wkaolo2" path="res://assets/3d/environment/TelephonePole/telephone_pole.tscn" id="1_b7dwc"]
-[ext_resource type="PackedScene" uid="uid://bwbr31j5saskq" path="res://assets/3d/environment/TelephonePole/telephone_wire.tscn" id="2_8fmnx"]
+[ext_resource type="PackedScene" uid="uid://cf8pr6wkaolo2" path="res://assets/3d/environment/TelephonePoleScenes/telephone_pole.tscn" id="1_b7dwc"]
+[ext_resource type="PackedScene" uid="uid://bwbr31j5saskq" path="res://assets/3d/environment/TelephonePoleScenes/telephone_wire.tscn" id="2_8fmnx"]
 [ext_resource type="PackedScene" uid="uid://dsskvq83uilps" path="res://BuildingTypes/prefab_destroyed.tscn" id="3_xhcwp"]
 [ext_resource type="PackedScene" uid="uid://ch5bv30ppaoxy" path="res://BuildingTypes/prefab_entry_tall.tscn" id="4_1ghs2"]
 [ext_resource type="PackedScene" uid="uid://cn4364874b8us" path="res://BuildingTypes/prefab_noentry_short2.tscn" id="5_71ef1"]

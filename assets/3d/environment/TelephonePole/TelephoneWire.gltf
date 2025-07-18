@@ -68,7 +68,7 @@
 		{
 			"mimeType":"image/png",
 			"name":"TelephonePole",
-			"uri":"../../../../..textures/TelephonePole.png"
+			"uri":"textures/TelephonePole.png"
 		}
 	],
 	"accessors":[
