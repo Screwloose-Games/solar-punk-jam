@@ -19,7 +19,7 @@ float get_height(sampler2D heightmap, vec2 uv) {
 
 void fragment() {
 	float brush_value = u_factor * u_opacity * texture(TEXTURE, UV).r;
-	
+
 	vec2 src_pixel_size = 1.0 / vec2(textureSize(u_src_texture, 0));
 	vec2 src_uv = get_src_uv(SCREEN_UV);
 	vec2 offset = src_pixel_size;
