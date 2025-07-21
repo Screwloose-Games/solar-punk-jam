@@ -14,15 +14,13 @@ signal quest_completed(giver: String)
 # @export var quest_source: DialogicCharacter
 @export var description: String = "Quest Description"
 @export_multiline var community_board_text: String = ""  # displayed on the community board
-@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic Table,Raised bed,Rain barrel,
-Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
 var unlock_on_accept: Array[String]
 
 @export var steps: Array[QuestStep] = []
 
 @export_category("When complete")
-@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic Table,Raised bed,Rain barrel,
-Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
 var unlock_on_complete: Array[String]
 
 @export var resource_rewards: Dictionary[ResourcesManager.ResourceType, int] = {
