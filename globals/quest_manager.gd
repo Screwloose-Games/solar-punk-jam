@@ -87,7 +87,6 @@ func _on_world_unloaded():
 
 
 func _on_quest_complete(giver : String):
-	print("Quest completed.")
 	Dialogic.VAR[giver + "_active"] = false
 	quests_changed.emit()
 	quest_completed.emit(giver)

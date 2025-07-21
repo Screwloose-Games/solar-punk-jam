@@ -3,6 +3,8 @@ extends Resource
 ## Quest class
 ## Used to describe and outline tasks for the player to do as part of a quest in game
 
+enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE_PINNED, ACTIVE_HIDDEN, COMPLETE}
+
 signal quest_state_changed
 signal quest_completed(giver: String)
 
@@ -34,6 +36,7 @@ var unlock_on_complete: Array[String]
 ## Start the next quest automatically
 @export var start_next_quest: bool = true
 
+var state: QuestState = QuestState.UNAVAILABLE
 var is_active: bool = false
 var is_complete: bool = false
 
@@ -50,6 +53,7 @@ var rewards: Dictionary[String, int] = {}:
 func start_quest():
 	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
+	state = QuestState.ACTIVE_PINNED
 	for structure in unlock_on_accept:
 		StructureManager.register_structure(structure)
 	for step in steps:
@@ -93,6 +97,7 @@ func _on_step_completed(this_step: QuestStep):
 
 
 func mark_complete():
+	state = QuestState.COMPLETE
 	is_complete = true
 	for structure in unlock_on_complete:
 		StructureManager.register_structure(structure)
@@ -117,6 +122,7 @@ func complete_next_step() -> void:
 
 
 func reset():
+	state = QuestState.AVAILABLE
 	is_active = false
 	is_complete = false
 	for step in steps:
