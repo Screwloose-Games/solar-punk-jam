@@ -3,10 +3,11 @@ extends Resource
 ## Quest class
 ## Used to describe and outline tasks for the player to do as part of a quest in game
 
-enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE_PINNED, ACTIVE_HIDDEN, COMPLETE}
-
 signal quest_state_changed
 signal quest_completed(giver: String)
+
+enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE_PINNED, ACTIVE_HIDDEN, COMPLETE}
+
 
 @export var id: String = "quest_id"
 @export var name: String = "Quest Name"
