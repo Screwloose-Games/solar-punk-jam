@@ -6,21 +6,22 @@ extends Resource
 signal quest_state_changed
 signal quest_completed(giver: String)
 
+enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE_PINNED, ACTIVE_HIDDEN, COMPLETE}
+
+
 @export var id: String = "quest_id"
 @export var name: String = "Quest Name"
 @export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"trin,kai,kelly,board,kyle,mister") var quest_giver: String = ""
 # @export var quest_source: DialogicCharacter
 @export var description: String = "Quest Description"
 @export_multiline var community_board_text: String = ""  # displayed on the community board
-@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic Table,Raised bed,Rain barrel,
-Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
 var unlock_on_accept: Array[String]
 
 @export var steps: Array[QuestStep] = []
 
 @export_category("When complete")
-@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic Table,Raised bed,Rain barrel,
-Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
 var unlock_on_complete: Array[String]
 
 @export var resource_rewards: Dictionary[ResourcesManager.ResourceType, int] = {
@@ -34,6 +35,7 @@ var unlock_on_complete: Array[String]
 ## Start the next quest automatically
 @export var start_next_quest: bool = true
 
+var state: QuestState = QuestState.UNAVAILABLE
 var is_active: bool = false
 var is_complete: bool = false
 
@@ -50,6 +52,7 @@ var rewards: Dictionary[String, int] = {}:
 func start_quest():
 	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
+	state = QuestState.ACTIVE_PINNED
 	for structure in unlock_on_accept:
 		StructureManager.register_structure(structure)
 	for step in steps:
@@ -93,6 +96,7 @@ func _on_step_completed(this_step: QuestStep):
 
 
 func mark_complete():
+	state = QuestState.COMPLETE
 	is_complete = true
 	for structure in unlock_on_complete:
 		StructureManager.register_structure(structure)
@@ -117,6 +121,7 @@ func complete_next_step() -> void:
 
 
 func reset():
+	state = QuestState.AVAILABLE
 	is_active = false
 	is_complete = false
 	for step in steps:

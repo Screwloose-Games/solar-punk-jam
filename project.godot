@@ -41,7 +41,6 @@ gdscript/warnings/unused_signal=0
 [dialogic]
 
 directories/dch_directory={
-"CommBoard": "res://narrative/characters/CommBoard.dch",
 "DogBot": "res://narrative/characters/DogBot.dch",
 "Jo": "res://narrative/characters/Jo.dch",
 "Kai": "res://narrative/characters/Kai.dch",
@@ -79,7 +78,6 @@ variables={
 "a1d2_trinfood": false,
 "a1d2_wastebin": false,
 "board_active": false,
-"board_met": false,
 "entered_build": false,
 "entered_plant": false,
 "jo_active": false,
