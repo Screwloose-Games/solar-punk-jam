@@ -36,8 +36,8 @@ var unlock_on_complete: Array[String]
 
 var state: QuestState = QuestState.UNAVAILABLE
 var pinned : bool = false
-var is_active: bool = false
-var is_complete: bool = false
+#var is_active: bool = false
+#var is_complete: bool = false
 
 var rewards: Dictionary[String, int] = {}:
 	get:
@@ -64,7 +64,7 @@ func start_quest():
 
 
 func check_progress():
-	if !is_complete:
+	if state == QuestState.ACTIVE:
 		for step in steps:
 			step.check_value()
 
@@ -97,7 +97,6 @@ func _on_step_completed(this_step: QuestStep):
 
 func mark_complete():
 	state = QuestState.COMPLETE
-	is_complete = true
 	for structure in unlock_on_complete:
 		StructureManager.register_structure(structure)
 	for reward in rewards.keys():
@@ -122,7 +121,5 @@ func complete_next_step() -> void:
 
 func reset():
 	state = QuestState.AVAILABLE
-	is_active = false
-	is_complete = false
 	for step in steps:
 		step.reset()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dee2tlx6hkx75"]
+[gd_scene load_steps=9 format=3 uid="uid://dee2tlx6hkx75"]
 
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_ruym0"]
 [ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="2_o74w8"]
 [ext_resource type="Script" uid="uid://b023i6skyxupa" path="res://components/state_machine.gd" id="2_oolyu"]
 [ext_resource type="PackedScene" uid="uid://csgqmhdtto0pw" path="res://assets/3d/people/kai-animations-2/sk_kai_animations_2.tscn" id="3_oolyu"]
+[ext_resource type="Resource" uid="uid://b12m61kkxae6j" path="res://narrative/timelines/kai_main.dtl" id="5_t4onf"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oolyu"]
 animation = &"f-adult-idle-breathing"
@@ -25,9 +26,6 @@ script = ExtResource("2_oolyu")
 
 [node name="sk_kai_animations2" parent="." index="1" instance=ExtResource("3_oolyu")]
 
-[node name="Skeleton3D" parent="sk_kai_animations2/Armature" index="0"]
-bones/19/position = Vector3(-7.28738, 11.7556, -0.139618)
-
 [node name="Name" parent="." index="3"]
 text = "Kai"
 
@@ -39,6 +37,7 @@ interactable_id = "kai"
 
 [node name="Dialogue" parent="." index="7"]
 npc_id = "kai"
+main_timeline = ExtResource("5_t4onf")
 
 [node name="AnimationTree" parent="." index="12"]
 root_node = NodePath("../sk_kai_animations2")

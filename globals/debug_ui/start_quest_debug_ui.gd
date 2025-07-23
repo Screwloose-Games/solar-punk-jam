@@ -9,13 +9,13 @@ var all_quests: Array[Quest] = []
 var selected_quest: Quest:
 	set(val):
 		selected_quest = val
-		var can_complete = selected_quest.is_active and !selected_quest.is_complete
+		var can_complete = (selected_quest.state == Quest.QuestState.ACTIVE)
 		if can_complete:
 			quest_action_button.text = COMPLETE_QUEST_TEXT
 		else:
 			quest_action_button.text = START_QUEST_TEXT
 		quest_cancel_button.disabled = !can_complete
-		quest_action_button.disabled = selected_quest.is_complete
+		quest_action_button.disabled = (selected_quest.state == Quest.QuestState.COMPLETE)
 		quest_complete_step_button.disabled = !can_complete
 
 @onready var quest_options_button: OptionButton = %QuestOptions
@@ -96,7 +96,7 @@ func _populate_quest_options() -> void:
 func _on_quest_action_button_pressed() -> void:
 	var selected_id = quest_options_button.get_selected_id()
 	if selected_id >= 0 and selected_id < all_quests.size():
-		if selected_quest.is_active:
+		if selected_quest.state == Quest.QuestState.ACTIVE:
 			for step in selected_quest.steps:
 				step.set_complete(true)
 		else:

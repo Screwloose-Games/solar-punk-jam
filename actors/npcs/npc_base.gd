@@ -2,10 +2,12 @@ class_name NpcBase
 extends CharacterBody3D
 
 @export var character: DialogicCharacter
+
 @onready var quest_marker_3d: QuestMarker3D = %QuestMarker3D
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 @onready var dialogue: DialogueComponent = %Dialogue
 @onready var interact_notify: InteractNotifyComponent = %InteractNotify
+
 
 func _ready() -> void:
 	if character:
