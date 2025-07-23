@@ -6,8 +6,7 @@ extends Resource
 signal quest_state_changed
 signal quest_completed(giver: String)
 
-enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE_PINNED, ACTIVE_HIDDEN, COMPLETE}
-
+enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE, COMPLETE}
 
 @export var id: String = "quest_id"
 @export var name: String = "Quest Name"
@@ -36,6 +35,7 @@ var unlock_on_complete: Array[String]
 @export var start_next_quest: bool = true
 
 var state: QuestState = QuestState.UNAVAILABLE
+var pinned : bool = false
 var is_active: bool = false
 var is_complete: bool = false
 
@@ -52,7 +52,7 @@ var rewards: Dictionary[String, int] = {}:
 func start_quest():
 	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
-	state = QuestState.ACTIVE_PINNED
+	state = QuestState.ACTIVE
 	for structure in unlock_on_accept:
 		StructureManager.register_structure(structure)
 	for step in steps:
