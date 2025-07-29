@@ -142,9 +142,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
+offset_left = 103.0
 offset_top = -112.0
-offset_right = 25.0
+offset_right = 153.0
 offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -322,6 +322,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_pkpyr")
 
 [node name="PauseMenu" parent="." instance=ExtResource("15_32iji")]
+visible = false
 
 [node name="ThirdPersonController" type="Node3D" parent="."]
 script = ExtResource("15_5ra6y")

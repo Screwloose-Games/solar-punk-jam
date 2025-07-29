@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cltiagg5osy4m"]
 
-[ext_resource type="Script" uid="uid://bo6p7124x8kkh" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_pvcxp"]
-[ext_resource type="Texture2D" uid="uid://bw3fh8m46ba34" path="res://addons/controller_icons/assets/mouse/left.png" id="2_ymvel"]
+[ext_resource type="Script" uid="uid://d6gh3spmgbp0" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_pvcxp"]
+[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="2_ymvel"]
 
 [sub_resource type="Texture2D" id="Texture2D_pfq1c"]
 resource_local_to_scene = false
