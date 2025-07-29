@@ -58,3 +58,4 @@ func start_current_dialogue():
 	if main_timeline != null:
 		Dialogic.start(main_timeline)
 		await Dialogic.timeline_ended
+		GlobalSignalBus.talked_to.emit(get_parent().id)
