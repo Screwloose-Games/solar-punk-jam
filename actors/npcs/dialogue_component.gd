@@ -47,6 +47,8 @@ func _ready() -> void:
 func _on_interacted(_player: Player):
 	if !supress_default_dialogue:
 		start_current_dialogue()
+	else:
+		GlobalSignalBus.talked_to.emit(get_parent().id)
 	interactable_area_3d.stop_interacting()
 
 
@@ -58,4 +60,4 @@ func start_current_dialogue():
 	if main_timeline != null:
 		Dialogic.start(main_timeline)
 		await Dialogic.timeline_ended
-		GlobalSignalBus.talked_to.emit(get_parent().id)
+		
