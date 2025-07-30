@@ -1,0 +1,307 @@
+{
+	"asset":
+	{
+		"version": "2.0",
+		"generator": "Unreal Engine 5.5.4"
+	},
+	"scene": 0,
+	"accessors": [
+		{
+			"bufferView": 0,
+			"count": 1290,
+			"type": "SCALAR",
+			"componentType": 5123
+		},
+		{
+			"bufferView": 1,
+			"count": 405,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.164761737, -0.000307210896, -0.136553943 ],
+			"max": [ 0.0974377543, 0.101000361, 0.125614181 ]
+		},
+		{
+			"bufferView": 2,
+			"count": 405,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 3,
+			"count": 405,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 4,
+			"count": 405,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 5,
+			"count": 405,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 6,
+			"count": 216,
+			"type": "SCALAR",
+			"componentType": 5121
+		},
+		{
+			"bufferView": 7,
+			"count": 46,
+			"type": "VEC3",
+			"componentType": 5126,
+			"min": [ -0.0178926252, -0.0133755393, -0.0189691484 ],
+			"max": [ 0.0170209985, 0.00520829111, 0.0189690683 ]
+		},
+		{
+			"bufferView": 8,
+			"count": 46,
+			"type": "VEC3",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 9,
+			"count": 46,
+			"type": "VEC4",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 10,
+			"count": 46,
+			"type": "VEC2",
+			"componentType": 5126
+		},
+		{
+			"bufferView": 11,
+			"count": 46,
+			"type": "VEC2",
+			"componentType": 5126
+		}
+	],
+	"buffers": [
+		{
+			"uri": "Radish.bin",
+			"byteLength": 28052
+		}
+	],
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 2580,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4860,
+			"byteOffset": 2580,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4860,
+			"byteOffset": 7440,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6480,
+			"byteOffset": 12300,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3240,
+			"byteOffset": 18780,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3240,
+			"byteOffset": 22020,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 216,
+			"byteOffset": 25260,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 552,
+			"byteOffset": 25476,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 552,
+			"byteOffset": 26028,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 736,
+			"byteOffset": 26580,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 368,
+			"byteOffset": 27316,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 368,
+			"byteOffset": 27684,
+			"target": 34962
+		}
+	],
+	"images": [
+		{
+			"uri": "Leaves_BaseColor.png"
+		},
+		{
+			"uri": "Radish_MAT_MetallicRoughness.png"
+		},
+		{
+			"uri": "plantspaint_Normal.png"
+		},
+		{
+			"uri": "Radish_standardSurface1_BaseColor.png"
+		},
+		{
+			"uri": "Radish_standardSurface1_Normal.png"
+		}
+	],
+	"materials": [
+		{
+			"name": "Leaves",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 0
+				},
+				"metallicFactor": 0,
+				"roughnessFactor": 0.498039246
+			},
+			"normalTexture":
+			{
+				"index": 1
+			},
+			"alphaMode": "BLEND",
+			"doubleSided": true,
+			"extensions":
+			{
+				"KHR_materials_ior":
+				{
+					"ior": 1
+				}
+			}
+		},
+		{
+			"name": "Radish_MAT",
+			"pbrMetallicRoughness":
+			{
+				"baseColorTexture":
+				{
+					"index": 2
+				},
+				"metallicRoughnessTexture":
+				{
+					"index": 3
+				}
+			},
+			"normalTexture":
+			{
+				"index": 4
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "Radish",
+			"primitives": [
+				{
+					"attributes":
+					{
+						"POSITION": 1,
+						"NORMAL": 2,
+						"TANGENT": 3,
+						"TEXCOORD_0": 4,
+						"TEXCOORD_1": 5
+					},
+					"indices": 0,
+					"material": 0
+				},
+				{
+					"attributes":
+					{
+						"POSITION": 7,
+						"NORMAL": 8,
+						"TANGENT": 9,
+						"TEXCOORD_0": 10,
+						"TEXCOORD_1": 11
+					},
+					"indices": 6,
+					"material": 1
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"name": "Radish",
+			"translation": [ 14.9499998, 0.949999988, 24.6999989 ],
+			"mesh": 0
+		}
+	],
+	"samplers": [
+		{
+			"minFilter": 9987,
+			"magFilter": 9729
+		}
+	],
+	"scenes": [
+		{
+			"name": "firstpersonbakery",
+			"nodes": [ 0 ]
+		}
+	],
+	"textures": [
+		{
+			"name": "Leaves_BaseColor",
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"name": "plantspaint_Normal",
+			"sampler": 0,
+			"source": 2
+		},
+		{
+			"name": "Radish_standardSurface1_BaseColor",
+			"sampler": 0,
+			"source": 3
+		},
+		{
+			"name": "Radish_MAT_MetallicRoughness",
+			"sampler": 0,
+			"source": 1
+		},
+		{
+			"name": "Radish_standardSurface1_Normal",
+			"sampler": 0,
+			"source": 4
+		}
+	],
+	"extensionsUsed": [
+		"KHR_materials_ior"
+	]
+}
