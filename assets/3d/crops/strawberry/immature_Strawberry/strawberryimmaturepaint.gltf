@@ -1,0 +1,204 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 660,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 134,
+      "max": [
+        2.49778842926025,
+        4.40888977050781,
+        0.641794323921204
+      ],
+      "min": [
+        1.22279477119446,
+        3.16215872764587,
+        -0.632401645183563
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 134,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 134,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 134,
+      "type": "VEC2"
+    }
+  ],
+  "asset": {
+    "generator": "Adobe Substance 3D Painter 11.0.2",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2640,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1608,
+      "byteOffset": 2640,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1608,
+      "byteOffset": 4248,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2144,
+      "byteOffset": 5856,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1072,
+      "byteOffset": 8000,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 9072,
+      "uri": "strawberryimmaturepaint.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "standardSurface1_baseColor.png"
+    },
+    {
+      "uri": "standardSurface1_occlusionRoughnessMetallic.png"
+    },
+    {
+      "uri": "standardSurface1_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "OPAQUE",
+      "name": "standardSurface1",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "strawberry_immature_LP",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 2,
+            "POSITION": 1,
+            "TANGENT": 3,
+            "TEXCOORD_0": 4
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode",
+      "scale": [
+        0.00999999977648258,
+        0.00999999977648258,
+        0.00999999977648258
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "strawberry_immature_LP",
+      "rotation": [
+        0.0,
+        0.0,
+        1.0,
+        6.12323360118135e-17
+      ],
+      "scale": [
+        2.52961778640747,
+        2.52961778640747,
+        2.52961778640747
+      ],
+      "translation": [
+        4.70582628250122,
+        11.1727752685547,
+        7.11236625150491e-17
+      ]
+    },
+    {
+      "mesh": 0,
+      "name": "strawberry_immature_LP"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9985,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
