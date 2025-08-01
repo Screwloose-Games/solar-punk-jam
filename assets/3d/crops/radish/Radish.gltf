@@ -1,0 +1,331 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v3.1.228943826)"
+    },
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 405,
+            "type": "VEC3",
+            "max": [
+                9.7437744140625,
+                10.10003662109375,
+                12.561417579650879
+            ],
+            "min": [
+                -16.476171493530275,
+                -0.030721187591552736,
+                -13.655394554138184
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 405,
+            "type": "VEC3",
+            "max": [
+                0.979171633720398,
+                0.9996382594108582,
+                0.9095682501792908
+            ],
+            "min": [
+                -0.9230934977531433,
+                -0.8894370794296265,
+                -0.979171633720398
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 405,
+            "type": "VEC4",
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 405,
+            "type": "VEC2",
+            "max": [
+                0.7173632383346558,
+                0.8717818260192871
+            ],
+            "min": [
+                0.09297443926334381,
+                0.08006823062896729
+            ]
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1290,
+            "type": "SCALAR",
+            "max": [
+                404.0
+            ],
+            "min": [
+                0.0
+            ]
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 46,
+            "type": "VEC3",
+            "max": [
+                1.7020995616912842,
+                0.5208292007446289,
+                1.896906852722168
+            ],
+            "min": [
+                -1.7892624139785767,
+                -1.3375539779663087,
+                -1.8969149589538575
+            ]
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 46,
+            "type": "VEC3",
+            "max": [
+                0.9932013750076294,
+                0.9999999403953552,
+                0.9902501702308655
+            ],
+            "min": [
+                -0.993006706237793,
+                -0.321359246969223,
+                -0.9902501702308655
+            ]
+        },
+        {
+            "bufferView": 7,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 46,
+            "type": "VEC4",
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -0.9615053534507752,
+                -0.9816575050354004,
+                -0.995924174785614,
+                -0.9615053534507752
+            ]
+        },
+        {
+            "bufferView": 8,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 46,
+            "type": "VEC2",
+            "max": [
+                0.9811766743659973,
+                0.9841887950897217
+            ],
+            "min": [
+                0.4456350803375244,
+                0.2903149127960205
+            ]
+        },
+        {
+            "bufferView": 9,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 216,
+            "type": "SCALAR",
+            "max": [
+                45.0
+            ],
+            "min": [
+                0.0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 24660,
+            "uri": "Radish.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 4860,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 4860,
+            "byteLength": 4860,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 9720,
+            "byteLength": 6480,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 16200,
+            "byteLength": 3240,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 19440,
+            "byteLength": 2580,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 22020,
+            "byteLength": 552,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 22572,
+            "byteLength": 552,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 23124,
+            "byteLength": 736,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 23860,
+            "byteLength": 368,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 24228,
+            "byteLength": 432,
+            "target": 34963
+        }
+    ],
+    "materials": [
+        {
+            "name": "Leaves",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        },
+        {
+            "name": "standardSurface7",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Radish",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 4,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TANGENT": 2,
+                        "TEXCOORD_0": 3
+                    }
+                },
+                {
+                    "mode": 4,
+                    "material": 1,
+                    "indices": 9,
+                    "attributes": {
+                        "POSITION": 5,
+                        "NORMAL": 6,
+                        "TANGENT": 7,
+                        "TEXCOORD_0": 8
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "RootNode",
+            "matrix": [
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.009999999776482582,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "children": [
+                1
+            ]
+        },
+        {
+            "name": "Radish",
+            "mesh": 0
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}
