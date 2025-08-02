@@ -1,7 +1,6 @@
 class_name InteractNotifyComponent
 extends Node3D
 
-signal talked_to
 signal quests_available_changed(has_quests: bool)
 
 @export var npc_id = ""
@@ -34,6 +33,4 @@ func _on_quest_change():
 
 
 func _on_interacted(_player: Player):
-	GlobalSignalBus.talked_to.emit(npc_id)
-	talked_to.emit()
 	visible = false

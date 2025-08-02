@@ -132,6 +132,7 @@ collision_mask = 7
 wall_min_slide_angle = 1.0472
 floor_max_angle = 1.0472
 script = ExtResource("1_74my2")
+rotation_duration = 0.02
 
 [node name="InteractCanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -172,6 +173,7 @@ shape = SubResource("CapsuleShape3D_aeg1h")
 
 [node name="Model" parent="." instance=ExtResource("4_evt3b")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0774336)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("%Model")

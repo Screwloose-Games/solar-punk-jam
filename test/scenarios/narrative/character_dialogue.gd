@@ -36,7 +36,7 @@ func _update_quests():
 	var active_text = "ACTIVE:\n"
 	var complete_text = "COMPLETE:\n"
 	for quest in QuestManager.quests:
-		if quest.is_complete:
+		if quest.state == Quest.QuestState.COMPLETE:
 			complete_text += "%s\n" % quest.name
 		else:
 			active_text += "%s\n" % quest.name

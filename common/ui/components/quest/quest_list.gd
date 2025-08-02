@@ -19,5 +19,5 @@ func update_quests():
 			vis_check = true
 		elif current_quests[i].quest == QuestManager.quests[i]:
 			current_quests[i].update()
-			vis_check = !QuestManager.quests[i].is_complete
+			vis_check = !(QuestManager.quests[i].state == Quest.QuestState.COMPLETE)
 	visible = vis_check

@@ -22,4 +22,4 @@ func set_quest(val: Quest):
 func update():
 	for step in obj_list.get_children():
 		step.update()
-	visible = !quest.is_complete
+	visible = !(quest.state == Quest.QuestState.COMPLETE)

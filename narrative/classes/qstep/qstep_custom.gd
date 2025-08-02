@@ -68,17 +68,17 @@ func subscribe():
 	if not autoload_instance.has_signal(signal_name):
 		printerr("Autoload '", autoload_name, "' does not have signal '", signal_name, "'.")
 		return
-
-	var error_code = autoload_instance.connect(signal_name, _on_autoload_signal_emitted)
-	if error_code == OK:
-		print("Successfully subscribed to signal '", signal_name, "' on autoload '", autoload_name, "'")
-	else:
-		printerr("Failed to connect to signal '", signal_name, "' on autoload '",
-		autoload_name, "'. Error code: ", error_code)
+	if not autoload_instance.is_connected(signal_name, _on_autoload_signal_emitted):
+		var error_code = autoload_instance.connect(signal_name, _on_autoload_signal_emitted)
+		if error_code == OK:
+			print("Successfully subscribed to signal '", signal_name, "' on autoload '", autoload_name, "'")
+		else:
+			printerr("Failed to connect to signal '", signal_name, "' on autoload '",
+			autoload_name, "'. Error code: ", error_code)
 
 
 func unsubscribe():
-	if autoload_instance:
+	if autoload_instance and autoload_instance.is_connected(signal_name, _on_autoload_signal_emitted):
 		autoload_instance.disconnect(signal_name, _on_autoload_signal_emitted)
 
 

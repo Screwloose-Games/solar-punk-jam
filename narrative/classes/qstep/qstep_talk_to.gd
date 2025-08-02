@@ -7,6 +7,7 @@ extends QuestStep
 @export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"kelly,kai,kyle,mister,trin")
 var npc : String = "kai"
 
+
 func set_active(val : bool):
 	_signal = GlobalSignalBus.talked_to
 	_expected_args = [npc]
