@@ -3,6 +3,7 @@ extends Resource
 ## Quest class
 ## Used to describe and outline tasks for the player to do as part of a quest in game
 
+signal quest_became_available
 signal quest_state_changed
 signal quest_completed(giver: String)
 
@@ -17,6 +18,8 @@ enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE, COMPLETE}
 @export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
 var unlock_on_accept: Array[String]
 
+## The contitions under which this quest becomes available from the giver of the quest.
+@export var unlock_conditions: Array[EventCondition]
 @export var steps: Array[QuestStep] = []
 
 @export_category("When complete")
@@ -37,7 +40,9 @@ var unlock_on_complete: Array[String]
 var state: QuestState = QuestState.UNAVAILABLE
 var pinned : bool = false
 #var is_active: bool = false
-#var is_complete: bool = false
+var is_complete: bool = false:
+	get:
+		return state == QuestState.COMPLETE
 
 var rewards: Dictionary[String, int] = {}:
 	get:
@@ -48,6 +53,20 @@ var rewards: Dictionary[String, int] = {}:
 		return result
 
 
+func _init() -> void:
+	await Engine.get_main_loop().process_frame # Required for @export values to populate
+	init_unlocking()
+
+func _on_unlock_condition_occured():
+	if unlock_conditions.all(func(condition: EventCondition): return condition.is_met):
+		unlock()
+
+
+func init_unlocking():
+	for condition in unlock_conditions:
+		if not condition.occured.is_connected(_on_unlock_condition_occured):
+			condition.occured.connect(_on_unlock_condition_occured)
+	
 # Initialize quest state, steps with no prerequisites get set active
 func start_quest():
 	Dialogic.VAR[id] = true
@@ -105,6 +124,16 @@ func mark_complete():
 	if next_quest:
 		QuestManager.start_quest_resource(next_quest)
 
+
+## Makes the quest avialble from the quest_giver
+func unlock():
+	if state == QuestState.UNAVAILABLE:
+		state = QuestState.AVAILABLE
+		quest_state_changed.emit()
+		quest_became_available.emit()
+		QuestManager.unlock_quest_res(self)
+		push_error("TODO: Instead of starting immediately, unlock only and add to quest giver queue")
+		QuestManager.start_quest_resource(self)
 
 func get_next_step() -> QuestStep:
 	for step in steps:

@@ -4,6 +4,7 @@ signal updated_available_structures
 signal buildable_structure_selected(idx: int)
 signal structure_built(s: BuiltStructure)
 signal built_structure(index : int)
+signal structure_unlocked(name: String)
 
 enum StructureStatus { JUST_CREATED, NOT_READY, READY, EXPENDED }
 enum StructureFields {
@@ -118,6 +119,7 @@ func register_structure(struct_name: String):
 		if structure_data[idx][StructureManager.StructureFields.STRUCTURE_NAME] == struct_name:
 			available_structures.append(idx)
 	updated_available_structures.emit()
+	structure_unlocked.emit(struct_name)
 
 
 func register_character_structures(character: String):

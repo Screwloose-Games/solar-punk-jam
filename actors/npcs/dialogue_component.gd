@@ -47,8 +47,8 @@ func _ready() -> void:
 func _on_interacted(_player: Player):
 	if !supress_default_dialogue:
 		start_current_dialogue()
-	else:
-		GlobalSignalBus.talked_to.emit(get_parent().id)
+	GlobalSignalBus.talked_to.emit(get_parent().id)
+	GlobalSignalBus.talked_to_character.emit(get_parent().character)
 	interactable_area_3d.stop_interacting()
 
 
