@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=8 format=3 uid="uid://kpvjfs8lnqiy"]
+[gd_resource type="Resource" script_class="Quest" load_steps=9 format=3 uid="uid://kpvjfs8lnqiy"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_rqfjc"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_pirdi"]
 [ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="3_4l7h4"]
 [ext_resource type="Script" uid="uid://cmusiekpmyfl5" path="res://narrative/classes/qstep/qstep_interact_with.gd" id="4_7on4j"]
 [ext_resource type="Script" uid="uid://bvpbf61rkwgom" path="res://narrative/classes/qstep/qstep_go_to.gd" id="5_7on4j"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="6_yyvya"]
 
 [sub_resource type="Resource" id="Resource_yyvya"]
 script = ExtResource("5_7on4j")
@@ -36,6 +37,7 @@ quest_giver = "kai"
 description = "Go to the community hub and find out if anyone needs help."
 community_board_text = ""
 unlock_on_accept = Array[String]([])
+unlock_conditions = Array[ExtResource("6_yyvya")]([])
 steps = Array[ExtResource("1_rqfjc")]([SubResource("Resource_yyvya"), SubResource("Resource_j4y65")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({

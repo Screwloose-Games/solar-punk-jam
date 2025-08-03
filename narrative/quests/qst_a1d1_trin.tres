@@ -92,6 +92,7 @@ Find me in my garden!
 
 -Trin"
 unlock_on_accept = Array[String](["Vertical garden"])
+unlock_conditions = null
 steps = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_bc2d0"), SubResource("Resource_kmro7"), SubResource("Resource_en1iy"), SubResource("Resource_1ih5u"), SubResource("Resource_rqprq")])
 unlock_on_complete = Array[String](["Compost bin", "Rain barrel"])
 resource_rewards = Dictionary[int, int]({

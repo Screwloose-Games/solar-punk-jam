@@ -22,6 +22,7 @@ signal structure_interacted(structure: String)
 signal crop_planted(crop: Crop)
 signal crop_harvested(crop: Crop)
 signal talked_to(npc: String)
+signal talked_to_character(character: DialogicCharacter)
 signal food_donated(count: int)
 signal day_passed
 
