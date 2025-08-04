@@ -176,6 +176,7 @@ structures = Dictionary[String, bool]({
 "Bioreactor": false,
 "Birdhouse (on pole)": false,
 "Bush (flowers)": false,
+"Community Waste Bin": true,
 "Compost bin": true,
 "Donation box": true,
 "Food stand": true,
@@ -193,8 +194,7 @@ structures = Dictionary[String, bool]({
 "Tool library": false,
 "Tree": false,
 "Vegetables": false,
-"Vertical garden": true,
-"Waste bin": true
+"Vertical garden": true
 })
 metadata/_custom_type_script = "uid://bdour1f6ee8mm"
 

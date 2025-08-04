@@ -11,9 +11,9 @@ extends QuestStep
 	"Vertical garden",
 	"Recycling station",
 	"Solar panel",
-	"Waste bin",
 	"Donation box",
 	"Food stand",
+	"Community Waste Bin",
 ) var interactable_type : String
 
 

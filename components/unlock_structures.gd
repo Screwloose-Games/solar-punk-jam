@@ -23,7 +23,7 @@ extends Node
 	"Tool library": false,
 	"Tree": false,
 	"Vegetables": false,
-	"Waste bin": false,
+	"Community Waste Bin": false,
 	"Donation box": false,
 	"Food stand": false,
 }
