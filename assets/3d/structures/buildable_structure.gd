@@ -4,8 +4,8 @@ extends Node3D
 signal interacted
 
 @export_enum("Compost bin", "Picnic Table", "Raised bed", "Rain barrel", "Vertical garden",
-"Recycling station", "Solar panel", "Waste bin", "Donation box",
-"Food stand") var structure_name: String
+"Recycling station", "Solar panel", "Donation box",
+"Food stand", "Community Waste Bin") var structure_name: String
 
 @onready var interactable_area_3d: InteractableArea3D = %InteractableArea3D
 

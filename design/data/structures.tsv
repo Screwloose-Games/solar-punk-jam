@@ -18,5 +18,5 @@ Tool library	2.8	4	4	TBD	_		0	2	5	1	Contractor_	2		215						0
 Tree	2.5	2	2	Fruit-bearing trees or bushes	_		1	2	2		Seeds	0		43						0	Seeds	Food					
 Vegetables	0.5	1	1	Small garden bed for growing vegetables	_		1	2	2		Seeds	0		1						0	Seeds,Water,Soil	Food	1	1			
 Community Waste Bin	0.5	2	2	A community structure that collects scraps and other waste	community_waste_bin.tscn	community-waste-bin	0	1	5		Contractor	0		43						0		Waste,Seeds	10	1			
-Donation box	0.5	2	2		_		0	1	5		Contractor	0		43						0		Materials					
+Donation box	0.5	2	2	Donate items...	donation_bin.tscn	donation-bin	0	1	5		Contractor	0		43						0		Materials					
 Food stand	0.5	2	2	A community structure that collects food donations to be shared	community_food_stand.tscn	community-food-stand	0	1	5		Contractor_	0		43						0	Food	Happiness	10	1	1		
