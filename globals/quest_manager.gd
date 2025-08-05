@@ -62,14 +62,12 @@ func start_quest_resource(new_quest: Quest):
 		return
 	new_quest.state = Quest.QuestState.ACTIVE
 	quests.append(new_quest)
-	for quest in unlocked_quests:
-		if quest.id == new_quest.id:
-			unlocked_quests.erase(quest)
+	unlocked_quests.erase(new_quest)
 	if !new_quest.quest_state_changed.is_connected(emit_signal.bind("quests_changed")):
 		new_quest.quest_state_changed.connect(emit_signal.bind("quests_changed"))
 	if !new_quest.quest_completed.is_connected(_on_quest_complete):
 		new_quest.quest_completed.connect(_on_quest_complete)
-	new_quest.start_quest()
+	await new_quest.start_quest()
 	check_quests()
 	quest_started.emit(new_quest)
 	quest_started_res.emit(new_quest)
@@ -80,6 +78,18 @@ func start_quest_resource(new_quest: Quest):
 func check_quests(_changes: Dictionary = {}):
 	for quest in quests:
 		quest.check_progress()
+
+
+func get_char_quest(character : DialogicCharacter) -> Quest:
+	var unlocked_character_quests = unlocked_quests.filter(
+		func (q: Quest): return (
+			q.state == Quest.QuestState.AVAILABLE and q.giver == character
+		)
+	)
+	if unlocked_character_quests.is_empty():
+		return null
+	else:
+		return unlocked_quests[0]
 
 
 func _on_world_unloaded():

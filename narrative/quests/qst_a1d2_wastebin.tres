@@ -1,16 +1,20 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://bu1d4dg0wcjvm"]
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://bu1d4dg0wcjvm"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_5amx1"]
+[ext_resource type="Resource" uid="uid://goophsmwiv6e" path="res://narrative/characters/Kyle.dch" id="1_nh7e1"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_clbho"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="4_hmwob"]
 
 [resource]
 script = ExtResource("2_clbho")
 id = "a1d2_wastebin"
 name = "Build a waste bin"
 quest_giver = "kyle"
+giver = ExtResource("1_nh7e1")
 description = "Quest Description"
 community_board_text = ""
 unlock_on_accept = Array[String]([])
+unlock_conditions = Array[ExtResource("4_hmwob")]([])
 steps = Array[ExtResource("1_5amx1")]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({

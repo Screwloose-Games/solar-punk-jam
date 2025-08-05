@@ -12,7 +12,10 @@ enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE, COMPLETE}
 @export var id: String = "quest_id"
 @export var name: String = "Quest Name"
 @export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"trin,kai,kelly,board,kyle,mister") var quest_giver: String = ""
-# @export var quest_source: DialogicCharacter
+
+## The character who you can interact with to aquire the quest
+@export var giver: DialogicCharacter
+
 @export var description: String = "Quest Description"
 @export_multiline var community_board_text: String = ""  # displayed on the community board
 @export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
@@ -36,6 +39,9 @@ var unlock_on_complete: Array[String]
 
 ## Start the next quest automatically
 @export var start_next_quest: bool = true
+
+## The dialogue to play just before starting the quest
+@export var prologue: DialogicTimeline
 
 var state: QuestState = QuestState.UNAVAILABLE
 var pinned : bool = false
@@ -69,6 +75,9 @@ func init_unlocking():
 	
 # Initialize quest state, steps with no prerequisites get set active
 func start_quest():
+	if prologue:
+		Dialogic.start(prologue)
+		await Dialogic.timeline_ended
 	Dialogic.VAR[id] = true
 	Dialogic.VAR[quest_giver + "_active"] = true
 	state = QuestState.ACTIVE
@@ -132,8 +141,7 @@ func unlock():
 		quest_state_changed.emit()
 		quest_became_available.emit()
 		QuestManager.unlock_quest_res(self)
-		push_error("TODO: Instead of starting immediately, unlock only and add to quest giver queue")
-		QuestManager.start_quest_resource(self)
+
 
 func get_next_step() -> QuestStep:
 	for step in steps:
