@@ -7,7 +7,7 @@ static var dialogue_components: Array[DialogueComponent] = []
 
 # TODO: Just get the parent's id/name, as this is a component anyway
 @export var npc_id: String = ""
-@export var main_timeline: DialogicTimeline
+@export var main_timeline : DialogicTimeline
 
 var supress_default_dialogue: bool = false
 
@@ -53,11 +53,12 @@ func _on_interacted(_player: Player):
 
 
 func start_current_dialogue():
-	# Order of precedence for choosing dialogue to play
-	# 1. If currently linked to QuestStepTalkTo, play relevant dialogue
-	# 2. If NPC has a quest available, play relevant dialogue
-	# 3. Default dialogue
-	if main_timeline != null:
+	var this_character = get_parent().character
+	var available_quest = QuestManager.get_char_quest(this_character)
+	if available_quest != null:
+		Dialogic.start(available_quest.id)
+		await Dialogic.timeline_ended
+	elif main_timeline != null:
 		Dialogic.start(main_timeline)
 		await Dialogic.timeline_ended
 		

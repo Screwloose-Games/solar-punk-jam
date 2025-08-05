@@ -82,6 +82,18 @@ func check_quests(_changes: Dictionary = {}):
 		quest.check_progress()
 
 
+func get_char_quest(character : DialogicCharacter) -> Quest:
+	var unlocked_quests = quests.filter(
+		func (q): return (
+			q.state == Quest.QuestState.AVAILABLE and q.giver == character
+		)
+	)
+	if unlocked_quests.is_empty():
+		return null
+	else:
+		return unlocked_quests[0]
+
+
 func _on_world_unloaded():
 	reset()
 
