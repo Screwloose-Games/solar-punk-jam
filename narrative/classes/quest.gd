@@ -16,7 +16,6 @@ enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE, COMPLETE}
 ## The character who you can interact with to aquire the quest
 @export var giver: DialogicCharacter
 
-# @export var quest_source: DialogicCharacter
 @export var description: String = "Quest Description"
 @export_multiline var community_board_text: String = ""  # displayed on the community board
 @export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"Compost bin,Picnic table,Raised bed,Rain barrel,Vertical garden,Recycling station,Solar panel,Waste bin,Donation box,Food stand")
