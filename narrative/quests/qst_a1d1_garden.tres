@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=19 format=3 uid="uid://bk1qhgoe1a432"]
+[gd_resource type="Resource" script_class="Quest" load_steps=20 format=3 uid="uid://bk1qhgoe1a432"]
 
+[ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="1_b3m5d"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_emwmh"]
 [ext_resource type="Resource" uid="uid://5nhrwkcewlem" path="res://narrative/quests/qst_a1d2_harvest.tres" id="4_jxjmi"]
@@ -94,6 +95,7 @@ script = ExtResource("2_emwmh")
 id = "a1d1_garden"
 name = "Start Your Own Garden"
 quest_giver = "kai"
+giver = ExtResource("1_b3m5d")
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
 unlock_on_accept = Array[String](["Raised bed"])

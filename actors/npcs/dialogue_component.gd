@@ -53,12 +53,10 @@ func _on_interacted(_player: Player):
 
 
 func start_current_dialogue():
-	var this_character = get_parent().character
+	var this_character: DialogicCharacter = get_parent().character
 	var available_quest = QuestManager.get_char_quest(this_character)
 	if available_quest != null:
-		Dialogic.start(available_quest.id)
-		await Dialogic.timeline_ended
+		QuestManager.start_quest_resource(available_quest)
 	elif main_timeline != null:
 		Dialogic.start(main_timeline)
 		await Dialogic.timeline_ended
-		

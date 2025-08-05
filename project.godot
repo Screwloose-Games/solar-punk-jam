@@ -59,11 +59,11 @@ directories/dtl_directory={
 "kai_main": "res://narrative/timelines/kai_main.dtl",
 "kai_op1": "res://narrative/timelines/kai_op1.dtl",
 "kelly_main": "res://narrative/timelines/kelly_main.dtl",
+"kyle_DAY2SB_KYLE": "res://narrative/timelines/kyle_DAY2SB_KYLE.dtl",
 "kyle_main": "res://narrative/timelines/kyle_main.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
-"timelines/kyle_DAY2SB_KYLE": "res://narrative/timelines/kyle_DAY2SB_KYLE.dtl",
-"timelines/trin_DAY2SA_Trin": "res://narrative/timelines/trin_DAY2SA_Trin.dtl",
+"trin_DAY2SA_Trin": "res://narrative/timelines/trin_DAY2SA_Trin.dtl",
 "trin_intro": "res://narrative/timelines/trin_intro.dtl",
 "trin_main": "res://narrative/timelines/trin_main.dtl",
 "tutorial_planting": "res://narrative/timelines/tutorial_planting.dtl"

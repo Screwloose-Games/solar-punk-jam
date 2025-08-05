@@ -1,16 +1,20 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://bosgk3xsf174w"]
+[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://bosgk3xsf174w"]
 
+[ext_resource type="Resource" uid="uid://712kl4inupnx" path="res://narrative/characters/Trin.dch" id="1_r46xf"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_u3bvm"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_lkoja"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="4_8sm3n"]
 
 [resource]
 script = ExtResource("2_lkoja")
 id = "a1d2_trinfood"
 name = "Trin's food"
 quest_giver = "trin"
+giver = ExtResource("1_r46xf")
 description = "Quest Description"
 community_board_text = ""
 unlock_on_accept = Array[String]([])
+unlock_conditions = Array[ExtResource("4_8sm3n")]([])
 steps = Array[ExtResource("1_u3bvm")]([])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({

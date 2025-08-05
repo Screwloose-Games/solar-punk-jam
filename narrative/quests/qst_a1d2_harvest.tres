@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://5nhrwkcewlem"]
+[gd_resource type="Resource" script_class="Quest" load_steps=14 format=3 uid="uid://5nhrwkcewlem"]
 
+[ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="1_aum3j"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_i80ro"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_cascf"]
 [ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="3_i1qdm"]
@@ -51,6 +52,7 @@ script = ExtResource("2_cascf")
 id = "a1d2_harvest"
 name = "Harvest and deliver plants"
 quest_giver = "kai"
+giver = ExtResource("1_aum3j")
 description = "Quest Description"
 community_board_text = ""
 unlock_on_accept = Array[String]([])
