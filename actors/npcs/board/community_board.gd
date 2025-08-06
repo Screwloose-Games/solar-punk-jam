@@ -60,6 +60,9 @@ func _on_board_closed():
 
 
 func _on_quest_accepted():
+	if not posted_quest:
+		push_error("Somehow there's no longer an available quest. Did it start automatically?")
+		return
 	GlobalSignalBus.community_board_quest_accepted.emit()
 	QuestManager.start_quest_resource(posted_quest)
 	community_board_canvas_layer.visible = false

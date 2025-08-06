@@ -1,6 +1,6 @@
 extends Node
 
-const QST_A_1D_1_TRIN = preload("res://narrative/quests/qst_a1d1_trin.tres")
+var qst_a1d1_trin = load("res://narrative/quests/qst_a1d1_trin.tres")
 
 @onready var camera_target_marker_3d: Marker3D = $CameraTargetMarker3D
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
@@ -13,5 +13,5 @@ func _ready() -> void:
 	#await Dialogic.timeline_ended
 	Dialogic.start("kai_DAY1S2_INTRODUCTION")
 	await Dialogic.timeline_ended
-	QuestManager.unlock_quest_res(QST_A_1D_1_TRIN)
+	QuestManager.unlock_quest_res(qst_a1d1_trin)
 	player.cutscene_mode_enabled = false

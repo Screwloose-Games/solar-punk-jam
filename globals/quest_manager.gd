@@ -17,7 +17,7 @@ var unlocked_quests: Array[Quest] = []
 
 func _ready() -> void:
 	Dialogic.VAR.variable_changed.connect(check_quests)
-	unlock_quest("a1d1_trin")
+	# unlock_quest("a1d1_trin")
 	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
 
 
@@ -43,7 +43,8 @@ func reset():
 
 
 func unlock_quest(quest_id: String):
-	var new_quest = load(FILE_PATH % ("qst_" + quest_id))
+	var full_file_path = FILE_PATH % ("qst_" + quest_id)
+	var new_quest = load(full_file_path)
 	unlock_quest_res(new_quest)
 
 
