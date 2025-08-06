@@ -1,6 +1,7 @@
 extends PanelContainer
 
 const QUEST_CONTAINER_RES = preload("res://common/ui/components/quest/quest_container.tscn")
+@onready var body: VBoxContainer = %Body
 
 
 func _ready() -> void:
@@ -8,16 +9,16 @@ func _ready() -> void:
 	hide()
 
 
+func clear_quest_nodes():
+	for node in body.get_children():
+		body.remove_child(node)
+
+
 func update_quests():
-	var current_quests = $Content/Body.get_children()
-	var vis_check = false
-	for i in QuestManager.quests.size():
-		if i >= current_quests.size():
-			var new_cont = QUEST_CONTAINER_RES.instantiate()
-			$Content/Body.add_child(new_cont)
-			new_cont.quest = QuestManager.quests[i]
-			vis_check = true
-		elif current_quests[i].quest == QuestManager.quests[i]:
-			current_quests[i].update()
-			vis_check = !(QuestManager.quests[i].state == Quest.QuestState.COMPLETE)
-	visible = vis_check
+	clear_quest_nodes()
+	var active_quests = QuestManager.quests.filter(func(quest: Quest): return quest.state == quest.QuestState.ACTIVE)
+	for i in active_quests.size():
+		var new_cont: QuestContainer = QUEST_CONTAINER_RES.instantiate()
+		new_cont.quest = active_quests[i]
+		body.add_child(new_cont)
+	visible = !active_quests.is_empty()

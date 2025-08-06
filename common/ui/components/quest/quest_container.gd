@@ -1,3 +1,4 @@
+class_name QuestContainer
 extends VBoxContainer
 
 const OBJ_RESOURCE = preload("res://common/ui/components/quest/step_container.tscn")
@@ -10,6 +11,8 @@ var quest: Quest:
 @onready var obj_list = $Objectives
 
 func set_quest(val: Quest):
+	if not is_node_ready():
+		await ready
 	quest = val
 	title.text = quest.name
 	desc.text = quest.description
