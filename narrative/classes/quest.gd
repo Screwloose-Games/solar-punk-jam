@@ -11,9 +11,8 @@ enum QuestState {UNAVAILABLE, AVAILABLE, ACTIVE, COMPLETE}
 
 @export var id: String = "quest_id"
 @export var name: String = "Quest Name"
-@export_custom(PROPERTY_HINT_ENUM_SUGGESTION,"trin,kai,kelly,board,kyle,mister") var quest_giver: String = ""
 
-## The character who you can interact with to aquire the quest
+## The character who you can interact with to aquire the quest, or null if it's from the board
 @export var giver: DialogicCharacter
 
 @export var description: String = "Quest Description"
@@ -42,6 +41,12 @@ var unlock_on_complete: Array[String]
 
 ## The dialogue to play just before starting the quest
 @export var prologue: DialogicTimeline
+
+var quest_giver: String:
+	get:
+		if giver:
+			return giver.display_name.to_lower()
+		return "board"
 
 var state: QuestState = QuestState.UNAVAILABLE
 var pinned : bool = false
@@ -79,7 +84,6 @@ func start_quest():
 		Dialogic.start(prologue)
 		await Dialogic.timeline_ended
 	Dialogic.VAR[id] = true
-	Dialogic.VAR[quest_giver + "_active"] = true
 	state = QuestState.ACTIVE
 	for structure in unlock_on_accept:
 		StructureManager.register_structure(structure)

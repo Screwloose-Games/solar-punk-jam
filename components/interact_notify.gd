@@ -24,7 +24,7 @@ func _ready() -> void:
 func _on_quest_change():
 	hide()
 	for quest in QuestManager.unlocked_quests:
-		if quest.quest_giver == npc_id:
+		if quest.giver == get_parent().character:
 			has_quests_available = true
 			if show_indicator:
 				show()

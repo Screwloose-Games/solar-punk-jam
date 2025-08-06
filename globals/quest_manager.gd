@@ -96,10 +96,10 @@ func _on_world_unloaded():
 	reset()
 
 
-func _on_quest_complete(giver : String):
-	Dialogic.VAR[giver + "_active"] = false
+func _on_quest_complete(_giver : String):
+	#Dialogic.VAR[giver + "_active"] = false
 	quests_changed.emit()
-	quest_completed.emit(giver)
+	#quest_completed.emit(giver)
 
 
 func get_quest_markers_by_id(id: String) -> Array[QuestMarker3D]:
