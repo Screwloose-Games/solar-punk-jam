@@ -45,6 +45,9 @@ func reset():
 func unlock_quest(quest_id: String):
 	var full_file_path = FILE_PATH % ("qst_" + quest_id)
 	var new_quest = load(full_file_path)
+	if not new_quest:
+		push_error("Could not unlock, locate quest with path:" + full_file_path)
+		return
 	unlock_quest_res(new_quest)
 
 
@@ -56,7 +59,11 @@ func unlock_quest_res(quest: Quest):
 
 
 func start_quest(file_name: String):
-	var new_quest = load(FILE_PATH % file_name)
+	var full_file_path = FILE_PATH % file_name
+	var new_quest = load(full_file_path)
+	if not new_quest:
+		push_error("Could not start, locate quest with path:" + full_file_path)
+		return
 	start_quest_resource(new_quest)
 
 

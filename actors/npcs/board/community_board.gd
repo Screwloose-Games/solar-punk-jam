@@ -50,6 +50,7 @@ func update_queue():
 		board_mat.set_shader_parameter("texture_albedo", load(TEX_BLANK_BOARD))
 	else:
 		posted_quest = available_quests[0]
+		community_board_canvas_layer.quest = posted_quest
 		interactable_area_3d.disabled = false
 		board_mat.set_shader_parameter("texture_albedo", load(TEX_FULL_BOARD))
 
