@@ -29,8 +29,8 @@ var is_interacting: bool = false:
 var disabled := false:
 	set(val):
 		disabled = val
-		monitoring = !val
-		monitorable = !val
+		set_deferred("monitoring", !val)
+		set_deferred("monitorable", !val)
 
 @onready var interactable_label_3d: Label3D = %InteractableLabel3D
 

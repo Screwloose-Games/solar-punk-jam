@@ -42,6 +42,7 @@ var unlock_on_complete: Array[String]
 ## The dialogue to play just before starting the quest
 @export var prologue: DialogicTimeline
 
+
 var quest_giver: String:
 	get:
 		if giver:
@@ -62,6 +63,10 @@ var rewards: Dictionary[String, int] = {}:
 			var reward_name: String = ResourcesManager.RESOURCE_TYPE_NAMES[reward]
 			result[reward_name] = resource_rewards[reward]
 		return result
+
+var is_unlocked: bool:
+	get:
+		return state != QuestState.UNAVAILABLE
 
 
 func _init() -> void:

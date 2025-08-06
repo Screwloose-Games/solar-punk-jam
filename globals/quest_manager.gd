@@ -48,6 +48,8 @@ func unlock_quest(quest_id: String):
 
 
 func unlock_quest_res(quest: Quest):
+	if not quest.is_unlocked:
+		quest.unlock()
 	unlocked_quests.append(quest)
 	quests_changed.emit()
 

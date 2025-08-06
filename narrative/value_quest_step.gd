@@ -14,8 +14,11 @@ func set_active(val: bool):
 
 
 func check_value():
+	if not Dialogic.VAR.has(target_value):
+		push_error("Dialogic does not have variable for: ", str(target_value))
+		return
 	if is_active:
-		var value = Dialogic.VAR[target_value]
+		var value = Dialogic.VAR.get(target_value)
 		print("Objective check val: " + str(value))
 		if int(value) >= goal:
 			progress = goal
