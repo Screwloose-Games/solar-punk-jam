@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=20 format=3 uid="uid://bk1qhgoe1a432"]
+[gd_resource type="Resource" script_class="Quest" load_steps=19 format=3 uid="uid://bk1qhgoe1a432"]
 
 [ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="1_b3m5d"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_b5u7u"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_emwmh"]
-[ext_resource type="Resource" uid="uid://5nhrwkcewlem" path="res://narrative/quests/qst_a1d2_harvest.tres" id="4_jxjmi"]
 [ext_resource type="Script" uid="uid://bvpbf61rkwgom" path="res://narrative/classes/qstep/qstep_go_to.gd" id="4_ku037"]
 [ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="5_a0tgy"]
-[ext_resource type="Script" uid="uid://dm6u0eitlfqup" path="res://narrative/classes/qstep/qstep_have_resource.gd" id="6_eepgn"]
 [ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="7_a0tgy"]
 [ext_resource type="Script" uid="uid://dfunhlrmsp6qb" path="res://narrative/classes/qstep/qstep_plant_crop.gd" id="7_b3m5d"]
 [ext_resource type="Script" uid="uid://cngh4nyaovsbs" path="res://narrative/classes/qstep/qstep_wait_days.gd" id="8_k0nsr"]
+[ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="10_b3m5d"]
 [ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="10_eepgn"]
+[ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="11_k0nsr"]
 
 [sub_resource type="Resource" id="Resource_ke0jf"]
 script = ExtResource("4_ku037")
@@ -52,25 +52,6 @@ play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 
-[sub_resource type="Resource" id="Resource_vrajp"]
-script = ExtResource("6_eepgn")
-resource = 6
-amount = 3
-description = "Collect Materials"
-prerequisites = Array[int]([1, 2, 3])
-play_dialogue = ""
-marker_id = "material_location"
-metadata/_custom_type_script = "uid://dm6u0eitlfqup"
-
-[sub_resource type="Resource" id="Resource_fhsga"]
-script = ExtResource("5_a0tgy")
-structure_type = "Raised bed"
-description = "Build a raised bed"
-prerequisites = Array[int]([4])
-play_dialogue = ""
-marker_id = "home_roof_garden"
-metadata/_custom_type_script = "uid://b51ywvr44mnkv"
-
 [sub_resource type="Resource" id="Resource_ap2x4"]
 script = ExtResource("7_b3m5d")
 crop = ExtResource("7_a0tgy")
@@ -90,21 +71,24 @@ play_dialogue = ""
 marker_id = "go_to_bed_door"
 metadata/_custom_type_script = "uid://cngh4nyaovsbs"
 
+[sub_resource type="Resource" id="Resource_vrajp"]
+script = ExtResource("11_k0nsr")
+quests = Array[ExtResource("2_emwmh")]([ExtResource("10_b3m5d")])
+metadata/_custom_type_script = "uid://dgrwfhden23h1"
+
 [resource]
 script = ExtResource("2_emwmh")
 id = "a1d1_garden"
 name = "Start Your Own Garden"
-quest_giver = "kai"
 giver = ExtResource("1_b3m5d")
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
 unlock_on_accept = Array[String](["Raised bed"])
-unlock_conditions = Array[ExtResource("10_eepgn")]([])
-steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_ke0jf"), SubResource("Resource_qkafw"), SubResource("Resource_iwql8"), SubResource("Resource_n1b1o"), SubResource("Resource_vrajp"), SubResource("Resource_fhsga"), SubResource("Resource_ap2x4"), SubResource("Resource_rr3nd")])
+unlock_conditions = Array[ExtResource("10_eepgn")]([SubResource("Resource_vrajp")])
+steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_ke0jf"), SubResource("Resource_qkafw"), SubResource("Resource_iwql8"), SubResource("Resource_n1b1o"), SubResource("Resource_ap2x4"), SubResource("Resource_rr3nd")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
-next_quest = ExtResource("4_jxjmi")
-start_next_quest = true
+start_next_quest = false
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

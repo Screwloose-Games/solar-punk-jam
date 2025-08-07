@@ -28,7 +28,6 @@ metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 script = ExtResource("5_w4y3a")
 id = "a1d2_tempunlocks"
 name = "Beautify the Community Hub"
-quest_giver = "board"
 description = "Build a solar panel"
 community_board_text = "We could use more power. Why don't you try building a solar panel in the community hub?
 

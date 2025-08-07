@@ -51,7 +51,6 @@ metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 script = ExtResource("2_cascf")
 id = "a1d2_harvest"
 name = "Harvest and deliver plants"
-quest_giver = "kai"
 giver = ExtResource("1_aum3j")
 description = "Quest Description"
 community_board_text = ""
