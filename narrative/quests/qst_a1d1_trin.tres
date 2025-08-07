@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=17 format=3 uid="uid://b6iwcl3xdip0a"]
+[gd_resource type="Resource" script_class="Quest" load_steps=20 format=3 uid="uid://b6iwcl3xdip0a"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_x688r"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_mbbq3"]
 [ext_resource type="Script" uid="uid://c03vs1udr2qbe" path="res://narrative/classes/qstep/qstep_custom.gd" id="2_se44t"]
 [ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="4_svb1w"]
-[ext_resource type="Resource" uid="uid://bk1qhgoe1a432" path="res://narrative/quests/qst_a1d1_garden.tres" id="4_t80vs"]
 [ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="6_uq8a5"]
 [ext_resource type="Script" uid="uid://dm6u0eitlfqup" path="res://narrative/classes/qstep/qstep_have_resource.gd" id="7_1j8rw"]
 [ext_resource type="Script" uid="uid://dfunhlrmsp6qb" path="res://narrative/classes/qstep/qstep_plant_crop.gd" id="9_bc2d0"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="9_kmro7"]
 [ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="9_tq41l"]
+[ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="10_en1iy"]
+[ext_resource type="Script" uid="uid://3vwhjlqv4wnq" path="res://narrative/classes/event_condition_talked_to.gd" id="11_rqprq"]
 
 [sub_resource type="Resource" id="Resource_1j8rw"]
 script = ExtResource("4_svb1w")
@@ -80,11 +82,15 @@ play_dialogue = "prog4"
 marker_id = "trin"
 metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 
+[sub_resource type="Resource" id="Resource_nm18m"]
+script = ExtResource("11_rqprq")
+character = ExtResource("10_en1iy")
+metadata/_custom_type_script = "uid://3vwhjlqv4wnq"
+
 [resource]
 script = ExtResource("2_mbbq3")
 id = "a1d1_trin"
 name = "Help out Trin"
-quest_giver = "board"
 description = "Help Trin with her plants."
 community_board_text = "My babies need SUSTENANCE
 Help me build a vertical garden POSTHASTE!
@@ -92,7 +98,7 @@ Find me in my garden!
 
 -Trin"
 unlock_on_accept = Array[String](["Vertical garden"])
-unlock_conditions = null
+unlock_conditions = Array[ExtResource("9_kmro7")]([SubResource("Resource_nm18m")])
 steps = Array[ExtResource("1_x688r")]([SubResource("Resource_1j8rw"), SubResource("Resource_tq41l"), SubResource("Resource_bc2d0"), SubResource("Resource_kmro7"), SubResource("Resource_en1iy"), SubResource("Resource_1ih5u"), SubResource("Resource_rqprq")])
 unlock_on_complete = Array[String](["Compost bin", "Rain barrel"])
 resource_rewards = Dictionary[int, int]({
@@ -102,6 +108,5 @@ resource_rewards = Dictionary[int, int]({
 6: 6,
 7: 3
 })
-next_quest = ExtResource("4_t80vs")
 start_next_quest = false
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

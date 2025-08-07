@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dbiodotokwvrn" path="res://actors/npcs/npc_base.tscn" id="1_g88cm"]
 [ext_resource type="Script" uid="uid://b023i6skyxupa" path="res://components/state_machine.gd" id="2_pbwn8"]
 [ext_resource type="PackedScene" uid="uid://csgqmhdtto0pw" path="res://assets/3d/people/kai-animations-2/sk_kai_animations_2.tscn" id="3_vkiem"]
-[ext_resource type="Resource" uid="uid://e1sgygo1cmxu" path="res://narrative/timelines/jo_main.dtl" id="4_pbwn8"]
+[ext_resource type="Resource" uid="uid://e1sgygo1cmxu" path="res://narrative/timelines/mister_quest_scrap.dtl" id="4_pbwn8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_472l6"]
 
