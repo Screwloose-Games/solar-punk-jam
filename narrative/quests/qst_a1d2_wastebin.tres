@@ -1,21 +1,63 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://bu1d4dg0wcjvm"]
+[gd_resource type="Resource" script_class="Quest" load_steps=16 format=3 uid="uid://bu1d4dg0wcjvm"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_5amx1"]
 [ext_resource type="Resource" uid="uid://goophsmwiv6e" path="res://narrative/characters/Kyle.dch" id="1_nh7e1"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_clbho"]
 [ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="4_hmwob"]
+[ext_resource type="Script" uid="uid://dm6u0eitlfqup" path="res://narrative/classes/qstep/qstep_have_resource.gd" id="4_j728s"]
+[ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="5_tkjqw"]
+[ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="6_yikf4"]
+[ext_resource type="Resource" uid="uid://5nhrwkcewlem" path="res://narrative/quests/qst_a1d2_harvest.tres" id="8_4p76q"]
+[ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="9_r1qj7"]
+[ext_resource type="Script" uid="uid://sfcqsu528ujv" path="res://narrative/classes/event_condition_donated.gd" id="10_g7xr3"]
+
+[sub_resource type="Resource" id="Resource_4p76q"]
+script = ExtResource("4_j728s")
+resource = 6
+amount = 3
+description = "Objective Description"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://dm6u0eitlfqup"
+
+[sub_resource type="Resource" id="Resource_r1qj7"]
+script = ExtResource("5_tkjqw")
+structure_type = "Community Waste Bin"
+description = "Objective Description"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
+
+[sub_resource type="Resource" id="Resource_g7xr3"]
+script = ExtResource("6_yikf4")
+npc = "kyle"
+description = "Objective Description"
+prerequisites = Array[int]([0])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://cgh57ca4rs68k"
+
+[sub_resource type="Resource" id="Resource_w5shl"]
+script = ExtResource("9_r1qj7")
+quests = Array[ExtResource("2_clbho")]([ExtResource("8_4p76q")])
+metadata/_custom_type_script = "uid://dgrwfhden23h1"
+
+[sub_resource type="Resource" id="Resource_5068q"]
+script = ExtResource("10_g7xr3")
+metadata/_custom_type_script = "uid://sfcqsu528ujv"
 
 [resource]
 script = ExtResource("2_clbho")
 id = "a1d2_wastebin"
 name = "Build a waste bin"
-quest_giver = "kyle"
 giver = ExtResource("1_nh7e1")
 description = "Quest Description"
 community_board_text = ""
 unlock_on_accept = Array[String]([])
-unlock_conditions = Array[ExtResource("4_hmwob")]([])
-steps = Array[ExtResource("1_5amx1")]([])
+unlock_conditions = Array[ExtResource("4_hmwob")]([SubResource("Resource_w5shl"), SubResource("Resource_5068q")])
+steps = Array[ExtResource("1_5amx1")]([SubResource("Resource_4p76q"), SubResource("Resource_r1qj7"), SubResource("Resource_g7xr3")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5

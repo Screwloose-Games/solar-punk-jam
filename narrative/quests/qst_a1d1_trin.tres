@@ -84,7 +84,6 @@ metadata/_custom_type_script = "uid://cgh57ca4rs68k"
 script = ExtResource("2_mbbq3")
 id = "a1d1_trin"
 name = "Help out Trin"
-quest_giver = "board"
 description = "Help Trin with her plants."
 community_board_text = "My babies need SUSTENANCE
 Help me build a vertical garden POSTHASTE!
