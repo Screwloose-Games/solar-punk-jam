@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://co4wpnkt44g2w"]
+
+[ext_resource type="PackedScene" uid="uid://b4hg587xlbvpu" path="res://assets/environment/trees/sm_talltree.gltf" id="1_8c8mb"]
+[ext_resource type="Texture2D" uid="uid://c7wm33fjwtifp" path="res://assets/environment/trees/t_talltree_baseColor.png" id="2_38nj5"]
+[ext_resource type="Texture2D" uid="uid://b5blp02ycfdtu" path="res://assets/environment/trees/t_talltree_normal.png" id="3_st4wt"]
+[ext_resource type="Texture2D" uid="uid://djfgl1ta3ei2f" path="res://assets/environment/trees/t_talltree_occlusionRoughnessMetallic.png" id="4_hukf5"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_tjl8o"]
+albedo_texture = ExtResource("2_38nj5")
+orm_texture = ExtResource("4_hukf5")
+normal_enabled = true
+normal_texture = ExtResource("3_st4wt")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mdhmy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_38nj5")
+orm_texture = ExtResource("4_hukf5")
+normal_enabled = true
+normal_texture = ExtResource("3_st4wt")
+
+[node name="sm_talltree" instance=ExtResource("1_8c8mb")]
+
+[node name="Tree04" parent="RootNode/Tree_GRP" index="0"]
+surface_material_override/0 = SubResource("ORMMaterial3D_tjl8o")
+
+[node name="LeafClusters" parent="RootNode/Tree_GRP" index="1"]
+surface_material_override/0 = SubResource("ORMMaterial3D_mdhmy")
