@@ -51,6 +51,7 @@ directories/dch_directory={
 "Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
+"Kai_make_your_own_garden": "res://narrative/timelines/Kai_your_own_garden.dtl",
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
 "a1d2_harvest": "res://narrative/timelines/a1d2_harvest.dtl",
 "intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",

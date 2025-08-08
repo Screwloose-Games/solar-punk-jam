@@ -7,26 +7,25 @@ Kyle: Wow, these look great.
 # //CONDITIONAL PLAYER CHOICE:
 - GREW IT MYSELF
 	Te: Grew it myself.
-	Kyle: Did you? Impressive.
+	Kyle: Did you now? You got a green thumb alright. 
 - NOTHING SPECIAL TO ME.
-	Te: Nothing special to me.
-	Kyle: Are you serious?
-	Kyle: Look at that color! And the smell!
-	Kyle: Perfection.
+	Te: What's so special about it?
+	Kyle: Whatchou mean?
+	Kyle: Look at them colors! And that smell!
 # //END OF PLAYER CHOICE
 
 
-Kyle: I’m cooking up a storm to help out some of the older people.
+Kyle: You don't know how lucky you are to get good, clean food. 
 
 Te: Is that soup?
 
-Kyle: It is.
+Kyle: That it is.
 
-Te: Got any candy instead?
+Te: Too bad it's not ice cream. Or candy. 
 
 Kyle: HAHAHAHA!
 
-Te: No, but if you’re gardening I can donate some food wastes. Might help cut down gardening time.
+Kyle: No, but if you’re gardening I can donate some food wastes. Might help cut down gardening time.
 
-Kyle: You’d need a waste bin first.
+Kyle: But you’d need a waste bin first.
 label skip

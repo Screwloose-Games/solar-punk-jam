@@ -1,13 +1,13 @@
 # Intro chat when we first talk to Kelly
 if {kelly_met} == false:
-	Kelly: This place is kind of a dump.
-	Te: You didn't see it before. Lumina is my home.
-	Kelly: I didn't want to move here, but my parents are obsessed with this whole community thing. I don't get it.
-	Te: You could at least give it a shot.
-	Kelly: I've got more important things to do.
+	Kelly: This whole place is cheugy central. How do you deal?
+	Te: It was beautiful before the flood. 
+	Kelly: We should be in the thermal springs at the Mitsui Kyoto, instead my mom thought this whole community thing would be a cute vacay. My dad's such a simp! God!
+	Te: It's not that bad. The sunrise is pretty cool.
+	Kelly: I so don't have time for that. 
 	set {kelly_met} = true
 else:
 	# Random lines after we've met Kelly
-	Kelly: <Lumina is alright, I guess./\
-We need better wifi here./\
-Is there anything fun to do here?>
+	Kelly: <One bar?! This place is barbaric.\
+What am I supposed to do? Pick up trash? Insane!/\
+The sunrises aren't bad I guess.>
