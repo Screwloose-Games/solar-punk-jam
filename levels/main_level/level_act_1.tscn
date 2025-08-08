@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://kxapmhhgn48m"]
+[gd_scene load_steps=97 format=4 uid="uid://kxapmhhgn48m"]
 
 [ext_resource type="Script" uid="uid://cpqickvf2dki0" path="res://components/quest_helper.gd" id="1_4dpg8"]
 [ext_resource type="Script" uid="uid://diwo5iu8vnysy" path="res://levels/main_level/world.gd" id="1_6h1tf"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://crpw4qani4rvo" path="res://assets/2d/ui/Rainy.png" id="29_81csf"]
 [ext_resource type="PackedScene" uid="uid://c2jegur5j8837" path="res://assets/3d/environment/dressing/leaf_cluster-2.tscn" id="30_rycpo"]
 [ext_resource type="PackedScene" uid="uid://coeurwccikebd" path="res://assets/3d/environment/dressing/rock_large_2.tscn" id="31_4dpg8"]
+[ext_resource type="PackedScene" uid="uid://31h4g82bxgw7" path="res://assets/environment/trees/sm_talltree.tscn" id="31_abjik"]
 [ext_resource type="PackedScene" uid="uid://dsskvq83uilps" path="res://BuildingTypes/prefab_destroyed.tscn" id="32_w0b2o"]
 [ext_resource type="PackedScene" uid="uid://c4eb7702m4uvu" path="res://assets/3d/environment/dressing/palm_bush.tscn" id="38_khisr"]
 [ext_resource type="PackedScene" uid="uid://b266nphe6hvo8" path="res://assets/3d/environment/dressing/grass.glb" id="39_mvod5"]
@@ -779,6 +780,9 @@ skeleton = NodePath("../../DesignTestScene/buildable_dirtpatch3/BuildableSurface
 [node name="SelectionPlaceholder" parent="HomeBuildableSurface/SelectionPlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
+[node name="sm_talltree" parent="HomeBuildableSurface/SelectionPlaceholder" index="1" instance=ExtResource("31_abjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3692, -3.62086, 24.5027)
+
 [node name="SelectionPlaceholder" parent="HomeBuildableSurface/StructurePlaceholder" index="0"]
 skeleton = NodePath("../../../DesignTestScene/buildable_dirtpatch3/BuildableSurface")
 
@@ -789,7 +793,7 @@ shape = SubResource("BoxShape3D_7t8hb")
 [node name="MainCamera3D" type="Camera3D" parent="."]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999999, 4.37112e-08, -7.57097e-08, 0, 0.866022, 0.499996, 8.74227e-08, 0.499998, -0.866018, -2.11981, 2.89492, -15.2033)
+transform = Transform3D(-0.968112, 0.0648392, -0.241983, -0.0648392, 0.868161, 0.492028, 0.241983, 0.492028, -0.836273, -1.94895, 2.66159, -13.9778)
 
 [node name="PhantomCameraHost" type="Node" parent="MainCamera3D"]
 process_priority = 300
@@ -851,6 +855,9 @@ transform = Transform3D(-0.465407, 0.0731084, -0.44312, -0.079859, 1.09558, 0.31
 
 [node name="prefab_noentry_tall18" parent="DesignTestScene/Ground/Buildings" index="31" instance=ExtResource("32_w0b2o")]
 transform = Transform3D(0.481059, -0.0440503, 0.39921, -0.079859, 1.09558, 0.317638, -0.234148, -0.464164, 0.711846, 9.63069, -9.08032, -23.5327)
+
+[node name="sm_talltree" parent="DesignTestScene/Ground/Buildings" index="32" instance=ExtResource("31_abjik")]
+transform = Transform3D(0.110255, 0, -0.993903, 0, 1, 0, 0.993903, 0, 0.110255, -25.7664, 0.0051233, -31.5066)
 
 [node name="Pavement" parent="DesignTestScene" index="2"]
 transform = Transform3D(-4.35671e-08, 0, 0.545816, 0, 0.997289, 0, -0.9967, 0, -2.38585e-08, 2.36364, 0.01, 21.7826)
@@ -1184,6 +1191,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.481
 
 [node name="Kyle" parent="." instance=ExtResource("64_gegxl")]
 transform = Transform3D(0.315036, 0, -0.94908, 0, 1, 0, 0.94908, 0, 0.315036, 15.5175, 0.00653955, 10.4417)
+
+[node name="sm_talltree" parent="." instance=ExtResource("31_abjik")]
+transform = Transform3D(0.78139, 0, 0.624043, 0, 1, 0, -0.624043, 0, 0.78139, -39.2524, 0.100584, 2.7628)
+
+[node name="sm_talltree2" parent="." instance=ExtResource("31_abjik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4029, 0.0051233, 0.620558)
 
 [editable path="DirtBuildableSurface"]
 [editable path="DirtBuildableSurface/InteractableBuildableArea"]

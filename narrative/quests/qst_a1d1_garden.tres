@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=19 format=3 uid="uid://bk1qhgoe1a432"]
+[gd_resource type="Resource" script_class="Quest" load_steps=17 format=3 uid="uid://bk1qhgoe1a432"]
 
 [ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="1_b3m5d"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_b5u7u"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="5_a0tgy"]
 [ext_resource type="Resource" uid="uid://cg2fhf48g8qoj" path="res://assets/3d/structures/raised_bed/crop_radish.tres" id="7_a0tgy"]
 [ext_resource type="Script" uid="uid://dfunhlrmsp6qb" path="res://narrative/classes/qstep/qstep_plant_crop.gd" id="7_b3m5d"]
-[ext_resource type="Script" uid="uid://cngh4nyaovsbs" path="res://narrative/classes/qstep/qstep_wait_days.gd" id="8_k0nsr"]
 [ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="10_b3m5d"]
 [ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="10_eepgn"]
 [ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="11_k0nsr"]
@@ -22,14 +21,14 @@ end_minute = 0
 description = "Go to your home's rooftop"
 prerequisites = Array[int]([])
 play_dialogue = ""
-marker_id = "home_entrance"
+marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://bvpbf61rkwgom"
 
 [sub_resource type="Resource" id="Resource_qkafw"]
 script = ExtResource("5_a0tgy")
 structure_type = "Rain barrel"
 description = "Build a rain barrel"
-prerequisites = Array[int]([0])
+prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
@@ -38,7 +37,7 @@ metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 script = ExtResource("5_a0tgy")
 structure_type = "Compost bin"
 description = "Build a compost bin"
-prerequisites = Array[int]([0])
+prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
@@ -47,7 +46,7 @@ metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 script = ExtResource("5_a0tgy")
 structure_type = "Vertical garden"
 description = "Build a vertical garden"
-prerequisites = Array[int]([0])
+prerequisites = Array[int]([])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
@@ -57,19 +56,10 @@ script = ExtResource("7_b3m5d")
 crop = ExtResource("7_a0tgy")
 amount = 1
 description = "Plant a radish"
-prerequisites = Array[int]([5])
+prerequisites = Array[int]([1, 2, 3])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://dfunhlrmsp6qb"
-
-[sub_resource type="Resource" id="Resource_rr3nd"]
-script = ExtResource("8_k0nsr")
-days_to_wait = 1
-description = "Wait 1 day before harvesting"
-prerequisites = Array[int]([6])
-play_dialogue = ""
-marker_id = "go_to_bed_door"
-metadata/_custom_type_script = "uid://cngh4nyaovsbs"
 
 [sub_resource type="Resource" id="Resource_vrajp"]
 script = ExtResource("11_k0nsr")
@@ -85,7 +75,7 @@ description = "Go home and plant a roof top garden with the seeds Trin gave you.
 community_board_text = ""
 unlock_on_accept = Array[String](["Raised bed"])
 unlock_conditions = Array[ExtResource("10_eepgn")]([SubResource("Resource_vrajp")])
-steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_ke0jf"), SubResource("Resource_qkafw"), SubResource("Resource_iwql8"), SubResource("Resource_n1b1o"), SubResource("Resource_ap2x4"), SubResource("Resource_rr3nd")])
+steps = Array[ExtResource("1_b5u7u")]([SubResource("Resource_ke0jf"), SubResource("Resource_qkafw"), SubResource("Resource_iwql8"), SubResource("Resource_n1b1o"), SubResource("Resource_ap2x4")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5

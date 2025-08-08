@@ -22,8 +22,8 @@ metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 [sub_resource type="Resource" id="Resource_c2p2x"]
 script = ExtResource("5_bhsp7")
 npc = "mister"
-description = "Objective Description"
-prerequisites = Array[int]([])
+description = "Return Scrap to Mister"
+prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "mister"
 metadata/_custom_type_script = "uid://cgh57ca4rs68k"
