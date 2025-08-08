@@ -20,6 +20,8 @@ func _ready() -> void:
 	# unlock_quest("a1d1_trin")
 	GlobalSignalBus.world_unloaded.connect(_on_world_unloaded)
 
+func _process(_delta: float) -> void:
+	pass # Leave for breakpoints at any time in debugging class state
 
 func cancel_quest(quest: Quest):
 	quests.erase(quest)
@@ -99,7 +101,7 @@ func get_char_quest(character : DialogicCharacter) -> Quest:
 	if unlocked_character_quests.is_empty():
 		return null
 	else:
-		return unlocked_quests[0]
+		return unlocked_character_quests[0]
 
 
 func _on_world_unloaded():
