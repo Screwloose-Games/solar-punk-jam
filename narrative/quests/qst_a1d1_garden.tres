@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=17 format=3 uid="uid://bk1qhgoe1a432"]
+[gd_resource type="Resource" script_class="Quest" load_steps=18 format=3 uid="uid://bk1qhgoe1a432"]
 
 [ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="1_b3m5d"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_b5u7u"]
+[ext_resource type="Resource" uid="uid://dcw4nec10jgmk" path="res://narrative/timelines/a1d1_garden_prologue.dtl" id="2_b3m5d"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_emwmh"]
 [ext_resource type="Script" uid="uid://bvpbf61rkwgom" path="res://narrative/classes/qstep/qstep_go_to.gd" id="4_ku037"]
 [ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="5_a0tgy"]
@@ -28,7 +29,7 @@ metadata/_custom_type_script = "uid://bvpbf61rkwgom"
 script = ExtResource("5_a0tgy")
 structure_type = "Rain barrel"
 description = "Build a rain barrel"
-prerequisites = Array[int]([])
+prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
@@ -37,7 +38,7 @@ metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 script = ExtResource("5_a0tgy")
 structure_type = "Compost bin"
 description = "Build a compost bin"
-prerequisites = Array[int]([])
+prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
@@ -46,7 +47,7 @@ metadata/_custom_type_script = "uid://b51ywvr44mnkv"
 script = ExtResource("5_a0tgy")
 structure_type = "Vertical garden"
 description = "Build a vertical garden"
-prerequisites = Array[int]([])
+prerequisites = Array[int]([0])
 play_dialogue = ""
 marker_id = "home_roof_garden"
 metadata/_custom_type_script = "uid://b51ywvr44mnkv"
@@ -69,7 +70,7 @@ metadata/_custom_type_script = "uid://dgrwfhden23h1"
 [resource]
 script = ExtResource("2_emwmh")
 id = "a1d1_garden"
-name = "Start Your Own Garden"
+name = "A Garden of Your Own"
 giver = ExtResource("1_b3m5d")
 description = "Go home and plant a roof top garden with the seeds Trin gave you."
 community_board_text = ""
@@ -81,4 +82,5 @@ resource_rewards = Dictionary[int, int]({
 5: 5
 })
 start_next_quest = false
+prologue = ExtResource("2_b3m5d")
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=12 format=3 uid="uid://b33t67jyyh4pt"]
+
+[ext_resource type="Resource" uid="uid://cpkej8gj3ha4m" path="res://narrative/timelines/mister_quest_scrap_prologue.dtl" id="2_quql4"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="3_jfg30"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="4_etn7g"]
+[ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="4_v5p0o"]
+[ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="6_rxwkt"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="7_ch6w7"]
+[ext_resource type="Resource" uid="uid://c80ajiirl6usj" path="res://narrative/quests/qst_a1d1_mr_scrap.tres" id="7_i2gih"]
+[ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="9_43o60"]
+
+[sub_resource type="Resource" id="Resource_d2167"]
+script = ExtResource("4_v5p0o")
+structure_type = "Picnic Table"
+description = "Build a Picnic"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
+
+[sub_resource type="Resource" id="Resource_c2p2x"]
+script = ExtResource("6_rxwkt")
+npc = "mister"
+description = "Tell Mister"
+prerequisites = Array[int]([0])
+play_dialogue = "a1d2_mr_bench"
+marker_id = "mister"
+metadata/_custom_type_script = "uid://cgh57ca4rs68k"
+
+[sub_resource type="Resource" id="Resource_vumsq"]
+script = ExtResource("9_43o60")
+quests = Array[ExtResource("3_jfg30")]([ExtResource("7_i2gih")])
+metadata/_custom_type_script = "uid://dgrwfhden23h1"
+
+[resource]
+script = ExtResource("3_jfg30")
+id = "mr_bench"
+name = "A Place to Rest"
+description = "Build a community picnic bench."
+community_board_text = "I found a way to turn the scrap you gave me into buiding materials. Why don't we build a picnic table for everyone to enjoy Kyle's meals.
+- Mister"
+unlock_on_accept = Array[String]([""])
+unlock_conditions = Array[ExtResource("7_ch6w7")]([SubResource("Resource_vumsq")])
+steps = Array[ExtResource("4_etn7g")]([SubResource("Resource_d2167"), SubResource("Resource_c2p2x")])
+unlock_on_complete = Array[String]([])
+resource_rewards = Dictionary[int, int]({
+5: 5
+})
+start_next_quest = true
+prologue = ExtResource("2_quql4")
+metadata/_custom_type_script = "uid://5ejc1odxmtck"

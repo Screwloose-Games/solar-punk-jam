@@ -51,9 +51,12 @@ directories/dch_directory={
 "Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
-"Kai_make_your_own_garden": "res://narrative/timelines/Kai_your_own_garden.dtl",
+"Kai_your_own_garden": "res://narrative/timelines/Kai_your_own_garden.dtl",
+"a1d1_garden_prologue": "res://narrative/timelines/a1d1_garden_prologue.dtl",
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
 "a1d2_harvest": "res://narrative/timelines/a1d2_harvest.dtl",
+"a1d2_mr_bench": "res://narrative/timelines/a1d2_mr_bench.dtl",
+"a1d3_kelly_solar": "res://narrative/timelines/a1d3_kelly_solar.dtl",
 "intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
 "kai_main": "res://narrative/timelines/kai_main.dtl",

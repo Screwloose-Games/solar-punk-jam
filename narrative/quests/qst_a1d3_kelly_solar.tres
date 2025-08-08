@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=15 format=3 uid="uid://l353gnfcig0i"]
+
+[ext_resource type="Resource" uid="uid://cpkej8gj3ha4m" path="res://narrative/timelines/mister_quest_scrap_prologue.dtl" id="1_p13r6"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_ddlo4"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="3_1qyqs"]
+[ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="4_rh4hx"]
+[ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="5_qdrh6"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="6_34r87"]
+[ext_resource type="Resource" uid="uid://b33t67jyyh4pt" path="res://narrative/quests/qst_a1d2_mr_bench.tres" id="7_1qyqs"]
+[ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="8_j0ia6"]
+[ext_resource type="Resource" uid="uid://cixkm6vh6ryoa" path="res://narrative/characters/Kelly.dch" id="9_rh4hx"]
+[ext_resource type="Script" uid="uid://3vwhjlqv4wnq" path="res://narrative/classes/event_condition_talked_to.gd" id="10_qdrh6"]
+
+[sub_resource type="Resource" id="Resource_d2167"]
+script = ExtResource("4_rh4hx")
+structure_type = "Solar panel"
+description = "Build a Solar Panel"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
+
+[sub_resource type="Resource" id="Resource_c2p2x"]
+script = ExtResource("5_qdrh6")
+npc = "kelly"
+description = "Tell Kelly"
+prerequisites = Array[int]([0])
+play_dialogue = ""
+marker_id = "kelly"
+metadata/_custom_type_script = "uid://cgh57ca4rs68k"
+
+[sub_resource type="Resource" id="Resource_vumsq"]
+script = ExtResource("8_j0ia6")
+quests = Array[ExtResource("2_ddlo4")]([ExtResource("7_1qyqs")])
+metadata/_custom_type_script = "uid://dgrwfhden23h1"
+
+[sub_resource type="Resource" id="Resource_34r87"]
+script = ExtResource("10_qdrh6")
+character = ExtResource("9_rh4hx")
+metadata/_custom_type_script = "uid://3vwhjlqv4wnq"
+
+[resource]
+script = ExtResource("2_ddlo4")
+id = "kelly_solar"
+name = "Charge My Phone"
+description = "get scrap"
+community_board_text = "I need to charge my phone. I made a plan to collect power from the sun. Can you help me build it?
+- Kelly"
+unlock_on_accept = Array[String](["Solar panel"])
+unlock_conditions = Array[ExtResource("6_34r87")]([SubResource("Resource_vumsq"), SubResource("Resource_34r87")])
+steps = Array[ExtResource("3_1qyqs")]([SubResource("Resource_d2167"), SubResource("Resource_c2p2x")])
+unlock_on_complete = Array[String]([])
+resource_rewards = Dictionary[int, int]({
+5: 5
+})
+start_next_quest = true
+prologue = ExtResource("1_p13r6")
+metadata/_custom_type_script = "uid://5ejc1odxmtck"

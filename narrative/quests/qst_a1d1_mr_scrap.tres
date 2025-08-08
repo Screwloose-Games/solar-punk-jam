@@ -36,9 +36,9 @@ metadata/_custom_type_script = "uid://dgrwfhden23h1"
 [resource]
 script = ExtResource("2_240pc")
 id = "mr_scrap"
-name = "Mister Needs Scrap"
+name = "A New Project"
 giver = ExtResource("1_e8brt")
-description = "get scrap"
+description = "Mister Needs scrap for a new project."
 community_board_text = ""
 unlock_on_accept = Array[String]([])
 unlock_conditions = Array[ExtResource("6_eq3je")]([SubResource("Resource_bnkxo")])

@@ -16,7 +16,7 @@ Te: What? Why me?
 
 Kai: Because if we want this community to work, everyone should learn to contribute and...
 
-Kai: ...because I said so. 
+Kai: ...because I said so.
 
 label skip
 [end_timeline]
@@ -24,4 +24,5 @@ label skip
 # **QUEST FOR DAILY DUTY**
 
 label prog2
+Kai: Those look great. Let's build a food stand.
 do QuestManager.start_quest("qst_a1d2_tempunlocks")
