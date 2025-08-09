@@ -2,12 +2,13 @@
 if {kelly_met} == false:
 	Kelly: This whole place is cheugy central. How do you deal?
 	Te: It was beautiful before the flood. 
-	Kelly: We should be in the thermal springs at the Mitsui Kyoto, instead my mom thought this whole community thing would be a cute vacay. My dad's such a simp! God!
-	Te: It's not that bad. The sunrise is pretty cool.
-	Kelly: I so don't have time for that. 
+	Kelly: Beautiful is spring time at the Mitsui Kyoto.
+	Kelly: But no--mom saw this place on insta and thought the community thing was a better vacay idea. 
+	Te: It's not all bad. You can get a cool view of the sunrise from the roof.  
+	Kelly: You think my subscribers want to see a sunrise? No way. I need content. 
 	set {kelly_met} = true
 else:
 	# Random lines after we've met Kelly
-	Kelly: <One bar?! This place is barbaric.\
-What am I supposed to do? Pick up trash? Insane!/\
-The sunrises aren't bad I guess.>
+	Kelly: <I can't stream with one bar! This place is literally hell./\
+Hey everybody, it's Kelly, I know I said Kyoto this week, but.../\
+I'll admit, the sunrises aren't bad I guess.>

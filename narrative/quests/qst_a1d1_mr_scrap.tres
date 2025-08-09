@@ -39,7 +39,9 @@ id = "mr_scrap"
 name = "A New Project"
 giver = ExtResource("1_e8brt")
 description = "Mister Needs scrap for a new project."
-community_board_text = ""
+community_board_text = "I need a bunch of stuff. Old stuff, trash, anything lying around. Scrap's what I mean. Find me some.
+
+-Mister"
 unlock_on_accept = Array[String]([])
 unlock_conditions = Array[ExtResource("6_eq3je")]([SubResource("Resource_bnkxo")])
 steps = Array[ExtResource("3_qeiyo")]([SubResource("Resource_uc1yk"), SubResource("Resource_c2p2x")])
