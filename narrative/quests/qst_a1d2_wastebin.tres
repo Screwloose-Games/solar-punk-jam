@@ -1,24 +1,50 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://bu1d4dg0wcjvm"]
+[gd_resource type="Resource" script_class="Quest" load_steps=12 format=3 uid="uid://bu1d4dg0wcjvm"]
 
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_5amx1"]
 [ext_resource type="Resource" uid="uid://goophsmwiv6e" path="res://narrative/characters/Kyle.dch" id="1_nh7e1"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_clbho"]
 [ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="4_hmwob"]
+[ext_resource type="Script" uid="uid://b51ywvr44mnkv" path="res://narrative/classes/qstep/qstep_build_structure.gd" id="4_tkjqw"]
+[ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="5_yikf4"]
+[ext_resource type="Resource" uid="uid://5nhrwkcewlem" path="res://narrative/quests/qst_a1d2_harvest.tres" id="7_4p76q"]
+[ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="8_r1qj7"]
+
+[sub_resource type="Resource" id="Resource_g7xr3"]
+script = ExtResource("4_tkjqw")
+structure_type = "Donation box"
+description = "Objective Description"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://b51ywvr44mnkv"
+
+[sub_resource type="Resource" id="Resource_w5shl"]
+script = ExtResource("5_yikf4")
+npc = "kyle"
+description = "Objective Description"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = ""
+metadata/_custom_type_script = "uid://cgh57ca4rs68k"
+
+[sub_resource type="Resource" id="Resource_5068q"]
+script = ExtResource("8_r1qj7")
+quests = Array[ExtResource("2_clbho")]([ExtResource("7_4p76q")])
+metadata/_custom_type_script = "uid://dgrwfhden23h1"
 
 [resource]
 script = ExtResource("2_clbho")
 id = "a1d2_wastebin"
 name = "Build a waste bin"
-quest_giver = "kyle"
 giver = ExtResource("1_nh7e1")
-description = "Quest Description"
+description = "Recollect the Seeds"
 community_board_text = ""
 unlock_on_accept = Array[String]([])
-unlock_conditions = Array[ExtResource("4_hmwob")]([])
-steps = Array[ExtResource("1_5amx1")]([])
+unlock_conditions = Array[ExtResource("4_hmwob")]([SubResource("Resource_5068q")])
+steps = Array[ExtResource("1_5amx1")]([SubResource("Resource_g7xr3"), SubResource("Resource_w5shl")])
 unlock_on_complete = Array[String]([])
 resource_rewards = Dictionary[int, int]({
 5: 5
 })
-start_next_quest = true
+start_next_quest = false
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

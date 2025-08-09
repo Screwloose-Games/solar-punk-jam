@@ -30,11 +30,12 @@ label prog4
 # Tutorial: **GARDEN TUTORIAL COMPLETE**
 Te: That was fun!\
 No wonder you like gardening.
-Trin: I don't garden.\
-I RAISE plants.
-Te: I think the pollen's gotten to your head, Trin.
-Trin: If you like gardening you can build your own.
-Te: Thanks, big sis!
-Trin: *sigh*
+Trin: I raise plants, not garden.
+Te: I think the pollen's finally gotten to your head, Trin.
+Trin: If you're such a fan, go build your own.
+Te: But...where would I put it?
+Trin: I don't know. I'm not your mom.
+Te: Great idea! She'd know. Thanks, big sis!
+Trin: I'm not...ugggh, whatever.
 [end_timeline]
 set {tringarden} = true

@@ -10,9 +10,9 @@
 },
 &"default_portrait": "",
 &"description": "",
-&"display_name": "Jo",
+&"display_name": "Mister",
 &"mirror": false,
-&"nicknames": [""],
+&"nicknames": ["", null],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0

@@ -9,6 +9,6 @@ But look at us. We're here aren't we? Know why?
 	set {mister_met} = true
 else:
 	# Random lines after we've met Mister
-	Mister: <Keep up the good work, kid./\
-Thanks for stopping by. I should probably get back to it./\
-Your mom is a real inspiration, kid.>
+	Mister: <This is paradise compared to some of the places I've been./\
+No use lollygagging. There's always something to do if you look around./\
+Your mom's a real inspiration, kid.>

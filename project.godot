@@ -51,10 +51,13 @@ directories/dch_directory={
 "Trin": "res://narrative/characters/Trin.dch"
 }
 directories/dtl_directory={
+"Kai_your_own_garden": "res://narrative/timelines/Kai_your_own_garden.dtl",
+"a1d1_garden_prologue": "res://narrative/timelines/a1d1_garden_prologue.dtl",
 "a1d1_trin": "res://narrative/timelines/a1d1_trin.dtl",
 "a1d2_harvest": "res://narrative/timelines/a1d2_harvest.dtl",
+"a1d2_mr_bench": "res://narrative/timelines/a1d2_mr_bench.dtl",
+"a1d3_kelly_solar": "res://narrative/timelines/a1d3_kelly_solar.dtl",
 "intro_fullscreen": "res://narrative/timelines/intro_fullscreen.dtl",
-"jo_main": "res://narrative/timelines/jo_main.dtl",
 "kai_DAY1S2_INTRODUCTION": "res://narrative/timelines/final/kai_DAY1S2_INTRODUCTION.dtl",
 "kai_main": "res://narrative/timelines/kai_main.dtl",
 "kai_op1": "res://narrative/timelines/kai_op1.dtl",
@@ -63,6 +66,8 @@ directories/dtl_directory={
 "kyle_main": "res://narrative/timelines/kyle_main.dtl",
 "mister_main": "res://narrative/timelines/mister_main.dtl",
 "mister_quest1": "res://narrative/timelines/mister_quest1.dtl",
+"mister_quest_scrap": "res://narrative/timelines/mister_quest_scrap.dtl",
+"mister_quest_scrap_prologue": "res://narrative/timelines/mister_quest_scrap_prologue.dtl",
 "trin_DAY2SA_Trin": "res://narrative/timelines/trin_DAY2SA_Trin.dtl",
 "trin_intro": "res://narrative/timelines/trin_intro.dtl",
 "trin_main": "res://narrative/timelines/trin_main.dtl",
@@ -275,6 +280,8 @@ common/physics_interpolation=true
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 global_illumination/gi/use_half_resolution=true

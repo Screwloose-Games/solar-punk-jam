@@ -49,7 +49,9 @@ var quest_giver: String:
 			return giver.display_name.to_lower()
 		return "board"
 
-var state: QuestState = QuestState.UNAVAILABLE
+var state: QuestState = QuestState.UNAVAILABLE:
+	set(val):
+		state = val
 var pinned : bool = false
 #var is_active: bool = false
 var is_complete: bool = false:
@@ -88,7 +90,10 @@ func start_quest():
 	if prologue:
 		Dialogic.start(prologue)
 		await Dialogic.timeline_ended
-	Dialogic.VAR[id] = true
+	if not Dialogic.VAR.has(id):
+		Dialogic.VAR._set(id, true) # Review this.
+	Dialogic.VAR.set_variable(id, true)
+	#Dialogic.VAR[id] = true
 	state = QuestState.ACTIVE
 	for structure in unlock_on_accept:
 		StructureManager.register_structure(structure)
@@ -116,6 +121,9 @@ func _on_step_completed(this_step: QuestStep):
 			if !step.is_completed and !step.is_active:
 				var complete_check = true
 				for i in step.prerequisites:
+					assert(steps.get(i) != null, 
+					"A quest step cannot have a prerequisite index higher than the 
+					steps. step " + step.description + " has prereq reference to step index: " + str(i))
 					if !steps[i].is_completed:
 						complete_check = false
 				if complete_check:

@@ -1,0 +1,9 @@
+#after garden tutorial, your mom tells you where to plant a garden
+if {tringarden} == true
+	Kai: I saw you talked to, Trin. How'd that go?
+	Te: I'm growing on her. 
+	Kai: She does like stuff that grows. What's that?
+	Te: Seeds. I wanna make a garden like, Trin. If I can find space for it. 
+	Kai: Try the roof. Closer access to the sun and it'll absorb rain water. A win win all around. 
+	Te: I get to play on the roof! Awesome!
+	Kai: I didn't say play--Te!

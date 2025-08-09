@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=10 format=3 uid="uid://kpvjfs8lnqiy"]
+[gd_resource type="Resource" script_class="Quest" load_steps=9 format=3 uid="uid://kpvjfs8lnqiy"]
 
 [ext_resource type="Resource" uid="uid://c626ymtjdyn5b" path="res://narrative/characters/Kai.dch" id="1_j4y65"]
 [ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="1_rqfjc"]
 [ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_pirdi"]
-[ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="3_4l7h4"]
 [ext_resource type="Script" uid="uid://cmusiekpmyfl5" path="res://narrative/classes/qstep/qstep_interact_with.gd" id="4_7on4j"]
 [ext_resource type="Script" uid="uid://bvpbf61rkwgom" path="res://narrative/classes/qstep/qstep_go_to.gd" id="5_7on4j"]
 [ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="6_yyvya"]
@@ -34,7 +33,6 @@ metadata/_custom_type_script = "uid://cmusiekpmyfl5"
 script = ExtResource("2_pirdi")
 id = "a1d1_intro"
 name = "Do Your Part"
-quest_giver = "kai"
 giver = ExtResource("1_j4y65")
 description = "Go to the community hub and find out if anyone needs help."
 community_board_text = ""
@@ -47,6 +45,5 @@ resource_rewards = Dictionary[int, int]({
 6: 3,
 7: 1
 })
-next_quest = ExtResource("3_4l7h4")
-start_next_quest = true
+start_next_quest = false
 metadata/_custom_type_script = "uid://5ejc1odxmtck"

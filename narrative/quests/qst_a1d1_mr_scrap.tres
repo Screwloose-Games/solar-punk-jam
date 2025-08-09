@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=13 format=3 uid="uid://c80ajiirl6usj"]
+
+[ext_resource type="Resource" uid="uid://d0pytpqmlhhyo" path="res://narrative/characters/Mister.dch" id="1_e8brt"]
+[ext_resource type="Script" uid="uid://5ejc1odxmtck" path="res://narrative/classes/quest.gd" id="2_240pc"]
+[ext_resource type="Resource" uid="uid://cpkej8gj3ha4m" path="res://narrative/timelines/mister_quest_scrap_prologue.dtl" id="2_qeiyo"]
+[ext_resource type="Script" uid="uid://drx8xjc56vf8y" path="res://narrative/classes/quest_step.gd" id="3_qeiyo"]
+[ext_resource type="Script" uid="uid://cmusiekpmyfl5" path="res://narrative/classes/qstep/qstep_interact_with.gd" id="4_s0ams"]
+[ext_resource type="Script" uid="uid://cgh57ca4rs68k" path="res://narrative/classes/qstep/qstep_talk_to.gd" id="5_bhsp7"]
+[ext_resource type="Script" uid="uid://ckof0jcvx2hmf" path="res://narrative/classes/event_condition.gd" id="6_eq3je"]
+[ext_resource type="Resource" uid="uid://b6iwcl3xdip0a" path="res://narrative/quests/qst_a1d1_trin.tres" id="7_8i84y"]
+[ext_resource type="Script" uid="uid://dgrwfhden23h1" path="res://narrative/classes/quests_completed_event_condition.gd" id="8_e4lmn"]
+
+[sub_resource type="Resource" id="Resource_uc1yk"]
+script = ExtResource("4_s0ams")
+interactable_id = "scrap"
+description = "get scrap"
+prerequisites = Array[int]([])
+play_dialogue = ""
+marker_id = "material_location"
+metadata/_custom_type_script = "uid://cmusiekpmyfl5"
+
+[sub_resource type="Resource" id="Resource_c2p2x"]
+script = ExtResource("5_bhsp7")
+npc = "mister"
+description = "Return Scrap to Mister"
+prerequisites = Array[int]([0])
+play_dialogue = ""
+marker_id = "mister"
+metadata/_custom_type_script = "uid://cgh57ca4rs68k"
+
+[sub_resource type="Resource" id="Resource_bnkxo"]
+script = ExtResource("8_e4lmn")
+quests = Array[ExtResource("2_240pc")]([ExtResource("7_8i84y")])
+metadata/_custom_type_script = "uid://dgrwfhden23h1"
+
+[resource]
+script = ExtResource("2_240pc")
+id = "mr_scrap"
+name = "A New Project"
+giver = ExtResource("1_e8brt")
+description = "Mister Needs scrap for a new project."
+community_board_text = "I need a bunch of stuff. Old stuff, trash, anything lying around. Scrap's what I mean. Find me some.
+
+-Mister"
+unlock_on_accept = Array[String]([])
+unlock_conditions = Array[ExtResource("6_eq3je")]([SubResource("Resource_bnkxo")])
+steps = Array[ExtResource("3_qeiyo")]([SubResource("Resource_uc1yk"), SubResource("Resource_c2p2x")])
+unlock_on_complete = Array[String]([])
+resource_rewards = Dictionary[int, int]({
+5: 5
+})
+start_next_quest = true
+prologue = ExtResource("2_qeiyo")
+metadata/_custom_type_script = "uid://5ejc1odxmtck"
